@@ -1,0 +1,204 @@
+{
+  "status": "completed_all12_C_not_promoted_B_conditional_drug_tradeoff",
+  "completed_at": "2026-10-31T04:35:56.474294+00:00",
+  "wall_since_protocol_seconds": 1113.3473467826843,
+  "compute_seconds": 210.36336541594937,
+  "readonly_summary_seconds": 0.8055787091143429,
+  "other_wall_preparation_validation_reporting_seconds": 902.9840004402213,
+  "pre_protocol_read_time_not_fully_instrumented": true,
+  "verification": {
+    "passed": true,
+    "synthetic_tests": 10,
+    "A_full_off_exact": 6,
+    "new_full_accounts": 12,
+    "physical_prefix_exact": 12,
+    "pre_first_pause_exact": 12,
+    "independent_policy_state_rows": 8172,
+    "nonempty_C_resumes": 8,
+    "finance": [
+      {
+        "sector": "TECH",
+        "accounts": 6,
+        "daily_rows": 4086,
+        "NAV_residual": "0"
+      },
+      {
+        "sector": "DRUG",
+        "accounts": 6,
+        "daily_rows": 4086,
+        "NAV_residual": "0"
+      }
+    ],
+    "stock_bridges": [
+      {
+        "sector": "TECH",
+        "account": "I__B_S0_base",
+        "delta": "-1932879.3213885555535",
+        "stock_difference_sum": "-1932879.3213885555535",
+        "residual": "0E-13"
+      },
+      {
+        "sector": "TECH",
+        "account": "I__B_S0_cost2",
+        "delta": "-1986465.3587890148820",
+        "stock_difference_sum": "-1986465.3587890148820",
+        "residual": "0E-13"
+      },
+      {
+        "sector": "TECH",
+        "account": "I__B_S0_delay1",
+        "delta": "-169156.0008101487500",
+        "stock_difference_sum": "-169156.0008101487500",
+        "residual": "0E-13"
+      },
+      {
+        "sector": "TECH",
+        "account": "I__C_S0_base",
+        "delta": "-874315.5307016347025",
+        "stock_difference_sum": "-874315.5307016347025",
+        "residual": "0E-13"
+      },
+      {
+        "sector": "TECH",
+        "account": "I__C_S0_cost2",
+        "delta": "-632162.6383698835780",
+        "stock_difference_sum": "-632162.6383698835780",
+        "residual": "0E-13"
+      },
+      {
+        "sector": "TECH",
+        "account": "I__C_S0_delay1",
+        "delta": "-403685.2696769719350",
+        "stock_difference_sum": "-403685.2696769719350",
+        "residual": "0E-13"
+      },
+      {
+        "sector": "DRUG",
+        "account": "ACT__B_S0_base",
+        "delta": "3356.7284551198570",
+        "stock_difference_sum": "3356.7284551198570",
+        "residual": "0E-13"
+      },
+      {
+        "sector": "DRUG",
+        "account": "ACT__B_S0_cost2",
+        "delta": "44184.9947196043560",
+        "stock_difference_sum": "44184.9947196043560",
+        "residual": "0E-13"
+      },
+      {
+        "sector": "DRUG",
+        "account": "ACT__B_S0_delay1",
+        "delta": "-28570.2741161403565",
+        "stock_difference_sum": "-28570.2741161403565",
+        "residual": "0E-13"
+      },
+      {
+        "sector": "DRUG",
+        "account": "ACT__C_S0_base",
+        "delta": "-11309.6867936805345",
+        "stock_difference_sum": "-11309.6867936805345",
+        "residual": "0E-13"
+      },
+      {
+        "sector": "DRUG",
+        "account": "ACT__C_S0_cost2",
+        "delta": "-18873.8677282924020",
+        "stock_difference_sum": "-18873.8677282924020",
+        "residual": "0E-13"
+      },
+      {
+        "sector": "DRUG",
+        "account": "ACT__C_S0_delay1",
+        "delta": "-20286.8970280280985",
+        "stock_difference_sum": "-20286.8970280280985",
+        "residual": "0E-13"
+      }
+    ],
+    "runtime_hashes_unchanged": 533,
+    "no_cost_budget_or_partial_role": true,
+    "compute_seconds": 210.36336541594937,
+    "price_condition_account_stock_days": 46,
+    "stage_statuses": [
+      {
+        "sector": "TECH",
+        "stage": "off",
+        "status": "complete",
+        "seconds": 60.025108749978244
+      },
+      {
+        "sector": "TECH",
+        "stage": "on",
+        "status": "complete",
+        "seconds": 82.78846774995327
+      },
+      {
+        "sector": "TECH",
+        "stage": "prefix",
+        "status": "complete",
+        "seconds": 40.23963858326897
+      },
+      {
+        "sector": "DRUG",
+        "stage": "off",
+        "status": "complete",
+        "seconds": 9.345794916152954
+      },
+      {
+        "sector": "DRUG",
+        "stage": "on",
+        "status": "complete",
+        "seconds": 11.609438041690737
+      },
+      {
+        "sector": "DRUG",
+        "stage": "prefix",
+        "status": "complete",
+        "seconds": 6.354917374905199
+      }
+    ]
+  },
+  "remaining_blockers": [],
+  "limitations": [
+    "Known stale-price/RS unknown and current-pool/seen-history bias retained.",
+    "Daily-HLV/company-action execution proxies; no forward/live validation.",
+    "C10 September boundary not exposed because this experiment explicitly excludes C10."
+  ],
+  "no_product_changes": true,
+  "no_real_trades": true,
+  "no_additional_economic_variants": true,
+  "deliverables": {
+    "MATRIX_18.csv": "fa50cbdcd9bb3796c5f3f80a33bb9d5a20785b97a1c2f100c968776fd5881037",
+    "SUMMARY.json": "72992a6c59b5d4c560fb9d1948d17b816e634580ba4d3b1c192af5fb149186e3",
+    "SYNTHETIC.json": "d9cd26eb36dad1527c983ce94fddaee78b2fcc8654eba901c2cbd0a011074f21",
+    "summary.log": "4339a66c434990b1693c8f56a7bb8cd26d4337180301c008d943aad897f6bc8b",
+    "STOCK_DIFFERENCES.csv": "66020ab6961df882616308cefdcc27fa2b875ae10e73206cc3617aa31a2fd3f1",
+    "DRUG-off.log": "bd9efe94e0fd466bcb051cb4e966b1f5408d5c335ffc50b43defd10d6483e602",
+    "POST_RESUME_NEW_CYCLES.csv": "437cf66a62c8db7eecbce6e7a1b2ced32ea67c8df6a4f792d751891cfb07f8ac",
+    "COMPUTE_TIME.json": "93c100d85206296f00519e75074bd2c827c1e9d023dcc818037abd45142cacd0",
+    "run_stage.py": "734565796688c6879711570cab59d8f33ff932d1788e3d27b82a246079950082",
+    "NESTED_DIFFERENCES.csv": "3b73796579a7a53e95a74410c51af4d2e5dd13a963b445742effeb6caede194c",
+    "DRUG-on.log": "7cc47955c9adffd3d506083072df58a243f438804b5e252bfb53b6a6efc13220",
+    "adapter.py": "19a6cc844d5299aeaaed185f0d4c041d011d3e56cea75e5e25183d61f605a061",
+    "TECH-off.log": "ac4de42f1992f29299e439cc43a616336c6989173fd209c860aa9de4f291dc61",
+    "PRICE_CONDITIONS.json": "04eb9cfc49d14b54090cf06109ebe0c9465bc9bc1e7885f815df781bd7b6db4b",
+    "ACT_EVENTS.json": "2f9aead46ac604a18307bb47b84b4bd88be012ab5d8a9c3fe375836f793c2d40",
+    "PROTOCOL.txt": "9013cfc3bd789b98a823fe7fc267c2b1b7bbf49dd922eab9dacbbc519705370f",
+    "HELD_AFTER_PAUSE.csv": "73ba7ce6daea15b8b1c74e82b7919ccfb8593073b66b63665a0c0d379c63ce4f",
+    "CHECKPOINT.txt": "ea36e34091208d55539e6d2d1ddd498b5f48613b687b8685056de924df6335eb",
+    "summarize.py": "1450f2dbaaf969846228d6a8690557f70583f6518bae27223018c9801c9681e5",
+    "SOURCE_REVIEW.json": "c033a728dadb2a052b2b7abb0d129ae9d2ea7bb0585809051061103f97e5c726",
+    "test_wiring.py": "e60919f6c0e64f1ddc4f6c2d6ffc553b6a0fd2fcdc60027cc46dedc4c2229644",
+    "WAITING.json": "c3588bff6028f7c41012f8bf1dbc290074a689a2b7084c4803767b3dbf4e870b",
+    "REPORT.txt": "68579537f74cc419c9532f65579134656625c3c3f70b02ee5a8f0373d88b201f",
+    "TECH-on.log": "cdf5fd34aa42d2c2392ae3f392b289a069fc2131108e3a728d357ea0f206b07d",
+    "VERIFICATION.json": "d7ff816ab290468a1ee6aa292977fd7bd492ef13d82329cab611471030fc5529",
+    "DRUG-prefix.log": "395cdf258a2acd1db16ada707bfc78f5bc0e0b3c0c17d3b60a3362ac52f44913",
+    "synthetic.log": "e1eb53ac7512f937dc8825ba9d5cba0fb120c4bad237ed13ab166420e3c88dfe",
+    "TECH-prefix.log": "96158744dedff09c62ac7047a0fb04805c66f8967862e0c7c72d436fa27f70ef",
+    "PAUSE_EPISODES.csv": "92268c961f39eb591752241399e92decbad4212a0057fed2f122ee8d8e8afa02",
+    "FREEZE.json": "afb1f7b8852b313f48ba71a6e78b1878ace76dd76ff8574a5bfedfb28decc8d5",
+    "KEY_SNAPSHOTS.json": "5427cd9869f9804e3c2a610ebb05e0d1916e8a4e18ab5b7b3392d74a7cd7b373",
+    "summary-failed-duplicate-policy-field.log": "70f64da67aab32f7cc73685b9bb5460b210cb99a318ae24e30a9d139036cd0d0"
+  }
+}

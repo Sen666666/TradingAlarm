@@ -1,0 +1,442 @@
+{
+  "created_at_utc": "2026-10-25T05:52:37.810685+00:00",
+  "scope": "Finite synthetic technical compatibility only; no accounts or market data",
+  "native_paths": 20,
+  "injected_policy_paths": 12,
+  "fixtures": [
+    {
+      "name": "same_cv_low98",
+      "kind": "native_events_end_to_end",
+      "rows": 67,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65,
+        66,
+        67
+      ]
+    },
+    {
+      "name": "same_cv_low94",
+      "kind": "native_events_end_to_end",
+      "rows": 67,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65,
+        66,
+        67
+      ]
+    },
+    {
+      "name": "warmup_63",
+      "kind": "native_events_end_to_end",
+      "rows": 63,
+      "prefix_lengths": [
+        1,
+        21,
+        62,
+        63
+      ]
+    },
+    {
+      "name": "warmup_64",
+      "kind": "native_events_end_to_end",
+      "rows": 64,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64
+      ]
+    },
+    {
+      "name": "warmup_65",
+      "kind": "native_events_end_to_end",
+      "rows": 65,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65
+      ]
+    },
+    {
+      "name": "missing_volume_reclaim",
+      "kind": "native_events_end_to_end",
+      "rows": 67,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65,
+        66,
+        67
+      ]
+    },
+    {
+      "name": "missing_volume_reject",
+      "kind": "native_events_end_to_end",
+      "rows": 67,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65,
+        66,
+        67
+      ]
+    },
+    {
+      "name": "missing_volume_exit",
+      "kind": "native_events_end_to_end",
+      "rows": 67,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65,
+        66,
+        67
+      ]
+    },
+    {
+      "name": "stationary",
+      "kind": "native_events_end_to_end",
+      "rows": 90,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65,
+        89,
+        90
+      ]
+    },
+    {
+      "name": "abrupt_crash",
+      "kind": "native_events_end_to_end",
+      "rows": 72,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65,
+        71,
+        72
+      ]
+    },
+    {
+      "name": "v_recovery",
+      "kind": "native_events_end_to_end",
+      "rows": 72,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65,
+        71,
+        72
+      ]
+    },
+    {
+      "name": "low_volume_decline",
+      "kind": "native_events_end_to_end",
+      "rows": 67,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65,
+        66,
+        67
+      ]
+    },
+    {
+      "name": "high_volume_decline",
+      "kind": "native_events_end_to_end",
+      "rows": 67,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65,
+        66,
+        67
+      ]
+    },
+    {
+      "name": "two_segments",
+      "kind": "native_events_end_to_end",
+      "rows": 134,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65,
+        133,
+        134
+      ]
+    },
+    {
+      "name": "invalid_price_gap",
+      "kind": "native_events_end_to_end",
+      "rows": 68,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65,
+        67,
+        68
+      ]
+    },
+    {
+      "name": "persistent_memory",
+      "kind": "native_events_end_to_end",
+      "rows": 246,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65,
+        245,
+        246
+      ]
+    },
+    {
+      "name": "binary64_boundary_ties",
+      "kind": "native_events_end_to_end",
+      "rows": 68,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65,
+        67,
+        68
+      ]
+    },
+    {
+      "name": "bad_volume_windows",
+      "kind": "native_events_end_to_end",
+      "rows": 90,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65,
+        89,
+        90
+      ]
+    },
+    {
+      "name": "strength_mask_only",
+      "kind": "native_events_end_to_end",
+      "rows": 67,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65,
+        66,
+        67
+      ]
+    },
+    {
+      "name": "no_valid_volume",
+      "kind": "native_events_end_to_end",
+      "rows": 70,
+      "prefix_lengths": [
+        1,
+        21,
+        63,
+        64,
+        65,
+        69,
+        70
+      ]
+    },
+    {
+      "name": "original_priority_no_response",
+      "kind": "injected_policy_unit_only",
+      "rows": 28,
+      "prefix_lengths": [
+        1,
+        21,
+        26,
+        27,
+        28
+      ]
+    },
+    {
+      "name": "original_priority_reclaim",
+      "kind": "injected_policy_unit_only",
+      "rows": 28,
+      "prefix_lengths": [
+        1,
+        21,
+        26,
+        27,
+        28
+      ]
+    },
+    {
+      "name": "original_on_memory_rejection",
+      "kind": "injected_policy_unit_only",
+      "rows": 28,
+      "prefix_lengths": [
+        1,
+        21,
+        26,
+        27,
+        28
+      ]
+    },
+    {
+      "name": "exit_day_no_reentry",
+      "kind": "injected_policy_unit_only",
+      "rows": 29,
+      "prefix_lengths": [
+        1,
+        21,
+        26,
+        27,
+        28,
+        29
+      ]
+    },
+    {
+      "name": "support_ratchet_missing_volume_exit",
+      "kind": "injected_policy_unit_only",
+      "rows": 30,
+      "prefix_lengths": [
+        1,
+        21,
+        26,
+        27,
+        29,
+        30
+      ]
+    },
+    {
+      "name": "memory_rejected_recreated",
+      "kind": "injected_policy_unit_only",
+      "rows": 29,
+      "prefix_lengths": [
+        1,
+        21,
+        26,
+        27,
+        28,
+        29
+      ]
+    },
+    {
+      "name": "unresolved_not_replaced",
+      "kind": "injected_policy_unit_only",
+      "rows": 30,
+      "prefix_lengths": [
+        1,
+        21,
+        26,
+        27,
+        29,
+        30
+      ]
+    },
+    {
+      "name": "long_memory",
+      "kind": "injected_policy_unit_only",
+      "rows": 208,
+      "prefix_lengths": [
+        1,
+        21,
+        26,
+        27,
+        207,
+        208
+      ]
+    },
+    {
+      "name": "tie_boundaries",
+      "kind": "injected_policy_unit_only",
+      "rows": 30,
+      "prefix_lengths": [
+        1,
+        21,
+        26,
+        27,
+        29,
+        30
+      ]
+    },
+    {
+      "name": "missing_volume_reclaim",
+      "kind": "injected_policy_unit_only",
+      "rows": 28,
+      "prefix_lengths": [
+        1,
+        21,
+        26,
+        27,
+        28
+      ]
+    },
+    {
+      "name": "missing_volume_reject",
+      "kind": "injected_policy_unit_only",
+      "rows": 28,
+      "prefix_lengths": [
+        1,
+        21,
+        26,
+        27,
+        28
+      ]
+    },
+    {
+      "name": "volume_threshold_inclusive",
+      "kind": "injected_policy_unit_only",
+      "rows": 28,
+      "prefix_lengths": [
+        1,
+        21,
+        26,
+        27,
+        28
+      ]
+    }
+  ],
+  "comparisons": "check_exact=True for every field, dtype, missingness and order; no allclose",
+  "oracle": "Frozen numeric.event_frame_numeric and participation.participation_frame(mode='volume'), per source segment on valid price rows; original V retained independently of strength mask",
+  "no_valid_volume_boundary": "Old numeric raises for no valid C/V; B5 is defined unknown/not-ready. This boundary is not an old-function identity claim.",
+  "invalid_rows": "Unknown output rows, no price/event/strength clock advancement; policy state held internally",
+  "segment_ledger": "Each segment independent; unresolved memory remains open in that segment, never fabricated as rejected",
+  "serialization": "Parquet retains binary64 and extension dtypes; reload evidence without model recomputation",
+  "prefix_ledger": "Project future resolutions to open as of each segment's available valid-price count",
+  "enhancements": "True must be rejected; no enhancement mechanism implemented",
+  "accounts": 0,
+  "downloads": 0,
+  "parameter_sweeps": 0,
+  "fixture_generator_sha256": "975bf53db52570170e71cec6314948f13af3964ad1b98a1101996c724f1c84c1"
+}

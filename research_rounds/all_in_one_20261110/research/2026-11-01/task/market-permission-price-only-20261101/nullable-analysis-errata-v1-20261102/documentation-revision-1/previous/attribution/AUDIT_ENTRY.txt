@@ -1,0 +1,6 @@
+隔离勘误入口：本包REPORT.txt、ORIGINAL_FILE_REPLACEMENTS.json和VERIFICATION.json优先解释2026完整列表。旧正文/哈希仍作为旧稿保留；Jan6/Jul3金融/目标事实仍用原路径，不迁移或重算。2026市场替代视图在本包attribution/。
+
+先读REPORT.txt与PROTOCOL.txt。28个正增量/15个接收行业行全部无当日当前context原生推进。
+RECEIVING_DEMANDS逐请求保存CP1和Q×mark、原D前缀增加/回填；RECEIVING_INDUSTRIES保存完整first/last原事件ID/source/context；DONOR_INDUSTRIES逐行业列原D/正常持有层与推进；NATIVE_CONTEXT_FACTS保留当时全域context概要；OTHER_TODAY_EVENT_CONTROLS验证标签不是全零。
+Jan6公路铁路运输当日推进仍被B/C供资36608元原市值，不是保护失败。May7只市场事实：有推进方向54只、无推进方向7只，其他电子有推进却无fresh列表。
+4个时钟/context/未知反例通过；原B/C全部SHA核同。无原生account/selector/model导入，不运行Q/D或金融事件。失败仅NaN日期导出，原稿保留failure-na-export-v1。没有假定旧推进未用，不把删交易金额当省损益。

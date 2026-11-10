@@ -1,0 +1,22 @@
+{
+  "research_basis": "current_pool_historical_development",
+  "synthetic": false,
+  "historical_account_runs": 2,
+  "technical_accounts": 0,
+  "initial_capital_cny": 1000000,
+  "accounts": [
+    "CONTROL__S0_base",
+    "SHARED__S0_base",
+    "ISOLATED__S0_base"
+  ],
+  "daily_rows": 4200,
+  "final_nav": {
+    "CONTROL__S0_base": "1020306.6918689728500",
+    "SHARED__S0_base": "1020306.6918689728500",
+    "ISOLATED__S0_base": "1044697.9063454798500"
+  },
+  "limitations": [],
+  "execution_basis": "explicit_daily_proxy_and_frozen_known_fx_settlement",
+  "final_positions_closed": false,
+  "technical_identity_accounts": 1
+}

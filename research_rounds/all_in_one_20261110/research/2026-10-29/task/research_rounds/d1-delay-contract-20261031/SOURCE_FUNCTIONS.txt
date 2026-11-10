@@ -1,0 +1,113 @@
+original daily lease
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lr1-cp1-add-preflight-20261031/adapter.py:58
+ def expire_day_buys(self,at):
+  credits={}
+  if self.add_enabled and self.delay_events:
+   for sid,o in self.buys.items():
+    i=self.order_meta[o.order_id];key=self.credit_key(sid,i['epoch']) if i['kind']=='add' else None
+    if key and at.date()>=o.earliest_at.date() and not o.filled_shares and not o.delay_remaining and o.order_id in self.waited_orders:
+     credits[sid]=dict(key=key,at=at,order=o.order_id)
+  result=super().expire_day_buys(at);self.add_credits=credits
+  for sid,c in credits.items():self.ops.append(dict(kind='ADD_credit_created',at=at,sid=sid,key=c['key'],order=c['order']))
+  return result
+
+
+original role credit
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lr1-cp1-add-preflight-20261031/adapter.py:72
+ def reserve_quantity(self,i,q,p,schedule,at):
+  activate(self);oid=super().reserve_quantity(i,q,p,schedule,at);order=self.buys[i['sid']]
+  order.delay_remaining=self.delay_events
+  if i['kind']=='core' and i['sid'] in self.daily_delay_credit:order.delay_remaining=0
+  if i['kind']=='add':
+   c=self.add_credits.get(i['sid']);k=self.cp_key(i['sid'],i['clock'].decision_at,i['epoch'])
+   if c and c['at']==i['clock'].decision_at and c['key']==self.credit_key(i['sid'],i['epoch']) and k in self.cp_used:
+    order.delay_remaining=0;self.add_credits.pop(i['sid'],None)
+    self.ops.append(dict(kind='ADD_credit_consumed',at=at,sid=i['sid'],from_order=c['order'],to_order=oid,signal_at=i['clock'].decision_at))
+  return oid
+
+
+new-only opening
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py:302
+ def opening(self,a,at):
+  C.activate(a)
+  for sid in sorted(a.exits):
+   win=self.market.window(sid,at,'sell',1)
+   if win:a.fill_exit(sid,win)
+  a.settle_due(at);a.sync(at);funded=[];done=set()
+  for i in sorted([i for i in a.pending if i['clock'].earliest_execution_at==at],key=lambda x:(x['rank'],x['role']!='core')):
+   sid=i['sid']
+   if sid in done or sid in a.buys or sid in a.exits:continue
+   raw=self.market.raw[sid];day=pd.Timestamp(at.date())
+   if day not in raw.index or not np.isfinite(raw.loc[day].open) or raw.loc[day].open<=0:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='missing_open'));continue
+   x,why=LR.preview(i,D(str(raw.loc[day].open)),self.facts.factor(sid,at),self.market.quantity(sid,at),self.market.fees(sid,at))
+   if why:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result=why));continue
+   x['known_open']=D(str(raw.loc[day].open))
+   route,why=self.route(a,i,x,at)
+   if why:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result=why));continue
+   q,pool=route;a.reserve_quantity(i,q,x['price'],x['schedule'],at);a.sync(at);done.add(sid);funded.append((sid,i,x,q));self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='reserved',pool=pool,shares=q,price=x['price'],CP1_id=i.get('CP1_id')))
+  # Execution proxies are consulted only after all H1-ranked funding decisions.
+  for sid,i,x,q in funded:
+   win=self.market.window(sid,at,'buy',1)
+   if win:assert win.execution_price==x['price'];a.fill_buy(sid,win)
+   else:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='no_execution_window_after_reservation'))
+  a.settle_due(at);a.sync(at);a.minimum_available=min(a.minimum_available,a.available);a.check()
+
+
+native-fill before old-price assertion
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py:104
+ def fill_buy(self,sid,w):
+  real=self.buys.get(sid);i=self.order_meta[real.order_id] if real else None;bid=self.order_bridge.get(real.order_id) if real else None;self._buy_filling=sid;self._deferred_buy_cancels=[]
+  try:r=super().fill_buy(sid,w)
+  finally:self._buy_filling=None
+  if r:
+   bo=self.budget.orders[bid];price=float(r.gross_cny/D(r.shares));floor=float(i['floor']/self.facts.factor(sid,w.at));assert price<=bo.limit+1e-8
+   x=self.layers[-1];self.jmeta[x['id']]=dict(sector=bo.sector,episode=bo.episode,pool=bo.pool,role=bo.role,attempt=bo.attempt,unit_cost=price,last_core_line=str(i['floor']),stock_structure=getattr(self.facts,'structure_lookup',{}).get(sid,{}).get(i['clock'].decision_at.date()),budget_order=bid)
+   self.budget.loss(bo.sector,bo.episode,float(r.fees_cny))
+   bo.qty-=r.shares
+   if not bo.qty:bo.status='filled'
+   elif sid in self.buys:
+    # The real partial fill has consumed principal and incremental fee once.
+    # Update only this actual order callback; generic sync asserts the bridge.
+    remaining=self.buys[sid]
+    assert bo.qty==remaining.remaining_shares
+    bo.limit=float(remaining.remaining_budget_cny/D(bo.qty))
+    bo.fee_per_share=float(remaining.fee_reserved_cny/D(bo.qty))
+   self.journal.append(dict(kind='real_buy_fill',at=w.at,sid=sid,layer=x['id'],budget_order=bid,shares=r.shares,price=r.gross_cny/D(r.shares),fees=r.fees_cny,pool=bo.pool,role=bo.role,attempt=bo.attempt,signal_at=i['clock'].decision_at,CP1_id=i.get('CP1_id')))
+  if r:self.sync(w.at,pending_ack=bool(self._deferred_buy_cancels))  # Actual lot/NAV first; no admission until ack.
+  # Native full fills call cancel_buy internally to return residual reserve.
+  # Mirror the actual fill first, then acknowledge only the actual remainder.
+  for cancelled in self._deferred_buy_cancels:
+   if self.budget.orders[cancelled].qty:self.budget.cancel(cancelled)
+   self.budget.cancel_ack(cancelled);self.pools_from_model()
+  self.sync(w.at)
+  return r
+
+
+original stage-upgrade cancel
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/budget_v3/model.py:127
+    def industry(self, token, bar):
+        if not self.valid(token, 'industry_cp1', bar) or token.event_id in self.consumed:
+            return 'rejected'
+        s = self.sectors[token.sector]
+        if token.confirmed_time <= s.failed_bar or token.end <= s.failed_bar:
+            return 'not_new_progress'
+        if bar <= s.last_bar or token.end <= s.last_end or token.confirmed_time <= s.last_evidence_time:
+            return 'not_new_progress'
+        if token.confirmed_time != bar:
+            self.audit.append(('late_industry_evidence_audit_only', token.event_id, bar))
+            return 'late_evidence_audit_only'
+        self.consumed.add(token.event_id)
+        s.last_bar, s.last_end = bar, token.end
+        s.last_evidence_time = token.confirmed_time
+        if not s.active:
+            s.active, s.level, s.started = True, 0, token.confirmed_time
+            s.attempt = f'{s.episode}:{token.event_id}'
+            s.status = 'probe'
+        else:
+            s.level = min(2, s.level + 1)
+        for order in self.orders.values():
+            if s.level > 0 and order.sector == token.sector and order.attempt == s.attempt and order.pool == 'probe' and order.qty > 0:
+                self.cancel(order.oid)
+        self.migrate(token.sector)
+        self.audit.append(('industry_confirmation', token.event_id, s.level))
+        return s.status

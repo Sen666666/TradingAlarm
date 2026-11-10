@@ -1,0 +1,11 @@
+{
+  "research_rounds/s-amount-confirmation-20261028/CONCLUSION.txt": "737a477c79bc499ce58da5d3fe4718d4b5327eb0dfb6591c83eb849020673502",
+  "research_rounds/s-amount-confirmation-20261028/RULES.txt": "1891d30ab28dda4d67b0bbefd4a3909067db943df6db385ca36b0d124d732b0f",
+  "research_rounds/s-amount-confirmation-20261028/code/s_amount.py": "3ed123179658ae0f62178afea225f805f77f8b0f066780f7993524d3e473d8f1",
+  "research_rounds/s-amount-confirmation-20261028/code/s_amount_arithmetic.py": "bee04c1ff88fd7a1c7571eada45380bafbbff524494f493c4a245dd9d19cafb2",
+  "research_rounds/s-amount-confirmation-20261028/code/test_s_amount.py": "71b6306cb788cf00a851375dd07a5382c08d04a87d7ceb3c8c36a85a29d5b8ea",
+  "research_rounds/s-amount-confirmation-20261028/freeze-v1.json": "271dd222ab3548691bcc11ce8f12aba24eeab67ac3ddd95fa071dc72182908e3",
+  "research_rounds/s-amount-confirmation-20261028/registry.json": "5f81154862cc5f35fb033dd97b6de2418b4be980aa8522e3911da4c1b7c18fff",
+  "research_rounds/s-amount-confirmation-20261028/technical-v1.log": "dd0b94e921a0c12013271831710b7e004645a53fe74f261d7002b6ce2e92f000",
+  "research_rounds/s-amount-confirmation-20261028/verification-v1.json": "2a127fb32fc37d8708ba4ae6f3e6e430df1aacb4721c9406be7e3265cf3ec235"
+}

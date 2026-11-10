@@ -1,0 +1,38 @@
+ONE proposed new full path; separate root grant required; 2026-11-04.
+Policy: No60 PVR_SLOT1 x original bounded D1v2, cost1 only.
+Full path first decision2025-07-01 through2026-06-30 CLOSE, original fresh1m.
+Retain own full-input technical prefix through2025-07-03 15:10+08.
+Parent is this directory/prefix/D1_ON/checkpoint.pkl, NOT normal/oldPVR/SC.
+Verify its original source/engine identity, all stored account/runner fields,
+original horizon/input identity and retained prefix streams before continuation.
+Run strictly AFTER its Jul3 CLOSE; never replay those three technical days.
+Keep parent source_freeze and composition_binding.horizon unchanged, including
+the historical technical scope label; actual bound input start/end is full.
+New controller/card/proposal/grant/independent audit are bound externally in
+EXECUTION_FREEZE.json and checked before/after events. No restore guard bypass.
+
+Only confirmed60 removal: original migrate/request/route + D1 amend fourth
+predicate; probe10/.5 risk, sector2/10/20 and1 risk, stock10, target2%, cash10,
+PVR priority/core-first, receipt, original same-attempt pending migration,
+ACT/protection/corporate actions/fees/lots all original. D1 retains buy expiry,
+same order/principal/quantity nonincrease, original aggregate core-risk budget,
+openNAV vs fresh decisionNAV distinction, pending reservations and sell duties.
+No post-restore configure_d1, no normal midpath policy switch, no reranking old
+orders or parameter changes. Own account state continues across all quarters.
+
+Control: immutable original PVR D1v2 run-PVR-D1, same full window/fresh1m,
+return63.6843395394%, DD8.8185775422%, not SC or normal control. No control rerun.
+This card overrides readiness matrix for execution: exactly ONE new full path,
+all cost2/2022 D1 paths remain ungranted; no combined stress or scans.
+
+Native PreparedRunner.run_prepared(600 seconds maximum) and atomic export/
+quarter checkpoint unchanged. Output run-D1-strong/. No automatic retry or
+automatic replay after failure. Preserve partials. Resume only if root chooses
+explicit --resume after own checkpoint/external freeze verification; never
+fallback to parent when an attempted run already exists.
+
+Independent finance and campaign attribution after completion; account return,
+DD/recovery, realized/unrealized/dividend/reserve bridges, trial loss/add/reentry,
+major winners/semiconductor participation and capital path. Prefix NAVs are
+technical only. Current snapshot1709 A shares, development/nonPIT/nonOOS/daybar
+execution proxies; full stress alone cannot promote or claim full-cycle success.

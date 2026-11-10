@@ -1,0 +1,11 @@
+冻结两臂机制回放，2025-07-01..2026-03-31，77可用案例股/5行业，各1m现金连续起步。历史已消费、事后案例集合，任何收益不代表选股或全市场效果。
+原15项v2源码三SHA已核同，真实ledger-only6、原L0关闭功能off与prefix、增量真实集成7通过。原budget_v2/model.py不改；model.fill/sell从未被调用，真实成交唯一由原ledger产生。预算镜像重建实际lot/order，其cap/risk/待单和grant量依原v2计算，旧probe保守占用不洗掉。
+现金适配：budget.cash=真实available+模型待单reserve；NAV adjustment仅使budget.nav等于原ledger真实NAV（含不可花应收权益及模型/真实reserve表示差异），不可花应收不能进入可用现金。所有新请求使用实际已知费用，pending fee同步真实fee_reserved；真实fill后更新grant已耗/过期、实际股数与费用一次，模型不能再次成交。满成后原ledger内部cancel回调延后镜像ack至真实fill已记且真实lot已可见，再迁池。
+市场状态：5行业从完整历史推进，账户起点之前不虚构钱/持仓/grant；B继承市场attempt/level、A金融权限固定probe。起点后新industry凭据才签B额度；初始旧expanded没有旧grant时，B仍可走与A相同probe。原E0 episode起点独立attempt起点，原市场late/同观察失效优先语义不改。grant请求最大值仅给足nav/3%nominalrisk，原v2自动冻结行业/全局/现金真实剩余额，不是额外自由权重。
+行业失效真实cancel未完成买单，不强卖个股；旧单未实际ack不释放资源。新行业凭据替换未用grant，grant可异步给后来fresh stockCP1，不能用旧stockreceipt。stock CP1 canonical ID来自完整暖机原trace，跨role/pool/首次/ADD/reentry共一消费集合。
+角色与资金：内部mobile映射原add层，只复用其真实保护/成交/分红；无core也可mobile。原core I/epoch锁保留，mobile不受该锁及旧P1 PVR/G1/last-buy额外门。两臂同probe内I core与CP1 mobile机会；B更高资金只可mobile+有效grant。行业失效/换attempt不清费用/损耗，旧attempt probe core不迁新attempt confirmed池。
+H1为原个股Rank，降序再股票代码；不加P/attention/Top3/rawhalf。原ledger同股同开盘仅一买单；同股同日兼有I core/CP1 mobile时先试原小core，core无合法数量可试mobile；第一次合法预留后不再同股第二单。B在probe/confirmed路由取较大合法整单位数量，数量相同优先probe；A仅probe。不分两单跨池，不在失败路由中预先消费receipt。该确定性排序/角色冲突解法在收益前冻结。
+core沿原LR0.25%风险/股10%和原开盘保护拒绝；mobile单笔目标2%NAV、股合计10%、原mobile保护；其他v2预算可更紧，真实费用/整单位后下裁。原10%现金reserve保留。所有H1预留先于HL/volume成交代理，未成交资金不回流本次开盘替补。
+开盘预算只用上一决策已知core保护，不读当日收盘I floor；core新保护仅在收盘决策更新。I失效待卖时保留最后已知名义参考并显式标记，其不是保证成交的止损价。单股10%另用当时已知开盘价重核原持仓+新单，只能缩量，不自然超重强卖。全部日终独立现金流NAV/股数/总占用/分池占用与真实ledger对账；预算模型不制造现金。
+ACT20_BREAK及恢复保持两臂自身NAV，外部RECOVERY为原1709/90域既存序列，非这5行业重算。价格/权息/合法执行沿原已验离线日线代理；T+1/停牌/成交限制与因果公司行动不足继承披露，不称真实可保证成交。
+仅2条连续路径；pure replay+审计120s，单B5日实测0.15秒。季度边界只存checkpoint，不清仓重置；全部账、拒单、grant、旧pool占用、阶段与真实资金连接保存。看实际参与/损耗/再参与，净收益仅辅助。不择参数、无额外路径。

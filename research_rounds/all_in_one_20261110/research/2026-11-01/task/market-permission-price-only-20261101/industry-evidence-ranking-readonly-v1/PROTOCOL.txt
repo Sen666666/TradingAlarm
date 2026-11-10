@@ -1,0 +1,45 @@
+One read-only industry-ranking identification. No account/Runner, financial
+restore, downloads, strategy change, indicator/kernel recomputation or tuning.
+Only original cached industry H1 is currently ready. Sector PVR is NOT cached
+and its source-index amount units are not certified by its original contract;
+leave it UNKNOWN, never aggregate stocks or generate a replacement score.
+
+Fixed original case calendars: NATIVE1709 2022Jun17-Dec29; 2023Jan19-Aug25;
+2026Apr30-Jun30. OLD407 2024Sep24-Dec31. Keep90/90/90/11 original sectors and
+ALL original global-market observations within each window, even no permit,
+unknown breadth, H1 unknown, no stock opportunity or unfavorable future path.
+Use original F1 full-prefix daily outputs, not new FSM runs or near-case resets.
+Derive maturity and most recent/current-context price_advance counts solely
+from those saved original event labels, using the original G/S market rules.
+Breadth and advances are descriptions, no extra filters or weights.
+
+Original H1 industry score uses its original90-industry reference background.
+Export full score/raw/h/reference denominator; order each domain by score
+descending (round12), industry ID tie. Export all-domain and F1-permitted /
+mature-permitted ordering separately, no mixed score or chosen TopK.
+No global permission veto of independently valid local industry permission.
+
+Market stock opportunity counts: complete fixed1709 or407 identities, original
+cached I facts and dated source availability/venue/quantity/fee-rule readiness,
+current stock H1 readiness and original fixed membership/cap/issuer/sector Q.
+Stock I entry and continuing-stock fresh canonical CP1 are separate. Exclude
+legacy industry-up/rank authorization from retained STOCK checks; F1 is shown
+separately. Keep source/quote/known-date unknowns. No portfolio/core epoch,
+receipt consumption, ACT incident, cash/risk, actual next-open HLV or capacity
+is invented. These counts are market-input opportunities, not actual admission.
+OLD407 has no reviewed924 canonical export: canonical/legal mobile count is
+UNKNOWN, numeric CP1 receipt count can be a separately labeled proxy only.
+Reuse2022 and2023 canonical exports and native2025-26 exports; no new trace.
+
+Price evaluation alone may read later data: original cached industry H1 close
+on its original common market-observation clock, fixed +21/+63 endpoints and
+full path0..63. Use existing old/native source cache endpoints, not favorable
+end dates. Validate all jointly-known prices against original F1 price inputs;
+unknown intermediate/target, horizon beyond cache and source changes retain
+explicit censor/path flags. Do not skip unknowns to reach a favorable endpoint.
+Rank/opportunity/source eligibility is frozen before evaluation fields are
+computed. No account return, counterfactual trade, significance or OOS claim.
+
+Write readiness first; then complete tables, coverage, all events and adverse
+examples. Missing sector PVR blocks H1-versus-PVR comparison, not the independent
+H1/F1/source diagnosis. Report that limitation, never patch a composite score.

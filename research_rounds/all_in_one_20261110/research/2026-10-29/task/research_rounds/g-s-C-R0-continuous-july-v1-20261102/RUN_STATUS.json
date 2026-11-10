@@ -1,0 +1,43 @@
+{
+  "C10": {
+    "status": "COMPLETED_JUL31",
+    "checkpoint": {
+      "checkpoint": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/runs/C10/2025-07-31-CLOSE.pkl",
+      "sha256": "f717c8f92dfce924df499e963bd6163f48a13361c62520af1fc87bfc80176ad5",
+      "cursor": "2025-07-31 15:10:00+08:00",
+      "phase": "CLOSE"
+    },
+    "financial_checks": "analysis/VERIFICATION.json",
+    "archive_restore": "analysis/ARCHIVE_AND_FINAL_RESTORE.json"
+  },
+  "C_BATCH20": {
+    "status": "STOPPED_TECHNICAL_EXACT_SEARCH_BUDGET",
+    "last_fully_completed_event": {
+      "checkpoint": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/runs/C_BATCH20/2025-07-22-OPEN.pkl",
+      "sha256": "a7cdc9dae5c29af4051c49523e679100b4e6db1cfd427f85e5be5eba6965b954",
+      "cursor": "2025-07-22 09:30:00+08:00",
+      "phase": "OPEN"
+    },
+    "committed_necessary_stage": "2025-07-22T15:10:00+08:00",
+    "failure_checkpoint": "runs/C_BATCH20/FAILED_WORKING_STATE.pkl",
+    "failure_checkpoint_sha256": "f11f66567835af0cdc4c9dd9cec7bb8d011cc6ece80e3fd0bc8d6e667e4dcb24",
+    "old_technical_limit": 100000,
+    "pure_exact_required_checks": 190889,
+    "pure_exact_seconds": 203.82259320793673,
+    "main_search_stock": "688425.SH",
+    "main_stock_native_checks": 186493,
+    "problem_demands": 316,
+    "held_layers": 35,
+    "approximate_result_used": false,
+    "pure_result_accepted_into_account": false,
+    "financial_events_after_failure": 0,
+    "source_or_risk_limits_changed": false,
+    "recovery_requires": [
+      "new explicit technical-source binding preserving all original cert/source IDs and old frozen engine",
+      "resume failed optional planning only; F1/ACT/protection/necessary exits already committed",
+      "preserve same-input failed-attempt history; do not fake industry evidence or erase it to permit retry",
+      "append proper completion/event history once; never replay the Jul22 necessary phase or prior dates",
+      "all original economic guards, 20% batch budget, 6% account risk, 5% sector risk, fees, minimums unchanged"
+    ]
+  }
+}

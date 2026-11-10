@@ -1,0 +1,39 @@
+原No60 MOBILE分配/保护顺序：源码取证恢复包
+
+此包仅补上次断线前已完成的源码审查。原保存脚本未启动成功；本次恢复只读原源码、静态摘录与精确文本替换，不import/compile/exec模型，不运行市场、指标、账户或回测，不改原项目。
+
+有效规则
+native_adapter.py11–17、31–38绑定component衍生route、request和migrate。component.py17–27以account-risk-ablation/model_without_account_check.py与route_without_account_check.py为输入；它们已没有account3%总风险检查，再删除confirmed60迁移检查，并将route/request池资金条件改为仅probe10%。不能引回J原route的account3%与confirmed60。有效文本、原始行号及文本哈希分别在EFFECTIVE_*与SOURCE_*。
+
+收盘名义预算
+J.planning222：N_s=a.current_nav，为信号收盘NAV（CNY）。J255：B=min(.02*N_s,max(0,.10*N_s-Q*C_signal))；Q为该股所有现存CORE/MOBILE股数，C_signal为quote.raw_price（原价CNY/股）；B为不含买费的新增毛本金（元）。q_cap=signal_quantity.buy_floor(int(B/C_signal))。
+MOBILE floor_adjusted=max(当前I_floor,CP_candidate)。J256仅CORE调用resize_core；MOBILE不会获CORE的.0025*N_s单笔含费风险定量。2%是本金，不是允许亏2%。原INITIAL100万元时，仅作B手算示意：已有市值0/9万/>=10万对应预算2万/1万/0；这不是可成交数量。
+
+OPEN预览及单位
+LR即lot-risk-allocation/code/study.py，经adapter.py9–11导入；activate22–24设置SLIP=.0005*原cost，当前J.Account31为cost1/delay0。
+LR.preview56–66：P=O*(1+SLIP)，S=floor_adjusted/factor_OPEN，单位均raw CNY/股。O<=S拒；q必须合法且<=冻结q_cap、q*P<=B。只有CORE额外检protection_risk<=risk_budget，MOBILE kind=add不检。买费F(q)按原dated schedule另计，不占B却占现金；故gross+fee可以略大于B。下跌不能突破冻结股数，上涨可因本金/整手缩量。
+
+当前有效route（原route_without_account_check.py1–29，经component替换）
+行业须active；MOBILE stock_cp1 token须合法、当前行业epoch/attempt且该账户未消费。候选probe；仅mobile、expand、行业level>0且migrate成功才另评confirmed。对每个合法q：
+G=q*P；r=q*max(P-S,0)；N_b(q)=b.nav-pending_buyfees-F(q)。G/r/N_b/F均CNY。
+现金：G+F(q)<=min(a.available-.10*N_s,b.cash-reserve)。
+probe池：C_pool+G<=.10*N_b；R_pool+r<=.005*N_b。
+行业：C_sector+G<=f*N_b，f=.02(probe)，.10(confirmed level1)，.20(level2)；R_sector+r<=.01*N_b。
+单股：Q_current*raw_OPEN+G<=.10*N_s，旧股未滑点OPEN，新股含买滑点P；不是连买费的10%。
+无account3%或confirmed60条件。各route选最大合法量，平手probe优先；不拆池拼单。联合失败原因不能据其列出顺序当唯一首因。b.nav在J.sync43–60随原OPEN代理mark、已成交股份/现金与应收更新；a.current_nav在OPEN sync不重赋，仍为上一信号收盘N_s。费用从预算N_b及现金扣，非给risk另加压力费。
+
+资源和存量边界
+resources106–117：capital=Σlive qty*mark+Σopen/cancel_pending qty*limit；risk=Σlive qty*max(mark-floor,0)+Σpending qty*max(limit-floor,0)；reserve=Σpending qty*(limit+fee_per_share)。筛pool或sector不筛新股/新attempt，旧暴露继续占用。
+exit_pending未卖股仍在lots，mark<=floor却可使其risk为0；capital、股份、流动性和未实现/待实现损失仍在。risk是标价至参考线的非负距离，不是最大损失，未含跳空/无法卖出/卖费压力。
+cap/risk主要约束新单，不对自然上涨超单股/行业比例自动减仓。industry invalidation（J195–211、model166–172）只停预算/标failed_bar/取消待买，不直接向a.sell发旧股退出。Migrate仅换当前attempt的pool归属，仍有待买probe订单会阻挡；不造现金、股份或抹去loss，No60只删其60%检查。
+
+保护、减仓与成交顺序
+J222先到期撤买、收盘估值、ACT step。225–229若ACT暂停或I失效，所有live层申请退出；同时失效原因优先记ACT。230–234 CORE只更新last_core_line，不走CP层止损。235–240 MOBILE先用旧floor检查CLOSE，触线就该层全量申请退出；未触线才floor=max(old,I,new receipt candidate)。不能今日先抬线再回看触发；无自动留半仓/固定盈利减仓档。
+pilot.sell104–115合并逻辑层目标；fill_exit74–84只在目标IDs内分摊。物理库存sellable FIFO不能混成全live逻辑层FIFO。实际ledger746–797受sellable_at、target、整手、容量限制，可能部分/0成交，保护线不保证成交价。
+J302–324次OPEN先卖、结算/sync，再按冻结rank及同股CORE优先preview/route/reserve。有正量reserve则sid done；CORE未获正量才可能继续同股MOBILE。全部reserve后买窗口/fill。未卖不能假释放本金/股份；旧祖先waterfill不是现行J分配器。
+
+没有先盈利才加的原合同
+旧BP.planning160有held且close<=last_buy禁止confirmed，但J完整覆盖planner，不调用它。J245/255、有效route、LR.preview均不检last_buy或盈利。
+实际J.fill_buy104–121→C.Account.fill_buy84–95（延迟记录）→BP.fill_buy59–73→sector_account.fill_buy688–744，只对新OPEN*factor<=新floor拒买，及执行身份/数量/费/容量检查。last_buy在成交后保存，不成为现行MOBILE准入门。不能把撤回纸面OPEN>lastBuy方案冒充原规则。
+
+全部原fill仍指No60日线代理账本；此前执行时钟/供应商可知性边界不因本次源码取证被认证。未计算更改规则后的经济效果。

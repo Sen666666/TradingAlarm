@@ -1,0 +1,16 @@
+{
+  "recorded_at": "2026-10-25T14:59:23.470920+00:00",
+  "mechanism": "F1: only first full original S0 eligibility per IX participation episode; later price-only continuation cannot renew an old episode buy event",
+  "initial_capital": 1000000,
+  "one_account_only": true,
+  "other_policy": "original ALL S0, same stock IX exits and sector E0 gate, original RS-H1 and finance; no sectorIX extra exit",
+  "start": "2021-01-01",
+  "end": "2026-10-16",
+  "sha256": {
+    "research_rounds/universe-expansion-diagnosis-20261025/code/run_first_account.py": "2002f831c9989b65e680820d41e0fae888003037366d018d30a3faaa3b9cee75",
+    "research_rounds/universe-expansion-diagnosis-20261025/code/finance_ladder.py": "83758c9ae7289cef00df71f792e055356d3750ced4d96cfd5403bcc426dcbe13",
+    "research_rounds/universe-expansion-diagnosis-20261025/first-opportunity/events.json": "17b3b0451961b1c5a6dc81f935ce4f14c92da832100c5613da96c59ffa6c2cfc",
+    "research_rounds/universe-expansion-diagnosis-20261025/first-opportunity/summary.json": "e33d4cac7159c1582c4fd94b383eff016dc47f9f6dd396177d97f9318959b83a",
+    "research_rounds/universe-expansion-diagnosis-20261025/entry-attribution/summary.json": "ecc361f2025393d8f9d25662b925247e30f9247aa093c269e2c30df9a31d8b24"
+  }
+}

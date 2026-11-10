@@ -1,0 +1,23 @@
+{
+  "stage": "PROTOCOL_PRE_REVIEW_ONLY_WAITING_FOR_COMPUTATION",
+  "protocol_sha256": "e8be017794c1c36f0d8c6b3ec256428defcb53bfc60d9666ec632c438839643e",
+  "protocol_expected_sha256": "e8be017794c1c36f0d8c6b3ec256428defcb53bfc60d9666ec632c438839643e",
+  "single_candidate": true,
+  "nominal_and_prefix_quality_separate": true,
+  "invalid_prefix_absorbing_unknown": true,
+  "later_error_does_not_revoke_prior_permission": true,
+  "full_day_qa_not_intraday_gate": true,
+  "limit_price_no_special_exemption": true,
+  "pending_implementation_checks": [
+    "Earliest invalid bar time and nominal first permission both retained; UNKNOWN must be absorbing before first quality permission.",
+    "All 33 frozen events and both contracts retained; no old-PnL subtraction or strategy win-rate.",
+    "09:50 decision uses completed four-bar prefix; 11:30 decision has next bar end13:05 and next bar start13:00.",
+    "Raw numeric strings use Decimal or exact cross-products, without invented tolerance or daily amount/volume substitution.",
+    "Provider numerical validity is not available_at certification, actual quote availability, or fill evidence.",
+    "Unconditional equality permits positive-volume flat paths, including non-limit horizontal prices; no recovery-path claim."
+  ],
+  "economic_runs": 0,
+  "new_data_fetches": 0,
+  "candidate_case_calculations": 0,
+  "author_files_modified": false
+}

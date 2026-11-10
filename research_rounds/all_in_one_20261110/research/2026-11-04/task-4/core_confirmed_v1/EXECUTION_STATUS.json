@@ -1,0 +1,69 @@
+{
+  "phase": "complete_general_arm_rejected_no_remaining_research_blocker",
+  "source_freeze_sha256": "9dc83b4288cdd2f1968fba79be547765c67d2a9f8cd0946b7fa25df87ef8fa55",
+  "full_new_ON_accounts_completed": 2,
+  "technical_prefix_accounts_completed": 6,
+  "technical_native_seconds": 56.081015832256526,
+  "technical_input_preparation_seconds": {
+    "long": 61.88497425010428,
+    "strong": 34.4988913750276
+  },
+  "technical_file_clock_elapsed_seconds": 209.13528728485107,
+  "technical_file_clock_definition": "Approximate worker wall time from redirected-log creation to completed GATE creation, including preparation, output/comparison/cleanup; not the native budget timer.",
+  "technical_session": {
+    "session_id": 70194,
+    "exit_code": 0
+  },
+  "nonessential_environment_observation": {
+    "action": "ps -axo etime,pcpu,rss,command filtered to run_confirmed.py technical",
+    "status": "denied",
+    "reason": "zsh: operation not permitted: ps",
+    "escalation_or_retry": false,
+    "fallback": "Monitor saved phase directories, TIMING, GATE and tool session exit status; research unaffected."
+  },
+  "updated_at_UTC": "2026-11-04T19:56:17.259415+00:00",
+  "full_sessions": {
+    "long": 6323,
+    "strong": 72525
+  },
+  "full_native_limits_seconds": {
+    "long": 1600,
+    "strong": 800
+  },
+  "full_admission": "review/FULL_ADMISSION.json",
+  "strong_completion": "funding/runs/strong_COMPLETE.json",
+  "strong_native_review": "review/STRONG_FULL_NATIVE_REVIEW.json",
+  "long_completion": "funding/runs/long_COMPLETE.json",
+  "full_native_seconds": {
+    "long": 640.8286763750948,
+    "strong": 242.03724441723898
+  },
+  "analysis_session": 74736,
+  "analysis_final_session": 78213,
+  "analysis_final_exit": 0,
+  "analysis_saved_seconds": 43.90881875017658,
+  "analysis_initial_failure": {
+    "session_id": 74736,
+    "exit": 1,
+    "stage": "saved DAILY Decimal decode only",
+    "account_reruns": 0
+  },
+  "full_worker_file_clock_elapsed_seconds": {
+    "long": 681.7911334037781,
+    "strong": 283.46343088150024
+  },
+  "parallel_full_file_clock_elapsed_seconds": 681.7911334037781,
+  "full_file_clock_definition": "Redirected-log creation to per-window COMPLETE creation; includes source/PVR setup, inputs, native run and output checks. File timestamps approximate wall time, not CPU time.",
+  "full_tool_exit_status": {
+    "long": 0,
+    "strong": 0
+  },
+  "initial_analysis_failure_preserved": "analysis/failed_daily_decode",
+  "successful_saved_analysis_review": "review/COMPLETED_ECONOMIC_ANALYSIS_REVIEW.json",
+  "target_saved_review": "review/TARGET_TRACES_SAVED_REVIEW.json",
+  "wording_correction": "review/PROGRESS_WORDING_CORRECTION.json",
+  "final_review_sha256": "3dc90d823b5b669b9d6d7793d75b0022ca6826c46160535f80ba5361ccdc0bc6",
+  "final_accounts": 2,
+  "full_policy_arms": 1,
+  "additional_parameter_rescue_runs": 0
+}

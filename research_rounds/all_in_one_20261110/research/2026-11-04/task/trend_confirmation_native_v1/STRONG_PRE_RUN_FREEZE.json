@@ -1,0 +1,24 @@
+{
+  "time_UTC": "2026-11-04T16:26:05.402890+00:00",
+  "before_strong_accounts": true,
+  "arms": [
+    "B",
+    "UNIFORM50",
+    "A_ONLY",
+    "A_OR_B"
+  ],
+  "windows": [
+    "2025-07-01",
+    "2025-07-11"
+  ],
+  "source_SHA256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_native_v1/trend_size_plugin.py": "3c089145375628e800e973aec652c25d6a0b45ac68b8a271723f8d68ef7a4866",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_native_v1/run_trend_small.py": "6acb11a6ef78e10c164c3ecd3256c274374eff65d54585139b90a4b94b8f7fad",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_native_v1/frozen_capacity_inputs.py": "a0742d716cb6fd6c135d6ad812944e11bdaa4e08f175ccfac6f37660f84e1b1c",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_native_v1/FROZEN_INPUT_ORIGIN.json": "0c427b7d66bce6778a5dfaad8d090c75b31490ca0127f727909fe271ef4d9dd2",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_native_v1/TECHNICAL_SMALL_CARD.txt": "45c48b87b961e5f83351d8059fb135ff34cdac4c8add4531b61e40bf6c0bbb2c",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_dedup_v1/compute_flags.py": "b535fc27dc7a6445013d4ee442a4f2b88ea8d56d6a927e2c20686d04bf0fe3a5"
+  },
+  "weak_run_preserved_not_repeated": true,
+  "change": "only import byte-copy frozen existing input wrapper"
+}

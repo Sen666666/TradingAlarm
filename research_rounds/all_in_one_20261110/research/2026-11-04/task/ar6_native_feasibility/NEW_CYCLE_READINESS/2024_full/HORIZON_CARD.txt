@@ -1,0 +1,27 @@
+2024完整周期｜仅数据/加载技术与后续同政策连续交接卡，金融0
+
+本卡覆盖parent最新范围，替代上级旧readiness中2024两臂fresh1m建议；旧记录保留。目标是原PVR_SLOT1自身2023末→2024与NO_CONFIRMED60自身2023末→2024，各自承接2022以来的完整账户，不补回100万、不按比例放大到120万、不导入407科技旧账户。两条政策只保留原confirmed60差分，其他政策、名单、排序、执行与会计不变。
+
+数据已经实现的最小接口
+prepare_data.py仅提取原trace.py的ident/norm/trace原函数及原compact字段，使用既有暖历史CP1_input/CP1/events/facts/state，未调用I、CP1、stage calculate/derive。全1799序列把2022、2023canonical完整body与旧MANIFEST逐条输出核同，2024receipt日期核同数值布尔列、所有trace_unknown为0、ID唯一、行业state原ID核同；全1799物理截断2024-06-28重新trace核同。canonical仅物化2024新窗口，旧收据不重写。
+完整原PVR score使用原公式和全暖历史、同一1709身份，导出2022+2023+2024共726市场日，每股NA仍NA。逐股2022/23既存484分数格精确核同，全部1709物理截断检验，固定首3股未来价格/金额扰动检验。没有新增参数或排序政策。
+SOURCE_FREEZE.json冻结本轮纯导出代码和原数据/算法/控制来源；SCORES_MANIFEST.json可直接由原N.FrozenScores读取；inputs/MANIFEST.json逐条跟实际output_path。DATA_GATE.json给出全域真实结果。
+loader_2024.py.inputs()返回原(shared,receipts,CP1,industry_states,industry_receipts,identity)接口，只使用原context加载raw/action/H1和原facts，不构造Account/Runner，不改J.START/END全局，不改当前pvr_pool或原full模块。scores()返回独立原FrozenScores实例，不改原全局SCORES。
+check_loader.py以原已审physical adapter核全部raw/facts/states/action/H1/CP1/canonical/industry-stage通道的六月物理前缀；仅加载输入，没有首日账户信号/成交。原immutable session calendar保留，任何后续运行仍严格按cursor与cutoff过滤事件。技术源独立TECHNICAL_SOURCE_FREEZE.json。
+
+两条父状态
+Original PVR：pvr-slot1-native-readiness-20261101/continuation-2023-readiness/run-2023/checkpoint-2023-12-29.pkl（或同字节checkpoint.pkl），原生成trading class为horizon_import.Continuation，独立provenance登记SHA15c835da4cfe378c1c1a088ff97e640656ac976185f9c1302b786a52c3f08f45，cursor2023-12-29 15:10+08，NAV662557.9101669831085。仍须正式交接时核真实文件/source/provenance/完整原账，不凭本卡文字绕过生成类检查。
+NO60：由pvr_pool agent自身2022→2023延续收口后提供 continuation2023/run-2023/checkpoint.pkl或checkpoint-2023-12-29.pkl、真实新horizon_adapter生成类/provenance、完整账和freeze。owner明确2023尚无全年grant时不能预填终态SHA/NAV。不得拿原PVR2023父状态替代；本任务不写其2023适配器、不恢复它的账户。
+两者共同分数父manifest为旧2023 SHA4d764fb1c258110dd3d08c8e45c7e8aeabce88685b8f98b2a82577b25f8065bf；新三年score必须与旧827156格完全相同，只有2024新增413578格。旧文件字节不改。
+
+后续horizon薄适配必须保持的差分边界（尚未实现/运行）
+1 分别用各自真实2023生成类和provenance验证父CP，核父source_freeze仍精确；以原book和全部旧事件流核完整state，而非重构持仓。新2024生成类/源单独绑定，旧guard不关闭、provenance不回填。
+2 动态完整复制各自账户/策略字段，保留现金、所有层/持仓/成本、完整损耗/费用、预算/consumed、ACT峰与暂停恢复、原pool/行业状态、core锁、未完成买卖/撤单/跨界pending意图及其原PVR键、应收分红/支付与行动状态。No60保持NoConfirmed60Budget、remove_confirmed60和三处差分，Original保持原NoAccountBudget。不能硬套旧字段数、旧NAV、旧持仓数量，不能初始化资金或风险状态。
+3 只明确更换source/score身份及输入horizon。episode_starts旧键/值精确，新增键只能严格在父cursor之后；通用restore不得用旧2023查表覆盖新2024延伸。保存各自全部旧rank_log/事件流字节前缀。跨界意图已带CP1_trace，原OPEN按保存优先序使用，不按2024新分数重排旧意图。
+4 旧2023 Continuation的执行guard、END和旧horizon授权是2023专用，不能只改常量越界。未来2024wrapper须独立新generation/源绑定，仍复用原L.PreparedRunner经济事件循环和原政策方法；历史horizon元数据不能被误当2024当前cursor。J.START如用父日为内部event下界，严格skip<=2023-12-29CLOSE；2024行业/股票canonical只新年输入，旧pending完整继承。
+5 先记录输入给出的首个2024action/OPEN/CLOSE清单，不能跳过Jan1非交易日原行动或Jan2 OPEN。首日实际账户前缀与独立进程恢复需parent明确技术事件范围后再做，本任务0事件没有冒称该项已验。checkpoint只在完整原事件后保存，不重复此前2022/23或首日。
+6 未来经济grant仅一条Original自身状态与一条No60自身状态延续到2024-12-31，除parent另行决定，不切九月重置、不筛赢家、不调60/70/80或2%等参数。报告2024各自期初归一化收益及2022→2024累计财富/回撤、完整费用/试错损耗/开放贡献/尾部、实际筹资/参与，保留完整不利期与重大行情后的持有和纠错。
+
+范围与实际剩项
+1709为当前存续A股/90当前分类，HK0；2024无观察74身份仍保留，缺行不自动判停牌/退市。本轮是已见开发历史，分数/收据导出没有创造样本外身份。旧407TECH/11行业ACT20_BREAK只能是披露的不同正控制。
+当前真正未完成的交接条件是NO60自身2023末实际终态及其收口、两生成类的2024显式state import适配/0事件核同、后续首日实际账户/恢复证据和单独经济grant。不能把已完成的数据gate称为账户技术/金融全通过；也不把2024后续准备当当前已完成两个full的前置门。

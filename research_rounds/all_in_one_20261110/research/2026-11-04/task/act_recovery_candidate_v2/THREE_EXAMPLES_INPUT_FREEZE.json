@@ -1,0 +1,22 @@
+{
+  "before_original_market_constructor_and_sample_price_arithmetic": true,
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/act_recovery_candidate_v2/THREE_TRUE_PVR_SAMPLES_FREEZE.json": "4825359b4bb5b8f2d87f1f279ee7331f6373463cd847a3fcac3d77fd3641004e",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/manifest.json": "a2649ed5e3debd412dd8b5df0f35244cb8249275b8e23d6739ee3bf7330a8e1a",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/bars/300085.SZ.parquet": "5c4cd72373faca5e45cb87b7e3b0d0fcfadc05a6f62e2da9b80a10c3e6fb886e",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/actions/300085.SZ.json": "c7a2c5aa8ccd6610a920651831d7ba97ce2ca1e8560be392f9fed8bb8c765de8",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-act-comparison-20261027/execution-rules-v2.json": "e54d23fb4be1740415364e757d300231c3871a99de43a328773cbe391eadb614",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/inputs-v2/economic-protocol.json": "fc0d87436cae4c18019da7049979057903419682916afd287e9757dd46d8d339",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/temperature-sizing-20261026/code/fast_market.py": "55f9ccf4085ace9f476afde4d29f250f7317dea405cbd9dffa69f5d7e366f36a",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/temperature-sizing-20261026/code/common.py": "ec3d0769d238821ea49a91d4ba9d2f29bd2f52c93216ca993767b6790607c4a2",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/ix-a-share-entry-20261025/code/multi_runner.py": "8272c400fcee074a3902db9430dcf22d7ea3f0e0b3abb3caed3dc1e2a344d285",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py": "48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/current_pool_bridge.py": "a483e213ec18a4065323a8b4c1d85e2443724700b7a421a4aa682e757f1ae805",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/market_rules.py": "2fe02c28d30b9202a627acb5541c8ef917a6fb92953494a467148ed5f83f5cdb",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261027-153013-2ffe04/prepared/facts/300085.SZ.parquet": "3762c08f6da37874da1c75600b1222e12a65721104375b67565497b91681a767",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/signals/300085.SZ.parquet": "fc4dd6bae5b058256735f9fdd98a1cc16962afd1355ba7a81fed4ec4cecc1d51",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/inputs/stock-receipts/300085.SZ.json": "72911c4a6844e38b4d787783f72c875c1479dd5ae59ef775667e768e0440d701",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1/pair/daily.jsonl.gz": "f2caf179bbde4611351ff48bbded94ee45e0a252f1fa94cc5729874a9fb4f516",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/act_recovery_candidate_v2/check_three_minimum_examples.py": "44bee92bfac45015b300d66294871009cf0f9e16e0ac6f8df7328e541676797d"
+  }
+}

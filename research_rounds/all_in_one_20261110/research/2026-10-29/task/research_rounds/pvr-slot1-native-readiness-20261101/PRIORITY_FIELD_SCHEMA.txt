@@ -1,0 +1,10 @@
+PVR_SLOT1 mode only:
+opportunities.rank = unchanged original full-stock H1 ordinal (zero-based).
+intent.score = unchanged original H1 numeric score used by original native code.
+intent.original_H1_rank = original full-stock H1 ordinal, retained separately.
+intent.priority_rank = once-frozen new native execution key, drawn from the original distinct-candidate slot keys (gaps preserved).
+intent.rank = compatibility alias of priority_rank, consumed by UNCHANGED J.Runner.opening. This field is NOT the original H1 key in PVR_SLOT1 mode.
+PVR_score/PVR_ready/priority_policy = current decision-only score/support and exact policy identity.
+rank-policy sidecar original_slot/final_slot = zero-based distinct-stock candidate-list positions; core/mobile of one stock share a slot.
+All fields persist in original pending and decision snapshot; checkpoint retains both keys. Opening never reads/recomputes PVR.
+H1/off mode adds no fields and reproduces saved original streams exactly.

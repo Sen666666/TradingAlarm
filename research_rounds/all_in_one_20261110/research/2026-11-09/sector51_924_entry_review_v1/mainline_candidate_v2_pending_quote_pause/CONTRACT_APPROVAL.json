@@ -1,0 +1,11 @@
+{
+  "approved": true,
+  "reviewer": "/root/research_sector_entry/audit_joint_sector_account",
+  "review": "Static admission PASS; independent 39 synthetic tests and 18 identical economic method objects. Prior18days17families exact replay must pass before continuation.",
+  "audited_engine_sha256": "53c4c86765d7bd664d7967b2db1d9dd4181f27e7874acc8bfea6a68002ed67a4",
+  "final_engine_sha256": "21434c3c5ab54c5aeac247a4893edad707c848dfc7f02b3b78c7a224531452cb",
+  "contract_sha256": "056e311f9956bf08e9a19abc751c926f29b8cbf2e3043ad9bd3ec981c343fed7",
+  "synthetic_result_sha256": "da04380b823803dbc577eb3e6ec81cbc84a6cd9f968afa3ca2a470c952a72fce",
+  "final_difference": "Only cancelled-ticket gap audit records retained in three cancellation paths; inactive gap cleanup, no order/eligibility/capital change. Reviewer notified with exact final hash.",
+  "explicit_semantic_extension_not_fact_only": true
+}

@@ -1,0 +1,24 @@
+{
+  "long": {
+    "all_original_B_positive_stocks": 259,
+    "D_unbought_B_positive": 63,
+    "D_buycash_reduced_B_positive": 107,
+    "D_buycash_increased_B_positive": 83,
+    "D_new_actual_funded_stocks": 194,
+    "D_new_positive_stocks": 54,
+    "D_new_stock_net": "-49412.68955263280550000000000",
+    "source": "archivedNo60 current1709 pool, not old407 PVR pool",
+    "semantics": "All are posthoc complete paths, never signals or avoidable/lost-profit causal alpha. Buycash is actual fee-inclusive turnover, not current/max capital weight."
+  },
+  "strong": {
+    "all_original_B_positive_stocks": 232,
+    "D_unbought_B_positive": 13,
+    "D_buycash_reduced_B_positive": 46,
+    "D_buycash_increased_B_positive": 32,
+    "D_new_actual_funded_stocks": 44,
+    "D_new_positive_stocks": 8,
+    "D_new_stock_net": "-19144.5624885434410",
+    "source": "archivedNo60 current1709 pool, not old407 PVR pool",
+    "semantics": "All are posthoc complete paths, never signals or avoidable/lost-profit causal alpha. Buycash is actual fee-inclusive turnover, not current/max capital weight."
+  }
+}

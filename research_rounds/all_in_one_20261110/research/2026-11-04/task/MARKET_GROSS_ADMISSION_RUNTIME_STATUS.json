@@ -1,0 +1,71 @@
+{
+  "updated_UTC": "2026-11-04T19:44:52.517384+00:00",
+  "stage": "COMPLETE_INDEPENDENTLY_REVIEWED_NOT_PROMOTED",
+  "candidate": "D_GROSS10",
+  "formula_card": "MARKET_GROSS_ADMISSION_CARD_V1.txt",
+  "executed_control_B": false,
+  "control": "Archived same-window No60 complete gold, original same data/helper/fee/ledger sources exact.",
+  "windows": {
+    "long": {
+      "start": "2022-01-04",
+      "end": "2024-12-31",
+      "closes": 726,
+      "initial_CNY": 1000000,
+      "native_session": 47009,
+      "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1",
+      "last_observed_native_checkpoint": "2024-12-31 15:10:00+08:00",
+      "complete": true,
+      "NAV_not_observed_until_complete": false,
+      "terminal_NAV": "718642.0995626711180",
+      "return_pct": "-28.135790043732888200",
+      "close_MDD_pct": "31.10677552829663746484415460",
+      "fees_CNY": "33411.4954773288820",
+      "financial_deep_audit": "PASS47124318…ebfd0",
+      "actual_clock_source_audit": "PASS09bb2398…dde1fc7"
+    },
+    "strong": {
+      "start": "2025-07-01",
+      "end": "2026-06-30",
+      "closes": 242,
+      "initial_CNY": 1000000,
+      "native_session": 52124,
+      "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-strong-v1",
+      "complete": true,
+      "reported_terminal_NAV": "2214709.4121679261815",
+      "reported_return_pct": "121.4709412168",
+      "independently_extracted_close_MDD_pct": "11.65952365",
+      "independently_extracted_fees_CNY": "21615.777087",
+      "financial_deep_audit": "PASS47124318…ebfd0",
+      "actual_clock_source_audit": "PASS416e7a7d…1732a"
+    }
+  },
+  "passed_before_full": [
+    "Small48 financial daily bridges,559 atomic snapshots,13actualDOWN reserve/fill; ledger200efb19…35e24",
+    "Small technical2b2865f2…1f11; provider v1 outside-domain FAIL preserved, v2 zero-account same actual callback proof",
+    "Full preparation a4551737…58275,1936 planned OPEN/CLOSE independently exact,source55/51 before rootgrants"
+  ],
+  "current_analysis": "market_gross_admission_outcome_analysis_v1",
+  "full_finance_review": "market_gross_admission_full_ledger_review_v1",
+  "next": [
+    "No D_GROSS10 alpha tuning or new full runs",
+    "Keep audited adverse/recovery findings as inputs to E0/CP1 authorization and mobile new-risk research",
+    "Portfolio-health formula stopped at logic review; industry raw-proposal hypothesis stopped at source/field readiness, no new pipeline"
+  ],
+  "scopes": [
+    "Each window fresh1m, long internal years continuous; do not stitch wealth across gap",
+    "1709current snapshot A-share development universe, no PIT/OOS/HK/1200000CNY actual path acceptance",
+    "Original daily-bar execution proxy; no real trading, publishing or external communication"
+  ],
+  "previous_families_stopped": [
+    "CAPACITY_COST_GUARD_DECISION.txt",
+    "TREND_CONFIRMATION_DECISION.txt"
+  ],
+  "supporting_diagnosis": [
+    "ma63_down_replenishment_review_v1/SAVED_PERIOD_WEALTH_AUDIT.json915dc0b9…09a2b",
+    "carry_exit_responsibility_review_v1/AUDIT.json68a58a27…97cc610"
+  ],
+  "derived_key_audit": "PASS3017f200…f7254d",
+  "full_economic_runs_remaining": 0,
+  "decision": "MARKET_GROSS_ADMISSION_DECISION.txt",
+  "new_hypotheses_implemented": false
+}

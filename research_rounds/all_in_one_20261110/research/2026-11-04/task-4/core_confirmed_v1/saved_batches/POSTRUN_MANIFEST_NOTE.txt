@@ -1,0 +1,1 @@
+The in-process output manifest preceded stdout flush into run.log. This saved-only finalization preserves that manifest and rebinds the complete flushed log plus SAVED_BATCH_COMPARISON. No input, policy, allocation result or route was changed or recomputed.

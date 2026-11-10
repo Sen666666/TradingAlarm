@@ -1,0 +1,176 @@
+Budget.nav
+ def nav(self):return super().nav+self.receivable_equity
+
+Account.sync
+ def sync(self,at,*,pending_ack=False):
+  # Only native callbacks may change actual inventory. The mirror's existing
+  # lot units must not be silently repaired by rebuilding it from the ledger.
+  # Pool migration is intentionally excluded: it changes ownership of capacity,
+  # not shares/cost/protection units.
+  old_units=[(x.batch,x.stock,x.qty,x.cost,x.floor) for x in self.budget.lots]
+  if hasattr(self,'_mirror_lot_units'):assert old_units==self._mirror_lot_units,'mirror lot mutation outside native sync'
+  self.pools_from_model();b=self.budget;marks=self.market.marks(at,self.positions);bal=self.balance(at,marks);lots=[]
+  for x in self.layers:
+   if not x['qty']:continue
+   # Only the last decision-known core line is available at the next open.
+   # facts.row(at) contains that date's close and must not update this at open.
+   meta=self.jmeta[x['id']];sid=x['sid'];factor=self.facts.factor(sid,at);floor=D(str(meta['last_core_line'])) if x['kind']=='core' else x['floor']
+   if floor is None:raise ValueError('unknown actual protection floor '+sid)
+   b.prices[sid]=float(marks[sid].cny_price(at));lots.append(V.Lot(str(x['id']),sid,meta['sector'],meta['episode'],meta['pool'],x['qty'],meta['unit_cost'],float(floor/factor),meta['role'],meta['attempt']))
+  b.lots=lots
+  for sid,o in self.buys.items():
+   bid=self.order_bridge[o.order_id];bo=b.orders[bid];assert bo.qty==o.remaining_shares,(sid,'budget/actual pending quantity')
+   assert abs(bo.qty*bo.limit-float(o.remaining_budget_cny))<1e-6,(sid,'mirror pending gross differs from native')
+   assert abs(bo.qty*bo.fee_per_share-float(o.fee_reserved_cny))<1e-6,(sid,'mirror pending fee differs from native')
+   bo.floor=float(self.order_meta[o.order_id]['floor']/self.facts.factor(sid,at))
+  # This is an authorization view of explicit real-ledger accounts, not a
+  # second valuation engine and not a residual forced to match NAV.
+  b.cash=float(bal['available']+bal['order_reserved'])
+  b.receivable_equity=float(bal['sale_receivable']+bal['dividend_receivable'])
+  self.budget_at=at;self._budget_sync_pending=pending_ack
+  self.assert_budget_view(at,bal,pending_ack=pending_ack)
+  self._mirror_lot_units=[(x.batch,x.stock,x.qty,x.cost,x.floor) for x in b.lots]
+  return bal
+
+Account.assert_budget_view
+ def assert_budget_view(self,at,bal=None,*,pending_ack=False):
+  """Check explicit accounts without changing any mirror value to erase a gap.
+
+  Inventory prices are the original ledger's marks. This validates the
+  authorization representation, not an independent market-price valuation.
+  Runner.daily_bridge separately rebuilds NAV from actual trade cashflows.
+  """
+  b=self.budget
+  if bal is None:bal=self.balance(at,self.market.marks(at,self.positions))
+  components=('available','order_reserved','settlement_locked','sale_receivable','inventory','dividend_receivable')
+  explained=sum((bal[k] for k in components),Z)-bal['payable']
+  assert abs(explained-bal['nav'])<D('.00000001'),('unexplained_native_NAV',explained,bal['nav'])
+  assert bal['settlement_locked']==bal['payable'],'native debit lock/payable mismatch'
+  inventory=sum(x.qty*b.prices[x.stock] for x in b.lots)
+  reserve=b.resources()[2]
+  differences=dict(native_NAV=float(explained-bal['nav']),inventory=inventory-float(bal['inventory']),
+   cash=b.cash-float(bal['available']+bal['order_reserved']),
+   receivables=b.receivable_equity-float(bal['sale_receivable']+bal['dividend_receivable']),
+   NAV=b.nav-float(bal['nav']))
+  if not pending_ack:
+   differences.update(reserve=reserve-float(bal['order_reserved']),spendable=b.cash-reserve-float(bal['available']))
+  for name,gap in differences.items():assert abs(gap)<1e-6,('authorization_view_gap',name,gap)
+  for sid in set(self.positions)|{x.stock for x in b.lots}:
+   assert sum(x.qty for x in b.lots if x.stock==sid)==self.quantity(sid),(sid,'mirror inventory quantity')
+  self.sync_rows.append(dict(at=at,components={k:bal[k] for k in components+('payable','nav')},differences=differences,
+   pending_cancel_ack=pending_ack,role='authoritative ledger authorization view; journal NAV checked separately'))
+  return differences
+
+Account.cancel_buy
+ def cancel_buy(self,sid):
+  real=self.buys.get(sid);bid=self.order_bridge.get(real.order_id) if real else None
+  if getattr(self,'_buy_filling',None)==sid:
+   if bid:self._deferred_buy_cancels.append(bid)
+   return super().cancel_buy(sid)
+  if bid:self.budget.cancel(bid)
+  result=super().cancel_buy(sid)
+  if bid:self.budget.cancel_ack(bid);self.pools_from_model();self.journal.append(dict(kind='cancel_ack',at=self.as_of,sid=sid,budget_order=bid))
+  return result
+
+Account.fill_buy
+ def fill_buy(self,sid,w):
+  real=self.buys.get(sid);i=self.order_meta[real.order_id] if real else None;bid=self.order_bridge.get(real.order_id) if real else None;self._buy_filling=sid;self._deferred_buy_cancels=[]
+  try:r=super().fill_buy(sid,w)
+  finally:self._buy_filling=None
+  if r:
+   bo=self.budget.orders[bid];price=float(r.gross_cny/D(r.shares));floor=float(i['floor']/self.facts.factor(sid,w.at));assert price<=bo.limit+1e-8
+   x=self.layers[-1];self.jmeta[x['id']]=dict(sector=bo.sector,episode=bo.episode,pool=bo.pool,role=bo.role,attempt=bo.attempt,unit_cost=price,last_core_line=str(i['floor']),stock_structure=getattr(self.facts,'structure_lookup',{}).get(sid,{}).get(i['clock'].decision_at.date()),budget_order=bid)
+   self.budget.loss(bo.sector,bo.episode,float(r.fees_cny))
+   bo.qty-=r.shares
+   if not bo.qty:bo.status='filled'
+   elif sid in self.buys:
+    # The real partial fill has consumed principal and incremental fee once.
+    # Update only this actual order callback; generic sync asserts the bridge.
+    remaining=self.buys[sid]
+    assert bo.qty==remaining.remaining_shares
+    bo.limit=float(remaining.remaining_budget_cny/D(bo.qty))
+    bo.fee_per_share=float(remaining.fee_reserved_cny/D(bo.qty))
+   self.journal.append(dict(kind='real_buy_fill',at=w.at,sid=sid,layer=x['id'],budget_order=bid,shares=r.shares,price=r.gross_cny/D(r.shares),fees=r.fees_cny,pool=bo.pool,role=bo.role,attempt=bo.attempt,signal_at=i['clock'].decision_at,CP1_id=i.get('CP1_id')))
+  if r:self.sync(w.at,pending_ack=bool(self._deferred_buy_cancels))  # Actual lot/NAV first; no admission until ack.
+  # Native full fills call cancel_buy internally to return residual reserve.
+  # Mirror the actual fill first, then acknowledge only the actual remainder.
+  for cancelled in self._deferred_buy_cancels:
+   if self.budget.orders[cancelled].qty:self.budget.cancel(cancelled)
+   self.budget.cancel_ack(cancelled);self.pools_from_model()
+  self.sync(w.at)
+  return r
+
+Account.split
+ def split(self,**kw):
+  sid=kw['sid'];real=self.buys.get(sid);bid=self.order_bridge.get(real.order_id) if real else None
+  before=None
+  if bid:
+   bo=self.budget.orders[bid]
+   before=dict(quantity=bo.qty,limit=bo.limit,floor=bo.floor,reserve=bo.qty*(bo.limit+bo.fee_per_share))
+  super().split(**kw)
+  for x in self.live(sid):self.jmeta[x['id']]['unit_cost']/=float(kw['ratio'])
+  if bid:
+   # The native split is authoritative for legal integer remaining shares.
+   # Monetary gross/fee reservations stay unchanged; only per-share units
+   # change. Adjusted protection stays in order_meta and is divided by the
+   # actual factor on the next sync. No order/receipt is recreated.
+   bo=self.budget.orders[bid];real=self.buys[sid];bo.qty=real.remaining_shares
+   if bo.qty:
+    bo.limit=float(real.remaining_budget_cny/D(bo.qty));bo.fee_per_share=float(real.fee_reserved_cny/D(bo.qty))
+    bo.floor/=float(kw['ratio'])
+   else:bo.status='cancel_pending'
+   assert abs(bo.qty*(bo.limit+bo.fee_per_share)-float(real.remaining_budget_cny+real.fee_reserved_cny))<1e-6
+  self.journal.append(dict(kind='actual_split',**kw,budget_pending_before=before,
+   budget_pending_after=dict(quantity=bo.qty,limit=bo.limit,floor=bo.floor) if bid else None))
+
+Runner.industry
+ def industry(self,a,at):
+  day=gidday(at);bar=ordinal(day);b=a.budget
+  for sector,rows in self.industry_rows.items():
+   r=rows[day];ep=r['E0_episode'];current=b.sectors.get(sector)
+   if r['E0_valid'] and (not current or current.episode!=ep):b.start(sector,ep,self.episode_starts[ep])
+   if sector not in b.sectors:continue
+   if not r['E0_valid'] or r['action']=='end_attempt':
+    b.observe(sector,bar,failure=True);result='invalidated'
+   elif r['receipt']:
+    cp=self.industry_cp[sector+'|'+day];tok=V.Evidence(cp['receipt_id'],sector,'industry_cp1','21',ordinal(cp['formation_start_exclusive']),bar,bar,b.sectors[sector].episode)
+    result=b.observe(sector,bar,token=tok)
+   else:result='unchanged'
+   a.pools_from_model()
+   for sid,real in tuple(a.buys.items()):
+    bid=a.order_bridge[real.order_id]
+    if b.orders[bid].status=='cancel_pending':a.cancel_buy(sid)
+   a.sync(at)
+   if result!='unchanged':self.stage_events.append(dict(account=a.label,day=day,sector=sector,market_stage=r['stage_name'],result=result,episode=b.sectors[sector].episode,attempt=b.sectors[sector].attempt,financial_level=b.sectors[sector].level))
+
+Runner.route
+ def route(self,a,i,x,at):
+  b=a.budget;sid=i['sid'];sector=self.sector_by_sid[sid];s=b.sectors.get(sector);bar=ordinal(i['clock'].decision_at.date());role=i['role'];p=float(x['price']);floor=float(x['floor']);rule=x['rule'];maxq=x['maxq'];rid=i.get('CP1_id');token=None
+  if not s or not s.active:return None,'industry_invalidated'
+  if role=='mobile':
+   cp=i['CP1_trace'];token=V.Evidence(rid,sector,'stock_cp1','21',ordinal(cp['formation_start_exclusive']),bar,bar,s.episode,sid,s.attempt)
+   if not b.valid(token,'stock_cp1',bar) or rid in b.consumed:return None,'no_fresh_stock_CP1'
+  assert not getattr(a,'_budget_sync_pending',False),'cannot admit during unacknowledged ledger callback'
+  routes=['probe']
+  if role=='mobile' and b.expand and s.level>0:
+   if b.migrate(sector):a.pools_from_model();routes.append('confirmed')
+  results=[];reasons={}
+  for pool in routes:
+   pc,pr,_=b.resources(pool);sc,sr,_=b.resources(sector=sector);_,ar,reserve=b.resources();pending_fees=sum(o.qty*o.fee_per_share for o in b.orders.values() if o.status in ['open','cancel_pending']);frac=.02 if pool=='probe' else (.02,.1,.2)[s.level]
+   def allowed(q,detail=False):
+    fee=float(LR.fees(q,x['price'],x['schedule'],'buy',i['quote'].par_value));nav=b.nav-pending_fees-fee;cap=q*p;risk=q*max(0.,p-floor);fails=[]
+    if cap+fee>min(float(a.available-a.current_nav*D('.1')),b.cash-reserve)+1e-9:fails.append('cash_or_original_reserve')
+    if pc+cap>(.10 if pool=='probe' else .60)*nav+1e-9:fails.append('pool_capital')
+    if pool=='probe' and pr+risk>.005*nav+1e-9:fails.append('probe_risk')
+    if sc+cap>frac*nav+1e-9:fails.append('sector_capital')
+    if sr+risk>.01*nav+1e-9:fails.append('sector_risk')
+    if ar+risk>.03*nav+1e-9:fails.append('account_risk')
+    known_open=x.get('known_open',x['price']/(D(1)+LR.SLIP));held_at_open=float(a.quantity(sid))*float(known_open)
+    if held_at_open+cap>.10*float(a.current_nav)+1e-9:fails.append('stock_capital')
+    return fails if detail else not fails
+   q=LR.maximum_quantity(rule,maxq,allowed);results.append((q,pool));reasons[pool]=allowed(rule.buy_minimum,True)
+  # Maximum legal quantity, probe wins a tie. No split order or speculative consume.
+  q,pool=max(results,key=lambda z:(z[0],z[1]=='probe'))
+  if not q:return None,','.join(sorted(set(sum(reasons.values(),[])))) or 'minimum_unit_not_funded'
+  bid=f"{a.label}|{i['clock'].decision_at.isoformat()}|{sid}|{role}";fee=LR.fees(q,x['price'],x['schedule'],'buy',i['quote'].par_value);result=b.request(bid,sid,sector,q,p,floor,token,bar,float(fee/D(q)),probe_request=pool=='probe',role=role,order_expiry_bar=ordinal(at.date()),core_epoch_locked=role=='core' and a.core_epoch.get(sid)==i['epoch']);assert result=='reserved',(bid,result,reasons)
+  i.update(budget_order=bid,pool=pool);return(q,pool),None

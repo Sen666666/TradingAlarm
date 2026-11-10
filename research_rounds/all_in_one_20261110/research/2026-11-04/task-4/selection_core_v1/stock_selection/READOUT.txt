@@ -1,0 +1,28 @@
+下面是冻结前设计提案，现已由 ../FROZEN_STATIC_DIAGNOSTIC.txt 取代；本次获准三日静态诊断已完成，先读STATIC_DIAGNOSTIC_READOUT.txt。不得用下文旧流动性/候选阶段/START建议替实际冻结参数。
+
+父最新主候选（替代初稿权重）：
+S*=.4同日同业真PVR分位+.3同业20日RS分位+.2非正prior20高点回撤分位+.1成交额变化分位。
+建议精确输入：RS20=ln(Ct/Ct-20)−ln(It/It-20)；D20=min(0,ln(Ct/max(High_t-20:t-1)))，高点排除T、使用同尺度调整High；A21=ln(amount_t/median(amount_t-21:t-1))。突破高点以上D20均为0，不额外奖励离高点越远。所有窗口共同CSI300会话、同source segment，缺失不压缩、不填0。
+
+最重要的反向核查：
+1. 原trade.pvr/intent.score是H1兼容字段，不能代S*的真PVR。真PVR只能取该时期绑定score缓存score列/intent.PVR_score/rank-policy.PVR，且ready/source/公式一致。若只查到旧H1，真PVR及S*未知。
+2. 同业RS20排名与该同业股票20日自身收益排名完全相同：减的是共同常数，未新增行业信息。行业相对CSI300强度应单独呈现，不能重复记一份证据。
+3. 真PVR已含b=tanh(A21)、21日价量能量；S*的amount变化不是PVR之外独立的新增量信息，另三个价项也相关。S*只是待验证的固定价量再组合，不能预设.4 PVR正确。
+
+最低流动性建议待根冻结：当日原真实有效价量且amount单位已证CNY；此前21个共同会话amount全有效、同segment，median>=20,000,000 CNY。不另加若干“近5天”门以免平白扩参数。此阈值只是研究地板，不认证冲击成本或最小手可成交。未知单位/缺窗=资格未知；不能按0成交额淘汰再隐去记录。
+
+原合法候选必须先定义所在阶段：core_Q/mobile_Q只是原信号门，不能当作完整可下单；原intents则可能已经被资金、epoch/凭据、slot和行业约束裁剪。正式S*只能使用根冻结的同一合法阶段记录，缺原记录=unknown，不从E0/I/CP自行重建完整合法性。对静态池做的另名SSTAR_STATIC_CONDITIONAL不能冒充历史全市场合法候选榜。
+
+分位建议：同日、同原静态行业、唯一SID的原合法且流动性合格并四输入完整集合内，p=(average_rank_ascending−.5)/N；所有四项使用同一完整集合/同一N。不把CORE和MOBILE两个角色重复算两只股；同分保留原顺序再SID稳定。任一项缺失=S*未知，不重分权重、不补H1或0，也不把未知隐排最末。
+
+两个通道不凭账户是否曾买入命名：
+START：原native E0_target当日0→1（同segment上一真实原状态已知，双方e0_ready已就绪）；不能把暖机默认0、任一event=+1高低点或I epoch改变当新E0。
+CONTINUE：原E0_target=1且不属于上述首启动日。上一原状态缺失则通道unknown。
+两通道各出同业榜，不预设固定资金配额，不跨榜混比。E0启动但原I/CP及原角色尚不授权时，只是START_WATCH，不成为S*正式合法候选；ranking本身不能绕过原CORE/MOBILE条件或把persistent I_target每天当新买点。
+
+主动替代B（仅设计，不另跑多方案）：资格及通道保持完全相同；不以PVR为.4既定正确权重，不加权相抵。START先按同业pRS5、D20、A21、pRS20字典序；CONTINUE先pRS5/pRS20二维Pareto层，再min(pRS5,pRS20)、D20、A21稳定排序。amount只在资格和同层并列参与，不能用成交额大幅补偿弱趋势。B是有明确失败情形的待证结构替代，非已证更好；见DESIGN.txt。
+
+T当日一价只用当日收盘前已完成raw OHLC精确相同标记，不冒称涨停/跌停。next会话价/能否成交在T未知，不用次日OHLC回选T名单。当前源缺真实limit/suspend/盘口状态；次日只可描述已存日线状态，不能证fill。rank资格不生成订单、不重复消费CP，实际资金/风险/单位/次日价格复核全部不在本次研究中改动。
+
+当前只先取证的三个父指定日：2024-09-24、2026-01-15、2022-01-24；旧H1由rules负责。本目录未计算这些日的S*。
+形式PIT历史榜=UNKNOWN；已有1709静态池/90行业数据可支持明确条件化诊断，不是历史全市场。完整窗口/角色/缺失/排重方案待根一次冻结，不能看结果后换定义。

@@ -1,0 +1,72 @@
+--- frozen-CP1-adapter
++++ W-family-adapter
+@@ -1,4 +1,4 @@
+-from cp_common import *
++from fw_common import *
+ from dataclasses import replace
+ from decimal import Decimal as D
+ import math
+@@ -10,14 +10,13 @@
+   sys.path.insert(0,str(LOCAL/'code'));prior=load('integration_original_drug',LOCAL/'code/study.py');prior.setup(root,cutoff);Q,R,E=prior.Q,prior.R,prior.E
+  if cutoff:E.risk_policy.RECOVERY=E.risk_policy.RECOVERY.loc[:cutoff].copy()
+  Parent=Q.Account;old_risk=Q.old_override
+- amt={sid:pd.read_parquet(SA/'signals'/sector/f'{sid}.parquet').loc[:cutoff] for sid in pool(sector).symbol}
+  cp={sid:pd.read_parquet(cpdir(sector)/f'{sid}.parquet').loc[:cutoff] for sid in pool(sector).symbol}
+  class Account(Parent):
+   def __init__(self,*args,**kw):
+    super().__init__(*args,**kw);self.cp_states={};self.cp_seq=0
+   def reserve_budget(self,**kw):
+    mode=self.mode
+-   if mode=='WCP':self.mode='SW3F'
++   if mode in WINDOWS:self.mode='SW3F' if WINDOWS[mode]==3 else 'SW10F'
+    try:return super().reserve_budget(**kw)
+    finally:self.mode=mode
+   def fill_buy(self,sid,w):
+@@ -33,11 +32,11 @@
+    return filled
+ 
+  def waiting(a,stocks,clock,Fact):
+-  at=clock.decision_at;day=pd.Timestamp(at.date());j=Q.SESS.index(day)
++  at=clock.decision_at;day=pd.Timestamp(at.date());j=Q.SESS.index(day);L=WINDOWS[a.mode];use_s=a.mode in STRICT_CP
+   if not hasattr(a,'watch'):a.watch={};a.previous_q={};a.fast_floor={};a.fast_anchor={}
+   sector_map={s.sector_id:s for s in a.facts.packet(at,'I')[2]};market=a.market.market_buyable(at);result=[]
+   for s in stocks:
+-   sid=s.security_id;r=a.facts.row(sid,at);today=r is not None and day in a.facts.f[sid].index;held=bool(a.quantity(sid));ok=Q.strict(sid,day)
++   sid=s.security_id;r=a.facts.row(sid,at);today=r is not None and day in a.facts.f[sid].index;held=bool(a.quantity(sid));ok=Q.strict(sid,day) if use_s else True
+    if not ok:s=replace(s,buy_allowed=Fact(False,at,at,source_id='strict_e0_entry_only'))
+    q=E.admission.eligibility(s,sector_map,clock,'S0').q is True;prev=a.previous_q.get(sid,False);a.previous_q[sid]=q
+    z=Q.FAST[sid].loc[day] if day in Q.FAST[sid].index else None
+@@ -46,7 +45,7 @@
+    if w:
+     previous=w
+     if held:w=None;reason='filled'
+-    else:w,reason=Q.advance(w,day=str(day.date()),j=j,L=3,close=float(r.close) if r is not None else float('nan'),old_floor=float(r.i_floor) if r is not None else float('nan'),event=float(z.event) if z is not None else 0,pivot=float(z.pivot) if z is not None else float('nan'),pivot_date=str(z.pivot_date) if z is not None else '',valid=valid,segment=str(r.segment_id) if r is not None else '',on=a.risk_state['on'])
++    else:w,reason=Q.advance(w,day=str(day.date()),j=j,L=L,close=float(r.close) if r is not None else float('nan'),old_floor=float(r.i_floor) if r is not None else float('nan'),event=float(z.event) if z is not None else 0,pivot=float(z.pivot) if z is not None else float('nan'),pivot_date=str(z.pivot_date) if z is not None else '',valid=valid,segment=str(r.segment_id) if r is not None else '',on=a.risk_state['on'])
+     if reason:
+      a.log('intent_end',at,sid=sid,origin=previous['day'],reason=reason,age=j-previous['j'],floor=previous['floor']);a.watch.pop(sid,None);cancelled=reason in ['waiting_floor_breach','updated_floor_breach','structure_or_source','risk_pause']
+     else:
+@@ -61,13 +60,12 @@
+ 
+  def override(a,stocks,clock,mode,Fact):
+   if a.mode in ['ACT','S','SF']:return Q.control_override(a,stocks,clock,mode,Fact)
+-  if a.mode=='SW3F':return Q.override(a,stocks,clock,mode,Fact)
++  if a.mode in ['SW3F','SW10F']:return Q.override(a,stocks,clock,mode,Fact)
+   at=clock.decision_at;day=pd.Timestamp(at.date())
+-  if a.mode=='WCP':stocks=waiting(a,stocks,clock,Fact)
+-  elif a.mode in ['SCP','SAMT','MCP']:
+-   strict=amt if a.mode in ['SAMT','MCP'] else Q.STRICT
++  if a.mode in WINDOWS:stocks=waiting(a,stocks,clock,Fact)
++  elif a.mode=='SCP':
++   strict=Q.STRICT
+    stocks=tuple(replace(s,buy_allowed=Fact(False,at,at,source_id='strict_e0_entry_only')) if day not in strict[s.security_id].index or not bool(strict[s.security_id].loc[day,'strict_target']) else s for s in stocks)
+-  if a.mode=='SAMT':return old_risk(a,stocks,clock,mode,Fact)
+   result=[]
+   for s in stocks:
+    sid=s.security_id
+@@ -98,5 +96,5 @@
+   for path,h in read(O/'freeze.json')['sha256'].items():assert sha(path)==h,path
+  end='2024-03-13' if stage=='short' else '2026-06-30' if stage=='prefix' else END
+  R=setup(sector,root,end if stage=='prefix' else None)
+- R.run(root/({'short':'technical/short-v2','prefix':'technical/prefix','economic':'accounts-v2'}[stage]),modes=MODES,stresses=['base','cost2','delay1'],start='2023-12-29',end=end,cutoff=end if stage=='prefix' else None,technical=stage!='economic')
++ R.run(root/({'short':'technical/short-v2','prefix':'technical/prefix','economic':'accounts-v2'}[stage]),modes=run_modes(sector,stage),stresses=['base','cost2','delay1'],start='2023-12-29',end=end,cutoff=end if stage=='prefix' else None,technical=stage!='economic')
+ if __name__=='__main__':main(*sys.argv[1:])

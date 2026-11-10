@@ -1,0 +1,38 @@
+{
+  "completed": true,
+  "blockers": [],
+  "reviewed_budget_source_hashes_unchanged": true,
+  "budget_tests": 15,
+  "joint_tests": 10,
+  "successful_economic_paths": 2,
+  "failed_technical_partial_retained": "failed-pair-core-open-floor",
+  "pure_replay_seconds": 6.483812541235238,
+  "account_days": 364,
+  "max_daily_differences": {
+    "independent_NAV_difference": 0.0,
+    "budget_NAV_difference": 0.0,
+    "spendable_difference": 0.0,
+    "reserved_difference": 0.0,
+    "capital_occupancy_difference": 0.0,
+    "maximum_stock_quantity_difference": 0.0
+  },
+  "three_checkpoints": [
+    "checkpoint-2025-12-31.pkl",
+    "checkpoint-2026-03-31.pkl",
+    "checkpoint-2025-09-30.pkl"
+  ],
+  "no_other_policy_matrix": true,
+  "no_product_or_real_trade_changes": true,
+  "deliverables_sha256": {
+    "joint.py": "d9e4a7214e706b9d98ff4e21950a00f31e304c8e2388e0afb7ae246c7ace9f18",
+    "run_pair.py": "325ce3e436becbaa388fb155f8ad3c119869dc77e9e06299d094cdc5ee71410e",
+    "INTEGRATION_CONTRACT.txt": "c783e831cb64fae906996477b4a3487f2ab9330a1f5992a78570d165678ce589",
+    "FINAL_REPORT.txt": "f7505a33c520880ce92bae4e0e7734355ea14cf5dc05fa6b3ff6c4f5589708a6",
+    "KEY_ADAPTER_FUNCTIONS.txt": "5bde9e68a2fec42a9aa01c1f37ea78ad5c36392799ac3221bbe370c5e61b743a",
+    "SIX_CASE_BEHAVIOR.json": "f4b50546410461583c1990ac95cf775650713cf055eb60916180be698e960b00",
+    "FINAL_ACCOUNT_VERIFICATION.json": "fd2c2bc35fe81beb34f611d244ed5f351c221b185ff9756f336337d321b0bcf0",
+    "EXIT_REQUEST_TO_ACTUAL_FILL.json": "58ee2bd50bf9a9cd96bff0d70abcbfed2999d3f8eb77e1c324b07a3d837527ad",
+    "ACTUAL_REENTRY_FUNNEL.json": "bcb41ace87a7c1b97eb6c85de0b24eb23be4e04667fc53cee2f9c98625a55497",
+    "ACCOUNT_MECHANISM_SUMMARY.json": "dd792406b982c6a131f5505721553b07bded4e7a0b860579cd98424b475bde9e"
+  }
+}

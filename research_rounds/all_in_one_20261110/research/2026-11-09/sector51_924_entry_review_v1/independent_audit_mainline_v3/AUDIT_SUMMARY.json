@@ -1,0 +1,202 @@
+{
+  "result": "PASS",
+  "scope": "唯一M3组合小窗，2024-09-02至2024-10-08，20日。只审已完成实际账，无新参数或策略重跑。",
+  "static_admission": {
+    "approved": true,
+    "scope": "One combined M3 path 2024-09-02 through 2024-10-08, checkpoints 09-23/27/30; no parameter iteration. Missing required actual held/pending facts atomically stop.",
+    "engine_sha256": "690a3cde9121c50e5b994d79c45049441cc89a2ad47ddb478ab27ae7e05b0a7b",
+    "contract_sha256": "a1a32cc345ed87c13d76699477e27a56df1d6aca591213a0546fd635689dc6fe",
+    "synthetic_sha256": "1817b08b05de41936f848fbc4d983281127f562e47f28d9d115717df94e24b73",
+    "independent_synthetic_count": 62,
+    "old_M2_exact_replay_families": 19,
+    "old_M2_exact_replay_days": 19,
+    "old_M2_exact_replay_orders": 1509,
+    "static_checks": [
+      "14 inherited evidence/accounting/availability methods same function object",
+      "CLOSE and noncash AST differ only removed quantity cap",
+      "core first remaining ADD limited by original seed shares",
+      "reference all violated funding caps and structural gates",
+      "unknown freezing and no M UNKNOWN probe fallback",
+      "T stress net sale fees, receivable exclusion, no fictitious cash",
+      "dynamic CLOSE request reservations; frozen OPEN ranks and maximum q",
+      "mandatory exit priority, real net donor cash, T1 and sale-only-shrink",
+      "all new reference states/logs in atomic rollback",
+      "full common calendar: September 30 plans use October 8"
+    ],
+    "correction": "Non-M W ADD donor order restored to old bought/date order before approval; largest surplus applies only tier3 M donor.",
+    "limitations": [
+      "Combined strategy experiment, not single factor attribution",
+      "New ADD capital not funded or risk-covered by small prior profits",
+      "Raw OPEN +/-5bp is conditional cost proxy, not execution certification",
+      "Current fixed roster/classification and retrospective fact assembly are not PIT"
+    ]
+  },
+  "checks": {
+    "source_M_QSF": 41032,
+    "core_reference": 61732,
+    "information_CP": 13460,
+    "queue_financing": 69241,
+    "risk": 472,
+    "actual_ledger": {
+      "mainline_candidate_v2_pending_quote_pause_checkpoint_20240930_RECONCILIATION.json": 25817,
+      "m2_fact_extension_20241008_account_20241008_RECONCILIATION.json": 27128,
+      "mainline_candidate_v3_core_reference_once_20241008_RECONCILIATION.json": 22695,
+      "mainline_candidate_v3_core_reference_checkpoint_20240923_RECONCILIATION.json": 12227
+    }
+  },
+  "findings": [
+    "M3原模式19日19族精确迁移通过；四检查点的17个日期日志族均为最终20日账的完全相同前缀。",
+    "原始SEED等量的首剩余ADD核心上限逐lot成立，巨大首ADD没有被全层误算为核心。冻结/机动、应收扣除和全机动净卖费压力逐笔复核，独立解析水位法验证T。",
+    "动态CLOSE每请求重排、合法数量、供出顺序与净现金缺口成立；OPEN只用冻结参与者和上限，真实净卖款到账后才买，全资本不足项保留策略符合合同。",
+    "M3 9/23仓35.9757%，M2为19.2952%；9/27半导体及动力电池仍均0，9/30才实际进入。",
+    "M3 9/30半导体3笔最小SEED共买款16647.38元、日末1.1859%；动力电池日末5.5130%。10/8半导体3.8116%、动力电池6.0079%。这不是少数主线集中方案的通过证明。",
+    "同10/8 M3 NAV1543879.5546，M2事实续版1539532.5604，仅多4346.9943元；M3费用7909.8349比M2少396.7165元。",
+    "机会成本：10/8软件M3仓8.8077%而M2 13.2135%；证券保险M3 7.0093%而M2 25.5846%。行业贡献及全部50行业明细保留，不能只列新进入方向。",
+    "67笔ADD中62笔新增层已知保护价假设损失大于加前利润，最大5688.7868元。2%/4%仍是新增本金槽，不是利润融资或风险上限。",
+    "原证券9/6+9/9仍35信号/30实轮/5未入，30闭合净−237.992529；未偷换为新证券保险52只口径。",
+    "10/8半导体两ADD和一SEED的OPEN+5bp成本代理价均高于日高。日线有量不证明竞价可成交，也不能据此声称一定买不到；实际撮合未认证。",
+    "M2/M3的300870登记0股，只有有效因子桥，无虚构权益；已到账与未到账现金分别核算。"
+  ],
+  "matched_date_accounts": [
+    {
+      "day": "2024-09-23",
+      "M2": {
+        "day": "2024-09-23",
+        "cash": "960946.2317095063000",
+        "receivable": "0.000",
+        "market_value": "229746.00",
+        "NAV": "1190692.2317095063000",
+        "net_liquidation_NAV": "1189937.8237907656000",
+        "stocks": 102,
+        "shares": 11100,
+        "weight_pct": "19.29516241742402088900034774",
+        "fees_paid": "4407.4142904937000"
+      },
+      "M3": {
+        "day": "2024-09-23",
+        "cash": "774531.4174105710500",
+        "receivable": "0.000",
+        "market_value": "435215.00",
+        "NAV": "1209746.4174105710500",
+        "net_liquidation_NAV": "1208768.5553239618000",
+        "stocks": 102,
+        "shares": 29900,
+        "weight_pct": "35.97572133601071067819222126",
+        "fees_paid": "4338.0350894289500"
+      },
+      "NAV_difference": "19054.1857010647500",
+      "fee_difference": "-69.3792010647500"
+    },
+    {
+      "day": "2024-09-27",
+      "M2": {
+        "day": "2024-09-27",
+        "cash": "127860.3559986241500",
+        "receivable": "0.000000",
+        "market_value": "1192336.00",
+        "NAV": "1320196.3559986241500",
+        "net_liquidation_NAV": "1317415.8184244929500",
+        "stocks": 300,
+        "shares": 69600,
+        "weight_pct": "90.31505007435746926243205350",
+        "fees_paid": "8056.0397013758500"
+      },
+      "M3": {
+        "day": "2024-09-27",
+        "cash": "131119.5298362343000",
+        "receivable": "0.0000",
+        "market_value": "1210746.00",
+        "NAV": "1341865.5298362343000",
+        "net_liquidation_NAV": "1339361.6436814436000",
+        "stocks": 239,
+        "shares": 110300,
+        "weight_pct": "90.22856412056157666051579028",
+        "fees_paid": "6680.9011637657000"
+      },
+      "NAV_difference": "21669.1738376101500",
+      "fee_difference": "-1375.1385376101500"
+    },
+    {
+      "day": "2024-09-30",
+      "M2": {
+        "day": "2024-09-30",
+        "cash": "140226.6815535028500",
+        "receivable": "0.000000",
+        "market_value": "1299420.00",
+        "NAV": "1439646.6815535028500",
+        "net_liquidation_NAV": "1436875.7734297138500",
+        "stocks": 273,
+        "shares": 67100,
+        "weight_pct": "90.25964610968392781527103966",
+        "fees_paid": "8276.7171464971500"
+      },
+      "M3": {
+        "day": "2024-09-30",
+        "cash": "141300.7776132686500",
+        "receivable": "0.0000",
+        "market_value": "1317677.00",
+        "NAV": "1458977.7776132686500",
+        "net_liquidation_NAV": "1456145.2821645665000",
+        "stocks": 281,
+        "shares": 95700,
+        "weight_pct": "90.31508363037430321830272270",
+        "fees_paid": "7485.1778867313500"
+      },
+      "NAV_difference": "19331.0960597658000",
+      "fee_difference": "-791.5392597658000"
+    },
+    {
+      "day": "2024-10-08",
+      "M2": {
+        "day": "2024-10-08",
+        "cash": "148766.5603783995500",
+        "receivable": "0.000000",
+        "market_value": "1390766.00",
+        "NAV": "1539532.5603783995500",
+        "net_liquidation_NAV": "1536658.0238694498500",
+        "stocks": 273,
+        "shares": 66600,
+        "weight_pct": "90.33690067965601028563077065",
+        "fees_paid": "8306.5513216004500"
+      },
+      "M3": {
+        "day": "2024-10-08",
+        "cash": "160593.5546299456500",
+        "receivable": "0.0000",
+        "market_value": "1383286.00",
+        "NAV": "1543879.5546299456500",
+        "net_liquidation_NAV": "1541018.3022245619500",
+        "stocks": 275,
+        "shares": 96800,
+        "weight_pct": "89.59805160005253696498617182",
+        "fees_paid": "7909.8348700543500"
+      },
+      "NAV_difference": "4346.9942515461000",
+      "fee_difference": "-396.7164515461000"
+    }
+  ],
+  "same_signal_cohort": {
+    "signals": 35,
+    "actual": 30,
+    "not_entered": 5,
+    "closed": 30,
+    "unfinished": 0,
+    "closed_net": "-237.9925290027000"
+  },
+  "risk": {
+    "ADD_count": 67,
+    "loss_exceeds_profit": 62,
+    "maximum_incremental_known_floor_loss": "5688.78676644624299238753618",
+    "close_max_drawdown_pct": "1.391916425136107999131386040"
+  },
+  "audit_corrections": [
+    "CAPITAL_LOTS中numpy布尔False被写为字符串，独审按True/False严格解析，不以bool(string)判断。",
+    "初版独审把供出前需求快照与供出后候选净利比较，已区分阶段并计入真实卖款；初版差异单独保留，冻结引擎/账户未改。"
+  ],
+  "limitations": [
+    "非PIT固定现存样本与当前行业归属。",
+    "财务事实为研究复核准入，不声称开盘前完整可得。",
+    "成本代理与保护价假设非真实撮合或最大损失认证。",
+    "仅20日一条已授权组合路径，未验证10/9后延续或样本外稳健性。"
+  ]
+}

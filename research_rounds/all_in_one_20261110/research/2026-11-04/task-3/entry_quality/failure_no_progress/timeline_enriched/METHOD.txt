@@ -1,0 +1,4 @@
+Pure prefix join over the existing verified timeline, no valuation replay.
+Inputs: timeline/{2022_2024,strong}_DECISION_TIMELINE.json and *_COMPLETED_STOCK_CYCLES.json.
+Resolve fixed current sid->sector from the verified decision rows. For each sector sort completed full-stock cycles by actual closed_at. At each actual decision take only strict closed_at<decision_at; aggregate net trade cash, positive/negative cash, cycles, distinct stocks and recognized AR at completion. Preserve the latest exact timestamp batch as descriptions, not independent trial labels.
+All original timeline fields remain unchanged. ENRICHMENT_CHECKS binds four inputSHA. Independent review: ../../coverage_audit/INDUSTRY_PREFIX_AUDIT.json.

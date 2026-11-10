@@ -1,0 +1,88 @@
+[
+  {
+    "group": "all_old_stock_pairs",
+    "window": "long",
+    "stock_pairs": 11259,
+    "distinct_candidate_events": 4518,
+    "quadrants": {
+      "new_loss_old_loss": 6239,
+      "new_loss_old_profit": 2100,
+      "new_profit_old_loss": 1595,
+      "new_profit_old_profit": 1325
+    },
+    "capital_not_excluded_pairs": 2551,
+    "capital_not_excluded_events": 2157,
+    "capital_not_excluded_quadrants": {
+      "new_loss_old_loss": 1382,
+      "new_loss_old_profit": 440,
+      "new_profit_old_loss": 384,
+      "new_profit_old_profit": 345
+    },
+    "pure_industry_pairs": 290,
+    "required_relief_scenario_positive": 6876,
+    "no_action_admission": true
+  },
+  {
+    "group": "all_old_stock_pairs",
+    "window": "strong",
+    "stock_pairs": 6616,
+    "distinct_candidate_events": 2764,
+    "quadrants": {
+      "new_profit_old_loss": 1167,
+      "new_profit_old_profit": 1291,
+      "new_loss_old_loss": 2838,
+      "new_loss_old_profit": 1320
+    },
+    "capital_not_excluded_pairs": 1874,
+    "capital_not_excluded_events": 1544,
+    "capital_not_excluded_quadrants": {
+      "new_profit_old_profit": 435,
+      "new_loss_old_loss": 720,
+      "new_profit_old_loss": 293,
+      "new_loss_old_profit": 426
+    },
+    "pure_industry_pairs": 174,
+    "required_relief_scenario_positive": 3794,
+    "no_action_admission": true
+  },
+  {
+    "group": "fixed_COR_new_and_old_weak",
+    "window": "long",
+    "stock_pairs": 6,
+    "distinct_candidate_events": 5,
+    "quadrants": {
+      "new_loss_old_loss": 3,
+      "new_profit_old_loss": 2,
+      "new_loss_old_profit": 1
+    },
+    "capital_not_excluded_pairs": 2,
+    "capital_not_excluded_events": 2,
+    "capital_not_excluded_quadrants": {
+      "new_loss_old_loss": 2
+    },
+    "pure_industry_pairs": 0,
+    "required_relief_scenario_positive": 3,
+    "no_action_admission": true
+  },
+  {
+    "group": "fixed_COR_new_and_old_weak",
+    "window": "strong",
+    "stock_pairs": 17,
+    "distinct_candidate_events": 17,
+    "quadrants": {
+      "new_loss_old_loss": 11,
+      "new_loss_old_profit": 4,
+      "new_profit_old_profit": 1,
+      "new_profit_old_loss": 1
+    },
+    "capital_not_excluded_pairs": 4,
+    "capital_not_excluded_events": 4,
+    "capital_not_excluded_quadrants": {
+      "new_loss_old_loss": 3,
+      "new_profit_old_profit": 1
+    },
+    "pure_industry_pairs": 1,
+    "required_relief_scenario_positive": 7,
+    "no_action_admission": true
+  }
+]

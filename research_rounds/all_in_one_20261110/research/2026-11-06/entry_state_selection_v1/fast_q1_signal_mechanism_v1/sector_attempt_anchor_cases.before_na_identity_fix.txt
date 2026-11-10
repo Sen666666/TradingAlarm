@@ -1,0 +1,50 @@
+"""Independent seven-case root-span audit; source facts only, no economic labels."""
+from pathlib import Path
+import json,hashlib
+import pandas as pd,numpy as np
+O=Path(__file__).resolve().parent;R=O.parent;U=Path('/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031')
+H=Path('/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/h1.npz')
+manifest={x['symbol']:x for x in json.loads((U/'STOCK_MANIFEST.json').read_text())}
+with np.load(H,allow_pickle=False) as z:cal=pd.DatetimeIndex(z['dates'])
+cal=cal[cal<='2026-06-30'];startup=pd.read_parquet(R/'fast_entry_equity_2022_v1/STARTUP_MARKET_INPUTS.parquet');gold=pd.read_csv(O/'ANCHOR_STARTUP.csv',parse_dates=['day']);out=[];checks=[]
+for sid,g in startup.groupby('sid'):
+ m=manifest[sid];p=Path(m['refs']['facts']);rawp=Path(next(p for p in m['source_sha256'] if p.endswith('/signal.parquet')))
+ assert hashlib.sha256(p.read_bytes()).hexdigest()==m['output_sha256'][str(p)]
+ assert hashlib.sha256(rawp.read_bytes()).hexdigest()==m['source_sha256'][str(rawp)]
+ f=pd.read_parquet(p).reindex(cal);raw=pd.read_parquet(rawp,columns=['source_kind','source_path','segment_id']).reindex(cal)
+ known=f.i_target.isin([0,1]) & f.segment_id.notna() & raw.notna().all(axis=1) & f.segment_id.eq(raw.segment_id)
+ identity=raw.astype('string').agg('|'.join,axis=1)
+ boundary=(~known | ~known.shift(fill_value=False) | identity.ne(identity.shift()).fillna(True)).cumsum()
+ hist={}
+ for block,ii in boundary.groupby(boundary).groups.items():
+  idx=cal.get_indexer(ii);known_idx=[i for i in idx if bool(known.iloc[i])]
+  if not known_idx:continue
+  a,b=known_idx[0],known_idx[-1];vals=f.i_target.iloc[a:b+1].to_numpy();starts=np.where((vals==1)&np.r_[False,vals[:-1]==0])[0];previous=None
+  for k in starts:
+   i=a+k;off=np.where(vals[k:]==0)[0];j=(i+off[0]-1) if len(off) else b
+   birth=float(f.i_floor.iloc[i]);validbirth=np.isfinite(birth) and birth>0
+   pp=previous
+   for n in range(i,j+1):
+    hist[cal[n]]=dict(I_root_day=cal[i],I_birth_floor=birth if validbirth else None,previous_I_root_day=None if pp is None else pp['day'],previous_I_birth_floor=None if pp is None else pp['birth'],previous_I_last_floor=None if pp is None else pp['last'],previous_I_end_day=None if pp is None else pp['end'],birth_anchor_comparison='UNKNOWN_PREVIOUS_ROOT_OR_LINEAGE' if pp is None or not validbirth else 'HIGHER' if birth>pp['birth'] else 'LOWER' if birth<pp['birth'] else 'EQUAL')
+   if len(off) and validbirth:
+    floors=f.i_floor.iloc[i:j+1];floors=floors[np.isfinite(floors)&floors.gt(0)];previous=dict(day=cal[i],birth=birth,last=float(floors.iloc[-1]),end=cal[j+1]) if len(floors) else None
+   else:previous=None
+ for row in g.to_dict('records'):
+  d=row['day'];rec=hist.get(d,dict(I_root_day=None,I_birth_floor=None,previous_I_root_day=None,previous_I_birth_floor=None,previous_I_last_floor=None,previous_I_end_day=None,birth_anchor_comparison='UNKNOWN_PREVIOUS_ROOT_OR_LINEAGE'));out.append(dict(sid=sid,day=d,**rec))
+audit=pd.DataFrame(out);j=audit.merge(gold,on=['sid','day'],validate='one_to_one',suffixes=('_independent','_parent'))
+for c in ['I_root_day','previous_I_root_day','previous_I_end_day']:
+ a=pd.to_datetime(j[c+'_independent']);b=pd.to_datetime(j[c+'_parent']);assert ((a==b)|(a.isna()&b.isna())).all(),c
+for c in ['I_birth_floor','previous_I_birth_floor','previous_I_last_floor']:
+ a=pd.to_numeric(j[c+'_independent']);b=pd.to_numeric(j[c+'_parent']);assert np.allclose(a,b,rtol=1e-14,atol=1e-14,equal_nan=True),c
+assert j.birth_anchor_comparison_independent.equals(j.birth_anchor_comparison_parent)
+audit.to_csv(O/'sector_attempt_anchor_startup_independent.csv',index=False)
+rows=[]
+for sid,g in gold.groupby('sid'):
+ keys=[('first_AB',g.AB_event_id.notna()&g.AB_I_qualified.eq(True)),('first_CORE',g.event_Q.eq(True)&g.epoch_lineage_known.eq(True)),('first_CP',g.continuing_Q.eq(True)&g.cp_fresh.eq(True)&g.cp_trace_known.eq(True))]
+ for label,mask in keys:
+  z=g[mask].sort_values('day')
+  if not len(z):continue
+  r=z.iloc[0];rows.append({k:r[k] for k in ['sid','name','day','I_root_day','I_birth_floor','previous_I_root_day','previous_I_birth_floor','previous_I_last_floor','previous_I_end_day','birth_anchor_comparison']}|dict(milestone=label))
+r=pd.DataFrame(rows);r.to_csv(O/'sector_attempt_anchor_first_milestones.csv',index=False)
+qa=dict(passed=True,rows=654,stocks=7,independent_span_algorithm=True,exact_root_dates=True,numeric_floor_tolerance=1e-14,parent_labels_all_equal=True,no_economic_labels_read=True,no_economic_runs=True)
+(O/'sector_attempt_anchor_case_QA.json').write_text(json.dumps(qa,indent=2)+'\n');print(r.to_string(index=False));print(json.dumps(qa))

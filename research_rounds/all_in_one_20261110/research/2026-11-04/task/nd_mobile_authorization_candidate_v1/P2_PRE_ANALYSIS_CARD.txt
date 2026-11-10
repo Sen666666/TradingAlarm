@@ -1,0 +1,6 @@
+P2仅一轮旧行业凭据→真实confirmed reserve复用关联，不是原合同bug/GO
+行业本来是多股共同背景；原stockCP1均独立，不把行业许可复用叫重复消费。
+待证命题：每个最新原industryCP1至多授权一张新的confirmed mobile订单；原PVR顺序首个真正合法reserve消费一次，即便之后没fill也不发回同凭据。后续有新stockCP1但无新industryCP1时只保原probe可能性。新industryCP1替换旧未用许可，不累积票；原同stockCP1/费用/到期/全部硬约束不变，旧仓不卖。
+行业原stage/sector cap不是每CP1一票，当前没有原风险合同能推出这个票数；所以即便原亏损相关，也不得直接进入经济或宣称该政策合理。
+本诊断只把原真实confirmed reserve按当时最新已接纳industryCP1的sector+episode+day归组，按原funding日志顺序记录首张与之后复用。必须使用reserve而非firstfill；预留未成也占原关联首张。原warm继承receipt若窗内日志没留下canonical相应事件，保持UNKNOWN_INHERITED，不补新loader。
+仅映射已有实际层的原net/cost，所有被拒/释放资金后的其它股票与自身ACT未知；非可省收益。与P1相同固定正反窗口/既有leader名单。若原多股背景许可的正常赢家代价大，或没有新增风险依据，STOP；不调一票为两票/金额，不加scan或新账户。

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "scope_date": "2026-10-22",
+  "purpose": "Offline merge and raw OHLCV continuity diagnosis of 90 current THS A industries and 11 same-source HK industries; no accounts and no algorithm changes",
+  "sources": ["ths-index-history-9603-20261018/canonical", "downloads/hk-industry-pilot-01", "downloads/sector-history-remaining-01"],
+  "selection_frozen_before_chart_review": [
+    {"symbol":"URFI881155","reason":"A bank: user requested existing representative"},
+    {"symbol":"URFI881121","reason":"A semiconductor: user requested existing representative"},
+    {"symbol":"URFI881101","reason":"A planting/forestry: smallest numeric current A industry ID, deterministic without selecting by returns"},
+    {"symbol":"UFIH871116","reason":"HK financials: explicitly requested and known gap verification"},
+    {"symbol":"UFIH871117","reason":"HK information technology: explicitly requested and known long gap"},
+    {"symbol":"UFIH871111","reason":"HK raw materials: explicitly requested; show short coverage as obtained"}
+  ],
+  "price_observation_policy": "Frozen data_utils.eligible_prices; missing volume alone does not delete a valid price observation",
+  "volume_units": "Unscaled source index turnover units; no claim of stock-share units or cross-industry comparability; overlap checked per series; no index-price VWAP inference",
+  "continuity_diagnostics": "Report all date intervals over 10 calendar days and missing dates relative to same-market union calendar. Flag intervals over 20 days as candidate source breaks, not an automatic financial trend rule. Known HK gaps have separate targeted-query evidence.",
+  "missing_calendar_caveat": "Union calendar is an empirical comparison, not a certified exchange schedule. Holidays and actual index start must be distinguished from source gaps.",
+  "preserve_sources": true,
+  "account_runs": 0,
+  "algorithm_changes": 0,
+  "full_pool_closed": false
+}

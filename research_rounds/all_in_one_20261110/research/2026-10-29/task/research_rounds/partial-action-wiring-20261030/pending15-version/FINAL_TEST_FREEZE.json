@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-30T15:08:47.888017+00:00",
+  "before_final_synthetic": true,
+  "prototype_budget_pending": true,
+  "sha256": {
+    "research_rounds/partial-action-wiring-20261030/restore_reservation_kernel.py": "19344ec7e1aaaab8ecba1dec8ac48dab2cb69cf668a8e65d4445c50be71f4543",
+    "research_rounds/partial-action-wiring-20261030/test_wiring.py": "095f9e77c7d5d4bd0ab4694bca93c3167c6d7cc824544acf0b6d063ecac76dbf",
+    "research_rounds/partial-action-wiring-20261030/role_adapter.py": "641a0d0d98ea98585f971ddb0f5a708171aebf29ec3ba2d7012f2d2e7fa2319a",
+    "research_rounds/partial-action-wiring-20261030/PROTOCOL.txt": "24defa062af0bdd986340cf8a9c38db2274a9642471f1945158f53e43cc4628f"
+  }
+}

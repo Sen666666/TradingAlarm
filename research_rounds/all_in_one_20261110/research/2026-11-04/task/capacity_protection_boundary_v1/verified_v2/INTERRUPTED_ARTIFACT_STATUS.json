@@ -1,0 +1,47 @@
+{
+  "targets": [
+    {
+      "path": "pvr_pool_feasibility/current_entry_protection_capacity_card_v1/ALGORITHM_CARD.txt",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "path": "current_entry_protection_capacity_card_v1/ALGORITHM_CARD.txt",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "path": "ma63_h_certificate_events_v1/READOUT.txt",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "path": "ma63_h_certificate_events_v1/STATISTICS.json",
+      "exists": true,
+      "sha256": "61e795f76c73d9c83be89924b51c44c3d2093fd67825046375b290dc635f7887"
+    },
+    {
+      "path": "ma63_h_certificate_events_v1/DAILY_ALL_484.csv",
+      "exists": true,
+      "sha256": "5d77ea673e6bcbe2e96a5a92987eea28b2b287608faa6d1343aeb6cd2a36f4bc"
+    },
+    {
+      "path": "ma63_h_certificate_events_v1/ALL_POTENTIAL_EVENTS.csv",
+      "exists": true,
+      "sha256": "ff55d2c7af9cfa0b33ba5834fa9b828461cbdcb7cbf1d0b5e0d392c780b6c554"
+    },
+    {
+      "path": "ma63_h_certificate_events_v1/ALL_22_EPISODES.json",
+      "exists": true,
+      "sha256": "7c97f7b9971d142982aa3ca413199ad40e304824b6c7f9ac0bbaf7a66946ff8b"
+    },
+    {
+      "path": "ma63_h_certificate_events_v1/SOURCE_FREEZE.json",
+      "exists": true,
+      "sha256": "8848eaab2ae8355ce858c36b0f3c1e55d37abaec7f4ad0e64f98536e30fbfc2c"
+    }
+  ],
+  "independent_review_filenames_matching_certificate": [],
+  "formal_H_event_audit_status": "No named certificate-event audit found; old H_C source-supplement is not the event audit; do not rerun saved table",
+  "old_RG_card_status": "absent at both expected paths; new parent formula is cost/NAV alpha10/20/40, not old mark-G plus .005-risk"
+}

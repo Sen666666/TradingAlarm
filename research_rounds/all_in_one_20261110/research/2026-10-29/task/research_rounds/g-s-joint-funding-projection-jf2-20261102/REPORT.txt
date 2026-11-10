@@ -1,0 +1,22 @@
+JF2只读组件结果（停待独审，无金融事件）
+
+32/32通过：保留原20项场景，fixture显式补完整身份输入；新增12项覆盖篡改/缺失/跨receipt/共享覆盖/价格时点/恢复。
+旧JF1源码和全部产物逐文件hash核同，原三漏洞已在隔离进程原样复现：Q100改500后50成50待撤能恢复cap400；receipt改变证书ID不变；未来price_known_at获Q100；旧需100与新需55.0282共用AR100。JF1_FAILURE_REPRODUCTION.json保留原结果，不修改旧实现。
+
+修正：
+1）正文hash与book hash完整核；commit/restore还需调用方受信原provider的快照、需求和当前实际commitments。重算纯规划正文逐项核对，不能把hash当资源授权。完整需求hash、账户/目标ID、快照digest、receipt source/formation/end/confirmed/structure/scale/原deadline均绑定。即使重新计算伪证书/外层hash，Q500仍因真实快照重算而拒绝。
+2）目标可持久，但receipt专属授权不可跨fresh使用。新fresh不能原样复活旧额度/延寿；同/stale快照不能替换授权。filled+remaining+cancelled=initial，逐fill_receipt去重；恢复另对原生承诺映射，防篡改自洽状态。50已成+50待撤恢复cap0，ACK后只余50，过原deadline为0。
+3）other_saved_goal_need>0时，若没有完整旧目标资源/资产独占证明，本版RECONCILE_OTHER_COMMITTED_GOALS明确阻断。没有实现全旧/新目标调度器，也不把同一应收再当新目标余额。原“旧100+新55共用AR100”反例拒绝。
+4）显式检查price_known_at和receipt/formation/signal/decision/deadline时钟，必须带时区；未来价拒，缺字段拒。有效但不同的价格known_at也进入需求hash，不能无痕换元数据。
+
+Jul3：原满目标仍拒；前请求只读规划视图仍为博敏1500、大金0、汇绿0、天齐0，新D为空，103个合法数量候选；最小账户风险余量55.8437288306元。原K未改，故不能用原16项有缺陷筹资请求证明修复后的K方案仍必卖强旧股。
+此“前请求视图”analysis_only=True，不可提交/恢复为实际账户权限。原保存状态的16单及锁不变，额外旧目标需要3579.3448893544元；JF2明确阻断覆盖不明，没有给出可执行新授权，也没有自动撤单。
+
+B简稿已单独修正：原A是80%/K目标/上界而非保证获资；未来A/B共用修正联合检查。B是旧合法mobile与fresh增量共域、无K均分，只有排名更前合法新量可替换后排mobile，旧无fresh不自动排除，core单列；PVR用于卖出仍属新经济假说。
+按2022/强窗分别，新优先配对521/912个；旧后5观察更强307/521个、后21更强287/435个（两个窗口计数，非胜率）。需正视整理赢家→新股冲高假突破的双重代价，不能认为分数更高就该换。严格半导体80%也未得到保证。
+
+边界：受信provider/原生commitment API只是强制输入契约，尚未接历史runner。组件不能自行认证调用方伪造的provider；实际接线必须从原始已核账户/receipt源生成这些视图，不能从证书文件自带副本生成信任。恢复测试使用明确、单独hash绑定的fixture真值；Jul3提取器只读原checkpoint并核canonical身份。不声称原生金融生命周期已完成。
+未扩大窗口、未改信号/K/风险/费率/真实订单，未执行账户事件。下一步仅独立复核本包，不自动接runner。
+
+审计入口：projector.py、test_projector.py、restart/、JF1_FAILURE_REPRODUCTION.json、jul3/INPUT.json、jul3/FINAL_CERTIFICATE.json、jul3/ACTUAL_SAVED_STATE_BLOCKED.json、CONSTRAINT_RESIDUALS.json、FREEZE.json。
+命令：既有venv python -B test_projector.py；readonly_jul3.py已有jul3目录拒覆盖。旧故障目录仍保留。

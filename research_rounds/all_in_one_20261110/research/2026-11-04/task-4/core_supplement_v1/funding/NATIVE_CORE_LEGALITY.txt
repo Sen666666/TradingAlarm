@@ -1,0 +1,94 @@
+2026-11-05｜原No60 CORE闭环审查，纯只读，不构造adapter/账户
+
+裁决
+A(E0有效、本E0段I尚未启动)不可能只替换buy_allowed完成合法入口。
+Facts.packet(at,'I')独立把stock.trend_up替换为i_target，S0检查stock_up。
+即使EMA令buy_allowed=True，原Q仍因stock_up=False拒绝；未知共同条件不会消失。
+若人为绕过Q，原J.planning仍在每个CLOSE优先对not i_target整股锁卖，
+发生在CORE last_core_line更新前。A需单独的新授权、冻结floor、持有失效与原I
+接续/epoch合同；不能悄改原i_target或声称它是只换入场证据的单项消融。
+B(I_target真、无i_buy)可仅研究替换事件证据，但原真实flat、core_epoch未消费、
+其余S0/ACT/行业/pending/保护/数量/现金全须保留。B可行不构成A已获许可。
+
+原入口与最先可辨认的约束
+1 Facts.packet('I')：common_ready、可交易事实和固定身份/市值/RS时钟沿原输入；
+  trend_up=i_target；buy_allowed=原market-buyable且当日i_buy。S0除二者还检查
+  issuer/sector、cap>100亿、股票RS已知新鲜、行业当日观察/RS/趋势。unknown优先保留。
+2 J.planning：I/segment变化推进self.epoch/global_watch；原事件Q真才记录watch。
+  CORE角色要求event.q is True、not held、core_epoch[sid]!=watch_epoch；
+  MOBILE可由fresh CP1+continuing_Q进入，不能把MOBILE实际买过当CORE锁消费。
+  ACT_paused、exit_pending、buy_pending及资格失败保留。既有MOBILE也算held，
+  因而原合同不允许给其自动加一个CORE角色/自动转CORE。
+3 floor必须来自事前已知、可换算到当时raw单位的具体授权合同。facts.floor('I')
+  只检数值有限，不检i_target；即便I假时某行残留有限I_floor，也不是新持有许可。
+  原CORE资本/风险镜像用jmeta.last_core_line，不用x.floor冒充实际CORE风险线。
+  CORE分支本身没有MOBILE那条close<=x.floor的独立逐层止损；其结构退出依赖
+  原i_target/ACT。故给A填一条floor只解决名义定量，尚未给它实现真实退出。
+4 原LR.resize_core的RISK本已为含费0.25%决策NAV，grosscap原为10%NAV。
+  保护风险=买入到floor*(1-slip)的名义差+买费+估计卖费，非最大实际亏损保证。
+  根卡拟min(原风险尺寸,2%名义)是新增名义上界，必须按dated BUY minimum/step
+  求合法股数；不满足最小单位就是拒绝。不能用SELL fill_step作BUY最小单位。
+5 次OPEN LR.preview按真实open*(1+5bps)、当时factor/dated quantity/fee重验。
+  open<=floor拒绝；原冻结cap/budget/risk_budget不因跳空自动加大；min不合法
+  不会因缩max凭空合法。实际资金预留之后才咨询执行窗口/容量代理。
+6 No60 route对新增CORE只有probe路线。行业inactive直接拒；CORE不能在该次新增
+  申请中直接选择confirmed。之后industry observe/upgrade可以migrate同sector、同
+  attempt的全部probe lots，未排除CORE role；仅未ACK probe订单会阻碍迁池。
+  No60取消了原confirmed60迁移资本门。迁移将jmeta.pool同步为confirmed，释放probe
+  池占用，但不改变股数/成本/保护与总资源；不能推断CORE永远占probe或永久只能2%。
+  新CORE的probe admission仍把该行业全部既有资本sc(含confirmed)与2%作比较，
+  因而迁池并不自动给下一只CORE重开2%行业资本额度。No60已去account3%风险门
+  和confirmed60资本门，不可抄回J原版。
+  仍有10%决策NAV现金保留、probe全池10%资本/0.5%风险、probe行业2%资本、
+  行业1%风险、单股10%资本、费用后的NAV与真实既有预留；legal min二分求量。
+  request又有duplicate_request、industry_invalidated、core_epoch_locked等顺序分支；
+  未ACK预留不能复用。资源allowed的多门是并列集合，不取sorted合并tag首项造第一约束。
+7 core_epoch仅在实际core fill_buy后记meta.epoch，失败意图/未成交和MOBILE不消费。
+  true flat须真实股数归零，不是退出提案。退出锁保留、T+1/跌停/容量/部分成交
+  原生处理；新信号不能撤原退出、借未成交卖款或预花拟卖股票。
+
+A仍需冻结的闭环缺口（本报告不替根卡选择）
+- 价格P不等于S0趋势许可。新授权作用对象/有效期/一次事件与E0段重试记忆；
+- I未启动时用哪条因果硬floor、如何单调更新、何种close失效、ACT/E0/source硬退出；
+- 未卖完股数、pending锁及OPEN重验，均须同原实际资源镜像同步；
+- 原I首次激活时是何种显式接续，是否以及何时认领原core_epoch；不能生成None epoch
+  再靠默认dict值避锁，也不能因为已有补充仓就假称原CORE可以买入/自动晋升；
+- 新试探与原CORE/MOBILE共同竞争预算，不从已有健康赢家默认腾钱。
+
+当前可复用原账/资源接口（均只读）
+new_price_trend_v1/funding/runs/{long_OFF,strong_OFF}/pair/：
+  B.json.gz：完整decisions(当日intents/nav/on)、trades/core实际epoch、journal、
+    audit、layers/metadata、最终orders/exits及最终budget。两窗全期已对旧No60 exact。
+  daily.jsonl.gz：968个CLOSE actual positions/layers(含last_core_line/pool/role)、
+    available/order_reserved/settlement/payable/应收、NAV/ACT、pool_probe/confirmed。
+  opportunities.jsonl.gz：1709×968 stock-day core_Q/mobile_Q/roles/held/barriers/rank。
+    B的新事件S0必要性可用原continuing mobile_Q核其他S0；不要求借用CP1收据。
+  funding/rank-policy/industry/balances streams：原实际排序、申请、行业事件与桥。
+  每季度自有checkpoint：完整已发生account/budget状态，仅该已存时钟，不是逐OPEN快照。
+cash_release_v1/ALL_MARKET_OPEN_LIQUIDITY_STOCKS.json：全部966 OPEN原S0现金，
+  在原保护卖出/结算后、新排序预留前；有真实保护卖款、既有reserve和decision_NAV。
+  对13 exact S0/15 pre-candidate和968日余额已有审计。可作P事件物理现金必要界，
+  不是行业/风险全门或多个P共享现金的可执行方案；不得逐股重复累加同一笔现金。
+reentry_v1/funding_agent/PREOPEN_EXACT_STATE.json + PRE_CANDIDATE_EXACT_STATE.json：
+  仅13个OPEN S0/15旧目标确切前缀，含lots/orders/sectors/prices/consumed/
+  stock_requests/decision_nav/pending_sells/core_epoch。private_projection/PREVIEWS_*.json
+  是原4172 frozen intents/dated预览，不包含全部新P。
+  该13日期若相交可直查原状态；不可拿它代表任意新P日，不恢复/新投影补齐。
+
+P_EVENTS join的必要分层（等待根事件文件，不提前计算新策略）
+按window,sid,signal_day精确join原op/daily/decision及其nextOPEN现金日，先保留A/A2/B/C。
+分列真实held、原pending买/卖、ACT、独立S0其他失败、实际CORE epoch消费、原同日
+intents/实际成交和原竞争单。core_epoch按本账实际core fill/epoch推，不把MOBILE当CORE。
+B仅在I floor有效时可作min(native含费.25%risk,2%NAV名义)的合法最小手必要检查。
+A一律标additional_authorization_unknown；不借原I_floor残值假设已可买。
+全日期有现金必要界、CLOSE占用；全OPEN完整风险/行业前缀仍有缺口，必须留unknown。
+本报告无新金融账户、无授权adapter、无原约束松动、无新策略收益。
+
+直接源码
+money/research_rounds/actual-risk-recovery-20261027/code/engine.py:24/28/31
+money/research_rounds/rs-h1-execution-20261025/code/sector_stock_admission.py:185
+Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py:36/104/213
+money/research_rounds/lot-risk-allocation-20261029/code/study.py:16/21/42/55
+money/research_rounds/probe-pyramid-pilot-20261029/code/pilot.py:59/74/104
+Codex/2026-11-04/task/pvr_pool_feasibility/component.py(NEW_ROUTE/NEW_MODEL)
+Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/route_without_account_check.py

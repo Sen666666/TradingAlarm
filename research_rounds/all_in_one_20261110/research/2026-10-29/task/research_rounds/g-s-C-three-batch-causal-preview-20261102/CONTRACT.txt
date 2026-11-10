@@ -1,0 +1,40 @@
+Three fixed local allocation-only batches: Jul8, Jul22, Jul29 2025.
+No account event, financial backtest, new indicator, future-return label or formal policy change.
+
+Inputs are the actual immutable trusted snapshot/demands/evidence/budget_before from each
+original C10 and C_BATCH20 Jul31 checkpoint. Recompute all six ORIGINAL results first;
+Q, D, full trace, validation and complete result digest must equal saved certificates.
+Any missing/broken input stops that batch; never approximate.
+
+One ordering diagnostic, C10 only: move the fixed case block to the start of the processing
+queue, preserving original within-block and all other relative ordering. Jul8/22 block is
+the already-qualified engineering demands; Jul29 block is the already-qualified 688425 demand.
+Eligibility, prices, floors, target/max quantities, fee schedules, initial min/steps, all
+stock/industry/account budgets, pending/exit locks, and donor inventory stay byte-equivalent.
+Crucially KEEP original priority keys for donor comparisons. Original priority serves TWO
+functions; this diagnostic changes traversal order ONLY, not who may replace whom.
+Changing the case's comparative rank against incumbent IT winners would be a DIFFERENT
+economic experiment, not silently included. No outcome-dependent choice of a position/grid.
+Jul22 already-front block is an identity/negative control. No test PnL is computed.
+
+Implementation reuses original pure B/J arithmetic. An isolated function copy changes ONLY
+the initial `ds=sorted(...)` statement to `ds=list(ds)`; all remaining source is exact.
+Original-order input through this isolated copy must reproduce original transformed Q/D.
+The copy has explicit diagnostic source identity, no native authority/checkpoint acceptance.
+
+For every original case demand: reconstruct exact Q/D PREFIX from the verified trace.
+Test one original legal initial unit under that prefix (100 or STAR200, not step1 as min).
+Record every hard-constraint residual with original source evaluate/validate. Then enumerate
+the ORIGINAL admissible weaker-mobile donor path for that fixed unit, preserving prefix.
+This is exact within the original deterministic donor-path family, NOT globally optimal
+subset funding. No constraint removed. Record first feasible D, or all failure sets/counter.
+No failed-plan or potential sale is treated as actual cash/risk release.
+
+Old nominal line risk is decomposed using actual original fill unit price:
+principal=q*max(min(mark,cost)-floor,0), giveback=q*max(mark-max(cost,floor),0).
+Any excess of actual snapshot risk over their sum remains explicit execution-lock risk.
+Unfilled new promises remain separate. Floating gains are not free risk/cash.
+
+Full same-batch candidate lists/prefixes and incumbent IT controls are retained.
+Jul1 longling core300 flat-day zero-fill remains the execution negative control from saved
+history; no ranking preview converts it into a fill. All outputs analysis-only, cannot submit.

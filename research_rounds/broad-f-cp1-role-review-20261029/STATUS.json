@@ -1,0 +1,15 @@
+{
+  "as_of": "2026-10-29T15:06:34.062846+08:00",
+  "status": "analysis_only_complete",
+  "user_latest_preference": "Use F/CP1 price-volume local evidence as primary research direction, rather than a fixed monetary stop as the main mechanism. Continue no-backtest constraint.",
+  "proposal_adopted": false,
+  "parameters_frozen": false,
+  "new_backtests": 0,
+  "new_indicator_computations": 0,
+  "strategy_code_changes": 0,
+  "platform_changes": 0,
+  "account_changes": 0,
+  "next_queue_started": false,
+  "main_document": "ANALYSIS.txt",
+  "caveat": "Old PH1 and broad P1 were already stage/layer ideas and did not establish universal improvement. This synthesis remains unproved."
+}

@@ -1,0 +1,221 @@
+Earned stock expansion: ONE design hypothesis, not implemented or backtested
+2026-11-01. Supersedes the earlier incomplete suggestion to require an old
+probe-pool holding before every confirmed order. No new indicator or account
+path is authorized. All figures below are research fixtures, not user limits.
+
+The concrete contradiction
+An active expanded industry can already hold12% NAV in confirmed positions.
+Original probe admission checks ALL industry commitments against2% NAV, so a
+new stock cannot use probe even if global probe is empty. If stock proof were
+then required for its first confirmed order, neither route would remain. This
+would starve discovery mechanically, not distinguish good from bad trends.
+The existing first confirmed mobile order can legally be2% NAV; this route
+cannot be silently removed while claiming that only promotion changed.
+
+ONE minimal coherent hypothesis
+Keep first discovery possible under the ORIGINAL routes. Add only a stock-
+campaign validation condition to grow its aggregate commitment above the
+original2% mobile target. A trial is an action state, not a pool or a role.
+Before proof, total stock holdings plus outstanding buy commitments may not
+receive new allocation above2% of its frozen decision NAV. With current proof
+and a fresh original stock CP1, it may seek the original per-order target and
+original10% total stock cap. All original resource constraints still decide
+the actual quantity. This repurposes the existing2% target as an aggregate
+pre-proof ceiling: an economic research change, not a sizing bugfix.
+This is gross stock capital, as in the existing capital resource view; fees
+remain separately reserved and charged under original cash/NAV rules.
+An unproved small core may still receive an original fresh mobile request
+within the aggregate2% trial ceiling. This is not N1's prohibition of all
+mobile orders until a seed has been promoted.
+
+Four axes, kept separate
+1 Industry attempt/stage: original active probe/confirmed/expanded permits
+  original combined industry capital2/10/20%; failure revokes new permission
+  and requests buy cancellation, never sells all existing stocks by itself.
+2 Stock evidence: real filled campaign, original effective protective lines,
+  economic cash-flow ledger and fresh stock CP1 validate additional capital.
+  Industry expanded alone or mark-to-market profit is not stock proof.
+3 Role/protection: original I core keeps its original I/E0 line and exits;
+  mobile keeps original CP1-mobile line and exits. No relabeling or replacing
+  a far core line with a near CP1 candidate to manufacture proof. Same-stock
+  core-first reservation semantics remain, including zero-fill suppression.
+4 Pool: first trial may be probe OR confirmed if the original route permits.
+  It is not a new pool. Probe10% capital/.5% nominal risk and its combined
+  industry2% test remain. Confirmed60%, industry nominal risk1%, stock10%,
+  cash/fees, lot, Q and ACT remain. Reference PVR/Bdiag has NO account3%
+  admission test; this design does not quietly restore it or invent a new
+  global risk ceiling. Confirmed-pool trial risk is not charged to probe;
+  that is already true of the original first confirmed-mobile opportunity.
+  Stock proof never overrides industry stage, Q, ACT or a failed original
+  route. These conditions are jointly necessary, not substitute permissions.
+
+Campaign and proof accounting (design definition, not new computed data)
+A stock campaign starts only on an actual fill after actual zero holdings
+and completion of all old buy/sell responsibilities. It ends on actual full
+flat, not on an industry attempt change or exit request. Partial exits and
+closed layers while other layers remain stay in the SAME campaign.
+
+PROOF CLOCK, fixed before any coverage analysis
+Use the LAST ACCEPTED line at the completed signal close, after the ORIGINAL
+old-line exit check and then the original permitted line update. It becomes
+eligible for proof at the NEXT observation/open. It cannot stop the preceding
+bar retroactively. This follows the existing update/effect clock, not a choice
+of whichever clock retains a selected winner. A previous-observation-only
+proof is a different contract and is not an alternative to test in parallel.
+Shanghai Mar20's+1032.39 uses that close's new accepted line; using Mar17's
+line would instead give-200.64. Both are recorded, neither is concealed.
+The buy-day closing G1 cold readings were unavailable at that day's earlier
+OPEN and cannot be used to reject those original entries retrospectively.
+
+At that completed decision close, freeze the line identities and values,
+factor domain, campaign accounting and decision NAV for next-open intents:
+F = campaign actual trading cash flows, net of actual buy/sell fees
+    + campaign recognized net dividends, paid or receivable counted ONCE
+    + sum(live layer quantity * that layer's real effective protective price)
+    - pending-buy nominal downside from reserved limit to its frozen floor
+    - its separately reserved buy fees.
+No spendable cash is substituted for trading cash flows. This includes all
+realized partial losses and fees within the campaign; closed gains are not
+counted again as a live position. Pending orders cannot earn positive proof.
+Lines, quantities and costs use the same actual split/adjustment domain.
+Core uses its actual original I/E0 reference, mobile its actual CP1 line.
+An already breached old line or pending exit cannot be rescued by a new CP1.
+
+Opening revalidation, downward only
+Keep the original preview rejection when known opening raw price is at/below
+the NEW order's frozen line. Also require each EXISTING live campaign layer's
+accepted line to remain unbreached by the known opening price, in the same
+post-action factor domain. If any is breached, withdraw all same-stock NEW
+buy permission at that open; do not invent an earlier sell or a new line.
+Original holdings and exits remain governed by original close/exit rules.
+This existing-layer buy veto is an explicit proposed economic permission
+change; the current engine does NOT already enforce it for every held line.
+For proof valuation at the open, bound each accepted line by the lower of
+that line and known open*(1-original sell slippage). Proof may only stay the
+same or weaken versus the frozen close view, never be earned from a gap up.
+This uses known price plus the unchanged model price adjustment, NOT a call
+to market.window, whose daily H/L/volume/close availability is not known at
+the open. The proxy bound still does not establish actual executable liquidity.
+Unknown opening quote, invalid factor or pending exit blocks new permission.
+No current-day closing G1/CP1, later line, or future OHLC validity enters proof.
+
+F>0 is a validation condition for the next fresh-CP1 risk request, NOT cash,
+NOT a transferable coupon and NOT a promise of executable net stop proceeds.
+Future sell fees/slippage and gaps can turn this nominal surplus into loss.
+It is deliberately not a claim that protected profit fully funds the new
+order's possible loss. Actual cash and original mark-to-floor risk checks
+remain binding even when F is positive.
+It is account-conditioned validation, not a new market-strength indicator:
+the same market receipt can qualify differently at different actual costs.
+
+Proof is reevaluated before every new request over the2% trial ceiling; it is
+not a permanent promoted label. One original order per stock, fresh canonical
+CP1 consumed once only after final legal routing/sizing/reservation. The
+reservation enters commitments AND the next proof view before another request;
+no duplicate grant or credit is minted from the same F/receipt. A request can
+make F nonpositive; then further expansion stops until fresh evidence and
+current proof return. Existing holdings above2% are not force-sold or washed
+into a new trial allowance. Passive price growth neither earns proof alone
+nor causes forced selling.
+
+When genuinely flat with no pending responsibilities, a new fresh original
+signal may start another trial without recovering ALL historical stock losses.
+Original loss/fee records persist across campaigns/E0/industry attempts. This
+avoids C1-like historical hysteresis while leaving repeated false-start damage
+visible. A remaining old core or unacknowledged order prevents campaign reset.
+
+First trial -> proof -> additional risk -> exit -> restart
+Flat fresh original I/core or stock CP1/mobile may request the original order,
+subject to the new stock aggregate trial ceiling and all original routes.
+In a confirmed industry already above2%, a fresh stock CP1 can therefore still
+use a first confirmed-mobile trial if original confirmed capacity is available.
+Core-only opportunities still cannot borrow a mobile route without CP1.
+Once actual campaign F>0, later fresh CP1 can seek more original mobile risk.
+Industry migration remains original best effort/coupled; moving pool labels
+does not change cash, role, floor, stock commitment or F. Migration failure
+can still block a confirmed route; this hypothesis does not include SD.
+Original protection/I/ACT determines sell request and legal fill. Eligibility
+loss cancels additional risk only; no earlier refund or imaginary lower risk.
+
+Strong counterexamples / failure boundaries, not a parameter menu
+A. Strong industry12% NAV held in confirmed, industry cap20%, global space:
+  old probe route rejects its first new stock (combined industry>2%). A fresh
+  CP1 first trial of at most2% stock can still seek confirmed under original
+  rules. If confirmed/global/sector risk is actually full, it still cannot
+  enter. The design prevents new logical starvation, not all missed stocks.
+B. First false breakout: the first confirmed2% trial can still lose at its
+  original floor, and a gap can lose more. Many fresh campaigns may still
+  accumulate substantial losses. This does not solve the initial-entry loss
+  cohort or promise a hard drawdown/loss ceiling.
+C. Continuous winner with a far original core line: mark price can double
+  while F stays negative, leaving it at trial size. No borrowing the mobile
+  line is allowed. This can falsify the architecture's ability to scale a
+  winner before the main move; it is not an irrelevant edge case.
+D. Normal pullback and reentry: Shanghai's early G1 cold is not a new exit.
+  After actual full flat, another fresh trial remains possible. Old huge
+  stock gains cannot permanently authorize a new failing campaign; conversely
+  old failed campaigns cannot require lifelong recovery before a new trial.
+E. Gap/fees/lot: a positive nominal F does not assure a safe stop fill. A new
+  opening gap may require shrinking the original frozen quantity;100/200-share
+  initial minimum and later increments remain dated native rules. No R1,
+  automatic roundup or fee forgiveness. A profitable one-cent F may be a poor
+  validation signal; do not tune a buffer using observed winners to fix it.
+  Mandatory source-backed gap example: an old mobile lot has line100, its
+  next opening price95, while a fresh CP1 order has a lower frozen line80.
+  Current LR.preview sees95>80 and does not reject on the old100 line; current
+  held nominal risk max(mark-floor,0) can be0. The proposed opening proof must
+  be invalid and no new stock buy admitted, not count100 as realizable wealth.
+  A pending exit also blocks even if the line valuation would be positive.
+  The example is a written preflight requirement, not an executed policy test.
+F. Capacity/partial/cancel: original combined sector holdings, old attempts,
+  pending buys and cancel-pending quantities count. Unfilled sell proceeds
+  cannot be spent. A partial fill cannot restart a campaign or issue proof
+  repeatedly. All capital/risk is rechecked serially; phase names release none.
+
+Relation to actual N1 (source inventory already complete)
+N1: one filled seed K=(buy gross+buy fees)/shares*factor. A post-buy NEW F or
+CP1 candidate strictly>K promotes that seed. Core then stops following new
+F/CP1 and retains bridge/I protection; mobile requires that core, new CP1 and
+a price above last actual buy. It also changed minlot allocation and reentry.
+This proposal does NOT change holding roles/exit responsibilities or adopt its
+minlot exceptions/PVR>50/current-G1 conditions. Proof uses whole current
+campaign, including closed partial losses and pending liabilities; it is not
+a fresh candidate>K or a one-time latched seed promotion. First confirmed
+trial remains possible under the90-industry pool contract. It is a distinct
+joint contract; old N1 results neither prove nor refute it.
+
+Prefinancial coverage plan ONLY (requires later authorization to execute)
+Use existing fixed2022, own continuous2023 and2025Jul..2026Jun PVR books/caches.
+No new labels, indicators, account replay or state-restorer. Enumerate ALL
+original candidate/intents, including core-only, NA PVR, no fills and ACT
+paused, before looking at actual profitability. Deduplicate canonical stock
+CP1 and distinguish actual first/add/flat reentry, role and pool.
+Campaign history must start at its actual first fill, including carried
+campaigns; do not reanchor at a quarter/year boundary or mark old holdings
+proved without source evidence. Preserve unknown where history is incomplete.
+The above post-close/next-open clock and downward-only gap revalidation are
+fixed before coverage; do not revise them after seeing affected cohort returns.
+For each saved decision classify flat first trial, live unproved at/below2%,
+live unproved above2% passively, currently proved, exit/pending, or unknown.
+Keep original industry total commitments so first confirmed trials in an
+industry already>2% are explicitly counted. Never infer exact opening owner
+states from previous close or call a permitted request an executable trade.
+Mark missing native line/cost/receipt timing unknown; do not impute a nearer
+floor or rebuild a broad input platform. Cash/fee/split/pending arithmetic
+must reconcile to saved ledgers; old loss ledger must remain unchanged.
+
+Inspect the fixed largest-gross-loss case plus all winners/losers, especially
+continuous core winners and mobile winners, not only Yongding/Shanghai.
+Report nonzero permission changes, unaffected/unknown counts, stock/date
+concentration, trial capital and nominal risk, closed positive/negative/tail
+and open contribution of observed affected cohorts. These are mechanism
+coverage/accounting, NOT counterfactual PnL or a new winning gate.
+The design fails before finance if proof cannot be causally reconstructed,
+if first-trial paths are stranded by its own new rules, if the initial2%
+ceiling is bypassed by role/pool/attempt changes, or if its actual mechanism
+cannot express scaling a continuous winner without a pullback. Broader
+opportunity/false-exit tradeoffs must be exposed, not silently patched.
+Only after source/clock/accounting and positive+negative controls pass should
+root decide whether ONE bounded native comparison is informative. No numeric
+optimization, risk-budget sweep, algorithm implementation or finance is
+authorized by this document.

@@ -1,0 +1,24 @@
+{
+  "source_hashes": {
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/missing_price_cohort_feasibility_v1/execution_v1/economic_2023/COMPLETE.json": "0d90d262997f9ba7f466f46ad5cc39bd09b0e00aebefb0c31dcb650f3f619cb3",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/missing_price_cohort_feasibility_v1/execution_v1/economic_2023/SOURCE_VERIFIED.json": "34d81e221f788d3d08b44dabe8c15e98bf1ee2113159924f675b99450928c7f5",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/missing_price_cohort_feasibility_v1/execution_v1/economic_2023/PRICE_LABELS.csv": "902c2eeccf44badbc7a07953cd02625c1a17193e8d6b814cb63552a5c7ae43e8",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/missing_price_cohort_feasibility_v1/execution_v1/economic_2023/SUMMARY.json": "9674ae72784ea83aa9581d95a2452b0e9c8c65b795809bf0aeeff693107f7edc",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/missing_price_cohort_feasibility_v1/execution_v1/PROTOCOL.md": "db5ce345859ae3ddb6b18bfe75479348a38333e1150e8ce57a9db68773fd5e04",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/missing_price_cohort_feasibility_v1/execution_v1/label_export.py": "05874c11b448e31a26169e72a8bfdef1a5ece639ecb4ca1b2490d6f5c748fd47",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/h1.npz": "416ddabacb9b16105cf3e5d93c961049ac1b48da433a62995a71311be17e4615",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/distribution_objective_feasibility_v1/EXTENDED_2023_PDC_FEATURES.parquet": "a85737ddde5c80905cbf4162b8623b1104e2641e0c6e1a5904b0e07df210d1bd",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/missing_price_cohort_feasibility_v1/execution_v1/economic_2024JanAug/COMPLETE.json": "2cc3f4aef4620101c387ece2decfd53f0e2142e68e80330917ab3197003af726",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/missing_price_cohort_feasibility_v1/execution_v1/economic_2024JanAug/SOURCE_VERIFIED.json": "34d81e221f788d3d08b44dabe8c15e98bf1ee2113159924f675b99450928c7f5",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/missing_price_cohort_feasibility_v1/execution_v1/economic_2024JanAug/PRICE_LABELS.csv": "30f9b7087483138dc76216541714f86dd867d7a41c008f0750b4e9fb6f107df0",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/missing_price_cohort_feasibility_v1/execution_v1/economic_2024JanAug/SUMMARY.json": "f800cc59f5aa863abd499d53b19cef69ffc07e90633e7dd4d94c48333bc5b1da",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/distribution_objective_feasibility_v1/EXTENDED_2024JanAug_PDC_FEATURES.parquet": "4d6ade7ccb64b3c922723ac00b7203f0ced53536339963293fd6cf0a3f65239d",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/closed_price_supervised_pilot_support_v1/ALL_ORIGINAL_PRICE_ROWS.parquet": "ed4d7264a9a7042ec0eb1deecbdcfe44f77bfc42a28f40f6da9cfbeb6cd34110"
+  },
+  "sources_unchanged": true,
+  "only_cut_mature_PDC": true,
+  "no_selection_or_threshold_tuning": true,
+  "old2022_separate_template": true,
+  "models_fit": 0,
+  "economic_runs": 0
+}

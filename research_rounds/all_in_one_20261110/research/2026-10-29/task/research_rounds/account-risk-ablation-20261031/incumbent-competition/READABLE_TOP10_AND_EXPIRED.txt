@@ -1,0 +1,84 @@
+
+2025-07-01  能源金属  candidate=腾远钴业 H1=61.607697082557415 I=True industry=expanded
+Previous-close confirmed capital=0; opening refusal=[{'account': 'B', 'at': '2025-07-02 09:30:00+08:00', 'sid': '301219.SZ', 'role': 'mobile', 'result': 'pool_capital,probe_risk,sector_capital'}]
+stock | value | H1 | I | industry stage | core/mobile value | core/mobile gross unrealized | original attempt active/ended value | holding observations | sell request | actual sellable
+Original-attempt-ended mobile by stock+original attempt (not assumed sellable):
+
+2026-01-06  油气开采及服务  candidate=海油发展 H1=26.187538556446636 I=True industry=probe
+Previous-close confirmed capital=811910.32; opening refusal=[{'account': 'B', 'at': '2026-01-07 09:30:00+08:00', 'sid': '600968.SH', 'role': 'mobile', 'result': 'probe_risk'}]
+stock | value | H1 | I | industry stage | core/mobile value | core/mobile gross unrealized | original attempt active/ended value | holding observations | sell request | actual sellable
+航天发展 000547.SZ | 105648.00 | 99.9691548426897 | True | expanded | 0/105648.00 | 0/53124.751500 | 105648.00/0 | [20, 23] | False | unknown
+平潭发展 000592.SZ | 89838.00 | 99.8457742134485 | True | probe | 0/89838.00 | 0/33112.651500 | 0/89838.00 | [37, 43] | False | unknown
+航天动力 600343.SH | 54420.00 | 99.59901295496607 | True | expanded | 0/54420.00 | 0/32929.26000 | 0/54420.00 | [30, 30] | False | unknown
+长龄液压 605389.SH | 31268.00 | 92.07279457125232 | True | expanded | 7817.00/23451.00 | 1037.612000/1804.182000 | 31268.00/0 | [24, 32] | False | unknown
+航天电子 600879.SH | 31109.00 | 97.74830351634793 | True | expanded | 0/31109.00 | 0/8584.743500 | 31109.00/0 | [12, 20] | False | unknown
+东方铁塔 002545.SZ | 29008.00 | 94.04688463911165 | True | probe | 2072.00/26936.00 | 1059.494000/4994.034500 | 0/29008.00 | [47, 83] | False | unknown
+鼎泰高科 301377.SZ | 29000.0 | 99.10549043800124 | True | expanded | 0/29000.0 | 0/2133.573500 | 29000.0/0 | [7, 8] | False | unknown
+通宇通讯 002792.SZ | 28416.00 | 99.29056138186304 | True | expanded | 0/28416.00 | 0/7279.437000 | 28416.00/0 | [12, 12] | False | unknown
+华丰科技 688629.SH | 28291.32 | 91.02405922270204 | True | expanded | 0/28291.32 | 0/4799.600010 | 28291.32/0 | [32, 32] | False | unknown
+平安电工 001359.SZ | 27784.00 | 91.14743985194325 | True | probe | 0/27784.00 | 0/6201.214000 | 0/27784.00 | [32, 32] | True | unknown
+Original-attempt-ended mobile by stock+original attempt (not assumed sellable):
+东方铁塔 002545.SZ value=26936.00 end=2025-11-21 observations_since_end=30 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+平潭发展 000592.SZ value=89838.00 end=2025-11-27 observations_since_end=26 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+浙江东日 600113.SH value=19416.00 end=2025-11-21 observations_since_end=30 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+平安电工 001359.SZ value=27784.00 end=2025-11-20 observations_since_end=31 I=True stock_sell_pending=True initial_pool=confirmed sellable=unknown
+中矿资源 002738.SZ value=26280.0 end=2025-11-21 observations_since_end=30 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+方正科技 600601.SH value=22680.0 end=2025-11-21 observations_since_end=30 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+中富电路 300814.SZ value=23349.00 end=2025-11-21 observations_since_end=30 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+藏格矿业 000408.SZ value=27606.00 end=2025-11-21 observations_since_end=30 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+航天动力 600343.SH value=54420.00 end=2025-11-21 observations_since_end=30 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+利尔化学 002258.SZ value=5428.00 end=2025-11-21 observations_since_end=30 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+普天科技 002544.SZ value=21804.00 end=2025-12-16 observations_since_end=13 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+中公教育 002607.SZ value=278.00 end=2025-12-30 observations_since_end=3 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+
+2026-01-09  油气开采及服务  candidate=海油工程 H1=40.30265596046942 I=True industry=confirmed
+Previous-close confirmed capital=819121.35; opening refusal=[{'account': 'B', 'at': '2026-01-12 09:30:00+08:00', 'sid': '600583.SH', 'role': 'mobile', 'result': 'probe_risk'}]
+stock | value | H1 | I | industry stage | core/mobile value | core/mobile gross unrealized | original attempt active/ended value | holding observations | sell request | actual sellable
+航天发展 000547.SZ | 117118.00 | 99.9691167387276 | True | expanded | 0/117118.00 | 0/64594.751500 | 117118.00/0 | [23, 26] | False | unknown
+平潭发展 000592.SZ | 92814.00 | 99.84558369363805 | True | probe | 0/92814.00 | 0/36088.651500 | 0/92814.00 | [40, 46] | False | unknown
+航天动力 600343.SH | 55680.0 | 99.59851760345893 | True | expanded | 0/55680.0 | 0/34189.26000 | 0/55680.0 | [33, 33] | False | unknown
+航天电子 600879.SH | 37297.00 | 98.54848672019766 | True | expanded | 0/37297.00 | 0/14772.743500 | 37297.00/0 | [15, 23] | False | unknown
+通宇通讯 002792.SZ | 36468.00 | 99.6602841260037 | True | expanded | 0/36468.00 | 0/15331.437000 | 36468.00/0 | [15, 15] | False | unknown
+长龄液压 605389.SH | 32316.00 | None | True | expanded | 8079.00/24237.00 | 1299.612000/2590.182000 | 32316.00/0 | [27, 35] | False | unknown
+东方铁塔 002545.SZ | 29918.00 | 94.224830142063 | True | probe | 2137.00/27781.00 | 1124.494000/5839.034500 | 0/29918.00 | [50, 86] | False | unknown
+鼎泰高科 301377.SZ | 29710.00 | 99.10438542310068 | True | expanded | 0/29710.00 | 0/2843.573500 | 29710.00/0 | [10, 11] | False | unknown
+华丰科技 688629.SH | 28315.35 | 88.72760963557752 | True | expanded | 0/28315.35 | 0/4823.630010 | 28315.35/0 | [35, 35] | False | unknown
+藏格矿业 000408.SZ | 26163.00 | 93.48363187152563 | True | probe | 0/26163.00 | 0/7883.86500 | 0/26163.00 | [33, 33] | False | unknown
+Original-attempt-ended mobile by stock+original attempt (not assumed sellable):
+东方铁塔 002545.SZ value=27781.00 end=2025-11-21 observations_since_end=33 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+平潭发展 000592.SZ value=92814.00 end=2025-11-27 observations_since_end=29 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+浙江东日 600113.SH value=18705.00 end=2025-11-21 observations_since_end=33 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+中矿资源 002738.SZ value=24090.0 end=2025-11-21 observations_since_end=33 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+方正科技 600601.SH value=23436.00 end=2025-11-21 observations_since_end=33 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+中富电路 300814.SZ value=23343.00 end=2025-11-21 observations_since_end=33 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+藏格矿业 000408.SZ value=26163.00 end=2025-11-21 observations_since_end=33 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+航天动力 600343.SH value=55680.0 end=2025-11-21 observations_since_end=33 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+利尔化学 002258.SZ value=5568.00 end=2025-11-21 observations_since_end=33 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+普天科技 002544.SZ value=23034.00 end=2025-12-16 observations_since_end=16 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+中公教育 002607.SZ value=287.00 end=2025-12-30 observations_since_end=6 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+
+2026-01-13  油气开采及服务  candidate=中海油服 H1=35.114268066707844 I=True industry=expanded
+Previous-close confirmed capital=822017.84; opening refusal=[{'account': 'B', 'at': '2026-01-14 09:30:00+08:00', 'sid': '601808.SH', 'role': 'mobile', 'result': 'pool_capital,probe_risk'}]
+stock | value | H1 | I | industry stage | core/mobile value | core/mobile gross unrealized | original attempt active/ended value | holding observations | sell request | actual sellable
+航天发展 000547.SZ | 111600.0 | 99.84558369363805 | True | expanded | 0/111600.0 | 0/59076.751500 | 111600.0/0 | [25, 28] | False | unknown
+平潭发展 000592.SZ | 95542.00 | 99.72205064854849 | True | confirmed | 0/95542.00 | 0/38816.651500 | 0/95542.00 | [42, 48] | False | unknown
+航天动力 600343.SH | 54936.00 | 99.22791846819024 | True | expanded | 0/54936.00 | 0/33445.26000 | 0/54936.00 | [35, 35] | False | unknown
+通宇通讯 002792.SZ | 41982.00 | 99.59851760345893 | True | expanded | 0/41982.00 | 0/20845.437000 | 41982.00/0 | [17, 17] | False | unknown
+航天电子 600879.SH | 36920.0 | 97.99258801729462 | True | expanded | 0/36920.0 | 0/14395.743500 | 36920.0/0 | [17, 25] | False | unknown
+长龄液压 605389.SH | 31316.00 | None | True | expanded | 7829.00/23487.00 | 1049.612000/1840.182000 | 31316.00/0 | [29, 37] | False | unknown
+鼎泰高科 301377.SZ | 29260.0 | 98.73378628783199 | True | expanded | 0/29260.0 | 0/2393.573500 | 29260.0/0 | [12, 13] | False | unknown
+东方铁塔 002545.SZ | 28784.00 | 92.37183446571957 | True | probe | 2056.00/26728.00 | 1043.494000/4786.034500 | 0/28784.00 | [52, 88] | False | unknown
+华丰科技 688629.SH | 27372.84 | 86.07164916615194 | True | expanded | 0/27372.84 | 0/3881.120010 | 27372.84/0 | [37, 37] | False | unknown
+藏格矿业 000408.SZ | 26970.0 | 94.47189623224213 | True | probe | 0/26970.0 | 0/8690.86500 | 0/26970.0 | [35, 35] | False | unknown
+Original-attempt-ended mobile by stock+original attempt (not assumed sellable):
+东方铁塔 002545.SZ value=26728.00 end=2025-11-21 observations_since_end=35 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+平潭发展 000592.SZ value=95542.00 end=2025-11-27 observations_since_end=31 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+浙江东日 600113.SH value=18150.0 end=2025-11-21 observations_since_end=35 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+中矿资源 002738.SZ value=26799.00 end=2025-11-21 observations_since_end=35 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+方正科技 600601.SH value=21870.00 end=2025-11-21 observations_since_end=35 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+中富电路 300814.SZ value=22017.00 end=2025-11-21 observations_since_end=35 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+藏格矿业 000408.SZ value=26970.0 end=2025-11-21 observations_since_end=35 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+航天动力 600343.SH value=54936.00 end=2025-11-21 observations_since_end=35 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+利尔化学 002258.SZ value=5636.00 end=2025-11-21 observations_since_end=35 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+普天科技 002544.SZ value=22068.00 end=2025-12-16 observations_since_end=18 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown
+中公教育 002607.SZ value=329.00 end=2025-12-30 observations_since_end=8 I=True stock_sell_pending=False initial_pool=confirmed sellable=unknown

@@ -1,0 +1,28 @@
+{
+  "created_at": "2026-10-22T23:07:04.929140+08:00",
+  "plan_sha256": "c5f82c3da2dddc075676e52e2fc3bd52670f62eefc2439b778493e41bf04d87b",
+  "code_sha256": "5f20a386759dca9eab9d0dc8a73a538c84f50f19bc58de59da3b0c316365c4bf",
+  "credentials_used": false,
+  "requests": [
+    {
+      "sequence": 1,
+      "url": "http://news.10jqka.com.cn/field/sn/20260423/57515687.shtml",
+      "status": 200,
+      "content_type": "text/html; charset=gbk",
+      "bytes": 4213,
+      "response": "01.body",
+      "sha256": "167c1f4f7a82ebc3a6c95003ee1e1f3bc44f47926b16046ba94f549caf329ece",
+      "redirects": 0
+    },
+    {
+      "sequence": 2,
+      "url": "http://news.10jqka.com.cn/field/sn/20260821/59358497.shtml",
+      "status": 200,
+      "content_type": "text/html; charset=gbk",
+      "bytes": 4238,
+      "response": "02.body",
+      "sha256": "bc6149188cb36dc2e34fc5fe1bda029c812ab49ea6077cc01b591f98c9c968cc",
+      "redirects": 0
+    }
+  ]
+}

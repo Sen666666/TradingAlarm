@@ -1,0 +1,24 @@
+{
+  "name": "PVR-Q1 versus ACT20_BREAK",
+  "authorization": "用户2026-10-27要求只替换评分，回测2024至当前科技股并分析原因",
+  "primary_change": "个股RS-H1替换PVR-Q1；行业原RS-H1保留。行业金额单位未核验，不扩展为行业替换。",
+  "versions": [
+    "RS",
+    "PVR"
+  ],
+  "scenarios": [
+    "base",
+    "cost2",
+    "delay1"
+  ],
+  "start_decision": "2023-12-29",
+  "first_execution": "2024-01-02",
+  "end": "2026-10-27",
+  "initial_cash": 1000000,
+  "initial_state": "ACTIVE，复现研究基线；不采用真实账户新设INACTIVE",
+  "unchanged": "原407池/11行业快照、E0-NR1/G1-I事件、结构退出、3行业6股每行业2股、15%初仓90%投入、ACT20_BREAK暂停恢复、费用/T+1/日有效/执行延迟",
+  "graph_gate": "先固定6个量价窗并人工查看再经济；公式不按图或结果调参。",
+  "no_threshold": "不加PVR>50门槛；未知评分按原接口不具备排序资格，明确统计。",
+  "validation": "原ACT历史至10/26逐日日账及全部成交核对；独立现金股数/原价审计；PVR公式物理前缀；两种排序账户截止2025末物理前缀；同价不同金额反事实。",
+  "stopping": "每组3执行情景各一次；只修实现违约，保留失败。不扫描参数、不自动晋升或改交易台。"
+}

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/mobile_first_probe_protection_v1/case_trace/trace_fixed14.py", line 206, in <module>
+    try:main()
+        ~~~~^^
+  File "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/mobile_first_probe_protection_v1/case_trace/trace_fixed14.py", line 85, in main
+    assert f.index.equals(cp.index)and f.index.equals(ci.index)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

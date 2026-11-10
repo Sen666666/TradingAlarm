@@ -1,0 +1,73 @@
+{
+  "status": "FIXED_BEFORE_NEW_Z_COMPUTATION_ALL_HISTORY_PREVIOUSLY_SEEN",
+  "formula": "At native I 0->1 a freeze B=max(previous20 native adjusted highs), Aref=median(previous20 amounts). First close>B starts breakout. First later lower close confirms previous peak Cp; U=ln(Cp/B), Vup=sum(A/Aref) from breakout through peak inclusive. First higher close after pullback confirms prior trough; current rebound day excluded from Cmin and Vtest. D=ln(Cp/Cmin); Vtest=sum(A/Aref) from peak+1 through recovery-1. Z=(U*Vtest-D*Vup)/(U*Vtest+D*Vup).",
+  "state": "I/source off resets. After breakout any C<B permanently fails this original I root. No reclaim/restart within root. First completed test fixed, no test reselection. Record Z only at native I=1 and fresh original CP. Existing CP after completed test consumes no new strategy action; first CP per root is event unit, later CP records only repeated observations.",
+  "ambiguity_resolved": "No requirement to touch B; first lower then first higher completed closes. Flats prolong the relevant leg. All peak/pullback/recovery dates distinct. No intraday sequence guessing. First test stays fixed while waiting fresh CP. No threshold except natural Z>0 descriptive split.",
+  "main": "All 2693 original PVR first entries; original closed 0-to-0 outcomes associations only. Also first scored CP per represented original I root and 9 preselected dates of original legal EMPTY MOBILE pool. No all-stock rerank/account/fee-return claim.",
+  "controls": "Exact same signal-date,sector,n_up,n_test matched pairs if available; no relaxing for sample size. Z_time=(U*n_test-D*n_up)/(U*n_test+D*n_up), amounts replaced by1 each day. Z_mean=(U*meanA_test-D*meanA_up)/(...) as mechanism diagnostic only, not replacement candidate.",
+  "forward": "Fixed20/60 common observations after query signal, next native adjusted OPEN benchmark. Completeness and same segment required; cutoff2026-05-15. No executable-fill claim.",
+  "fixed_dates": [
+    "2022-03-03",
+    "2022-03-24",
+    "2022-10-14",
+    "2023-03-10",
+    "2024-07-29",
+    "2024-09-24",
+    "2024-10-15",
+    "2025-07-01",
+    "2026-01-15"
+  ],
+  "fixed_cases": [
+    [
+      "002385.SZ",
+      "2022-03-04"
+    ],
+    [
+      "300182.SZ",
+      "2022-01-04"
+    ],
+    [
+      "601607.SH",
+      "2022-03-24"
+    ],
+    [
+      "600606.SH",
+      "2022-03-22"
+    ],
+    [
+      "688582.SH",
+      "2024-07-29"
+    ],
+    [
+      "002317.SZ",
+      "2022-10-14"
+    ],
+    [
+      "600056.SH",
+      "2022-03-03"
+    ],
+    [
+      "000620.SZ",
+      "2022-01-11"
+    ],
+    [
+      "002911.SZ",
+      "2022-07-25"
+    ],
+    [
+      "300085.SZ",
+      "2024-09-24"
+    ],
+    [
+      "002583.SZ",
+      "2024-10-15"
+    ],
+    [
+      "000506.SZ",
+      "2024-10-15"
+    ]
+  ],
+  "no_accounts": true,
+  "no_parameters": true,
+  "no_full_entry_gate": true
+}

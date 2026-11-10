@@ -1,0 +1,22 @@
+原No60 2026H1半导体25层/18股：只读实际日轨迹核验。
+
+1. 用原B.metadata.role、BUY trade/journal、原frozen intent确认角色与入场线；CORE1/MOBILE24。
+   CORE存储x.floor是entry参考，不是直接CLOSE退出线；真实风险参考last_core_line按I更新。
+   MOBILE先检查进入本CLOSE的旧线，未触发且非pending时才取max(old,I_floor,当日receipt CP1 candidate)。
+2. 每个实际持有CLOSE以原daily.layers出现且qty>0为准；不含退出OPEN之后的CLOSE。
+   MOBILE旧线取前一实际daily的post floor，首日取BUY floor；分别列checked old、新线、更新来源。
+   原ACT/I失效优先分支、已有本层exit pending分开，不把未执行的数值比较写成真实止损检查。
+3. 用原单股facts、CP1和manifest raw读取函数验证mark/factor/I_target/I_floor/CP1来源。
+   原日级数据只证明持有CLOSE的浮盈；未知盘中先后/最高可卖收益不补造。
+   对所有原日线floor更新、exit-request audit、下一OPEN SELL parts逐项对账，无新Account/恢复。
+4. actual layer mark净额=原实际qty×原已知raw mark+原layer.cash+原dividend；成本/R分母用原BUY。
+   同时给continuous price回报与原账户mark净额，二者不混为真实已实现PnL。
+   初始hardline只是原入场冻结线的事实参照，不添加新退出规则；初始R为名义价差非损失上限。
+5. 原stock连续性用所有实际BUY/SELL事件与daily.positions/layers核验；layer关闭不等于整股空仓。
+   多层同次整股退出只算一个flat事件；原NAV/实际股数作为参考，不模拟替代持仓。
+6. 原退出事实标志可以重叠：CP1且ACT/I仍有效且initial未破；I/ACT/initial失效分别列。
+   随后只在退出决定时所属的同一未失效I_target连续段内，描述原已知前高被超过的日期、
+   fresh CP1、原资格/计划/资源/实际成交。无资格、已有挂单、尺寸不足、资源拒绝分开。
+   不用半年终点涨幅定义“正常回撤”或“误杀”；不先放宽所有移动止损、不新参数搜索。
+7. 覆盖原15负/6正/4未平；21平层cash+dividend exact，4未平保留原终点mark标签与实际现金。
+   最终数据缺口若有逐项UNKNOWN，不用另一条线或未来数据补齐。

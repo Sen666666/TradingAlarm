@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "tests": 16,
+  "command": "python -B -m unittest -v test_nullable_analysis.py",
+  "exit_code": 0,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "2a132fa00b4953a3f8ae88b99a62f33a03173889e0fb1514c306b4b9f9f389f0",
+  "no_strategy_or_financial_import": true
+}

@@ -1,0 +1,526 @@
+[
+  {
+    "window": "2022",
+    "total": {
+      "layers": 576,
+      "stocks": 369,
+      "receipts": 576,
+      "buy_cash": "6321475.9138603364775",
+      "closed_positive": "181385.1186998011908456943753",
+      "closed_negative": "-452713.4480897424775276830246",
+      "open_contribution": "0"
+    },
+    "action": {
+      "first": {
+        "layers": 310,
+        "stocks": 310,
+        "receipts": 310,
+        "buy_cash": "3598725.5318076310940",
+        "closed_positive": "109606.0042547409700123610419",
+        "closed_negative": "-232979.2016968854264949392751",
+        "open_contribution": "0"
+      },
+      "add": {
+        "layers": 141,
+        "stocks": 92,
+        "receipts": 141,
+        "buy_cash": "1613717.2339409137380",
+        "closed_positive": "23434.10095143376866666666666",
+        "closed_negative": "-139510.1826790937198054710223",
+        "open_contribution": "0"
+      },
+      "reentry": {
+        "layers": 125,
+        "stocks": 105,
+        "receipts": 125,
+        "buy_cash": "1109033.1481117916455",
+        "closed_positive": "48345.01349362645216666666667",
+        "closed_negative": "-80224.06371376333122727272727",
+        "open_contribution": "0"
+      }
+    },
+    "adds_prior_close_sign": {
+      "positive": {
+        "layers": 131,
+        "stocks": 86,
+        "receipts": 131,
+        "buy_cash": "1466614.9811550116380",
+        "closed_positive": "23115.43911611296866666666666",
+        "closed_negative": "-130559.9228674609454966781038",
+        "open_contribution": "0"
+      },
+      "negative": {
+        "layers": 10,
+        "stocks": 10,
+        "receipts": 10,
+        "buy_cash": "147102.2527859021000",
+        "closed_positive": "318.6618353208000",
+        "closed_negative": "-8950.259811632774308792918636",
+        "open_contribution": "0"
+      },
+      "zero": {
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      "unknown": {
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      }
+    },
+    "adds_sign_by_below_last_actual_buy": [
+      {
+        "old_sign": "positive",
+        "below_last_actual_buy": true,
+        "layers": 8,
+        "stocks": 7,
+        "receipts": 8,
+        "buy_cash": "114046.6028420140000",
+        "closed_positive": "2640.3982508468000",
+        "closed_negative": "-9246.45642741868311688311688",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "positive",
+        "below_last_actual_buy": false,
+        "layers": 123,
+        "stocks": 84,
+        "receipts": 123,
+        "buy_cash": "1352568.3783129976380",
+        "closed_positive": "20475.04086526616866666666666",
+        "closed_negative": "-121313.4664400422623797949869",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "positive",
+        "below_last_actual_buy": null,
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "negative",
+        "below_last_actual_buy": true,
+        "layers": 8,
+        "stocks": 8,
+        "receipts": 8,
+        "buy_cash": "112798.0741620502000",
+        "closed_positive": "318.6618353208000",
+        "closed_negative": "-4783.239527195885419904029746",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "negative",
+        "below_last_actual_buy": false,
+        "layers": 2,
+        "stocks": 2,
+        "receipts": 2,
+        "buy_cash": "34304.1786238519000",
+        "closed_positive": "0",
+        "closed_negative": "-4167.02028443688888888888889",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "negative",
+        "below_last_actual_buy": null,
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "zero",
+        "below_last_actual_buy": true,
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "zero",
+        "below_last_actual_buy": false,
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "zero",
+        "below_last_actual_buy": null,
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "unknown",
+        "below_last_actual_buy": true,
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "unknown",
+        "below_last_actual_buy": false,
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "unknown",
+        "below_last_actual_buy": null,
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      }
+    ],
+    "reentry_prior_full_exit_sign": {
+      "positive": {
+        "layers": 19,
+        "stocks": 19,
+        "receipts": 19,
+        "buy_cash": "181136.3547091307480",
+        "closed_positive": "3809.6089481256500",
+        "closed_negative": "-14176.0623249845585",
+        "open_contribution": "0"
+      },
+      "negative": {
+        "layers": 106,
+        "stocks": 90,
+        "receipts": 106,
+        "buy_cash": "927896.7934026608975",
+        "closed_positive": "44535.40454550080216666666667",
+        "closed_negative": "-66048.00138877877272727272727",
+        "open_contribution": "0"
+      },
+      "zero": {
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      "unknown": {
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      }
+    },
+    "reentry_same_stock_E0": {
+      "True": 24,
+      "False": 101
+    },
+    "reentry_same_industry_attempt": {
+      "True": 22,
+      "False": 103
+    },
+    "prior_close_vs_actual_live_layers_differ": 0,
+    "daily_quantity_reconciliation_days": 242,
+    "new_account_replays": 0
+  },
+  {
+    "window": "2025_26",
+    "total": {
+      "layers": 602,
+      "stocks": 372,
+      "receipts": 602,
+      "buy_cash": "8131537.1390463256305",
+      "closed_positive": "677133.8418050261477712908804",
+      "closed_negative": "-512118.2955235240430082940107",
+      "open_contribution": "295186.9966785052750"
+    },
+    "action": {
+      "first": {
+        "layers": 301,
+        "stocks": 301,
+        "receipts": 301,
+        "buy_cash": "3913627.1905634831100",
+        "closed_positive": "335209.6590662393293617886179",
+        "closed_negative": "-210751.2232488550846602840550",
+        "open_contribution": "87513.0167256902250"
+      },
+      "add": {
+        "layers": 178,
+        "stocks": 108,
+        "receipts": 178,
+        "buy_cash": "2646371.2938747684395",
+        "closed_positive": "224623.4446500014151666666667",
+        "closed_negative": "-198710.2947162694890781686858",
+        "open_contribution": "20847.4738985344000"
+      },
+      "reentry": {
+        "layers": 123,
+        "stocks": 98,
+        "receipts": 123,
+        "buy_cash": "1571538.6546080740810",
+        "closed_positive": "117300.7380887854032428355957",
+        "closed_negative": "-102656.7775583994692698412698",
+        "open_contribution": "186826.5060542806500"
+      }
+    },
+    "adds_prior_close_sign": {
+      "positive": {
+        "layers": 163,
+        "stocks": 102,
+        "receipts": 163,
+        "buy_cash": "2445434.0449298629895",
+        "closed_positive": "217744.9787394462651666666667",
+        "closed_negative": "-178487.1056665460597597746615",
+        "open_contribution": "20847.4738985344000"
+      },
+      "negative": {
+        "layers": 15,
+        "stocks": 15,
+        "receipts": 15,
+        "buy_cash": "200937.2489449054500",
+        "closed_positive": "6878.4659105551500",
+        "closed_negative": "-20223.18904972342931839402428",
+        "open_contribution": "0"
+      },
+      "zero": {
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      "unknown": {
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      }
+    },
+    "adds_sign_by_below_last_actual_buy": [
+      {
+        "old_sign": "positive",
+        "below_last_actual_buy": true,
+        "layers": 13,
+        "stocks": 13,
+        "receipts": 13,
+        "buy_cash": "231614.3707733351810",
+        "closed_positive": "7579.1313238493015",
+        "closed_negative": "-19990.41963712840191256830601",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "positive",
+        "below_last_actual_buy": false,
+        "layers": 150,
+        "stocks": 97,
+        "receipts": 150,
+        "buy_cash": "2213819.6741565278085",
+        "closed_positive": "210165.8474155969636666666667",
+        "closed_negative": "-158496.6860294176578472063556",
+        "open_contribution": "20847.4738985344000"
+      },
+      {
+        "old_sign": "positive",
+        "below_last_actual_buy": null,
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "negative",
+        "below_last_actual_buy": true,
+        "layers": 9,
+        "stocks": 9,
+        "receipts": 9,
+        "buy_cash": "142150.1208544012500",
+        "closed_positive": "1015.9351240756000",
+        "closed_negative": "-15107.95754519869990662931840",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "negative",
+        "below_last_actual_buy": false,
+        "layers": 6,
+        "stocks": 6,
+        "receipts": 6,
+        "buy_cash": "58787.1280905042000",
+        "closed_positive": "5862.5307864795500",
+        "closed_negative": "-5115.231504524729411764705882",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "negative",
+        "below_last_actual_buy": null,
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "zero",
+        "below_last_actual_buy": true,
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "zero",
+        "below_last_actual_buy": false,
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "zero",
+        "below_last_actual_buy": null,
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "unknown",
+        "below_last_actual_buy": true,
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "unknown",
+        "below_last_actual_buy": false,
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      {
+        "old_sign": "unknown",
+        "below_last_actual_buy": null,
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      }
+    ],
+    "reentry_prior_full_exit_sign": {
+      "positive": {
+        "layers": 37,
+        "stocks": 36,
+        "receipts": 37,
+        "buy_cash": "535088.7695625823310",
+        "closed_positive": "22104.4908510047000",
+        "closed_negative": "-34639.36870156816371428571429",
+        "open_contribution": "140732.1882925612000"
+      },
+      "negative": {
+        "layers": 86,
+        "stocks": 73,
+        "receipts": 86,
+        "buy_cash": "1036449.8850454917500",
+        "closed_positive": "95196.24723778070324283559577",
+        "closed_negative": "-68017.40885683130555555555556",
+        "open_contribution": "46094.3177617194500"
+      },
+      "zero": {
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      },
+      "unknown": {
+        "layers": 0,
+        "stocks": 0,
+        "receipts": 0,
+        "buy_cash": "0",
+        "closed_positive": "0",
+        "closed_negative": "0",
+        "open_contribution": "0"
+      }
+    },
+    "reentry_same_stock_E0": {
+      "True": 49,
+      "False": 74
+    },
+    "reentry_same_industry_attempt": {
+      "True": 42,
+      "False": 81
+    },
+    "prior_close_vs_actual_live_layers_differ": 0,
+    "daily_quantity_reconciliation_days": 242,
+    "new_account_replays": 0
+  }
+]

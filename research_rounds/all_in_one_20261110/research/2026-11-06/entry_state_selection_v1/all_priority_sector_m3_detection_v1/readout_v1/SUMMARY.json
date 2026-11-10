@@ -1,0 +1,21 @@
+{
+  "priority_records": 66,
+  "sectors": 66,
+  "carry_in": 17,
+  "new_cycle_starts": 49,
+  "first_true_found_new": 49,
+  "no_true_before_original_peak_new": [],
+  "new_delay_median": 4.0,
+  "new_delay_max": 20.0,
+  "new_already_up_median": 5.254877505125832,
+  "new_remaining_space_median": 123.86917843921887,
+  "all_cycle_days": 24983,
+  "true_days": 7509,
+  "false_days": 16423,
+  "unknown_days": 1051,
+  "false_to_true": 1884,
+  "unknown_to_true": 297,
+  "not_detection_precision": true,
+  "not_strategy_returns": true,
+  "postselection": "Only preexisting hindsight priority cycles; no nonpriority control, no clean OOS"
+}

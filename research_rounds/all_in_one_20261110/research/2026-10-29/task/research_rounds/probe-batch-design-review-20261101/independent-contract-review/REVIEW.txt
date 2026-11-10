@@ -1,0 +1,60 @@
+probe两遍批次草案独立审查｜2026-11-01
+
+裁决：AMEND-FIRST（先补合同，再做仅两个固定开盘的纯局部shadow preview）。不建议直接采用当前含混文本接真实commit；也没有理由因959.72元上界直接停止设计。没有授权或执行新账户、收益路径、策略源修改或新分配器。
+
+已证实的事实
+- 原完整H1/code/rank、core-first且reserve成功即done、每股一个native buys、dated minimum/step、费用F(q)、分批fill累计费等接口均如正文。旧whole_orders按waterfill比例另排序且by[sid]覆盖role，不等价。
+- 1/20原1/19有479 role intents/362股票/117双role；实际36张native reserve，其中probe4张：铖昌100、鸣志100、百亚300、儒意100，后三者并非可任意继续缩到一股。
+- 仅百亚300→100可缩，使用原native price与原intent floor/fullwarm factor，名义风险最多减少959.719000元。它是“只缩原4张probe单”的直接risk上界，不是全批机会收益上界，也不是可多买多少股的推论。最低佣金/fee-adjusted NAV会另改变容量分母。
+- 6/29按2022原09:30 funding含probe_risk计数最多、并列最早，688条；全部funding691条、原native reserve=0。691intents/497股票/194双role，独立preview688通过、600745 core frozen-contract失败、2个missing-open unknown均与已有表相符。
+- 6/28原probe风险6085.000000000002元，参考.005*decisionNAV=4133.095117806184元。此为前收盘参考，不冒称6/29精确开盘risk。
+- 若第一遍保持同一输入/完整target comparison/role次序和每次迁池转换，则“前缀无新预留”归纳成立：状态不因订单缩量而分叉，末尾第一遍仍无单、第二遍为空。这个不变证明成立，但前提包含失败路由也发生的migrate/status转换，不能只比较零reserve数量。
+已核18份实际源码SHA、12份artifact冻结SHA。FACT_EVIDENCE.json与check_facts.py留存；无Account/Contract构造或经济路径。
+
+必须修订的三处合同
+
+A. 明确“保持原路由”是保持比较规则，不是冻结历史pool/数量
+CONTRACT_PROPOSAL:15-18的“按原完整target比较”“当时原最大量”“仅推迟原选中probe补量”，以及READOUT:26“完整目标路由固定”可被读成两个不同政策。
+建议唯一明确版本：
+  F为原saved planning intents及其原signal cap/budget/core risk/floor/quote/clock/Q/ACT/token/epoch/顺序，初始化后只读；独立opening preview得到原x.maxq，不因两遍的资金剩余重算目标。
+  S0为原opening已实际sell/settle/sync后的同一状态。第一遍沿序使用私有S1前缀（此前已获准probe minimum、confirmed full、旧held/pending及原次序迁池），以F的完整上限同时求probe/confirmed最大合法量，按原max/tie-probe规则选pool。不能用baseline.full前缀，也不能借第二遍尚未分配的未来容量，不能用最终竞争裁量倒填F。
+  比较规则保持，但缩前序probe可能改变后序pool/role/confirmed量；必须统计这种政策反馈，不能声称历史confirmed单/历史pool数量都保持。
+  第二遍以所有第一遍minimum/full confirmed及迁池结果为起点，只替换当前probe单的q/fee占用，保留其它承诺，role/pool固定。对同一单先移除自身旧q/F(q)再试新总q/F(q)，不释放给其它候选，不重新申请资格。
+  最终前缀预检只验证固定的(role,pool,q)在原各约束下合法、迁池状态相符；不得再次argmax择pool/quantity。commit应显式调用原request的probe_request与固定q，然后一次native reserve。若调用整段self.route，其重新argmax可以推翻第一遍固定pool，成为另一政策。
+
+真实可构造的最小反例（不是历史回测）
+NAV约1m且其它现金/sector/stock约束留余量，A/X两个不同产业、只有mobile的合法fresh intents，A优先。A当前行业probe、原maxq400，含正常滑点p=49.8249、floor39.8449，full资本19929.96/risk3992、minimum100/risk998；原2%目标下可行。X当前行业confirmed且可迁池、原独立冻结maxq300（可由原signal cap限制），p=30.015、floor20.015；每100股risk1000。
+原full前缀A400后，X probe最多100而confirmed300，原选择confirmed300。第一遍A100后，X probe300/confirmed300平手，选probe并只留100；第二遍A先补回400后，X只能仍100。全程可保留dated正常费用（4992风险距.5%上限约有8元余量；A资本距2%上限约70元），无core .25%超限、无非法小单。
+所以：第一遍full-target规则正确仍可能把原confirmed300变为probe100；最终若重跑原route，又会选回confirmed300。必须先指定是哪一种，而不能同时宣称两者保持。
+
+B. 迁池应有独立事件序列，包括最终无订单的候选
+原Bdiag route在求q之前调用migrate；即使q=0，旧probe lots可能已迁池，或status变confirmed_unfunded。model_without_account_check.py:188-208明确迁池被同attempt open/cancel_pending probe单阻止，迁池会移动旧lots或改status；:220/232又证明request会提前写stock_requests/consumed。
+因此私有shadow应记录每次原次序migrate尝试及其结果，不得因候选没最终订单就丢掉该转换。最终检验/未来commit也不能只遍历成功股票而漏掉无单迁池；不能在真正budget上试调用后回滚。资格I/Q/H1/ACT/stage/receipt不随shadow重新判定，只有原route已定义的pool/status转换。
+若S0的held/open/cancel_pending/费用/行业attempt等所需字段未能由已存证据精确恢复，该日期输出unknown并停止，不用前收盘risk或期末状态猜补。
+
+C. 区分每股聚合一次与全批原子事务
+CONTRACT:27-29已正确要求纯planning、前缀检查、所有reserve后才fill。原request/native reserve仍是逐股有状态调用；原native reserve会改sequence、buys、available、日志，尚无“全批原子提交API”。
+当前局部preview应仅返回plan、migration序列、最终shadow、逐前缀验证与输入指纹不变证明；不得真正commit。未来接线需明示异常时事务/隔离恢复语义，不能把“任何fill前停止”叫作全批无副作用回滚。这个不要求现在扩建交易事务系统，只要求不要提前承诺已有原子batch接口。
+
+最小针对性合成集（建议8组；当前未实现/未声称已通过）
+1. full-target路由：probe100/confirmed500必须选confirmed500；真实tie才probe。再用上面A/X资源数例验证S1而非baseline/future-pass状态，明确允许pool变、更差结果及最终不得reroute。
+2. 两角色同股：core最低合法→只一张core、mobile不消费；core最低失败→允许原mobile；core零fill也不补mobile。重复同receipt/input不能双领。
+3. frozen target：core原.25%/nominal cap和mobile完整2%不足minimum，均不能借两遍向上取整；opening gap导致原preview失败也不救。不同H1/code输入顺序不改变原固定排序。
+4. 数量规则：A股100→200；688最初>=200、随后200→201；fill_step1不能产生新100股科创单；原股cap/budget每次补量仍约束。
+5. 费用：F(final_q)替换F(min)，一次minimum；新增第二股票确实多一份minimum。用原dated schedule做fee-adjusted NAV边界，补量后重验所有已承诺最低单/confirmed/migration容量，非只验新增差额。
+6. migrate与待撤：无单候选仍能发生合法旧lot迁池；same-attempt open/cancel_pending阻止迁池；旧attempt不误迁；未ack/未实卖不得释放。第一遍、最终前缀事件序列相符。
+7. 纯度/提交边界：成功、拒绝、异常preview前后原对象/输入bytes或字段指纹全等，无ID/time/log/consumed/stock_requests变动。最终固定q/pool合法性检查故意失败时输出invalid-plan，不重排/丢后序/改pool/fallback；测试未来commit阶段需独立验证一次mirror+native reserve，不把这些断言冒充已有batch事务。
+8. 全部已minimum/全部无单：保留普通第三手仍超probe risk的失败例；6/29原事件链必须零新增且第二遍空；1/20只缩原四单释放<=959.719，不以中际是否买到作验收。
+
+下一步范围裁决
+补清A/B/C并冻结后，仅1/20与6/29的whole-batch纯local shadow preview是有理由的：一批检验有限可释放风险及role/pool反馈，另一批检验确定不变。输出新增unique/role/pool变化、原单缩量或被挤、F(q)及全部约束/迁池前缀，不输出PnL、不扫描第三日期/参数/行情，不初始化或推进Account。
+若坚持“原历史pool/confirmed数量完全不变”或“最终仍必须重跑原argmax并保持第一遍pool”，则需另立政策，当前固定pool两遍合同不能同时保证，不能直接实现。
+
+主要源码依据
+CONTRACT_PROPOSAL.txt:10-19/22-29/32-34；READOUT.txt:19-27。
+joint_v3.py:302-324：先sell/settle，同序资金预留，成功reserve即done，全部资金决策后才买fill。
+account-risk-ablation/route_without_account_check.py:8-29：migrate在前，完整maxq比较，平手probe，最后request。
+account-risk-ablation/model_without_account_check.py:188-208/210-258：迁池阻挡/状态及request早期副作用。
+lot-risk-allocation/code/study.py:23-31/42-66/94-103；sector_account.py:56-77/115-139/414-416/688-744。
+
+私有数值核验初次因6085.000000000002浮点值作过严整数相等断言失败，改1e-8容差后通过；原日志保留，不是主结果错误。

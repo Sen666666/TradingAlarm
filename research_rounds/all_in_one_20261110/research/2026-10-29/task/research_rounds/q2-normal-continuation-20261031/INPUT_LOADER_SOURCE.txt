@@ -1,0 +1,45 @@
+def inputs(scope):
+ """Only read verified original/cache inputs; never derive new indicators."""
+ freeze=read(U/'FREEZE.json');sm=read(U/'STOCK_MANIFEST.json');im=read(U/'INDUSTRY_MANIFEST.json')
+ fixed=freeze['stocks'];assert len(fixed)==len(set(fixed))==1709
+ case=read(W.CACHE/'MANIFEST.json');case_ids={x['sid'] for x in case if x['status']=='complete'}
+ assert len(case_ids)==77
+ ids=fixed if scope=='universe' else [s for s in fixed if s in case_ids]
+ stock={r['symbol']:r for r in sm};industry={r['series']:r for r in im};fullfacts={};cp={};receipts={}
+ for sid in ids:
+  r=stock[sid]
+  assert r['status'] in ('complete','not_applicable_no_local_observation_by_end')
+  for path,h in r['output_sha256'].items():assert sha(path)==h,('changed cache',path)
+  fullfacts[sid]=pd.read_parquet(r['refs']['facts']).loc[:END]
+  cp[sid]=pd.read_parquet(r['refs']['CP1']).loc[:END]
+  receipts[sid]={x['confirmed_day']:x for x in read(r['refs']['receipts']) if J.START<=x['confirmed_day']<=END}
+  assert len(receipts[sid])==sum(bool(x) for x in cp[sid].loc[J.START:END,'receipt'])
+  native=pd.read_parquet(J.BASE.parent/'native-I-cache-interface-20261031/facts'/f'{sid}.parquet').loc[J.START:END]
+  current=fullfacts[sid].loc[J.START:END,native.columns]
+  aa=current.copy(deep=False);bb=native.copy(deep=False)
+  aa.index=aa.index.as_unit('ns');bb.index=bb.index.as_unit('ns')
+  pd.testing.assert_frame_equal(aa,bb,check_exact=True,check_dtype=False,check_freq=False)
+ shared=J.M.context(END,ids=ids);bundle,market,facts=shared
+ assert {l.security_id for l in bundle.lines}==set(ids)==set(market.lines)
+ for sid,f in fullfacts.items():
+  facts.f[sid]=f;bundle.series[sid].states=f[['e0_ready','e0_target','segment_id']].rename(columns={'e0_ready':'ready','e0_target':'target'})
+ sectors={l.sector_id for l in bundle.lines}
+ if scope=='universe':assert sectors==set(freeze['industries']) and len(sectors)==90
+ else:assert len(sectors)==5
+ states={};industry_receipts={}
+ for sid in sorted(sectors):
+  r=industry[sid];assert r['status']=='complete'
+  for path,h in r['output_sha256'].items():assert sha(path)==h,('changed industry cache',path)
+  q=pd.read_parquet(r['refs']['state']);states[sid]=J.T.norm(q[q.day<=END].to_dict('records'))
+  old5=J.BASE.parent/'industry-mobile-stage-20261031'/f'{sid}_STATE.json'
+  if old5.exists():
+   previous=read(old5);old_end=max(x['day'] for x in previous);assert [x for x in states[sid] if x['day']<=old_end]==previous,'Legacy case state prefix changed'
+  for x in read(r['refs']['receipts']):
+   if J.START<=x['confirmed_day']<=END:industry_receipts[sid+'|'+x['confirmed_day']]=x
+  qfacts=facts.f[sid];assert qfacts.index.max()<=pd.Timestamp(END)
+  assert set(('e0_ready','e0_target','e0_floor','factor','raw_close'))<=set(qfacts.columns)
+ recovery=J.M.O/'recovery.csv';v2freeze=read(J.BASE/'PAIR_FREEZE.json')
+ assert sha(recovery)==v2freeze['sha256'][str(recovery)],'ACT external clock changed'
+ return shared,receipts,cp,states,industry_receipts,dict(fixed_stock_ids=fixed,account_ids=ids,
+  sector_ids=sorted(sectors),scope=scope,ACT_external_file=str(recovery),ACT_external_sha256=sha(recovery),
+  stock_manifest_sha256=sha(U/'STOCK_MANIFEST.json'),industry_manifest_sha256=sha(U/'INDUSTRY_MANIFEST.json'))

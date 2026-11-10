@@ -1,0 +1,29 @@
+{
+  "status": "ORIGINAL_AEROSPACE_EVENT_IDENTITY_AND_DAILY_CHAIN_COMPLETE",
+  "main_readout": "READOUT.txt",
+  "initial14_rows": "DAILY_ORIGINAL_E0_G1_I_CP_AND_LEDGER.json",
+  "separate_full40_rows": "FULL_DAILY_ORIGINAL_2025_11_20_2026_01_16.json",
+  "initial14_unchanged": true,
+  "native_vs_legacy_field_boundary": "IDENTITY_AND_SOURCE_FIELD_BOUNDARIES.json",
+  "known_level_clock_comparisons": "KNOWN_REFERENCES_AND_RECLAIM_CLOCKS.json",
+  "original_proxy_trades_and_group_PnL": "ORIGINAL_PROXY_TRADES_AND_THREE_GROUPS.json",
+  "year_boundary_components": "YEAR_BOUNDARY_SAVED_COMPONENTS_2025_12_31_TO_2026_01_16.json",
+  "new_features_models_strategies_accounts_backtests": 0,
+  "new_financial_replays_or_intraday_quotes": 0,
+  "source_epistemic_boundary": "Existing frozen facts, raw price-event pivots, CP receipts and original daily-bar-proxy ledger only. No broker execution or live publication timestamp proof.",
+  "facts": [
+    "Actual E0/I targets0->1 at Nov27/28 and saved canonical E0 IDs differ; I tuple alone was not used to infer this",
+    "Nov28 reclaims old I line; Dec1 first reclaims the prior CP confirmation levels and Nov25 close-peak confirmed Nov26",
+    "Original CORE was rejected for sector_capital on Dec1 and Dec2, while Dec2 original MOBILE confirmed was funded",
+    "Original Nov24 old MOBILE group +2881.36084122045, subsequent CORE506 -2332.4533258663, later three MOBILE +51001.6073036677",
+    "Later lifecycle net includes2025December gains; saved year-boundary components support a negative Jan1-16 segment instead of relabeling lifecycle gain as2026 profit"
+  ],
+  "limitations": [
+    "No new strategy profitability or causal benefit inferred from this one post-outcome example",
+    "Legacy companion pending/N1 state and legacy ix_target not promoted into actual nativeI state",
+    "Canonical E0 identity is a stored local trace hash, not provider original episodeID",
+    "Independent per-stock Mark object not saved in daily JSON; boundary mark is source-bound scalar reconstruction",
+    "Frozen action source is a declared research proxy with exact payment dates not certified"
+  ],
+  "blockers": []
+}

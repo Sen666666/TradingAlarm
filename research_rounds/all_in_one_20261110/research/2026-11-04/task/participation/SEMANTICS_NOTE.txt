@@ -1,0 +1,5 @@
+C10 offered-use母体源头核对（分析后补充，金融0）
+原g-s-C-August-continuation-v1-20261102/analyze.py:37-43 opportunities()仅要求映射stock_Q is True、preliminary、CP1_id；它按S permit且mature优先，否则G permit，否则局部permit给T。
+ACT_on被记录但不是母体筛选；本窗2241首context恰好全部ACT_on=True（S1424/G798/T19）。
+原分析104行firstops按(sid,offered_context)去重；获资以同source_context且该层signal_at>=首机会day匹配。不是每个首receipt的精确成交映射，也不是全部账户可执行检查。
+因此称“原市场层首股×context母体”，不能把2241称作独立规范新订单，133也不能称作2241个首CP1精确成交率。原报告的freshCP1口径按来源保留，本次不扩展为消费状态/待单/现金/ACT/股I均核全。没有把stock×industry×context混成PVR股日833母体。

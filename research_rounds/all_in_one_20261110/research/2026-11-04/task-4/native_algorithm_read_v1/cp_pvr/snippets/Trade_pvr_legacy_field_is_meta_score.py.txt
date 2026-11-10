@@ -1,0 +1,15 @@
+ def fill_buy(self,sid,w):
+  order=self.buys.get(sid)
+  if order is None:return
+  meta=self.order_meta[order.order_id];f=self.facts.factor(sid,w.at)
+  if w.raw_open*f<=meta['floor']:
+   self.counts['open_at_or_below_protection']+=1;self.log('pilot_buy_rejected',w.at,sid=sid,reason='open_at_or_below_protection',intent=meta);self.cancel_buy(sid);return
+  receipt=super().fill_buy(sid,w)
+  if receipt:
+   self.layer_seq+=1
+   z=dict(id=self.layer_seq,sid=sid,kind=meta['kind'],qty=receipt.shares,initial_qty=receipt.shares,opened=w.at,signal_at=meta['clock'].decision_at,epoch=meta['epoch'],floor=meta['floor'],cash=-receipt.gross_cny-receipt.fees_cny,dividend=ZERO,closed=None,reason=None)
+   self.layers.append(z);self.last_buy[sid]=w.execution_price*f
+   if z['kind']=='core':self.core_epoch[sid]=meta['epoch']
+   self.trades.append(dict(**asdict(receipt),layer=z['id'],kind=z['kind'],signal_at=z['signal_at'],raw_open=w.raw_open,price=w.execution_price,floor=meta['floor'],pvr=meta['score'],reason=meta['reason'],epoch=meta['epoch']))
+   self.counts['buy_fills']+=1
+  self.check();return receipt

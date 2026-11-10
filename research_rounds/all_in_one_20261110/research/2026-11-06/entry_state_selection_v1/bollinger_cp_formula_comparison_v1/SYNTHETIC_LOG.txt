@@ -1,0 +1,10 @@
+                C           U     CP old_state new_state  old_mult  new_mult      marker  marker_day
+2020-01-30  110.0  100.000000   True    EXPAND    EXPAND       1.0       1.0         NaN        None
+2020-01-31  105.0  104.735368  False    REPAIR    REPAIR       1.0       1.0  104.735368  2020-01-31
+2020-02-03  120.0  105.379980  False    REPAIR    REPAIR       1.0       1.0  104.735368  2020-01-31
+2020-02-04  121.0  111.094757  False    REPAIR    REPAIR       1.0       1.0  104.735368  2020-01-31
+2020-02-05  121.0  115.138858  False    REPAIR    REPAIR       1.0       1.0  104.735368  2020-01-31
+2020-02-06  121.0  118.302999  False    REPAIR    REPAIR       1.0       1.0  104.735368  2020-01-31
+2020-02-07  121.0  120.942074  False    REPAIR    REPAIR       1.0       1.0  104.735368  2020-01-31
+2020-02-10  122.0  123.203929   True    REPAIR    EXPAND       0.5       1.0  104.735368  2020-01-31
+NONEMPTY_MECHANISM_SYNTHETIC_WITNESS_PASS

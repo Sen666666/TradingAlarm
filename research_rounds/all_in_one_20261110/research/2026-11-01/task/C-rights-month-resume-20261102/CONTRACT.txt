@@ -1,0 +1,8 @@
+C月末原runner最小接回，2026-11-02。仅原两2022账户，Jan13剩余OPEN/CLOSE及同政策物理前缀控制；无Jan14或2025授权。无新账户、资金框架、指标、资格、排序、预算或公司行动语义修改。
+导入必须先用原ActionRunner.restore及可信注册SHA恢复独审通过的ACTION输出。原ActionRunner源码/注册/守卫不改、不接收演化金融状态。新ContinuationRunner是显式新源码身份：无事件class/input薄导入，金融/策略/流水prefix和完整financial conservation必须相同；完整字段变化仅新来源记录及物理分支输入缓存/raw/actions/manifest。
+旧7证书/账户继续原U兼容函数，真实旧类/旧源/旧输入重算。新证书按本新source binding验证。新restore只接受显式可信注册SHA的登记checkpoint、provenance及全字段hash，按每个当前演化状态比较，不再强制等于Jan12常量。旧Jan12/ACTION注册不扩范围。
+保留已完成配股证明及action_log前缀。父ActionRunner.execution_guard仍验证Jan13父证明/旧权限；新金融权限必须另外满足显式新grant，精确绑定runtime identity/账户/模式/分支/父ACTION SHA/输入SHA/日期/phase/可信grantSHA。当前grant只Jan13 OPEN/CLOSE。driver没有ACTION循环，直接从ACTION后的OPEN开始。未来只能在另行明确授权并提供可信新grantSHA后追加日期，不需另搭runner；本次不会追加。
+step/event委托冻结M.MonthRunner.step及原P.HistoricalRunner.event和mixed-order-v1内核；任意clock、源或模式错误拒绝。原必要CLOSE/可选规划分阶段提交语义保留；其他异常使用原pickle事务方式恢复整个事件，失败停，不自动重试或换源。
+物理前缀删除Jan14之后当前市场资料，保留完整暖机/已约定起点、不可变旧基础输入与公开交易日历。原生OPEN采用已冻结的日线HLV postcheck代理，故控制单位是日，不冒称盘中逐笔可观察验证。原旧证书输入视图仅供旧证明重算，不用于当前股票/F1输入。行业/股票域1709原身份不变。
+两分支账户/策略/流水比较复用原compare_branches.normalized，仅容许来源manifest/hash和已独立核验的当前source binding差异，证书ID按唯一(mode,window,known_at)一一映射；数量、收据、期限、预算、投影、责任及原交易事实不得删除。增加配股幂等证明比较。各分支另以V3完整typed字段进行严格保存/跨进程恢复及旧证书重算检查。
+成功止于Jan13 CLOSE，输出供下一次明确月末续接授权使用；不声称实盘可用或资金策略通过。

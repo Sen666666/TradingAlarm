@@ -1,0 +1,23 @@
+{
+  "recommendation": "STOP_current_unconditional_global_PVR_priority_candidate",
+  "primary_two_window_support": true,
+  "secondary_direction_support": false,
+  "directions": {
+    "2022": {
+      "Q1_21": 0.19537731333235916,
+      "exclusive_21": 0.7937713709051425,
+      "Q1_63": 0.957637298175882,
+      "exclusive_63": 1.3724610746163117
+    },
+    "2025_26": {
+      "Q1_21": 0.5540497952040753,
+      "exclusive_21": 1.1079831401736433,
+      "Q1_63": -0.23682196081632975,
+      "exclusive_63": 0.21618972316340515
+    }
+  },
+  "not_a_year_switch": true,
+  "conditional_cannot_rescue_global": true,
+  "policy_or_live_promotion": false,
+  "economic_paths": 0
+}

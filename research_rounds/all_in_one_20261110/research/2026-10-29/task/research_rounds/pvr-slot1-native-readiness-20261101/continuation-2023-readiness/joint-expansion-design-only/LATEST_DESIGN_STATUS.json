@@ -1,0 +1,6 @@
+{
+  "latest": "temporal-frontier-design-only/DESIGN_STATUS.json",
+  "status": "T1-L design-only awaiting review; universal B remains STOP",
+  "previous_A_proof_clock_record_unchanged": true,
+  "coverage_or_implementation_authorized": false
+}

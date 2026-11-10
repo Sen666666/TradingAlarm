@@ -1,0 +1,35 @@
+{
+  "name": "S-AMT1",
+  "date": "2026-10-28",
+  "status": "candidate_implemented_synthetic_verified_only",
+  "reference": "SFW3_RS_1 original S remains unchanged",
+  "scope": "only S confirmation kernel and admission adapter; no disagreement penalty",
+  "constants": {
+    "multiplier": 1.5,
+    "scale_observations": 63,
+    "amount_baseline_observations": 21,
+    "weight_cap": 1,
+    "weight_floor": 0
+  },
+  "synthetic_tests": 21,
+  "synthetic_prefixes": 145,
+  "historical_signal_runs": 0,
+  "backtests": 0,
+  "platform_changed": false,
+  "source_sha256": {
+    "research_rounds/s-amount-confirmation-20261028/RULES.txt": "1891d30ab28dda4d67b0bbefd4a3909067db943df6db385ca36b0d124d732b0f",
+    "research_rounds/s-amount-confirmation-20261028/code/s_amount.py": "3ed123179658ae0f62178afea225f805f77f8b0f066780f7993524d3e473d8f1",
+    "research_rounds/s-amount-confirmation-20261028/code/s_amount_arithmetic.py": "bee04c1ff88fd7a1c7571eada45380bafbbff524494f493c4a245dd9d19cafb2",
+    "research_rounds/s-amount-confirmation-20261028/code/test_s_amount.py": "71b6306cb788cf00a851375dd07a5382c08d04a87d7ceb3c8c36a85a29d5b8ea"
+  },
+  "legacy_verified_source_sha256": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/swf-pvr-combination-20261028/code/study.py": "85bd5749f4b85f5a8fe76077c45022bcb256ee4da04abae3f2ea9f44af22f99f",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/swf-pvr-combination-20261028/code/waiting.py": "9dede472eb233900012997bd0edca3c4b4000f68dc87b7c09207580ac9a601bc",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/strict-entry-capacity-20261027/code/entry_kernel.py": "7cff2ba2b930525d4948ee03172363d0b0b3e6ef837b42786be1f549a8aef41a",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/intent-support-20261027/code/fast_kernel.py": "a3bd12dc0053cc98d50046055b82312492eb6f8aef6f2449ddb10917b8c05b98",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-act-comparison-20261027/code/experiment.py": "124cf2f65ad6e2befac6c0e945b4574b64ff68ed75692bff5234bf47b81509bf",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/actual-risk-recovery-20261027/code/engine.py": "781589c0a80a6713bf03ee4abb0bb3ab6ba649f7482f13179ab458809dc2e374",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/actual-risk-recovery-20261027/code/risk_policy.py": "b0f38e5813b56d52cf15cae06fb6370cc55f2930ecff9ced4d8eefe793c1518d",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/tech-finite-compound-20261026/code/run_v2.py": "1d541de7ac0350aa830c23df14174d08e431a6cb9114357ffa2773b6742786d9"
+  }
+}

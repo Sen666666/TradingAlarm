@@ -1,0 +1,23 @@
+{
+  "status": "STOP_AFTER_MECHANISM_NO_PROMOTION_NO_FULL_CANDIDATE_RERANK",
+  "actual_firsts": 2693,
+  "closed_all": 2626,
+  "net_wins_all": 675,
+  "mobile_firsts": 1814,
+  "mobile_closed": 1773,
+  "mobile_net_wins": 465,
+  "mobile_joint_known_closed": 1749,
+  "mobile_joint_known_wins": 458,
+  "mobile_positive_E_negative_q": 46,
+  "penalized_original_net_wins": 14,
+  "pvr_max_error": 2.842170943040401e-14,
+  "prefix_checks": 29,
+  "synthetic_checks": 11,
+  "accounts": 0,
+  "orders": 0,
+  "parameter_scan": 0,
+  "full_candidate_rerank": 0,
+  "source_unchanged": true,
+  "cutoff": "2026-05-15",
+  "original_known_return_association_not_new_strategy": true
+}

@@ -1,0 +1,68 @@
+2026-11-04 bounded source review (not exhaustive every old working draft)
+
+Actual old PVR source chain:
+pvr-slot1-native-readiness-20261101/native_rank.py Runner(BASE.Runner)
+ -> account-risk-ablation-20261031/adapter.py Runner.route=compiled original
+    route_without_account_check.py; each budget=NoAccountBudget(J.Budget)
+ -> NoAccountBudget.request=N.Contract.request from model_without_account_check.py
+ -> J.Budget.migrate -> case-stage-ledger-20261031/budget_v3/model.py Contract.migrate.
+native_rank only changes frozen stock priority keys after native planning.
+Native OPEN/execution/ledger/exit/ACT remain original. Old account3 was
+already removed by Bdiag; no new C10 account6 was ever in this old policy.
+
+Actual route order:
+routes=['probe']; mobile+active financial stage>0 calls b.migrate first.
+ONLY successful migration adds 'confirmed'. Then evaluates maximum legal
+quantity in each eligible route, takes larger, probe wins equal quantity.
+This is not strict confirmed-first then probe-fallback. Current-attempt
+probe pending anywhere in industry blocks migration even when another stock
+requests confirmed. Old confirmed capital already>60 can block migration
+even if transferred capital is0. Successful migration can change resource
+ownership before final new-order rejection; this original side effect stays.
+
+Minimal one-mechanism source intervention requires three mutually consistent
+predicates: actual inherited migrate60 gate, request confirmed60 gate,
+route confirmed60 maximum-fit predicate. Removing only route is not valid;
+changing migration failure dependency adds SD and is explicitly excluded.
+component.py verifies actual inherited and N.Contract migrate source equal,
+compiles private derived model/route in memory, and publishes source diff.
+No original class/source is mutated. Interface:
+  plan(original_state, complete_original_intents_with_preview, OPEN, flag)
+returns complete attempts, selected orders, validations, final resources.
+Private state is deep-copied. No Account init or execution/fill API in plan.
+
+Prior study dedup:
+1. migration-admission-invariant-review-20261101/READOUT.txt and
+   migration-admission-native-readiness-20261101/native_adapter.py:
+   SD changes request failed-migrate guard to best-effort and adds confirmed
+   to route even after failed migration. It retains confirmed60 in migrate,
+   request and route predicates. It is not the present single-mechanism test.
+2. migration-admission-local-2x2-20261101/{variant.py,READOUT.txt}:
+   single/two-pass x coupled/decoupled; June29 all4 cells0 orders;
+   confirmed509302.44 > cap493104.42 and probe risk5909>4109.20.
+   This does not show what removing confirmed60 alone would do.
+3. lot-aware-R1-20261031/CONTRACT.txt explicitly retains confirmed60,
+   sector1, probe10/.5 and no borrowing probe. Not the same intervention.
+4. c1-drawdown-capacity-20261101/CONTRACT.txt changes capacity response;
+   passive breaches not forced sold, new confirmed/migration cannot use
+   existing excess. It does not isolate simple removal of original60.
+5. pvr-slot1.../continuation-2023-readiness/joint-expansion-design-only/
+   risk-funded-B-review/CONTRACT_RECOMMENDATION.txt:34 retains confirmed60.
+6. capital-capability-design-only-20261101 and later G/S C change multiple
+   capital/evidence/target/risk/exit mechanisms. Absence of old60 there is
+   not evidence of an isolated effect in old PVR.
+7. g-s-C-shared-risk-design-check-readonly-20261102/REPORT.txt rejects
+   max_i R(q*) shared-proof reference due candidate-domain dependence and
+   missing executable allocation/consumption clock. It is a static G/S
+   design rejection, zero account events, not old PVR pool60 experiment.
+
+No isolated prior old-PVR three-predicate60 removal was located in these
+closest source/results families. This is a bounded dedup finding, not proof
+that no private draft anywhere ever proposed it.
+
+Evidence bounds:
+537 semiconductor rejection tags overlap across considered routes; 277
+pool-capital presences are not277 exclusive fixes. Original close pressure
+75/116 days is not exact open causation. New study uses complete native
+S0 and sequential shared-resource feedback; not independent minimum sums.
+Even positive new admission count is not PnL, trend quality or robustness.

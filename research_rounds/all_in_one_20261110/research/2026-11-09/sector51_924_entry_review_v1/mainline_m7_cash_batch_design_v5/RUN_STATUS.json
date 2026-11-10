@@ -1,0 +1,22 @@
+{
+  "days": 42,
+  "orders": 1716,
+  "blockers": [
+    "2024-11-08 688016.SH UNADMITTED_EQUITY_EVENT"
+  ],
+  "last": {
+    "day": "2024-11-07",
+    "cash": "152690.0434199272165",
+    "receivable": "0.00000",
+    "market_value": "1328070.59",
+    "NAV": "1480760.6334199272165",
+    "net_liquidation_NAV": "1478831.5613063861260",
+    "stocks": 95,
+    "shares": 122423,
+    "weight_pct": "89.68840473106864250959386079",
+    "fees_paid": "13682.5242800727835"
+  },
+  "prefix_1106_pass": true,
+  "planned_end": "2026-06-30",
+  "completed_horizon": false
+}

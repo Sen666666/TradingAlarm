@@ -1,0 +1,17 @@
+2026-11-04 root-authorized PAPER INPUT DIAGNOSTIC. No Account/Runner/state machine.
+Read only original 1709 native recovery.csv full2013..2026Jun30 and original ACT
+checkpoint/flat evidence. Compute H20/L20 using PRIOR20 planned known synthetic
+M closes, shift1/full20, strict M>H20 AND breadth>.6. No extra up, no mean/EMA,
+no stock/industry recomputation. Synthetic M is not tradable OHLC/NAV.
+Primary population: ALL3 original No60 2022..24 ACT pause cycles, exact original
+paused+flat checkpoint eligibility, not inferred D/P/C future calendar. Retain
+original PVR2 cycles as controls, and strong original0 cycles explicitly.
+At first eligible trigger freeze C0=M, S0=priorL20, initialR=C0-S0; box width=R/C0.
+No tightening/sizing/positions simulated. First subsequent M<=S0, fastFalse and
+new20high+B date with M>=C0+initialR are static price milestones only, NOT exits,
+P/C transitions or feasible fills. Preserve old BREAK63 and same-input prior21
+for comparison. Old407 REC21 account evidence has different universe/action.
+Also retain EVERY daily row of fixed contexts: 2022Apr1..Jul4,2023Jul1..Sep29,
+2024Sep2..Oct31,strong2025Jul1..2026Jun30. These windows are diagnostic only.
+No parameter sweep, new ledger, reallocated cash, counterfactual PnL or strategy
+promotion. Output protocol/code/source SHA before one bounded calculation.

@@ -1,0 +1,12 @@
+{
+  "completed": true,
+  "seconds": 36.12755829188973,
+  "cases": 5,
+  "checkpoints": 38,
+  "new_accounts": 0,
+  "new_thresholds": 0,
+  "new_gates": 0,
+  "original_m_export_only": true,
+  "source_same_formula_gate": true,
+  "no_counterfactual_PnL": true
+}

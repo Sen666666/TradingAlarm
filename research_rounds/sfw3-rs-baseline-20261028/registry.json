@@ -1,0 +1,26 @@
+{
+  "name": "SFW3_RS_1",
+  "frozen_on": "2026-10-28",
+  "authorization": "用户指定S+F+W3保留RS作为独立固定算法策略",
+  "status": "fixed_research_baseline_not_platform_default",
+  "source_round": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/swf-pvr-combination-20261028",
+  "components": {
+    "S": "1.5倍E0结构交集",
+    "F": "0.5倍事件核候选支持",
+    "W": "3市场收盘固定非滚动寿命；等待期间F跟踪与保护继承",
+    "ranking": "原个股RS-H1与行业RS-H1",
+    "allocation": "6股3行业每行业2股；初仓15%NAV/新增90%",
+    "risk": "ACT20_BREAK：20%阶段暂停，空仓＋63观察新高/正收益/金额方向正广度>60%恢复"
+  },
+  "source_sha256": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/swf-pvr-combination-20261028/code/study.py": "85bd5749f4b85f5a8fe76077c45022bcb256ee4da04abae3f2ea9f44af22f99f",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/swf-pvr-combination-20261028/code/waiting.py": "9dede472eb233900012997bd0edca3c4b4000f68dc87b7c09207580ac9a601bc",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/strict-entry-capacity-20261027/code/entry_kernel.py": "7cff2ba2b930525d4948ee03172363d0b0b3e6ef837b42786be1f549a8aef41a",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/intent-support-20261027/code/fast_kernel.py": "a3bd12dc0053cc98d50046055b82312492eb6f8aef6f2449ddb10917b8c05b98",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-act-comparison-20261027/code/experiment.py": "124cf2f65ad6e2befac6c0e945b4574b64ff68ed75692bff5234bf47b81509bf",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/actual-risk-recovery-20261027/code/engine.py": "781589c0a80a6713bf03ee4abb0bb3ab6ba649f7482f13179ab458809dc2e374",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/actual-risk-recovery-20261027/code/risk_policy.py": "b0f38e5813b56d52cf15cae06fb6370cc55f2930ecff9ced4d8eefe793c1518d",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/tech-finite-compound-20261026/code/run_v2.py": "1d541de7ac0350aa830c23df14174d08e431a6cb9114357ffa2773b6742786d9"
+  },
+  "scope": "源科技研究规则冻结；新股票池及市场参照定义属于数据/环境适配，必须显式记录，不改核心机制"
+}

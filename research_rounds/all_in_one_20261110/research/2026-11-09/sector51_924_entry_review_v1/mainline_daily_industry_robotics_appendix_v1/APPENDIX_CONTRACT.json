@@ -1,0 +1,12 @@
+{
+  "original_builder_sha256": "228a8e02d95817afe92360cc2b1b2bdbd1ad3801a1bbe011d8c421576a46705c",
+  "only_changes": [
+    "new output directory",
+    "one requested robotics window"
+  ],
+  "primary": "BIRTH_PRICE_KNOWN",
+  "formula": "strict majority of same members with C(t)>C(birth) AND C(t)>C(prev)",
+  "no_threshold_change": true,
+  "no_original_artifact_write": true,
+  "no_history": true
+}

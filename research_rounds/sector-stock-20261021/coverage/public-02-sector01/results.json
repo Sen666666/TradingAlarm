@@ -1,0 +1,23 @@
+{
+  "created_at": "2026-10-22T23:00:24.790670+08:00",
+  "plan_sha256": "cf74b161d4dde15ec266fa0d5575cbf6a48efb221e243cf051d4355ebc945d21",
+  "code_sha256": "5f20a386759dca9eab9d0dc8a73a538c84f50f19bc58de59da3b0c316365c4bf",
+  "credentials_used": false,
+  "requests": [
+    {
+      "sequence": 1,
+      "url": "https://www.swsresearch.com/swindex/pdf/SwClass2021/StockClassifyUse_stock.xls",
+      "error_type": "SSLError"
+    },
+    {
+      "sequence": 2,
+      "url": "http://www.swhyresearch.com/institute_sw/allIndex/downloadCenter/industryType",
+      "error_type": "ConnectTimeout"
+    },
+    {
+      "sequence": 3,
+      "url": "https://www.swsresearch.com/institute-sw/api/index_publish/current/?page=1&page_size=50&indextype=%E4%B8%80%E7%BA%A7%E8%A1%8C%E4%B8%9A",
+      "error_type": "SSLError"
+    }
+  ]
+}

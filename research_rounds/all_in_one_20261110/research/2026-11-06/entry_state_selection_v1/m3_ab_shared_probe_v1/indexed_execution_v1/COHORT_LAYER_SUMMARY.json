@@ -1,0 +1,233 @@
+{
+  "2022": {
+    "author_status": "COMPLETED_PENDING_INDEPENDENT_REVIEW",
+    "result": {
+      "status": "COMPLETED_AUTHOR_REVIEW_PENDING",
+      "window": "2022",
+      "days": 1085,
+      "last_complete": "2026-06-30 00:00:00",
+      "elapsed_seconds": 38.95156391616911,
+      "peak_rss_bytes": 1461223424,
+      "actions": 22,
+      "action_counts": {
+        "buy_core": 11,
+        "buy_add": 1,
+        "sell_all": 10
+      },
+      "archive_rounds": 103,
+      "promotions": 2,
+      "claims": 0,
+      "settled_claims": 0,
+      "equity_bridges": 0,
+      "first_uncertified": {
+        "day": "2022-01-13 00:00:00",
+        "OPEN": {
+          "day": "2022-01-13 00:00:00",
+          "phase": "OPEN",
+          "cash": "1127818.4119525808000",
+          "gross_inventory": "69147.00",
+          "receivable": "0",
+          "NAV": null,
+          "certified": false,
+          "unknown": [
+            {
+              "sid": "600595.SH",
+              "round_id": "2022|A_UNION_B_SHARED_ENGINEERING_V1|600595.SH|1",
+              "reason": "MISSING_OPEN_PATH_UNKNOWN",
+              "core": 400,
+              "add": 0,
+              "receivable": "0"
+            }
+          ],
+          "live_rounds": 10,
+          "layers": 11,
+          "live_orders": 0,
+          "unique_actions": 13,
+          "cash_and_qty_reconciled": true,
+          "proxy": "OBSERVED_OPEN_PLUS_MINUS_5BP_NOT_EXECUTABILITY_PROOF"
+        },
+        "CLOSE": {
+          "day": "2022-01-13 00:00:00",
+          "phase": "CLOSE",
+          "cash": "1127818.4119525808000",
+          "gross_inventory": "68262.00",
+          "receivable": "0",
+          "NAV": null,
+          "certified": false,
+          "unknown": [
+            {
+              "sid": "600595.SH",
+              "round_id": "2022|A_UNION_B_SHARED_ENGINEERING_V1|600595.SH|1",
+              "reason": "MISSING_OPEN_PATH_UNKNOWN",
+              "core": 400,
+              "add": 0,
+              "receivable": "0"
+            }
+          ],
+          "live_rounds": 10,
+          "layers": 11,
+          "live_orders": 0,
+          "unique_actions": 13,
+          "cash_and_qty_reconciled": true,
+          "proxy": "OBSERVED_OPEN_PLUS_MINUS_5BP_NOT_EXECUTABILITY_PROOF"
+        }
+      },
+      "final_reconciliation": {
+        "day": "2026-06-30 00:00:00",
+        "phase": "CLOSE",
+        "cash": "1192440.5471111303000",
+        "gross_inventory": "0",
+        "receivable": "0",
+        "NAV": null,
+        "certified": false,
+        "unknown": [
+          {
+            "sid": "600595.SH",
+            "round_id": "2022|A_UNION_B_SHARED_ENGINEERING_V1|600595.SH|1",
+            "reason": "MISSING_OPEN_PATH_UNKNOWN",
+            "core": 400,
+            "add": 0,
+            "receivable": "0"
+          }
+        ],
+        "live_rounds": 1,
+        "layers": 1,
+        "live_orders": 0,
+        "unique_actions": 22,
+        "cash_and_qty_reconciled": true,
+        "proxy": "OBSERVED_OPEN_PLUS_MINUS_5BP_NOT_EXECUTABILITY_PROOF"
+      },
+      "reports": {
+        "filled_rounds": 11,
+        "first_probe_layers": 11,
+        "ADD_layers": 1,
+        "execution_closed_settlement_open": 0,
+        "open_censored": 0,
+        "asset_unknown": 1
+      },
+      "complete_certified_NAV_path": false,
+      "conditional_proxy_only": true,
+      "continuous_all_market_strategy": false,
+      "old_independent_rounds_are_not_same_funded_control": true
+    },
+    "closed_only_groups": {
+      "core": {
+        "total_layers": 11,
+        "execution_and_settlement_closed": 10,
+        "net_positive": 2,
+        "zero_net": 0,
+        "sum_NET80": "-5378.722342978995652173913043",
+        "net_positive_fraction": "0.2",
+        "states": {
+          "EXECUTION_AND_SETTLEMENT_CLOSED": 10,
+          "ASSET_UNKNOWN": 1
+        }
+      },
+      "add": {
+        "total_layers": 1,
+        "execution_and_settlement_closed": 1,
+        "net_positive": 0,
+        "zero_net": 0,
+        "sum_NET80": "-218.578961942104347826086957",
+        "net_positive_fraction": "0",
+        "states": {
+          "EXECUTION_AND_SETTLEMENT_CLOSED": 1
+        }
+      },
+      "full_round": {
+        "filled_rounds": 11,
+        "execution_and_settlement_closed": 10,
+        "net_positive": 1,
+        "sum_NET80": "-5597.3013049211000",
+        "net_positive_fraction": "0.1"
+      }
+    },
+    "output_seal_sha256": "1611f15919bc2743f10db16b7b7bc78d7ba6af4831ce15e2bea69134ae6204d4",
+    "aggregate_warning": "Layer attribution is not a separately funded strategy; closed-only subset cannot stand in for unresolved asset value or total portfolio performance."
+  },
+  "2024_924": {
+    "author_status": "COMPLETED_PENDING_INDEPENDENT_REVIEW",
+    "result": {
+      "status": "COMPLETED_AUTHOR_REVIEW_PENDING",
+      "window": "2024_924",
+      "days": 439,
+      "last_complete": "2026-06-30 00:00:00",
+      "elapsed_seconds": 44.38603620789945,
+      "peak_rss_bytes": 2257666048,
+      "actions": 236,
+      "action_counts": {
+        "buy_core": 80,
+        "buy_add": 42,
+        "sell_add": 34,
+        "sell_all": 80
+      },
+      "archive_rounds": 1840,
+      "promotions": 45,
+      "claims": 4,
+      "settled_claims": 4,
+      "equity_bridges": 9,
+      "first_uncertified": null,
+      "final_reconciliation": {
+        "day": "2026-06-30 00:00:00",
+        "phase": "CLOSE",
+        "cash": "1222183.3248405139970",
+        "gross_inventory": "0",
+        "receivable": "0.000",
+        "NAV": "1222183.3248405139970",
+        "certified": true,
+        "unknown": [],
+        "live_rounds": 0,
+        "layers": 0,
+        "live_orders": 0,
+        "unique_actions": 236,
+        "cash_and_qty_reconciled": true,
+        "proxy": "OBSERVED_OPEN_PLUS_MINUS_5BP_NOT_EXECUTABILITY_PROOF"
+      },
+      "reports": {
+        "filled_rounds": 80,
+        "first_probe_layers": 80,
+        "ADD_layers": 42,
+        "execution_closed_settlement_open": 0,
+        "open_censored": 0,
+        "asset_unknown": 0
+      },
+      "complete_certified_NAV_path": true,
+      "conditional_proxy_only": true,
+      "continuous_all_market_strategy": false,
+      "old_independent_rounds_are_not_same_funded_control": true
+    },
+    "closed_only_groups": {
+      "core": {
+        "total_layers": 80,
+        "execution_and_settlement_closed": 80,
+        "net_positive": 21,
+        "zero_net": 0,
+        "sum_NET80": "8180.37198165183588888888889",
+        "net_positive_fraction": "0.2625",
+        "states": {
+          "EXECUTION_AND_SETTLEMENT_CLOSED": 80
+        }
+      },
+      "add": {
+        "total_layers": 42,
+        "execution_and_settlement_closed": 42,
+        "net_positive": 18,
+        "zero_net": 0,
+        "sum_NET80": "14002.95285886216111111111111",
+        "net_positive_fraction": "0.4285714285714285714285714286",
+        "states": {
+          "EXECUTION_AND_SETTLEMENT_CLOSED": 42
+        }
+      },
+      "full_round": {
+        "filled_rounds": 80,
+        "execution_and_settlement_closed": 80,
+        "net_positive": 20,
+        "sum_NET80": "22183.3248405139970",
+        "net_positive_fraction": "0.25"
+      }
+    },
+    "output_seal_sha256": "d9a793413536f425ed98db64f2926b26104a0a35635f3a82a4213068f8d77df0",
+    "aggregate_warning": "Layer attribution is not a separately funded strategy; closed-only subset cannot stand in for unresolved asset value or total portfolio performance."
+  }
+}

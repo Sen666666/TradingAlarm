@@ -1,0 +1,83 @@
+组合持仓健康度只修新增gross许可：有限排重/现成字段成本审
+状态 PAPER_ONLY / NO_H_NUMERIC / NO_FEATURE_OR_ACCOUNT_GO。
+当前没有计算任何H、EMA值、u序列、覆盖率或新账户；没有改策略源码。
+
+候选仅按root原意登记，未补规则
+H：成熟3CLOSE且C>=EMA10、EMA10>lag3的实际持仓市值 / 总实际持仓市值。
+u=.1+.8H，仅替换新增买入TOTAL gross admission的上界；旧仓overcap不强卖、
+不按浮盈亏，不叠市场DOWN或成本/F-E额度，原ACT/BREAK恢复算法与自身状态不变。
+不把它直接叫“健康仓产生可消费信用”，不给其它股票/行业另造授权账。
+
+有限排重结论
+本次直接谱系中未定位完全同义H/u的经济账户结果，不能说全历史绝无重复。
+1. staged-risk-20261027是FULL/DEFENSIVE/PAUSED：市场m21弱且阶段DD>=10%
+   时旧仓半卖、禁止新增，季度63高+广度恢复；固定HALF则原新预算减半。
+   该失败/参与代价已见，保留赢家与新趋势仍受伤，但不是用EMA健康市值比
+   连续决定新gross ceiling，也不允许据旧STEP结果直接否定或赞成本案。
+2. 旧MA63 P/C保护credit及首次F>=entry：强调原保护生效、同批次归属和信用消费，
+   后续costguard全窗已STOP。新H不用含费basis/保护毕业；“已有仓强就让别股
+   多买”仍有相近的跨股许可风险，不能把换EMA当成已经解决旧反馈失败。
+3. 刚完成D_GROSS10：DOWN时总gross10%新增许可，三年仍亏28.14%、两年亏14.10%。
+   这是背景条件，不是自身持仓健康反馈；继承原gross原子接点可以，不能叠D救案。
+4. MA/EMA/BB原计划量插件两full失败：个股确认或统一半额后候选补位，总资本
+   暴露未充分下降。新案改组合ceiling，经济对象有差别，但使用同一价格条件
+   不等于它已能区分主要失败；原确认经济失败/数值边界反例全部保留。
+5. 旧C10全账户名义风险、R0批次风险、sector20、synthetic D/P/C不等价于H/u。
+   不重启这些参数网格/行业通行证/早恢复，也不以新接线量充当算法证据。
+
+实际native字段：不需要basis或partial来源份额账
+实际买入时钟：book.trades中side=buy的at/security_id/layer/shares；
+J.Account.fill_buy的journal real_buy_fill另含at/sid/layer/原role/费用/信号时钟。
+层本身有opened（真实fill）、id、sid、qty；partial每次真实fill生成独立native层，
+真实卖出parts减对应qty，split沿原native更新qty，身份不需要另造“新资本来源”。
+若定义为整股最后BUY，必须取“截至该CLOSE”的最近实际buy，而非全book最终
+max BUY或signal_at；最后买的层后来关闭，单看仍live层max(opened)也可能漏记。
+实时a.trades天然仅过去事件；保存全book薄读则需沿原交易时钟做prefix最大值。
+这是事件元数据，不是新资金/成本/税basis或第二套金融账。
+
+实际价值：原a.balance(at,a.market.marks(...))['inventory']已是总原价CNY市值；
+逐层值是原live qty乘同一native mark；保存daily.layers保真实qty/时钟，原已审
+saved reader可提供同日原raw mark。原层没有现成每日value字段，不能拿终态
+LAYERS.value或最后净贡献替代当日市值。旧仓/新仓/未知健康都不能从分母删掉。
+健康C/EMA必须同原adjusted价格坐标；市值用raw mark×实际qty，不能混用adjusted
+C去估库存。CA按native当前qty，只是价格坐标/数量一致性，不需要成本分摊。
+
+原EMA工具：可薄复用，但现FeatureCache.at不能直接当H输入
+trend_confirmation_dedup_v1/compute_flags.py::compute_flags(debug=True)已经输出
+EMA10和EMA10_lag3。原span10/adjust=False/min_periods10，同段且连续有效观察，
+未知槽断开并重暖；lag3按原输入槽，不压缩缺值。frame及price_observed合同完整，
+来自原facts close/segment/raw_close/factor及同source price_eligible/observed/
+非synthetic掩码。无需新EMA实现、全球feature导出或宽表。
+原trend FeatureCache.at调用debug=False且只返回A/B/倍率；它不直接暴露EMA。
+最薄做法只借其已审source读取/懒读pattern，在已持股上调用原纯函数debug=True，
+读取现成EMA诊断列和同一frame当前C。不能把A_known(含MA60)或B_known(含BB20)
+当本案EMA-known条件；不能顺手叠MA/BB窗口。有限性/同段/原观察资格仍须保留。
+已有数值审只证明冻结pandas实现重现；先前严格公式分类存在浮点边界差异，不可
+把该历史收据冒称本新H定义的exact-math PASS。此处不改阈值/加容差/重写EMA。
+
+计算/实施前必须明定的语义，未定不得自行落数值
+— 成熟3CLOSE按stock最后BUY还是每个实际fill layer？前者加仓会重置该股全部
+  旧份额年龄；后者需按native层qty分健康权重，但已有层身份，不必来源份额账。
+— 买入日当CLOSE是否算第1次？取原交易CLOSE还是个股known观察CLOSE？停牌/
+  未知不能用日历自然日代替。EMA本身暖机与持有成熟年龄是两套时钟。
+— H/u在CLOSE生成并冻结到下个OPEN，还是同OPEN每次fill后重算？只有前者可
+  直接复用现行gross门“常数ceiling的一次交易”原子投影；后者会随新增未成熟
+  qty改变H及分母，需明确新的投影方程，不能只把ALPHA换成一行表达式假装已审。
+— 空仓分母为0、健康未知但估值已知、已有pending退出层能否投票，都要预先定义。
+  未知不得从总库存分母删掉来抬高H；不暗添旧cost的noexit/F>=E门。
+— 现有pending不是实际持仓，不能投健康票；gross承诺仍按原真实pending含未ACK
+  责任算，当前fill的未成余量不能删除。新u不是可兑现/反复消费的预算信用。
+这些不是需要扩建新状态机的理由；若需credit/恢复/来源分账才能解释就STOP。
+
+现成复用/成本判断
+字段和原纯函数足以支持未来一次有界只读覆盖，不存在必须新估值/basis/全局
+feature导出的硬需求。但只有逻辑审先锁单位/时钟/未知/冻结方式后才可计算H。
+预计“已有账的选定固定段/正反案例+逐层原clock/mark+原debug列”一次薄核约
+10–15分钟（估计，不是GO），不先跑全1709特征、不建立新cache/loader/账户。
+若要求新全局导出、按partial资金来源归属、重写价格/EMA/税成本或恢复接口，
+本实现路线直接STOP；退回机制证据，不搭系统。
+当前尚无覆盖主要亏损或保赢家的证据。H按已持仓加权可能集中在少数旧赢家，
+短成熟后很快放大可买资本，并给从未证明自身的别股许可；反之新leader可能
+尚未成熟而被堵。逻辑独立线负责反驳，本字段可用性不等于策略值得继续。
+
+直接依据与原SHA见SOURCE_BINDING.json；本次0H数值、0指标调用、0账户、0策略改动。

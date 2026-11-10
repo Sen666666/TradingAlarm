@@ -1,0 +1,80 @@
+SRP-v3与HELD_I_INCREMENT最小合同：只读接口复核
+
+结论：主体语义有条件对齐；仍有两处显式谓词/操作范围需补齐，不能据此称接口已可
+执行或数值有效。当前压力初值在七个原OPEN前缀全部拒绝新增，证据支持这个范围，
+不推荐直接采用，不改参数救单，不创建账户。
+
+已读取peer正式MINIMUM_MATH_CONTRACT、EXECUTION_INPUTS_AND_H、共同价格/pending
+故障附件、正式七表/原OPEN桥与其独审，全部只读。peer绑定的本地MINIMUM_CARD
+SHA da884be816a325042dec0fbcb915af3a71f7d5b53dbe823e1f6f27d95d440742
+与现行最小合同exact，未混用旧EMA/4%6%/次数探索。
+
+对齐的接口
+1. CP KNOWN_PRESENT保原CP；KNOWN_ABSENT+held+fresh i_buy/core_Q+confirmed才可提
+新typed I，UNKNOWN不补无CP。原I_target持有授权不能每天造钱；底层event/pivot/
+frontier身份仍须建立receipt/consume，新I不能伪stock_cp1或假CORE解锁。
+2. 新I持有按真实I_target/last_I_line，不把entry x.floor永久max成另一条硬线；
+旧MOBILE仍旧CP，原CORE也不变。新I较宽，定量/责任都用真实I，不能紧CP买多宽I持有。
+3. 新宽I使同sid共同基准降低时，先重算该股全部旧层压力。P逐层计划参考可不同，
+G1/G2同sid必须一个价格。q=0未买的I层不写入虚拟h，不假造风险变更。
+4. κ本金、g当前回吐、完整共同压力不是三份独立损失，不相加；legacy门仍原nominal
+定义和分母。postfill用mark m而非含滑点p；slip+买费减少V_proj一次，仅买费进L/D，
+slip仍在新live grossbasis对应κ中，不再重复保留pending cost。整本投影重算所有行业T。
+5. 待退锁Λ与当前经济压力Φ分报，request/partial/ACK不提前释放；版本化RiskGrant
+绑定同一book、proof、qty、保护合同，不能两线各花同一余额。原代码早已先护后加。
+
+两处要显式补齐（不改peer文件）
+A. 本地MINIMUM_CARD的OPEN归一价>最后实际买价，在peer主卡/接口正文未找到显式
+谓词和last_buy字段。单靠“对齐最新卡”的引用还不是完整执行校验。建议source校验
+列明p_OPEN*当时factor>last_actual_fill_a及其来源/时钟；I线同原I段不降低。该门只是
+本最小候选避免相对最后fill摊低，不证明整股已盈利，也不加到原CP。它本身未经济验证。
+B. q_buy=0不加入未获资新I h是正确的。若未来是纯旧仓H改宽proposal，即使q_buy=0，
+也必须把受影响的真实旧qty及拟生效H纳入完整投影。需区分NEW_BUY_NONE与真实
+MODIFY_EXISTING_H；当前最小版不改旧H，所以不影响这七个new-buy拒绝，但不能把
+skip规则泛化成免费H改线。H未获批就仍按真实旧H，不先改再算。
+
+其它实施前需落字段，不判为已发生的数值错误
+退出request锁中价格损失与order费用要可拆分。partial后按剩余qty折算价格锁，卖费
+用同logicalorder paid/accrued后的真实增量一次，不能整额含费锁缩放后再加另一笔费。
+split改变股数单位不放大货币锁。原sell(ids)可合并同sid目标，prospective费用分组须
+与实际order合并规则一致，不能只因多个策略层重复最低佣金。
+RiskGrant/request锁除book_version，还要绑定risk_contract/scenario_provider版本和
+冻结Ω。定义不同的历史G1/G2不能同名直接max；变更须显式重估/迁移，不静默继承。
+字段命名统一origin_NAV与B_k=.0025*origin_NAV，避免主卡“B_origin为signal NAV”被
+实现成NAV与预算混用；纸面七表当前金额无此误用证据。
+c_s应绑定行业同一快照的stage/资本份额，原source/probe门另核，不能按本次新单角色
+改变全行业T而又称相同快照。总持仓≤过去1%成交量是新流动性risk provider，不是
+原只限制执行窗口成交量的等价复用；主卡已如实承认，不能称该数已经济验证。
+
+共享B与原单笔B不是同一道门
+原单笔0.25%本次signal NAV继续冻结cap；v3另加同E0机会k共享B=.25%首次成功reserve
+的origin NAV，已损D不会因新price/G1/I事件洗掉。两者同时满足才可能买，不应把
+新共享B叫原单笔的无变化重述。future ON/OFF必须同一风险合同，仅切换held-I入口，
+不能把公共守卫对CP的缩量归为I插件贡献。
+原E0真正off→on才新k；盈新1/20正price event不等于新E0。D7118.72>B2489.22
+可拒后续新增，原CP证据仍可是真，只是没有新增风险额度。
+
+七个0的数值及边界
+本线仅对peer保存标量作Decimal复算，不运行peer脚本/模型/账户。7点两个估值域
+均有 .36*退出结算后存量>A，支持必要条件拒绝。例：
+  2026-04-22 native库存1426699.49 * .36 =513611.82 > A271396.91元；
+  2022-01-11 native库存878617.38 * .36 =316302.26 > A195436.66元。
+正式局部cap476/369/2300只是局部风险/source尺寸，不能称实际可授、预留或成交。
+两个held-I最低单位本身也超共享B。无需先猜齐全部费用/情景才能以已违反的必要
+下界拒单，但此逻辑不能反向把未拒的局部点认定可交易。
+
+宽I并非只增加新层风险：保存的中船4/22 held-I正q示意中，共同基准从61.101648降
+40.83，原320股G2责任先增约4149.56元，还没算新股与费用。盈新原CORE已给1.98
+最低基准，新增I未再降低它；不能把“宽I必然阶跃”推广每股。这是保存输入算术，
+非新单或替代收益。q=0时都不得把未获资新线混入旧book。
+
+初值的机械参与代价
+在V=ACTpeak、先忽略费用/线外缺口/退出锁时，G2至少损36%gross，A仅20%NAV，
+因此gross必要上界约55.56%NAV；真实floor更低时更严。行业T亦比原资本门更紧。
+原近九成仓位的账户前缀多数自然不获新增。这不是证明风险参数优良，也不是完整
+从flat连续运行的新策略收益否证；更早仓位若变，后续前缀会变。
+20%/36%是公开待检压力尺度，不是法律跌停、概率或最坏界。A还是可恢复ACT episode
+空间，不是全历史20%回撤硬帽；更长锁死/更大跳空仍可能越界。当前组明确不晋升。
+
+本次新账户/回测/参数/行情/指标序列/资金重演均0。保存算术和文字审查通过不等于
+typed接口、事件账、压力引擎已经实现，也不等于经济有效。无权限/环境阻碍。

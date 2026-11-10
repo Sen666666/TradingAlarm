@@ -1,0 +1,16 @@
+{
+  "name": "MOBILE_response_rank_v1",
+  "status": "FROZEN_BEFORE_FORWARD_LABEL_AND_RANK_EVALUATION_NOT_OOS",
+  "domain": "Original account-specific empty MOBILE candidate stock-days: held=False; original mobile_Q=True; current fresh CP1; no ACT/exit/buy barriers; original actual mobile pending cap>0; industry E0 valid and active attempt. Not actual fill-conditioned. PVR primary; E31 separate replica; never pool accounts.",
+  "training_event": "Each same-domain candidate with its own fresh CP1 receipt, including not funded. Recurring stock events retained, first aggregate signal-date/sector/market-state means to limit same-day pseudo-replication.",
+  "label": "Y5=log(original adjusted C at common index tau+5 / [raw O at tau+1 * original factor at tau+1]). Mature after close tau+5; missing next open or any required five closes -> UNKNOWN. No future price used for membership.",
+  "market": "Existing original1709 finite same-segment B20; paired-delta5; SUPPORT>=.5, IMPROVING below .5 and delta>0, WEAK otherwise; source fixed future universe non-PIT.",
+  "estimate": "At t use tau in [t-252,t-5] only. Sector/state mu=mean of date means; state/global mu=mean of global date means; n sector/state valid signal dates; lambda=n/(n+20); muhat=lambda*sector_mu+(1-lambda)*global_mu. n=0 uses global_mu; global unknown stays UNKNOWN. Window252, horizon5, shrink20 fixed, no grid.",
+  "ranking": "Within same-day legal empty-MOBILE candidates baseline original priority_rank; replace only slots with finite original PVR and finite muhat, sort muhat desc, original PVR rounded12 desc, original baseline slot; unknown stays exact slot. Other real intents/trades untouched. This is an isolated offline MOBILE queue, not rewired coupled CORE/MOBILE account.",
+  "K": 20,
+  "selection": "K=min(20, number of that day's candidates), identical counts. Entire original state and eligibility frozen. No positive-score admission gate.",
+  "evaluation": "Gross normalized paths from same next common open, 1/3/5/10/20/60 sessions, MAE/MFE; equal-event and equal-signal-date means by year, market, quarter. No fill or NAV claim. Full future60 only evaluation.",
+  "big60": "Close MFE>=30% AND terminal60>=20%, complete60. Report candidate-event counts separately. Independent root proxy: earliest legal MOBILE candidate within (account,sid,original epoch) is birth; only its complete60 big label defines root big; capture if selected any candidate of same root within birth..birth+5 common dates. Future label never enters score or membership.",
+  "checks": "Unique receipt sid/day; original facts; include unfunded; all actual first mobile recovered; source identity; mu maximum training maturity<=decision; three physical future-label poisoning/prefix comparisons.",
+  "restrictions": "No original indicator recalculation, no account runs, no random benchmark, no multi-rule filter or exit/size changes. Consumed2022-2026 history not OOS; current membership and action source not PIT; results conditional on original account held/ACT state."
+}

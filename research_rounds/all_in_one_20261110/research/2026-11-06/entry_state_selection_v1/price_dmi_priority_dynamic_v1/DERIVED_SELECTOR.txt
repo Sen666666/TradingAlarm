@@ -1,0 +1,81 @@
+def select_close(self, day, ab_rows, price_rows):
+    """One stock-level option, legal AB precedence, then shared known/unknown ranking."""
+    by_ab = {r['sid']: dict(r) for r in ab_rows}
+    by_price = {r['sid']: dict(r) for r in price_rows}
+    native_ab_rank = {}
+    for sector in sorted({r['sector'] for r in ab_rows}):
+        queue_rank = feasible_rank = 0
+        ordered = sorted([r for r in ab_rows if r['sector'] == sector], key=lambda r: (0, -float(r['PVR_score']), r['sid']) if finite(r.get('PVR_score')) else (1, 0, r['sid']))
+        for r in ordered:
+            sid = r['sid']
+            state = self.states.get(sid, {}).get('state', 'FLAT')
+            z = {k: r.get(k) for k in ['event_id', 'window', 'day', 'sid', 'sector', 'event_type', 'I_qualified', 'PVR_known', 'PVR_score']}
+            z.update(stock_state_before=state, blocking_round_id=self.states.get(sid, {}).get('round_id'), original_ab_queue_rank=None, original_ab_feasible_rank=None)
+            if state != 'FLAT':
+                z['decision_before_joint'] = 'BLOCKED_' + state
+            elif truth(r.get('I_qualified')) is not True:
+                z['decision_before_joint'] = 'I_INELIGIBLE'
+            elif not known_pvr(r):
+                z['decision_before_joint'] = 'PVR_UNKNOWN'
+            else:
+                queue_rank += 1
+                z['original_ab_queue_rank'] = queue_rank
+                check = self.s.checkclose(r)
+                z.update(check)
+                if check['close_check'] != 'PASS':
+                    z['decision_before_joint'] = 'CLOSE_' + check['close_check']
+                else:
+                    feasible_rank += 1
+                    z.update(original_ab_feasible_rank=feasible_rank, decision_before_joint='PASS_TO_JOINT_QUEUE')
+            native_ab_rank[sid] = z
+            self.ab_decision_audit.append(z)
+    options = []
+    for sid in sorted(set(by_ab) | set(by_price)):
+        ab, pr = (by_ab.get(sid), by_price.get(sid))
+        if pr:
+            self._offer('PRICE', pr, 'APPLICATION', stage='RAW_MARKET_RECEIPT')
+        state = self.states.get(sid, {}).get('state', 'FLAT')
+        if state != 'FLAT':
+            for lane, row in [('AB', ab), ('PRICE', pr)]:
+                if row:
+                    self._offer(lane, row, 'BLOCKED_' + state, blocking_round_id=self.states[sid]['round_id'])
+            continue
+        abcheck = {}
+        if ab and truth(ab.get('I_qualified')) is True and known_pvr(ab):
+            abcheck = self.s.checkclose(ab)
+        if ab_legal(ab, abcheck):
+            row, lane, check = (ab, 'AB', abcheck)
+            if pr:
+                self._offer('PRICE', pr, 'SUPPRESSED_BY_AB_VALID_CLOSE')
+        else:
+            if ab:
+                self._offer('AB', ab, 'AB_ORIGINAL_CLOSE_INELIGIBLE', I_qualified=ab.get('I_qualified'), close_check=abcheck.get('close_check'))
+            if pr is None:
+                continue
+            if industry_gate(pr) != 'PASS':
+                self._offer('PRICE', pr, industry_gate(pr))
+                continue
+            check = self.sizing.close_check(pr, window=self.window)
+            if check['close_check'] != 'PASS':
+                self._offer('PRICE', pr, check['close_check'])
+                continue
+            row, lane = (pr, 'PRICE')
+            row.update(event_id='PRICE|' + repr(pr['receipt_id']), event_type='PRICE_FRONTIER_INVITATION', I_qualified=None, i_floor=pr['S_new'], window=self.window)
+        row['owner_lane'] = lane
+        options.append((row, check))
+    sectors = sorted({r['sector'] for r, _ in options})
+    for sector in sectors:
+        ordered = self.rank_options(sorted([(r, c) for r, c in options if r['sector'] == sector], key=lambda rc: rank_key(rc[0])))
+        for rank, (row, check) in enumerate(ordered, 1):
+            dec = {k: row.get(k) for k in ['event_id', 'window', 'day', 'sid', 'name', 'industry', 'sector', 'event_type', 'PVR_score', 'I_qualified', 'PVR_known', 'owner_lane']}
+            old_rank = native_ab_rank.get(row['sid'], {}) if row['owner_lane'] == 'AB' else {}
+            dec.update(arm=self.arm, selected=rank <= 2, queue_rank=old_rank.get('original_ab_queue_rank'), original_ab_queue_rank=old_rank.get('original_ab_queue_rank'), original_ab_feasible_rank=old_rank.get('original_ab_feasible_rank'), joint_feasible_rank=rank, stock_state_before='FLAT', **check)
+            if rank <= 2:
+                st = self._new_state(row, row['owner_lane'], check)
+                dec.update(decision='SELECTED_PENDING', selected_rank=rank, round_id=st['round_id'])
+                self.s.load(row['sid'])
+            else:
+                dec['decision'] = 'PASS_NOT_TOP2'
+            self.s.decisions.append(dec)
+            self.s.ranking_audit.append(dict(dec))
+            self._offer(row['owner_lane'], row, dec['decision'], rank=rank)

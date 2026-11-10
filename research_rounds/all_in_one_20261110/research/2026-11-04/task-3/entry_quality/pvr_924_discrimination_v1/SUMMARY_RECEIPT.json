@@ -1,0 +1,14 @@
+{
+  "status": "COMPLETE_FIXED_PRIOR_PVR_PRICE_PATH_DESCRIPTION_NO_ACCOUNT",
+  "N": 2313,
+  "group_rows": 150,
+  "input_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/pvr_924_discrimination_v1/FROZEN2313_PRIOR_RANKS.parquet": "ce3fe659ca6083800ef97138664213cc55d56ccd88665bf027990daf6f232800",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/pvr_924_discrimination_v1/paths/HORIZON_PATHS.parquet": "5476fa1af1453aa34744cf83fb1e01508379a8fa6175203025944896fcd92d57",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/pvr_924_discrimination_v1/FREEZE.json": "2b01fb192abf9043cf4b975c6bed591a669c119abae9d5d14daa638c6f0e9f46",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/pvr_924_discrimination_v1/summarize.py": "601e00d01378b2a9c465b9e0a9c011cbef5cf095b679d792429bcaac3ecc1f2d"
+  },
+  "common_endpoint_sensitivity": "Added after availability metadata and before aggregate outcome analysis, fixed earliest common hth date10/8 and10/29; does not change primary fixed-rank groups or replace missing. No threshold/performance fitting.",
+  "global_expost_labels_only": true,
+  "no_new_signals_or_accounts": true
+}

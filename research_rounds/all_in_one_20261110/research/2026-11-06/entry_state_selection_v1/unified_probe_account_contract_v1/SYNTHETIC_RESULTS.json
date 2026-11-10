@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "count": 15,
+  "tests": [
+    "flat_CORE_and_MOBILE_probe_2pct_fee_risk_identity",
+    "flat_deep_floor_fee_inclusive_risk_reduces_qty",
+    "native_dated_rule_not_hardcoded_100",
+    "global_probe_pool_shared_no_stock_count_cap",
+    "profitable_A_cannot_carry_losing_B_jmeta_bridge",
+    "industry_and_cancel_ACK_never_promote_release_only_ack",
+    "independent_promotion_commutes_financial_identity_state",
+    "promotion_independent_of_add_funding_failure",
+    "positive_profit_but_open_at_CP_line_cannot_promote",
+    "old_attempt_consumed_CP_fill_timing_real_pending_guards",
+    "preserved_industry_ALL_2pct_blocks_new_probe",
+    "post_sell_real_Q_overrides_signal_held_flag",
+    "fresh_CP_stop_reentry_allowed_old_CP_rejected",
+    "remaining_average_cost_dividend_partial_split_strict_net",
+    "opening_exact_one_phase_diff_and_no_request_migration"
+  ],
+  "implementation_sha256": "755547e59cce871762523167bf21006033260291d6f0e613876d5c063aa5bc02",
+  "scope": "synthetic only, no native account economic history"
+}

@@ -1,0 +1,42 @@
+from pathlib import Path
+import json,sys,importlib.util,time
+from decimal import Decimal as D
+import pandas as pd
+O=Path('/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-incremental-order-20261029');sp=importlib.util.spec_from_file_location('pvr_finish',O/'code/study.py');S=importlib.util.module_from_spec(sp);sys.modules[sp.name]=S;sp.loader.exec_module(S);H=S.H;t=time.monotonic()
+c=H.read(O/'COVERAGE_BEFORE_RETURNS.json');su=H.read(O/'results/summary.json');b=su['1'];stress=su['2'];sample=H.read(O/'sample/verification.json');full=H.read(O/'results/verification.json');checks=H.read(O/'results/report-verification.json');ident=H.read(O/'input-identity.json')['sha256'];assert all(H.sha(p)==v for p,v in ident.items())
+assert all(D(su[str(k)]['delta'])>0 and D(su[str(k)]['PVR']['net_pnl'])>0 and D(su[str(k)]['tail_delta'])>=0 and D(su[str(k)]['ordinary_delta'])>=0 for k in [1,2])
+cp=pd.read_parquet(O/'conflict-pairs.parquet');description=dict(frozen_index_only=True,H1_choice_percentiles={str(k):float(v) for k,v in cp.h1_h1.quantile([0,.25,.5,.75,1]).items()},anchor_age_percentiles={str(k):float(v) for k,v in cp.h1_age.quantile([0,.25,.5,.75,1]).items()},not_a_new_outcome_subgroup=True);S.save(O/'results/index-distribution-description.json',description)
+def m(x):return f'{D(str(x))/10000:,.2f}'
+text=f'''PVR增量换序：同日同行业、近H1与趋势阶段，完成收口
+
+排序可用性裁决：限定支持把PVR保留为局部增量换序研究信号。控制相近H1、年龄和已涨幅后，PVR与H1冲突时，新增同额资金在原I/E0出口下的绝对净贡献和相对差额均为正，双成本同向，尾部及普通部分都改善。尚不能全面替换H1/行业优先、证明量项单独有效、验证PVR>50门槛或持续纠错/反脆弱性，更不能称未来保证或样本外。
+
+先覆盖再收益：407科技池全部32899合法I候选，32847准备完整、52缺分/准备不填值。4059个合法E0机会中4051个有准备、1038个进入519可比对，3021个未匹配（绝不填零）。同日同行业，H1差<=1点、原Q锚后有效观察年龄差<=5、锚后累计对数涨幅差<=两者较大已知波动尺度；全部界限事前冻结。匹配排序仅H1差、年龄差、涨幅差及当时字段哈希，与PVR数值和未来收益无关；每个E0机会跨日/角色只用一次，不从已见193对挑选。
+519对中267同选（51.45%）、252冲突（48.55%）、0同分。冲突覆盖285股、122日、10行业；全可比对11行业。只有冲突对运行资金账，两个选择各独立初始100万元；同选只是换序差额0，绝对收益未假定为0；未匹配不进入平均分母。
+事前平衡：冲突两边平均H1为53.628/54.115（PVR选择略低0.487点）；年龄6.266/6.444，平均绝对年龄差0.98观察；锚后已涨幅log均值0.07477/0.07307，波动0.02807/0.02768；PVR均值69.887/61.823。H1/年龄/涨幅/波动SMD绝对值均<0.035，仍不声称因果识别。H1基准中位约57.56、年龄中位0，这主要是接近初始Q锚的局部比较，不是只检验H1头部资金竞争。23对两边PVR都低于50，23对跨50，本轮没有使用或验证50门槛。
+
+主结果：
+基础成本252冲突对：PVR绝对净贡献{m(b['PVR']['net_pnl'])}万元，平均88,454.75元；H1为{m(b['H1']['net_pnl'])}万元，平均67,807.05元。差额+{m(b['delta'])}万元，平均每百万元冲突机会+20,647.69元。省全部负贡献36.95万元，新增正贡献483.37万元，精确相加为主差。
+双成本差额+{m(stress['delta'])}万元，冲突对平均+20,637.92元，方向不反转。
+全部519可比对增量：基础每百万元+10,025.47元，双成本+10,020.72元。这是将267同选的零政策差额计入后得到，不能把冲突对+20,647.69冒充全部资金机会增益，也不能将3021未匹配机会算零扩大分母。全部可比对两政策的绝对总收益没有测量，不能把未跑的同选绝对收益冒充零。
+
+低胜率与肥尾：基础PVR112正/140负、H1113正/138负/1零；胜率44.44%低于44.84%，不是本轮晋级目标。平均盈利额/平均亏损额3.192/2.639、利润因子2.554/2.161；主要增量来自正贡献扩大，不是把失败全部过滤掉。PVR140个负事件合计1434.44万元，H1负贡献1471.40万元，全部已计。
+任一腿实际决策后净收益率>=30%即配对尾部，纯事后评价，不入规则。60尾部对含1对末端估值标签；基础尾部差额+331.34、普通+188.99万元；双成本+330.67/+189.41万元。所有未平仓仍入主账，没有删除运行中的尾部。
+稀疏性：130对差额正、122对负；最大正差2025-04-15德明利/有研新材约+562.97万元，高于合计520.32；前5正差1074.49、后5差额−803.14万元。负例包括PVR选鼎通科技相对H1选新易盛约−203.69万元。只作全样本分布说明，不据此删赢家/输家或反向优化。
+
+成交与资金占用：PVR252实际成交，H1251/1未成交。251对两边成交贡献+458.92万元，单边成交1对+61.40，精确回到520.32；零成交保留现金。实际初始买入及买费合计23506.44/23927.49万元，不把每笔都假定满额。
+平均持股收盘40.155/40.127，成本本金×持有收盘94.44/96.62亿元·收盘。两边平均占用接近；事后PVR更长109对差额+1837.50万元、较短121对−1406.58、等长22对+89.40，均与退出/价格共同内生，不是控制持有期后的因果效应，不机械年化。
+基础显式费用25.64/25.35万元，滑点24.47/24.40万元，均已进入净账，不能重复扣。末端PVR3/H18个持股单元，估值293.83/762.07万元，待收股息23.30/18.02万元均保留；估值不是成交，估计清算费用/滑点仅summary备忘。
+
+公式与量项：PVR e=u+0.5*u*abs(u)*b，u为波动标准化价格变化，b为相对历史金额调制；近乎价平时量项为二阶小量，放量增强涨跌方向证据，不等于资金净流入。21观察加权后单调映射不会凭空增加排序信息。本轮正结果属于整套PVR分数，不能分配给量项；旧CP1/PRICE去金额保护消融只显示4284段有16个首次触线日不同，并不是PVR排序量项经济消融。没有新跑去量臂。
+
+正确性：用PVR全部改成常数后，519个无向配对完全不变；1038个E0事件唯一；2024末249对、2025末362对、2026-06末463对时序配对前缀精确。新年龄/锚后涨幅/波动/等级与旧实验9211重叠记录逐项一致，旧风险集只作验证，没有用它筛候选。沿用原PVR814物理前缀验证，不冒称本轮重算了全部公式历史。
+前6冲突对24腿样例{sample['seconds']:.3f}秒，12条金融截断前缀通过；全量252对1008腿{full['seconds']:.3f}秒，低于300秒，样例全量数字精确一致。原开盘、费用、股数、现金、权息/NAV独立对账最大残差0。尾部+普通、省损耗+新增正贡献、同选差额与全部可比对分母核对，417项输入SHA不变。覆盖/特征/匹配准备26.969秒（先于收益），聚合约0.506秒；开发/阅读未单独秒表，不伪造纯开发耗时。无技术失败、无经济重跑/结果后调参。
+
+测量边界：新增资金从决策后下一可执行原开盘开始，没有包含选择之前的利润；双方原I/E0退出，退出后持现至2026-10-27。这个条件未被证明正确，出口和机会成本仍与收益共同作用。当前存续/行业/市值快照、已见开发历史、日线容量与HLV执行/股息/分数股代理限制沿用，非全市场、真实整户或未来预测可靠性证明。
+
+交付：PROTOCOL.json、input-identity.json、risk-set.parquet、all-comparable-pairs.parquet、conflict-pairs.parquet、COVERAGE_BEFORE_RETURNS.json、unmatched-events.csv、snapshot-coverage.csv、match-freeze.json；results/units.parquet、paired-conflicts-cost*.csv、all-comparable-increment-cost*.csv、continuous-contributions.csv、fills.csv、fee-components.csv、fill/duration-decomposition.csv、summary.json及verification。只本轮收口，不自动扩大排序/门槛/量项/组合矩阵，不改产品或账户。无剩余阻塞。
+'''
+(O/'FINAL_REPORT.txt').write_text(text)
+S.save(O/'COMPLETION.json',dict(status='completed',verdict='limited_support_for_local_PVR_reordering_under_matched_H1_and_original_exit',comparable_pairs=519,conflicts=252,agreements=267,unmatched_E0_events=3021,unmatched_not_imputed=True,units=1008,main=su,code_sha256={str(p):H.sha(p) for p in (O/'code').glob('*.py')},inputs_unchanged=len(ident),full_seconds=full['seconds'],sample_seconds=sample['seconds'],product_changes=0,accounts=0,trades=0,additional_arms=0,blockers=[],report=str(O/'FINAL_REPORT.txt')))
+print(json.dumps(dict(completed=True,seconds=time.monotonic()-t),ensure_ascii=False))

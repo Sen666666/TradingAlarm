@@ -1,0 +1,84 @@
+def simulate(history,calendar,actions,policy,parent):
+    cash=parent['cash'];shares=parent['shares'];lots=copy.deepcopy(parent['lots']);claims=copy.deepcopy(parent['claims']);pending=copy.deepcopy(parent['pending']);previous_on=parent['previous_on'];rows=[];fills=[];orders=[];signals=[];orderid=parent['orderid']
+    byex={e['ex_date']:e for e in actions['dividends']};dates=[str(d.date()) for d in calendar]
+    previous_cash=cash;previous_shares=shares;previous_claim=sum((e['amount'] for e in claims),D(0));previous_nav=parent['NAV'];globalpeak=parent['global_peak'];cumulative_fee=parent['cumulative_fee']
+    def create(side,day,nav):
+        nonlocal orderid
+        orderid+=1;budget=nav*(D('.90') if policy=='MA63_90' else D(1))
+        value=dict(id=f'{policy}-{orderid}',side=side,signal_day=day,cash_budget=budget,
+            remaining=None if side=='buy' else shares,cumulative_gross=D(0),fee_paid=D(0))
+        orders.append(dict(kind='create',at=day,**value));return value
+    for day in dates:
+        date=pd.Timestamp(day);bar=history.loc[date];op=number(bar.open);cl=number(bar.close)
+        accrued=paid=buygross=sellgross=fee=D(0);bought=sold=0;reason='';start_shares=shares
+        # Ex entitlement precedes this open; an ex-day first buy has no claim.
+        if day in byex:
+            e=byex[day];amount=number(e['amount'])*shares
+            if amount:claims.append(dict(ex=day,pay=e['pay_date'],amount=amount));accrued+=amount
+        retained=[]
+        for e in claims:
+            if e['pay']<=day:cash+=e['amount'];paid+=e['amount']
+            else:retained.append(e)
+        claims=retained;claim=sum((e['amount'] for e in claims),D(0))
+        capacity=floorlot(number(bar.adv20_prior_shares)*D('.01'))
+        prior=history.loc[history.index<date].iloc[-1];reference=number(prior.close)-number(byex.get(day,{}).get('amount',0))
+        upper=(reference*D('1.1')).quantize(D('.001'),rounding=ROUND_HALF_UP)
+        lower=(reference*D('.9')).quantize(D('.001'),rounding=ROUND_HALF_UP)
+        assert lower-D('.0005')<=op<=upper+D('.0005'),('open outside indicative band; stop',day,op,lower,upper)
+        if pending is not None:
+            assert pending['signal_day']<day,'same-close execution forbidden'
+            side=pending['side'];reason='no_capacity' if not capacity else ''
+            if side=='buy' and op>=upper-D('.0005'):reason='indicative_upper_queue_unknown'
+            if side=='sell' and op<=lower+D('.0005'):reason='indicative_lower_queue_unknown'
+            if not reason:
+                if side=='buy':
+                    if pending['remaining'] is None:pending['remaining']=affordable(min(cash,pending['cash_budget']),op)
+                    q=min(pending['remaining'],capacity)
+                    while q:
+                        gross=D(q)*op;incremental=fees(pending['cumulative_gross']+gross)-pending['fee_paid']
+                        if gross+incremental<=cash and pending['cumulative_gross']+gross+pending['fee_paid']+incremental<=pending['cash_budget']:break
+                        q-=LOT
+                    if q:
+                        cash-=gross+incremental;shares+=q;buygross=gross;bought=q;fee=incremental
+                        lots.append(dict(day=day,quantity=q));pending['cumulative_gross']+=gross;pending['fee_paid']+=incremental
+                    else:reason='cash_or_original_budget_minimum'
+                else:
+                    sellable=sum(l['quantity'] for l in lots if l['day']<day)
+                    q=min(pending['remaining'],capacity,sellable);q=floorlot(q)
+                    if q:
+                        gross=D(q)*op;incremental=fees(pending['cumulative_gross']+gross)-pending['fee_paid']
+                        cash+=gross-incremental;shares-=q;sellgross=gross;sold=q;fee=incremental
+                        left=q
+                        for lot in lots:
+                            if lot['day']>=day:continue
+                            take=min(left,lot['quantity']);lot['quantity']-=take;left-=take
+                        assert left==0
+                        pending['cumulative_gross']+=gross;pending['fee_paid']+=incremental
+                    else:reason='T1_or_capacity'
+                if q:
+                    assert q%100==0 and q<=capacity and cash>=0
+                    pending['remaining']-=q
+                    fills.append(dict(day=day,order=pending['id'],side=side,signal_day=pending['signal_day'],quantity=q,raw_open=str(op),price=str(op),gross=str(gross),fee=str(fee),capacity_shares=capacity,
+                        participation_of_prior_ADV=float(D(q)/number(bar.adv20_prior_shares)),upper_distance_bps=float((upper/op-1)*10000),lower_distance_bps=float((op/lower-1)*10000),
+                        limit_source='indicative_rule_proxy_not_dated_exchange_state'))
+                    if pending['remaining']==0:orders.append(dict(kind='complete',at=day,**copy.deepcopy(pending)));pending=None
+                elif pending['remaining']==0:orders.append(dict(kind='minimum_not_funded',at=day,**copy.deepcopy(pending)));pending=None
+            if pending is not None and reason:orders.append(dict(kind='wait',at=day,reason=reason,**copy.deepcopy(pending)))
+        nav=cash+D(shares)*cl+claim;globalpeak=max(globalpeak,nav);cumulative_fee+=fee
+        assert cash==previous_cash+paid-buygross+sellgross-fee
+        assert shares==previous_shares+bought-sold==sum(l['quantity'] for l in lots)
+        assert claim==previous_claim+accrued-paid and nav==cash+D(shares)*cl+claim and cash>=0 and shares>=0
+        on=bool(bar['on']);signals.append(dict(day=day,signal_close=float(bar.signal_close),MA63=float(bar.ma63),on=on,prior_on=previous_on))
+        if policy=='BUY_HOLD':
+            if day=='2022-01-04':pending=create('buy',day,nav)
+        else:
+            if not on:
+                if pending is not None and pending['side']=='buy':orders.append(dict(kind='cancel_OFF',at=day,**copy.deepcopy(pending)));pending=None
+                if shares>0 and pending is None:pending=create('sell',day,nav)
+            elif not previous_on and shares==0 and pending is None:pending=create('buy',day,nav)
+        rows.append(dict(date=day,NAV=str(nav),cash=str(cash),shares=shares,raw_open=str(op),raw_close=str(cl),market_value=str(D(shares)*cl),
+            dividend_receivable=str(claim),dividend_accrued=str(accrued),dividend_paid=str(paid),fee=str(fee),buy_gross=str(buygross),sell_gross=str(sellgross),bought=bought,sold=sold,
+            return_daily=str(nav/previous_nav-1),drawdown=str(1-nav/globalpeak),same_quantity_cost_before_NAV=str(nav+cumulative_fee),cumulative_fee=str(cumulative_fee),on=on,indicative_upper=str(upper),indicative_lower=str(lower),capacity_shares=capacity,
+            pending_side=pending['side'] if pending else '',pending_quantity=pending['remaining'] if pending else 0,execution_verified=False))
+        previous_on=on;previous_cash=cash;previous_shares=shares;previous_claim=claim;previous_nav=nav
+    return pd.DataFrame(rows),fills,orders,signals,dict(cash=str(cash),shares=shares,receivables=claims,pending=pending,lots=lots)

@@ -1,0 +1,56 @@
+{
+  "events": 1360,
+  "prefix_checks": 24,
+  "matched_total": 8,
+  "groups": [
+    {
+      "group": "etf17",
+      "period": "2018-21",
+      "n": 2,
+      "mean21": 0.25265647944904657,
+      "mean63": 0.08034340279818344,
+      "insufficient": true
+    },
+    {
+      "group": "etf17",
+      "period": "2022-23",
+      "n": 0,
+      "mean21": null,
+      "mean63": null,
+      "insufficient": true
+    },
+    {
+      "group": "etf17",
+      "period": "2024-26",
+      "n": 3,
+      "mean21": -0.06720380495162424,
+      "mean63": -0.07271731351326154,
+      "insufficient": true
+    },
+    {
+      "group": "hk7",
+      "period": "2018-21",
+      "n": 0,
+      "mean21": null,
+      "mean63": null,
+      "insufficient": true
+    },
+    {
+      "group": "hk7",
+      "period": "2022-23",
+      "n": 2,
+      "mean21": 0.002531206412648132,
+      "mean63": -0.11765804240575109,
+      "insufficient": true
+    },
+    {
+      "group": "hk7",
+      "period": "2024-26",
+      "n": 1,
+      "mean21": 0.20146047537793352,
+      "mean63": 0.09968960864937915,
+      "insufficient": true
+    }
+  ],
+  "conclusion": "Report match support before any economic inference; no new trading rule."
+}

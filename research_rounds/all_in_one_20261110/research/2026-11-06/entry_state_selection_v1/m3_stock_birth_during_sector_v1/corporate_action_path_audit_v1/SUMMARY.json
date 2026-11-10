@@ -1,0 +1,138 @@
+{
+  "original_unknown": 518,
+  "status_counts": {
+    "FACTOR_PATH_UNKNOWN": 476,
+    "MISSING_OPEN_PATH_UNKNOWN": 28,
+    "FACTOR_AT_ENTRY_UNKNOWN": 10,
+    "MISSING_NEXT_OPEN_UNKNOWN": 4
+  },
+  "factor_interruption_matched_explicit_terms": 486,
+  "factor_formula_matches": 1,
+  "factor_class_counts": {
+    "1.0": 436,
+    "1.1": 1,
+    "1.2": 5,
+    "1.25": 1,
+    "1.3": 8,
+    "1.35": 1,
+    "1.4": 18,
+    "1.45": 3,
+    "1.5": 5,
+    "1.6": 4,
+    "1.6878": 1,
+    "1.8": 2,
+    "2.0": 1
+  },
+  "original_birth_quarters": {
+    "2022Q2": 426,
+    "2022Q3": 38,
+    "2022Q1": 30,
+    "2022Q4": 24
+  },
+  "bridged_permits": 10,
+  "bridged_status_counts": {
+    "COMPLETE_CONDITIONAL_STOCK_ROUND": 10
+  },
+  "remaining_original_unknown": 508,
+  "original_closed_distribution": {
+    "closed": 1913,
+    "wins": 466,
+    "losses": 1447,
+    "win_rate": 0.2435964453737585,
+    "mean_win_loss_yuan": 1.6656554003923387,
+    "mean_return_on_buy_cash": -0.035342978779965326
+  },
+  "fixed_original_permit_distribution_if_appended": {
+    "closed": 1923,
+    "wins": 471,
+    "losses": 1452,
+    "win_rate": 0.24492979719188768,
+    "mean_win_loss_yuan": 1.6630124630153689,
+    "mean_return_on_buy_cash": -0.03512156085465437
+  },
+  "full_lifecycle_result_not_recomputed": true,
+  "control_exact_count": 3,
+  "source_hashes_unchanged": true,
+  "account_runs": 0,
+  "new_selection_runs": 0,
+  "round_cash_reconciliation": [
+    {
+      "round_id": "2022|A_UNION_B|000563.SZ|3",
+      "inventory": 0,
+      "cash_error": 0.0,
+      "spent_error": 0.0
+    },
+    {
+      "round_id": "2022|A_UNION_B|600329.SH|2",
+      "inventory": 0,
+      "cash_error": 0.0,
+      "spent_error": 0.0
+    },
+    {
+      "round_id": "2022|A_UNION_B|600143.SH|1",
+      "inventory": 0,
+      "cash_error": 0.0,
+      "spent_error": 0.0
+    },
+    {
+      "round_id": "2022|A_UNION_B|300718.SZ|1",
+      "inventory": 0,
+      "cash_error": 0.0,
+      "spent_error": 0.0
+    },
+    {
+      "round_id": "2022|A_UNION_B|002675.SZ|1",
+      "inventory": 0,
+      "cash_error": 0.0,
+      "spent_error": 0.0
+    },
+    {
+      "round_id": "2022|A_UNION_B|002364.SZ|2",
+      "inventory": 0,
+      "cash_error": 0.0,
+      "spent_error": 0.0
+    },
+    {
+      "round_id": "2022|A_UNION_B|002126.SZ|1",
+      "inventory": 0,
+      "cash_error": 0.0,
+      "spent_error": 0.0
+    },
+    {
+      "round_id": "2022|A_UNION_B|688678.SH|1",
+      "inventory": 0,
+      "cash_error": 0.0,
+      "spent_error": 0.0
+    },
+    {
+      "round_id": "2022|A_UNION_B|300811.SZ|2",
+      "inventory": 0,
+      "cash_error": 0.0,
+      "spent_error": 0.0
+    },
+    {
+      "round_id": "2022|A_UNION_B|601877.SH|3",
+      "inventory": 0,
+      "cash_error": 0.0,
+      "spent_error": 0.0
+    },
+    {
+      "round_id": "2022|A_UNION_B|000001.SZ|1",
+      "inventory": 0,
+      "cash_error": 0.0,
+      "spent_error": 0.0
+    },
+    {
+      "round_id": "2022|A_UNION_B|000001.SZ|2",
+      "inventory": 0,
+      "cash_error": 0.0,
+      "spent_error": 0.0
+    },
+    {
+      "round_id": "2022|A_UNION_B|000001.SZ|3",
+      "inventory": 0,
+      "cash_error": 0.0,
+      "spent_error": 0.0
+    }
+  ]
+}

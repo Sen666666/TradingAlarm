@@ -1,0 +1,6 @@
+{
+  "status": "post-result control correction, original lag rows preserved",
+  "reason": "Raw shifted volume relocated zero-volume exclusions, changing observed price clock on6-8dates in HK assets in account period.",
+  "method": "Fix positive price/volume observed sessions first. Shift volume21 on that clock, fill first21 using first observed volume (causally available). Model warmup63 means initial filler is outside volume-reference window when first model update occurs. Reindex output to original clock; model parameters unchanged.",
+  "scope": "Only lag-control ETF17/HK7 base rerun; new results independent directory. Main PV/price unaffected."
+}

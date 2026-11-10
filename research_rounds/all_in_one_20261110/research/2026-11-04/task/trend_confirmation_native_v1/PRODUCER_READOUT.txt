@@ -1,0 +1,27 @@
+现有No60上的趋势确认计划量插件：两9CLOSE技术小样本已运行，未授权full
+
+实现只在完整原N.Runner.planning/PVR slot排序后，修改原已许可且原size合法的own-state intent cap、budget各乘m一次，原实际decisions与pending_count同步；原risk_budget/CP1有效期/保护/排序键不变。最小量不足向下为0。NONE保原字典和原金融回调；四臂都使用原J.Account/No60 Budget，assert未实例成本GuardAccount。
+OPEN/partial/retry未调用特征或再次乘，未创造新资格；价格特征来自同原native事实钟，按sample end物理裁cut事实/原eligibility后lazy每sid内存缓存。未导出全池宽表。原退出与ACT20/BREAK63不改，不叠成本guard。
+
+实际小样本（仅技术，不作为经济晋升）
+2022Jan4–Jan14，9CLOSE：
+B末975294.7505446507045；UNIFORM50末978734.7224790454955；A_ONLY末973633.2623834061045；A_OR_B末975171.6482174436545。
+UNIFORM50末暴露89.96%、102股、买139笔/费用1159.98元；B末89.99%、61股、买87笔/费用985.78元。说明半每张计划并非账户半仓，更多原低排名计划承接现金，费用增加。金融事件26.01秒，没有静态缩旧fill构造回报。
+2025Jul1–Jul11，9CLOSE：
+B末1030124.5896390851040；UNIFORM50末1007955.9592350080875；A_ONLY末1030079.1584000790880；A_OR_B末1028105.4968787436930。
+UNIFORM50末89.94%、105股、买116笔/费用694.51；B末89.82%、59股、买69笔/费用509.71。总72.71秒，其中原input41.35、事件/输出约31.37秒。所有源postSHA exact。
+精确逐臂金额/mean前收盘暴露/角色/倍率/最小量消失在PRODUCER_TWO_SMALL_SUMMARY.json与原nativebooks/confirmation-size-events中。阶段只看9日，不把A_ONLY/BB微小差额解释成策略成败。
+
+弱窗来源竞态：FAILED保留、账未重跑
+弱窗真实run_prepared已经完成、DONE与原books/checkpoint已输出；随后strict source-post断言因共享capacity_inputs.py从1767…改为a074…触发FAILURE。旧1767完整bytes在capacity_cost_guard_v1/source-history/capacity_inputs-1767.py；UNUSED_SHARED_METADATA_DIFF.patch表明仅未调用CombinedScores的record tuple/list序列化一行变化，实际调用one_year/load_strong源码逐字一致。原FAILURE不改成PASS。
+POST_EXECUTION_SOURCE_METADATA_REVIEW与RECOVERED_TRACE_SUMMARY/RECOVERED_LAZY_FEATURE_SOURCES均为只读抽出，不重跑账户/指标。弱时插件完整字节另保source-history/trend_size_plugin_weak_before_input_isolation.py，与STARTED SHA对应。
+root指示后把已锁a074既有wrapper逐byte复制到本目录frozen_capacity_inputs.py，仅改变import。文件父路径仍workspace，各YEARS/SCORE_PATHS指向原源；FROZEN_INPUT_ORIGIN保原路径/同SHA。此为既有已审wrapper的不可变快照，非新loader；bindings进入本目录，不触成本native文件/状态。强窗使用此隔离版，source-post全过。
+
+审查/未完成
+capacity_logic_review_v1已源读确认仅尺寸单差分、原PVR排序与硬风控时钟保留；正在独立核两窗NONE与旧gold金融prefix、各arm当前原计划/修改后日志、实价费/现金数量桥，以及弱窗未消费源元数据变更的限定域说明。收到收据前不称完整技术晋升。
+本轮没有完整2022—24/强全年经济测试、没有924或半导体结论、没有BB反转出口。full仍须root依据成本首轮结果与本技术审查决定，当前保持未授权。
+
+独审收口更新
+independent_review/trend_confirmation_native_v1/TECHNICAL_REVIEW_GATE.json SHAabfc3668da9c94d007b51df41c2c2c76023bbfd83d8117ba728435e18a3a56b7已核两窗72个financial account-CLOSE、全部真实own-state原计划倍率/修改后日志与两窗NONE旧gold精确。强窗真实1.4split及未付dividendAR已独立分开核，原sourcepost无差；弱窗限定域来源说明通过但严格FAILED仍保留。
+真实每budgetorder均只一fill，未实际覆盖partialfill、paiddiv与fractioncash，不冒充全部场景已测；原金融callbacks仍同原版本。没有为此重跑或扩经济窗口。
+后续full的输入/score联合只复用本目录不可变既有wrapper；FeatureCache的end是该次run明确的最大输入CLOSE。不要拿本9日checkpoint直接越过其feature_end继续而把后续查不到日期当UNKNOWN倍率；新的完整窗口要在运行前固定全窗口输入/score/feature_end，并验证prefix与自身恢复边界。当前driver刻意没有full开关，full不是本阶段隐含授权。

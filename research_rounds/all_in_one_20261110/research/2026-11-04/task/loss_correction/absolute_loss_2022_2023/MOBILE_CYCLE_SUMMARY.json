@@ -1,0 +1,138 @@
+{
+  "2022_2023": {
+    "cohorts": {
+      "expand_existing_live_mobile_sleeve": {
+        "layers": 271,
+        "stocks": 174,
+        "buy_cash": "3155287.6076881777205",
+        "net": "-56601.56605394848496215658351",
+        "positive_net": "137928.8152761228085858585858",
+        "negative_net": "-194530.3813300712935480151694",
+        "negative_layer_buy_cash": "2352734.1862088187205",
+        "positive_layer_buy_cash": "802553.4214793590000",
+        "net_per_turnover_buy_cash": "-0.01793863922769925585093157220",
+        "quantity_open_layers": 0,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "first_mobile_on_existing_core": {
+        "layers": 126,
+        "stocks": 114,
+        "buy_cash": "1426102.8889840598475",
+        "net": "13150.42551866099706688048927",
+        "positive_net": "81441.25359398014383335126369",
+        "negative_net": "-68290.82807531914676647077443",
+        "negative_layer_buy_cash": "1019276.9735355078475",
+        "positive_layer_buy_cash": "406825.9154485520000",
+        "net_per_turnover_buy_cash": "0.009221231946335384578512656751",
+        "quantity_open_layers": 0,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "flat_whole_stock_fresh_mobile": {
+        "layers": 795,
+        "stocks": 595,
+        "buy_cash": "9245051.4529884032325",
+        "net": "-174885.3205283854515552606397",
+        "positive_net": "303318.4240207330259024113142",
+        "negative_net": "-478203.7445491184774576719539",
+        "negative_layer_buy_cash": "6498294.0604897145985",
+        "positive_layer_buy_cash": "2746757.3924986886340",
+        "net_per_turnover_buy_cash": "-0.01891664112608642108379197163",
+        "quantity_open_layers": 0,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "refill_mobile_after_mobile_flat_with_core_surviving": {
+        "layers": 7,
+        "stocks": 7,
+        "buy_cash": "105459.3031967940500",
+        "net": "-1688.7335028124000",
+        "positive_net": "5918.2889862819500",
+        "negative_net": "-7607.0224890943500",
+        "negative_layer_buy_cash": "80805.0488466035500",
+        "positive_layer_buy_cash": "24654.2543501905000",
+        "net_per_turnover_buy_cash": "-0.01601312972513303400284831628",
+        "quantity_open_layers": 0,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      }
+    },
+    "mobile_cycles": 928,
+    "refill_cycles_while_core_survives": 7,
+    "refill_cycles_terminal_negative": 6,
+    "refill_cycle_all_layers": 14,
+    "refill_cycle_buy_cash": "195496.5488953265500",
+    "refill_cycle_net": "-10064.5671338444500",
+    "refill_cycle_negative_net": "-19019.7141009128500",
+    "refill_cycle_positive_net": "8955.1469670684000",
+    "refill_tail_cycles": 0,
+    "refill_tail_net": "0",
+    "actual_terminal_each_layer_quantity_exact": true,
+    "scope": "mobile sleeve flat-to-flat differs from whole-stock flat; all fresh canonical receipts retained, no synthetic retry signal or economic counterfactual"
+  },
+  "strong": {
+    "cohorts": {
+      "expand_existing_live_mobile_sleeve": {
+        "layers": 205,
+        "stocks": 132,
+        "buy_cash": "4392586.0438941850100",
+        "net": "532048.1858685817805221277168",
+        "positive_net": "766882.6370048684356470588235",
+        "negative_net": "-234834.4511362866551249311067",
+        "negative_layer_buy_cash": "2649226.0467936168920",
+        "positive_layer_buy_cash": "1743359.9971005681180",
+        "net_per_turnover_buy_cash": "0.1211241352023469957728897962",
+        "quantity_open_layers": 10,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "first_mobile_on_existing_core": {
+        "layers": 93,
+        "stocks": 89,
+        "buy_cash": "1731278.0184455823000",
+        "net": "-1739.38203736491005470665912",
+        "positive_net": "106216.8018844531315789473684",
+        "negative_net": "-107956.1839218180416336540275",
+        "negative_layer_buy_cash": "1190321.8041026368000",
+        "positive_layer_buy_cash": "540956.2143429455000",
+        "net_per_turnover_buy_cash": "-0.001004680946002308687558681063",
+        "quantity_open_layers": 3,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "flat_whole_stock_fresh_mobile": {
+        "layers": 559,
+        "stocks": 476,
+        "buy_cash": "10290318.3075832249275",
+        "net": "667620.3590916995724204302911",
+        "positive_net": "1164154.755267372836676840548",
+        "negative_net": "-496534.3961756732642564102564",
+        "negative_layer_buy_cash": "6369574.8086356215475",
+        "positive_layer_buy_cash": "3920743.4989476033800",
+        "net_per_turnover_buy_cash": "0.06487849443876885286762103400",
+        "quantity_open_layers": 36,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "refill_mobile_after_mobile_flat_with_core_surviving": {
+        "layers": 10,
+        "stocks": 8,
+        "buy_cash": "176563.8225796405000",
+        "net": "-772.1749966174500",
+        "positive_net": "9906.1301460295000",
+        "negative_net": "-10678.3051426469500",
+        "negative_layer_buy_cash": "147404.7122674201500",
+        "positive_layer_buy_cash": "29159.1103122203500",
+        "net_per_turnover_buy_cash": "-0.004373347752307267805851751076",
+        "quantity_open_layers": 0,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      }
+    },
+    "mobile_cycles": 662,
+    "refill_cycles_while_core_survives": 10,
+    "refill_cycles_terminal_negative": 8,
+    "refill_cycle_all_layers": 15,
+    "refill_cycle_buy_cash": "215842.9546082261000",
+    "refill_cycle_net": "-4762.0159833740000",
+    "refill_cycle_negative_net": "-16422.9307036345500",
+    "refill_cycle_positive_net": "11660.9147202605500",
+    "refill_tail_cycles": 1,
+    "refill_tail_net": "11657.3903810875000",
+    "actual_terminal_each_layer_quantity_exact": true,
+    "scope": "mobile sleeve flat-to-flat differs from whole-stock flat; all fresh canonical receipts retained, no synthetic retry signal or economic counterfactual"
+  }
+}

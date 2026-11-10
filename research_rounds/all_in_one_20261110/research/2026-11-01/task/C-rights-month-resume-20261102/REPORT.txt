@@ -1,0 +1,7 @@
+原子停止，Jan13 OPEN/CLOSE未完成。
+C10完整输入/物理前缀的无事件薄导入均通过，金融/策略/流水视图完全相同，旧7证书真实旧源验证通过。
+两分支各尝试一次OPEN，均在旧U.verify_native防变更观察触发Account events cannot run backwards。精确点upgrade_runtime.py:59 prefix_hashes(self)按上一已完成ACTION的00:00观察，而原生OPEN账本时钟已09:30。账本时间守卫正确拒绝；未绕过。
+两失败私有副本已只读核对：完整分支210字段、物理分支209字段与各自IMPORT登记态逐字段完全相同，金融hash相同，旧7证书再核通过。故OPEN均原子回滚，成功OPEN=0/CLOSE=0；没有CLOSE checkpoint。
+C_BATCH20未启动任何事件；无Jan14、2025、ACTION重放。原75来源和两ACTION输出均保持。当前可用金融父状态仍是原独审通过的ACTION注册，新增登记只有C10两无事件IMPORT。
+停止后未修原U/账本，未重试。最小后续修复是旧证书兼容层的防变更检查使用不调用账本时间API的V3完整typed只读快照；保留真实旧类/旧源/旧输入重算，不能提前写last_completed_event或放开_time。
+审计入口BLOCKED_READOUT.json；完整调用栈在C10-*-OPEN.stderr.txt及runs/2022-C10/*/ERROR-OPEN.json；回滚证据ATOMIC_ROLLBACK_PROOF.json。

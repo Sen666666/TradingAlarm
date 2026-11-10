@@ -1,0 +1,13 @@
+{
+  "scope": "Information structure of already frozen natural strata only; no new gate and no new feature search",
+  "frozen_axes": "Exactly original 13 axes and 2 interactions, 74 category/intersection cells including ALL baseline, seven periods, CORE/FULL; all1036 rows retained",
+  "focus_periods": [
+    "2022_Q1",
+    "2022_Q3",
+    "2024_924"
+  ],
+  "metrics": "Original counts, winrate, mean net, payoff, final net>=30% tails and all financial/feature UNKNOWN retained. For usable closed observations only: signal-date, industry, date-industry, stock counts; largest cluster trade share; reciprocal sum squared cluster weights (concentration descriptor, not statistical effective N); clusters containing winners/net-positive/tails; leave-one-date or industry ranges for mean winrate, mean net, final tail count.",
+  "requirements": "Only check user goal conjunctively: winrate>=35%, mean net>0, >=one final net30% tail in each of the three periods; do not impose or tune sample-size thresholds. Publish full coverage so reader sees no size-independent winner if none. Not an OOS statistical test.",
+  "limits": "Historical outcomes already used in development. Overlapping groups, correlated layers and cross-period regimes; no claims of unbiased selection, causal prediction or effective independent N. LOO isn't validation, no p-value/confidence interval or selected winner. Current members NON-PIT, shared账户 not simulated.",
+  "prohibited": "No second interaction discovery, threshold scans, market-date gate, unknown-as-false, new economic replay, minute data, or stopped repetition gate."
+}

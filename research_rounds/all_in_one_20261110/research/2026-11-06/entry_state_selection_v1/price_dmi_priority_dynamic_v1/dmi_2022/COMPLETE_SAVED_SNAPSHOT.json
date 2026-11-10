@@ -1,0 +1,10 @@
+{
+  "window": "2022",
+  "authorization_sha256": "73fdb4955bd5da760e98bc74b51b3f7e872326248c9d505e73cad4e14de61536",
+  "implementation_audit_sha256": "c9f554957b0e3c83cf6274ab7c26d03111613d0a9be853f03ac11e20291cc16c",
+  "protocol_sha256": "cd427fd5f0b783d6c5ee4360ab7b65c6cb1d2f0014fea3d805f8a30f78fd2e83",
+  "output_seal_sha256": "330f0e5a98e674b4ded9ac9843b84326184acd4922ad796e0477c4fcfd8ffc29",
+  "raw_ledger_and_rank_audit_saved": true,
+  "legacy_ECONOMIC_LOOP_COMPLETE_scope": "Original ledger marker only; consumers must require this complete snapshot and OUTPUT_SEAL",
+  "elapsed_seconds": 923.4855022500269
+}

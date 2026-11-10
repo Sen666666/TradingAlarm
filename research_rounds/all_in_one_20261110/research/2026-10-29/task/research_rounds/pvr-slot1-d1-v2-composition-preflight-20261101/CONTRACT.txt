@@ -1,0 +1,33 @@
+PVR_SLOT1 x D1-v2: isolated native composition preflight, 2026-11-01
+
+Scope: engineering only. No full financial path; no SC April1 events.
+Reference: original singlepass coupled Bdiag, no account-risk check only as in
+the original Bdiag; no SD/C1/two-pass/R1/new market proof or budget changes.
+
+Execution uses frozen DiagD1-v2. After its original close planner (including
+old-order revalidation), apply frozen PVR_SLOT1 to NEW pending intents only.
+PVR-unready stock slots remain fixed; ready values reorder in original slots;
+original targets, core-first/role, receipts, Q and all budgets remain unchanged.
+Existing native buys/order_meta, frozen rank, receipt and D1 lifecycle are not
+reranked at opening, gap, partial fill, fee update or later close. Original
+first eligible skip once, next market session buy expiry, cancellations before
+retry, quantity/principal nonincrease, old sell obligation, and D1-v2 local
+open_nav resource checks are inherited verbatim. No post-restore configure_d1.
+
+Composition checkpoint identity binds actual class/functions/source, rank mode,
+D1 mode, frozen PVR/D1 SHA, score-manifest SHA and explicit input horizon.
+Original checkpoints/provenance are immutable. SC D1 Mar31 is first restored
+with its original generation identity and source freeze, then all account and
+strategy state is explicitly imported into the extended-horizon new class.
+The new horizon preserves every old industry episode-start entry and adds only
+future entries. No old no-delay legacy importer or global guard bypass.
+
+Preflight: D0+PVR saved normal July2 exact; D1+H1 saved D1 July7 exact; original
+16 actual D1 lifecycle tests, affected native composition regressions, physical
+July7 prefix, complete restart/wrong-binding checks, SC Mar31 full-state import
+and restart (119 intents,16 exits,0 active buys) without April events.
+
+Later financial scope requires explicit new authorization: one PVR-D1 path
+July2025-June2026 plus SC own D1 Mar31-June30 continuation, baseline old182 days
+reused. A first-April full-vs-physical session check would require new event
+permission. This preflight does not prove execution availability or robustness.

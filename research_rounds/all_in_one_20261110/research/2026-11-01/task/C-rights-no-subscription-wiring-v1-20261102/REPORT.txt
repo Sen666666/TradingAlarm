@@ -1,0 +1,28 @@
+不认购配股薄接线NSR1：隔离合成包，待独审后由主线程显式版本升级。未修改任何原运行源码、原loader、原指标、原产物或历史账户；没有载入历史pickle，也未运行Jan13/Jan27或其他历史ACTION/OPEN/CLOSE。所有账户构造/成交/结算测试仅使用原mixed-order-v1的生成行情、虚构SID和合成账户，原正在跑Jan12/Jul9的四账户未触碰。
+
+交付最小入口：rights_wiring.py及integration.patch。后者只在新版本month_runtime副本增加两个mixin基类/import，并把原corporate_actions原样改名为普通动作委托；原普通方法body逐AST相同。不要对原month_runtime应用补丁。Loader的原check_action_support仍冻结、仍拒绝rights类型；只有新MonthInputs组合的NoSubscriptionInputsMixin补认已明确的不认购分支，普通分红/送转仍原检查。
+
+复用的账户语义完全是原multi_runner._actions已存在的不认购：actual cash=0、split_ratio=1，不扣认购钱、不增股份、不出售或估值补偿权利。两条原源仅纯schema核对：002948 Jan13 actual_ratio=1、signal_ratio=1.30；600030 Jan27 actual_ratio=1、signal_ratio=1.15。它们没有传入金融runner。原负signal_cash(-0.9600/-2.1645)与1.30/1.15是调整价格坐标，绝不能传给split/accrue/pay或当库存share_ratio。
+
+新rights-only ACTION先核全批条款、日期、完整来源payload身份、精确当日正因子、现有有效保护/待买保护。未知元数据、改条款、完成cursor之前的新动作均原子拒绝。预检只读layers，不调用会惰性创建原索引的live()；任何回调、因子核对或原bridge/observer拒绝，使用与原native事件相同的可信内存pickle事务回滚。输入来源不可被替代为在线下载或外部副作用。
+
+成功时仅按原本地来源refresh mark/factor、推进ACTION观察钟并记审计/回调。检查现金、股数、layers/成本/保护存储、全部待买/待卖数量与deadline、原pending、share_ratio、锁及原责任e0、损耗/消费、C authority、GoalCoverage、New/Carry/冻结预算均保持。调用原bridge/observer再次核同；没有交易、认购、split、dividend或结算调用。raw保护仍用调整域保护除以原已知factor；合成同时验证factor不等于1.30/1.15，实际股数比例始终1。raw mark/NAV和动态line-risk可按原来源自然变化，不补偿权利价值，也不保证不亏。
+
+幂等键为sid/effective_date/source_id并绑定完整source条款hash，保存在runner.no_subscription_actions。重复同条款不刷新、记账、记日志或倒退cursor；同身份改payload拒绝。同批重复只记一次。幂等状态跟新runner一起checkpoint；没有伪造native split/dividend ledger事件，也没有替历史checkpoint做静默迁移。
+
+18项合成测试PASS（含多组subtest）：
+1 无持仓及精确重复；2 有持仓C10/C_BATCH20与三种价格/数量坐标；3 raw pending及未提交C授权Q；4 reserved买单及原deadline；5 待卖锁与New/Carry；6 改事件身份内容；7 同批重复；8 多种未知条款；9 无仓也未知因子；10 任一坏项拒绝整批；11 observer/加载因子异常完整回滚；12 有效保护未知；13 普通检查委托及混合批拒绝；14 新动作不倒退cursor；15 两模式保存恢复及各独立进程恢复后重复不变；16 loader适配只允许明确rights且原普通零股拒绝仍在；17 第二种1.15信号比例不增股；18 到期结算/未知结算钟不被本支线移时或花掉。
+两份恢复checkpoint全是本目录生成的合成状态，restore_synthetic.py拒绝本目录synthetic-results以外的路径。跨进程记录在synthetic-results/*-crossprocess.json。测试日志TEST_STDERR.txt，入口python -B -m unittest -v test_rights.py。
+
+16项交付核验PASS：24原依赖hash不变、四处文本补丁唯一且语法可解析、原普通dispatcher body相同、两条原条款schema通过而原loader仍拒绝、18测试日志、两模式跨进程恢复、合成checkpoint hash、接线模块无金融/历史实现导入、恢复CLI限本目录等。DEPENDENCIES.json冻结本次显式读取的24来源，原引擎既有传递依赖guard仍原样，并未替换其guard；CODE_FREEZE.json冻结本模块、合同、测试与patch；PACKAGE_SHA256.json冻结全部产物。
+
+未覆盖/必须保持拒绝：
+— 新旧runner/checkpoint的真实版本升级、旧来源证书验证及新的执行grant仍由主线程独审后显式接入；本包没有历史账户导入器，不能据合成通过宣称原四账户已续接。
+— 配股与普通分红/送转同批暂不接，整批在变更前拒绝。已知两条源条款的实际运行时整批和当前账户状态未执行核验。
+— ACTION已有到期settlement或结算钟未知时拒绝，以免不结算而静默改变原现金确认时间；本包不开展资金操作。需另行核清该时点义务，不能绕过。
+— 认购、卖可交易权利、税/权利价值补偿、targeted issuance、一般零股、普通送转未提交C Q换算等均未扩展。原普通支线限制与旧股票资格/预算不变。
+— 未以历史raw/factor实跑两个ex日，未证明真实开盘可成交/净收益；仅验证源schema和合成坐标行为。
+
+开发过程三份失败稿完整留在failures/：最初把原as_of观察钟当金融变化并用pickle字节比较；随后未知I测试未删除mobile实际CP保护；以及预检live()生成索引，导致拒绝后内存多出缓存。现改为时钟分域、规范typed值/引用核对、真正有效保护前检、无副作用层表遍历，未放宽原策略或删失败。修正后17项通过，再追加到期结算边界，最终18项全部通过，不以少测试掩盖失败。
+
+当前没有权限拒绝或未完成的授权内合成工作。实际接入与历史运行尚未获本包执行资格；等待独审及主线程显式版本升级，不能直接替换现运行四账户。

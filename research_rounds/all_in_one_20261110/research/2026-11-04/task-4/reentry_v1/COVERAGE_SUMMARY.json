@@ -1,0 +1,64 @@
+{
+  "long": {
+    "all_flat_intervals": 1677,
+    "original_actual_reentry_layers": 709,
+    "mother_role_events": 59952,
+    "by_role": {
+      "mobile": {
+        "events": 12736,
+        "local_high": {
+          "UNFORMED_FIRST_CLOSE": 36,
+          "FAIL": 8882,
+          "PASS": 3403,
+          "UNKNOWN_PRICE_OR_SOURCE": 415
+        },
+        "legal_minimum_exceeds_trial_risk": 49,
+        "legal_minimum_exceeds_original2pct": 45,
+        "positive_feeless_quantity_upper_bound": 12669
+      },
+      "core": {
+        "events": 47216,
+        "local_high": {
+          "FAIL": 34578,
+          "PASS": 11094,
+          "UNFORMED_FIRST_CLOSE": 88,
+          "UNKNOWN_PRICE_OR_SOURCE": 1456
+        },
+        "legal_minimum_exceeds_trial_risk": 1125,
+        "legal_minimum_exceeds_original2pct": 175,
+        "positive_feeless_quantity_upper_bound": 46056
+      }
+    }
+  },
+  "strong": {
+    "all_flat_intervals": 802,
+    "original_actual_reentry_layers": 192,
+    "mother_role_events": 11424,
+    "by_role": {
+      "mobile": {
+        "events": 2575,
+        "local_high": {
+          "UNFORMED_FIRST_CLOSE": 35,
+          "PASS": 1588,
+          "FAIL": 902,
+          "UNKNOWN_PRICE_OR_SOURCE": 50
+        },
+        "legal_minimum_exceeds_trial_risk": 73,
+        "legal_minimum_exceeds_original2pct": 19,
+        "positive_feeless_quantity_upper_bound": 2502
+      },
+      "core": {
+        "events": 8849,
+        "local_high": {
+          "UNFORMED_FIRST_CLOSE": 53,
+          "PASS": 5010,
+          "FAIL": 3605,
+          "UNKNOWN_PRICE_OR_SOURCE": 181
+        },
+        "legal_minimum_exceeds_trial_risk": 602,
+        "legal_minimum_exceeds_original2pct": 63,
+        "positive_feeless_quantity_upper_bound": 8247
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+买入与持有尺度：独立冻结口径/反例审
+2026-11-04；定义审，无新特征金额/绩效、无账户，不延伸五日代理。
+
+结论
+可按以下精确时钟做描述，尚不能因“短期上涨后买入、随后保护卖出亏损”
+就断定买持尺度错配。价位/动量/线宽、实际持有期价格经历、最终退出责任
+及经济结果必须分开形成。退出原因不是反事实原因，不能据此加快止损或
+放宽保护线。若主要失败和赢家的入场特征重叠、或亏损主要是未推进的
+信号失败而非正常推进被错误终止，则结束该分支，不再用MFE找拯救门。
+
+一、母体及当时可得的入场字段
+3436为两个原No60账的2265/1171真实成交层；不是全部未成交intent或全
+市场信号。按原layer/sid/budget_order/role/decision_at/actualfill连接，
+本母体原每budget_order只有一个fill的事实应先核，不假设未来partial
+仍同义。原first/add/flat后reentry身份固定，不按后来MFE或盈亏重命名。
+2022—23、严格postOct8新增303、strong及全三年分别保留，彼此非独立。
+
+决策价格只取原budget_order决策CLOSE精确原因果价；该时点必须早于
+actualfill。reference原口径如为raw close×(1+原buy slip)，先冻结公式，
+不是后来实际OPEN或fill-day CLOSE。原intent.floor为同一decision冻结
+的adjusted floor，用decision原factor转raw；不借未来fillfactor映射
+后仍称decision距离。CORE I floor与mobile CP1 floor必须按角色分列。
+
+相对保护宽=(decision reference price−原raw floor)/reference price，
+统一百分比单位。负值/失效/unknown不abs、不强制夹0美化；说明原资格
+或单位异常。实际OPEN gap、OPEN时保护风险可另列桥，不能替换入场特征。
+仅名义price-to-floor距离不含双边最低费、跳空/执行能力，不是最大损失
+保证。若额外报告cap名义风险，只用decision cap/reference/floor/NAV；
+旧诊断fill-unit字段携带factor未知，不应重新出现在decision分布中。
+
+prior20 close high严格排除当前：此前20个原有效可比价格观察close最大。
+距高=(C_t/H_prior20−1)；不要混成此前19+当前、OHLC high或20自然日。
+r5=C_t/C_(t-5有效价格观察)−1，需要含当前6观察；r20需要21观察。若选
+log return则另名，不与simple percent混用。valid-price源定义复用原
+pipeline，不能因I无效/CP receipt/root/实际flat而重启rolling。窗口内
+换源不可比、观察不足、当前报价不精确均UNKNOWN，不能方便地跳过源断点。
+
+二、持有时间与close-MFE的唯一边界
+逐层真实持有区间是实际买入fill确认后到最后实际sell.parts令该层q=0
+之前。split只改q、保留经济成本。订单/退出请求不等于成交；未成交卖出
+请求以后仍属持仓。层级与全股campaign不同，tiny core仍活不代表已清
+mobile层继续参与后来的上涨；新重入也不延长旧层的MFE区间。
+
+若只用收盘，应名为holding max-close return或close-MFE，不能称完整
+intraday MFE。只纳入此时真实q>0的完成原close：入场日OPEN后CLOSE可
+计；实际flat OPEN当天以及之后的CLOSE一律不可计。若某旧层在当天
+OPEN已卖，但下午又买了新层，下午close只归新层，不归旧层。
+未平层截至原账末日的已知持有close可计，明确RIGHT_CENSORED，不造
+强制平仓或把其当前最后close称自然退出。记录原实际q与价格来源日期。
+
+MFE参考价格必须事前选定：建议实际fill execution price映射至同一
+原可比信号价域，这是事后分析坐标，不反喂decision特征。它包含实际
+入场slip；收盘peak不自动扣假设卖费或加未收AR。若初始化峰为实际
+entry price，则price-MFE最低0，即把入场执行瞬间也列作已观察价格；
+若定义严格只取held closes，所有close低于entry时最大close return
+可为负，不能暗中夹0。两种可选语义须先选一个并名示，不混用。
+没有任何真实持仓close的层为NO_HELD_CLOSE/UNKNOWN，不填0伪造有效样本。
+
+成交OPEN可能跳涨卖出，真实净赚10%，此前最高held close仅+2%；
+close-MFE可低于最终实际退出价回报，不应通过max(netreturn,MFE)补造
+持仓close。若要加实际exit fill为峰值候选，应另定义而不是改历史close。
+日内high发生在实际flat之后也不属于该层；有OHLC数据不等于可选有利high。
+
+held期出现未知quote/不可比source时，剩余已知close最大只保证观察到的
+下界；不能把它冒称完整持仓peak。可标MFE_UNKNOWN/OBSERVED_LOWER_BOUND
+并保留原财务净额，不为凑完整样本填前值。持有历时用calendar elapsed、
+原market sessions、有效close count分别命名，不能将自然日差叫交易日。
+本母体是否无非平凡单层partial须再核；若存在，单层price-MFE只表示
+当时仍有某些股数，并不代表原全部q仍可按峰值兑现，金额归因需实q。
+
+三、退出责任、经济结果及MFE不能互相代替
+退出理由取每个原actual sell.part；按层完整reason集合互斥分组，I、
+CP1、ACT、筹资/行政/混合、未平分清。一次exit同清多个层可以各有原
+资本贡献，但不是多个独立市场失败。不拿最后tiny core的退出理由代表
+前面整股周期，不把sell请求/撤单当实际出场。提前计划与实际执行间
+gap/延迟另列；亏损发生在保护触发以前还是执行gap以后也不能混口径。
+
+净贡献继续用原strictreal+openunreal+recognized AR，买卖费只扣一次。
+未平marked、未付dividend AR不是兑现现金。MFE是未来价格经历标签；
+保护距离/r5/r20/high位置是决策特征。MFE分组只能解释已走出的路径，
+不能作为当时准入/仓位/退出指标或按日后赢家标签拟合新门。
+MFE−最终net/cost不是纯利润回吐：混有费用、分红/股数、入场执行与
+收盘估值差异。量价peak高也不证明当时应卖或本可兑现，不作锁盈目标。
+
+postOct8新增303层可以报告其至原终态的lifetime net，因为确在边界
+之后新买；完整post阶段财富还含Oct8旧层期内变动。先前旧层lifetime
+利润不能重复贴成后段收益，MFE窗口也不能把Oct8当旧层新入场价。
+2022/23季度/月收益需要期初basis/旧仓mark增量，不用新买cohort终生
+贡献冒充该期账户收益。重叠year/quarter/阶段标签不可累加。
+
+四、必须通过的最小反例
+1 signal后一天OPEN大幅gap：decision线宽/r5不变，不能用实际OPEN替代。
+2 signal与fill之间送转：decision只用当时factor；真实MFE用可比价域，
+  不把股价减半误作回撤或未来factor塞回decision风险。
+3 当前close创新高但过去20未破：prior20排当前才有真comparison，不能
+  包含当前后永远不能严格break；r5/r20分别须6/21点。
+4 价格原source断开/I暂时失效：源断开UNKNOWN，I失效不清价格rolling。
+5 fullflat OPEN后当天大涨：该日close及后续高不属于旧层MFE。
+6 同日旧mobile卖出后新层买入：同一下午close只归当时真实live层。
+7 exit请求迟迟未成交：实际仍持有，之后close必须保留；不能用信号
+  日代替actualflat以人为缩短峰值/holding。
+8 期末未平赢家：MFE截至cutoff，标right-censored，不编自然退出理由。
+9 sell OPEN跳涨：close-MFE可小于实际卖出利润，不回填exit日close。
+10 几个partial/多层：不得把tiny余额峰值乘原全q，也不漏掉先前已卖
+   parts的正/负及费用。完整原q/成本/现金守恒。
+11 ACT强退在某股原保护仍活时发生：它不证明单股line太快/太宽。
+12 高r5、上prior20high、CP退出净负与strong真实赢家可能共存：同一
+   entry格的全部正负/未平控制保留，不能只拿亏层讲追涨故事。
+
+五、如何识别“还未证明错配”并停止
+线宽是距离尺度，r5/r20是价格变化尺度，不自动是策略的持有期限。短
+信号配长持有本来可服务于稀疏趋势赢家；只见持有天数短并不证明设置
+错误。反方至少要求：
+• 全3436先分role/action，再按自然符号/完整连续分布与当时资本报告；
+  pooled feature分位只描述，ties不伪称等量，不从MFE/未来net反推cut。
+• 两年/post303与strong同格的实际正/负资本、持有历时、close-MFE、
+  未平/AR同时展示。相同入场特征经常产生赢家和失败，就不能称已找到
+  质量分界；不把少数后来大赢家当噪音删掉以换普通净额。
+• 如果CP保护退出的主要亏层在真实持有期几乎未有任何价格推进，首要
+  事实是入场后失败，不是已证明退出过快。若曾显著推进后净负，则只能
+  说原路径有推进后损耗，不能据peak倒选更好退出点或锁住利润。
+• 持有后的盈利/亏损不由退出reason单独识别。需要新的、当时可用且
+  能改变同一信号动作的机制才能谈有限因果对照；本轮不为它加快止损/
+  宽线硬救。拉宽线而不按同风险重审数量会偷增风险，也不构成修复证明。
+• 若初步分布重叠很大、核心损耗发生在同样正向与合法推进的入场、或
+  无新的entry/holding分离证据，就停止该尺度故事，保留完整负结论。
+
+前缀验收：改变decision之后的价格、MFE、exit/net标签，所有decision
+特征不变；逐actualflat物理截断后旧层peak与全表同；加上flat日CLOSE
+不应改变旧层peak；未平延长cutoff只更新分析标签，不改历史入场特征。
+
+状态 READY_FOR_DESCRIPTIVE_FEATURE_AUDIT；NOT_A_POLICY_RULE。
+源/数据可复用，当前无账户工程需求。本报告未计算任何新绩效或调参。

@@ -1,0 +1,1 @@
+{"series": 101, "rows": 389588, "conflict_cells": 0, "long_gap_series": 7, "invalid_prices": 14}

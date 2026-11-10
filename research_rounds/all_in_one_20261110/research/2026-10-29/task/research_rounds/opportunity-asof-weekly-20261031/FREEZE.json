@@ -1,0 +1,19 @@
+{
+  "source_SHA256": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/prepared-v2/001711/signal.parquet": "22d768eeb2617a4a3ca81f62173a768c8f5ab6454e1119c8de1e3d46e8f1cf1a",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/recovery.csv": "76599d9013946bc5fc501a57b046f36a2868ad61f147ef1a6c73c9575b35906a",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/opportunity-asof-weekly-20261031/PROTOCOL.txt": "592e8398c66da5a923e2def36bc30ef66f8de45614a734972ff92f55f4b2b126",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/opportunity-asof-weekly-20261031/analyze.py": "4b56b0e40a1ab4e2441d99fe3d915067c4d6c6d5c2ffc4ecc0f07c667a1804b7",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/opportunity-quality-ranking-20261031/2022/CANDIDATES.jsonl.gz": "15d22065bcb834f3648ad62640424339d6cafcfa8fd76ada6f9101609f7ba342",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/opportunity-quality-ranking-20261031/2022/PRICE_LABELS.jsonl.gz": "5efdec397942a6f400813dfb1b078fc99a1f659b7f470dc8de5d7ad937134df6",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/2022-normal-reference-20261031/runs/B_diag/pair/daily.jsonl.gz": "243e23b8af55b56ca3e0fdf0af346f611ec7f5c3f3e03c1b036ecfa37196ab0b",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/2022-normal-reference-20261031/runs/B_diag/pair/B.json.gz": "4d91385eb31bcd47afec50d75dd3c55182c84c6f095f1e9be7026d2678d917b5",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/opportunity-quality-ranking-20261031/2025_26/CANDIDATES.jsonl.gz": "cfddb573283935b745c4b1e3274224cbc8385534d7c8bee028ec0ba35339cdeb",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/opportunity-quality-ranking-20261031/2025_26/PRICE_LABELS.jsonl.gz": "6beee558c2addf1452aef313875f6e9194cf8dd9ddd78daa3bc3c5153d5607f2",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/q2-normal-continuation-20261031/runs/B_diag/pair/daily.jsonl.gz": "f0bf738c0be81633e8c3d829c2b394fa6a33da074eb1c54f59a3ff178c31ff6a",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/q2-normal-continuation-20261031/runs/B_diag/pair/B.json.gz": "de9eddb936dab5a8872c3c916cc1c02c596bfa8fcfeb6dcbca30a1b03e78c01a"
+  },
+  "predeclared_horizon": 21,
+  "thresholds": "natural sign only",
+  "new_account_paths": 0
+}

@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "cycles": 69,
+  "stocks": 62,
+  "known_warning": 57,
+  "mechanism": {
+    "no_known_warning": 12,
+    "safe_floor_handoff": 40,
+    "delayed_boundary_request": 12,
+    "original_exit_without_boundary_hit": 5
+  },
+  "warning_scale_known": 57,
+  "warning_scale_unknown": 0,
+  "unknown_event_rows": 3,
+  "cases_with_prior_unknown_event": 1,
+  "small_13_case_behavior_exact": true,
+  "indicator_replays": 0,
+  "only_warning_RMS_computed": true,
+  "new_economic_ledgers": 0,
+  "seconds": 1.2429551659151912
+}

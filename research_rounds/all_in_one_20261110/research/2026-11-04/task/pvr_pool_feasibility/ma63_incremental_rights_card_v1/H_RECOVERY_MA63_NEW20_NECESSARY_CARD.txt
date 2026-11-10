@@ -1,0 +1,31 @@
+H恢复到小P的必要证书：<=5分钟独立纸审
+
+裁决：逻辑可闭合，值得一次现成全预热2022–23必要事件表；不实现H控制器/账户，不证明恢复有效。已通知pressure冻结唯一公式，不只看cross日，不调20/MA63或加slope/B/21。
+
+唯一事件公式
+沿原510300 causalTR signal_close X及inclusive MA63原观察钟：
+CERT_t := 当前及所需窗口全部known AND X_t>MA63_t AND X_t>max(X_(t-20)...X_(t-1))。
+20high严格排今日；全warm提供前窗，未知不能ffill、不能把unknown当证书。MA斜率不进入证书，notDOWN不进入证书。它不是旧synthetic M、原BREAK63或旧v2/LOCAL20状态。
+
+H强制退出与新恢复证书分离
+保持原H_trip、禁止新增、强退/取消请求及原实际执行锁。真实退出和所有未完买卖/取消ACK未完成时，证书无权绕过H_BLOCK。
+在候选自身真实flat与ACK完成之后，且该CLOSE证据在H之后，首次CERT才可提出一份P；只替换旧BREAK63恢复的证书部分。不能同时还要求旧BREAK63又宣称改善早恢复。此动作不是C/fullrisk，不撤原I/CP1/Q/现金/股/行业/整手等约束，不采用旧No60未来NAV/on/flat日历。
+
+去重和持续ON
+同一候选H epoch最多一次首次合格证书→一份P申请；不是每个新20high每天重发P。当前必要事件表保留全部证书，以便任何未来真实flat时点能取首个，其余并非额外授权。
+若MA上穿当天无new20high、之后仍ON期间才创新20高，后面的证书必须保留。反之，上穿当天证书在H前或强退未完成，也不能存起来等flat使用；须之后新的合格CLOSE。
+持续ON无需再次上穿才能提供post-H新20证据：旧ON只是当前背景，严格新高是新事件。不能将持续ON中所有日期当新证书，也不能用H前的同一天证书重复领P。
+
+初始化
+Jan4 prior_on=False是旧ETF基准账户initialintent，不是真实完整历史upcross。全预热原on判断才决定真UP；已有ON的左删失/carry-in区间独列，不伪增第11次真UP。新账户从现金的初始化许可不是H恢复，本证书不替它设起始H或假设已试错成功。
+若flat在某日OPEN真实完成，当日之后的CLOSE可在原时钟下被观察，最早只能用于后续原实际执行点；不能把当日CLOSE证书倒填到该日OPEN。同bar H/退出请求/证书不能被循环解释为已恢复。
+
+与旧早恢复研究的关系
+旧A是同synthetic M的prior63MAX→prior63MEAN并保原breadth/up，已经有限负证据关闭优先级；本证书使用ETF causalTR的MA63与strict20high，信息对象与条件都不同，不是A的复跑。
+旧REC21/RECEMA等依靠更早价格证明恢复的完整负对照仍直接相关：更早不等于更好，假恢复试错可吞收益。旧研究不是本证书exact结果，也不因不同源而可以忽略。不能只用Jun正恢复，须把所有短假UP及持续ON期的所有证书保留。
+
+唯一便宜事件表与证伪
+保全10个真正UP及其全部期间CERT；另保Jan初carry-in、全部非ON/unknown、firstcert/lastcert/证书数和upcross当天是否已满足。假的UP仅事后评估，不回填公式；窗口跟随原完整episode，不择最好cut。没有自身真实H/flat状态时只输出potential certificate dates，不能称实际恢复日或可执行机会。
+用完整价格背景与原资格/真实执行下界评估：短假UP是否也很快产生证书、L02是否仍迟、持续ON期间是否能重获证书、行业/股票是否有合法承接。市场背景涨跌不是账户收益。若几乎所有假UP同样过门或真恢复太迟/无原承接，则停止，不加breadth、21日替换、额外斜率或新参数救案。
+
+当前BLOCKED：H新恢复尚未获金融实现授权，P消耗/renew和C反馈/额度仍未定义；一份CERT不消除这些阻断。当前只允许一次必要表，0新金融状态机/预算/账户/金融事件。

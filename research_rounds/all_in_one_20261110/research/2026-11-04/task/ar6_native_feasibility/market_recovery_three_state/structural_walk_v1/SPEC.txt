@@ -1,0 +1,24 @@
+Frozen unique PAPER market structure recurrence. Root authorized <=15min,
+pool confirmed unique70-line draft before execution; reviewer source review.
+0Account/Runner/portfolio/risk ledger, no n/4.5%/cash/ACT_on algorithm.
+Full3273-row original M/B starts at2013, no2022/strong reset. First known
+current price plus complete64prior knownM and prior20 window initializeD ONLY;
+no P on initialization bar. D subsequent strictnew20high+B>.6 entersP,
+S=prior20low, anchor=M, sigma=current E0 prior63RMS/floor1e-8, marker=True.
+P/C known M<OLD S => D before B/unknown; no samebar reentry. Clear liveS,
+anchor/sigma/marker on exit; before fields preserve old protection evidence.
+KnownB<=.6 or unknown price/B/required window: no new structuralstate/sale,
+clear marker and freeze advancement (known price support break still first).
+Otherwise P/C: require new20high AND original E0 compare(logM/anchor,
+sqrt5*frozenSigma)>=0; markerFalse => rearm marker ONLY; markerTrue => enter
+or remain C, S=max(oldS,L20), anchor=M, sigma=current prior63RMS. Repeat C
+advancement under identical rule. P itself counts initial marker, no extra
+implicit down/up cooldown or ACT63 conjunction. Unknown never fabricates weak.
+Original E0 arithmetic log_ratio/compare copied by exec of unmodified pure
+source. RMS uses63 prior returns from64priorM, excludes today's return.
+Old actual No60 ACT checkpoints attached as history only, NEVER read by rule.
+requested_state is alias of market_structural_state only, no exposure request.
+Post-loop fixed-window M extrema are retrospective context, NOT trading return.
+Completed old10 firstP geometry rows remain separate, not spliced into walk.
+Output one fullDAILY, event list and fixed windows L01/L02/L03,2023Q2/Jul,
+2024spring/SepOct,strong. No parameter sweep or automatic continuation.

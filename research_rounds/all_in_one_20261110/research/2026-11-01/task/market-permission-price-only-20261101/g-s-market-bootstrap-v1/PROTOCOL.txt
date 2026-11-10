@@ -1,0 +1,75 @@
+Frozen scope: pure market bootstrap, two original NATIVE1709/90 account anchors.
+No financial account, positions, stock signals/intents/orders, accounting, PnL,
+downloads, or OLD407 canonical receipt work. Original files are read-only.
+
+Anchors: first account close 2022-01-04, preceding market cutoff 2021-12-31;
+first account close 2025-07-01, preceding market cutoff 2025-06-30. Each of the
+91 original streams starts from its earliest original input, not near a rally.
+Unknown price/breadth observations and all source changes remain in the stream.
+Both anchors are native1709, not two interchangeable stock universes. They live
+in independent directories. OLD407 remains outside this run.
+
+F1 core SHA256 962275bd41b5c7bbc062a1191780a6b6a9c616f8d3097ea669b602eabbc9ac59
+F1 contract SHA256 c3914aed1896563253961ea40d6065614a115cef21e13a93e1e74ad71779c54a
+Neither is modified. The source identity construction, input price masks and
+comparison views follow the original already audited four-stream/all-industry
+exports. Global uses composite-original-as-run; industry uses original index.
+Breadth represents the fixed research pool, not full index constituents.
+
+Market evidence scope/context rules are the market-only subset of frozen G/S V2:
+price failure or source change clears context/maturity before creation/advance;
+break_started or repair_restored creates a context, immature; subsequent native
+price_advance matures it even if permit is false. Repair restoration itself is
+not the subsequent advance. Ordinary breadth weakness/unknown does not erase
+maturity. Support is F1 ACTIVE with no pending failure; permit additionally is
+the native F1 permit_next_open. No actual small trial is inferred.
+
+Clock: the full original observation day and 15:10+08:00 research close are
+preserved. confirmed_cursor/known_cursor = date.toordinal(), exactly the
+original joint_v3.py ordinal(day), NOT a fresh account decision counter.
+Scope seq counts every original observation from that stream's left endpoint,
+including unknowns; no common fake 2007/2013 observation count is invented.
+The day cursor has gaps; it is an identity/order clock, not a duration measure.
+Source signature follows original R2 digest(asdict(Source)); context IDs follow
+R2 scope|source|confirmed_cursor|seq, with explicit G/sector policy scope binding
+while original F1 State.scope remains intact. Future consumers must map ACT
+cutoff/confirmed clocks to this same original clock; R2's synthetic self.cursor
+cannot be mixed with these historical cursors without a separately frozen adapter.
+known_at uses the original research close convention. Source files do not
+certify real-time publication availability; no live PIT claim is made.
+
+Before any model execution, write SOURCE_MANIFEST/FREEZE with input, old audited
+output, original source/reducer/contract hashes and all 182 stream-cut specs.
+Prepared input-prefix files contain no rows after each cutoff. Reference-prefix
+files contain only old audited output through cutoff. Input/date predicates are
+applied before pandas materialization. Full original file hashes live only in
+the outside provenance manifest, not causal state/proof payloads.
+
+Three cold/restart paths, per anchor:
+A. Original-input path filtered to <=cutoff. Save complete F1 State, market-only
+   Scope/context and complete proof_history. Compare every available original
+   daily field with the already audited output prefix, exactly, no tolerance.
+B. New process, only physical cutoff files: same semantic checkpoints and daily
+   views must be byte-exact to A. Store these as the authoritative ready states.
+C. After A/B are complete and hashed, export exactly the next original market
+   observation (the first account close) into a separate verification directory.
+   New process restore B and step once; compare full State/context/history with
+   a cold original-input replay through that one next observation. This is a
+   pure market test, never a next-open financial event, and cannot change B.
+   All B checkpoints are rehashed after C to prove their immutability.
+
+The checkpoint contains every core State field and full failure/pending receipt,
+rolling63 inputs, full Source, scope sequence, last Decision and full market
+proof event history. Every proof has original source/context/type/confirmed day
+cursor/seq/known clock. The payload contains no account initial state or invented
+financial loss/trial/fill counters. Account initialization remains a later task.
+
+The standalone reducer is verified against an AST-isolated copy of original
+R2 Policy.evidence and Scope only, on every replayed observation. Policy.__init__,
+Policy.allowed/unlock, SyntheticRunner, financial modules and account methods
+are neither imported nor called. Cross-process IDs/PIDs and snapshot hashes
+are retained. All 90 nodes remain, including WAIT/UNKNOWN breadth nodes.
+
+Stop on any source/hash, original daily-field mismatch, clock ambiguity,
+state/restore disagreement or future row in a cutoff file. No parameter tuning,
+fallback values, advantageous endpoint selection or old checkpoint substitution.

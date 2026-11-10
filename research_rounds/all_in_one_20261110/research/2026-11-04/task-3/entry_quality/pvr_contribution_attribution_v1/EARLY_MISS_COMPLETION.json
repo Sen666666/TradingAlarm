@@ -1,0 +1,10 @@
+{
+  "status": "COMPLETE_BOUNDED_EXPLANATION_ONLY",
+  "rows": 593,
+  "cache_stock_files": 559,
+  "matched_pairs": 158,
+  "large_early_recovery_sufficient_count": 94,
+  "failed_only_also_restored": 38,
+  "seconds": 2.243204116821289,
+  "no_new_full_ranking_or_account_run": true
+}

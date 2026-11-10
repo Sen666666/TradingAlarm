@@ -1,0 +1,50 @@
+"""Static classification of actual frozen intents, not a new execution replay."""
+from study import *
+from bisect import bisect_right
+def load(p):return json.loads(Path(p).read_text())
+def main():
+    obj=load(O/'results/N1.json');rules=load(ROOT/'research_rounds/pvr-act-comparison-20261027/execution-rules-v2.json')
+    from market_rules import version_on
+    proto=load(ROOT/'research_rounds/rs-h1-execution-20261025/inputs-v2/economic-protocol.json')
+    cal=sorted(pd.Timestamp(x) for x in rules['calendars']['A'])
+    cal += sorted(pd.Timestamp(f'2026-10-{d}T09:30:00+08:00') for d in ['27','28','29','30'] if pd.Timestamp(f'2026-10-{d}T09:30:00+08:00') not in cal)
+    filled={(t['security_id'],t['signal_at']):t for t in obj['trades'] if t['side']=='buy'}
+    funded={(a['sid'],a['signal_at']):a for a in obj['audit'] if a['kind']=='lot_risk_funded'}
+    selected={(a['sid'],a['at'][:10]):a for a in obj['audit'] if a['kind']=='lot_allocation'}
+    facts={};factors={};rows=[]
+    for d in obj['decisions']:
+        next_at=cal[bisect_right(cal,pd.Timestamp(d['at']))];day=next_at.tz_localize(None).normalize()
+        for i in d['intents']:
+            sid=i['sid'];key=(sid,d['at']);allocation=selected.get((sid,str(day.date())))
+            if sid not in facts:facts[sid]=pd.read_parquet(SNAP/'signals'/f'{sid}.parquet')
+            f=facts[sid];factor=None;op=None
+            if key in filled:reason='filled'
+            elif key in funded:reason='funded_no_executable_window_or_fill'
+            elif day>pd.Timestamp('2026-10-27'):reason='outside_study_next_open'
+            elif allocation is not None:
+                assert not allocation['minimum_selected'];reason='cash_competition_for_whole_order'
+            elif day not in f.index or not np.isfinite(f.loc[day].raw_open):reason='missing_open'
+            else:
+                if sid not in factors:factors[sid]=pd.read_parquet(SNAP/'facts'/f'{sid}.parquet').factor
+                op=D(str(f.loc[day].raw_open));factor=D(str(factors[sid].loc[day]))
+                minimum=version_on(rules['quantity_versions'][sid],str(day.date()),proto['approved_proxy_ids'])['rule']['buy_minimum']
+                if op*factor<=D(i['floor']):reason='open_at_or_below_frozen_local_protection'
+                elif i['cap']<minimum or D(minimum)*op*D('1.0005')>D(i['budget']):reason='next_open_minimum_exceeds_frozen_amount_or_share_contract'
+                else:reason='cash_competition_for_whole_order'
+            rows.append(dict(symbol=sid,signal_at=d['at'],next_open=str(day.date()),kind=i['kind'],reason=reason,
+                 desired=i['budget'],cap=i['cap'],minimum_cash=allocation['minimum_cash'] if allocation else None,
+                 ideal_cash=allocation['ideal_cash'] if allocation else None))
+    pd.DataFrame(N.encoded(rows)).to_csv(O/'analysis/funding-causes.csv',index=False)
+    summaries=[]
+    for sid in ['ALL','688498.SH','688256.SH','300308.SZ','300502.SZ']:
+        z=rows if sid=='ALL' else [r for r in rows if r['symbol']==sid]
+        summaries.append(dict(symbol=sid,intents=len(z),reasons=dict(collections.Counter(r['reason'] for r in z))))
+    # Exact reconciliation to original counters for pre-allocation guard failures.
+    got=collections.Counter(r['reason'] for r in rows)
+    assert got['open_at_or_below_frozen_local_protection']==obj['counts'].get('allocation_open_at_or_below_protection',0)
+    assert got['next_open_minimum_exceeds_frozen_amount_or_share_contract']==obj['counts'].get('allocation_open_minimum_exceeds_frozen_contract',0)
+    assert got['cash_competition_for_whole_order']==obj['counts'].get('whole_order_unfunded',0)
+    assert got['filled']==obj['counts']['buy_fills']
+    save(O/'analysis/funding-summary.json',dict(all_intents_independently_classified=True,groups=summaries))
+    print(json.dumps(summaries,ensure_ascii=False))
+if __name__=='__main__':main()

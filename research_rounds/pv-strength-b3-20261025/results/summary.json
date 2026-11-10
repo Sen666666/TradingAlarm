@@ -1,0 +1,127 @@
+{
+  "recorded_at": "2026-10-25T04:39:18.714371+00:00",
+  "assets": [
+    {
+      "asset": "AU0",
+      "name": "沪金主连",
+      "rows": 4575,
+      "first": "2008-01-09",
+      "last": "2026-10-23",
+      "scored": 4508,
+      "grade_counts": {
+        "0": 1270,
+        "-2": 1048,
+        "-1": 935,
+        "1": 848,
+        "2": 407
+      },
+      "volume_changed_days": 237,
+      "sha256": "803aea03b1c96fb710e5476cef309c29e4fa15a833a5e353b772df03597d5c16"
+    },
+    {
+      "asset": "518880",
+      "name": "黄金ETF",
+      "rows": 2000,
+      "first": "2018-07-17",
+      "last": "2026-10-16",
+      "scored": 1936,
+      "grade_counts": {
+        "0": 505,
+        "-2": 480,
+        "1": 449,
+        "-1": 289,
+        "2": 213
+      },
+      "volume_changed_days": 38,
+      "sha256": "83fafd5a9b528b267cbd062851bc0ca52e145618244db9874c123841b7192549"
+    },
+    {
+      "asset": "512480",
+      "name": "半导体ETF",
+      "rows": 1786,
+      "first": "2019-06-12",
+      "last": "2026-10-23",
+      "scored": 1722,
+      "grade_counts": {
+        "0": 506,
+        "-1": 431,
+        "-2": 401,
+        "1": 246,
+        "2": 138
+      },
+      "volume_changed_days": 68,
+      "sha256": "a9cb5a85d84f32613b28dd25e933f611bfe94a337bc5a4c95aed7d01c69b752a"
+    },
+    {
+      "asset": "001309.SZ",
+      "name": "德明利",
+      "rows": 1044,
+      "first": "2022-07-01",
+      "last": "2026-10-22",
+      "scored": 980,
+      "grade_counts": {
+        "1": 230,
+        "0": 219,
+        "-1": 194,
+        "-2": 181,
+        "2": 156
+      },
+      "volume_changed_days": 33,
+      "sha256": "7945c6c720c777ed286c22563622b75dbdca7cd5da66489e0d3238f0b1eec8b0"
+    },
+    {
+      "asset": "688981.SH",
+      "name": "中芯国际",
+      "rows": 1513,
+      "first": "2020-07-16",
+      "last": "2026-10-22",
+      "scored": 1449,
+      "grade_counts": {
+        "0": 529,
+        "-2": 378,
+        "-1": 309,
+        "1": 180,
+        "2": 53
+      },
+      "volume_changed_days": 169,
+      "sha256": "55610ea92a8986598a6a4c00415f0fb506d3c65114ed0ae2726eb9f23fa6d4ad"
+    },
+    {
+      "asset": "600036.SH",
+      "name": "招商银行",
+      "rows": 3338,
+      "first": "2013-01-04",
+      "last": "2026-10-22",
+      "scored": 3274,
+      "grade_counts": {
+        "0": 932,
+        "-1": 736,
+        "-2": 723,
+        "1": 582,
+        "2": 301
+      },
+      "volume_changed_days": 221,
+      "sha256": "84b123080098deaa11ca16279e903d8713c7920abf901deb7dace5cae06a9a43"
+    },
+    {
+      "asset": "600519.SH",
+      "name": "贵州茅台",
+      "rows": 3349,
+      "first": "2013-01-04",
+      "last": "2026-10-22",
+      "scored": 3285,
+      "grade_counts": {
+        "-2": 778,
+        "0": 748,
+        "-1": 685,
+        "1": 642,
+        "2": 432
+      },
+      "volume_changed_days": 259,
+      "sha256": "383a24ae11dc6859e03d3ab1fc89d0d16fe866609638aedbb2296209f28e1f85"
+    }
+  ],
+  "account_runs": 0,
+  "model": "PVS-B3",
+  "synthetic_checks_sha256": "950cd30bc28e103daf005acea61a8bbe527d9d1316506762b921088dafd3ff0b"
+}

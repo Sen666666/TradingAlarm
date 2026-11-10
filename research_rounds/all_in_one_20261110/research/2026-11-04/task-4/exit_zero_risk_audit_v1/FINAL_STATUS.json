@@ -1,0 +1,148 @@
+{
+  "status": "RESTORED_PRIOR_PACKAGE_AND_EXIT_ZERO_RISK_SOURCE_FACT_AUDIT_COMPLETE",
+  "prior_package_restoration": "PRIOR_PACKAGE_RESTORATION_RECEIPT.json",
+  "order_chain": "order_chain/READOUT.txt",
+  "funding_effect": "funding_effect/READOUT.txt",
+  "source_review": "code_review/READOUT.txt",
+  "root_readout_sha256": "6aff2e1c3051d644ded68dcf40126260a7910491500a2a36d54acf2e740486aa",
+  "final_text_review": "code_review/FINAL_READOUT_REVIEW.json",
+  "accepted_post_review_clarifications": "READOUT_REVIEW_CORRECTIONS.json",
+  "no_new": {
+    "models": 0,
+    "indicators": 0,
+    "accounts": 0,
+    "backtests": 0,
+    "counterfactual_allocations": 0,
+    "downloaded_market_data": 0,
+    "original_source_mutations": 0
+  },
+  "artifact_checks": [
+    {
+      "artifact": "order_chain/CALENDAR_DAY_CHAIN.csv",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "order_chain/CALENDAR_DAY_CHAIN.json",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "order_chain/FOUR_SAVED_CLOSE_ORIGINAL_FIELDS.json",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "order_chain/ORIGINAL_BOOK_EVENTS.json",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "order_chain/READOUT.txt",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "order_chain/SOURCE_EXCERPTS.txt",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "order_chain/SOURCE_SHA256.json",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "order_chain/T1_AND_MISSING_ORDER_FIELDS.json",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "order_chain/extract_saved_exit_chain.py",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "funding_effect/FOUR_ORIGINAL_CLOSE_ACCOUNT_AND_YINGXIN_INPUTS.json",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "funding_effect/READOUT.txt",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "funding_effect/extract_original_funding.py",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "funding_effect/ORIGINAL_CLOSE_SIZE_FAILURES.json",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "funding_effect/ORIGINAL_GLOBAL_JOURNAL_RESERVES_TRADES_AND_EXIT.json",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "funding_effect/CAPITAL_CASH_GUARD_RISK_AND_POOL.csv",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "funding_effect/PRE_EXIT_ORIGINAL_OPEN_FUNDING_19_ROWS.json",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "funding_effect/ORIGINAL_REALESTATE_OPPORTUNITIES_AND_ALL_INDUSTRY_EVENTS.json",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "funding_effect/SOURCE_SHA256.json",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "funding_effect/ORIGINAL_POOL_AND_OPEN_ORDERING_SOURCE.txt",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "funding_effect/ACTUAL_RESERVED_AND_FILLED_BUYS.json",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "funding_effect/SAME_REAL_ESTATE_ORIGINAL_FUNDING_ROWS.json",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "funding_effect/ALL_ORIGINAL_FUNDING_ROWS_WITH_PRIOR_CLOSE_SECTOR.json",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "funding_effect/SUMMARY_AND_EVIDENCE_BOUNDARY.json",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "funding_effect/ALL_PROBE_EVIDENCED_OR_PROBE_ONLY_CORE_ATTEMPTS.json",
+      "exists": true,
+      "sha_matches": true
+    },
+    {
+      "artifact": "funding_effect/ALL_ORIGINAL_FUNDING_ROWS.csv",
+      "exists": true,
+      "sha_matches": true
+    }
+  ],
+  "artifact_checks_pass": true,
+  "at_utc": "2026-11-05T06:25:42.543012+00:00"
+}

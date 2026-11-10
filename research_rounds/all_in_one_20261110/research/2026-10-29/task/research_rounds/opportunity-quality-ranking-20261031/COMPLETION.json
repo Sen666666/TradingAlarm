@@ -1,0 +1,11 @@
+{
+  "readonly": true,
+  "new_account_paths": 0,
+  "label_seconds": 26.918935250025243,
+  "summary_seconds": 1.254923874977976,
+  "total_seconds": 28.173859250266105,
+  "candidates": 29938,
+  "stocks": 1659,
+  "source_prices_not_new_model_calculations": true,
+  "no_policy_or_threshold_changes": true
+}

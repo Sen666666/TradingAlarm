@@ -1,0 +1,16 @@
+{
+  "mechanism": "Core-only frozen initial-risk activation, cost floor, first intervention diagnostic. No account or threshold grid.",
+  "formula": "K0=q0*entry_fill+entry_fee; R0=max(K0-q0*S0*(1-slip)+sell_fee_at_entry(q0,S0*(1-slip)),0); U_t=q0*C_t*(1-slip)-sell_fee_t(q0,C_t*(1-slip))-K0; activate first U_t>=R0; on a later observed held close U_t<=0 request q0 core shares at immediately next common OPEN, original I exit has priority. Original native I remains in force before/after activation, no extra trailing ratchet.",
+  "scope": "All baseline PVR-selected M3 FALSE_TO_TRUE, closed original 2022 and Sep-Dec2024 cohorts plus 2026H1 semi descriptive. Complete/unknown original paths not silently mixed. One original-core unit only, additive future behavior ends at first intervention.",
+  "fees": "Independent core liquidation cost. Not original pro-rata layer fee. Same-day core/add exits require one security-level execution and fees; separate calculation is explicitly a conservative layer diagnostic, not entire-round PnL.",
+  "execution": "Signal close then next common open minus5bp. T+1 and dated sell quantity checked. Original pending add at that next open would be cancelled. Existing add quantity remains under own original contract; no new simulation or mechanical PnL retention after intervention. All historical orderability remains unknown; open-down-near-limit and flat day are warnings, never signal filters.",
+  "reentry": "Not permanently excluded. After actual exit must use a fresh intent first observed after execution plus existing I/M3/CP, cash/risk/order rules; stale pending buys cannot revive. Diagnostic reports future fresh CP only as opportunity not an assumed fill.",
+  "known_history": "Historical data already consumed. Protocol fixed before this output, but not OOS/pre-registration.",
+  "old_work": [
+    "account_comparison_continuous_v1/analysis/one_r_giveback_audit_v1",
+    "risk_pyramid_bounded_v1",
+    "2026-11-04/task-4/trend_hold_v1"
+  ],
+  "account_runs": 0,
+  "threshold_grid": 0
+}

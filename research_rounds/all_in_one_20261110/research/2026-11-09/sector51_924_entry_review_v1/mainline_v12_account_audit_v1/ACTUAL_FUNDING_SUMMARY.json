@@ -1,0 +1,20 @@
+{
+  "M12": {
+    "planned_execution_records": 187,
+    "positive_executed_lots": 165,
+    "actual_donor_orders": 165,
+    "actual_funding_net": "1905120.1408914356140",
+    "actual_funding_fees": "1906.9485685643860",
+    "all_actual_buy_cost": "3967479.0871917684905",
+    "actual_ADD_buy_cost": "1720676.2076475321660"
+  },
+  "M7": {
+    "planned_execution_records": 255,
+    "positive_executed_lots": 226,
+    "actual_donor_orders": 226,
+    "actual_funding_net": "2391380.6728106419140",
+    "actual_funding_fees": "2488.8736493580860",
+    "all_actual_buy_cost": "4541573.0176436297140",
+    "actual_ADD_buy_cost": "1387539.5807310108630"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "completed": true,
+  "completed_at": "2026-10-31T05:50:16.418417+00:00",
+  "protocol_to_completion_wall_seconds": 1251.4331295490265,
+  "measured_compute_seconds": 339.7034604817383,
+  "short_extracts_and_reporting_not_individually_timed": true,
+  "economic_paths": 12,
+  "economic_reruns": 0,
+  "parameter_changes": 0,
+  "full_off_accounts_exact": 6,
+  "short_off_accounts_exact": 6,
+  "physical_prefixes_exact": 2,
+  "account_days": 14580,
+  "actual_cycles": 1567,
+  "actual_fills": 3090,
+  "R_actual_buy_fills": 834,
+  "R_independent_nominal_over_budget": 0,
+  "maximum_NAV_residual_CNY": "0",
+  "all_actual_fills_within_endpoint": true,
+  "active_processes": 0,
+  "blockers": [],
+  "decision": "retain frozen risk budget option; not universal profitable or live-ready strategy; no automatic next economic experiment",
+  "limitations": [
+    "current-survivor and current sector/cap snapshot",
+    "no certified OOS or forward validation",
+    "4 IPO dates unknown",
+    "software industry E0 warmup unknown40 initial decision days",
+    "dividend pay/sellability proxies",
+    "daily HLV execution proxy",
+    "pending exits have undefined current floor, recorded explicitly"
+  ]
+}

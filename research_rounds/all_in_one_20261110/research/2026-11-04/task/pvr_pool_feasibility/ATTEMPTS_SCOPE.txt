@@ -1,0 +1,31 @@
+Execution accounting clarification
+
+D1/D2/D3 RESTORE_IDENTITY counters describe EACH FINAL SUCCESSFUL bounded
+original-policy replay, not the task-wide sum of every attempt. D1 had two
+earlier failed attempts with repeated original-policy OPEN/actions/fills:
+1 preview local cost callable could not be pickled at S0 observation;
+2 post-admission consumed set used inconsistent unordered JSON comparison.
+Those were diagnostic I/O/comparison failures; no new-policy financial path
+was executed. Failure sources/proofs are preserved in D1/failure-*.
+Do not sum successful counters and describe them as all actual invocations.
+No extra replay was run merely to retroactively recover failed-attempt counts.
+
+Native technical readiness also had one failed initial OFF two-day replay:
+the full-year book audit had rows without the helper's assumed time key.
+Five OFF event streams had already matched. The failure/source are archived
+under native-readiness/failure-full-book-audit-clock-v1. Corrected check uses
+the existing audited original two-day prefix book directly; scope unchanged.
+Technical ON two-day prefix and separate-process resumed one OPEN do contain
+simulated Account/OPEN/fill events. They are engineering gates, not continuous
+strategy performance evidence. Native GATE and CROSS_PROCESS_RESTART count
+their respective SUCCESSFUL executions, not prior failed technical attempts.
+There was also a second failed native technical attempt after completed OFF
+and ON two-day prefixes: the expanded observer passed a B0Controller object
+directly to an encoder that did not support it. Its complete variable state
+is now explicitly observed. This was an observation encoding failure; those
+OFF and ON prefixes did contain simulated OPEN/fill events and were repeated.
+Source/failure preserved under failure-observable-controller-encoding-v2.
+
+Pure component ON D1/D2/D3 projections and8 mechanism counterexamples each
+have no native Account construction, execution window or fill events. New
+policy full-window economic paths remain0 until root separately grants them.

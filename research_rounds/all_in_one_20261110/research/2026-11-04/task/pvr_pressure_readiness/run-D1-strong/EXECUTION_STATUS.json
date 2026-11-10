@@ -1,0 +1,19 @@
+{
+  "completed": true,
+  "scope": "ONE_No60_PVR_D1v2_strong_2025July_2026June_from_own_July3",
+  "full_path": [
+    "2025-07-01",
+    "2026-06-30"
+  ],
+  "retained_prefix_through": "2025-07-03T15:10:00+08:00",
+  "prefix_replayed": false,
+  "source_and_horizon_unchanged": true,
+  "input_seconds": 44.465404791757464,
+  "remaining_run_seconds": 196.0155543750152,
+  "total_seconds": 244.79181645903736,
+  "ending_NAV": "2104124.0750195029105",
+  "daily_count": 242,
+  "fills": 1809,
+  "old_control_replayed": false,
+  "other_full_paths": 0
+}

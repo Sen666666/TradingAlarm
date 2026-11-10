@@ -1,0 +1,19 @@
+Root-authorized <=10min single readonly1557-layer first/current snapshot condition.
+NoAccount/Runner/grant/q/riskbudget/credit/return/newCA model. Original2023cutoff
+LAYERS1557; use actualfill.price gross/qty includes slippage/excludes fees.
+Per originaljointsync: core last_core_line, mobile/add floor; /CURRENTfacts.factor
+=>raw line; compare to actual entry execution raw price only in proven SAME
+source/factor and no canonical action afterentry. Otherwise UNKNOWN, no newunit
+conversion; currentnativeunit_cost must match originalfloat gross/qty unit.
+Partialqty remaining shares only, qtychange flagged not originalwholecapital
+protection. Pendingstockexit flag descriptive hit but not freecapacity; noACK
+assumption. SameSID laterlayer never inherits earliercondition.
+Initial originalfrozen floor/entryfactor>=fillprice separate initial_at_fill_hit;
+pre-fill factor/source/action ambiguity unknown. Firstsnapshot hit is NOT
+permanent; laterknownFalse/revert,unknown,pending,currentstate all retained.
+All484 actualCLOSE snapshots only through2023Dec29, no2024future. Nativeepoch/
+attempt/pool/q and oldexit responsibilities copied, never inferred fromPnL.
+Commoncutoff net sign solely posthoc positive/negative coverage, no livefilter.
+Unknown fullCA/action/source constraints retained rather than repair/model.
+50? script remains thin exact snapshot/parquet reader; allused sources before
+execution frozen and endedSHAchecked. Source审过才一次run，不为receipt造新账。

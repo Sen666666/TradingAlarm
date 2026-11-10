@@ -1,0 +1,7 @@
+# 换源UNKNOWN最小防护
+
+旧cusum.py及已运行五股run_v1完全保留。新cusum_v2.py仅把pending-source特殊START条件限制为`source_confirmation_pending and cycle is None`，已在新source建立UNKNOWN/LEFT_CENSORED I周期就不能凭后来价格恢复重置D0。0→1正式新I周期仍照旧。参数、scale与CP语义均不变。
+
+五股保存的全12600行均source_changed=0、每股仅一个已观察source；pending初始化False且只由真实source_changed置True，因此此修改不改变既有五股任何递推或已报三例。此结论来自已存表计数与分支可达性，不是重跑state。未造新样本或账户。
+
+后续worker只导入cusum_v2.calculate，原driver保留绑定原版，不复写旧receipt。精确diff及SHA见SOURCE_PENDING_GUARD.diff与SOURCE_PENDING_GUARD_RECEIPT.json。

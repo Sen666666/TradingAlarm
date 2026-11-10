@@ -1,0 +1,19 @@
+{
+  "status": "synthetic_and_bounded_history_complete_no_economics",
+  "synthetic_pass": 12,
+  "history_entries_exact": 13,
+  "history_Q_points_exact": 512,
+  "local_action_paths_to_original_exit": 11,
+  "restore_allocation_unknown": 2,
+  "data_unknown_cycles": 1,
+  "data_unknown_days": 3,
+  "no_economic_backtest": true,
+  "current_connection_blockers": [],
+  "ready_for_short_full_executor_integration_gate": true,
+  "ready_for_ungated_account_economics": false,
+  "remaining": [
+    "endogenous restore competition wiring and full wrapper-off identity",
+    "fixed-cash control wiring/validation"
+  ],
+  "automatic_next_run": false
+}

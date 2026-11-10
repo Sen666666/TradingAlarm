@@ -1,0 +1,77 @@
+{
+  "original": {
+    "passed": true,
+    "source_SHA_checks": 79,
+    "preserved_CP_sources": 71,
+    "authorization_SHA256": "1b7dfd55c7de37af6da878cc197f1e8589a7511916b92403ecbf2c86666304d5",
+    "terminal_CP_SHA256": "9e9075fca5d60043c4d62a15b5cd612b829a8aa2965b65135b8cfa15326202d7",
+    "terminal_NAV": "570847.7236107109905",
+    "own_quarters": [
+      {
+        "day": "2024-03-29",
+        "SHA256": "98f0c8aa1c2cfaa2c5339dae4d4d80a61b31725351091f3684d9ea68e6718a24"
+      },
+      {
+        "day": "2024-06-28",
+        "SHA256": "35d713f99b266f78cfd83cbd59d9b4b5e6b75093f54ff5afae267d1bb7f66af5"
+      },
+      {
+        "day": "2024-09-30",
+        "SHA256": "226befed42e86f0d2e0102c78d68922ebd79be3a0da269e1896d7ffeaf4b0c31"
+      },
+      {
+        "day": "2024-12-31",
+        "SHA256": "9e9075fca5d60043c4d62a15b5cd612b829a8aa2965b65135b8cfa15326202d7"
+      }
+    ],
+    "Jan2_own_prefix_exact_stream_records": {
+      "daily": 485,
+      "opportunities": 828865,
+      "funding": 81876,
+      "industry": 12133,
+      "balances": 485,
+      "rank-policy": 57922
+    },
+    "actual_cursor": "2024-12-31 15:10:00+08:00",
+    "genuine_separate_process_terminal_receipt_SHA256": "c6642cbbd033d80430999b0bf2bf8d43f318b284f8454c44c63937f426aa63e6"
+  },
+  "no60": {
+    "passed": true,
+    "source_SHA_checks": 86,
+    "preserved_CP_sources": 78,
+    "authorization_SHA256": "fe8f600da6b25e14acd9352c525b9401a3b6e245740603a4a9d6f7ac64ef61be",
+    "terminal_CP_SHA256": "08f3fab8a2ef3076eba2101572763221a054faf76639ce8934319d012494f3d1",
+    "terminal_NAV": "637989.6123510238600",
+    "own_quarters": [
+      {
+        "day": "2024-03-29",
+        "SHA256": "bb6cd1633db24c69a94064a5a533dc3f93f3b6e2903de495f126a4ed1bb7fe1f"
+      },
+      {
+        "day": "2024-06-28",
+        "SHA256": "b0b396c3c0a67d3e7098ee3c3333b0d940236793526e73eca3a557f4be240bcc"
+      },
+      {
+        "day": "2024-09-30",
+        "SHA256": "d2a0d8b3fe0638aa9376b0977801ccaa35ef60dc820997eaaa0cabc963a1545a"
+      },
+      {
+        "day": "2024-12-31",
+        "SHA256": "08f3fab8a2ef3076eba2101572763221a054faf76639ce8934319d012494f3d1"
+      }
+    ],
+    "Jan2_own_prefix_exact_stream_records": {
+      "daily": 485,
+      "opportunities": 828865,
+      "funding": 72732,
+      "industry": 12133,
+      "balances": 485,
+      "rank-policy": 51450
+    },
+    "actual_cursor": "2024-12-31 15:10:00+08:00",
+    "genuine_separate_process_terminal_receipt_SHA256": "95e4a005c7a1d0df2271e61f8a530e475c5a21d2dfc1111ee6114b8c0dc5b22e"
+  },
+  "reviewer_source_SHA256": "c42f14df70c7e8769b854c0aa74677f4092f3741f6118c5e9469a6620a1a47ca",
+  "reviewer_account_events": 0,
+  "scope": "Byte/source/grant/provenance and exact six-stream/all financial-history own-Jan2 prefix audit. Independent726day raw-price money/DD audit is separate. Terminal new-process complete-state restore is producer evidence whose receipt and source/CP identities are checked here; reviewer does not invoke engine restore. All2024 actual ACT/score clocks independently verified separately; fullQ/CP1/stage producer replay separately binds fresh1709/90 loader. No Jan2 or prior-year replay/reset."
+}

@@ -1,0 +1,134 @@
+[
+  {
+    "reference": "B3",
+    "net_change": "-142706.7741948221695",
+    "stock_and_layer_NAV_residual": "0E-22",
+    "layer_partitions": {
+      "closed_loss": "-299397.0481235351444494949496",
+      "closed_ordinary_profit": "57005.98604305569828282828283",
+      "closed_tail_profit": "91787.55418562697666666666667",
+      "open_tail_profit": "952.5213209607500",
+      "open_loss": "-6778.4265708353000",
+      "open_ordinary_profit": "13722.6389499048500"
+    },
+    "tail_definition": "same prior diagnostic: terminal layer net / actual buy cash>=30%; no future online rule",
+    "layer_unit_not_independent_trial": true,
+    "stock_count": 320,
+    "closed_negative_layer_net_loss": "299397.0481235351444494949496",
+    "record_only_gross_negative_realization_plus_all_fees": "301850.226294822149482",
+    "actual_flat_reentries": 81,
+    "exit_requests": 391,
+    "exit_orders_with_actual_fills": 391,
+    "sell_fill_records": 391,
+    "terminal_pending_stock_exits": 0,
+    "exit_extra_session_counts": {
+      "0": 388,
+      "2": 1,
+      "10": 1,
+      "1": 1
+    },
+    "worst3": [
+      {
+        "sid": "000893.SZ",
+        "name": "亚钾国际",
+        "net": "-4891.6520602678500"
+      },
+      {
+        "sid": "000983.SZ",
+        "name": "山西焦煤",
+        "net": "-6901.7830603971500"
+      },
+      {
+        "sid": "000620.SZ",
+        "name": "盈新发展",
+        "net": "-13320.17966718475000000000000"
+      }
+    ],
+    "best3": [
+      {
+        "sid": "002317.SZ",
+        "name": "众生药业",
+        "net": "29181.2323768610000"
+      },
+      {
+        "sid": "002865.SZ",
+        "name": "钧达股份",
+        "net": "14387.8421406852500"
+      },
+      {
+        "sid": "600113.SH",
+        "name": "浙江东日",
+        "net": "9638.9121927097500"
+      }
+    ],
+    "actual_rights": {
+      "dividend_accrual": 26,
+      "split": 5
+    }
+  },
+  {
+    "reference": "B_diag",
+    "net_change": "-332676.1584531440570",
+    "stock_and_layer_NAV_residual": "0E-22",
+    "layer_partitions": {
+      "closed_loss": "-535440.3808638294188413653711",
+      "closed_ordinary_profit": "123748.4544186658614127939423",
+      "closed_tail_profit": "79015.76799201950042857142857"
+    },
+    "tail_definition": "same prior diagnostic: terminal layer net / actual buy cash>=30%; no future online rule",
+    "layer_unit_not_independent_trial": true,
+    "stock_count": 470,
+    "closed_negative_layer_net_loss": "535440.3808638294188413653711",
+    "record_only_gross_negative_realization_plus_all_fees": "539998.877753144011877",
+    "actual_flat_reentries": 231,
+    "exit_requests": 735,
+    "exit_orders_with_actual_fills": 735,
+    "sell_fill_records": 735,
+    "terminal_pending_stock_exits": 0,
+    "exit_extra_session_counts": {
+      "0": 731,
+      "2": 1,
+      "7": 1,
+      "5": 1,
+      "1": 1
+    },
+    "worst3": [
+      {
+        "sid": "000029.SZ",
+        "name": "深深房Ａ",
+        "net": "-5530.3217990588500"
+      },
+      {
+        "sid": "002031.SZ",
+        "name": "巨轮智能",
+        "net": "-8606.722978383900000000000000"
+      },
+      {
+        "sid": "000620.SZ",
+        "name": "盈新发展",
+        "net": "-15191.1068323107500"
+      }
+    ],
+    "best3": [
+      {
+        "sid": "002317.SZ",
+        "name": "众生药业",
+        "net": "11469.32302898535000000000000"
+      },
+      {
+        "sid": "600113.SH",
+        "name": "浙江东日",
+        "net": "11135.3908018473000"
+      },
+      {
+        "sid": "601702.SH",
+        "name": "华峰铝业",
+        "net": "7355.2750629835000"
+      }
+    ],
+    "actual_rights": {
+      "dividend_accrual": 21,
+      "split": 5
+    }
+  }
+]

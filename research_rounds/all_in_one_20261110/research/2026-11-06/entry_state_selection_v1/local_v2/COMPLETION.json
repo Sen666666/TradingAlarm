@@ -1,0 +1,11 @@
+{
+  "status": "COMPLETE_PREQUENTIAL_HISTORICAL_DEVELOPMENT_NOT_OOS",
+  "stocks": 5517,
+  "events": 63244,
+  "seconds": 34.459965229034424,
+  "account_runs": 0,
+  "parameter_grids": 0,
+  "signal_reruns": 0,
+  "source_cache_unmodified": true,
+  "code_sha256": "a906a8e4d67f8d04b3abdbcd0516c39d89699d0a443b42e23bb0a5ea0211f679"
+}

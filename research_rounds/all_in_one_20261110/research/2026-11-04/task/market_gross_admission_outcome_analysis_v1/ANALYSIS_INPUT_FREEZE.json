@@ -1,0 +1,45 @@
+{
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/prepared/long/MARKET_INFO_FULL_CLOCKS.json": "850ce10f81bdb4b5240a4b74fb3aa0c91c33acbf45fb064a86ecafb841e8ac40",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/prepared/strong/MARKET_INFO_FULL_CLOCKS.json": "f53023366be590a57d38edc6459fde639087c299505465221f573709debf6e10",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_down_replenishment_v1/ALL_SPELLS_FROZEN.json": "b80b2645ff3852879d479b3d4a37a4300ff5c44ab55942949b62b6bf9cbc09dd",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/ARCHIVED_B_CONTROL_BINDING.json": "0a1e626ae15d2bb836ca912e7e88e4dde3ff6bcbe84d06b9fe1abe170fc10bf5"
+  },
+  "archived_B_control": {
+    "long": {
+      "control": "ARCHIVED_FULL_NO60_B_DO_NOT_RERUN",
+      "days": 726,
+      "initial_cash": "1000000",
+      "source_sha256": {
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_v1/runs/long-v1/arms/B/pair/B.json.gz": "d007fb6d0bb4ea283a02d75aa31900270531dccd7674bcc5df123af685159f63",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_v1/runs/long-v1/arms/B/pair/daily.jsonl.gz": "40779a20f8eee3d76ce1c7333b93c282a032ba9c91bde5c0b9bb721f091dde0a",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_v1/runs/long-v1/arms/B/pair/balances.jsonl.gz": "f090efb640a363c549d1fcbb6805f99eb2bfdc93aff3cce07449e3a47510c5e0",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_v1/runs/long-v1/ARM_VIEW_INDEX.json": "782ef7d5279cd8a3af0b3d49d3aeb6e4417f6834bd840104cfe97622b08245db",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_v1/runs/long-v1/STARTED.json": "a38976c0c25170aa14c57cefc4175c5aac1a3e7ba5c2cb7280d1f4a474819224",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_v1/runs/long-v1/DONE.json": "d11430e87f984ac2b53282f570254b27eb6b28454612360cf42d23ca1c25da7c"
+      }
+    },
+    "strong": {
+      "control": "ARCHIVED_FULL_NO60_B_DO_NOT_RERUN",
+      "days": 242,
+      "initial_cash": "1000000",
+      "source_sha256": {
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_v1/runs/strong-v1/arms/B/pair/B.json.gz": "155d4d831fc9a4f6cfea24565287d0a1e7e9d7030b0e7aa9b54f20bc3fa0f851",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_v1/runs/strong-v1/arms/B/pair/daily.jsonl.gz": "9fd7df9ad7eb3cbbb759d3c2db699c1c06ea04cebd42feb924dbec3f476a6a70",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_v1/runs/strong-v1/arms/B/pair/balances.jsonl.gz": "1dec1ec87c7729e75eef5fb2f146855293174a7fac5307843e3d059c28c2d6ac",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_v1/runs/strong-v1/ARM_VIEW_INDEX.json": "083e16c20f2261be3a80bcf76e7398ecf62ab178a6592478d7983492fb8a14ef",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_v1/runs/strong-v1/STARTED.json": "873c293481b27d30dc0ba94a2eaced5fe9052819489b52336c68690b89eebdcd",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_v1/runs/strong-v1/DONE.json": "9b49ae96525c33f159e10865c86f1c4ce2096aaabba890f924824f90dc177059"
+      }
+    }
+  },
+  "B_saved_analysis_only": {
+    "long": "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_analysis_v1/full_long_v1",
+    "strong": "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_analysis_v1/full_strong_v1"
+  },
+  "segment_sha256": "cb17eb09adf336372a8d2e575510ef5881575c2aac700c894648de73041e832e",
+  "protocol_sha256": "55151b33a48ecccfb6deead9be9ad20525b8ecaf39269b71c688c386c8d7d68e",
+  "new_accounts": 0,
+  "new_B_books_or_views": 0,
+  "full_output_books_read": 0
+}

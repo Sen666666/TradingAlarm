@@ -1,0 +1,15 @@
+# Frozen M7 extension with reviewed Q0 split bridge
+
+Research only, independent original 1,200,000 account, unchanged M7 alpha/capital decisions through 2024-10-31. Original M7 engine SHA256 804d56f8b5a8e4b26d5a89caac5874c037911a38c339db9c6dfd5e99882aab6a. No historical run until narrow tests and independent hash-bound approval pass.
+
+The preceding unchanged wrapper reproduced every economic/state output through 10/8, then atomically stopped on 10/9 for 605499.SH unadmitted split/cash event. Its final export incorrectly repeated prefix checking on blocker diagnostics. This wrapper restricts prefix checking to checkpoint_20241008. All original economic families remain exact; only unordered AVAILABILITY_EVENTS may compare full-record multisets. Full-horizon input inventories are excluded. No subsequent trade occurs before prefix acceptance.
+
+Append exactly one reviewed fact after inherited cash-only Data loading. Fact artifact Q0_ONLY_EVENT_FACTS.json SHA256 f7e7ff5994fbefd843eaf3e378b1ab4b6b2df1baf62f67a9009f4f8c891b962d binds issuer notice2024-088, original signal and actions. Record10/8; ex/pay/unrestricted new-share listing10/9; gross dividend2.50 per old share; 0.3 new capital-reserve shares, ratio1.30. Same-source factor bridge fo*286*1.30/(286-2.50)=fn within1e-11. Runtime enforces exact fact/evidence hashes.
+
+Admission is ONLY the actual never-seeded retained ticket with zero shares. Record-date active position or claim blocks before inherited snapshot registration. At ex-date before any trade or accrual require an explicit record snapshot with q=0,round=None; no active position, historical round/order, claim, pending request, ticket plan or transfer request; live never-seeded ticket; verified same-source old/new factors. Missing evidence or widening scope blocks atomically. Do not generalize held split accounting. No synthetic cash, share, dividend or entitlement.
+
+Then call unchanged inherited economic_preflight and retained_ticket_preflight. Preserve original ticket identity, NAV, budget, I, queue age and all fields except current_factor/last_verified_day. Verify cash, receivable, claims, shares and dividends unchanged. Append one zero-entitlement diagnostic only at10/9 in the existing atomically restored equity log. Inherited accrual/payment sees an explicit zero snapshot and performs no entitlement action. Normal later legal purchases remain governed by frozen M7, not this adapter.
+
+No suspension accounting changes, forward-filled quotes, parameter changes or relaxed missing-fact rules. Stop at any next genuine blocker and report the last certified day. This is sequential frozen-parameter research, not proof that the original parameter selection was out of sample. Shared signal ceiling remains2026-06-30, not an execution guarantee.
+
+Runtime ticket, observed, event-old and event-new factors must each parse to a finite positive Decimal before division. Missing, invalid, NaN, infinite or nonpositive values raise Blocked and use the existing full-day rollback boundary.

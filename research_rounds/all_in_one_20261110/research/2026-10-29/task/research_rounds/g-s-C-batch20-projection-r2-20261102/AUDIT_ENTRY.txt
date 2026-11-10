@@ -1,0 +1,10 @@
+审计R2，先读REPORT/COMPLETION/COVERAGE_BOUNDARY/CONTRACT原稿。R1整包冻结失败证据保留，不当最终候选。
+原B selector复制字节一致SHA44e734...，只在私有模块实例扩展evaluate和必要上界；原C10源/排序/股10%目标/JF2费用和风险完全不变。source wrappers验证未改原模块全局函数。
+20合成：跨目标20共享、重算/撤ACK/成交不返预算、跨日残余carry、稳定prefix mandatory并集/伪装拒绝、超额carry停新增D但不阻独立退出、送转/部分成交、外部观察及checkpoint、未来事件/非正价格/非整数拒绝、空仓G/S目标89.1/79.2、风险导致Q0而不卖满、小域全枚举一致。test_batch20.py为入口。
+两真实输入来自原C10 pre-A共同分支，Carry0有责任时钟证明；真实A9/16后置订单未撤，submit_allowed=False。C20.plan毛额/净款/实际未知清晰分列。
+实际投影：results/<2025_26|2022>/C20.json；完整Q/D/逐阶段原约束与批次残差、budget_before/after均在内。R1_ECONOMIC_IDENTITY精确核同8对象；RESTORED是新进程同输入重新求目标，不是金融路径。
+复算：原venv python -B c_batch20.py inputs/<k>.json <AUTHORIZATION.inputs[k]可信SHA> results/<k>/C20.json <新审计路径>。避免覆盖原结果。
+post-event-restart保存观测fixture：已fill500并cancelACK后New仍200000；EXPECTED_OBSERVATIONS手写独立fixture，跨进程batch_book.py恢复后不可再领新额。它不是原生账户provider认证，native callbacks尚未安装。
+R2首出口比较内存Decimal/归档字符串出错，原失败保留；recover_export.py先存计算结果后规范化核同，未改模型。ERROR_RESOLUTION明确旧错误已关闭；没有金融收益路径重跑。
+report/FULL_FRESH_COMPARISON与ALL_MOBILE_TARGETS列全部94/29母域/净目标，C20_DONOR_LAYERS及INDUSTRIES列所有旧持仓供资和行业权重，不选择未来赢家。
+不做新尺寸、同日推进门、2026容量或长回测。R2只待独审，不是实盘晋升。

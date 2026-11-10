@@ -1,0 +1,11 @@
+{
+  "name": "EmptyMobile_Ibuy_And_CP1_v1",
+  "status": "FROZEN_AFTER_Q1_CASE_REVIEW_BEFORE_CROSS_YEAR_GATE_EVALUATION_NOT_OOS",
+  "motivation": "002385 2022-03-04 native i_buy=False,G=-3 but original freshCP1 and continuing.Q allowed empty MOBILE. 2022 case diagnostics consumed; no claim of preregistered OOS.",
+  "rule": "Only when original account is empty for stock at signal close: enhanced_mobile = original_legal_empty_mobile AND original_fact.i_buy is exactly True. Original fresh CP1, industry/I/ACT/quote/nominal eligibility remain mandatory. Held-stock MOBILE unaffected. CORE unchanged. No response-score, EMA, PVR threshold, gap condition or extra parameter.",
+  "clock": "All acceptance inputs are same signal close. Next common open remains original execution proxy. Unknown I_buy is reported UNKNOWN rather than inferred True. Original complete candidate source already has E0/G/I checks.",
+  "reentry": "No permanent blocked stock, old-high anchor, fixed cooldown or carried receipt. A rejected current CP1 expires under original clock. Any later fresh CP1 together with current i_buy=True and original permissions may create a new order; i_buy turning True without fresh CP1 cannot reuse old receipt. I exit/source reset invalidates old observation.",
+  "evaluation": "Reuse original native-price forward1/3/5/10/20/60 labels only after decisions. First report candidate removed/retained and original actual-first-mobile path attribution, not new account NAV. Then offline original PVR top20 after gate with normal same-order fallback, explicitly report if K shrinks; no whole-account execution.",
+  "big": "Reuse original earliest legal MOBILE candidate per (account,sid,epoch) big60 definition and early6-date coverage from prior frozen test. Also report removed actual-first big paths. Natural later joint market-side receipts are recovery observations, not promised fills or counterfactual profits.",
+  "restrictions": "One signal-consistency addition only, no parameter grid or new indicator/model computation; no account, exits or sizing changes. All years consumed; future fixed universe/non-PIT and original account empty-state conditioning persist."
+}

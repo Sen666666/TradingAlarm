@@ -1,0 +1,36 @@
+{
+  "task": "Read-only SRP-v3 shared-risk/minimum-I-holding interface review",
+  "status": "CONDITIONAL_INTERFACE_ALIGNMENT_SAVED_SCALARS_AND_FINAL_REVIEW_PASS",
+  "peer_source": "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/structure_risk_position_contract_v3/designer/MINIMUM_MATH_CONTRACT.md",
+  "peer_files_modified": false,
+  "new_accounts": 0,
+  "new_backtests": 0,
+  "new_parameter_tests": 0,
+  "new_market_data_or_indicator_series": 0,
+  "new_funding_or_trade_simulation": 0,
+  "new_strategy_implemented": false,
+  "interface_semantics": "Conditionally aligned with current MINIMUM_CARD; no old EMA/target/entry-hardmax contract substituted",
+  "explicit_gaps": [
+    "Peer card/interface do not spell out minimum-card normalized OPEN above last actual buy predicate and input; add explicit source validation if claiming full execution alignment",
+    "No-new-buy q=0 omits hypothetical new layer, but real existing-H modification with q_buy=0 must still reprice all affected old quantity"
+  ],
+  "implementation_conditions": [
+    "Split request price-loss locks from incremental order-fee state when handling partials and share actions",
+    "Bind risk/scenario-provider/omega version to grant and history request locks",
+    "Distinct origin_NAV and shared budget B field names; shared opportunityB and per-signal cap are separate constraints",
+    "Source/probe restrictions remain separate from one industry-stage pressure T snapshot",
+    "Typed origin proof and consume ledger, risk engine and actual funded quantities remain unimplemented"
+  ],
+  "saved_arithmetic_result": "All7 original OPEN after-exit/settlement prefixes fail G2 necessary lower bound in both valuation domains; local positive caps are not final grants",
+  "economic_disposition": "Do not promote candidate initial values; no performance result or flat-start strategy test inferred",
+  "limits": [
+    "Only saved scalar checks, source and paper review; no fresh complete scenario or fee-engine execution",
+    "Original independent prefixes are not one counterfactual portfolio path",
+    "Finite pressure proxies are not legal price bounds, probabilities or guaranteed loss ceilings"
+  ],
+  "readout": "READOUT.txt",
+  "independent_number_review": "numbers/SEVEN_PREFIX_SAVED_SCALAR_REVIEW.json",
+  "independent_interface_review": "logic/FINAL_INTERFACE_REVIEW.json",
+  "final_readout_review": "logic/FINAL_READOUT_REVIEW.json",
+  "environment_or_permission_blockers": []
+}

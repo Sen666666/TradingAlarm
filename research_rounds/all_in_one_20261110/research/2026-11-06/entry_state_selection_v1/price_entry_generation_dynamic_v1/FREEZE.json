@@ -1,0 +1,9 @@
+{
+  "protocol_sha256": "7c322d7bd7ea0ac7aee34d83ad00d439c3393c2e99af5c78a7c06b38ba49a0db",
+  "code_manifest_sha256": "aa6461a52ebc781c568f111f78583cfcfec340f33548f24740aac468b6128862",
+  "input_manifest_sha256": "22c4a5c0c52960beab8e2823121fc79cc27ffdbcacd0a618b334ffba8b5da2fd",
+  "economic_authorized": false,
+  "economic_runs": 0,
+  "code_files": 10,
+  "input_files": 26057
+}

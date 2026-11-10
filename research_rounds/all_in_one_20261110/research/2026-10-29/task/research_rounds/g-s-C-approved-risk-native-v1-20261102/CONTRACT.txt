@@ -1,0 +1,63 @@
+C_APPROVED_RISK_KEEP_V1 — isolated execution economic-policy candidate
+Scope: native generated-price synthetics ONLY. No historical financial execution.
+Parent authorization: local access check, implementation + synthetic validation;
+no long history, no original file changes, no T/core risk authorization invented.
+
+Same Runner(mode=C10|C_BATCH20, keep_approved_risk=bool), same frozen mixed
+scheduler. The boolean is the only new economic switch. Original baseline is
+immutable. This is NOT a correction to already executed historical results.
+
+Trusted approval:
+For each positive concrete C confirmed-mobile G/S authorization, take Q0,
+p0=trusted decision mark*(1+original 5bps), f0=trusted effective raw floor,
+receipt/cid/known_at/deadline/source from recomputed native C certificate.
+R0=Q0*(p0-f0), currency CNY. Never read the logged .25% core metadata as R0.
+R0 uses exact rational arithmetic over the native Decimal inputs; it is nominal
+price-floor risk, excluding fees. Original fee/cash/equity/risk checks stay on.
+
+At actual reserve and each original execution window BEFORE ledger fill:
+remaining quantity <= original Q0 less fills AND permanently shrunk remainder;
+spent_at_fills + remaining_qty*max(actual_window_price-effective_native_floor,0)
+    <= R0.
+Before a window is available, use the original known native preview price.
+At a fill window use its actual execution price and the original native order's
+then-effective floor. Do not re-anchor or modify any exit line here. p<=floor
+never authorizes free risk. Original raw-open protection rejection still runs.
+Original legal new minimum / increment and continuing-fill granularity apply.
+No quantity growth when price falls or protection rises. No refund of filled
+risk when sold, price changes, line rises or cancellation occurs. Each actual
+fill's debit is immutable at its own price/floor/factor/share coordinate.
+Partial windows share the same R0. Zero fill consumes no risk but restores no
+previously shrunk quantity. Once cancelled, the old cid/receipt cannot create
+another C order. A genuinely new legal fresh receipt has its independently
+computed C approval; no old unused R0 is transferred.
+
+The original native revalidate shrinks quantity/principal/fee mirrors and
+quantity authority atomically before fill. The new wrapper only tightens that
+cap; native financial ledger, min commission, settlement, share lots, receipt
+use, role/core-first, deadlines, exits, account6/sector5/stock10 and all other
+original checks retain their source. Pending cancellation does not release
+cash or reservation before ACK. Apply through event/apply_window transaction.
+
+Already submitted supported splits convert remaining quantities and current
+raw price/floor domain, never currency R0 or past fill debit. 2x and 1.4x
+integral attribution tested. Original unsupported fractional attribution stays
+an atomic stop. Unsubmitted concrete C approval + split remains explicitly
+unsupported; stop before the original action, no fake authorization conversion.
+
+Original T/core has no concrete trusted C R0: its existing route, risk limits
+and potential fallback remain unchanged. Do not describe this policy as a cap
+on all stock orders or all portfolio risk. No FX extension; on-mode C fill with
+non-CNY conversion explicitly refuses.
+
+Funding D is unchanged. The original plan can already have sold healthy old
+holdings before new risk shrink. Do NOT cancel those duties to improve results.
+Free resources may flow to later ORIGINAL C-approved candidates under their
+own R0. Do not translate local quantity reduction into saved historical PnL.
+
+Persistence binds mode, boolean, adapter/source hashes, certificates, trusted
+inputs, quantity/shrink journal, actual order IDs, receipt IDs and per-fill risk
+records. Recompute certificate at registration and restore; hash-check every
+immutable certificate/trusted input during observation. Replaying callbacks or
+checkpoint restore cannot refresh remaining quantity or risk. Original event
+and window transactions supply financial rollback; no second cash ledger.

@@ -1,0 +1,55 @@
+{
+  "completed_at": "2026-10-30T09:17:29.973566+00:00",
+  "status": "completed_observational_only",
+  "verdict": "weak_direction_dependent_in_sample_clue_no_rule_promotion",
+  "mother": 15327,
+  "cached_stocks": 407,
+  "stocks_with_openings": 396,
+  "research_openings": 5169,
+  "research_legal_IQ": 2157,
+  "identity_match_old_research_openings": true,
+  "feature_hashes_still_frozen": true,
+  "sample_seconds": 0.6451812502928078,
+  "full_scan_seconds": 10.859836208634079,
+  "analysis_seconds": 0.4388171252794564,
+  "wall_minutes_since_protocol": 11.881476585070292,
+  "trade_paths": 0,
+  "indicators_recomputed": 0,
+  "models_changed": false,
+  "no_follow_on_started": true,
+  "concentration": {
+    "all_history": {
+      "top5_event_positive_unit_share": 0.012126412851266883,
+      "top5_stock_positive_unit_share": 0.03609764891554304
+    },
+    "research_open_dates": {
+      "top5_event_positive_unit_share": 0.027111998960646897,
+      "top5_stock_positive_unit_share": 0.04804815110344503
+    },
+    "research_legal_IQ": {
+      "top5_event_positive_unit_share": 0.045028899714876794,
+      "top5_stock_positive_unit_share": 0.06823046532329634
+    }
+  },
+  "limitations": [
+    "early_Q_unknown",
+    "missing_prices_not_filled",
+    "fixed_horizon_right_censoring",
+    "current_pool_selection_survivorship",
+    "overlapping_stock_time_events",
+    "no_OOS_or_trade_profit_test"
+  ],
+  "deliverable_sha256": {
+    "PROTOCOL.txt": "96e62413cb13ab77c9fe56e87e0ff40ad09ff546e0cb924cb2f219fbb956d6f3",
+    "study.py": "b141629443826e9dfd0eb0fa12a9c4309a43716fda07ed39e8866f3a7238abbf",
+    "analyze.py": "8d6a3234fd88d666493e44de36c4b504744bf1028d958f273e12154022d4d4cb",
+    "FEATURE_FREEZE.json": "32c7c8f7326b3325dc01d65bd0cb9dc9fe7b1ad81e74c44284dca79d054ea0dc",
+    "observation-ledger.csv": "8ee58c6efd86f7840a87058b2c4d0aa6e50f3fefe00949e95eeb73ef4b131d34",
+    "natural-groups.csv": "ecd6c218afffa44c1530e8614f293adbd55407584a7d2352c5ea290343329a8f",
+    "nested-models.csv": "9c6414a1808f8c7443bbd2e6eaf7e4ba2159d305fcfa6c89fc488360dc62657d",
+    "model-coefficients.csv": "8686a92f9981c40f8bb63b6ecae373a0ac714e3460ecab85ca8edd4ec4493ca9",
+    "annual-natural-groups.csv": "8223b7b843ba8bdfbc0e3ab0e0e77868e8dad5a232cf0a3431aff38a472ec31c",
+    "COHORT_COVERAGE.json": "f3e80c376df8244ace804fb16932ed8c1a340bff7495e93b39c1e079a9b0424e",
+    "FINAL_REPORT.txt": "a3ccfcb2710f96d00ec62655c153992de855b1255fd23abb39483ace80714167"
+  }
+}

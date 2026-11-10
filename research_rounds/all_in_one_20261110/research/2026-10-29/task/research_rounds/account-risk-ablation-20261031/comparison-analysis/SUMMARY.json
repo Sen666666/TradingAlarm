@@ -1,0 +1,58 @@
+{
+  "metrics": {
+    "original_B": {
+      "NAV": "1116212.5218547543770",
+      "net_profit": "116212.5218547543770",
+      "return_pct": "11.621252185475437700",
+      "DD_pct": "4.130425387749057493170542010",
+      "longest_observed_underwater_calendar_days": 75,
+      "average_exposure_pct": "25.25907451229780898691633219",
+      "peak_exposure_pct": "44.03444573240998188907122352",
+      "cumulative_buy_cash": "2131542.2531917093895",
+      "fees": "3588.1439852456230",
+      "buy_fills": 259,
+      "sell_fills": 205,
+      "ACT_paused_closes": 0,
+      "closed_negative_layer_loss": "127819.7162429802634629629630",
+      "record_only_gross_negative_realization_plus_all_fees": "129736.154680245620159",
+      "terminal_stock_count": 27,
+      "terminal_inventory": "280822.61",
+      "terminal_sale_AR": "0",
+      "terminal_dividend_AR": "631.3600",
+      "industry_contribution_NAV_gap": "0E-13",
+      "actual_splits": 0
+    },
+    "B_diag": {
+      "NAV": "1261468.9450115387830",
+      "net_profit": "261468.9450115387830",
+      "return_pct": "26.146894501153878300",
+      "DD_pct": "13.17950706908822863379594656",
+      "longest_observed_underwater_calendar_days": 125,
+      "average_exposure_pct": "63.72302382523523938740971582",
+      "peak_exposure_pct": "67.80946153358012671618607523",
+      "cumulative_buy_cash": "7415021.4651978849735",
+      "fees": "11208.0366884612170",
+      "buy_fills": 750,
+      "sell_fills": 549,
+      "ACT_paused_closes": 0,
+      "closed_negative_layer_loss": "469428.0490891289731803817895",
+      "record_only_gross_negative_realization_plus_all_fees": "474984.535543461231364",
+      "terminal_stock_count": 37,
+      "terminal_inventory": "589084.38",
+      "terminal_sale_AR": "0",
+      "terminal_dividend_AR": "1565.07200",
+      "industry_contribution_NAV_gap": "0E-13",
+      "actual_splits": 0
+    }
+  },
+  "maximum_direct_price_mark_difference": "0",
+  "analysis_seconds": 4.1014850828796625,
+  "accounting": "sector net trade cashflows + accrued dividends + terminal inventory; all sectors reconcile NAV; original raw-close mark proxy shared",
+  "no_new_economic_paths": true,
+  "opportunity_barriers_can_coexist_not_single_cause_attribution": true,
+  "snapshot_and_selected_history_not_OOS": true,
+  "source_aliases": {
+    "A": "original_v3_B",
+    "B": "B_diag"
+  }
+}

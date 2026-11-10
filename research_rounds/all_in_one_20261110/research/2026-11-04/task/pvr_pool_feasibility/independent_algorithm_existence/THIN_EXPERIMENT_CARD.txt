@@ -1,0 +1,23 @@
+唯一参照：既存55high＋原量确认；设计卡，0新运行
+
+选择完整独立股票策略，而非只换入场门。原因：保留No60股票I/CP1保护、role/stage/migrate会暗中借它们的持有与资本能力，不能回答架构外的简单策略问题；完整政策差额也不能单独证明“入口太宽”。
+
+旧负证据前置：5426历史的55high＋量确认已实际跑过，自2022累计至2022/23/24的marked meanR=-.3651/-.3028/-.3207；相对去量仅+.0028/+.0025/-.0010。这是逐股合成周期，不是有限账户，也不支持突破策略预设能赢。
+
+算法直接沿旧家族：C_t>max(前55观察high)，信号日股数V_t>mean(前20positive observed V)；MA200/ATR20可算，不另加C>MA200。下一合资格OPEN买。固定stop=该次入场adjusted OPEN−4×信号日ATR20；上一close低stop或连续2close低MA200后次可成交OPEN卖。无加仓、无I/CP1、无每日再平衡。不换55为63，不加斜率／股MA／persistence。
+
+原生共用底座：LR.Account/BP.Account/L.SectorAccount的现金、股数整手、费用/T+1/权益/分红AR/split/partial fill/check；同本轮market rawOPEN、clock、可成交代理与不利滑点，先卖/权益结算再新买。LR.maximum_quantity/fees/reserve_quantity可复用；原resize_core与J.Runner/Account不能直接复用，前者硬编码旧定仓，后者强依赖I/CP1 pool。
+
+独立资金只复用old-shadow默认lowvol_all已有合同：最多8股票，单新仓上一NAV .5%/4ATR目标，总4%距离stop风险，新买gross90%/单股35%，固定ATR/price排序，代码破同，无加仓。不是用户永久参数，不挑best-quintile/strength旧赢家，不再扫资金。它与No60不同，只能评价完整政策取舍。若要求保No60全stage-capital，则与“脱离CP1架构”冲突，应停止而非伪称薄改。
+
+保两级的最小条件映射：行业沿原当日E0有效/行业RS-H1，行业H1先序、行业内默认lowvol排序；不消费行业CP1 financial level/收据/迁池。股票执行身份/市值/可买资格保留；股票I/G1/CP1、I.floor/epoch/core_epoch、PVR排名不得消费。股票RS可以作只读字段，不额外以其原资格门替代55事件。这个比较明确共用原行业模型，不能宣称行业也独立。
+
+若保ACT20_BREAK作为共同最后fuse：只用本策略ownNAV/peak/flat，原synthetic市场BREAK/量价breadth沿用；不复制No60的on/off日，关闭old-shadow10/16/20冷却闸，避免双叠。故这是固定算法映射到共用行业/风险/原生执行的条件参照，不是旧shadow结果原样重现。若连行业也用新55量确认，须另定义不可直接套股票股数的行业volume，超出薄接线，本卡不做。
+
+数量与复用：现有旧priceonly/volume合成全周期和负截止只读复用，当前No60账只读。未来若准入经济，最少2个候选账户路径：自身2022→2024连续+完整2025Jul→2026Jun强窗；年度不重置。若必须评价当前量增量，仅去量消融再2路径，最多4；本卡一条也未授权，不能把旧异合同priceonly当当前native控制。
+
+输入现成：1709/90原manifest/full signal含OHLCV、raw/factor、unit、observed/synthetic/segment及warm；原native行情/权益/整手与observer已存在。不补行情。简化facts无high/V，不能只改i_buy；需核原high/ATR价格坐标、股数单位/拆股/positive-observed钟。原生partial fill的固定4ATR OPEN锚与跨缺成交重验仍需小接口技术卡定死，不能沿原I或偷偷每日重设stop。
+
+接线裁决：不是一行改route；必须隔离独立持仓/待退出/已买周期与资金规则，复用会计而非重建平台。静态估计2–4小时接线+最小clock/整手/权益/恢复验收，非保证时耗。旧负证据使收益先验弱；建议不直接做native全年经济。若主审认为独立性信息仍值得，先仅授权有限0账户信号/单次资金接口技术检查，再决定是否有理由经济。不能为了拥有一个“独立对照”造平台或加规则救结果。
+
+详细源码依赖与机械差异见WIRING_NOTES.txt；本卡只冻结讨论对象，未实现新策略、标签、参数或账户。

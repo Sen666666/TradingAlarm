@@ -1,0 +1,63 @@
+{
+  "status": "FROZEN_BEFORE_ACTUAL_ROUND_MODEL_RESULTS",
+  "target": "Original PVR policy, actually filled first entries only: complete0-to-0 net round PnL>0 including original costs and accrued dividends. Not five-day proxy.",
+  "source": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/selection_entry_diagnosis_v1/ALL_FIRST_ENTRIES.csv",
+  "source_sha256": "93c41796cca62a2022348ca2e84473efd0d3b4395fc1030b9e62863819b9cf63",
+  "events": 2693,
+  "policy": "Original PVR account only; do not combine E31 or unfunded candidates.",
+  "prediction_start": "2023-01-01 signal dates",
+  "prediction_end": "2026-05-14 signal dates; account source through2026-05-15",
+  "no_2022_backfill": true,
+  "first_year_training": "2022 actual rounds, only when completely closed before each future model cutoff; no2021 labels exist.",
+  "features": [
+    "PVR_decision",
+    "log(original_close/first_role_floor)/sigma20_prior",
+    "sigma20_prior",
+    "market_breadth20",
+    "market_delta5",
+    "first_kind_is_mobile_add",
+    "original_i_buy"
+  ],
+  "feature_clock": "Original signal-day close only. No entry next-open, forward return, eventual holding length/add count/round cost/close time as inputs.",
+  "fit_clock": "First common trading session monthly; trailing504 common trading days by signal date; closed_day strictly before model date. No label from a round still open at that date.",
+  "minimum": {
+    "fully_closed_feature_complete_rounds": 300,
+    "wins": 50,
+    "losses": 50,
+    "unique_signal_dates": 60
+  },
+  "model": "Single logistic NLL sum +2*sum(nonintercept standardized coefficients squared). Training-only mean/std and clip standardized features +/-5. Unpenalized intercept. No class balancing/interactions/tuning.",
+  "missing": "Any invalid/nonfinite feature => UNKNOWN; no imputation. Retain all original actual first entries, including unclosed rounds and unknown predictions.",
+  "baseline": "Primary comparator is mean win fraction of exactly the same mature feature-complete training rows. Also report mean of all mature rows in same window as secondary baseline; no future calibration.",
+  "quintiles": "Fixed Q1-Q5 cutpoints from current model probabilities on current mature training rows, using20/40/60/80 percentiles. Assign future first entries using only these previously known cutpoints; never choose thresholds by outcomes.",
+  "probability_bins": [
+    0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    1
+  ],
+  "cohorts": "Report all actually filled originals and separately NORMAL signal context, excluding initial2022-01-04 and original ACT OFF-to-ON decision dates. Do not refit after excluding contexts.",
+  "evaluation": "Primary2023-2025 entry-year cohorts with labels observed by original source end;2026 partial secondary. Separate closed-by-entry-year, eventually complete by source end and still-open; pending not random missing.",
+  "metrics": [
+    "AUC including same-date AUC with eligible date counts",
+    "Brier/logloss versus historical-mean comparator, probability-bin calibration",
+    "causal training-score quintile win rates and return/payoff ratios, every bin reported",
+    "date-block and stock-cluster uncertainty, coverage and censoring bounds",
+    "training maturity/delay profile as descriptive audit only"
+  ],
+  "dependence": "20-common-session blocks and stock clusters; report conservative maximum block/stock/two-way SE for proper-score differences; AUC date-block and stock jackknife as approximate descriptive uncertainty.",
+  "label_delay_warning": "Closed-only training estimates a completion-conditioned history distribution. Winners/losers may close at different speeds; open labels remain unavailable, no imputation or false independence. This diagnostic cannot identify counterfactual new selections.",
+  "restrictions": [
+    "no account replay",
+    "no candidate filtering or new trades",
+    "no unfunded candidate predictions",
+    "no model/feature/threshold search",
+    "no5-day proxy substitution",
+    "no assertion30percent achieved by selecting a historical high-score bin"
+  ],
+  "history_limits": "Already consumed history, fixed future pool and non-PIT industry/availability/adjustment provenance; temporal forward predictions are reproducible as-of-model outputs, not genuinely untouched out of sample.",
+  "label_accounting": "Use original complete round PnL: executed trade cash and original dividend entitlement accrued during holding; not future realised price path. Original execution is a causal-open proxy, not certified market fills."
+}

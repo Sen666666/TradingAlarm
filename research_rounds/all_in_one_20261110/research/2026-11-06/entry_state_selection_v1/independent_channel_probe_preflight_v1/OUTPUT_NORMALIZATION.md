@@ -1,0 +1,1 @@
+主预检完成后独立审查发现：首根前的全空receipt_id被pandas推断object，全样本截取同前缀为string。主10窗口端点检查通过，市场值与状态无差异。保留冻结core.py、runner及所有主输出不变。normalized_output.py仅将receipt_id显式转string，用于任意前缀严格dtype一致；没有修改模型、参数、病例或重跑主历史式。

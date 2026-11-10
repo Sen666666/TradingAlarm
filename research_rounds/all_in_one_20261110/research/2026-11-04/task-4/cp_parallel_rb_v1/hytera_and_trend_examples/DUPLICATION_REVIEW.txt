@@ -1,0 +1,21 @@
+只做原研究语义对照，不运行经济或新信号模型。
+
+1 cp_formula_redesign_v1/hytera_924/ORIGINAL_CP_FORMULA_SOURCE.txt:
+原model.calculate(f,price_only=False)及credit fresh*(1 ifprice_only elsem)。
+共同点是价格推进/冻结sigma/新frontier。差异是原receipt会重置proof锚，R/B只随
+E0低/高确认换锚。存在price_only数学分支，不等于此R/B新消费模型已做经济验证。
+
+2 cp_two_scale_v1/FROZEN_TWO_SCALE_PERMISSION_HYPOTHESIS.txt7—15:
+原前一轮G=A*absER、Q=G/(sqrt5σ)，R/B现在等于已做λ0敏感性，绝非新价格特征。
+旧PRICE_RECLAIMED是A_l>0但长路径Q不足；新B>=0不再要求长路径效率门。
+本轮把D_down/反复独报尚未给资格映射，不能称成熟支持仍与旧LONG_SUPPORTED相同。
+
+3 core_supplement_v1/review/HISTORY_AND_AUTHORIZATION_BOUNDARIES.txt22—24:
+BP-1/P1允许原I有效但首次未买时用新CP等再给CORE机会；LR1-CP1-ADD则仅held且
+CORE仍在时给CP追加。它们不是本R/B公式，但“后续证据首次/追加”并非新问题。
+不能因旧研究收益差就判本数学门失败，也不能把frontier静态True冒充canonical CP
+凭据；原日期与新来源身份需单列。本任务未触及账户或资源合同。
+
+4 upside_state_v1/code/OLD_MECHANISM_DEDUP.txt12/21—27:
+旧确认等待/尾仓/补CORE有不同风险与持有合同，不能用前后数字互相替代。
+本次仅说明R/B、frontier、receipt、E0局部高确认与完整域失效不是同义条件。

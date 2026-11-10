@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "frozen_at": "2026-10-29T11:19:52.191785+00:00",
+  "question": "In the frozen event-disjoint same-day comparison, is allocating one cash unit to S0 first rather than second valuable? Mainly sector-first composite choice; not full ranking monotonicity, PVR, E0 correctness or portfolio performance.",
+  "scope": "407 frozen technology pool, Dec29 2023 through Oct27 2026; full original legal I-Q pool each day, no funding/actual-fill selection.",
+  "selection": "Chronological full S0 industry-round-robin priority. Compare actual positions1/2 only when both current causal E0 events never appeared in either role; otherwise skip whole date, never promote position3. Each E0 event at most once, include left-censored visible epochs.",
+  "size": "193 equal pairs x 2 roles x costs1/2 =772 units; each alternative starts same 1m; no shared cash or compounding/reentry. Same single decision-close, next open original day lease and frozen support gap guard.",
+  "exit": "Original I/E0 invalidity, original stored protection, observed source/E0 boundary. No F/CP/ACT. Cash after exit idle through common Oct27 terminal; no assumed reinvestment or mechanical annualization.",
+  "terminal": "All no-fill, open and claims included. Raw causal marks and realized cash separate, estimated liquidation costs memo not actual fills.",
+  "tail": "Pair-tail iff either arm net_pnl/(buy_gross+buy_fees)>=.30, post-outcome only; ordinary complement; realized versus terminal-valued labels separate. Continuous sorted contributions, no threshold search.",
+  "primary": "Sum and mean(first P-second P), plus absolute net contributions of both arms versus idle cash0. Full negative trials, saved losses, extra positive contribution, all fees/slippage. Tail+ordinary=total.",
+  "occupancy": "Actual initial invested cost, held market close sessions and cost-basis sessions. Higher return with longer use is a tradeoff; this E0 exit-and-idle convention does not identify optimal recycling.",
+  "verdict": "Positive difference, first absolute contribution positive and tail preservation give limited support. Less-negative first is not proof worth funding. Mixed tail/ordinary signs or cost/occupancy reversal disclose tradeoff/inconclusive. Conclusions restricted to frozen193, mostly interindustry.",
+  "checks": "Full native S0 order identity, causal IDs and physical matching prefixes, first6 chronological pairs sample, exact costs/cash/shares/actions/NAV, six economic prefix truncations and sample/full identity.",
+  "budget_seconds": 300,
+  "no_new_arms": true
+}

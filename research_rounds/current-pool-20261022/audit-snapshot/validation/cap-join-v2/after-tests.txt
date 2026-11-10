@@ -1,0 +1,12 @@
+test_explicit_wrong_probe_date_cannot_be_ignored (__main__.SnapshotIdentityIntegration.test_explicit_wrong_probe_date_cannot_be_ignored) ... ok
+test_missing_label_on_no_data_row_also_rejected (__main__.SnapshotIdentityIntegration.test_missing_label_on_no_data_row_also_rejected) ... ok
+test_missing_row_label_is_not_inferred_from_batch_or_observation (__main__.SnapshotIdentityIntegration.test_missing_row_label_is_not_inferred_from_batch_or_observation) ... ok
+test_next_day_observation_does_not_change_frozen_identity_or_company (__main__.SnapshotIdentityIntegration.test_next_day_observation_does_not_change_frozen_identity_or_company) ... ok
+test_unlabelled_legacy_probe_keeps_raw_evidence_but_cannot_select (__main__.SnapshotIdentityIntegration.test_unlabelled_legacy_probe_keeps_raw_evidence_but_cannot_select) ... ok
+test_wrong_batch_date_is_rejected_even_when_rows_match (__main__.SnapshotIdentityIntegration.test_wrong_batch_date_is_rejected_even_when_rows_match) ... ok
+test_wrong_row_date_cannot_be_hidden_by_correct_batch_label (__main__.SnapshotIdentityIntegration.test_wrong_row_date_cannot_be_hidden_by_correct_batch_label) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.279s
+
+OK

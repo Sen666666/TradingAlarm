@@ -1,0 +1,152 @@
+现行No60核心计算公式和先后顺序（可直接回复；未运行任何模型）
+
+实际full facts生成式在：
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/desk/refresh.py:47–66
+run_b5 → classify(G1) → decline_candidate=False → e0_policy → project(...,'G1_I')。
+当前I是use_i=True/use_x=False，旧IX不是实际I输出。以下V均为signal.volume，绝非amount。
+窗口都在同source的有效观察序列计数，不按自然日补零；含今日C/V的量在今日CLOSE才可知。
+
+1. E0事件：RMS、量基线、running extreme和确认
+源：/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-b5-20261025/code/evidence.py:100–157
+event序列只保留C>0、V>0且均有限的观察。t从0计，r_t=log_ratio(C_t,C_(t-1))。
+B_t=median(V_(t-21),…,V_(t-1))。
+sigma_t=max(sqrt((Σ[j=t-63..t-1] r_j²)/63),1e-8)，仅从t=64开始公开。
+两窗口均排除今日；sigma是63个收益的RMS，不是B4的绝对收益中位尺度。
+
+状态初始direction=-1、ext=None。sigma_t和B_t成熟后，按以下顺序处理当前t：
+  a) ext尚空则ext=t。
+  b) direction=-1且C_t<C_ext：ext=t；direction=+1且C_t>C_ext：ext=t。
+     只更新当前leg方向的严格新极值；并列保留较早ext。这里用close，不用high/low。
+  c) 只有t>ext才检查反转；若今日刚成新ext，就不在同一观察确认反向。
+     activity=clip(sqrt((Σ[j=ext+1..t]V_j/(t-ext))/B_ext),0.5,2.0)。
+     confirmation=(-direction)*log_ratio(C_t,C_ext)*activity/(sqrt(5)*sigma_ext)。
+  d) max(confirmation,0)>=1时，当前t确认event=-direction；
+     pivot_price=C_ext，pivot_date=date_ext，pivot_age=t-ext；随后direction=event、ext=t。
+activity的量窗口含ext之后至今日，排除ext当日；分母B_ext和sigma_ext固定取ext时的
+历史窗口，不随后来t替换。ext若更新，就改用新的ext及其当时已知的基线/尺度。
+确认信息在t才可用；pivot_date只是这时确认出的历史锚，不能回写锚日的信号或持仓。
+
+数值边界源：.../pv-strength-b5-20261025/code/arithmetic.py:13–42。
+u=机器eps/2；gamma4=4u/(1-4u)。非负a,b若|a-b|<=gamma4*max(a,b)视为相等。
+log_ratio相等时0；0.5<=a/b<=2时log1p((a-b)/b)，否则log(a)-log(b)。
+极值/确认阈值使用上述compare；不是新增金融容差。
+
+2. E0 target/floor：先退出，再按已确认up事件启动或抬线
+源：/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-b5-20261025/code/policy.py:86–114、151–163
+每个source初始active=False、floor=NaN、pending=None。
+  a) 若active且compare(C_t,旧floor)<=0，先active=False、exited=1。
+  b) 当日price_event=+1时，pivot=当日已确认pivot_price：
+     若仍active，floor=higher(旧floor,pivot)；
+     若不active且本日exited=0，才active=True、entered=1、floor=pivot。
+  c) target=int(active)；active或本日exited时输出floor，否则输出NaN。
+因此同日触旧线后不可被新up pivot救回；event=-1本身不是E0直接退出指令。
+higher在数值并列时保留旧floor。原码还有decline_candidate→pending/reclaim分支，
+但现行refresh.py:57/cache.py:26明确置decline_candidate=False，不会新建该通道。
+
+3. B4基础特征、S21/S63方向状态和确认阈值
+源：/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-b4-20261025/code/model.py:96–281
+本节t是有效strength观察。p_t=log(C_t/C_0)，r_t=p_t-p_(t-1)。
+mu_h,t=alpha_h*r_t+(1-alpha_h)*mu_h,t-1，h=5或21，alpha_h=2/(h+1)；
+mu从r_1为种子预热，不是公开日才初始化。t<64公开行全unknown，第65观察起公开。
+s_t=max(1.4826*median(|r_(t-63)|,…,|r_(t-1)|),1e-8)。
+Vref_t=median(V_(t-21),…,V_(t-1))；activity_t=V_t/Vref_t。
+q_t=r_t/s_t；qeff_t=q_t*sqrt(clip(activity_t,1,4))。
+acute_up=ge(qeff_t,2)；acute_down=le(qeff_t,-2)。[model.py:163–189]
+
+对h=21、63分别维护独立S_h∈{-1,0,+1}及方向候选，S_h不是均线。
+候选创建时记录方向d、anchor、anchor_date，并冻结Delta_h=sqrt(h)*s及Vref。
+初始S_h=0，high/low为C_(t-1)的log价，同时建两个方向候选；候选创建日是当前t，
+初始化anchor虽是t-1，阈值用当前创建日t已知尺度，不回填成anchor日已知证据。
+
+每个候选的advance：
+x_t=d*(p_t-p_anchor)，old_frontier=F，old_credit=Q；
+w_t=clip(sqrt(V_t/冻结Vref),0.5,2)，joint=True；
+eligible=gt(x_t,F) AND d*r_t>0。
+若eligible：F_new=x_t，Q_new=Q+(x_t-F)*w_t；否则F/Q保持。
+只有eligible且ge(x_t,冻结Delta_h)且ge(Q_new,冻结Delta_h)，才确认方向d。
+[model.py:122–161]
+
+极值/确认的实际先后：
+  a) 每观察先置confirmed_h=0、confirmed_direction_h=0。
+  b) before=S_h。若before>=0且p_t严格创新high：更新high并重置down候选，anchor=t。
+     若before<=0且p_t严格创新low：更新low并重置up候选，anchor=t。
+  c) 推进当前候选，至多一个方向本日确认。
+  d) 确认时在当前t写journal，S_h=d；只保留/新建反向候选，anchor=t。
+     新up结构的running high从今日开始、low清空；新down结构反之。
+  e) 无新确认时S_h保持原方向；输出该结构的running extreme价格/日期。
+[model.py:195–271] 因而持续S_h=+1与今日confirmed_direction_h=+1是不同字段。
+所有anchor/running-extreme历史日期只是当前已知状态；确认从不倒填到anchor日。
+
+B4数值比较：tol(a,b)=32*eps*max(1,|a|,|b|)；
+ge(a,b): a>=b-tol；le(a,b): a<=b+tol；gt(a,b): a>b+tol；lt反之。
+[model.py:42–61] source变更重置mu/S/候选；无效strength不推进，输出unknown；
+下一有效收益跨越此前无效行的价格间隔，不补零。[model.py:284–337]
+
+4. G1 fresh_up、grade全部分支和覆盖顺序
+源：/Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/grade.py:9–63
+记a=S21、b=S63、m5=mu5、m21=mu21；z5=sqrt(5)*m5/s，z21=sqrt(21)*m21/s。
+strength观察无效或mu21非有限：ready=False，grade/proposal/score/z=NaN，fresh_up=False；
+该行不推进previous_grade/prior_extreme/prior_s21。source变化先清这些记忆。
+
+fresh_up为以下任一当日证据：
+  (1) 原E0 event=+1；
+  (2) confirmed_direction_21或confirmed_direction_63=+1；
+  (3) a=+1且上个有效a=+1，上个extreme有限，且
+      当前S21 running_extreme_price > 上个extreme +32*eps*max(|当前extreme|,|上个extreme|,1)。
+[grade.py:23–29] S_h持续向上不等于fresh；第(2)字段每观察已清零后才新确认置1。
+
+先按if/elif顺序给基础g：
+  if a==0 and b==0: g=0
+  elif m21<0 and m5<=0: g=-3 if a==b==-1 else -2
+  elif m21<0 and m5>0: g=+1 if a==+1 else -1
+  elif m21>0:
+      if a==b==+1: g=+3
+      elif a==+1: g=+2
+      elif m5>0: g=+1
+      else: g=-1
+  else: g=+1 if m5>0 else -1 if m5<0 else 0
+[grade.py:30–38]
+再严格依次覆盖：
+  if a==b==+1 and z5>=1 and z21>=1: g=+4
+  launch=acute_up and 原E0 event==+1 and m5>0
+  if launch and g<2: g=+2
+  if z5<=-1 and g>-2: g=-2
+  if acute_down: g=min(g,-3)
+[grade.py:39–43] 正向扩张/launch不能抵销最后的acute_down。
+proposal=g。若previous_grade已知且proposal>previous_grade且fresh_up=False，
+最终grade=previous_grade（blocked upgrade）；否则grade=proposal。降级不要求fresh。
+score=25*grade；ready=True。标签-3强冷/-2冷/-1弱冷/0未立中性/+1修复/+2暖/+3热/+4扩张。
+[grade.py:6、44–61] I用的是最终grade，warm定义为ready AND grade>=2。
+
+5. I target/floor/entered/fresh/buy_event和退出
+源：/Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/policies_g1.py:6–35
+当前kind='G1_I'，所以use_i=True、use_x=False；每source初始active=False、floor=NaN。
+shadow=bool(当前E0 target)；ready=G1.ready；
+fresh=G1.fresh_up if ready else False；warm=ready AND G1.grade>=2。
+cold=ready AND (grade<=-2 OR acute_down)，但它只有use_x=True才成为退出条件；
+当前G1_I不使用cold退出，旧G1_IX使用，不能把IX当实际I。
+
+对每个有效价观察，entered=exited=0，先处理已有active：
+  if not shadow OR C_t<=旧I floor: reason='E0_structure_boundary'
+  elif use_x AND cold: reason='G1_cold_or_acute'  # 当前use_x=False，这支不执行
+  若有reason：active=False、exited=1；
+  否则当前E0 floor有限时：I floor=max(旧I floor,当前E0 floor)。
+opportunity=shadow AND warm AND (当日E0 entered OR fresh)。
+if not active AND not exited AND opportunity:
+    active=True；entered=1；floor=当前E0 floor。
+buy_event=active AND opportunity；target=int(active)。
+floor输出仅在active或本日exited时有效，否则NaN。旧线先查、同日退出不重入。
+故I_target可持续True而i_buy=False；i_buy是当日事件，不是每天carry的持仓许可。
+无效price观察显式target/floor/exit_line=NaN、entered/exited=0、buy_event=False，
+不推进本次状态更新；source改变仍先重置内部active/floor。[policies_g1.py:10–15]
+
+6. 字段和可用时间边界
+实际runtime facts保存e0_target/e0_floor、i_target/i_floor/i_buy、G1部分字段，
+E0_entered/exited、I_entered/exited、I_exit_reason未导出，日表应标NOT_SAVED；
+不能用旧IX的entered/exit_reason或ix_target来填实际I。
+含当前价量的event、S_h确认、G1和I，只在当前CLOSE完成后可知；历史pivot/anchor日期
+不产生历史当日授权。原Facts.packet再把exact-day i_buy AND原市场buy_allowed用于
+当日S0，并以交易日历选择下一共同OPEN，不用未来CLOSE。[engine.py:31–47]
+
+原样代码、绝对路径、各文件SHA均已在SOURCE_EXCERPTS.txt/SOURCE_INDEX.json。
+本清单只从已有摘录解释公式；没有执行model、project、指标、账户或回测。

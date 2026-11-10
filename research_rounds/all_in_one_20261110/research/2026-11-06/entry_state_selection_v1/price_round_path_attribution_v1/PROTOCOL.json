@@ -1,0 +1,15 @@
+{
+  "scope": "Read-only posterior path attribution of saved common comparable PRICE closed rounds. 2022 full signal year versus Sep-Dec 2024 signal births. No economic replay, strategy changes, threshold scan, future-profit filtering or new trading action.",
+  "freeze_time_utc": "2026-11-08T20:30:00Z",
+  "already_seen": "Prior saved totals and never-positive-close counts were known. Thresholds below fixed before this task computes path maxima and outcome cross-tabs. Historical/development evidence, not OOS.",
+  "price_mfe_bins": [0, 0.05, 0.10],
+  "net_mark_R_bins": [0, 1],
+  "holding_session_bins": [5, 20, 60],
+  "repeat": "Order actual PRICE buy_core within same stock and window; also distinguish first all-strategy BUY versus first PRICE after AB. Never use registered/no-buy round number.",
+  "prices": "First fill price times entry adjustment factor is fixed canonical price basis; adjusted H/L/C preserve source coordinate across admitted pure cash actions. Raw returns only reported when factor unchanged. Entry-day high/low are posterior bounds and not T+1 sale opportunities. Exit day OPEN included separately; no exit-day H/L/C included.",
+  "net_marks": "Original saved held-close PROFIT_GATES net_equity includes trade cash, dated combined sell fee, 5bp, paid cash and recognized NET80 receivable exactly once. Entry/add day close mark includes unsettled lots and is not whole-position executable. Receipt/pay transfers do not change net equity. R0 is saved original entry_risk, not later dynamic risk.",
+  "next_open": "For each original held close, quote liquidation of its then-known inventory at immediate next common OPEN minus5bp with next-date fee and only claims recognized by then. Exclude/cancel original buys scheduled at that open. A local one-step valuation, not a new propagated strategy. Do not credit future OPEN profit to earlier information or claim actual fill. Original frozen data cannot prove trading-limit, queue, suspension or capacity orderability.",
+  "unknown": "Any missing/nonverified price, coordinate, fee, quantity or claim evidence marks path metric UNKNOWN. Preserve original final net and include UNKNOWN in exhaustive dollar-conserving tables.",
+  "add": "Show before-first-ADD and after-ADD marks separately; ADD classification is posterior. Frozen original quantities/costs/actions are used, not constant entry size. Trade PnL by role and NET80 separately; gains and losses split in every aggregation.",
+  "concentration": "Full per-stock table, fixed worst-loss-stock top10/top20 diagnostic concentration plus complete remainder; ranking is posterior explanation not exclusion rule."
+}

@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "accounts": [
+    "ACT__S0_base",
+    "ACT__S0_delay1",
+    "SW3F__S0_base",
+    "SW3F__S0_delay1"
+  ],
+  "daily_rows": 2256,
+  "technical": false,
+  "final_nav": {
+    "ACT__S0_base": "996156.4827633431235",
+    "ACT__S0_delay1": "797533.2990501089850",
+    "SW3F__S0_base": "1012145.5092181494110",
+    "SW3F__S0_delay1": "1023200.0859218656555"
+  }
+}

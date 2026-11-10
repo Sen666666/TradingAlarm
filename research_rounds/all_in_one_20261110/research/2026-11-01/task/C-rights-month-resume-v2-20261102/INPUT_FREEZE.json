@@ -1,0 +1,27 @@
+{
+  "inputs": {
+    "full": {
+      "path": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-month-continuation-20261102/inputs/2022/MANIFEST.json",
+      "sha256": "d41a44b1c1bbfe128118c3138cce837d737d8a42f3a6bea246f90384904bc447"
+    },
+    "physical": {
+      "path": "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-20261102/inputs/physical/MANIFEST.json",
+      "sha256": "bae032078b40364ee0e55f0b9ace83c16357e338accb2a88f2fa2879f860ac18"
+    }
+  },
+  "removed_future_rows": {
+    "facts": 16043,
+    "cp": 16043,
+    "raw": 16043,
+    "pvr": 18799,
+    "f1_observations": 1001,
+    "h1": 19789,
+    "metadata": 16043,
+    "receipts": 510,
+    "actions": 1,
+    "payments": 0
+  },
+  "current_input_only": true,
+  "legacy_certificate_input_views_retained_solely_for_genuine_old_verification": true,
+  "physical_granularity": "daily through Jan13; OPEN uses unchanged same-day HLV postcheck execution proxy"
+}

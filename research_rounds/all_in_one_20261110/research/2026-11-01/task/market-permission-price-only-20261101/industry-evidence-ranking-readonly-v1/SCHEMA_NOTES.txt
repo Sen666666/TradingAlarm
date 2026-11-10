@@ -1,0 +1,33 @@
+字段口径澄清
+
+I_entry_Q：原事实列i_buy为True，且原保留stock Q、当日输入/保护坐标可用
+的股票数。它不是E0从0到1的独立新开启事件；同股可连续多日出现。
+core实际还受持股、core epoch、退出/买单、资金与数量等限制，本包没有
+账户状态，不将此列称为新订单数、独立试错次数或实际可成交数量。
+
+canonical_CP1_Q：复用已有规范收据并通过当日保留stock Q/当前报价输入
+的股票数。没有消费账户收据，也不假设它能通过真实账户资源/ACT。
+OLD924规范收据未准备，故此列及完整union为null；numeric_CP1_Q只是
+原数值receipt的描述性代理，不能代替规范形成/epoch合法性。
+
+F1_permit与F1_support、F1_mature不同。mature在原context后续price_advance
+锁存，不是账户实买试探。全局无许可不覆盖独立行业许可。
+
+context_advance_count和原last_native_advance为当前context信息：context
+终结后清零/空不意味着历史上没推进。最终FULL_TABLE_WITH_HISTORY另加
+last_current_context_native_advance、last_historical_native_advance和
+historical_native_advance_count，历史原生推进事实不被后来结束抹去。
+这些是读取既有事件标签的注记，不是重新运行F1。
+
+H1_rank_all_original_sectors：native在90、旧407在11原候选行业内排序。
+industry_H1_score仍为原90行业参考背景下的缓存得分，未重算成11分位。
+H1_rank_among_permitted、H1_rank_among_mature_permitted只是同一得分的
+资格子集视图，没有附加广度/推进次数加权，也不生成行业TopK政策。
+industry_PVR_score/rank全null，原因显式列出，不回退H1或个股聚合。
+
+后21/63使用原H1缓存的共同市场观察钟，不是每个行业各自跳过坏行。
+price_at/date_at给端点；EVALUATION_PATHS给完整0..63原行业指数价格路径。
+source change、原点/端点未知、样本尾不足均有censor字段；中间缺价另列。
+本次29,526行恰都能从现存原缓存获得21/63观察，censor为0，不是删除
+缺失样本得到的结果。native缓存至2026-10-30，旧缓存至10-27；没有把
+评价裁在2026-06-30的行情窗口末，未下载新行情。

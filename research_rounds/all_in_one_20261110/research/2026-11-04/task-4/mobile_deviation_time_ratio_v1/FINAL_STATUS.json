@@ -1,0 +1,26 @@
+{
+  "status": "COMPLETE_STANDALONE_MONOTONE_RATIO_DIRECTION_REJECTED",
+  "completed_at_utc": "2026-11-05T07:07:40.212322+00:00",
+  "signals": 59,
+  "filled_closed_layers": 19,
+  "positive_original_net": 10,
+  "negative_original_net": 9,
+  "original_rejected": 38,
+  "resource_rejected": 32,
+  "industry_invalidated": 6,
+  "core_priority_skipped": 2,
+  "unfilled_profit_labels": 0,
+  "undefined_or_tiny_denominator_rows": 0,
+  "new_accounts": 0,
+  "new_backtests": 0,
+  "parameter_search": 0,
+  "original_models_recomputed": false,
+  "standalone_global_monotone_ratio_recommended": false,
+  "review_status": {
+    "layer_scalar_cash_identity": "PASS",
+    "classification_rejected_links": "PASS",
+    "fixed_snapshot_adjustment_prefix_and_historical_factor": "PASS",
+    "historical_received_at_and_revision_vintage": "NOT_CERTIFIED"
+  },
+  "decision_not_global_proof_of_zero_information": true
+}

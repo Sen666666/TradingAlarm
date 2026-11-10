@@ -1,0 +1,32 @@
+断连后的原保护线边界补核｜2026-11-04
+
+结论：原最差曾命中层113及19个入场当日CLOSE命中的负贡献层，全部在原firsthit时满足当时mark>F>=entry，且没有原stock pending exit。没有发现这20例的首次命中本身就是已穿线。不能用这20例把p>F守卫当作已解决亏损；它们说明后续收盘响应、跳空和退出执行条件仍会使原本金发生亏损。
+
+最差层113（000620.SZ，原期末净−4886.42951998）
+原实际买入2022Jan24 OPEN：5100股，执行价3.721860，买入含费成本18988.1696578082。
+Jan25 CLOSE首次F>=entry：mark4.38 > F3.77243713255327 >=entry3.721860，无原pending exit。
+Jan27 CLOSE首次原CP1_add_protection退出请求；此时原raw close3.55已低于F与entry。
+下一市场OPEN Jan28：OHLC全为3.20、量13074300；原账无该层卖出。
+随后市场OPEN Feb7：OHLC全为2.88、量21473500；原账仍无该层卖出。
+Feb8 OPEN：raw open2.77，原执行价2.768615（5bp卖滑点），实际完成卖出；该层分得卖出净现金14101.74013783245。
+原配置price_limit_policy=conservative_hl_proxy、reject_flat_day=True；原FastMarket.window把H<=L日的buy/sell许可设False。因此上述两个flat日有充分的原代理拒绝条件。没有重演window，也不把它称交易所已认证的跌停、真实排队或实际可成交证明。Jan27到Feb8是3个后续市场OPEN，其中春节非交易日不算额外可执行机会。
+
+19个完整same-entry-CLOSE负cohort
+firsthit全部mark>F、pending_stock_exit=False，成员ID固定为10/105/222/269/337/343/344/485/499/783/892/1163/1275/1299/1306/1308/1309/1374/1408。
+这19例均在各自首个原逐层退出请求的下一市场OPEN完成实际卖出。原退出请求/下一OPEN/实际part、firsthit F/E/mark及原OHLC逐成员完整保留verified_v2/FIXED_20_CASES.json，不以亏损标签回填新信号。
+
+恢复时未确认文件现状（只读查证，没有重跑）
+旧ALGORITHM_CARD.txt在pvr_pool_feasibility/current_entry_protection_capacity_card_v1与root同名目录两个预期路径均不存在，断连前写入未落盘。
+H潜在证书STATISTICS/484daily/33events/22episodes/SOURCE_FREEZE均存在并已记录SHA；薄READOUT.txt不存在。independent_review全目录没有文件名含certificate/cert/h_recover的正式事件审计回执；原H_C必要源补充不是事件表正式审计。完整路径/SHA见verified_v2/INTERRUPTED_ARTIFACT_STATUS.json。
+当前父任务已改为剩余真实买入成本/NAV额度alpha10/20/40；旧mark-G与.005R卡不是现行公式。本补核不写新算法卡，不改E0/I/PVR/ACT恢复或退出。
+
+核查范围与执行
+不重算原1557层/25469快照F/E witness；只取预先固定20例firsthit并读原facts.raw_close、同SHA raw bars、原Bbook exit请求/实际sell.parts及原484日历。mark在各firsthit逐值exact等于原raw close，与已有native财务mark桥同源；不新估价、不新CA换算。
+原源码/data/hash先冻结/末尾核同；verified_v2运行0.4256秒，0账户/0新quote/0新F/E witness。首版reader误把原prepared raw的RangeIndex当date-index，KeyError发生在任何结果前；FAILED_V1.json、源码和input freeze原样保留。一次v2只改.set_index('trade_date')，不改数据/模型/判据，已通过。
+
+复核入口
+verified_v2/RESULTS.json
+verified_v2/FIXED_20_CASES.json
+verified_v2/INPUT_FREEZE.json
+verified_v2/INTERRUPTED_ARTIFACT_STATUS.json
+EXIT_PROXY_SOURCE_BINDING.json

@@ -1,0 +1,3 @@
+用户已明确拒绝并撤回industry_channels_v2/EXPLORATORY_ALLOCATION_AND_HOLDOUT.txt中的70/30资金分配候选。
+旧文件保留仅作研究历史证据，不再推进、实现或作为本轮候选。其纸面审查通过不代表经济认可。
+本轮只按FROZEN_DESIGN.txt研究行业连续排名与同数量信号对照，不运行账户或交易。

@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "new_unique_history_cells": 6,
+  "economic_runs": 6,
+  "economic_reruns": 0,
+  "reference_A_RB1_runs": 0,
+  "all_new_daily_account_rows": 7290,
+  "all_independent_NAV_differences_zero": true,
+  "off_and_physical_prefix_passed": true,
+  "current_lock_audit_completed": true,
+  "actual_unlock_or_new_strategy_tests": 0,
+  "recorded_compute_seconds": 275.96139879198745,
+  "budget_seconds": 300,
+  "independent_OOS": false,
+  "product_changes": 0,
+  "real_trades": 0,
+  "blocking_issue": null,
+  "completed_at": "2026-10-31T07:33:58.466542+00:00"
+}

@@ -1,0 +1,252 @@
+{
+  "window": "2022",
+  "reference": "B3",
+  "new_confirmed_mobile_layers": 220,
+  "unknown_mappings": 0,
+  "entry_below_probe_open_count": 15,
+  "entry_below_probe_decision_close_count": 15,
+  "selected_layer_net": "-88549.41407516734265327265338",
+  "excluded_other_roles_or_probe_net": "-54157.36011965482684672734682",
+  "whole_NAV_net": "-142706.7741948221695000000002",
+  "fill_open_bins": [
+    {
+      "bin": "<0R",
+      "layers": 15,
+      "unique_receipts": 15,
+      "buy_cash": "188408.2925065600500",
+      "closed_positive": "1797.4224256710500",
+      "closed_negative": "-10433.2567306219500",
+      "open_net": "-313.6894017594500",
+      "actions": {
+        "first": 11,
+        "add": 4
+      },
+      "elapsed": {
+        "n": 15,
+        "0": 9.0,
+        "0.25": 13.0,
+        "0.5": 35.0,
+        "0.75": 58.5,
+        "0.9": 68.0,
+        "1": 68.0
+      }
+    },
+    {
+      "bin": "0_to_1R",
+      "layers": 96,
+      "unique_receipts": 96,
+      "buy_cash": "1142279.7704650435500",
+      "closed_positive": "67480.85035696470777777777777",
+      "closed_negative": "-79282.49603430708417508417509",
+      "open_net": "-227.6689983204500",
+      "actions": {
+        "first": 60,
+        "add": 21,
+        "reentry": 15
+      },
+      "elapsed": {
+        "n": 96,
+        "0": 1.0,
+        "0.25": 5.0,
+        "0.5": 11.0,
+        "0.75": 31.25,
+        "0.9": 51.0,
+        "1": 78.0
+      }
+    },
+    {
+      "bin": "1_to_2R",
+      "layers": 46,
+      "unique_receipts": 46,
+      "buy_cash": "582628.6813883873000",
+      "closed_positive": "20470.34174247432698412698413",
+      "closed_negative": "-38459.99216596088939393939394",
+      "open_net": "2634.7784775302000",
+      "actions": {
+        "first": 26,
+        "add": 15,
+        "reentry": 5
+      },
+      "elapsed": {
+        "n": 46,
+        "0": 3.0,
+        "0.25": 11.0,
+        "0.5": 19.5,
+        "0.75": 34.25,
+        "0.9": 42.0,
+        "1": 76.0
+      }
+    },
+    {
+      "bin": ">=2R",
+      "layers": 63,
+      "unique_receipts": 63,
+      "buy_cash": "818966.1580636225500",
+      "closed_positive": "12451.6468039931000",
+      "closed_negative": "-67735.17233363405384615384615",
+      "open_net": "3067.8217828031500",
+      "actions": {
+        "first": 36,
+        "add": 17,
+        "reentry": 10
+      },
+      "elapsed": {
+        "n": 63,
+        "0": 6.0,
+        "0.25": 34.0,
+        "0.5": 40.0,
+        "0.75": 46.5,
+        "0.9": 66.80000000000001,
+        "1": 76.0
+      }
+    },
+    {
+      "bin": "N/A",
+      "layers": 0,
+      "unique_receipts": 0,
+      "buy_cash": "0",
+      "closed_positive": "0",
+      "closed_negative": "0",
+      "open_net": "0",
+      "actions": {},
+      "elapsed": {
+        "n": 0
+      }
+    },
+    {
+      "bin": "unknown_mapping",
+      "layers": 0,
+      "unique_receipts": 0,
+      "buy_cash": "0",
+      "closed_positive": "0",
+      "closed_negative": "0",
+      "open_net": "0",
+      "actions": {},
+      "elapsed": {
+        "n": 0
+      }
+    }
+  ],
+  "authorization_close_bins": [
+    {
+      "bin": "<0R",
+      "layers": 15,
+      "unique_receipts": 15,
+      "buy_cash": "188408.2925065600500",
+      "closed_positive": "1797.4224256710500",
+      "closed_negative": "-10433.2567306219500",
+      "open_net": "-313.6894017594500",
+      "actions": {
+        "first": 11,
+        "add": 4
+      },
+      "elapsed": {
+        "n": 15,
+        "0": 9.0,
+        "0.25": 13.0,
+        "0.5": 35.0,
+        "0.75": 58.5,
+        "0.9": 68.0,
+        "1": 68.0
+      }
+    },
+    {
+      "bin": "0_to_1R",
+      "layers": 87,
+      "unique_receipts": 87,
+      "buy_cash": "1021620.4203957271500",
+      "closed_positive": "63162.14731083830777777777777",
+      "closed_negative": "-77576.79152135538417508417509",
+      "open_net": "-227.6689983204500",
+      "actions": {
+        "first": 55,
+        "add": 18,
+        "reentry": 14
+      },
+      "elapsed": {
+        "n": 87,
+        "0": 1.0,
+        "0.25": 4.5,
+        "0.5": 11.0,
+        "0.75": 27.0,
+        "0.9": 41.200000000000045,
+        "1": 78.0
+      }
+    },
+    {
+      "bin": "1_to_2R",
+      "layers": 52,
+      "unique_receipts": 52,
+      "buy_cash": "662209.2035165597000",
+      "closed_positive": "25563.09749574642698412698413",
+      "closed_negative": "-37915.84673692958939393939394",
+      "open_net": "-379.898573052000",
+      "actions": {
+        "first": 30,
+        "add": 15,
+        "reentry": 7
+      },
+      "elapsed": {
+        "n": 52,
+        "0": 3.0,
+        "0.25": 9.75,
+        "0.5": 18.5,
+        "0.75": 38.5,
+        "0.9": 57.29999999999999,
+        "1": 76.0
+      }
+    },
+    {
+      "bin": ">=2R",
+      "layers": 66,
+      "unique_receipts": 66,
+      "buy_cash": "860044.9860047665500",
+      "closed_positive": "11677.5940968474000",
+      "closed_negative": "-69985.02227561705384615384615",
+      "open_net": "6082.4988333853500",
+      "actions": {
+        "first": 37,
+        "add": 20,
+        "reentry": 9
+      },
+      "elapsed": {
+        "n": 66,
+        "0": 6.0,
+        "0.25": 31.75,
+        "0.5": 39.0,
+        "0.75": 45.75,
+        "0.9": 66.5,
+        "1": 76.0
+      }
+    },
+    {
+      "bin": "N/A",
+      "layers": 0,
+      "unique_receipts": 0,
+      "buy_cash": "0",
+      "closed_positive": "0",
+      "closed_negative": "0",
+      "open_net": "0",
+      "actions": {},
+      "elapsed": {
+        "n": 0
+      }
+    },
+    {
+      "bin": "unknown_mapping",
+      "layers": 0,
+      "unique_receipts": 0,
+      "buy_cash": "0",
+      "closed_positive": "0",
+      "closed_negative": "0",
+      "open_net": "0",
+      "actions": {},
+      "elapsed": {
+        "n": 0
+      }
+    }
+  ],
+  "entry_open_below_probe_with_nonnegative_latest_upgrade": 4,
+  "entry_open_nonnegative_with_below_probe_latest_upgrade": 9,
+  "layer_and_receipt_units_not_independent_trials": true
+}

@@ -1,0 +1,176 @@
+{
+  "cash_miss_components": [
+    {
+      "symbol": "ALL",
+      "cash_misses": 18769,
+      "physically_can_pay_one": 18769,
+      "reserve_restricts_initial_pool": 13423,
+      "earlier_priority_group_uses_pool": 3347,
+      "same_group_competition": 1999,
+      "static_defer_mobile_can_pay": 2980,
+      "frozen_contract_misses": 984,
+      "gap_median": 0.012513550468667,
+      "gap_at_most_one_percent": 425
+    },
+    {
+      "symbol": "688498.SH",
+      "cash_misses": 29,
+      "physically_can_pay_one": 29,
+      "reserve_restricts_initial_pool": 25,
+      "earlier_priority_group_uses_pool": 2,
+      "same_group_competition": 2,
+      "static_defer_mobile_can_pay": 0,
+      "frozen_contract_misses": 23,
+      "gap_median": 0.0199799599198396,
+      "gap_at_most_one_percent": 6
+    },
+    {
+      "symbol": "688256.SH",
+      "cash_misses": 22,
+      "physically_can_pay_one": 22,
+      "reserve_restricts_initial_pool": 20,
+      "earlier_priority_group_uses_pool": 1,
+      "same_group_competition": 1,
+      "static_defer_mobile_can_pay": 1,
+      "frozen_contract_misses": 12,
+      "gap_median": 0.0273214285714285,
+      "gap_at_most_one_percent": 4
+    },
+    {
+      "symbol": "688502.SH",
+      "cash_misses": 60,
+      "physically_can_pay_one": 60,
+      "reserve_restricts_initial_pool": 55,
+      "earlier_priority_group_uses_pool": 5,
+      "same_group_competition": 0,
+      "static_defer_mobile_can_pay": 1,
+      "frozen_contract_misses": 20,
+      "gap_median": 0.01624960241730275,
+      "gap_at_most_one_percent": 7
+    },
+    {
+      "symbol": "688615.SH",
+      "cash_misses": 29,
+      "physically_can_pay_one": 29,
+      "reserve_restricts_initial_pool": 25,
+      "earlier_priority_group_uses_pool": 3,
+      "same_group_competition": 1,
+      "static_defer_mobile_can_pay": 0,
+      "frozen_contract_misses": 19,
+      "gap_median": 0.008,
+      "gap_at_most_one_percent": 11
+    }
+  ],
+  "six_fixed_window_absences": [
+    {
+      "symbol": "000062.SZ",
+      "name": "深圳华强",
+      "window_start": "2024-02-05",
+      "window_end": "2024-09-06",
+      "whole_period_buy_fills": 5,
+      "whole_period_net_profit": -4604.3081332199,
+      "first_e0_ready": "2013-04-15",
+      "window_i_buy_days": 25,
+      "window_i_buy_days_act_off": 17,
+      "window_intents": 8,
+      "window_intent_causes": {
+        "cash_competition_for_whole_order": 8
+      },
+      "whole_period_pre_intent_cap_rejections": 0
+    },
+    {
+      "symbol": "301666.SZ",
+      "name": "大普微-UW",
+      "window_start": "2026-04-21",
+      "window_end": "2026-05-22",
+      "whole_period_buy_fills": 0,
+      "whole_period_net_profit": 0.0,
+      "first_e0_ready": "2026-07-24",
+      "window_i_buy_days": 0,
+      "window_i_buy_days_act_off": 0,
+      "window_intents": 0,
+      "window_intent_causes": {},
+      "whole_period_pre_intent_cap_rejections": 0
+    },
+    {
+      "symbol": "688256.SH",
+      "name": "寒武纪",
+      "window_start": "2024-02-05",
+      "window_end": "2026-06-30",
+      "whole_period_buy_fills": 0,
+      "whole_period_net_profit": 0.0,
+      "first_e0_ready": "2020-10-26",
+      "window_i_buy_days": 114,
+      "window_i_buy_days_act_off": 2,
+      "window_intents": 34,
+      "window_intent_causes": {
+        "cash_competition_for_whole_order": 22,
+        "next_open_minimum_exceeds_frozen_amount_or_share_contract": 12
+      },
+      "whole_period_pre_intent_cap_rejections": 77
+    },
+    {
+      "symbol": "688498.SH",
+      "name": "源杰科技",
+      "window_start": "2024-09-09",
+      "window_end": "2026-06-30",
+      "whole_period_buy_fills": 0,
+      "whole_period_net_profit": 0.0,
+      "first_e0_ready": "2023-03-29",
+      "window_i_buy_days": 88,
+      "window_i_buy_days_act_off": 10,
+      "window_intents": 41,
+      "window_intent_causes": {
+        "cash_competition_for_whole_order": 21,
+        "next_open_minimum_exceeds_frozen_amount_or_share_contract": 20
+      },
+      "whole_period_pre_intent_cap_rejections": 28
+    },
+    {
+      "symbol": "688502.SH",
+      "name": "茂莱光学",
+      "window_start": "2024-09-23",
+      "window_end": "2026-06-30",
+      "whole_period_buy_fills": 0,
+      "whole_period_net_profit": 0.0,
+      "first_e0_ready": "2023-06-13",
+      "window_i_buy_days": 69,
+      "window_i_buy_days_act_off": 2,
+      "window_intents": 63,
+      "window_intent_causes": {
+        "cash_competition_for_whole_order": 46,
+        "next_open_minimum_exceeds_frozen_amount_or_share_contract": 17
+      },
+      "whole_period_pre_intent_cap_rejections": 0
+    },
+    {
+      "symbol": "688615.SH",
+      "name": "合合信息",
+      "window_start": "2024-09-26",
+      "window_end": "2026-01-15",
+      "whole_period_buy_fills": 0,
+      "whole_period_net_profit": 0.0,
+      "first_e0_ready": "2025-01-02",
+      "window_i_buy_days": 44,
+      "window_i_buy_days_act_off": 0,
+      "window_intents": 39,
+      "window_intent_causes": {
+        "cash_competition_for_whole_order": 21,
+        "next_open_minimum_exceeds_frozen_amount_or_share_contract": 18
+      },
+      "whole_period_pre_intent_cap_rejections": 0
+    }
+  ],
+  "source_example": {
+    "rank": 13,
+    "symbol": "688498.SH",
+    "name": "源杰科技",
+    "pvr": 69.95599624040572,
+    "minimum_cash": 94582.2275710455,
+    "ideal_cash": 20652.866729633366,
+    "minimum_ratio": 0.21835885303208738,
+    "selected": false,
+    "pvr_rank": 1
+  },
+  "warning": "Single-order affordability is not simultaneous affordability of all orders. Skipping mobile layers is a static cash boundary, not alternate fills or account returns."
+}

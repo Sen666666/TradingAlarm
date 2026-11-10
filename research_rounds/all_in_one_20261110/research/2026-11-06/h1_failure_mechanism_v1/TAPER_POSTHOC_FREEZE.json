@@ -1,0 +1,53 @@
+{
+  "requested_central": [
+    5,
+    10
+  ],
+  "neighbors": [
+    [
+      4,
+      9
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      4,
+      11
+    ],
+    [
+      5,
+      9
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      5,
+      11
+    ],
+    [
+      6,
+      9
+    ],
+    [
+      6,
+      10
+    ],
+    [
+      6,
+      11
+    ]
+  ],
+  "formula": "g=clip((U-Z)/(U-L),0,1); T=H+g*(B-H). Unknown Z disables promotion (T=H). Z and ATR unchanged.",
+  "reason": "5 and10 chosen after reading January15 cases; every neighbor is posthoc sensitivity, no tuning winner will be selected.",
+  "same_six_dates": true,
+  "same_i_buy_pool": true,
+  "K": [
+    20,
+    100
+  ],
+  "diagnostics": "20-common-date close outcomes, completeness, medians, mean adverse path; remove largest positive outcome in each selected group only as ex-post concentration sensitivity, never alter original ranking."
+}

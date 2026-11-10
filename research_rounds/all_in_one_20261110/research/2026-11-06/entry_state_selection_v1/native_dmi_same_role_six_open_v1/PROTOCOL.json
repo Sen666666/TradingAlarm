@@ -1,0 +1,17 @@
+{
+  "name": "native_dmi_same_role_six_open_v1",
+  "signal_days": [
+    "2022-01-04",
+    "2022-05-10",
+    "2024-09-12",
+    "2024-09-25",
+    "2024-10-15",
+    "2026-01-15"
+  ],
+  "arm": "Original frozen continuous PVR/ACT,1200000 starting cash. Each date branches independently from same saved pre-open state; NOACT not run.",
+  "consumer": "after original CLOSE sizes and PVR unique-stock slots, before original next OPEN; only FLAT industry-active stocks, grouping exact pending role set and industry; known original PVR and known d sort (-d,-PVR,sid) into existing eligible numeric stock slots. Same-stock role bundle remains together CORE first. Other stocks, held ADD, UNKNOWN locked.",
+  "math": "Original dmi_boundary_migration_v1 competitive DM, Wilder 14 SMA seed RMA1/14, d=(RMA DM+ - RMA DM-)/(sum). Zero denominator0; invalid/source segment resets. No threshold or ADX. Full prefix to each signal date, original 2013 start.",
+  "checks": "Exact old PVR pending, preview native LR, actual NoConfirmed60 route and private reservation feedback; independently reconstruct same-close layers, original next-open sell-only cashflow, corporate actions/settlements, known-open marks; require baseline matches all original next-open reserve/reject counts, quantities/pools/fees before using counterfactual. Known open+5bp, dated lot/fees, prior20positivevolume1% only; all historical tradability UNKNOWN.",
+  "restrictions": "No later buy/exit/return labels input. No full account/PnL run. Old later complete round not newcandidate return. If snapshot incomplete stop specific date not fabricate.",
+  "report": "All six raw/eligible/mutable/moved/unknown; original/new funded exact candidates cash/fees/risk and displaceds including heldADD indirectchanges. 2024/2026 namedearlyimpact, no return claim."
+}

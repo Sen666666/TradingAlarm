@@ -1,0 +1,88 @@
+ def expire_day_buys(self,at):
+  credits={}
+  if self.add_enabled and self.delay_events:
+   for sid,o in self.buys.items():
+    i=self.order_meta[o.order_id];key=self.credit_key(sid,i['epoch']) if i['kind']=='add' else None
+    if key and at.date()>=o.earliest_at.date() and not o.filled_shares and not o.delay_remaining and o.order_id in self.waited_orders:
+     credits[sid]=dict(key=key,at=at,order=o.order_id)
+  result=super().expire_day_buys(at);self.add_credits=credits
+  for sid,c in credits.items():self.ops.append(dict(kind='ADD_credit_created',at=at,sid=sid,key=c['key'],order=c['order']))
+  return result
+
+
+ def reserve_quantity(self,i,q,p,schedule,at):
+  activate(self);oid=super().reserve_quantity(i,q,p,schedule,at);order=self.buys[i['sid']]
+  order.delay_remaining=self.delay_events
+  if i['kind']=='core' and i['sid'] in self.daily_delay_credit:order.delay_remaining=0
+  if i['kind']=='add':
+   c=self.add_credits.get(i['sid']);k=self.cp_key(i['sid'],i['clock'].decision_at,i['epoch'])
+   if c and c['at']==i['clock'].decision_at and c['key']==self.credit_key(i['sid'],i['epoch']) and k in self.cp_used:
+    order.delay_remaining=0;self.add_credits.pop(i['sid'],None)
+    self.ops.append(dict(kind='ADD_credit_consumed',at=at,sid=i['sid'],from_order=c['order'],to_order=oid,signal_at=i['clock'].decision_at))
+  return oid
+
+
+ def credit_key(self,sid,epoch):
+  cores=[x for x in self.live(sid) if x['kind']=='core']
+  if not cores or sid in self.exits:return None
+  return sid,epoch,'CP1_ADD',cores[0]['id']
+
+
+ def use_cp(self,i):
+  if i['kind']=='add':
+   k=self.cp_key(i['sid'],i['clock'].decision_at,i['epoch']);assert k not in self.cp_used;self.cp_used.add(k)
+   c=self.add_credits.get(i['sid']);valid=bool(c and c['at']==i['clock'].decision_at and c['key']==self.credit_key(i['sid'],i['epoch']))
+   if valid:self.ops.append(dict(kind='ADD_credit_intent',at=i['clock'].decision_at,sid=i['sid'],from_order=c['order']))
+
+
+    def _consume_event(self, order, window):
+        identity = order.order_id if isinstance(order, BuyOrder) else order.event_id
+        key = identity, window.event_id
+        if key in self.used_events:
+            return False
+        self.used_events.add(key)
+        if order.delay_remaining:
+            order.delay_remaining -= 1
+            return False
+        return True
+
+
+    def expire_day_buys(self, at):
+        """End the one-session order lease, including days without a stock bar.
+
+        Return only zero-fill attempts to re-arm. Partly bought shares stay held.
+        Stress delay credit conveys waiting already spent, no capital or priority.
+        """
+        self._time(at)
+        self.daily_delay_credit = set()
+        unfilled = []
+        for sid, order in tuple(self.buys.items()):
+            if at.date() < order.earliest_at.date():
+                continue
+            if not order.filled_shares and not self.quantity(sid):
+                unfilled.append(sid)
+                if self.delay_events and not order.delay_remaining:
+                    self.daily_delay_credit.add(sid)
+            self.audit_log.append(dict(kind='buy_day_expiry', at=at, sid=sid,
+                order_id=order.order_id, created_at=order.created_at,
+                valid_session=order.earliest_at.date().isoformat(),
+                filled_shares=order.filled_shares, rearm=sid in unfilled,
+                delay_credit=sid in self.daily_delay_credit))
+            self.cancel_buy(sid)
+        return set(unfilled)
+
+
+    def request_exit(self, quote: DecisionQuote, clock: admission.Clock):
+        self._time(clock.decision_at)
+        sid = quote.security_id
+        if sid in self.positions:
+            pos = self.positions[sid]
+            if (quote.issuer_id, quote.sector_id, quote.currency) != (pos.issuer_id, pos.sector_id, pos.currency):
+                raise ValueError('Exit identity/currency disagrees with existing inventory')
+        self.cancel_buy(sid)
+        if self.quantity(sid) and sid not in self.exits:
+            quote.read_price(clock.decision_at)
+            self.exits[sid] = ExitOrder(self._id('exit', sid), quote, clock.decision_at,
+                                        clock.earliest_execution_at, self.delay_events)
+            self.audit_log.append(dict(kind='exit_request', at=clock.decision_at, sid=sid,
+                                      event_id=self.exits[sid].event_id))

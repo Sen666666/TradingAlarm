@@ -1,0 +1,43 @@
+{
+  "2022": {
+    "passed": true,
+    "complete_observable_restart_receipt": {
+      "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/runs/2022/CROSS_PROCESS_RESTART.json",
+      "sha256": "4ccc915d16f535b3b557d33d691320131696d709973518a92e9e437b3433d7bc"
+    },
+    "checkpoint_packed_and_raw_sha_exact": true,
+    "all_final_source_SHA_exact": 39,
+    "grant_SHA_exact": true,
+    "cursor": "2022-01-28 15:10:00+08:00",
+    "events": 40,
+    "closes": 19,
+    "source_files": {
+      "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/runs/2022/FINAL.json.gz": "5647b8e5ce55c20450fe738adf3a54b9ea4023a4d5a581da3aeba92416376e1a",
+      "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/runs/2022/FINAL.pkl.gz": "3d2c98403981b57d770c3505b794e64805a98b5a6b8a5e5260c5fb7b1e37c3d4",
+      "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/runs/2022/FINAL.provenance.json": "cb7426c3db1d240127c739a6184c65ddcccb6b818ebf15505a59c6d37b163e57",
+      "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/runs/2022/COMPLETED.json": "a071d85289dfc1df85ce1538c03f7614c6646464809f3b9e0b91614bc2b5cfc5",
+      "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/restart_audit.py": "79f1555300a947a0f535c4f6a3874fc26f68f02e013c2e69467c81df4c4dad95"
+    }
+  },
+  "2025_26": {
+    "passed": true,
+    "complete_observable_restart_receipt": {
+      "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/runs/2025_26/CROSS_PROCESS_RESTART.json",
+      "sha256": "e7967183acd2a886fb5884127a0d643fcf256bb5103fce971818949fd7bc974e"
+    },
+    "checkpoint_packed_and_raw_sha_exact": true,
+    "all_final_source_SHA_exact": 39,
+    "grant_SHA_exact": true,
+    "cursor": "2025-08-29 15:10:00+08:00",
+    "events": 132,
+    "closes": 44,
+    "source_files": {
+      "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/runs/2025_26/FINAL.json.gz": "5c0edbad224672096d77d5975b673623b3606f2df11199b67e9e011d5d7d7d92",
+      "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/runs/2025_26/FINAL.pkl.gz": "8de37629cfb4a2364b1c4bc16566b19522ee8e5088fe9f8e65f9cee7fb443106",
+      "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/runs/2025_26/FINAL.provenance.json": "8ab58ce307e1b7dcc428e84b105051ab7b3b96c7d1918c00bf2f47a656226394",
+      "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/runs/2025_26/COMPLETED.json": "d18400fbc81f679bdefeac8d460ebcbe1a6fe5e56b0190b5e54de70c3055c8fd",
+      "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/restart_audit.py": "79f1555300a947a0f535c4f6a3874fc26f68f02e013c2e69467c81df4c4dad95"
+    }
+  },
+  "scope": "Read-only receipt/code review and independent byte/source/grant/cursor/unique-event checks; did not run engine or independently execute restore. Complete-state exact restart itself certified by reviewed separate-process auditor; old same-process errata retained."
+}

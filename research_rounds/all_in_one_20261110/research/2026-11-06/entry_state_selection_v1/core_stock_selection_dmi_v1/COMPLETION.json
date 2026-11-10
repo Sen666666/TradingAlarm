@@ -1,0 +1,14 @@
+{
+  "completed": true,
+  "single_comparison": true,
+  "accounts": 0,
+  "parameter_searches": 0,
+  "original_models_rerun": 0,
+  "new_CORE_domain_rows": 106618,
+  "same_day_sector_role_K": true,
+  "source_hashes_unchanged": true,
+  "rank_seal_unchanged": true,
+  "old_label_overlap_exact": 42913,
+  "new_net_round_win_rate_computed": false,
+  "seconds": 22.063531582709402
+}

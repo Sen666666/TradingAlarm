@@ -1,0 +1,49 @@
+{
+  "status": "COMPLETED_WITH_EXPLICIT_TECH_ASSET_UNKNOWN_AND_LIMITED_INDEPENDENT_REVIEW",
+  "full_arms_executed_once": [
+    "all1709",
+    "tech407"
+  ],
+  "original_baseline_21_semantic_outputs_exact": true,
+  "final_input_code_QA_and_source_reverification": true,
+  "final_original_mapping_files_checked": 17450,
+  "reverification_seconds": 59.60563804209232,
+  "resources": {
+    "all1709": {
+      "status": "COMPLETED_RESOURCE_PASS",
+      "elapsed_seconds": 61.408189083915204,
+      "peak_rss_bytes": 3425861632,
+      "wall_limit_seconds": 900,
+      "rss_limit_bytes": 6442450944,
+      "resource_pass": true,
+      "output_seal_sha256": "573892e89aef46cbafbbaee2a7ccdd41f040db647f4f7e771a29ef34f941ff73",
+      "final_resource_sha256": "3851f7249272e4d49b391959c528009043a52af709ebe97b7f9fea3ec78edb0f"
+    },
+    "tech407": {
+      "status": "COMPLETED_RESOURCE_PASS",
+      "elapsed_seconds": 24.518915459048003,
+      "peak_rss_bytes": 1242644480,
+      "wall_limit_seconds": 900,
+      "rss_limit_bytes": 6442450944,
+      "resource_pass": true,
+      "output_seal_sha256": "185350e02c344a8451eaea77655bddc19208d4f020da59641d04492f4b74d85d",
+      "final_resource_sha256": "10d8ea3bd608de5f7afca49552ec061e9d1125635bb282b9dfa1ec28bff475b4"
+    }
+  },
+  "technology_full_NAV_return_DD": null,
+  "technology_unknown": {
+    "sid": "600641.SH",
+    "core": 100,
+    "add": 1000,
+    "first_phase": "2024-11-28 OPEN",
+    "no_repair_or_rerun": true
+  },
+  "report_only_fixes": [
+    "Explicit zero-liability flag counting and bound baseline launch gate in V2; baseline trading outputs remain exact",
+    "Separate bridge audit emission counts versus real asset UNKNOWN, and legacy archive state versus report closure",
+    "Separate mechanical support-prefix and same-birth final follow-up, no future labels in as-of table",
+    "Daily Silver-Jie ADD proxy above observed high explicitly disclosed"
+  ],
+  "readout_sha256": "e13dce4f4e62411d76392f6d40a44d9ca8971db24c51b6ed3f853c2ffadbc1d2",
+  "review_record_sha256": "e5f9fa6283475e575deb73ae3e650de326b535b03d0e1d3eb28539798d6cda83"
+}

@@ -1,0 +1,279 @@
+2026-11-04 本轮正在持续研究，不因单轮完成暂停
+
+用户/parent最新授权
+用户恢复，要求多agent并行及独审，按重大行情参与/买错纠偏优先，不陷两均盈利微排名。120万元计划本金、35%可接受回撤边界不是成功标准。parent明确技术验收过即跑两个冻结诊断窗，之后按证据继续到跨周期实质改进或需要用户决定；不要阶段停。无实盘/发布/外部通信。旧PVR非最优预设。
+
+路径与文档
+本轮只写 /Users/bytedance/Documents/Codex/2026-11-04/task 。活跃项目 /Users/bytedance/Documents/ChatGPT/money（AGENTS到10/29，docs共识11/1 v3.6），迁移副本 /Users/bytedance/repos/TradingAlarm/TradingAlarm 仅10/22旧文档。最新历史实验 /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds 到11/3，旧CURRENT_RESEARCH_CHECKPOINT落后。新本轮全部A股1709=SH919/SZ784/BJ6，HK0；10/24旧用户已授权该轮只A。当前快照/已见开发/日线执行代理，非PIT/OOS/实盘。旧100万元比较不缩放成120万。
+
+重要区分
+旧PVR_SLOT1源Bdiag本来已取消账户3%，没有新C10_6。C10_NO_AR6不能解释/修复旧PVR半导体漏买。两条研究独立，均沿全链分析。若新C弱，不继续C叠补丁替代重大行情主线。
+
+当前agent与任务
+/root/ar6_native_feasibility：唯一C10_NO_AR6两段经济与technical，仍监控JulAug。
+/root/risk_constraints：纯JSON finance/NAV/DD/风险/筹资分析，Jan已完成，监控Jul完成即跑。
+/root/loss_correction：逐层/stock/campaign与实际筹资链，Jan已完，准备旧C2单次静态Jan17诊断。
+/root/independent_review：独立数值/因果/finance/code审查，勿直接重用分析函数。
+/root/participation：跨行情/旧PVR半导体537拒单链，报告已完成，可继续复核。
+/root/pvr_pool_feasibility：PVR_NO_CONFIRMED60三门同合同纯component+精确S0恢复（已授权原策略有界确定性重放，不覆盖旧）。
+
+C10_NO_AR6冻结试验
+仅去账户6%新承诺/缩量/最终准入，保留行业5/资本90/现金10/股10/probe.5/core.25/ACT/费用/退出锁/实际保护及pending revalidate。两条新路径从原始fresh1m：2022Jan4–28，2025Jul1–Aug29；旧C10只读。source adapter.py SHA94acd683a8381f40bb8fecbb224353e216b8a6367437ef584341d6ec031ffd5b；adapter_v2 memo-context wrapper SHA9b636f5e55d985205bd7c140b5692619251a944dc8c87cbd60fb3dc3514f17b6；bounded_run SHA893f706efaa304bf697887699045434e3e09727cd0628e0458ef1d8fd7587f1d。TECHNICAL_READINESS SHAb71099c44e56b8542c8e95033e9aa6ee8f43f5f85bfe750479ee940377b34c8c。root已逐SHA核并创建AUTH-2022及AUTH-2025_26，parent明确go，无需再问用户。
+目录 ar6_native_feasibility/runs/2022 和 runs/2025_26。agent启动session5506(Jan)、16971(Jul)，勿重复launch。Jul现在约7/28，44日全段还在跑，单日25–35s；所有optional首轮成功，任何optional失败必须停在已提交必要CLOSE，禁止自动retry。FLOW领先CP恢复直接拒绝，需人工核确定性，不能自动重放。
+前缀ON/OFF full/physical ×2窗八支已执行，complete economic/strategy/trusted/budget/locks/QD/f1 exact。Jan旧recovered有23处失败/修复日志差异非经济差；必要digest仅失败retrymetadata未覆盖，明示不重造该工程。v2 memo只定向两真实trusted/default+context miss核同，没重跑整前缀。
+重要勘误：原readiness cross_process恢复误标，实际当时同进程pickle恢复。不改运行source/grant/readiness；后另新独立进程已PASS八prefix与Jan终态（0新账户events），证据PREFIX_CROSS_PROCESS_RESTART.json SHA683782...1613、Jan CROSS_PROCESS_RESTART SHA4ccc915...d7bc；RESTART_SCOPE_ERRATA.json保留范围纠正。最终以新收据为准。
+
+Jan经济已完成（Jul仍跑）
+新NAV887171.781283 vs原905690.270328，收益−11.2828% vs−9.4310%（差−1.85185pp），closeDD13.8517% vs10.1101%，meanexpo62.6836% vs55.6626%。新40event/19close prefix钱/股/费/股息桥核同，FLOW与final fills/trades同；旧account-only只有final桥+已审NAV40点/19close外部曲线，不能称重算旧40现金prefix。
+新real−112275.89 vs−93722.98，unreal差+34.43，无股息；费用+797.49，买毛款475.13 vs418.62万。筹资卖次数48→44但毛额150.92→186.23万，静态少卖不能外推连续。获资股83→82，fills99→99但非同母体：69共同same-signal，new/lost各30。
+新已平负额208853.75 vs170637.73、已平正额96577.86 vs76914.75；新翰宇尾层42765.36，原同Jan12signal/same6700股Jan17筹资27717.32，新Jan18才卖，多15048.05，真实留赢家一天作用；宁波Jan17首次200→4000股亏526→17946、恒帅300→700亏10684→24929，新科博达1100亏13921。新增失败资金和留赢家两通道同存。不能只用99层数推广度不变。Jan新风险日占用本金77.08%，不是全浮盈风险。
+finance路径 risk_constraints/ar6_results_2022/COMPARISON.json；逐层 loss_correction/ar6-2022-analysis。独审正在核。000999 trade.floor>rawprice的假警已排除：floor是adjusted，除factor1.12123后36.1079低于raw成交37.6788，原与新该笔逐值exact，无新bug，不要扩为问题。
+
+已完成新只读规模诊断
+当前原C10 JulAug186层168已平113负层合22.35万，最差−14.63%，无≥20%亏层；5最大负额23.17%。只降低该短窗极端单层退出优先级，不说长期大亏解决。纯筹资83负层−13.19万但52正层+20.11万，不能按标签叫坏卖。
+跨2022/2023/2024九月/2026局部29526行业日，量化异步局部强需求；C10已有G/S，别重复设计。OLD924407 canonical CP1缺口unknown，不拼同池。
+风险64close分解独审13,730数值pass：C10Jul本金77.19%，Aug51.05%；旧JanC10仅4日89.68%，R0另19日78.40不可拼全月。pending全0/nontrivial split锁无样本，scope写明。
+
+旧PVR半导体重要主线（不是C10_6）
+participation/PVR_SEMICONDUCTOR_CHAIN/READOUT.txt。833合格CP1+Q股日116股，13成交信号/11股；537开盘拒，257未计划，26terminal。
+257全为完整正2%预算不足原合法最小手，46股，不是股cap已满。537拒标签probe_risk532/pool_capital277/sector_capital315/sector_risk9重叠非独占。116close中confirmed>60有75日、probe_risk>.5有79、同超57，semis自身行业risk1超0日，cash全>10。513/537在signal-close最小手只有confirmed60数值门失败，23数值均过，1还有sector1；去60后536/537只是必要close能力上界，不是native_OPEN/串行/migrate已解锁。6已清股后24机会=21资源拒+3尺寸拒，无再成交；反例安路无后续本母体机会。
+actual route不是confirmed-first fallback！先routes=['probe']，migrate成功才加confirmed，两路算max quantity选最大，同量probe优先。migrate即使moved0，confirmed已超60也会拒。
+PVR_NO_CONFIRMED60候选仅同步去migrate、route.allowed、Contract.request三处同合同60门，保留probe pending/unACK迁池前提/receipt/现金10/行业1/股10/2%目标/ACT等；不加cap90，不混SD解耦（旧SD保60强窗还弱）。独审PVR_POOL_LOGIC_AUDIT.json重算3759数值通过支持小量exact S0，不经济结论。
+精确诊断卡root已批D1 2026Jan19 OPEN（Jan16母342intent/250股，semi拒30并列最多最早tie）；D2 2022Dec6（Dec5母672/480，全年pool_capital最多152）；D3 2026May12（May11母614/463，semi同拒30但全日原funding无pool_capital，反例）。原日志未保存pre-candidate OPEN，只有quarterCP，故root授权从最近自身原CP确定性有界重放恢复S0，先OFF逐funding/trades/qty/pool/NAV核同，ON仅纯route/reserve，不fill。必须准确报原策略重放实际OPEN/fill事件数，不能叫0金融。全部写pvr_pool_feasibility新目录，原源只读。先D1，再D2/D3。Python用 /Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/.venv/bin/python -B，不安装。
+
+后续C2排重/诊断
+旧C2=g-s-C2-step-cap-projection-v1-20261102：min(C10原maxq,legal_floor(.02*冻结NAV/[mark*(1+5bp)]))，12合成+Jan6/Jul3静态已做，无经济。C20是batch筹资20% cap不是同机制。root要求loss agent基于新Jan17失败真规模写C2接续卡并最多原Jan17全批静态OFF/C2（从原C10 CP取trusted，不能拿NO_AR6）；这是结果后机制诊断不是新效力证明，不调2%。C2可能阻大赢家扩张/增后排试错，保留反例。还未授权C2连续经济。
+
+下一动作
+持续Jul至Aug29，完成立即双分析+独审；按两窗综合拒绝/支持有限机制，不晋升。PVR60 exact S0组件并行优先，不让技术元数据替代重大趋势研究。若资本放松损失不相称，不能调阈值挽救或继续新C叠补丁。存在支持的新机制再先逻辑/正反/量价图检/因果接口审后有限经济；父要求跨周期实质改进前不停。公共流程task-2/README已读，当前不迁移以免接线成本。
+
+
+最新追加（不覆盖旧进度）
+- C10_NO_AR6 JulAug已到8/22 ACTION，39/44收盘；8/21closeNAV925061.78，五收盘待跑。无需重复launch。Jan独审CONTINUOUS_2022_AUDIT.json PASS，90 flat-to-flat campaigns；翰宇从原净29.9107%普通跨到46.1495%尾部，所以新tail42765/ordinary下降含整笔迁类，不能当新增独立尾部收益。stock同源真实增益约15435.86仍被其它额外亏损超过。
+- PVR_NO_CONFIRMED60 D1 exact已完成：恢复原CP到Jan19原30事件=11OPEN/10CLOSE/9动作，52原fills；原prefix funding47935/trade1011/journal1646/daily136/balance136全exact。注意实现agent曾消息乱报prefix计数，已纠正，以RESTORE_IDENTITY.json为准。
+- D1 OFF342全域原顺序/数量/pool exact；ON0fills只route/reserve计划：2→19预留，semis1→5；newgross309052.68912、nominalrisk+29057.95960、fees104.90173，finalavailable435395.35592→126237.76507，10%decisionNAV reserve126050.46871，余187.30。新17预留16空仓foothold/1加层；半导体新增4（3空仓1加层），其gross45976.977/risk4839.05570。总risk5.54→7.87%只是名义距离，不是回撤或35%可比量。独审正逐预留重算。
+- D1 first raw pure preview pickle含局部cost闭包保存失败、后OFF consumed set序列化排序不同，均额外技术失败有归档并同范围复验，非策略失败；新observer不保存不可pickle闭包。D2/D3已并行输入读取。
+- 旧PVR route不是fixed confirmed-first；先probe再migrate后可加confirmed，两路max择量、同量probe优先。去三处60会同时改变迁池/两路可用与probe释放，仍一个资本合同，无SD解耦。
+- C2 Jan17静态87域已独审PASS，原positiveQ6→10，新gross153670.80→167582.75、Dmark124995→123889、exposure62.92→64.41%、risk仍5.992%左右；不能把小单cap称整户风险下降。翰宇在87域且fresh receipt、max4900→900，两边Q0（此前agent误说不在母域已更正）；原held在Jan17OPEN已卖，不得称C2保住原赢家。C2仍只设计/静态，未授权经济。
+
+
+最新阶段：C10关闭、PVR_NO60两full完成并继续（用户/parent明确继续，别停）
+C10 JulAug完成44close/132events+Jan40events，原进程与独立新进程完整恢复PASS、源/grant未改。root C10_NO_AR6_DECISION已写不晋升/不叠补丁；强窗比C10仅+2040.06，DD10.0833→11.9489、暴露63.75→84.10、strictreal少25061.56/未实现多26515.19/AR多586.43、费用多2627.06、额外已平负55064.98；SC/PVR同日26.13%/22.29%仅多机制参考。C2只静态不经济。INDEX及最终独审都已完成，无待C10阻碍。
+
+PVR_NO_CONFIRMED60两full root已逐39源SHA/gates/cross核并授权：pvr_pool_feasibility/ROOT_AUTHORIZATION.json SHA801027a46d0a81bea55ac069c821e6b96bf19b57ee0d1de579904613fd009c10，ECONOMIC_SOURCE_FREEZE SHA9b88be145ee75ae6cf314459d8566ae5141ebd332ddebe32b08ccb0ace8aa30d；run_economic.py SHA25c6d9d2f2621bbf0c29e0041fb6c942ac80ba121810b33fac7737951e7ba6f5。runs/2022及2025_26均DONE/exit0、无resume/无failure，原run_seconds163.98/199.51，总206.88/245.83s，未触600s预算，别重复运行。FULL_EXECUTION_COMPLETION和CURRENT_STATUS已落；旧快照READOUT中0full是历史阶段，不能误读。
+两full mainfinance+risk+独审各旧新242close/数量/费用/现金/股息/NAV/39源码/own季度CP/起点已crosscheck exact，PVR_FINANCE_CROSSCHECK及PVR_FULL_IDENTITY_AUDIT可用。
+2022新收益−29.5512% vs原−28.4991%、DD29.9736 vs28.7608、meanexpo69.7302 vs51.9547、risk均5.3113 vs3.6576，费19458.21 vs16958.79；财富差−10521.49。real−299603.74 vs−280222.48，unreal1725.03 vs−6762.03，divAR2366.56 vs1993.84。ACT4/20 vs4/25暂停、6/17同恢复，paused38 vs35。股票532→560，层933→979。cashclosed tail4→4贡献34958.36→44692.16，ordinary633→653净−325767.79→−351358.73。新增120股−47396.91，失92股少亏29937.32，共同+6938.10，不能把广度当改善。
+强窗新NAV2263281.230975（+126.3281%）vs原1948966.515656（+94.8967%），差+314314.72；DD11.6595 vs9.0593、meanexpo88.3876 vs64.3680、fee22720.03 vs16687.20。real404827.15 vs313709.67，unreal847601.88 vs630192.44，divAR10852.20 vs5064.41。普通损耗更大：cashclosed tail33→33(成员非相同)净+295670.97差、ordinary差−198483.12；active campaign贡献差+212975.30(非纯浮盈)、flat未付AR差+4151.57，四桶exact。首参贡献384396→360458，加仓266533→529537，重入298037→373287；新增176股合−6712.67、失81股账差−19711.00、共同+340738.39，总+314314.72。光智/嘉美两股占改善56.61%是肥尾依赖描述不是否决，不要求删赢家盈利。
+重要目标未解决：严格半导体H1买款257366.55→638473.48、fills13→25、meanweight1.6788→3.2224%、peak7.543→12.111%，但区间贡献+9191.96→−16783.58。活跃股票11→18，first/add/reentry9/2/2→15/6/4。No60整体改进不是修好半导体；不把邻电子化学(贡献30.76→35.72万)/元件并入半导体。
+
+下一阶段均技术准备，不经济直到root另grant：
+1 /root/pvr_pool_feasibility 做NO60自身2022→2023显式horizon接续。旧原PVR2023 scores/canonical和已审自身连续账都现成，但旧importer硬写715009 NAV/NoAccountBudget，必须绑新ownCP704487.847及SHA1bcec7054c58555e76084e03d80b375dde2f1cf13a2938fedb27e1437c625f7b；完整ACT峰/损耗/旧仓/挂单/receipt/role/AR保留，0事件核同+Jan3 physical/restart，过后唯一2023连续路径单独rootgrant。写其新continuation2023子目录，不改已冻full源/card。
+2 /root/ar6_native_feasibility NEW_CYCLE_READINESS/2024_full 做完整1709 PVR scores+1799canonical（不重算I/CP1/stage，不下载）及2024 loader/horizon卡，计划旧PVR own2023末→2024、No60 own2023末→2024配对连续，更完整2022–24周期。旧407不能冒同1709。已核2024 242日/1709/90暖数值齐，74股无2024观察保留unknown，不默删；全域canonical/score尚未完成不能称ready。新manifest拟保2022/23/24三年×1709，旧两年逐格exact/2024 NA继承。原readiness6样本pure checks过不外推全域。
+3 /root/pvr_pressure_readiness 新agent准备cost2/D1压力卡和技术，不经济。已有强窗PVR-D1v2原账63.6843%/8.8186可只读；2022D1与PVR cost2原基准是否有待查。D1 amend_d1有第四处confirmed60，NO60+D1需同删confirmed部分保probe10，不能普通normal套进去残留门；也不能把D1门混normal。原FeeSchedule/cost2/D1v2参数不扫。
+4 /root/loss_correction 新任务最多6个开发案例：No60半导体新漏斗+ordinary大负/未捕主升/增益赢家P/V全链，先已有OHLCV+I/CP1/PVR/floor，后一个可证伪机制，标签仅分析，不机械缩止损/锁盈。写新目录不新信号/账户。
+5 /root/risk_constraints 补first/add/reentry投入资本分母与贡献/风险/费用对照，同口径closed/open，不能暴露线性缩放冒alpha；现有两个full财务READOUT已完成。
+6 /root/independent_review 继续审2023/2024/压力门与分析；最终父要求跨周期审查非单窗口晋升。
+
+当前无经济执行阻碍、无等待用户批准。parent最新明示继续跨周期、半导体归因、同条件沿各自2022状态入2023；未授权新的策略参数扫描或实盘。
+
+
+继续阶段最新追加：
+2023唯一经济已root批准并真启动。continuation2023/FULL_2023_RUN_AUTHORIZATION.json SHA36d3b1c0f5d1e82af08cc9056529b3308ce6768acb24c0aa4769c83394e51971；run_full.py e18217e3bf05605d22ff9ded86d067eca39515d2e4b3d9963336fd5dbea370bc；manifest0a2ae71aca93655d8328e4f0bf857dc397f490fbfd2d939af84ccb0f26d32ead。源49核；0事件63acct+28strategy全继承、8负例、Jan3 full/physical/真跨进程都过。已从ownJan3 full CP SHA7a32c660...001b7f之后开始唯一2023续跑session38723；input load38.52秒，最新ownCP2023Feb28，无failure，原600s。全年endDec29，年收益normalize Dec30 NAV704487.847，不是Jan3 708850.767；同时审2022→2023累计484天DD。旧PVR2023只读baseline662557.910167，段−7.33577/DD20.14543，累计DD33.74421（独审已重算全484天），不要reset峰。
+2024完整数据导出已过：NEW_CYCLE_READINESS/2024_full/READINESS SHA f7b64444461387928b67e796efc60297f55f3c3f19578a0f0f46d86d1e8f0b2a；score manifest70f706e10696bd248e100d4ddc9f0eb375533b47556509bcf95d24f498205c05，canonical8756ac00cc596e966f303401578c741ddb6e7c42ccde25ab370f9207633c4703。全1709旧827156格exact，2024全部413578格ready390394/NA23184；1799canonical全旧2022/23body+2024numeric日期/行业ID/唯一/prefix过。数据导出242.68s、loader46.62s，账户0。input独审PVR_2024_INPUT_AUDIT通过。ar6 agent已继续实际双2024 horizon adapter技术：旧PVR own2023末先control，No60 own2023终态一到new-side；两各自连续，不fresh1m，不旧407。完整2024经济未授权，需两个horizon/首日/恢复ready后root两paths grant。
+压力agent /root/pvr_pressure_readiness 已新增并技术全部独审PVR_PRESSURE_TECHNICAL_AUDIT PASS：47源码、5臂三日资金/数量/fee/rawclose/NAV/pending、cost2/D1 fullphysical+same/cross、第四amend gate、wrongsource/cost/horizon/D1/policy反例均过。只技术full0。虽完整未来矩阵7新full（cost2旧新×2=4+D1旧2022/No60两窗=3，旧强PVR-D1复用），root现在只同意准备最高优先‘NO60强窗D1’1新full（原PVR-D1强窗已有63.6843/DD8.8186），他正在写单case薄entry/card/grant模板，尚未经济grant。不得默认跑7。new-side必须自身D1_ON Jul3技术CP续，不normal途中改delay或旧PVR借状态。正常三门与D1第四amend60均同去confirmed部分，保probe10与所有D1v2原时钟/费用/本金保护。
+No60资金分母补充strong：net差first−23939、ADD+263003、reentry+75250；额外累计买款含费first+283.71万/ADD+242.32万/reentry+83.15万，循环总买1231.91→1841.10万，不等独立追加资本/alpha。ADD已平负额21.19→35.27万但对应自身买款239.63→397.84万，负额/该负层买款8.8427→8.8658%，gross share不得当风险恶化率。risk_constraints/no60_capital_deployment_v2已交审。
+半导体新漏斗loss已独立复算两market keys全833相同。原257最小手/537opening reject/13fill/26terminal；No60=211最小手/569reject/24fill/29terminal；新569中559含cash_or_original_reserve、386sectorcapital、264probeRisk、110sectorRisk，全部标签可重叠，不是第一因果数。旧pool_capital277，新0；去池门后已变实际现金与行业/风险竞争，不可继续说新书有现金只是池cap。6固定P/V开发案例按事后客观准则：普通亏最大资本埃斯顿、额外负最大友邦；未捕主升普冉/新增败先锋；最大已兑现嘉美和最大未平光智。最多6图/原OHLCV+现有I CP1 PVR floor，不能未来标签造门/锁盈，不自动新模型或账户。loss agent继续该主线诊断。
+当前parent最新明确有值得继续研究证据，沿各自2022状态入2023、2024旧407与1709严分；并行核加仓/暴露/成本风险和未覆盖新主线。无等待用户批准/无已知经济阻碍。
+
+持续研究最新断点（以下更新优先于上方历史进度）
+2023自身接续已DONE并全量独审：No60末NAV745426.958378，年度净+40939.111368/+5.81119%；旧PVR自身起点715009.335443、末662557.910167，年度−52451.425276/−7.33577%。两年各自连续，不重置；No60累计仍亏25.4573%，closeDD30.26190%，旧33.74421%。这是绝对失败，不因相对改善/低于35边界而晋升。
+
+2024完整同1709两侧已DONE，0失败/重启，沿各自2023自身状态；不是旧407，不fresh。数据1799 canonical及三年1709 scores完整，74只无2024价格保NA。初始两接口bug在运行冻结前明确修复：episode_starts纯映射由原事实/原构造恢复，cycle_policy实例属性补齐；父CP未改。2024_full/SIGNAL_FIDELITY已全量核两侧各413578机会股日的coreQ/mobileQ/CP1/sector/排名、6858 stage/episode、实际28874/28442 PVR记录与242日ACT fast/br输入，零不一致；独审重建ACT全状态与peak/sawoff也零不一致。2024输入/接续/信号漏载问题已排除，不能再当策略亏损借口。
+2024末旧NAV570847.723610711，年−13.8418371%，年closeDD17.37804879%；No60末637989.612351024，年−14.4128603%，年closeDD20.75095665%。2022—24共726close完整独立核股数/现金/fee/股息/rawmark/NAV；旧累计closeDD44.09232189%，No60为38.08809524%，均2024Sep13谷底。No60末本金亏36.20103876%不是最大回撤，盘中joint路径未验证。2024 completion identity审也PASS：旧79/新86 execution源、CP71/78源及八own季度CP/Jan2六流/book四史前缀exact，无Jan2重播/换池/重置。
+
+924及之后关键问题已全量独审
+2024Sep24–Oct8六close No60财富+179319.6936/+28.6579%，实际平均expo86.8253%，Sep30/Oct8约89%。ACT均ON，Sep30真实coreQ1590/CP11537/mobile1532/PVRready1613，故不叫924没参与或输入漏载。Oct9–Dec31财富−167054.316782/−20.751%，均expo74.2859%；原同期−120067.602496。
+No60 Oct8实际持75层/50股，此后财富变化−54596.716213；Oct8之后303新buyfill且每fill恰一层，净−112457.600569（阶段亏损67.32%），循环买款含费2839637.22。first68买687279.726224净−45595.780334；ADD85买816936.850800净−32488.110148；真实flat后reentry150买1335420.645975净−34373.710088。旧264新fill净−87112.178869、原68held−32955.423627。独审PVR_AFTER924_LAYER_WEALTH_AUDIT.json PASS/71源；逐层股息分配用native saved，股息总claim财务独核，不冒称第二次逐层权利重算。禁新买不是省11.25万的反事实。
+
+强窗D1唯一压力也DONE独审：No60D1末2104124.075020(+110.4124%) vs原D1 1636843.395394(+63.6843%)，DD11.70495 vs8.81858，expo81.56170 vs59.55534，fee19022.19 vs15065.60，242日/1809fills含49已冻prefix均核同。普通无delay与D1不可混。其它6压力臂仍0新full；不因强窗胜利推翻三年失败。半导体H1新D1仍−7765.69 vs原−5851.74。
+
+绝对亏损全量归因已独审PASS
+risk_constraints/absolute_loss_2022_2023/READOUT.md及loss_correction/absolute_loss_2022_2023/READOUT.txt绑定独审。1557层/772股，首次772层−148130.06、ADD404层−45139.87、真实flat重入381层−61303.11。575负股票grossloss712802，top5仅5.77%；68负行业−479655.42/21正行业+225082.38，不能只处理两只坏股。费用32037.08，加回仍亏222535.96。I_exit673层−208109.46含mobile362层−158676及core311层−49433，不是全core远止损；1199mobile均unique fresh canonical CP1，非旧receipt机械重播。相同core存续mobile反复仅7cycle14层−10064.57，不足主因；无新价/候选双推进16层仅−733，而已有双推进292层仍−70183.79；强窗双推进232层+521861.67，不能以等推进/禁重入宣称修复。
+
+2022—23基准/全分段独审PASS_WITH_SCOPE
+benchmark_2022_2023/READOUT.txt，BENCHMARK_2022_2023_INDEPENDENT_AUDIT.json：同1m/484close/Jan4signal次Jan5OPEN、连续不年重置。原BUY_HOLD是最大可负担整手200500shares（接近100%，不是90%；root此前口头90%为误述）；MA63才cross-entry90%，自然持有不日再平衡。BH末729632.06575(−27.0368%)/DD29.6433%；MA63末954870.366(−4.5130%)/DD10.1416，22fills，meanexpo26.3926，费用29396.63。trueHS300 Jan4close→末−30.23037%/closeDD32.94725，Jan5OPEN对齐ref不同。ETFraw开盘+15bp一次/最低5、整手100、严格priorADV1%、T+1，股息有ex/pay；缺历史dated halt/limit/auction档案，execution_verified=false日线proxy。ETF与股票费用/范围不同，不叫因果alpha或单一ACT门收益。pressure agent现延续两条各自2023状态入2024，原规则/不改BH仓位/不下载，不是新策略经济。
+pvr_pool_feasibility/market_phase_2022_2023/READOUT.txt，PVR_MARKET_PHASE_AUDIT.json PASS：先冻全24mo/8q/484days，再保10%zigzag全部5事后诊断腿。222比较行/2514stock-phase/1.654m role barriers，实际1557/1634buy orders身份/单位/次open均核同。
+L02 Apr27–Jul4'22 index+18.813%，No60+5.421%/+42271，34/45OPEN暂停，Jun20 day34首买，lagmeanexpo20.01%，末89.99%；4505联合Q合格freshCP1/3079mobile ACT挡，但不是全可交易，实际86fill是获资执行下界。
+L03 Jul5–Oct31指数−21.96%，No60−10.18%/−83674，expo81.09%/零暂停。
+L04 Nov1'22–Jan30'23指数+19.741%，No60−3.749%/−27681，expo88.72%/全59OPEN ON/212buys。期初65股−2685.55、新83股−2986.65、重入64股−22008.86，其中57上回已平负股−23417.74。L05指数−18.33%而No60+4.88%/+34691.74；101上回已平负股重入反+28986.12，不能简单禁重入或大盘跌全停。全段/全季度避免挑窗口。
+
+当前下一机制：还未授权新策略经济；候选只草案/信息诊断
+用户坚持研究持续，No60资本洞见只能作组件，三年完整政策失败。不能把降低仓位当完整解法，保留2023局部AI及强窗赢家反例。
+A：原ACT市场M是行业等权、行业内股票等权log-return累计的synthetic price，非ETF/HS300；fast原本B>.6，B为低量折扣回报EMA正值比例，不是价格上MA。A草案仅prior63MAX→prior63MEAN，保原shift/暖机/fast/flat状态与nextOPEN，不误换inclusive63mean。静态首次可用2022Jun1/2024Mar1，仍不覆盖反弹起点；旧recovery-only20261027在407科技11行业REC21/EMA21已基础收益/普通损耗更差，不能把更早当成功。原ACT20_FAST .4/.6迟滞edge也非当前fast。
+B：草案仅行业当前price>prior63mean作为confirmed资本/迁池背景许可，原probe保留；不同时加个股门/不改SD/不强卖/不改stop。原已有stock_up=i_target、sector_up=e0_target、RS/Q、sameepisode/attempt CP1推进，不能称旧策略无方向。行业migrate(sector)无sid且批量迁同attempt probe，后台cancel_ack/fill等也可触发；精确定义须覆盖所有入口，不能拿一只股替全行业过门。仅保probe不保证保留赢家：可能挤probe，loss agent检固定正反例。
+risk agent已先冻结MA63_DIAGNOSTIC_PROTOCOL.txt SHA58fd99a563ace65caee4dc2bfd7d82d0318caad00d3de088f4061e86fff8cdbc/17源，母体No60全2022—24 2265fills+强1171fills；在真实decisionCLOSE算个股/行业inclusiveMA63四组、macroETF另域标签、固定原PVRtail30清单。价格可比segment_id是source_segments，不是I/E0趋势段，不在持仓/趋势开始重置MA；unknown不算weak。inclusive与草案prior63不等价；新增版本必须计算前另冻、全报而非看收益择门。旧63return-positive门已大亏、netprogress等旧排重同时保留。
+pool owner做A/B可证伪卡/旧排重；ar6做实际ACT语义/因果钟；risk做全量信息诊断；loss做固定赢家/探路资本反例；independent_review审非冗余及角色语义；pressure做原ETF两路径2024延伸参照。均无新候选经济授权，不跑参数网格。
+本阶段无外部/实盘/发布动作，无待用户决定或具体执行阻碍。继续至新证据支持有限验证或明确需要用户决定，不以报告完成停。
+
+MA/B已用关键反证快速关闭（不再按上方旧候选卡推进）
+inclusiveMA全量独审PASS：PVR_MA63_INFORMATION_AUDIT.json，1406源/6185 direct63快照/2265+1171全部fills/968daily组桥/116phase/原83+94 tail全名单。三年双MA上1841fills/18.116m买款=84.17%仍净亏281466.86。Oct8后严格303新fills中301 S+I+净−113650.058584、2 S-I+净+1192.458014，行业I-零。phase−157701.71是固定入场类别的阶段财富，不能说每个亏损日都MA+。
+exact正式B prior63随后只做一次0账户actualfill交叉，定义卡先冻SHAa6ff032...665ac、protocol8d40bfa...5e017；6.99秒，全2265+1171。三年B PASS1902/2265/18.7009m=86.89%资本、净−269060.315901；FAIL363净−92950.071748；confirmed直接FAIL子集183/1615净−71810。Oct9–Dec31全303buyfill全部PASS，含237confirmed亦全PASS，合−112457.600569；L03PASS−79918/总−83674，L04PASS−31165而FAIL+3484。相较inclusive三年仅16个labels变、strong0。PVR_B_EXACT_FALSIFICATION_AUDIT.json PASS+STOP，1312源/2664direct前63快照/968daily/237phase独核。
+root已明确关闭B核心修复、不大Q/迁池funnel、不prototype、不B/AB经济。A仅次优先恢复假设不经济，不为已写卡硬凑2×2。不存在均线门解决主要新损耗的证据。PVR_NO60_RESEARCH_DECISION.txt已整理完整跨年失败/信号忠实/924/基准/下一步。
+新主线有限排重：loss agent检全部mobile实际OPEN风险是否比决策参考风险扩张，保core/mobile差异及原行业/股风险已有约束，不叫mobile无风控；若等价旧LR1或规模小即停。risk+pool源码/旧研究排查stock prior63 price-high+原量价小probe/成熟承接是否已有同候选，暂0新指标/账户。ar6定向查真正negative-event risk_boundary_v2退出+再入全账户旧结果（不是RB1 1%初始风险缩量，也不是R1最小手）：已找到full-account-risk-reentry-20261030 FINAL_REPORT/SUMMARY12，TECH收益大减/亏损增，DRUG及delay也有负，不能复活失败退出机制。等其最终源核。未新授权任何策略账户。
+
+最新基准/旧负证据/当前唯一风险候选准备
+ETF2024原两母状态延续已DONE+独审PASS_WITH_SCOPE（BENCHMARK_2024_CONTINUATION_INDEPENDENT_AUDIT.json SHA30f4a0dc3881390e3ca6c53851ec315cf6ce2fc4eb294b60638b03cf10acbb25）：BH年+16.267925%/三年−15.167193%/DD31.888893%；MA年+16.413880%/三年+11.160164%/DD11.434838%。36源/父全部lot+pending+previoussignal+orderid+cumfee+全局peak/原484字节前缀/726cashqtydivfeeNAV/28累计fills及102年月季行/924边界已独核。MA924Sep24CLOSE首次ON/Sep25OPEN3.489买252000股，至末仍未平，期末未实现132997.158，不称全兑现。仍日线ETFproxy/execution_verified=false，不套PVR恢复。
+negative-event v2排重最终关闭优先移植：ar6_native_feasibility/RB1_NATIVE_READINESS/READOUT.txt/VERDICT，INDEPENDENT_BREAKOUT_EXISTENCE及RISK_BOUNDARY_V2_EXISTING_EVIDENCE两独审完成。真正full-account-risk-reentry六候选/六OFF+2prefix旧实验TECH正常298.42→109.92/DD26.87→25.26、闭合亏损62.41→128.08万，两池delay收益/DD均坏；DRUG正常−11→−8.77但DD34.59→35.20。不是1%缩量RB1表。原1709所有1205实际买股4820文件/5249层内负event原输入完整，但旧整股sid控制器与当前逐层CP1保护/core_epoch/freshmobile再入不同，不能简单移植失败机制。
+独立简单突破排重：a_stock_campaign_signals.py旧55 prior OHLC high + V>prior20正量均值、4ATR/2close<MA200退出，全5426母体2022/23/24 markedmeanR约−.3651/−.3028/−.3207，volume相对价only增量近0；旧有限资金shadow未接量且分数份额无原价股数/整手权益。当前1709同原生完整独立策略账户在所查lineage未定位；不能仅改J.route冒称独立，原I/CP1保护、sectorlevel/migrate/request token皆耦合。pool正在一张唯一既存55家族卡/薄接线成本审，0新指标/账户，不扫55→63/不重新造平台。
+OPEN参考风险诊断已先冻protocol/全部3436层，读本+独审进行中（数字仅producer核、待独审）：原mobile只冻结2%nominal预算/股数，没有signal reference risk守恒承诺，所以不是原bug/违约；core已有.25%NAV all-in risk预算单列。参考用原整单intent.cap而非实填q；决策/执行floor raw-factor同域，公司行动/不正风险/跨源unknown单列。三年mobile418单实际初始risk635627.92比原整单参考多117135.15，组net−169635.92；1340未超reference仍−132533.97、9unknown−3455.93、498core−56384.57。强187同组净+366484.03，不当坏组直接删。
+严格303新fill：78超参考mobile买1032160.17、net−44400.59；171不超mobile仍−55359.83；core53−11161.44、1unknown−1535.74。阶段含旧层该组财富−57002.87/总−167054.32；L04该类−24908.74/总−27681.07。固定oldPVRtail强94中67exactmatch、19match超参考，原净276111/No60净407658（中船特气110719仍持），不能硬删赢家。尚无新q/策略结果。
+root已要求loss写唯一新风险规则一页卡（不是bugfix）：仅mobile OPEN用原CLOSE整单cap与冻结初始floor的参考风险金额守恒缩q，不缩floor/不改2%/core/原行业股池现金风险/费用，无新百分比阈值；未知、部分fill/权益/计划时冻结需明示。ar6仅核LR API和持久化接线，independent_review先审完整规模与逻辑。未授权任何静态重放/新账户；若规模或反例不支持不升主线。root仍持续研究，不因report收口停。
+
+最新优先级裁决：MOBILE_OPEN风险候选也关闭，不再native/full
+parent明确须先看post92411.25万与2022—23主亏损金额/R0经验，不让执行细节取代主线。root先前唯一授权的纯求量已完成0.193秒，0账户/0S0/0成交；ENTRY_RISK_PURE_QUANTITY_AUDIT PASS独立闭式+Decimal28/dated单位3436行。已知三年418/强187缩，原价gross减1615814.01/1325893.58，minimum消失24/6；303已知78缩、6消失、gross减350421.61；fixed-tail三年9/强19缩，强1tail消失。core802原q、mobile未知9/4单独0，原q整手投影没有伪差。
+root与loss/reviewer独立固定原层net×裁剪比例敏感度（不是新NAV/可避损）：2022—23少负77978.231655、同时少正37966.846190，差+40011.385465，仅原254573亏损15.72%；strict303少负31502.555452/少正19612.519271，差+11890.036181，仅112457亏损10.57%（占全阶段167054亏损7.12%，未加旧层）；strong少负82050.006094/少正195130.723675，差−113080.717582。unknown另2022–23−675.545481/post+1535.741713/strong+4214.8524，不混主效果。ENTRY_RISK_STATIC_SENSITIVITY_AUDIT PASS。比例费/股息split整数、原exit/原资金路径/不重投现金局限明示；不是新策略收益上界或账户结果。
+原actions calendar额外独审闭合ENTRY_RISK_ACTION_INTERVAL_AUDIT：1205股/1208SHA、全部3436区间join，9三年/6强(4mobile+2core)与已有factorchange一致，没有已声明factor不变漏事件；仍declared_research_proxy，不认证真实公告支付时刻，不支持新cap换股映射。
+R0补证已核source：g-s-C-approved-risk-native-v1-20261102/native_risk.py，approvedQ0×(mark5bp−effectivefloor) nominal冻结、OPEN/partial bound永久spent，与本卡allmobile/intcap/initialfloor域不同但高度同族。真实4格July C10+8148.90/C20+10491.87，January C10+99.15/C20−3287.11；后排资金/大单反馈可吞局部益。不能当新思想复做。root已关闭risk进一步原型/native/S0/full，MOBILE_OPEN_RISK_DECISION.txt落决策。无需等待用户批准，不以小风险分支代主线。
+
+当前真正下一步（均尚0新账户）
+pool：恢复A全域原pause+flat episodes而非仅Jun1/Mar1，a_recovery_full_diagnostic/PROTOCOL.txt先冻SHAa8874d4c...ef27/16原源。保prior63排今日+原up/amountfast；2022—24全部726及strong242，首A许可/全部新增日/旧BREAK/21与63后市场背景/原QfreshCP1必要最小单位下界。重点No60Jul20'23暂停后的2023假恢复、Mar1'24后是否真延续、旧REC21/EMA压力失败。未来背景只是诊断，不复制原未来ACT日历到新策略；不账户/S0/加斜率或换窗。A还未获小账户验证。
+risk：当前量增量源码库存VOLUME_INCREMENT_SOURCE_REVIEW最新SHA09d38212...87ef6/24源。真实E0/B4 .5–2、高量acute乘子、CP1/PVR .5–1.5都消费量，ACT breadth另真实min(1,sqrtDratio)只折低量；不能概括全链仅低量折扣。407 CP1-only PRICE旧16053vs16206confirm/16of4284触线异(0.37%)、7源G1常量早期小例均非当前1709完整经济增量。未找到同母体I/G1/E0/CP1/industry/PVR/ACT预测量中性配对。root仅让写一页唯一现有算法全链量中性对照卡+≤3按board/source非收益选择pure feature fixture建议；保真实执行V/ADV和valid mask，量因子中性每入口明确，不只rawV常量而留D，不新指标/门。尚未实现/大导出/账户授权。
+独立55high策略卡已root暂停native：旧大母体负meanR与弱量增量、2–4h接线非当前重点；保留完整独立策略与条件入场区别、不偷借原stock I/CP1保护/maturity，不造平台。
+买入/重入质量仍未解决，当前没有已获经济准入的新质量策略；这是研究缺口，勿用小组件或已完成审计代实质改进。
+
+当前运行断点补记（继续，不停止研究）
+MOBILE风险STOP已独审并落loss/FINAL_DISPOSITION_STOP；强窗固定oldtail94中67exactmatch、19裁剪原net407657.78，固定原路径会少正124833.40、少负0；三年9tail裁剪同样少正21140.90。R0同族真实最终July C20用budget250-v2的+10491.87（不能拿早期blocked版本），Jan仍−3287.11。root已向parent汇报10.57/15.72及strong−113080.72并关闭，任何人不得重开native/S0/full。
+A全域关键独审A_RECOVERY_FULL_DOMAIN_AUDIT.json PASS18源：968原ACT/3个No60pause/strong0pause/31原pausedflat新增许可。Jun1'22背景后21/63 +8.0878/+6.7902；Jul25'23(原Jul20暂停后仅数日)先许可后21/63 −6.7462/−7.2348、63逆行12.0448/峰后DD12.8500%，当日157rawfresh+mobileQ/328core(329Q差1epoch锁)，不是空许可；Mar1'24+3.0979/−.6666/DD7.2314仍是同一Jul20'23原暂停，不能把它串成A已经Jul25恢复后的独立收益。root接受当前不升A主线/不开小账户优先级建议，并未声称A账户必亏；有假恢复不能单例否全部趋势。pool补原决策CLOSE最小单位必要能力：Jul25 144/157、Mar1 337/345，不是顺序获资；Jun1首用generic manifest误指strong源120unknown已隔离，补正确2022-normal-reference receipts，不改旧策略数据/不做S0。还在写平衡建议及旧REC完整负对照。
+
+唯一active质量小验证已root明确授权（不是仅卡、不是账户）
+risk owner读VOLUME_NEUTRAL_EXISTING_ALGORITHM_CARD.md SHA45e9553b...84452；root批准3pure feature fixtures薄装配/一次验证：000001.SZ+银行URFI881155、300001.SZ+电网设备URFI881278、688001.SH+专用设备URFI881118，按board+source字典序非收益选。原同价/同validmask/同source全暖，真实量冷算先逐值复现相应缓存；中性用已有E0/B4 joint=False、CP1 price_only=True、PVR e=u，ACT全域金额乘子1 hook定义但不拿3股toy伪称全域。物理prefix2021Dec31/2024Sep23/2026Jun30，不第4只救结果。代码/源先freeze，新计算预算180s，装配估30–60min，若需复制重写状态机/大量核心变更即停具体报。无全池导出/新账户/经济授权；真实执行V/ADV保持共同，模型量因子中性不改真实volume文件。
+ar6已followup协助独立true冷算源链/预热/版本，risk是唯一实现owner。reviewer继续核neutral语义/时钟/trueparity，不复用真实G1上游来冒中性。已发现B5 build_evidence/_event_facts硬编码真实activity无joint入口，须薄装配复用原numeric jointFalse事件输出再原e0/G1；不能只B4/CP1关量却留E0真实量。000001 verified_case_reuse和300001/688001 new_fixed_chain都复用IX_G1 grade/fresh/acute/ready缓存；后者不代表true cold已过。旧pilot只000002/000001/000009；F2/F3待真实验证。NR1 e0不直接对IX旧有decline E0混判，G1实际消费列才是parity目标。当前具体接口风险已报告owner，不改原缓存/原signal源来救结果。
+parent最新要求恢复/买入重入质量给具体结果和赢家，不报检查数；rootcommentary已明示A假恢复/真正延续、风险候选覆盖小而关闭、新质量尚无经济候选。不能把当前审查/featurefixture当已改进策略。
+
+质量3fixture已完成（此处更新覆盖上一段准备状态）
+risk原run_volume_fixture_once.py首轮17.1426s：6条真实cold全warm facts/I/CP1及3股旧PVR8点13/21/21+各968score exact，随后neutral_000001已算完但np.testing.assert_equal(Series,Series)验证器类型错误，FAILED/source保留。root一次授权仅to_numpy/严格array_equal验证器+复用已存6REAL的新v2，未改旧模型。v2 run_volume_fixture_verification_fix_v2.py SHAc3dbee1b...a087耗51.876927s，累计69.01953<180；3股+3行业neutral、18个fixed物理prefix全部过。原/中性都raw同价/observability/source mask，qeff=q、PVR e=u、CP1实际credit只Δfrontier；CP1.m原观测仅diagnostic，effective1明列。ACT只hook边界未造3stocktoy，0Account/PnL/NAV/全池。
+independent_review/VOLUME_THREE_FIXTURE_COMPLETED_AUDIT.json SHAada63942e5439ccc2655d93a54c7de08ae0bf8959334150b536729e2bd997707 PASS_WITH_SCOPE。REAL冷算直接重比全旧缓存；18NEUTRAL物理prefix是producer严格断言/独审源码+收据，不冒独立重跑REAL/双臂physical。ar6独立F1真实冷算6.836s/75源另PASS，raw与owner7项逐字段核同，列序errata留存，无新physical。
+三fixture实际机制例：平安2022Jan5真量先I转上/Jan14失效，neutral未转；华兴Jan17 neutral先转/Jan25失效，真量未转，量并非单向排除假启动。平安Feb18相同anchor/scale/price displacement，真量m=.85191令credit .02572<约.02879门槛，neutral .02965发CP1，是金额延迟可隔离作用但质量未知；华兴2024Nov6真量新Ibuy而neutral无，两边I有效/同CP1候选，不能把该旗标当资金许可或持有质量。全主要失败/83+94赢家作用尚未回答。读本risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/READOUT.md/EXPLANATORY_SAVED_CASES/FINAL_BINDING齐。
+已完成展示图 three_year_path_2022_2024/four_paths.png/.svg/CSV/source，root已看图；四726日/endpoint/DD均匹配已审结果，非新策略证据。
+
+当前active下一阶段，full批尚未grant
+ar6（唯一ACT/批driver owner）已写VOLUME_FULL_EXPORT_DESIGN/CARD.md SHA44f3d67a...807ed、METADATA_AND_BUDGET8ac08083...e9e95、SOURCE_BINDING7431b849...90929；独审VOLUME_FULL_EXPORT_DESIGN_AUDIT.json SHA57e01cb3ec446f2b5d0adf33b6a1c2ab49972c0e5ee995c1e87c576fc4f7d9fa仅支持薄实现。4414361warm行，1687股票complete+22空域NA+90industry；全1709×968=1654312stockday完整分母。6worker双臂真+neutral估25–40min/墙硬60min，未实测新full，不1799×18重复物理。
+root已明确授权薄controller/worker实现+先ACT纯共享层gate一次<=180s，源/输入先freeze，不准1799长批/账户。复用已审assemble不重写状态机/不复制真量全数据，22empty旁路未知不造0。ACT先真量用原compute_recovery及原Q4 caller/固定roster顺序对旧M/breadth/fast/br冷核，再neutral已知量乘子1且unknown mask保持，M同价应不变；若差异停具体报，不静默tolerance/拷旧M。全ACT_on尚无中性账户，只允许inputs。源审reviewer已followup active。fullgrant必须另root，不因卡通过自动跑。
+risk协助pure行业trace/Stage，不写第二assembly：Stage.run只用qclose/segment/e0_valid/i_floor及CP1receipt/candidate，自己按各臂target false→true重建episode；trace用各臂E0 target，不借旧episode编号/日期。AST纯载入ident/norm/trace/Stage/run并注原CP1.ge避顶层金融COM。root授权同3行业TRUE旧state/receipt全warm exact+neutral+3×2024Sep23physical，累计30s。首轮0.110756s在初始化漏标准库collections而停，0Stage输出；root一次依赖-only新v2/freeze补collections，原source/FAILED保留。v2 4.440614s/累计4.551370 PASS：REAL三行业4563/3031/4563全warm state含receipt/episode/attempt等逐行exact、compact旧receipt10/24/19区间exact；neutral自身E0episode/m1及3prefix state/完整receipt/evidence exact。仅市场Stage，不金融授权；不90批/stockcanonical/Account。交ar6wrapper、独审中。
+loss解释协议先冻 loss_correction/volume_neutral_interpretation_v1/{PROTOCOL,READER_FIELDS,MOTHER_AND_SOURCE_FREEZE,NATIVE_ENTRY_SEMANTICS_AUDIT,READOUT}；independent_review/VOLUME_INTERPRETATION_PROTOCOL_AUDIT.json SHA07fd16e4d0f350ea545bd54f44b3a85be0351e7545955659556b84fba803c90a PASS。确证core经Facts.packet(I)需当天i_buy：802actualcore全i_target+i_buy True；mobile continuing用market_buyable覆盖event门，140/1767+38/867无当日i_buy仍合法成交。不能把neutral少Ibuy当少mobile入口，更不能当整趋势没机会。1205facts SHA全部核旧，3436层/原钱账/全83+94固定母体完整。0新模型/账户/生成pipe。
+parent最新问量对照覆盖及下一步、差异不覆盖主亏勿扩大工程；root已回答当前仅3股/3行业全warm、双向假启动、未证明主要损耗覆盖，未启动全池；下一必须拿原2265/1171与固定赢家原时钟/前移新增全流作对称诊断，旧PnL只关联不生成新NAV。0新质量策略经济准入，继续围绕该唯一算法对照，不再新增门或复活A/B/R0/55/v2退出。
+
+最新主线改变：父严格限定本团队宏观2022—23下跌暴露/恢复；量中性/辅助基础已全部STOP
+从量中性小卡10:50到11:38约48min，实际验证进程96.92066s+独F1 6.83592=103.75658s，耗时主要接线。root承认并停止fullcontroller/worker开发、1799批量、ACTneutral续跑及其v2；不能把旧卡当待自动GO。ACT唯一门23.35s strict停于CSV解析域：cold CSVbytes==原recovery.csv、raw==原roundtrip读、两同defaultparser3273行全值exact/fast-br同，未设tol/未改FAILED。VOLUME_ACT_SERIALIZED_CONTROL_AUDIT.json SHA4329d8...b060；最终支线STOP独审VOLUME_RESEARCH_BRANCH_STOP_AUDIT.json SHAe2af928d...9a62。三固定stock实际仅原三年4/2265条、strong1/1171，原买款32225.78/3369.90，fixed83/94覆盖0/0，不能代表主亏或赢家保全。父已知。不得再扩量因子管线。
+
+转回旧账限时直接质量判别也已收口并停止，供另一独立团队引用不重复：mobile当前grade>=2新钱门未被原continuingQ蕴含，但三年非暖117层买126.41万原净仅−3246.76，暖1650层买1838.78万却−302379.05；strict303非暖14+4543.07、暖236−105839.23；L04非暖16+3084.78、暖124−28979.99。core802已全部原i_buyTrue；mobile178原i_buyFalse合法，已在上一断点核。旧g1-current-state-readonly20261101同谓词已有完整confirmedmobile负诊断：88–89%闭合负仍暖，不是新思想。无经济试验理由，不抬grade3。loss_correction/mobile_current_grade_quickcheck_v1/READOUT与pool/mobile_current_warm_review/READOUT齐，独审MOBILE_CURRENT_WARM_QUICK_AUDIT.json SHA9a3d164b...bf1 PASS。原fixed83非暖3+737.26；strong已知非暖0/1尾301338缺原1205facts保unknown+14819.44，不造0。该质量支线结束。
+
+宏观本轮父明确新hypothesis：DEFENSIVE/PROBE/CONFIRMED，D当prior20high+原B>.6先小试，市场真前进再增risk，破试探结构S退D；20与比例非永久偏好/不调最优。先全原pause+2022恢复/2023假/924/strong、旧早恢复负对照与局部赢家；逻辑/覆盖过才短经济。父另两任务做买入重入质量和重大行情，本团队不重复改其文件。
+
+市场20首触发/箱体诊断已DONE无账户：market_recovery_three_state/diagnostic_v2，No60全3pause/PVR2控制/strong0。2022首20=May23 vs原21May31/63Jun17，C2.6500765、L20=2.2779714、box14.0413%；整L02最高仅+.78494boxR。2023首20Jul31、box2.5983%，Aug8 fastFalse/Aug11破S、未推进1R；2024春Feb26box15.3666%到原May6仅+.4903R；924首Sep24box5.386%，1R恰Sep27=旧63；strong原20/63Jul1，1RJul21。固定初boxR升档草案STOP，不能因根额外1R失败否父三态。每日微新高加单位也BLOCK：9次100.01…100.09仅+.09%可授90%/4.5%，只次数不是幅度。REC21_P5的P5是5日广度不是5%probe；旧12表base/cost2负、EMA delay有反例，不全称支配失败，旧407非当前1709经济证据。
+
+唯一下一几何候选借原E0 RMS63（不是B4/CP1 MAD）：σ=max(sqrt(fsum(prior63logr²)/63),1e−8)，排P日需64prior价；首C价门ΔlogM>=√5σP且new20high+B；所有σraw实际未触数值底。本0.0531s/10锚无账户：2022May23→Jun8首次几何(早旧63七观察)；2023Jul31未过门Aug11先S失效；2024春Mar11早35；924Sep26早1；strong条件D起点Jul18迟13。低σ仍可微高快过/市场M非股票风险，不能称成熟/必盈利。独审RMS63_GEOMETRY_AUDIT.json SHAc4409f02...61d。此价格资格仍可保留，无完整资金准入。
+
+完整M/B纸面结构v1已DONE0.7672s/3273行（不是资金/风险账）
+first完整warm2013Jul22只initD、下一观察才评P；D prior20high+B入P/S=L20/anchorσ冻结；P/C旧S破优先D且同bar不重入；new20high+ΔlogM>=√5σ且连续B证据→C/留C并上移S=max旧S,L20及anchorσ；B失效只冻结/清marker，再首次达门newhighrearm、下次持续达门才推进。unknown不造弱。全warm独立行走，不注入原ACT未来pause。输出market_structural_state不是neutralACT_on/账户风险state。首几何Jun8在连续链只rearm，Jun10才C。
+v1：L01Jan20D，比原Apr20更早；L03前62/79收盘仍C，Sep30才D（M自Aug17峰已−12.69%），未cover前期过曝；2023Q2 59/59 C，无AI全退请求；Jul31继承C直至Aug25 D，不能拼独立假P成动态已过滤。strong两D Mar23/Jun8。source/3273行/90次anchor-sigma原价过去64点独审STRUCTURAL_WALK_SOURCE_PREFIX_AUDIT.json SHAb5098c72...9ed9 PASS_WITH_SCOPE，无独立第二状态机/物理重跑。
+
+唯一退出维护v2差分已DONE0.7798s/3273行且STOP，不补第三门
+P/C每天先S_eff=max旧S,prior20low_t(只t−20…t−1已知)，再当前price破S_eff退出，其他v1完全不变；是strict20close-low通道退出，盘整旧低滚出也抬S。L01 D到Jan11；L03 Sep30→Aug31但仍41/79 C；Q2 AI59C→55D+4P+0C；strong D次数2→4、D日33→81、C196→122。不能因L03较好晋升，强和局部代价大。3行行为diff/15源/3273行与原v1不变核同，独审DAILY_SUPPORT_V2_AUDIT.json SHAf5e1292a...bff，金融STOP。
+
+既有钱账/盈利反例已独审，无新策略收益
+v1 Jan20 D：旧库存880394.29/59股/NAV978366.02，后至Apr26原路径−198546.71但含3.318m新买，非可省。
+Sep30 D：旧NAV由822090.57降713594.95，已损108495.61，旧库存308232/35股，下一实际OPEN Oct10；后原到Oct31反+24821.33含692282新买，迟退不能叫成功。
+strong Mar23/Jun8 D旧仓1458865.12/1695183.89；后到Jun30原全路径+634627.53/+369681.59，不能全部叫误卖旧赢家。
+干净反例Jun8电子化学品旧库存372102.39/当时未实现254041.06，后来无买卖无费仍+102920.86(含div114.93)。这是在赢存量，全球全退会触及；不是新D误伤净收益。资金足迹独审STRUCTURAL_FOOTPRINTS_MONEY_AUDIT.json SHAb324446b...98fd，source保存独立。
+
+进一步只读原v1所有D日的当时库存分类已完成10min，无新模型/账户/系统
+risk_constraints/market_regime_risk/all_D_asof_v1，181D close/6445stockclose，2022–23 148D其中70实际flat、strong33全持仓。累计按真实trades/split/净div.ex_at/currentqty→raw库存，qty归0开新flatcampaign，截止当日现金+库存+已确认AR/股息一次，不用terminal未来标签；native qty/总inventory桥全同；5股日用此前已知quote明列quote_day不冒可成交价。unknown/zero本母体0。
+四个D静态库存全退／当时亏损／当时盈利：Jan20 880394.29／423938.29／456456.00；Sep30 308232／195843／112389；Mar23'26 1458865.12／431204.12／1027661；Jun8 1695183.89／500319.48／1194864.41。strong D日盈利库存权重72.78%，181是重复收盘不是181次退出/唯一资金。Jun8中船特气当前campaign+128762.55、唯特偶+125638.52（均当时可得），并非未来赢家标签/不等纯浮盈。独审ALL_V1_D_ASOF_CAMPAIGN_AUDIT.json SHA132b6e8e...fb07 PASS，527源/全部算术+named688146现金/分派前缀核，非全第二ledger重跑。
+
+当前根结论/剩余阻碍
+root已新写MARKET_DEFENSE_RECOVERY_DECISION.txt汇总公式、正反、停止条件与成本。完整全球D全退三态v1/v2不获金融准入，噪声推进首C只保线索。下一合理候选是市场弱时收缩当时亏损试错库存、盈利存量沿原股保护持有，当前仅原账静态规模支持，未证明收益/没有小账户授权。
+具体策略阻碍：保盈利D不flat，不能再把原ACT20硬暂停/真实flat恢复与市场D混同；P额度若把保留赢家全塞10%试探总cap会卡死；n9×.5=4.5%是新强cap（强窗239持仓close超），本金/浮盈风险需明确定义，不偷改或另建账；持续D盈亏转换、pending/T+1/退出重入锁和累计试错未定。需与另独立局部强势/买入质量任务整合，不在本支临时加第三门救反例。
+本轮paper每次<1秒/各逻辑和原账10–15min限时并行，0金融事件，无量因子/新行情/大loader；后续金融实现与核验成本在动作合同未明前无法可靠估算，未投入。不能把源正确/结构标签改善称策略已改进。继续任务须遵父宏观范围，任何风险或价格参数网格/自动resume已禁。
+
+最新父指令/动作覆盖以上旧候选：严格拆开停新增与已有仓退出；禁止按当日浮盈浮亏强买卖。上文“收缩亏损库存、保盈利”已否决不实施，原分类仅历史诊断。root已修MARKET_DEFENSE_RECOVERY_DECISION.txt并新写MARKET_NEW_RISK_ONLY_STATUS.txt（精确C/D/时钟/状态优先级/钱账范围）。
+最新新增风险权限纸面表pvr_pool_feasibility/market_new_risk_only/RIGHTS_PRIORITY_TRANSITIONS.txt SHA54009a61…453f9a3：D停OPEN/ADD+撤买待ACK、旧仓原I/CP1；P只一份增量10%gross/.5%nominal风险，非每天/行业重发，非旧仓总cap；C需同episode真实fill的保护推进反馈但额度/消耗仍BLOCKED，不自动满risk；候选自身ACT20 H最高优先，真实flat/未完单结束后须post-H新证据才P。旧ACT dates只context不能注入新路径。0新风险账/账户。
+原v2标签直接复用3273行，decision CLOSE15:10精确连接全部原3436层（2265三年+1171strong）及177固定原tail；P/C不是实际资金权利/成交。loss_correction/macro_new_risk_association_v1/READOUT.txt：L03 C154层−67307.76 vsD168−2116.68；strict303全C、原net−112457.60；strongD390层+314015.58其中strictreal46639.04/openunreal262431.90/AR4944.64，正677744.16负−363728.58。同D曙光Apr13/Apr17赢、Jun6同股重入亏，不辨质量。全部为原进入cohort至原bookcutoff贡献，不是窗口内财富或删单后可避损。
+独审MARKET_NEW_RISK_ONLY_AUDIT.json SHA8c54365fb2286e6eb7c0ab282891e311f2f62a895ec623e489c72ab189f0593a核3273标签/3436层/177tail/552组/12旧仓cohort及562卖part。原自然退出Jan11旧层80%需13交易日；Aug31旧676573.55到Oct31仅余实际786、新层却补回658576.94。旧退出/ACT/释放资金不能冻结为新方案。关联PASS但NO_FINANCIAL_ADMISSION；纯macro新风险门STOP，不为C搭账。
+
+按父授权转行业/个股动态风险，唯一LOCAL20行业方向薄表DONE并STOP金融扩展
+ar6_native_feasibility/sector_local_price_permission：原90 INDUSTRY_MANIFEST CP1_input.close/segment_id，同行原观察钟、同source段prior20 H/L排当日，strict新高ON/新低OFF/其他继承，初UNEST；source变更重置，unknown占窗口不压缩、不给新许可不造OFF，不全局ffill；ON只是价格必要线索，不成熟/满risk/可执行，原I/CP1/Q/H仍必要，不卖旧仓。50行pure脚本94源末SHA全核，一次90行业364796行2.1798805秒至Jun30'26；unknown1800恰90×20warm，knownUNEST242单列。无新loader/模型量价重算/Stage/Account。
+pool纸审先冻FORMULA_AND_LOGIC_FREEZE.txt SHA6ded00db…3b719b，独审SECTOR_LOCAL20_TABLE_AUDIT.json SHAcde483a412e7bcf863a3c998475811c43b859c943c65dfda080f44bc51774edf，11.04秒独核全部source/观察钟/segment/price/shift1H/L及保存状态逐行invariants，非第二策略模型。
+loss_correction/sector_local_macro_association_v1全3436+177 exact原sector+decisionCLOSE均known，无UNEST/unknown/missing。macroC/localOFF三年仅12层/原买11.58万/原net−959.38；L03 C/OFF7层−84.53，而C/ON147层−67223.23；strict303 C/OFF2层买6390.60/net−820.54，C/ON301层买2833246.63/net−111637.06。故行业方向并未区分主要新承诺损耗，不调20/加例外，不接账户。
+macroD/localON strong274层买约501.95万原net+281832.61，但同格正539594.82/负−257762.21；Q2AI D/ON263层净−6771.86且正负并存。固定83/94的D/ON46/26层原正约19.26万/32.29万，D/OFF仍14/7个尾部约+4.12万/+1.44万；行业ON保部分赢家不等分出损耗。钱账仍原cutoff关联，非删单/新策略NAV。
+完整关联独审SECTOR_LOCAL20_ASSOCIATION_AUDIT.json SHA120f00c26df5b6ab819790c33e80b5bfb24687263859395c915025c5d5dce00b，2698sector+decision唯一键/3436全层/177尾部/3034组0.93秒重算PASS。金融STOP；本支仍无实质新策略改进，不宣称亏损或回撤已解决。
+并行risk只用既有entry_risk_commitment_review取初始nominal risk/decisionNAV，一次参考.25%（借旧core all-in数值、并非同口径或永久阈值），不做新cap/求量。首数同样不支持主驱动：两年mobile1199中66超、原net−31481.39，其余mobile−188543.81/core−34547.85；strict303 mobile250中40超、原net−25811.33，其余−75484.83/core−11161.44；strong81超原net+282757.04。两年直接取已审2023原cutoff LAYERS SHA12e79d8c…cf8446、1557 IDs及每层cost/net/qty/value同2022–24原入口subset Decimal exact，非错用2024净额。正式薄报告/独审尚待，0风险策略金融扩展。
+
+最新初始risk独审已PASS且金融STOP：independent_review/ENTRY_INITIAL_NOMINAL_RISK_SCALE_AUDIT.json SHA5ab1f7119bce5991da428cc6775c72bb36299c32f091402dadd486137e8450d3，核3436 risk公式/decisionNAV、1557原2023cutoff全部money exact及原reference CA flags两年3/3031/strong6保留（hi参考组0）。报告risk_constraints/entry_initial_risk_scale_v1/READOUT.md，0新q/cap/ledger/Account；未超组仍主亏，strong高risk净+282757.04含9未平原贡献179725.95，不能当删层收益。
+最新复用入口loss_correction/sector_local_macro_association_v1/BUY_QUALITY_TEAM_ENTRYPOINTS.json：C/ON各行业原正负top5带全IDs、strict303 core53−11161.44/mobile250−101296.16、first68−45595.78/add85−32488.11/reentry150−34373.71。只原cutoff关联，不是行业期间回报/新信号。root状态总入口MARKET_NEW_RISK_ONLY_STATUS.txt已更新全部公式/时钟/权利/三独审/STOP及待解主问题。数据和原账完整，无权限/行情阻碍；当前缺可区分有效行业中主失败与赢家的算法机制，不以新流水线填补证据。
+
+父再次要求继续，当前新主线MA63同轴已完成但总研究未停：root新MA63_AXIS_FINDINGS_AND_NEXT.txt是最新入口。原24月×4路径净元差−209443.40762191，2022扩大−278807.82/2023收回+69364.41；Dec2022双方87.24%/90.13%暴露但No60−94806.65 vsMA+6072.30，不能归全市场低仓；Mar/AprNo60高仓持续买、MA现金；2023Apr No60+142183.41为必须保留局部赢家反例。
+原510300 causalTR/inclusiveMA63价格×斜率全九格与真实clock：前CLOSE below+MA_down298日No60wealth−257408.38/newbuy8809597.93，全meanlag expo50.68%/nominal3.56%，184有仓日82.08%/5.77%；原1557 entry按实际decision DOWN866层life cutoff净−234092.47，正242+256856.79负624−490949.27，与期间wealth不同。严格行业当天新20高在DOWN268层净−59181.51/非新高598净−174910.97且仍有+183324.68赢家。不是纯质量门，不把原净叫删单收益。
+全10真UP/11DOWN+startupON共22区间/两原策略44链，Jan4前Dec31已ON不冒upcross。June6UP→June7ETFproxy→June17原resume9sessions→June20firstfill10；Jun7–17九OPEN原rawCP11003/Q996、roles3897含daily重复core，但无paused budget/quote/guard/fee原preview，反事实可执行数量UNKNOWN，不为补它搭新state restore。
+独审全PASS总索引independent_review/ma63_axis_review_v1/FINAL_AUDIT_INDEX.json SHA07a4a9324d7849f0682bacea50ca4a8d1238acec7db66cfae3a25303687d43fb，含月轴d7678d…8864、lagwealth资源b58110…a3a8、cross3aaa10…c4ad、entry/strict行业事件ff9b6c…93ed。原source完整、0新策略/Account。
+当前仍在推进，不在独审收口后暂停：原C同mark ΔR credit缺升线receipt/消费journal所以不为其造账；ar6<=3min定位已证effectivefloor core.last_core_line/mobile.floor+当前factor可读。root新授权pool/ar6/reviewer<=8–10min单一必要反馈：逐日真实effectivefloor>=actualentry execution价的首次时点/正反/unknown，看能否不造creditBook而由原当前库存派生未保护试探容量支持gradual恢复。不能把浮盈当保护/把名义保护叫无风险/移除原risk资源；未求q/预算/新资金。亏损退出后再补仍可积累试错是明确反例，未加loss cap。原H_trip/真实flat保留，若要早恢复须显式换旧BREAK63恢复证书，尚未冻结不绕过H。完整最终卡和下一计算待agent，无自动经济授权。
+
+连接恢复后新父明确授权实现+回测，并澄清只可插拔优化现E0/I/PVR，非替代。执行pwd已成功。旧Gmark/R.005算法卡目录确认未落盘；新目标**成本占权益**是不同单项，根冻结CAPACITY_COST_GUARD_EXPERIMENT_CARD.txt，不同时改ACT20/BREAK63恢复。事前五臂NONE/G10/G20/G40/NR20，alpha10/20/40；NR20全live/pending成本不因保护释放(同预算非同实际risk)。cost=每真实fill gross+buyfee，sell按原parts前qty同比释放，split存续批货币cost保留/q0非卖writeoff，不改真实NAV。当前保护同单位F>=entryE AND mark>F AND无退出责任；未知保护但B已知全cost计U，不globalban；新层缺B不得legacy跳过，显式legacy IDs白名单；pending只真实预留open/cancelpending，不是全部a.pending计划，partial/ACK原子守恒；reserve/fill费与slip后Nguard须检查，原全部信号/池/风险/执行保留。
+旧113+19物理边界补核完：capacity_protection_boundary_v1/READOUT SHA8bbb4e93…15473，20例firsthit均p>F>=E/noexit，不是已穿线假保护。113 Jan27请求退出，Jan28/Feb7原OHLC flat触原conservative_hl_proxy/reject_flat_day充分拒绝，Feb8才成交，不能称真实交易所跌停认证。原1557见证不重跑，F到entry不保本成立。
+本轮agent: capacity_native_v1唯一native/inputs/driver owner(目录capacity_cost_guard_v1)；capacity_ledger_review_v1独立主账；capacity_logic_review_v1逻辑/附bench与features审；capacity_outcome_analysis_v1复用结果协议/强基准；trend_confirmation_dedup_v1第二线。主实现薄guard/单账cost观察，不新Stage/loader/权益engine。年度2022/23/24输入原loader复用、receipt与PVR score union重叠strict核同，final2024 facts/CP/state含全部历史；full前仍要求long-unified prefix对one-year源identity，避免漏载。全scope A=2022Jan4–2024Dec31 726day自身连续1m；B=2025Jul1–2026Jun30 242day独立fresh1m。
+技术小窗真实结果：A2022Jan4-Jan14五臂NONE975294.750545/G10998824.627876/G20997432.604209/G40989834.640793/NR20995809.247714；弱窗少亏主要低暴露，不晋升。B2025Jul1-Jul11 NONE1030124.59/G10997315.03/G201000373.84/G401017454.39/NR201004748.68；强早期参与确有代价，G20弱NR20，不能拿9日代全年fat tail。A_v2与v3金融exact；独立small_v2、small_v3_audit、strong_small_audit核5×2×9=90日+466实际reserve/fill snapshots、native audit/actualparts重建cash/qty/fee/basis/pending/前close line/rawOPENmark/费后NAV，NONE两窗与旧原No60 daily/trades exact。完整账户尚未grant，最后等actualpartial/CA fixture、缺B负例、物理prefix和separate-processrestart；不以小窗收益替代财务gate。
+新强窗简单基准已单次跑并独审通过：capacity_cost_guard_analysis_v1/benchmark_B_2025_26。ETF BH +28.833113625%/DD7.4389662271/fee1497.36375，MA63+13.62717744%/DD9.9046030953/fee31188.8256，cash0；旧No60+126.3281%仍为fat tail参照。独审independent_review/capacity_benchmark_B_v1/BENCHMARK_B_2025_26_INDEPENDENT_AUDIT SHA f5ce8057…4227核242×2日账/22fills/TR1928观测；日线executionproxy false、不同资产/费用保留。
+父另授权MA/EMA/BB为原许可entry计划量插件，结果前四臂NONE/UNIFORM50/A_ONLY/A_OR_B，不叠成本guard。A=当前C>=inclusiveMA60且MA60>5观察前；B=strict freshcross BB20,2 upper(ddof0)且EMA10>3观察前(adjustFalse)，unknown/source段/观测槽保留，EMA断暖；A要65 known/B要21。已许可且原size合法CLOSE intent cap+budget*m一次，原Q/CP1/退出不变，向下legal量不足min0，UNIFORM50不是账户半仓/同risk(可能买更多低rank股票重分配)。Bonly=AknownFalse&Btrue，AunknownBtrue另列，快速反转先诊断不擅加exit。排重未找到exact经济试验，旧行业MA60/MA63门/BB描述/55high均near不同。trend_confirmation_dedup_v1 compute_flags三股8139fullwarm+9fixedphysicalprefix exact、1709只1687complete/22unknown覆盖和3374SHA，11.63s；机械独审SOURCE_AND_SAVED_RECEIPTS SHA5b924905…191e，0账户。根已授权独立trend_confirmation_native_v1薄计划量插件+技术small(不full)，复用只读capacity_inputs不另造loader，capacity首轮/主full优先。
+
+
+=== 2026-11-04T17:54:48.780759+00:00：成本guard及MA/EMA/BB数量插件均已收口，研究继续 ===
+本轮最新裁决 TREND_CONFIRMATION_DECISION.txt；成本guard见CAPACITY_COST_GUARD_DECISION.txt。4臂long/strong全完成，finance/PVR/CA独审收据3303322b…52ddf；严格数学20键37m/3实际fill差异FAIL不抹去，详见dd6ab21d…5b60f，不重跑差原型。原B3年-36.201%，U50-36.406%，A-42.934%，AorB-40.029%；确认插件到2023末-33.080/-29.192% vsB-25.457%，无晋升。post303中292原A_TRUE贡献-114881.90，派生覆盖在途独审。
+研究未暂停：两独立纸审仅准新0账户 ma63_down_replenishment_v1 全298lagDOWN连续spell旧/新layer期间财富分解，先判新增/补位问题规模；ma63_down_replenishment_review_v1独核边界/钱桥。无新资本门/恢复合同/参数/Account，不能复活costguard或改均线参数救当前实现。所有冻结full源及原工程只读保留。
+薄核方法澄清：generic_saved_finance_reader仅提供audit prefix，没有period API；实际复用已审capacity_cost_guard_analysis_v1/analyze_completed_v1.py的fixed_phase/after924层cash+dividend+qty×原price两端边界差，明确绑定原函数SHA，不迁移reader/造新basis。允许analytical account数据对象，禁止新native J.Account/策略状态机。
+补充已独审：independent_review/trend_confirmation_full_ledger_v1/DERIVED_PERIODS_924_AND_COVERAGE_AUDIT.json SHA520cb768…eff24，核全36/12月/年度/924旧新层桥、原B1557/strict303真实层原资金和借用同sid/day flags、strong首发现统计。post292A_TRUE原贡献-114881.895546，原303总-112457.600569；仍只关联非删单收益。后补名义风险/minlot股票案例非全独审，不扩副线。
+
+=== 2026-11-04T18:07:58.458452+00:00：全部9个MA63 DOWN spell期内财富薄核通过，下一单因素仅在审查 ===
+ma63_down_replenishment_v1/READOUT.txt及ALL_SPELLS.csv；独审ma63_down_replenishment_review_v1/SAVED_PERIOD_WEALTH_AUDIT.json SHA915dc0b9…09a2b。全9spell/298执行日，原wealth -257408.380355661077，carry -80876.21/new实际fill期间 -176532.17；新正272738.70/负449270.87。首Jan7–Jun6新-165778.88 vs旧-46857.05，第二Sep2–Nov29新+56373.85 vs旧-21913.67；2023Jun/Jul两段旧库存主亏不能靠限新增修复。非生命周期cutoff、非可省损；3零仓spell保留。正常Decimal尾差显式列，沿旧EPS1e-6，原strictFAIL/解释器importFAIL保留，无新金融引擎/Account。
+下一纸卡 MARKET_GROSS_ADMISSION_CARD_V1.txt，REVIEW_ONLY/NO_NATIVE_GO。固定DOWN时新买后TOTAL gross+真实pending<=.10 projectedfeeNAV；允许旧仓legacy-overcap、无强卖，但明确占新增headroom。不做Dorigin份额/epoch账、不F/E毕业、不新增nominal阈值，不是costguard调额度或强制全仓10%。只隔离新买准入、保原ACT/BREAK恢复/退出，非D撤附加cap，明确未解短假恢复/Dec非D/June恢复。独立logic_review及native_feasibility两支审语义/既有字段可复用成本；没有实现、feature计算或账户GO。若需新资源账/新NAV/退出或恢复补丁才讲通即STOP。
+新审查卡原90%措辞已由native源审更正：No60实际是决策NAV的10%现金留存约束，不是currentNAV totalgross90%硬cap；probe池10%仍在、confirmed60%已No60删除。MARKET_GROSS_ADMISSION_CARD_V1.txt已修说明，不改新候选附加TOTALgross10定义，无新账户或数据计算。
+
+=== 2026-11-04T18:21:45.000506+00:00：TOTAL gross准入仅small技术GO，full仍禁止 ===
+MARKET_GROSS_ADMISSION_SMALL_AUTHORIZATION.json SHAe6f305fa…031e6。独立logic审cec317df…19228绑定卡dfdbb04a…43e3；native纸审market_gross_admission_feasibility_v1判可用原balance inventory/nav+真实a.buys剩余gross/fee及原quote/fee/slip/cancelACK，route/reserve/fill三处同谓词，无新basis/epoch账。现成ETF info: long benchmark_2022_2023/continuation2024/inputs/510300_history.csv SHAe7efde38…11785，strong capacity_cost_guard_analysis_v1/benchmark_B_2025_26/inputs/510300_history.csv SHA7870713b…39959，已存X/ma63与warm原值，未新算MA/借benchmark交易on。
+capacity_native_v1在market_gross_admission_native_v1先冻source/info方程，再实现B+D_GROSS10仅legacy9/freshDOWN技术6/strong9共48个日账户桥；正常B两起点须oldgold exact，fresh6独立技术本金不冒同口径经济。逻辑reviewer在market_gross_admission_technical_review_v1审clock/predicate/prefix/restart，ledger在market_gross_admission_small_ledger_review_v1复用原basis核账。完整经济只有小样本通过后根另发授权；没有任何fullGO。预计实现+最小技术核查20–30min，若成新资源/NAV/loader/恢复接线即报具体阻碍停止扩张。
+独立并行carry_exit_responsibility_v1只读原2023JunJul两负段carry-63596.48与Apr24–Jun16 carry+48332.32，分原结构未发退出 vs已责任但执行等待，真实时钟/最多3亏2赢案例；字段不够则金额UNKNOWN不造新金融。此线不叠当前新capital候选，原carry不是新candidate必留路径。
+
+=== 2026-11-04T18:38:51.661428+00:00：gross3小技术已结束，独审收口/full仍NO ===
+market_gross_admission_native_v1/small-long-v1/{legacy9,fresh_DOWN_technical6}与small-strong-v1/strong9。强势9 B与D均1030124.589639085104，76交易，B wholebook/daily旧gold exact且0DOWN；legacy9 B975294.7505446507045/106交易，D969643.4222644471545/75交易，DOWN正新增0(旧仓占headroom)。fresh6技术B990241.4683090609935，D997671.0988422706500，13次DOWN正reserve/fill；仅技术现金新起点，不作经济晋升。所有v1源post exact/未importcostguard。long input原逐年度loader合333.82s一次，非新loader/cache；strong108.51s，未重复加载小case。
+已知provider v1物理prefix cut后CLOSE沿旧状态负例FAIL保留，实际case全部域内。独立v2只加expectedphase/session缺值UNKNOWN域，0Account审证三case48预定OPEN/CLOSE及5473实际callback v1/v2/stored原XMA/asof/prefix/pickle全exact，Jan10OPEN读Jan7合法、缺Jan10CLOSE或Jan11OPEN UNKNOWN。provider独审market_gross_admission_technical_review_v1/PROVIDER_CLOCK_INDEPENDENT_REVIEW.json SHA8ff7daf2…9ee98；原v1小账未重跑金融。财务48桥及总techgate待最终收据。真实partial只读借旧fixture证明schema/余责任，不冒称新hook已跑partial。
+carry_exit_responsibility_v1已完成，独审carry_exit_responsibility_review_v1/AUDIT.json SHA68a58a27…97cc610：241carry期间金额/200已request观察逐native sell.parts核，全部下一OPEN剩余批次完整关闭，0多日等待；ACK/请求前后金额UNKNOWN。603083同carry区间-12130.40但2023同层/stock+20957.77，不能把赢家回吐当买错或提前卖证据。3case scope原执行proxy，0新策略。
+下一full准备拟复用已审归档No60金本，原B+D初始化后仅跑D是否不影响account独立性由logic/native薄源判断；不为优化建新证明流程，可不行则保双arm。full provider v2/私有scorebinding/独立calendar/fullend与原restore索引修复/原日志compact均需冻结技术审，root还没有full授权。
+
+=== 2026-11-04T19:07:53.038513+00:00：两窗D_GROSS10 full已授权实际运行；最新简明状态 MARKET_GROSS_ADMISSION_RUNTIME_STATUS.json ===
+full gate a4551737…58275+源55/51当场复核exact后根已写 ROOT_FULL_AUTHORIZATION：long3b529367…145f50/strong05785aea…bde434。实际sessions47009/52124，仅D，不重复已完成B。strong242已DONE：NAV2214709.4121679261815(+121.47094%) vs归档B2263281.2309753297565(+126.32812)，少48571.82；独提DD11.65952365与B相同(第一次D前已发生)、费用21615.78 vs22720.03，deepfinance/PVR/atomic在途。实际clock67677事件241uniqueOPEN及51sourcepost已独审416e7a7d…1732a。long最新原生CP 2024-04-30 15:10:00+08:00，尚无完整NAV，不读pickle/新增dump，不重跑。
+分析协议在候选账前冻全D/ND段：long726=389D/337ND共12D+13ND，strong242=14D/228ND共4D+5ND。旧9D审计只2022–23，旧最后Sep2023段跨原cutoff延至2024Feb19，前8及第9到2023Dec29prefix exact，不误称全3yr9段。原H规则不改但own资本路径会使H事件不同；不能拿旧H日期作输入。
+
+=== 2026-11-04T19:40:53.799887+00:00：D_GROSS10双窗全完成独审，绝对仍差/不晋升；新健康草案STOP ===
+最新主裁决 MARKET_GROSS_ADMISSION_DECISION.txt。long-28.13579/DD31.10678/费33411.50；strong+121.47094/DD11.65952/费21615.78；两年末-14.10491，2024 own-16.33490。finance47124318…ebfd0与actualclock40d28870…f6ac3已PASS，B未重跑；新增924/旧新层/role/首买派生一次关键独审在途。D首次H June11 2024→Sep27恢复，924首4OPENpaused，六close+9.60457 lag13.8171，post约-20.61463且全ND，newmobile227原-107345.19/整段损耗57.5%。不是调10能直接cover。Jun7 2022和Feb20 2024是marketD→ND撤cap且ownH本来on，不是ACT恢复。
+组合健康公式PORTFOLIO_HEALTH_NEW_RISK_PRECARD：logicf0bb6fab…11737e指出跨股10→90先授权后反馈，root STOP当前公式，不准10–15min新H指标/账户；技术字段可用不等于机制通过。下一sector_current_proposal_readiness_v1只做3min源码/存字段/排重，行业rawproposal vsgrade记忆的I_target续权是否原Q已用，不算信号/数据/钱；冗余或无字段需新model即STOP。不与父线个股初买重入质量重复，不扩pipeline。
+
+=== 2026-11-04T19:44:52.517384+00:00：本轮所有full/派生独审已完成，无在途经济运行；不晋升 ===
+主入口 MARKET_GROSS_ADMISSION_DECISION.txt；runtime状态已改 COMPLETE_INDEPENDENTLY_REVIEWED_NOT_PROMOTED。D full财务/atomic/PVR47124318…ebfd0、实际信息/clock40d28870…f6ac3、全月/预定段/924 oldnew/role/首买语义派生3017f200…f7254d均PASS。三年-28.13579/DD31.10678，二年-14.10491，2024 own-16.33490仍差，强窗+121.47094/DD11.65952。只有部分风险取舍改善，不接受仅比No60少亏或DD<35。各窗独立1m，原B金本只引用未重跑；所有执行已结束，未有新full授权。
+组合健康H/u纸卡 STOP：跨股10→90先授后反馈，不花10–15min新H数据/模型，源字段可用不构成经济准入。行业proposal源码核STOP：sector Q=行业E0、confirmed/expanded=CP1金融阶段，不是G1 grade记忆；已知grade只阻晋升即时降级，暖grade而nonwarmproposal错配不成立；90行业actual3类cache无proposal/行业G1可直接读，IX1711索引不含URFI，不重建G1/loader。结果sector_current_proposal_readiness_v1/READOUT.txt；这些是0signal/数值/Account纸面否决，不冒称经济失败。
+余下可量化主问题ND/恢复后新增mobile：D post311新层-124709.67，其中mobile227 -107345.19占整段-186615.50的57.5221%；ownH错过924首4OPEN，globalD cap完全关闭不能直修。Jun7 2022/Feb20 2024为market cap解除(ownH原on)，Sep27→30才ACT恢复；不能混因果或一味慢投。后续须股票/行业E0/CP1授权质量/直接纠错证据而非再拧宏观/额度或跨股信用，父线个股初买重入质量并行不重复。本阶段没有通过逻辑且可直接实施的新授资方案。
+
+
+=== 2026-11-05T01:11:25.755866+00:00：额度恢复后优先完成2024解释，零新账户/零新回测 ===
+最新入口 explanation_2024_root_v2/READOUT.md；简明状态 EXPLANATION_2024_STATUS.json。三个独立agent分别逐日核账、交易归因、基准/中断盘点，未重跑已完成账。2024各自承接2023：No60 745426.96→9/23 625724.23→10/8 805043.93→年末637989.61；三段−119702.72/+179319.69/−167054.32，own全年−14.41286%。D 858950.90→825930.51→905257.60→718642.10；三段−33020.39/+79327.09/−186615.50，own全年−16.33490%，比No60多亏32871.45，不可因年底资金更多宣称2024改进。
+独审 ACCOUNT_2024_INDEPENDENT_AUDIT逐2×726账/自身H与切片PASS；POST_OCT8_CLASSIFICATION_REVIEW直接native fill/split核2265/1783全历史买入分类和post组钱桥PASS。No60后段旧75−54596.72/新303−112457.60；D旧53−61905.83/新311−124709.67，D新first86−44080.24/add88−42134.51/reentry137−38494.92。No60六日旧58+145291.12、新17+34028.57；D旧0、新53+79327.09且这53截至年末生命周期仍+17421.26。追加FOLLOWUP_924_THREE_WITNESSES_REVIEW核这两桥、银之杰/三六零/海能达两策略原交易和退出请求PASS，当前股票metadata exact不认证PIT/全行业聚合。
+两策略924六日sell0，不能称现金落袋；年末股票0但dividendAR18404.97/16014.17，不是全现金。现金桶变化不能当已实现交易利润，D年初持股市值87636需入NAV桥。年度费用10204.09/10621.36，post费仅各损耗3.08%/2.87%；银之杰D10/10 CLOSE退出→10/11 OPEN卖500已执行非多日迟卖，亏9342.84中请求日已亏5546.77、次OPEN再少3796.07，赢家海能达同类追加仍+25818.54。
+基准新切片另独审BENCHMARK_SLICE_REVIEW PASS：2024 ETF BH+16.2679%/MA63_90+16.4139%，自身连续承接；post−8.44%/−8.12%，HS300价格post−7.55%/全年+14.68%（非可交易账户）。原ETF execution_verified=false/不同资产和成本不算单一门alpha。2024日账MDD No6020.75096%，D21.49630%；全历史38.08810%/31.10678%另算。D自身ACT首四OPEN暂停→Sep27 CLOSE恢复/Sep30 OPEN买49并当晚82.90%仓，post全NOT_DOWN且11月D亏126417.41；提前恢复和ND新试错质量是互相独立的主问题，不再拿调DOWN额度解释post。
+恢复盘点：87小账最终财审已在中断期间完成，SHA546cb781…36fafa，87日/1448atomic，无需重跑。新robustness full无授权/final manifest/results；入口run_window.py:60只接passedTrue或statusPASS而实际门为scopedPASS的静态不匹配尚未改，未load/Account。ps沙箱EPERM导致OS活性UNKNOWN，不据此重跑/杀进程。当前不启动大规模稳健性，先完成本报告；后续只在覆盖主亏且保留赢家的可证伪动作合同、实现/独审成本清楚后准入。研究迄今无可接受新策略，审计/相对少亏不能当成功。
+
+
+=== 2026-11-05T01:26:57.305836+00:00：用户暂停新回测，优先完成算法/ACT源码复盘 ===
+最新入口 ACT_FREEZE_CODE_REVIEW_V3.md、ALGORITHM_RISK_REVIEW_V3.md；状态 ALGORITHM_REVIEW_STATUS_V3.json；绑定 algorithm_review_root_v3/FINAL_REVIEW_BINDING.json。本轮0新Account/0回测/0参数测试，恢复实现未启动。旧恢复P20排重与在途薄证据已保存；不得因旧授权自动运行robustness或ACT实验。
+ACT20_BREAK精确为活动CLOSE phasepeak=max(peak,NAV),dd>=.20 off；pause请求而非收盘瞬卖，原OPEN受T+1/容量/合法数量/HL proxy；真实无shares/exits/buys且原M>strictprior63high、M上涨、B>.6时resume，peak=当时NAV、episode+1，下一OPEN原完整权限，无分批、非FAST edge。No60首次pause785066/peak1m、flat779819，非20%最终亏损保证；多次episode reset能导致累计>20%，旧亏损不删账但不属新peak回撤。原5周期钱桥沿2024独审及EXISTING_FACTS，源码另独核。
+版本链：Jv3有3%；同1709原PVR_SLOT1已继承NoAccountBudget删3%；No60再删confirmed60三处；D再加条件TOTALgross10。不能把删3%归成No60相对原PVR新改。mobile每次plan min2%N/单股10%余量，core另原0.25%all-in保护预算，均非账户总/最终损失保证；原probe10%gross/.5%risk、行业1%risk/2-10-20%gross、stock10%/决策留现金仍有效。行业迁池不需个股盈利或F>=entry；resources仅活仓+open/cancelpending，风险为mark到floor，不是累计本金风险。shared_loss20000为record_only，旧损耗保留但不拒新买，直接翻all_new_risk又会因跨史只增不减永久冻结，不能当一行修复。
+首日两路径1/5 53笔/25行业，50 mobile-confirmed+3 core-probe，收盘89.9583%gross/6.3222%nominal，历史暖行业确是初始化因素而非未来泄漏结论。持续期No60post303=237 mobile-confirmed+13mobile-probe+53core-probe；后60收盘nominal均6.1171%/max9.6911%，50日>3%，非空confirmed平均97.1071%；排首个后段买日后仍222 confirmed新买，非只warm。303初始risk累计303254.16/各自占比累计42.4537个百分点仅周转，不是并发；原并发含旧仓不混量。原classified财富仍core-11161.44/mobile-101296.16，首次/追加/重入全保正反。
+303原请求→trades.parts另独审301 nextOPEN全部卖完/0partial；2层2241粤传媒、2265通鼎互联延一个OPEN，原因UNKNOWN。下一OPEN成交不保证1R：mobile176可比负层103>1R、19>2R，1CA参考UNKNOWN单列；根从旧risk+已审303母体独立join计数/金额同，不作原合同违规。core13>1R/2>2R但后一金额仅212.84，不抬成主驱动。core是否i_target已蕴含保护线穿越UNKNOWN，不直接判bug，core只约9.93%主303净损耗，勿再扩小问题。
+独审algorithm_risk_source_audit_v3已完成12actual源码SHA、首日原trade/journal、post60全字段/303poolrolegrossfee、301/303退出与ACT读本交叉。Decimal派生末位3差保留，展示6位同；不遮成严格逐位全同。相关性矩阵、盘中DD/真实排队/PIT/外部CA和新机制收益均未验证。研究结论为账户授资/失败消耗/保护合同缺口，尚无可接受策略；下一只读合同复盘，不启动经济或参数试验。

@@ -1,0 +1,22 @@
+{
+  "all_eight_also_offered_core": true,
+  "core_failure_counts": {
+    "open_minimum_exceeds_frozen_contract": 1,
+    "minimum_unit_exceeds_risk_or_nominal_cap": 4,
+    "sector_capital": 2,
+    "probe_risk,sector_capital": 1
+  },
+  "mobile_pool": {
+    "probe": 1,
+    "confirmed": 7
+  },
+  "post_exit_CP_events": 26,
+  "post_exit_CP_categories": {
+    "open_rejected": 22,
+    "stock_eligibility": 3,
+    "filled": 1
+  },
+  "rejected_CP_with_cash_reason": 19,
+  "rejected_CP_industry_invalidated": 3,
+  "unique_event_identity_checked": true
+}

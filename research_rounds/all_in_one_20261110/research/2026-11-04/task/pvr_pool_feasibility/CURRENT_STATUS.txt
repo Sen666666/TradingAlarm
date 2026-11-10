@@ -1,0 +1,32 @@
+2026-11-04 current status: two separately authorized complete economic paths
+finished. Earlier READOUT/RESULTS describe the preceding local SNAPSHOT stage
+(their0new-policy-financial-path scope is historical, not current total).
+
+Most useful entry points:
+FULL_EXECUTION_COMPLETION.json — exact grant/source hashes, completion dates,
+fresh1m/source/no-resume checks, raw ending NAV and actual run timings.
+runs/{2022,2025_26}/pair — complete original-shape native logs/books.
+FULL_ECONOMIC_CARD.txt / ECONOMIC_SOURCE_FREEZE.json / ROOT_AUTHORIZATION.json
+native_adapter.py / run_economic.py — minimal implementation and run entry.
+native-readiness/{GATE,CROSS_PROCESS_RESTART,AFFECTED_NATIVE_BUDGET_CHECKS}.json
+EXPERIMENT_CARD.txt / RESULTS.json / D*/{INPUT_VIEW,OFF,ON,OFF_IDENTITY}.json
+SOURCE_AND_DEDUP_READOUT.txt / ATTEMPTS_SCOPE.txt — route/dedup and all attempts.
+
+Raw native completion (finance/campaign independent reviews in progress):
+2022 fresh1m to2022-12-30: NAV704487.8470098769005, rawreturn−29.5512153%;
+old audited PVR715009.3354426633890, difference−10521.4884327864885 CNY.
+2025-07-01..2026-06-30 fresh1m: NAV2263281.2309753297565,
+rawreturn126.3281231%; oldPVR1948966.5156559574385,
+difference314314.7153193723180 CNY. These do not establish risk-adjusted value.
+
+2022 original run163.9759s / load+run+save206.8801s.
+2025_26 original run199.5059s / total245.8271s. Both under600s budget,
+no explicit resume needed, no automatic replay of either full economic path.
+Two independent processes ran in parallel. Full financial paths now2.
+Original baseline paths/source/data remain read-only. No real trading.
+
+Await independent NAV/DD/fees/risk/cash and actual semiconductor participation
+analysis fromrisk_constraints, stock-campaign tail/correction fromloss_correction,
+and source/scope/evidence review fromindependent_review. No strategy promotion.
+Root coordinates next evidence-based action; no2023/2024/cost/delay path is
+run by this subtask without a separately frozen root scope.

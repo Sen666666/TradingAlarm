@@ -1,0 +1,94 @@
+{
+  "frozen_utc": "2026-10-22T15:05:52.103760+00:00",
+  "status": "frozen_before_new_trajectory_calculation",
+  "purpose": "Finite new-index input and trajectory technical review, not economic admission",
+  "symbols": {
+    "URFI881155": "THS Bank",
+    "URFI881121": "THS Semiconductor"
+  },
+  "selection": "Existing metadata pilot; no return-based selection",
+  "source_priority": "Immutable native 9603 canonical CSV; no blending with web revisions",
+  "known_price_discrepancy": {
+    "URFI881121": {
+      "2020-06-29": {
+        "native": "6046.605",
+        "web": "6053.913"
+      },
+      "2020-06-30": {
+        "native": "6176.074",
+        "web": "6181.235"
+      }
+    }
+  },
+  "state_start": "2007-08-01, original full source start for both series; no reset at plot start",
+  "end": "2026-10-16",
+  "plot_windows": [
+    [
+      "full",
+      "2013-01-01",
+      "2026-10-16"
+    ],
+    [
+      "2014-2016",
+      "2014-01-01",
+      "2016-12-31"
+    ],
+    [
+      "2024-2026",
+      "2024-01-01",
+      "2026-10-16"
+    ]
+  ],
+  "account_warmup_decision": "Not decided here: this technical study preserves full source origin, not a 2013 account initialization certification",
+  "input_precision": "Source CSV strings -> frozen native_strings (40 digits, HALF_EVEN) -> float(decimal_text); index prices and volume preserved; no factor recomputation, fill, or new numeric tolerance",
+  "prepare_frame_scope": "Old prepare_frame whitelist excludes these indices; explicit unadjusted_index-equivalent adapter below invokes frozen helpers without extending old whitelist",
+  "mechanism": {
+    "upstream": "event_frame_numeric(close, volume, joint=True, event_exit=False)",
+    "candidate": "participation_frame(bars, upstream, mode=volume)",
+    "diagnostic_control": "Same PV upstream baseline plus mode=none identity only",
+    "changes": 0,
+    "accounts": 0,
+    "network": 0,
+    "ranking_computed": false
+  },
+  "checks": {
+    "prefix_cutoffs": [
+      "2015-12-31",
+      "2021-12-31",
+      "2024-09-30"
+    ],
+    "prefix_scope": "Reparse source prefix and compare all upstream/candidate columns exactly; ledger lifetime checked separately",
+    "volume_multipliers": [
+      "0.1",
+      "100"
+    ],
+    "unit_invariance": "Exact discrete states, price references, dates and IDs; continuous confirmation/volume ratios checked with 32*binary64_epsilon relative tolerance only in validation, never model decisions; no promise of universal float invariance",
+    "source_bytes_unchanged": true,
+    "original_pv_none_identity": true
+  },
+  "known_limits": [
+    "Previously seen development history",
+    "Two index lines only, not whole-market eligibility",
+    "No same-taxonomy historical members certified",
+    "No shareholder/market cap or execution certification",
+    "THS aggregate volume field usable for relative-volume technical review; historical aggregation changes not independently certified",
+    "Old 18-window admission cannot substitute for this new-input validation",
+    "State markers are not trades; no return-based judgement or new filter"
+  ],
+  "input_code_evidence_sha256": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/code/sector_trajectory.py": "5dc9db32fed68be196284fd6b44ca74f5cd3d602909260d7812def9ab5012ff5",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/research_rounds/pv-participation-response-20261020/freeze.json": "7f09433e43ea2a43945ab88067c9f8c4b41e7b169d9362dedd17759ad9eb4f52",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/research_rounds/pv-participation-response-20261020/reviews/algorithm-contract.md": "87959f5526a9f4a74cca6730b22c1c5d6d0299655f1efe580af57280d5259b13",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/protocol.proposed.json": "fc140f6e4c08b8352ac65457af08bfc1c28897e477f5405f265bb37d39a7e4f1",
+    "/Users/bytedance/Documents/ChatGPT/money/docs/RESEARCH_CONSENSUS.md": "244ca26a0843cd6d3c0ea270674075ba14992f45f1fc60c3a516f146573a9f97",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/revalidation-20261022/sector-input-review/review-summary.json": "cffdd717eb705dbfb67e68cfbd26a45d07c37d6800fa405b19654f8d8fb75bd6",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/revalidation-20261022/sector-input-review/PRIMARY_VISUAL_JUDGMENT.md": "d226f22bc8fe2e55209bf04c1e7efde20b511ffd2e1673bb5e6a7c7f0ff9f255",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/revalidation-20261022/sector-membership/next-capability.md": "0836f90c111a095c6d210bac587679088fd39d806059e5123b72970526d30f77",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/research_rounds/pv-participation-response-20261020/code/prepare_input.py": "39ef0c064eeb3c67539c76bee9a41fdbd3ebd5e1d858b48f19539ccc1c9521c4",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/research_rounds/pv-participation-response-20261020/code/data_utils.py": "e5623d85b66ca575e9ba3066389d0a1119f757388ae68e2711e4a70852909668",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/research_rounds/pv-participation-response-20261020/code/numeric.py": "b07f92f309864ba1cfdb84f76adbf7c4d97d5eff6d90b6b25acd62577be0c2e3",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/research_rounds/pv-participation-response-20261020/code/participation.py": "7a7017c7cd43dd2bdd7cfae4cfed29bf16d1b7452e9c411fe53c968692017cf0",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/data/ths-index-history-9603-20261018/canonical/URFI881155.csv": "c5c42b6050e241ead56b0b73ae5a4098e2a51a0850b7f60dc42a2c4a5648949b",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/data/ths-index-history-9603-20261018/canonical/URFI881121.csv": "1761be1d70741df76def18772844b9468dd64cadb329bfa97bf0c6601cc02027"
+  }
+}

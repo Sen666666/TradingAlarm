@@ -1,0 +1,37 @@
+{
+  "recorded_at": "2026-10-25T05:37:35.046542+00:00",
+  "aliases": [
+    "B4",
+    "PVS-B4"
+  ],
+  "version_identity": "PVS-B4-20261025",
+  "status": "frozen_descriptive_research_baseline",
+  "model_changed": false,
+  "mechanism_revisions": 0,
+  "new_account_runs": 0,
+  "new_downloads": 0,
+  "strategy_defined": false,
+  "e0_compatibility_from_native_b4_only": false,
+  "compatibility_evidence": "validation/compat-output-v1/verification.json",
+  "source": "research_rounds/pv-strength-b4-20261025/code/model.py",
+  "entry": "strength_frame(f, joint=True)",
+  "specification": "docs/ALGORITHM_B4.md",
+  "original_output_manifest": "research_rounds/pv-strength-b4-20261025/complete.json",
+  "change_rule": "Mechanism/constants/order/clock/semantics changes require a new explicit version; never overwrite B4 identity.",
+  "reference_runtime": {
+    "python": "3.13.7",
+    "numpy": "2.4.3",
+    "pandas": "3.0.1"
+  },
+  "sha256": {
+    "docs/ALGORITHM_B4.md": "df9bfd98455974b604a866cf423c24119bd5d1bf567716be5cd63243f36616d5",
+    "research_rounds/pv-strength-b4-20261025/code/model.py": "0beb0b16f2f2cac4f1aff23258b7c45722dc12f16e495be27bf5635c03888cf1",
+    "research_rounds/pv-strength-b4-20261025/PROTOCOL.md": "a438dd774fe5da643774752ae67c82858c76b2de9a4840835fd7250e6c1c8041",
+    "research_rounds/pv-strength-b4-20261025/freeze.json": "7999706fba55ae5d4de25519090066317f772e8cc45961256e5fb2cf17a29695",
+    "research_rounds/pv-strength-b4-20261025/complete.json": "bd813248197faf6c5c63df8c8f1034021800207886df56ed039837cd48e2ae46",
+    "research_rounds/algorithm-baselines-20261024/registry.json": "e2acce6fd23bd8c67ce287896567cda6c224ab556b6f2bb024b7bbdf0608c114",
+    "docs/ALGORITHMS_E0_R_R1.md": "10f6d3e81bca731a2c7a0d0f7d0a6b5ab842fad6f6e31f0979a22608cafe4b0d",
+    "research_rounds/b4-baseline-contract-20261025/output-contract.json": "e1daaae4d9241592dedffc6a649451c56f8d26ed8716d63d985228de9ada3528",
+    "research_rounds/b4-baseline-contract-20261025/E0_COMPATIBILITY.md": "9bee5b974be7de8e21f8ea4135cc0e5d0ac5b5ec6c79106911b60de4282bce09"
+  }
+}

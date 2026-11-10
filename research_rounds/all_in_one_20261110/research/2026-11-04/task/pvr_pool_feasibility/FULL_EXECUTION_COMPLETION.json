@@ -1,0 +1,48 @@
+{
+  "status": "two_authorized_full_paths_completed_awaiting_independent_finance_and_campaign_review",
+  "policy": "PVR_SLOT1_NO_CONFIRMED60_ONLY",
+  "authorization_path": "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/ROOT_AUTHORIZATION.json",
+  "authorization_sha256": "801027a46d0a81bea55ac069c821e6b96bf19b57ee0d1de579904613fd009c10",
+  "source_freeze_sha256": "9b88be145ee75ae6cf314459d8566ae5141ebd332ddebe32b08ccb0ace8aa30d",
+  "all_frozen_sources_unchanged": true,
+  "paths": [
+    {
+      "window": "2022",
+      "DONE": {
+        "completed": true,
+        "run_seconds": 163.97593250032514,
+        "ending_NAV": {
+          "B": "704487.8470098769005"
+        }
+      },
+      "timing": {
+        "completed": true,
+        "total_seconds": 206.88013516692445,
+        "original_run_seconds": 163.97593250032514
+      },
+      "checkpoint": "2022-12-30 15:10:00+08:00",
+      "output_path": "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/runs/2022/pair"
+    },
+    {
+      "window": "2025_26",
+      "DONE": {
+        "completed": true,
+        "run_seconds": 199.50592899974436,
+        "ending_NAV": {
+          "B": "2263281.2309753297565"
+        }
+      },
+      "timing": {
+        "completed": true,
+        "total_seconds": 245.82705570803955,
+        "original_run_seconds": 199.50592899974436
+      },
+      "checkpoint": "2026-06-30 15:10:00+08:00",
+      "output_path": "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/runs/2025_26/pair"
+    }
+  ],
+  "paths_completed": 2,
+  "resumes": 0,
+  "automatic_replays": 0,
+  "strategy_promoted": false
+}

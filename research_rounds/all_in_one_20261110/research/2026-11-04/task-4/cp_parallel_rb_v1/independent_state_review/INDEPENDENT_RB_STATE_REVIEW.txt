@@ -1,0 +1,50 @@
+R/B并行权限：独立源码/最小状态审查（不运行模型或账户）
+
+能否形成独立算法变化
+R=ln(C/L_confirmed)/(sqrt5 sigma_low)，B=ln(C/H_prior)/(sqrt5 sigma_high)本身不是新信息；就是此前双E0锚λ0的两条归一化位移，没有路径损耗。损耗独列意味着这些损耗暂不参与权限，不能同时声称它已阻止反复试错。
+B>=0恰等价C>=H_prior，sigma_high在该二元门中完全不起作用；它只影响描述数值。这个成熟条件相对旧长Q>=1更早、更宽，不能说只是改名。
+若明确START/成熟/撤销/一次消费，它可成为新的权限状态算法；若只把R/B贴到原CP而没有改变任何提案、来源消费或角色合同，则只是观测注释。小试/成熟的资金含义必须另有合法合同，本轮不设计。
+与保护V3不同：cp_formula_redesign_v1/FROZEN_PROTECTION_V3修改持有保护距离与逐新高抬线，本候选只讨论权限；保留旧CP候选线可避免把该保护V3重包装。joint_v3.py则是另一处同名v3的原执行/角色基线，不能据此声称所有旧V3研究都不重复。不得由新的R/B尺度私自替换原CORE/I/CP持仓线。
+
+frontier与receipt的硬边界
+原CP model.py40–44：只有delta_frontier>0才累credit，但还要位移和credit均达到sqrt5*旧scale才receipt。daily frontier不等于receipt。
+45仅receipt才给candidate，非receipt保NaN。原No60 Mobile需要canonical stockCP receipt及当前S0/行业/资金等资格，不是任意frontier。
+如果保canonical receipt，R/B是新权限分类/过滤状态，不另造CP原receipt；如果以frontier替receipt，新增信号更频繁，原candidate也可能缺失，必须另建typed证据与保护合同。不能同时说只用frontier又说原CP凭据和保护全部原样可用。
+
+‘原E0反转撤销旧确认’不能含糊
+E0 policy.py99–114：旧C破floor才关target，event+1启动/抬floor；event-1不是自动关E0_target。原G1_I的use_x=False，policies_g1.py20–24也只因原E0/旧I结构边界退出，不因一般反向事件直接关I。
+已确认的历史低pivot是一个当时真实事实，不能事后从历史删除；已成交订单也不能撤销。可以新增‘event-1撤销本R/B模块尚未消费的上行权限’，这是新状态合同，应命名RB_UP_LEG_REVOKED，不能冒充原系统已实现撤销I或退出持仓。
+
+一个最小精确定义：保留canonical CP receipt的R/B权限覆层
+本定义是独立可编码草案，不冒称root已采纳，更不是账户替换PASS。
+输入：原confirmed E0事件、CP canonical receipt及candidate、原域资格与旧保护状态；不修改E0/I/CP数值机。
+每条同source保存last_known_high；在event+1低确认日新建up_leg(lowID)，短L取此已确认低，sigma_low取其确认日已知CP.z。H_prior冻结为此低确认之前最后已确认的高，不在该up_leg内随新high日更。若高不存在，B未知，只能PROBE，不编造高。
+事件只能在确认CLOSE可用，不能在历史pivot日给权限；E0 pivot是有效收盘极值而非任意日内高低。源事件ID未导出时保留明确派生审计键，不冒canonical/provider ID。
+每个up_leg保存probe_issued=False、up_active=True、used_CP_receipt_ids；不把实际是否成交/赚钱写回市场事实。CP/E0共证同一价格观察只提出一个请求。
+优先序：
+1 source改变/原域不许可/旧保护触发，先按原责任处理；无新买权限，不放宽旧线。source断开归档两锚/消费；I暂OFF只停资格，不恢复已消费的low或CP。
+2 event-1在其确认CLOSE先结束当前R/B up_leg，撤销尚未用的本模块权限、保存reason；已用ID和持仓责任保留。新确认高只更新last_known_high供下一次低确认使用，不能同日把较低高塞回本leg使B突然过门。原E0/I是否退出仍由原规则决定。
+3 event+1的新lowID开启新up_leg并冻结H_prior。每个lowID只建立一次，重复收到同source确认消息不得重开。
+4 对一个当时新且未用的canonical CP receipt，且原资格允许：未发probe、R>=1时仅发PROBE_ONLY事件，probe_issued=True，消费当前CP来源。即使该日B>=0也不把同一来源再拆一张ADD。小试是否成交由外层决定，不伪称已有真实仓位。
+5 该leg已发probe后，后续不同canonical CP receipt且当前B>=0，可提出MATURE_ADD_ELIGIBLE；每张CP仅一次。B不足则不ADD，原合规旧仓/退出责任不因B低而被强迫改写。短试探一旦发过不因后来反复CP/新frontier再发同low第二张试探。
+6 没有新receipt仅状态持续、价格触碰H_prior、重复消息，都不新建订单/来源。外层若同股实际还没有试探成交，MATURE标签不能绕过真实持仓/订单状态直接按已确认仓处理，具体quantity/风险合同本轮未定义。
+该最小版本保留原CP候选线的原旧scale时钟，不用sigma_low/high重新生成持仓保护。它改变权限/过滤，不凭空新增长趋势数据。
+
+高点滚动和重复试探仍有代价
+冻结H_prior解决同一up_leg里lower-high一更新就自我成熟；但下一次低确认会把刚结束leg的最新高作为新H_prior。若它是lower-high，新的成熟价也降低，旧全波损耗事实上不再约束此新leg。必须如实标为新E0 swing的权限重启，不因archive完整就称未洗失败。
+若要保留旧active高障碍或结构退休条件，需要额外明确合同；R/B本身没有解决它。不能同时承诺永不洗长旧亏又在旧高以下任意恢复成熟。
+每个low一次只防同一个市场事件重复，不防熊市中一串不同lowID不断试探。每次合法新signal仍可能小亏累加，本轮没有试错次数/风险预算/经济验证。
+
+必要反例
+- 单阳真启动与单阳假突破：R相同、canonical CP也可同日过门；不能靠R辨真伪。
+- 深V旧高未收复：可PROBE但B负不能成熟；大行情首腿仍可能投入低，不能宣称充分参与。
+- 一字/跳空：确认日R/B足够不表示次OPEN可买，跌停不表示旧线能兑现。
+- 强直线先过H：最小版本同一首receipt仅probe，须下一独立canonical receipt才成熟，有延误代价；若取消此先后就是另一合同。
+- lower-high熊市反弹：下一leg的较低H_prior更容易收复，B>=0不等于趋势真正恢复；只是局部价格结构。
+- 健康回撤：event-1可撤本R/B继续增权，但原E0/I/持仓结构仍健康。新撤销只能影响未来本模块提案，不得假称应卖全部赢家。
+- 无确认反转但先跌：event-1要在当日C/V证据满足后才知道，不能用未来高pivot日期提前撤许可；旧硬线不能等它。
+- canonical CP多次receipt同样来自同一波价格，不是多次独立成功试验；原行业/现金/交易限制不能被MATURE标签覆盖。
+
+审查裁决
+可形成独立的权限/撤销状态算法变化；不是新的独立信号信息，也不是已经改善上行参与/防守的证明。当前frontier或receipt的来源选择、撤销哪种权限、H_prior冻结/退休、外层合法订单与风险映射，必须先精确定义；上面给了保原receipt的一个完整市场覆层草案，但未实现或验证。
+0新公式/状态计算、0金额/仓位参数、0账户、0回测、0后验真假筛选。

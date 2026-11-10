@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-30T15:16:35.987702+00:00",
+  "before_synthetic": true,
+  "no_strategy_budget_toggle": true,
+  "reason": "parent removes extra holding concentration policy; frozen share target and existing new-order caps sufficient",
+  "sha256": {
+    "research_rounds/partial-action-wiring-20261030/restore_reservation_kernel.py": "19344ec7e1aaaab8ecba1dec8ac48dab2cb69cf668a8e65d4445c50be71f4543",
+    "research_rounds/partial-action-wiring-20261030/test_wiring.py": "62d29d761489bf4b313b3934f119e58e11eb182ba7b6014ae3aef9ab3358b0b6",
+    "research_rounds/partial-action-wiring-20261030/role_adapter.py": "51686eb65894a0bf194d2f7c5b4bfd8e649415ba007f7a88472df41f697e39cc",
+    "research_rounds/partial-action-wiring-20261030/PROTOCOL.txt": "95c2ca7c317c380acd8bfa42f9cb58f19f7301b17aa20b62117b5149f03b65d5"
+  }
+}

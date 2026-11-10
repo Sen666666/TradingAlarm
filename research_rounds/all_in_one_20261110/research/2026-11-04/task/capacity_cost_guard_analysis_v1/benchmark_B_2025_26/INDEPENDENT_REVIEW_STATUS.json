@@ -1,0 +1,9 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "audit_path": "/Users/bytedance/Documents/Codex/2026-11-04/task/independent_review/capacity_benchmark_B_v1/BENCHMARK_B_2025_26_INDEPENDENT_AUDIT.json",
+  "audit_sha256": "f5ce805768bb23bcbd1dbc8556cafa37c08c4ab3e7dc3cb29a8a570d590a4227",
+  "source_result_sha256": "bb619b301add9402894977d7f74228898ad496e6dd28d3baaea8658f68bdc433",
+  "original_results_historical_pending_marker_preserved": true,
+  "execution_verified": false,
+  "native_candidate_no_effect": true
+}

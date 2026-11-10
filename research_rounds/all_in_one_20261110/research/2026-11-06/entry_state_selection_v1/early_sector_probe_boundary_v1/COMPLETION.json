@@ -1,0 +1,45 @@
+{
+  "completed_utc": "2026-11-06T21:54:51.334999+00:00",
+  "status": "COMPLETE_CONDITIONAL_BOUNDARY_NOT_NEW_ACCOUNT",
+  "candidate_rows": 16970,
+  "first_episode_slots": 45,
+  "original_risk_dates": 1054,
+  "original_risk_unknown_dates": 0,
+  "independent_selection_and_labels_recomputed": true,
+  "independent_checkpoint_and_resource_recheck": true,
+  "selection_seal_verified": true,
+  "hash_checks": {
+    "DOMAIN_HASHES.json": {
+      "files": 1716,
+      "mismatches": 0,
+      "archived_exact_source_mapping_used": false
+    },
+    "INPUT_HASHES.json": {
+      "files": 4958,
+      "mismatches": 0,
+      "archived_exact_source_mapping_used": false
+    },
+    "SELECTION_INPUT_HASHES.json": {
+      "files": 4965,
+      "mismatches": 0,
+      "archived_exact_source_mapping_used": true
+    },
+    "EVALUATION_HASHES.json": {
+      "files": 46,
+      "mismatches": 0,
+      "archived_exact_source_mapping_used": false
+    },
+    "REPORTING_SUPPLEMENT_HASHES.json": {
+      "files": 78,
+      "mismatches": 0,
+      "archived_exact_source_mapping_used": false
+    }
+  },
+  "source_provenance_note": "FREEZE_PROVENANCE_NOTE.json",
+  "original_account_executed": false,
+  "new_account_executed": false,
+  "original_strategy_modified": false,
+  "real_orders": false,
+  "full_round_net_win_rate_estimated": false,
+  "cross_day_cash_risk_not_propagated": true
+}

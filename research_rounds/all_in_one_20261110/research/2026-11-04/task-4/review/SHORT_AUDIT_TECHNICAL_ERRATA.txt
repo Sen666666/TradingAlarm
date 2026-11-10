@@ -1,0 +1,1 @@
+First review run failed only because saved H1 price labels are numeric strings and numpy median received strings. All source hashes, domain checks and selected raw-window tests had passed before this error; no audit result was published. Reviewer copy retained as audit_short_verify.failed-v1.py; numeric float conversion only, no producer source change or account run.

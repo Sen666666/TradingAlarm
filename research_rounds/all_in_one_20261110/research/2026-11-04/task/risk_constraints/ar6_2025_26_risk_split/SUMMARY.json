@@ -1,0 +1,24 @@
+{
+  "close_count": 44,
+  "first": "2025-07-01",
+  "last": "2025-08-29",
+  "equal_close_risk_yuan_sums": {
+    "principal": "1863551.299353304845067852576",
+    "giveback": "933033.8647863488998629191210",
+    "line": "2796585.164139653744930771698",
+    "lock_extra": "89297.90076006892041708331221",
+    "pending_risk": "0",
+    "total_risk": "2885883.064899722665347855013"
+  },
+  "principal_share_of_line": "0.6663667258374414505430727706",
+  "giveback_share_of_line": "0.3336332741625585494569272291",
+  "lock_extra_share_of_total": "0.03094300730552012256109993171",
+  "financial_events": 0,
+  "clock": "original trusted post-stock-protection same-close raw floor; actual final-close risk incl new execution locks; not projected donor releases",
+  "cost": "actual gross buy fill unit cost, adjusted by actual native integer split events through this close; buy fees excluded from split reference",
+  "sources": {
+    "FINAL.json.gz": "5c0edbad224672096d77d5975b673623b3606f2df11199b67e9e011d5d7d7d92",
+    "TRUSTED.json.gz": "691024031930c5f9adc6d874ab5fadf43b5a150787e927aeb24580472d3f85ca",
+    "FLOW.jsonl": "aaf79d96b0809247b239a1656b60023f914c2fcd4bb63e78d3133914e4f625c6"
+  }
+}

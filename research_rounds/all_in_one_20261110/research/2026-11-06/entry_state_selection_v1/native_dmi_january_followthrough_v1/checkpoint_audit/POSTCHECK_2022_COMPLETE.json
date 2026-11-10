@@ -1,0 +1,56 @@
+{
+  "branch": "2022",
+  "economic_runs": 0,
+  "output_seal": {
+    "sha256": "f7f45a4a7001a46542a8c0d2515910836a02ae4111c137b2cc521bfebae453d5",
+    "entries": 17
+  },
+  "analysis_seal": {
+    "sha256": "003571e5d90d8744ee7de8d3f3e414fd87cffe069cb1f812d73483c45885e57a",
+    "entries": 21
+  },
+  "checkpoint_seal_sources": 99,
+  "empty_candidate_CLOSE_days_verified": 270,
+  "native_checks": {
+    "daily_rows": 1054,
+    "suffix_days": 1035,
+    "trade_prefix": 205,
+    "suffix_fills": 6285,
+    "open_cash_rows": 1054,
+    "all_balance_and_NAV_gaps_zero": true,
+    "rank_rows": 140582,
+    "UNKNOWN_fixed_slots": 623,
+    "all_CLOSED_days_DMI_rank_reconstructed": true,
+    "calendar_reconstructed_events": 2789,
+    "first_suffix_event": "2022-02-07 09:30:00+08:00",
+    "action_midnights": 719,
+    "every_daily_cash_and_dividend_prefix_reconstructed": true
+  },
+  "full_round_export_exact": 2708,
+  "cohort": {
+    "fixed_members": 101,
+    "closed": 101,
+    "wins": 13,
+    "net_closed_pnl": "-112142.8147704440000000000000",
+    "first_closed": 101,
+    "first_wins": 13,
+    "first_pnl": "-75426.82780932578636363636364",
+    "open": [],
+    "tails": []
+  },
+  "final": {
+    "nav": "1275424.3539294617000",
+    "cash": "129768.4736094617000",
+    "inventory": "1117625.66",
+    "dividend_receivable": "28030.22032",
+    "all_dividend_accrual": "28030.22032",
+    "fees": "67647.4642205383000",
+    "held": 81,
+    "live_layers": 100,
+    "pending": 166,
+    "stale": [],
+    "last_event": "2026-05-15 15:10:00+08:00",
+    "NAV_PnL_all_round_bridge_pass": true
+  },
+  "passed": true
+}

@@ -1,0 +1,8 @@
+    def planning(self, at):
+        if self.entry_mode == 'OFF':
+            return N.Runner.planning(self, at)
+        GATED_PLANNING(self, at)
+        if self.rank_mode == 'H1': return
+        for a in self.accounts.values():
+            log = N.apply_priority(a, N.SCORES.at, str(at.date()))
+            self.rank_log.extend(dict(account=a.label, **r) for r in log)

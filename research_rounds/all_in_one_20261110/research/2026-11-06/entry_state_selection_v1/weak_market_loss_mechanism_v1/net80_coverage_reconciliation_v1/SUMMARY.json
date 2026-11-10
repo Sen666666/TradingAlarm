@@ -1,0 +1,124 @@
+{
+  "scope": "Original fixed 2432 permits; restored NET80 scenario, not account or PIT/actual-tax evidence; only reporting, no new backtest.",
+  "old": {
+    "closed": 1913,
+    "wins": 506,
+    "loss": 1407,
+    "small_positive_losses": 844,
+    "never_positive_losses": 338
+  },
+  "current": {
+    "permits": 2432,
+    "closed": 2311,
+    "wins": 727,
+    "losses": 1584,
+    "win_rate": 0.314582431847685,
+    "unknown": 120,
+    "nofill": 1,
+    "small_positive_losses": 944,
+    "never_positive_losses": 352,
+    "only_entry_positive_losses": 78,
+    "t1_never_positive_losses": 427,
+    "no_t1_close_losses": 3,
+    "net_pnl_independent_sum": -533679.8759263735,
+    "gross_loss_cny": 2724626.2564843306,
+    "small_positive_loss_count_fraction": 0.5959595959595959,
+    "small_positive_loss_money_fraction": 0.5957512176016412,
+    "peak_below10_loss_money_fraction": 0.8777130815409174
+  },
+  "label_arithmetic_not_strategy": {
+    "target": 0.35,
+    "old_oracle_delete_never": 0.32126984126984126,
+    "current_oracle_delete_never": 0.371107708014293,
+    "current_oracle_delete_t1_never_only": 0.3858811040339703,
+    "current_oracle_delete_t1_never_plus_no_observation_separately": 0.3864965443912812,
+    "current_perfect_loss_deletions_to_35": 234,
+    "current_net_win_increase_fixed_n_to_35": 82,
+    "current_required_total_wins_fixed_n_to_35": 809
+  },
+  "remaining_unknown": {
+    "FACTOR_PATH_UNKNOWN": 75,
+    "MISSING_OPEN_PATH_UNKNOWN": 30,
+    "CORE_BASELINE_ACTION_COVERAGE_UNKNOWN": 11,
+    "MISSING_NEXT_OPEN_UNKNOWN": 4
+  },
+  "unknown_prefix": {
+    "known_prefix_count": 105,
+    "positive_prefix_count": 85,
+    "action_coverage_unknown_unclassified": 11
+  },
+  "qa": {
+    "mark_net_max_error": 0.0,
+    "mark_cash_max_error": 0.0,
+    "mark_receivable_max_error": 0.0,
+    "terminal_core_max_error": 0.0,
+    "reconstructed_marks": 26064,
+    "baseline_same_cohort_count": 1902,
+    "baseline_same_cohort_max_error": 2.2737367544323206e-13
+  },
+  "fixed_original_queue_label_arithmetic_not_new_strategy": {
+    "definition": "2022 A_UNION_B same day, sector; feasible decisions SELECTED_PENDING or PASS_NOT_TOP2. K=original selected count, n>K is swappable. All 2432 round/event/stock/sector/signal-day identities matched.",
+    "old_reproduced": {
+      "fixed_n": 1017,
+      "fixed_wins": 262,
+      "swappable_n": 896,
+      "swappable_wins": 244,
+      "required_swappable_wins": 408,
+      "required_rate": 0.45535714285714285
+    },
+    "current": {
+      "fixed_n": 1248,
+      "fixed_wins": 395,
+      "swappable_n": 1063,
+      "swappable_wins": 332,
+      "current_swappable_rate": 0.3123236124176858,
+      "required_swappable_wins": 414,
+      "required_rate": 0.3894637817497648,
+      "net_more_wins_needed": 82
+    },
+    "unknowns_by_swappability": {
+      "false": 58,
+      "true": 62
+    },
+    "nofill_by_swappability": {
+      "true": 1
+    },
+    "limitation": "Arithmetic only at current fixed 2311 closed denominator, holding non-swappable labels fixed. Ranking could change closure, outcomes, later held/flat availability, new event eligibility and fees. Unselected candidates have no terminal labels here. Repaired actual lifecycle cannot be inferred from frozen DECISIONS."
+  },
+  "cohort_reconciliation": {
+    "old_1913_closed": {
+      "wins": 506,
+      "losses": 1407
+    },
+    "removed_to_action_coverage_unknown": {
+      "count": 11,
+      "wins": 3,
+      "losses": 8
+    },
+    "strict_old_remaining": {
+      "count": 1902,
+      "wins": 503,
+      "losses": 1399
+    },
+    "ten_entry_bridges": {
+      "count": 10,
+      "wins": 5,
+      "losses": 5
+    },
+    "restored_NET80": {
+      "count": 399,
+      "wins": 219,
+      "losses": 180
+    },
+    "new_2311_closed": {
+      "wins": 727,
+      "losses": 1584
+    }
+  },
+  "fixed_permit_extremes_not_forecast": {
+    "denominator_without_nofill": 2431,
+    "lower_if_all120unknown_lose": 0.2990538872891814,
+    "upper_if_all120unknown_win": 0.34841628959276016,
+    "unknown_never_treated_as_loss_or_win_in_report": true
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "result": "COMPLETE_LOCAL_FACT_PREPARATION_NOT_ADMISSION",
+  "total_events": 30,
+  "pass_count": 29,
+  "unknown_count": 1,
+  "fail_count": 0,
+  "events": [
+    {
+      "sid": "600079.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-11",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/600079_FACT_QA.json",
+      "qa_sha256": "f2df021f9283571535364ce747015ffa86b56cc66a3b349b477011587eecbe53"
+    },
+    {
+      "sid": "688248.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-11",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/688248_FACT_QA.json",
+      "qa_sha256": "77a283769baf8c21db3c8d753ddb47e521f4d5af2cfa16e999f5738c7ad835dd"
+    },
+    {
+      "sid": "601619.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-14",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/601619_FACT_QA.json",
+      "qa_sha256": "7500ec8400b1450ca89dbe55d6566429a2955eae6e76928bc174834224c39225"
+    },
+    {
+      "sid": "688686.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-14",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/688686_FACT_QA.json",
+      "qa_sha256": "34803bab68b02404ef1c3c0a71f6bf454059b0d0625d17c390e995d166f196ae"
+    },
+    {
+      "sid": "300573.SZ",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-16",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/300573_FACT_QA.json",
+      "qa_sha256": "2047e17e1fdcdd8bb1a960d7852a463493e3b56e3ebaf01bf7fa090a052882b8"
+    },
+    {
+      "sid": "600027.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-16",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/600027_FACT_QA.json",
+      "qa_sha256": "99938b9c9c341116ea1eca506305ac3d365cc9a3cddf88f400fd7501657cdf0e"
+    },
+    {
+      "sid": "688188.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-16",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/688188_FACT_QA.json",
+      "qa_sha256": "1f1cf1bb06ebfe92e149d62742a8481b3633ef5233fae26eff838e98a76f0cd7"
+    },
+    {
+      "sid": "688507.SH",
+      "status": "UNKNOWN_PUBLICATION_EVIDENCE_NOT_ADMITTED",
+      "ex_date": "2024-10-16",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/688507_FACT_QA.json",
+      "qa_sha256": "5ff9f7568b30e25beec809ae0c34694cffec0800201f6291f8686301d2c6ea5a"
+    },
+    {
+      "sid": "300394.SZ",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-17",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/300394_FACT_QA.json",
+      "qa_sha256": "aa30d5cc704d9f3851fb0db26776270a380b1d417ee7b70119334c1ed1b94721"
+    },
+    {
+      "sid": "300718.SZ",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-17",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/300718_FACT_QA.json",
+      "qa_sha256": "dbc835cd53527bce560bf2fe5fb92af125b212ed1bca825ce54898a7ce8d4973"
+    },
+    {
+      "sid": "300855.SZ",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-17",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/300855_FACT_QA.json",
+      "qa_sha256": "3f54d6b894f74ab41092ca96f6eb7d64974e5bd4d8b1dc88c70bbe9354350a3a"
+    },
+    {
+      "sid": "301603.SZ",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-17",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/301603_FACT_QA.json",
+      "qa_sha256": "b5120d712ce3a725bfce555fe8ddb56d704768f0cab4e9e41b8ca2fba061ec78"
+    },
+    {
+      "sid": "000338.SZ",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-18",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/000338_FACT_QA.json",
+      "qa_sha256": "77a7b46e46f5824e3fcfee634c309e830498afb385e5ebdfdf63d0a9b5055b7c"
+    },
+    {
+      "sid": "000937.SZ",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-18",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/000937_FACT_QA.json",
+      "qa_sha256": "7fd2ff70691274ee7d1f897a6bb416ebd59e4fba4fb1eadb7e28ba5a3ecffddf"
+    },
+    {
+      "sid": "002353.SZ",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-18",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/002353_FACT_QA.json",
+      "qa_sha256": "c67083d92e83fc5e5270a3a02505270215d66f9ca5bf2fd43e2250fb8e8d594e"
+    },
+    {
+      "sid": "601238.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-18",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/601238_FACT_QA.json",
+      "qa_sha256": "f9e2aeaf0ae624f94dc3aa2acfc9d82f3067e2e9e7d0958637e2cf6977af91cd"
+    },
+    {
+      "sid": "000905.SZ",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-21",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/000905_FACT_QA.json",
+      "qa_sha256": "c72fdb22e224f5a1ffd2254d23b4c0904bba3b5247916c7a7a5c55a86b00a167"
+    },
+    {
+      "sid": "688375.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-21",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/688375_FACT_QA.json",
+      "qa_sha256": "57d7671d3b56f0760950f416bb99edb08a3d4e9af2cce37b442253bf7ea07ddf"
+    },
+    {
+      "sid": "600236.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-22",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/600236_FACT_QA.json",
+      "qa_sha256": "44094d04fe0b3f8ae6a9ba1d551800b23eb79260259e04d57518ece35508a138"
+    },
+    {
+      "sid": "601096.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-22",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/601096_FACT_QA.json",
+      "qa_sha256": "4cc7de1d24a8ace2ef49ae8ee419081f2ab62fbbc3c52b24af02e74649cbb645"
+    },
+    {
+      "sid": "688097.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-22",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/688097_FACT_QA.json",
+      "qa_sha256": "28aa58f8b54655032cbe73b95cbc5befa29e4f229fefe8532e9207e599c18519"
+    },
+    {
+      "sid": "688692.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-22",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/688692_FACT_QA.json",
+      "qa_sha256": "458b7e132db0baef0b29acf9557fddda468fc1ce2c1c78277f0ba32e05e0aed3"
+    },
+    {
+      "sid": "600248.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-23",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/600248_FACT_QA.json",
+      "qa_sha256": "90cb43ccfc6f718103f4f7e00b7382da444823f3cfe138a0ebbbff14f251b847"
+    },
+    {
+      "sid": "600835.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-24",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/600835_FACT_QA.json",
+      "qa_sha256": "348c3115a82b00bb8fca6f2f3ccf3639beab640c8b9e43fdd8bf4950b45dde68"
+    },
+    {
+      "sid": "688535.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-28",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/688535_FACT_QA.json",
+      "qa_sha256": "68ede5016afa5a8d7721c8b4c61ae1b9b4dd32b868722829133792b4eadd0f6d"
+    },
+    {
+      "sid": "000951.SZ",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-29",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/000951_FACT_QA.json",
+      "qa_sha256": "d7e234ef85ed7f903d783b7322293b91de45d7f538d933928c888ddf29149c26"
+    },
+    {
+      "sid": "002552.SZ",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-31",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/002552_FACT_QA.json",
+      "qa_sha256": "5b7a68821524e6f1aa22acc368e5aa5df8992c1006b02cb0d82c1d303a82247e"
+    },
+    {
+      "sid": "600795.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-31",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/600795_FACT_QA.json",
+      "qa_sha256": "a4e1422713ef6f1207f7cadaac374de0c262afab9f9b99309d88464fdb8c375d"
+    },
+    {
+      "sid": "600821.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-31",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/600821_FACT_QA.json",
+      "qa_sha256": "faf92dffacca0acbed7027b0431958a9f671c29afdb68363590d8268d114dc21"
+    },
+    {
+      "sid": "601801.SH",
+      "status": "PASS_LOCAL_FACTS_NOT_ADMITTED",
+      "ex_date": "2024-10-31",
+      "qa_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/601801_FACT_QA.json",
+      "qa_sha256": "b2215722ae6d5ad791db591feba3800df14cfcfee27492a91fb653b099544c92"
+    }
+  ],
+  "max_abs_source_residual": "2.684658451115E-16",
+  "differential_events": [
+    "688507",
+    "300718",
+    "000338",
+    "002353",
+    "601238",
+    "688097",
+    "000951",
+    "600821"
+  ],
+  "all_source_evidence_unchanged": true,
+  "original_directory_file_count": 215,
+  "history_run": false,
+  "real_Data_constructed": false,
+  "actual_admission_performed": false,
+  "strategy_code_changed": false,
+  "network_used": false,
+  "new_url_visited": false,
+  "CNINFO_000728_403_retried_or_bypassed": false,
+  "limits": [
+    "All results are preparation only; future admission still needs exact event approval/sealed adapter under its own process.",
+    "No target expansion, historical run, current-run membership assertion, generic action admission or Q0/held-state transition test.",
+    "No event first-publication intraday timestamp is proven. not_PIT, not production."
+  ]
+}

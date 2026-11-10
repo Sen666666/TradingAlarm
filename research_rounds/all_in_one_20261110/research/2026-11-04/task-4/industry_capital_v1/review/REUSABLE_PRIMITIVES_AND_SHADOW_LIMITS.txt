@@ -1,0 +1,54 @@
+2026-11-05｜旧影子评价与可复用原语：有界源码检索结果
+
+未找到可直接称为完整净收益singletrade/netpath的旧纯helper。
+这是本次已列路径的有界检索结论，不宣称整个工作区不存在其他实现。
+旧完整轮动经济账户有金融执行器，但本轮不构造Account/Runner或恢复完整状态。
+
+旧影子代码（准确范围）
+1 money/research_rounds/portfolio-correction-20261027/code/diagnostics.py::main
+   新旧prices.index.intersection，signal CLOSE起点至共同后21/63观察，纯close比值和四象限。
+   没有交易份额、费用、净分红、送转后库存、T+1或真实影子买卖；不能作为净收益helper。
+2 money/research_rounds/pvr-rotation-20261027-v2/code/postmortem.py::main/graph
+   读原实际campaign、duration与capacity，比较华正原实际两条账户路径；不是新单股反事实。
+3 money/research_rounds/ph1-cross-sector-20261028/code/shadow_review.py::run_case
+   文件首行明确Single-position shadow protection paths; no cash, fills, costs or new returns。
+   仅保护状态/退出提案，不可借它称CA/费用已实现的CORE路径。
+4 旧replacement-quality-six-batches-v2/analyze.py::label/basket_path
+   原始OPEN锚、未来factor比率仅评价、固定共同市场终点、close路径，static初始权重。
+   CA factor保持价格坐标，不单独算实际现金分红/费后净财富。actual bookkeeping来自旧账，
+   不是该标签模拟的新交易。
+
+无需新平台即可复用的既有确定原语
+A money/research_rounds/lot-risk-allocation-20261029/code/study.py
+  fees(qty,price,schedule,side,par): 原FeeSchedule.incremental，含按订单/成交最低费语义；
+  protection_risk: 原I保护价加5bps卖出滑点与双边估费；
+  maximum_quantity: 原buy_minimum/buy_step最大合法量；
+  resize_core: 原信号NAV的0.25%含费风险与10%名义上限，冻结cap/budget/floor；
+  preview: 实际OPEN价、当时factor/dated量规则/费用重验原冻结cap/budget及I保护。
+  这些函数不构造Account；不能把当前Ponly2%诊断cap误带到新原CORE额度研究。
+B money/research_rounds/a-share-selection-e0-20261024/code/sector_account.py
+  QuantityRule.buy_floor/sell_floor：买入最低手、卖步长与全清odd-lot分离；
+  FeeSchedule.incremental：paid/accrued保留单个订单最低费，分层FIFO卖出不能每层重复收费；
+  InventoryLot/FillWindow字段给sellable_at/settlement/容量等原合同。
+  fill_buy/fill_exit/split/accrue_dividend/pay_dividend是有状态Account方法，不是假装纯helper。
+C 同目录history_runner.py::FrozenMarket
+  quantity/fees/_version/lag：dated规则与市场钟；
+  window：真实raw OPEN±原滑点、过去20量容量+当日HLV后验执行代理、停牌/限价/flat日。
+  当日HLV只能在影子执行评价/原执行代理中用，不得提前放进信号或假称OPEN时已知道。
+  latest_mark：原stale/ex-reference估值，不保证可成交。
+D 同目录history_runner.py::HistoryRunner._actions/_payments的CA顺序
+  effective日00:00、按事件前实际旧持有份额计cash，再split；原protocol明确dividend_net_factor，
+  支付日/未知支付及应收保留；新股sellable_at来自原terms或bonus lag。
+  未支持的非整数送股分配不能默默四舍五入；原rights/no-subscription不凭空增现金或股票。
+  这些是有状态账本流程；复用公式仍需独立核对新标量路径与原账CA例，不能仅乘factor称已验证。
+E task-4/new_price_trend_v1/native_mark_reader.py::price
+  已独审的原FrozenMarket.latest_mark只读SimpleNamespace载体；可作期末库存净清算估值前价格，
+  含001331停牌除权参考修复。derived_ex_reference必须保留source/known_at及非可执行标志。
+  封存目录不改文件；import避免写pycache或重跑封存账户。
+
+局部机会成本的精确限定
+候选按原I失效或baseline ACT首次停提出退出；原次OPEN/不可交易延迟仍应保留。
+旧层沿其原自然实际退出，净现金持有到同一公共终点；期末有股用清算费代理估值，
+单列“估值”而非“实际已卖”。原baselineACT是固定环境，不是换仓后可保证的ACT路径。
+原共享现金/行业/风险与其他候选竞争未重建，故即使局部单位/费用/CA路径核同，
+也只能称固定原环境的独立假设CORE净财富与原库存同期机会成本，不能称可执行换仓收益。

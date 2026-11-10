@@ -1,0 +1,7 @@
+HERE=Path(__file__).resolve().parents[1];ROOT=HERE.parents[1]
+OLD=ROOT/'research_rounds/rs-h1-execution-20261025';IX=ROOT/'research_rounds/ix-a-share-entry-20261025';PREV=ROOT/'research_rounds/unlimited-capital-20261026'
+for p in [OLD/'code',IX/'code',PREV/'code']:sys.path.append(str(p))
+import multi_runner as native
+import sector_account as ledger
+import sector_stock_admission as admission
+from current_pool_bridge import load_bundle,load_prepared_states

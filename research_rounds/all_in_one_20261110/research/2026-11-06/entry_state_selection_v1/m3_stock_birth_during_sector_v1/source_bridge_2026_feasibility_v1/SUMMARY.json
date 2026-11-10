@@ -1,0 +1,29 @@
+{
+  "unknown": 20,
+  "source_changes": 16,
+  "initial_factor_changes": 4,
+  "total_overlap_stock_days": 10084,
+  "OHLC_conflict_cells": 0,
+  "OHLCV_amount_conflict_cells_existing_tolerance": 0,
+  "tail_sessions_per_stock": 31,
+  "tail_source_bars": 496,
+  "tail_missing_source_bars": 0,
+  "subsequent_cash_factor_events": 6,
+  "cash_factor_events_total": 10,
+  "pure_cash_events": 10,
+  "max_cash_factor_formula_relative_error": 3.3306690738754696e-16,
+  "activated_bridges": 0,
+  "economic_runs": 0,
+  "account_runs": 0,
+  "original_source_files_modified": false,
+  "archived_PIT_certified": false,
+  "held_positions_counted_as_wins": false,
+  "source_validation_policy": "Existing prepare_a.py tolerances retained, no silent renormalization beyond documented Tushare lots/1000 CNY units",
+  "caveats": [
+    "Actual historical orderability unknown.",
+    "Archived history collected in October 2026; no certification of historical information availability.",
+    "Six source-bridge candidates encounter later cash factors. Four initial cash factors need official entitlement timing/amount evidence.",
+    "Original permits, original M3/I/CP features and queues are not reconstructed or corrected.",
+    "Restoring originally selected paths can later change occupancy and selections; bounded replay is not a complete A+B strategy result."
+  ]
+}

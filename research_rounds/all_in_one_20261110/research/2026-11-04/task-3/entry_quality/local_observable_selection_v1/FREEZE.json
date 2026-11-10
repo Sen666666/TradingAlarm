@@ -1,0 +1,23 @@
+{
+  "status": "FROZEN_BEFORE_FULL_LOCAL_RANK_RESULTS",
+  "scope": "Seven fixed-date stock-score cross sections from existing5517 local standardized A-share series. No account paths, old pending eligibility, E0/I/CP/industry gate, trade sizing, forward returns or future-performance stock choice.",
+  "dates": ["2022-01-10", "2022-01-24", "2024-09-24", "2024-10-08", "2026-01-15", "2026-01-20", "2026-05-15"],
+  "mother": "5517 distinct symbols in existing canonical bars, each at every check date,38619 rows. A same-date exact observed valid bar plus enough past observations means locally observable, not certified contemporaneously listed/tradable or full historical all-A universe.",
+  "price": "Existing canonical qfq close, with rawclose/adjustment/reference metadata retained. Per-stock fixed terminal reference cancels analytically from log returns, but historical factor vintage/publication not PIT-certified. Amount and volume pass through TuShare native units, no silent yuan/share conversion.",
+  "clock": "Exact existing observed-bar sequence per symbol; finite positive close+amount and original scorer's validity/source reset rule. Missing target day stays missing. Missing intervening market sessions not filled or called nonsuspended; original valid-observation windows may span gaps and are not calendar-day windows.",
+  "PVR": "Original frozen function: r=log(C).diff; s=max(1e-8,1.4826 median(previous63 abs r)); amount_ref=median(previous21 amount); u=tanh(r/s); b=tanh(log(A/amount_ref)); e=u*(1+.5*abs(u)*b); E=sum k0..20 .9^k e[t-k]/sum .9^k; score=50+50*tanh(2E). Requires85 valid prices from new block.",
+  "FAST": "sum lag0..4 .8^k e/sum .8^k,5 finite original e; earliest69 prices; independent queue, no slow readiness condition.",
+  "SLOW": "mean lag5..62 e,58 disjoint terms, all current block; earliest127 prices.",
+  "CONT": ".3*p_fast+.7*p_slow with same-date both-ready stocks'0..1 average-rank percentiles, no positivity intersection. Exact weighted half-rank numerator3A+7B; no coefficient tuning.",
+  "separate_queues": "Original-PVR ready stocks rank by score; FAST-ready stocks independently rank by Efast; CONT uses common fast/slow-ready data. Each list top20 with pool N disclosed; no ranking if feature unknown. Scores and top20 do not grant trade/probe permission.",
+  "ties": "Symbol ascending for mathematical ties; full-pool H1 is unavailable and not fabricated. Preserve native raw numerical scores. Report tie counts and use exact rational CONT comparison.",
+  "old1709_comparison": "Annotate exact fixed-manifest membership; no guessed ticker aliases. Compare full-pool top20 exclusions and old-subpool ranks on the SAME new canonical data; for CONT recompute within-old percentiles separately and label cohort change. Old account/pending ranks are not used as new legal eligibility.",
+  "names_and_status": "Current names only identification, never historical name/ST truth. Historical ST/suspension/industry not certified; not used as false/clean or as a future survival filter.",
+  "fixed_named_cases": ["000620.SZ", "300085.SZ", "002583.SZ", "300666.SZ", "603061.SH", "301611.SZ", "300604.SZ", "301308.SZ", "002371.SZ", "688012.SH", "688498.SH"],
+  "case_selection": "Previously named stock IDs fixed before new full ranks; missing bar/warmup/old symbol mismatch retained. Strong means same-day high signal rank only, not future winner.",
+  "cache_check": "Independent original-function/prefix arithmetic validation on NEW inputs, then compare old same-symbol/day cached r/scale/amount_ref/e/E/score separately. Distinct price/amount coordinates, missing-observation sets or source resets can legitimately differ; do not silently replace new values with old cache or force equality.",
+  "retired239": "Keep existing239 retired archives out of ranking; separately report actual exact-date row, finite price/amount and source past-observation counts at each check date. Presence does not prove comparable adjustments/units or certified complete delisted history.",
+  "limits": "Static local survival/provider selection, missing historical status/identity/industry/known time, source vintage/current names, incomplete delisted coverage.2026 scope endsMay15; no later-date data filled. Already consumed history, not genuine out-of-sample.",
+  "new_accounts": 0,
+  "forward_labels_loaded": false
+}

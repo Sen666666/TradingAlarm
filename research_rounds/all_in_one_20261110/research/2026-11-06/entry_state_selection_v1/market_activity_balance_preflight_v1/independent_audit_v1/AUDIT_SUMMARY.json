@@ -1,0 +1,156 @@
+{
+  "audit_scope": "READ_ONLY_RECONSTRUCTION_NO_NEW_CANDIDATE_NO_LABELS_NO_ACCOUNTS",
+  "cases": 63,
+  "dates": 42,
+  "member_rows": 71778,
+  "overlap": [
+    [
+      "300666.SZ",
+      "2026-01-05"
+    ],
+    [
+      "600186.SH",
+      "2022-11-03"
+    ]
+  ],
+  "known_rows": 60934,
+  "unknown_rows": 10844,
+  "unknown_reasons": {
+    "MISSING_COMMON_PRICE_OR_WARMUP": 7405,
+    "FACTOR_CHANGE_WITHIN22": 3439
+  },
+  "K_minmax": [
+    983,
+    1584
+  ],
+  "M_minmax": [
+    125,
+    726
+  ],
+  "frozen_states": {
+    "UNKNOWN": 42
+  },
+  "finite_D_rows": 41,
+  "known_point_positive_dates": 9,
+  "known_point_nonpositive_dates": 32,
+  "empty_direction_dates": [
+    "2024-09-30"
+  ],
+  "aggregate_max_abs_error": 3.885780586188048e-16,
+  "all_known_m_max_abs_error": 1.7763568394002505e-15,
+  "independent_discrete_outer_bound_tests": 175725,
+  "original_QA_false_retained": true,
+  "QA_explanation": "One NaN empty-direction row makes the original all-comparison false; all 41 finite rows are contained.",
+  "minimum_abs_finite_frozen_D_L": 0.1732793522065507,
+  "minimum_abs_finite_frozen_D_U": 0.0562070410413318,
+  "joint_completion_both_sign_dates": 40,
+  "joint_completion_excludes_positive": [
+    {
+      "day": "2024-12-03",
+      "frozen_state": "UNKNOWN",
+      "n_up": 634,
+      "n_down": 861,
+      "n_flat": 66,
+      "M": 148,
+      "sum_up_fsum": 643.7904499222069,
+      "sum_down_fsum": 760.8645207425537,
+      "frozen_D_L": -0.2797311520494954,
+      "frozen_D_U": 0.05620704104133167,
+      "inf_D": -0.2234502825809862,
+      "inf_up_k": 148,
+      "inf_down_k": 0,
+      "sup_D": -0.028769794969079165,
+      "sup_up_k": 88,
+      "sup_down_k": 60,
+      "interior_inf_witness_D": -0.22345028068840322,
+      "interior_sup_witness_D": -0.028769796839381523,
+      "both_sign_witnesses": false,
+      "audit_result": "EXCLUDES_D_POSITIVE"
+    }
+  ],
+  "joint_completion_only_positive_dates": 0,
+  "joint_completion_min_abs_endpoint": 0.004342395860286508,
+  "joint_completion_interior_epsilon": 1e-8,
+  "joint_completion_scope": "Feasibility only under frozen unknown-direction and m-interval model; not reconstruction of absent raw observations or their partial constraints. Endpoints are infimum/supremum; strict interior sign witnesses are also shown.",
+  "no_frozen_state_replaced": true,
+  "completeness_supplement": {
+    "all_known_finite_D_inside_bounds": true,
+    "finite_dates": 41,
+    "empty_direction_dates": [
+      "2024-09-30"
+    ],
+    "original_QA_false_explanation": "Original known_inside_outer_bounds boolean included NaN D/interval on all-up 2024-09-30; comparisons false. It is not a finite bound violation. Original QA retained unchanged.",
+    "minimum_abs_finite_lower_bound": 0.1732793522065507,
+    "minimum_abs_finite_upper_bound": 0.0562070410413318,
+    "empty_source_field_windows": 0,
+    "missing_subreason_counts": {
+      "TARGET_BEFORE_FIRST_SOURCE_OBSERVATION": 6679,
+      "INTERNAL_MISSING_COMMON_PRICE": 473,
+      "WINDOW_BEFORE_FIRST_SOURCE_OBSERVATION": 253
+    },
+    "note": "Before first native observation is not independently proved pre-IPO. No listing or halt reason is inferred from a missing bar. No rule or feature changed.",
+    "seconds": 31.284318207763135
+  },
+  "empty_source_field_audit_rows": 0,
+  "source_sample_checks": [
+    {
+      "sid": "600056.SH",
+      "day": "2022-03-03",
+      "known": true,
+      "reason": "KNOWN",
+      "amount_ref": 45277700,
+      "r": 0.09523572241253293,
+      "m": 1.4989328554438877
+    },
+    {
+      "sid": "300666.SZ",
+      "day": "2024-09-30",
+      "known": true,
+      "reason": "KNOWN",
+      "amount_ref": 150590869,
+      "r": 0.155322326124149,
+      "m": 1.4741781065712334
+    },
+    {
+      "sid": "000034.SZ",
+      "day": "2022-05-06",
+      "known": false,
+      "reason": "FACTOR_CHANGE_WITHIN22",
+      "factor_min": 1.0388743790702357,
+      "factor_max": 1.0535599015349453
+    },
+    {
+      "sid": "301611.SZ",
+      "day": "2026-01-06",
+      "known": true,
+      "reason": "KNOWN",
+      "amount_ref": 1158977812,
+      "r": 0.14023795987152646,
+      "m": 1.3245293284217352
+    }
+  ],
+  "sealed_file_count": 12,
+  "sealed_hashes_all_match": true,
+  "all_preexisting_parent_artifacts_unchanged": true,
+  "source_hashes": {
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/h1.npz": "416ddabacb9b16105cf3e5d93c961049ac1b48da433a62995a71311be17e4615",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/prepared-v2/000010/signal.parquet": "26fc83824e179f1899566a0767f8dcaeca7fb6a66f342ae3e79188d1b533cb35",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/prepared-v2/000633/signal.parquet": "d258c300a30b577c1f1f511c444e5dc384d771a0b009cf1f592ce6af21db4376",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/prepared-v2/000770/signal.parquet": "2f72649d1a7d79d983ee4830ca92c617dc0ae9dff0480debb74901049b7812dc",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/prepared-v2/000815/signal.parquet": "3c3e3dedf94752620b876012a9f3154ef98c014e23edb15fc92003a4715dd249",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/cross_window_entry_mechanism_v1/FIXED_CASES.csv": "373fa0cad5f23cc9487d185f1bf21939161a6a976cb5f99e786ea8884f706dbe",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/lagged_amount_order_preflight_v1/FIXED_CASE_IDENTITIES.csv": "9cc34da80a687fa4c52f8b18f2d04c46ace5b05755fba0d3e09d859f3050a9a7",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/market_activity_balance_preflight_v1/COMPLETENESS_QA_SUPPLEMENT.json": "8b1cebbeb5e2770e836f0451fcd1834992379f109f66c0773de0236d3d30491f",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/market_activity_balance_preflight_v1/DATE_CONTEXT.csv": "75164ce1063da1ad795850ac1189f14a1005e680af18242fd3772d021f8558a7",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/market_activity_balance_preflight_v1/EMPTY_SOURCE_FIELD_AUDIT.csv": "b96afd9cb51b058b853edca791c7e7897b5f0db5a77d93376596ea22e13fd113",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/market_activity_balance_preflight_v1/FEATURES_PRELABEL.csv": "0edf0d0cceb1a2de4798619991f466d99157c3416dfacec00bb677349cf7a62e",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/market_activity_balance_preflight_v1/FEATURE_QA.json": "d0d10535eb96268210d84a80d8365018666116e54d22b5c7c1106475ab3f9c6b",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/market_activity_balance_preflight_v1/FEATURE_SEAL.json": "44a1bafb05cb40bf1fe26e6a7fe008c98d9d342f76a1e76719b4b119ac825357",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/market_activity_balance_preflight_v1/FIXED_CASE_IDENTITIES.csv": "e264922aa16ff7df3537f21d968f211c5cd9214a347fd2d4ab786d58eb7dd438",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/market_activity_balance_preflight_v1/MEMBER_FEATURES.parquet": "9ad4ece0904e6a3598abce39f6bc4cd54d2698f33a714caf9a75cb43241770db",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/market_activity_balance_preflight_v1/MISSING_PRICE_SUBREASONS.csv": "7524d6531033f66b9fc2bc7e823c7deab4c71d8570b5cb8476a18c45a46ae25b",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/market_activity_balance_preflight_v1/PROTOCOL.json": "7f431b7ab54ded149a8d4531be1ced7e0daed04b1d9781fc3c8df10088206870",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/market_activity_balance_preflight_v1/SOURCE_CHECKS.csv": "75975a57164a85b01434350de4d5ddfcdd13d33fd8282aa355b99013c485cd5f",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/market_activity_balance_preflight_v1/analyze.py": "d0cb7e548816cbe3144a6e94ea762f4320a70dfecb100fb4c93383a6f1fdbad0"
+  }
+}

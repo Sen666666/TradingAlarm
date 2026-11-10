@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "accounts": [
+    "F10__S0_base",
+    "F10__S0_cost2",
+    "F10__S0_delay1",
+    "F30__S0_base",
+    "F30__S0_cost2",
+    "F30__S0_delay1",
+    "A__S0_base",
+    "A__S0_cost2",
+    "A__S0_delay1",
+    "B__S0_base",
+    "B__S0_cost2",
+    "B__S0_delay1",
+    "C__S0_base",
+    "C__S0_cost2",
+    "C__S0_delay1",
+    "D__S0_base",
+    "D__S0_cost2",
+    "D__S0_delay1"
+  ],
+  "days": 2866,
+  "daily_rows": 51588,
+  "technical": false
+}

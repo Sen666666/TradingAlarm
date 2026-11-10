@@ -1,0 +1,22 @@
+{
+  "policy": "new migration/admission decoupling variant, not historical bugfix",
+  "scope": "2 fixed audited allocation projections, no historical account progression",
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/migration-admission-local-2x2-20261101/variant.py": "f18acd1f21ac46cc8245a664909151cfeddb366506357541f4e42c7b51877a98",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/probe-batch-local-preview-20261101/planner.py": "0701eb1418e08e30b17e56477d6729d44b07a167fe5fd844d8ef30951c2702c1",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/route_without_account_check.py": "7bc31864d1d3944e800bb3f51297f01c417ecf8ac8487b857aa897bde22d66a1",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/model_without_account_check.py": "2fb801bcadfe3aa0fe0ecac97a9730861079bc16d908a3674a404b255729c2c3",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/migration-admission-local-2x2-20261101/sources/model_decoupled.py": "42774ad14d3d365d67358b456d97460d5293b1936ede284749080e4345004793",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/migration-admission-local-2x2-20261101/sources/route_decoupled.py": "c2d06df473ac5b027b462e3a55bc8788a150bf130aa341c0e451ead5b4b4c82d",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/migration-admission-local-2x2-20261101/sources/full_target_evaluation_decoupled.py": "970c541133afab4728e7bc9cd88ed1d4e531c5eb692c2b89811e93cc149291b1",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/migration-admission-local-2x2-20261101/sources/planner_body_logging_only.py": "7f602e5704949ed25da2ddd045316847f120332e07e20fa5cfbac6f002242695",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/migration-admission-local-2x2-20261101/run_matrix.py": "716f6fb9546b2de6b39248ac1ae00506a72623757f2a3848c495554e1678bd73",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/migration-admission-local-2x2-20261101/test_variant.py": "cb4c6de7124d11d519a9e021e25edb7918e4373545acbbf768256be1a45ccb8b",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/probe-batch-local-preview-20261101/2023-01-20_INPUT_VIEW.json": "629d3c299e825271433df05ecbae77f9c5b6be22314c464d78e7ece92a62a979",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/probe-batch-local-preview-20261101/2022-06-29_INPUT_VIEW.json": "db0c779b2a2288eb4b8b102c1cdb42ea01d3a93fc5c909bb8ca437163f80aece"
+  },
+  "old_artifact_manifest_sha": "9befcbcea18a736e1bb72fea2bd57e63deb2a8289d29b21f75370118d13e2391",
+  "old_artifacts_verified": 43,
+  "account_risk": "Bdiag original omission preserved; no3% gate added",
+  "no_C1_R1_or_new_stage": true
+}

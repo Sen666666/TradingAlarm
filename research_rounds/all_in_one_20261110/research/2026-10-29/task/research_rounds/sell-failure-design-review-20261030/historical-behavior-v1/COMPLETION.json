@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-30T10:43:46.818475+00:00",
+  "status": "completed_13_case_behavior_stop",
+  "rules_changed": false,
+  "cases": 13,
+  "new_triggers": 5,
+  "safe_handoffs": 5,
+  "no_known_warning": 2,
+  "original_exit_before_boundary": 1,
+  "cases_with_prior_unknown_event_rows": 1,
+  "historical_new_profit_ledgers": 0,
+  "portfolio_paths": 0,
+  "follow_on_started": false,
+  "wall_minutes_since_identity_freeze": 10.168379166666666,
+  "sha256": {
+    "CONTRACT.txt": "71cac4246e49eb24fe02117e90288049612049f927d64be241ce8866b6b8f01b",
+    "FROZEN_CASES.csv": "b92a3b2f90a3a8873bd18250f7266fe2d9f95b2bbd901d33e7789233c21d1d10",
+    "CASE_FREEZE.json": "6bee9f474f6b6bd8e0b4177df300e03d3a7a610e94da2079f514352998768f50",
+    "check.py": "24c5befcb79c76ceb46bc222a6d1eecd0d02e5ce6a2bf191ba3e3c5573424429",
+    "RESULTS.csv": "f8130c14454d07d42b99cadf9916d58a959f090f84979db16a61775a7acb49e7",
+    "STATE_TRACE.csv": "f0b45ea2385b457e3a21032fefa8391aafdb7f9fbe023b11d9d66c3c300c934b",
+    "EXECUTION_CHECKS.json": "44cc5af6284aad96de0842fee2d8fd3ffcbed052e7d45a635daf104e6df8be38",
+    "INPUT_IDENTITY.json": "12dd76f5d7704176426d1a6bfc0051e42c23c87c7a215cd3316d49b7d182cebb",
+    "VERIFICATION.json": "d83e0b20f08174e519ea0e012f7c504e6a60aa29bb9f95de12312b5bdb7f5747",
+    "REPORT.txt": "2c9b9c4be7967f5152edf35bad1a86574e403cefe575d7a31475a10914a21d5a"
+  }
+}

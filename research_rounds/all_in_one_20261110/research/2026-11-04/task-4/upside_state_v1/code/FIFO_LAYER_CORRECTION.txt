@@ -1,0 +1,25 @@
+更正：实物库存FIFO与策略层退出归属不是同一个序列
+
+结论：撤回此前从physical FIFO推出“必然先卖早期健康策略层、留下晚期硬失败策略层”的说法。本目录OLD_MECHANISM_DEDUP.txt第23行沿用了这个过强推断；旧尾仓文案里类似表述不能作为有效native已证事实。封存账、旧代码和旧结果未改。
+
+有效继承与调用顺序（只读源文件，未实例化任何账户）：
+1. native_adapter要求账户type为J.Account；J.Account继承C.Account（joint_v3.py29）。wire.py9的C来自mainline-I-quarter adapter.py9的lr1-cp1-add-preflight adapter。
+2. C.Account继承LR.Account（adapter.py37）；LR.Account继承BP.Account（study.py93）；这两层没有override fill_exit。C.live41–46保留原层加入顺序，C.sell82–83只是清理ADD credit后向super委托。
+3. BP.Account继承L.SectorAccount（pilot.py49）。J.fill_exit130–135先调用super，再按self.trades[-1]['parts']做预算亏损与同步，没有另外强制按所有策略层FIFO重分。
+
+实物成交层：SectorAccount.fill_exit746–797
+先从pos.lots筛lot.sellable_at<=window.at，available受真实可售数量、订单剩余target、SELL格点、window容量、fill_step、费用和事件资格限制。774–777按物理库存lots顺序消耗已可售股数，生成单股聚合成交数量、净现金和结算。它没有CORE/MOBILE策略层id，也没有按某逻辑层是否健康选择股份。这一层维持T+1及总股数/现金约束。
+
+策略归属层：pilot.fill_exit74–85
+super实际成交后取left=receipt.shares、targets=self.sell_layers[sid]，遍历live层，但第79行明确跳过id不在targets的层，只对目标层扣qty、分净现金。它不是对全live层无条件FIFO。目标集合中的顺序仍是live加入顺序；未指定为退出目标的早期逻辑层不会仅因物理库存较早而被此循环扣减。
+pilot.sell104–115以明确ids提出层退出，合并已有锁定sell_layers，目标总qty进入原聚合退出单。ACT/I在J225–229把所有live id列入，CP在236仅传触发层id。实际物理库存批次与用于策略归因的逻辑层分别核算；两者不要求一对一成本/时间标签对应，但必须保有策略层qty合计=物理持股qty（pilot.check55–58）。不能据此绕过T+1或增加总可售数量。
+
+仍需保留的窄边界
+如果hard和soft层都已经进入同一个targets集合，而新政策只压低聚合ExitOrder.remaining_target，不同步明确哪些逻辑层、各卖多少和硬目标优先级，那么目标集合内的原顺序确有可能把成交先分给较早soft目标，留下较晚hard目标。这个风险来自“混合目标+只缩总量”的未闭合动作合同，不是physical FIFO强迫卖掉所有较早健康逻辑层。
+反之，若某个健康层从未成为锁定退出目标，physical FIFO本身不能证明它会在策略层账上被卖。已有锁定目标也不能任意移除，仍须遵守原不可撤退出责任。此处仅澄清现有API语义，不实现目标优先/部分尾仓规则。
+
+对旧CP尾仓结论的影响
+长电等same_sid_contains_hard_priority_failure只是同股混合硬/软条件的诊断flag，不能单凭此flag或physical FIFO认定合法尾仓必然不可执行；也不能据此直接把四个必要事件改成三个。原四事件价格/硬线/SELL必要界仍只是必要界，未证明真实目标选择、部分成交分配、共享风险、费用、OPEN、期限或账户收益。
+原ACT/I硬退出、初始硬线、未trim前全qty风险、锁定退出、CORE not-held、T+1、限价/容量和现金责任均保持；本更正不为尾仓授予经济许可。原结论“没有可执行尾仓账户证据”仍成立，但不能用过强FIFO推断作其已证原因。
+
+补充证据：FIFO_LAYER_SOURCE_EVIDENCE.json含继承链及两层fill_exit逐行摘录和SHA；FIFO_CORRECTION_SHA256.json绑定本次新增文案与证据。新指标/规则实现/账户/回测/参数测试均0。

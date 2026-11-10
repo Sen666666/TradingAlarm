@@ -1,0 +1,25 @@
+Old-path exit chronology only. No model, hypothetical Account/shadowBook,
+RiskBook, new cash/basis ledger, floating-profit exit policy or4.5%cap.
+
+All v2 support_break_D transitions in2022-23 and strong, plus L02 firstday
+carry-inD explicitly not a new request. Fixed cohort = positiveqty native layers
+already held at that CLOSE. Follow actual saved sell.parts of those IDs only,
+to first subsequent structural D_to_P CLOSE or earlier old fixed phase end.
+L01 Apr26/L02 Jul4/L03 Oct31/L04 Jan30'23/L05 Dec29'23/strong Jun30'26.
+
+Keep actual I_structure_exit and CP1_add_protection separate from funding sale,
+old ACT_pause forced exit and other reasons. All are historical transactions,
+not executions guaranteed to persist with buying vetoed. Original later buys
+and surviving new layers are separate, never counted as initial-cohort exits.
+
+Money scale: report initial original marked inventory and actual sale net cash.
+To compare share depletion across stocks, normalize each actual soldpart to D
+shares using only original later split ratios, multiply by its original D mark.
+This D-mark-equivalent share quantity is not cash raised, new NAV or risk release.
+Unsupported fractional CA or cohort share bridge =>stop/limited attribution.
+Actual nextsettlement/cancelACK/T+1 can retain resources; no assumed immediate
+re-use of sale proceeds. AtD pending exits and bought-today layers remain owned.
+
+All cases retained even when old account flat. No endpoint/net-PnL choice,
+no new layer performance calculation (loss agent owns that). Never freeze old
+funding/ACT trade calendars into a hypothetical no-buy strategy.

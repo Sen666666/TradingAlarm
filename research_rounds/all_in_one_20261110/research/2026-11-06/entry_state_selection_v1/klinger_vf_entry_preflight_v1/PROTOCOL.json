@@ -1,0 +1,82 @@
+{
+  "candidate": "Only one: original legal M3 A/B INIT at signal CLOSE requires known KVO_histogram > 0; UNKNOWN preserves original decision and is separate, never claimed as indicator pass.",
+  "consumer": "Preserve original PVR order and original industry top2 selected identities. Report gating of original selected tickets only; no third-rank refill or new reservation. Raw all-AB rows descriptive, no invented held/flat state. No effect on ADD/exits/reentry/risk limits.",
+  "periods": {
+    "fast": 34,
+    "slow": 55,
+    "signal": 13,
+    "source": "Klinger1997 public defaults, not user-selected or tuned"
+  },
+  "series": "S=raw_high+raw_low+raw_close; DM=raw_high-raw_low; V=raw_volume in shares, NOT amount or price-adjusted volume.",
+  "trend": "T=+1 if S rises, -1 if S falls, previous T on equality. Chosen original textual tenet/current TA-Lib; NOT original Excel IF <= branch. Exact float comparison, no fuzzy threshold.",
+  "cm": "At first valid anchor a keep S_a,DM_a,T_a=+1 only. At a+1 CM=DM_a+DM_a+1. Thereafter CM=DMprev+DM on T change else CMprev+DM.",
+  "vf": "If CM==0, VF=0; else VF=V*abs(2*(DM/CM)-1)*T*100. Do not use abs(2*(DM/CM-1)). H=L is valid; if CM>0 use original formula, no invented flat-bar zero.",
+  "ema": "At first VF (a+1), F=Slow=VF, K=F-Slow=0, Signal=0. Thereafter F=alpha34*VF+(1-alpha34)*Fprev; Slow analogous55; Signal=alpha13*K+(1-alpha13)*Signalprev; alphaN=2/(N+1). histogram=K-Signal. Full causal segment prefix, never rolling re-anchor at each signal.",
+  "warmup": "Known only at >=111 consecutive valid common-calendar rows including anchor (>=110 VF observations), reflecting original article more-than110-row warning. Explicit research computability boundary, not universally standard TA-Lib lookback and not a guarantee of zero seed sensitivity. No alternate warmup test.",
+  "breaks": "Any missing common-calendar observation, invalid source/flags/units/price/volume, source_kind/source_path/segment_id change, adjustment_factor change, or volume_factor change ends old state. Next valid row anchors new segment; UNKNOWN until111 rows. No carry across an unknown break, no price factor reused as volume factor.",
+  "validity": "Observed_bar,is_observed_bar,price_eligible,volume_eligible true; source_invalid,synthetic_event_bar false; nonempty known source_kind/path/segment_id; finite positive raw OHLC and native OHLC, valid high/low bounds; positive finite raw_volume,amount,adjustment_factor,volume_factor; shares/CNY units; native OHLC approx raw*pricefactor abs<=1e-8; amount/shares within raw low/high allowing 0.5/share+1e-8. V remains raw shares.",
+  "clock": "Only rows <= signal CLOSE enter every indicator; earliest execution next common trading OPEN under original OPEN proxy. No minute data, no OPEN HLCV, no future closes. Historical prepared data lack complete historical publication/revision known_at: reproducible current-vintage causal prefix, NON-PIT universe/source/sector caveat remains.",
+  "scope": {
+    "fixed42": 42,
+    "fixed6": 6,
+    "case_sources": {
+      "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/shared_probe_order_credit_identity_v1/FIXED_CASE_IDENTITIES.csv": "1a585081bca13f3d8a0707e77a6206d8de1b0a021155a6f4d0a0c3341fa6f3da",
+      "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_native_leg_entry_preflight_v1/SIGNAL_TIME_FEATURES.csv": "0b1cfc1a4989d7b5e234616e438c5dc906ae532a116ea95e5a4fa5ffc1d158d3",
+      "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/cohort_2022_recovery_v2/DECISIONS.json": "18d4ea0d9a498795419dc865f58bb84f9708ddba36a535e7dd81382136975df5",
+      "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/cohort_2024_924/DECISIONS.json": "26875017c8d7674194f834247f38725050953e283bf9ac57be986cadffead29a",
+      "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_stock_birth_during_sector_v1/SEALED_ALL_BIRTH_EVENTS.csv": "4e250563fc8e756ceeadd8aeb858032291fb28ed2912b7624847c20e4f941455"
+    },
+    "case_days": [
+      "2022-01-05",
+      "2022-01-06",
+      "2022-01-07",
+      "2024-09-02",
+      "2024-09-12",
+      "2024-09-24",
+      "2024-09-25",
+      "2024-09-26",
+      "2024-09-27",
+      "2024-09-30",
+      "2024-11-29"
+    ],
+    "early_days": [
+      "2025-12-15",
+      "2025-12-17",
+      "2026-01-05",
+      "2026-01-15"
+    ],
+    "full_queue_rows": 1568,
+    "queue_counts": {
+      "('ACTUAL_SHARED_PATH_DECISIONS', '2022-01-05')": 81,
+      "('ACTUAL_SHARED_PATH_DECISIONS', '2022-01-06')": 56,
+      "('ACTUAL_SHARED_PATH_DECISIONS', '2022-01-07')": 17,
+      "('ACTUAL_SHARED_PATH_DECISIONS', '2024-09-02')": 173,
+      "('ACTUAL_SHARED_PATH_DECISIONS', '2024-09-12')": 47,
+      "('ACTUAL_SHARED_PATH_DECISIONS', '2024-09-24')": 32,
+      "('ACTUAL_SHARED_PATH_DECISIONS', '2024-09-25')": 157,
+      "('ACTUAL_SHARED_PATH_DECISIONS', '2024-09-26')": 680,
+      "('ACTUAL_SHARED_PATH_DECISIONS', '2024-09-27')": 27,
+      "('ACTUAL_SHARED_PATH_DECISIONS', '2024-09-30')": 86,
+      "('ACTUAL_SHARED_PATH_DECISIONS', '2024-11-29')": 212
+    }
+  },
+  "stops": "No account/fills/returns construction, no training/parametergrid/second formula. Original actual labels may attach after feature seal only, for controls; refused or context-only names never inherit independent PnL.",
+  "pdf_visual_status": "NOT_COMPLETED: web screenshot text placeholder only; direct public PDF download403, stopped. Formula text and printed numerical table verified; user-parent explicitly allowed proceeding without pixel review.",
+  "source_urls": {
+    "original_article": "https://nexusfi.com/attachments/255238d1536854261",
+    "original_publisher_excerpt": "https://traders.com/documentation/feedbk_docs/1997/12/Abstracts_new/Klinger9712/Kinger.html",
+    "talib_official_current": "https://ta-lib.org/functions/kvo.html",
+    "talib_official_code": "https://raw.githubusercontent.com/TA-Lib/ta-lib/main/ta_codegen/input/kvo/kvo.c",
+    "sierra_conflicting": "https://www.sierrachart.com/index.php?ID=474&page=doc/StudiesReference.php",
+    "tradingview_conflicting": "https://www.tradingview.com/support/solutions/43000589157-klinger-oscillator/"
+  },
+  "original_numeric_check": {
+    "DM": 1.25,
+    "CM": 2.25,
+    "V": 19030,
+    "T": 1,
+    "chosen_VF": 211444.44444444453,
+    "printed_VF": 211444.44,
+    "other_parentheses_VF_not_candidate": 1691555.5555555555
+  }
+}

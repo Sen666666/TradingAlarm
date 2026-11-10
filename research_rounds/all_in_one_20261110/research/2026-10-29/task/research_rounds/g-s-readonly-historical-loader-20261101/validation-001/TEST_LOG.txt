@@ -1,0 +1,18 @@
+test_all_na_constant_and_duplicate_role_priority (__main__.Gates.test_all_na_constant_and_duplicate_role_priority) ... ok
+test_bootstrap_counts_clocks (__main__.Gates.test_bootstrap_counts_clocks) ... ok
+test_factor_and_no_cashdiv_share_multiplier (__main__.Gates.test_factor_and_no_cashdiv_share_multiplier) ... ok
+test_fractional_or_unknown_action_blocks (__main__.Gates.test_fractional_or_unknown_action_blocks) ... ok
+test_global_seed_exact (__main__.Gates.test_global_seed_exact) ... ok
+test_no_financial_modules_imported (__main__.Gates.test_no_financial_modules_imported) ... ok
+test_no_prestarter_receipt_reissue (__main__.Gates.test_no_prestarter_receipt_reissue) ... ok
+test_no_unknown_event_or_outside_dates (__main__.Gates.test_no_unknown_event_or_outside_dates) ... ok
+test_open_prior_close_only (__main__.Gates.test_open_prior_close_only) ... ok
+test_original_stock_eligibility_function (__main__.Gates.test_original_stock_eligibility_function) ... ok
+test_priority_complete_and_true_na (__main__.Gates.test_priority_complete_and_true_na) ... ok
+test_receipt_numeric_identity (__main__.Gates.test_receipt_numeric_identity) ... ok
+test_star_new_vs_partial_remainder (__main__.Gates.test_star_new_vs_partial_remainder) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 6.959s
+
+OK

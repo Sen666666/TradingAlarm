@@ -1,0 +1,78 @@
+审计入口：纯市场起点状态包 v1
+
+本目录与G/S主工程分离。冻结源：PROTOCOL.txt、proof_context.py、
+replay_bootstrap.py；执行冻结与原来源绑定在run-v1/FREEZE.json、
+run-v1/SOURCE_MANIFEST.json。未修改原F1、G/S合同、策略或旧结果。
+
+可消费的市场起点快照（不是金融账户checkpoint）
+run-v1/2022/states/NATIVE1709*.json：截至2021-12-31，供原2022/1/4起点。
+run-v1/2025_26/states/NATIVE1709*.json：截至2025-06-30，供原2025/7/1起点。
+每组全球+90行业；文件中的original_F1_scope与policy_scope显式区分。
+准确逐节点文件/哈希见READY_CHECKPOINTS.json，勿把verification下的测试
+后状态或WORKER_RESULT.json当成起点快照。
+
+每份快照保存原核19个完整State字段，含63价格/有效绝对收益数组、完整
+Source、失败日志及pending失败收据，以及最后Decision、各scope原观察
+序号、完整市场上下文与证明历史。core.loads可恢复f1_checkpoint；
+proof_context.from_dict可恢复market_context。跨进程已逐节点实测。
+
+固定绑定
+F1核：962275bd41b5c7bbc062a1191780a6b6a9c616f8d3097ea669b602eabbc9ac59
+F1合同：c3914aed1896563253961ea40d6065614a115cef21e13a93e1e74ad71779c54a
+G/S市场证据参考方法：原R2 policy.py，SHA256
+b27d8fac3e977d30de9153d4a400d62caf9a2c69695692da1a88ecba4e24607e。
+只AST隔离其Scope和Policy.evidence作核对，未导入/初始化Policy或账户。
+所有上下文逐观察与这个原方法核同；没有运行allowed/unlock/K/ACT等。
+
+原cursor，不能与新账户计数混用
+confirmed/known为原joint_v3.ordinal(day)=date.toordinal()：两截点分别
+738155、739432；研究收盘时间保持15:10+08:00。scope seq从各自原输入
+左端逐观察计数，包含UNKNOWN。原F1观察仍是原日字符串。每张proof保留
+scope/source/context/kind/confirmed/seq/known/event_id；日期可由原cursor
+无损还原，known采用原研究收盘约定，不声称已核实实时发布可用性。
+消费者必须让ACT cutoff与这些原证明使用同一时钟；不能直接把它们与R2
+synthetic self.cursor=1、2等新账户计数比较。历史账户适配仍是后续工作。
+
+已完成核验
+1. 199个来源文件含原已冻结输入/影子哈希清单，输入及参照值先核身份。
+2. 两起点共643173原观察，16771145个既有影子字段逐点完全一致。
+   覆盖所有原可用字段：模式、许可、事件/未知、旧线/新线、锚、前沿、
+   信用、尺度、启动/修复/失败数与覆盖分母等；不使用数值容差。
+3. 182个物理截断输入，独立进程重放：完整快照、每日输出及成熟上下文
+   轨迹与原路径过滤重放逐字节一致。物理文件无截点后的行。
+4. 起点状态封存并哈希后，才导出各scope恰好一条下一观察：1/4或7/1
+   收盘。这些只在verification/，不参与起点生成。另起进程恢复182份
+   State/上下文后读该观察，与冷重放原完整输入到这条观察的完整State、
+   最后Decision、上下文和全部proof_history完全一致。使用8个不同PID。
+5. 下一观察核验结束后，所有起点快照及配套轨迹哈希不变；原199来源、
+   原核及合同均不变。详见run-v1/COMPLETION.json及VERIFICATION.json。
+运行约276秒，固定纯市场重放；没有账户回测。
+
+因果与左端
+原输入左端分别为2007/8、2010/1、2010/2或2013/1，沿各流最早可得
+前史从WAIT消化，不在起点附近或行情前清空。更早未知价格上下文仍属
+左删失，不声称重建原输入之前的真实状态。共保留27920未知价格行、
+283366未知广度行（两起点前缀合计），未知不填为0或正广度。
+物理截断与完整来源过滤产生同一因果消费摘要和完整状态。完整原文件
+哈希只在外围来源manifest，用于来源固定；因果状态只绑定已消费的
+观察摘要，不把未来文件尾部哈希作为算法或成熟输入。
+
+截至起点前一收盘的市场事实
+2022：全球ENDED、permit=False；行业ACTIVE47，permit33，成熟33，
+      成熟且permit22；12行业广度UNKNOWN，全部保留为WAIT。
+2025：全球6/30刚break_started，ACTIVE、permit=True、尚未后续成熟；
+      行业ACTIVE48，permit40，成熟18，成熟且permit15；11个UNKNOWN
+      广度行业保留。UNKNOWN逐节点/ready分母见COMPLETION。
+ACTIVE、support、permit、mature分别保存；不能相互替代。
+
+金融边界与剩余工作
+市场成熟只是原价格推进证据，不能证明新账户曾实际小试。快照不包含
+账户现金/NAV/损耗/成交/订单/ACT/K/消费过的股票收据，也未伪造这些
+字段的初值。金融账户初始化、原起点第一开盘无旧意图、首次实际风险
+参与记录和统一历史cursor适配均留给后续账户工程。本包没有创建或
+推进账户，没有股票意图、订单或新下载；旧407的924规范收据未扩展。
+
+独审可直接核对原来源哈希、FREEZE代码身份、READY_CHECKPOINTS全部
+快照、PHYSICAL_PREFIX_MANIFEST与BEFORE_NEXT_OBSERVATION_SNAPSHOT_SHA256，
+及各模式WORKER_RESULT的PID/data_access。需要重跑时必须使用另一个
+隔离运行目录；原run-v1为不可覆盖交付。

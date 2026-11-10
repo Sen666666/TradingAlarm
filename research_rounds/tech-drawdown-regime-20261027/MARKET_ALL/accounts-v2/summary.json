@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "accounts": [
+    "I__S0_base",
+    "I__S0_cost2",
+    "I__S0_delay1"
+  ],
+  "daily_rows": 2040,
+  "technical": false,
+  "final_nav": {
+    "I__S0_base": "983671.0702082623000",
+    "I__S0_cost2": "949744.4370077709400",
+    "I__S0_delay1": "971592.5945271544680"
+  }
+}

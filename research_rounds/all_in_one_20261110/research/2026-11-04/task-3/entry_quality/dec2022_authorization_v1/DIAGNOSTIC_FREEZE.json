@@ -1,0 +1,18 @@
+{
+  "stage": "diagnosis_before_policy_freeze",
+  "hypothesis_announced_before_measurement": "During December2022 broad-market repair, original authorization may continue funding relative-weak and price-unrepaired stocks. If loss is mainly prior inventory, new-risk-only gating cannot be claimed to explain or fix it.",
+  "scope": "Original No60 2022-2024 continuous and independent2025Jul-2026Jun strong; all3436 actual entries plus true December holdings/decisions. No current C10 or live claim.",
+  "common_calendar": "Frozen true HS300 market dates. At date t use t and t-20 market sessions, i.e.21 dated endpoints; stock/industry/market must have exact comparable observed endpoints. No separately counting each series20 valid observations or forward filling a missing endpoint.",
+  "market": "True HS300 USZI399300.csv from the prior frozen benchmark source, not retrospectively selecting an ETF or index by December return.",
+  "relative_strength": "R_stock20 - max(R_current_snapshot_industry20,R_HS30020), with R=C_t/C_tminus20-1 on original causal price inputs. Strictly positive means relative strong; zero belongs nonpositive.",
+  "price_repair": "C_stock(t)>=original-source-valid-observation EMA20(t). Existing frozen adjustFalse seed and source reset semantics. Equality repaired; missing/unready is UNKNOWN.",
+  "predeclared_quadrants": ["relative_strong_price_repaired", "relative_strong_price_unrepaired", "relative_weak_price_repaired", "relative_weak_price_unrepaired", "UNKNOWN"],
+  "logical_limit": "Evidence about the double-weak quadrant does not license requiring BOTH positive signals, which would reject three quadrants. No positive-AND gate or new account is admitted by this diagnostic.",
+  "decision_clock": "All context at original CLOSE, future actual exit/PNL/held duration evaluation-only. First/add/reentry from actual account history. Original pending/fill/cashflows are not inferred from later winners.",
+  "loss_scope": "Use calendar December wealth changes and capital-time, not terminal net of December-opened layers. Prior held / newly first / add / after actual flat reentry partition and attribution residuals must reconcile.",
+  "counterexamples": "Strong-window original83/94 fixed tails and known repair winners; stock IPO/missing/stale endpoints and unknowns remain visible. Old year and strong are consumed development samples, not genuine out-of-sample.",
+  "stop_policy": "No rule/account if the actual failure mechanism is outside its action scope or the prospective rejection domain is too small or consumes at least as much real winner contribution as weak loss domain. No changing20/zero/benchmark/AND-vs-OR after full-window results to rescue a rule.",
+  "next_policy": "Freeze exactly one E0/I enhancement and its factor ablations only after December root-cause evidence. Announce formula, action scope, costs/clock/risk and falsification conditions before full account execution; future testing beyond frozen historical data is required for out-of-sample claims.",
+  "new_models": 0,
+  "new_accounts": 0
+}

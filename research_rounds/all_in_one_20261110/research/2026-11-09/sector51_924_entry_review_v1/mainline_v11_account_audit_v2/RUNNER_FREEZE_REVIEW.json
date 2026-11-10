@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS",
+  "engine_sha256": "15c30e8b3eb3a6dfec5777febe33b1e161d5160057d75c13749f9f50e3384d4c",
+  "shadow_sha256": "8714fec329c22a39cfd2962735fcc3e353de9ce5a9e283354de6c55a949a53ec",
+  "runner_sha256": "d2b8cb20ea05dcf16f8933d9321c1f4f9b9a77dacad75a3c65904379d4d63a3a",
+  "design_sha256": "79ebeb73457914656eb70e4ecb59a58008e57d7cb92dd1296dd86d3577efbe12",
+  "approval_sha256": "af7630b8d716ccab72d5491f0bed7a22c093d6dbd44229faf1d46f883528efae",
+  "frozen_input_sha256": "d3876698899f263a8ba9f6f7e23292c5393e6f04f9b89dfca5ba3db4da406634",
+  "run_status_sha256": "e84cf312357dc2498e1f979aff33842b6aa05b72595907ee515e59eea71dab51",
+  "synthetic_groups": 27,
+  "synthetic_assertions": 166,
+  "real_boolean_regressions": 33,
+  "output_source_matches_frozen": true,
+  "unchanged_engine": true,
+  "only_input_boolean_compatibility_fix": true,
+  "old_v1": "INVALID_IMPLEMENTATION, excluded from performance comparison",
+  "history_replayed_by_auditor": false
+}

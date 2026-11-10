@@ -1,0 +1,382 @@
+{
+  "recorded_at": "2026-10-25T00:15:09.962529+08:00",
+  "rows": [
+    {
+      "account": "S0_base",
+      "type": "annual",
+      "windows": 240,
+      "participated": 13,
+      "missed": 227,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 180,
+        "data_or_identity_unknown": 25,
+        "sector_not_valid": 2,
+        "stock_not_confirmed": 9,
+        "selection_rejected:sector_slots_full": 11
+      },
+      "mean_window_weight": 0.0014578134967950388
+    },
+    {
+      "account": "S0_base",
+      "type": "episode",
+      "windows": 6031,
+      "participated": 117,
+      "missed": 5914,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 5560,
+        "data_or_identity_unknown": 96,
+        "stock_not_confirmed": 1,
+        "selection_rejected:sector_slots_full": 248,
+        "buy_cancelled_or_unfilled": 1,
+        "sector_not_valid": 5,
+        "selection_rejected:sector_issuer_slots_full": 3
+      },
+      "mean_window_weight": 0.0011858381964222364
+    },
+    {
+      "account": "S0_cost2",
+      "type": "annual",
+      "windows": 240,
+      "participated": 11,
+      "missed": 229,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 182,
+        "data_or_identity_unknown": 25,
+        "sector_not_valid": 2,
+        "stock_not_confirmed": 9,
+        "selection_rejected:sector_slots_full": 11
+      },
+      "mean_window_weight": 0.0013511675083628966
+    },
+    {
+      "account": "S0_cost2",
+      "type": "episode",
+      "windows": 6031,
+      "participated": 117,
+      "missed": 5914,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 5587,
+        "data_or_identity_unknown": 96,
+        "stock_not_confirmed": 1,
+        "selection_rejected:sector_slots_full": 221,
+        "buy_cancelled_or_unfilled": 1,
+        "sector_not_valid": 5,
+        "selection_rejected:sector_issuer_slots_full": 3
+      },
+      "mean_window_weight": 0.0011848210778123503
+    },
+    {
+      "account": "S0_delay1",
+      "type": "annual",
+      "windows": 240,
+      "participated": 15,
+      "missed": 225,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 180,
+        "data_or_identity_unknown": 25,
+        "sector_not_valid": 2,
+        "stock_not_confirmed": 9,
+        "selection_rejected:sector_slots_full": 9
+      },
+      "mean_window_weight": 0.0014835230139716971
+    },
+    {
+      "account": "S0_delay1",
+      "type": "episode",
+      "windows": 6031,
+      "participated": 112,
+      "missed": 5919,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 5562,
+        "data_or_identity_unknown": 96,
+        "stock_not_confirmed": 1,
+        "selection_rejected:sector_slots_full": 247,
+        "buy_cancelled_or_unfilled": 5,
+        "sector_not_valid": 5,
+        "selection_rejected:sector_issuer_slots_full": 3
+      },
+      "mean_window_weight": 0.0012465311917403041
+    },
+    {
+      "account": "S1_base",
+      "type": "annual",
+      "windows": 240,
+      "participated": 12,
+      "missed": 228,
+      "missed_reasons": {
+        "selection_rejected:not_top_ranked_sector": 191,
+        "data_or_identity_unknown": 25,
+        "buy_cancelled_or_unfilled": 1,
+        "sector_not_valid": 2,
+        "stock_not_confirmed": 9
+      },
+      "mean_window_weight": 0.0012722914607135487
+    },
+    {
+      "account": "S1_base",
+      "type": "episode",
+      "windows": 6031,
+      "participated": 82,
+      "missed": 5949,
+      "missed_reasons": {
+        "selection_rejected:not_top_ranked_sector": 5796,
+        "data_or_identity_unknown": 96,
+        "buy_cancelled_or_unfilled": 3,
+        "selection_rejected:sector_slots_full": 47,
+        "stock_not_confirmed": 1,
+        "selection_rejected:total_slots_full": 1,
+        "sector_not_valid": 5
+      },
+      "mean_window_weight": 0.000848360010400362
+    },
+    {
+      "account": "S1_cost2",
+      "type": "annual",
+      "windows": 240,
+      "participated": 12,
+      "missed": 228,
+      "missed_reasons": {
+        "selection_rejected:not_top_ranked_sector": 191,
+        "data_or_identity_unknown": 25,
+        "buy_cancelled_or_unfilled": 1,
+        "sector_not_valid": 2,
+        "stock_not_confirmed": 9
+      },
+      "mean_window_weight": 0.001282656095566711
+    },
+    {
+      "account": "S1_cost2",
+      "type": "episode",
+      "windows": 6031,
+      "participated": 82,
+      "missed": 5949,
+      "missed_reasons": {
+        "selection_rejected:not_top_ranked_sector": 5796,
+        "data_or_identity_unknown": 96,
+        "buy_cancelled_or_unfilled": 3,
+        "selection_rejected:sector_slots_full": 47,
+        "stock_not_confirmed": 1,
+        "selection_rejected:total_slots_full": 1,
+        "sector_not_valid": 5
+      },
+      "mean_window_weight": 0.0008489568934138831
+    },
+    {
+      "account": "S1_delay1",
+      "type": "annual",
+      "windows": 240,
+      "participated": 9,
+      "missed": 231,
+      "missed_reasons": {
+        "selection_rejected:not_top_ranked_sector": 192,
+        "data_or_identity_unknown": 25,
+        "buy_cancelled_or_unfilled": 3,
+        "sector_not_valid": 2,
+        "stock_not_confirmed": 9
+      },
+      "mean_window_weight": 0.0007559672173236088
+    },
+    {
+      "account": "S1_delay1",
+      "type": "episode",
+      "windows": 6031,
+      "participated": 87,
+      "missed": 5944,
+      "missed_reasons": {
+        "selection_rejected:not_top_ranked_sector": 5808,
+        "data_or_identity_unknown": 96,
+        "selection_rejected:sector_slots_full": 30,
+        "stock_not_confirmed": 1,
+        "buy_cancelled_or_unfilled": 4,
+        "sector_not_valid": 5
+      },
+      "mean_window_weight": 0.0009526849075622924
+    },
+    {
+      "account": "T0_base",
+      "type": "annual",
+      "windows": 240,
+      "participated": 7,
+      "missed": 233,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 199,
+        "data_or_identity_unknown": 25,
+        "stock_not_confirmed": 9
+      },
+      "mean_window_weight": 0.0008810295413434317
+    },
+    {
+      "account": "T0_base",
+      "type": "episode",
+      "windows": 6031,
+      "participated": 68,
+      "missed": 5963,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 5866,
+        "data_or_identity_unknown": 96,
+        "stock_not_confirmed": 1
+      },
+      "mean_window_weight": 0.0008648663321620335
+    },
+    {
+      "account": "T0_cost2",
+      "type": "annual",
+      "windows": 240,
+      "participated": 7,
+      "missed": 233,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 199,
+        "data_or_identity_unknown": 25,
+        "stock_not_confirmed": 9
+      },
+      "mean_window_weight": 0.0008417271389316708
+    },
+    {
+      "account": "T0_cost2",
+      "type": "episode",
+      "windows": 6031,
+      "participated": 68,
+      "missed": 5963,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 5843,
+        "data_or_identity_unknown": 96,
+        "stock_not_confirmed": 1,
+        "selection_rejected:sector_slots_full": 19,
+        "execution_rejected:insufficient_budget_or_quantity": 2,
+        "selection_rejected:sector_issuer_slots_full": 2
+      },
+      "mean_window_weight": 0.0008576377301393051
+    },
+    {
+      "account": "T0_delay1",
+      "type": "annual",
+      "windows": 240,
+      "participated": 5,
+      "missed": 235,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 200,
+        "data_or_identity_unknown": 25,
+        "stock_not_confirmed": 9,
+        "buy_cancelled_or_unfilled": 1
+      },
+      "mean_window_weight": 0.0010538060232839366
+    },
+    {
+      "account": "T0_delay1",
+      "type": "episode",
+      "windows": 6031,
+      "participated": 68,
+      "missed": 5963,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 5861,
+        "data_or_identity_unknown": 96,
+        "buy_cancelled_or_unfilled": 5,
+        "stock_not_confirmed": 1
+      },
+      "mean_window_weight": 0.0009597941114572053
+    },
+    {
+      "account": "T1_base",
+      "type": "annual",
+      "windows": 240,
+      "participated": 6,
+      "missed": 234,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 190,
+        "data_or_identity_unknown": 25,
+        "sector_not_valid": 2,
+        "stock_not_confirmed": 9,
+        "selection_rejected:sector_slots_full": 8
+      },
+      "mean_window_weight": 0.0007456971538846514
+    },
+    {
+      "account": "T1_base",
+      "type": "episode",
+      "windows": 6031,
+      "participated": 63,
+      "missed": 5968,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 5788,
+        "data_or_identity_unknown": 96,
+        "stock_not_confirmed": 1,
+        "buy_cancelled_or_unfilled": 4,
+        "selection_rejected:sector_slots_full": 70,
+        "selection_rejected:sector_issuer_slots_full": 4,
+        "sector_not_valid": 5
+      },
+      "mean_window_weight": 0.0009225346766376435
+    },
+    {
+      "account": "T1_cost2",
+      "type": "annual",
+      "windows": 240,
+      "participated": 6,
+      "missed": 234,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 190,
+        "data_or_identity_unknown": 25,
+        "sector_not_valid": 2,
+        "stock_not_confirmed": 9,
+        "selection_rejected:sector_slots_full": 8
+      },
+      "mean_window_weight": 0.0007493873479433315
+    },
+    {
+      "account": "T1_cost2",
+      "type": "episode",
+      "windows": 6031,
+      "participated": 63,
+      "missed": 5968,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 5790,
+        "data_or_identity_unknown": 96,
+        "stock_not_confirmed": 1,
+        "buy_cancelled_or_unfilled": 4,
+        "selection_rejected:sector_slots_full": 68,
+        "selection_rejected:sector_issuer_slots_full": 4,
+        "sector_not_valid": 5
+      },
+      "mean_window_weight": 0.0009195592026798021
+    },
+    {
+      "account": "T1_delay1",
+      "type": "annual",
+      "windows": 240,
+      "participated": 6,
+      "missed": 234,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 196,
+        "data_or_identity_unknown": 25,
+        "sector_not_valid": 2,
+        "stock_not_confirmed": 9,
+        "selection_rejected:sector_slots_full": 2
+      },
+      "mean_window_weight": 0.0005891898791148592
+    },
+    {
+      "account": "T1_delay1",
+      "type": "episode",
+      "windows": 6031,
+      "participated": 61,
+      "missed": 5970,
+      "missed_reasons": {
+        "selection_rejected:total_slots_full": 5763,
+        "data_or_identity_unknown": 96,
+        "buy_cancelled_or_unfilled": 6,
+        "stock_not_confirmed": 1,
+        "selection_rejected:sector_slots_full": 98,
+        "sector_not_valid": 5,
+        "selection_rejected:sector_issuer_slots_full": 1
+      },
+      "mean_window_weight": 0.0008725893702445483
+    }
+  ],
+  "notes": [
+    "Price windows are outcome diagnostics, not executable strategy returns. Open structure windows remain open.",
+    "Annual participation can be carried holdings from a prior year; holding-day coverage, weight and same-window actual contribution prevent calling one late purchase full capture.",
+    "Candidate-day reasons are factual gates. Removing a gate does not grant all missed returns without capital or risk cost.",
+    "Primary missed reason prioritizes logged actionable blocking days; if an order was accepted but no position traded, classify cancelled/unfilled; full counters retained.",
+    "Unverified nonqualified BSE history is not ranked as an executable A opportunity. Full raw annual outcome table remains archived."
+  ]
+}

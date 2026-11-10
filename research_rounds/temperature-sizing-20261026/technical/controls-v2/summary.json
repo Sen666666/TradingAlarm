@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "accounts": [
+    "F100__S0_base",
+    "F100__S0_cost2",
+    "F100__S0_delay1"
+  ],
+  "days": 2866,
+  "daily_rows": 8598,
+  "technical": true
+}

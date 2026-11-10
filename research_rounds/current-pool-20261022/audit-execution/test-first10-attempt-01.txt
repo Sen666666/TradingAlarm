@@ -1,0 +1,18 @@
+test_b0_empty_eligible_pool_retains_cash (test_first10_structure.FirstTenStructureTests.test_b0_empty_eligible_pool_retains_cash) ... ok
+test_b0_issuer_dedup_is_stable_not_input_order (test_first10_structure.FirstTenStructureTests.test_b0_issuer_dedup_is_stable_not_input_order) ... ok
+test_b0_more_than_six_companies_no_strategy_capacity (test_first10_structure.FirstTenStructureTests.test_b0_more_than_six_companies_no_strategy_capacity) ... ok
+test_b0_unknown_identity_and_duplicate_line_are_not_silently_removed (test_first10_structure.FirstTenStructureTests.test_b0_unknown_identity_and_duplicate_line_are_not_silently_removed) ... ok
+test_changed_or_missing_artifacts_fail_closed (test_first10_structure.FirstTenStructureTests.test_changed_or_missing_artifacts_fail_closed) ... ok
+test_changed_scope_cannot_reuse_old_declarations (test_first10_structure.FirstTenStructureTests.test_changed_scope_cannot_reuse_old_declarations) ... ok
+test_cost2_does_not_invent_fees_or_double_delay (test_first10_structure.FirstTenStructureTests.test_cost2_does_not_invent_fees_or_double_delay) ... ok
+test_delay_counts_executable_events (test_first10_structure.FirstTenStructureTests.test_delay_counts_executable_events) ... ok
+test_describe_has_no_execution_and_cli_has_no_run_command (test_first10_structure.FirstTenStructureTests.test_describe_has_no_execution_and_cli_has_no_run_command) ... ok
+test_exact_matrix_and_common_initial_capital (test_first10_structure.FirstTenStructureTests.test_exact_matrix_and_common_initial_capital) ... ok
+test_explicit_evidence_still_never_executes_accounts (test_first10_structure.FirstTenStructureTests.test_explicit_evidence_still_never_executes_accounts) ... ok
+test_missing_closeout_or_protocol_cannot_validate (test_first10_structure.FirstTenStructureTests.test_missing_closeout_or_protocol_cannot_validate) ... ok
+test_strategy_and_passive_allocators_are_distinct (test_first10_structure.FirstTenStructureTests.test_strategy_and_passive_allocators_are_distinct) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.025s
+
+OK

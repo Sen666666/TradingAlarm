@@ -1,0 +1,12 @@
+ACT共享层首个严格门：按预定规则停，未运行neutral/1799。
+
+本次原函数compute_recovery未改，原IC1709顺序、原prepared signal及metadata行业映射，22无观察保持NA/caller排除；投入一次真实冷算，总23.35秒，低于180秒。代码/input先冻结：../VOLUME_FULL_FEATURES_V1_CODE/ACT_PRE_RUN_FREEZE.json SHA dd667534b433ddda3d6334f882b4a2950f79165ac0f3aac4695170aabaeaea91。
+
+原运行时pd.read_csv默认解析值作为strict primary control时：market有272个float差、prior_high63有187个，最大4.440892098500626e-16；breadth899个，最大1.1102230246251565e-16。fast_on与breakout没有任何差异。
+进一步只读表示核查：冷算结果.to_csv后的文件与旧recovery.csv逐字节完全相同；旧CSV用float_precision='round_trip'读入与冷算各列逐值完全相同。因此这次差异精确定位为默认CSV解析的binary64表示，不是靠数值容差盖过模型分歧。
+
+按root“任真量差异停报”保留首门NOT_PASSED：没有偷偷用round_trip替换primary、没有tolerance、没有用旧M补新输入、没有automatic retry，也没有把CSV byte恒等擅自改写为已获金融验收。neutral_computed=False，full_workers_started=0，Account/Runner/金融事件0。若root/独审明确接纳序列化域重建，可复用已存REAL_COLD，而非重跑真量；任何续接须新source/freeze与透明状态。
+
+REAL_COLD.parquet/csv、TRUE_PARITY_FAILURE.json、AST_BINDING、ROSTER_ORDER、INPUT_COVERAGE、STATUS完整保存。首计算后独立哈希复核11项bound源码/输入说明和1709原signal全部exact，无旧缓存改动。BOUND_SOURCES_POST_RUN是hash检查，非新特征计算。
+
+薄worker另在代码目录，empty22明确NA旁路；未提供1799启动CLI，fullgrant之前还有预测model/两个SCORE manifests及inventory binding与有界调度入口的审查缺口。它们未在本ACT门被调用，不能称全1799已ready。Stage原纯接口由risk另做3行业技术验证，本次未重复Stage。

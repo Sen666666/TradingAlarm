@@ -1,0 +1,18 @@
+{
+  "before_join": true,
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/ma63_exposure_axis_v1/PROTOCOL.txt": "838fdbdec3de60165ff53452aac627742a68b3898e16efc5d646fc09684ced1f",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/ma63_exposure_axis_v1/associate_saved.py": "7b02d6b11a3bfdcc0a49ed78251952b4cdad288d0dd87750dbc5322d9dad6666",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/inputs/510300_history.csv": "fb6754b16fbfecb02bdb2fc9ff7e34546640009d268fc6b7896fd511530b8e41",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/prepare_inputs.py": "f4bd71a7246ca0ae8a742a584fc0c53043d57c41718d0f769b065e435da0094b",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/PROTOCOL.txt": "98459bae26cbe7e03eebf2a75c6762949c50b7416bc048d2e33c56cd632d73de",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/INPUT_FREEZE.json": "f61be5667fcde7d695662d44f64546b7e006f5369470aee9712af9cdf98fb825",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/absolute_loss_2022_2023/NO60_2022_2023_DAILY.json": "306f09fb2fa88218d95d4ecd944487cd3db0cc9921176f7e48d48320401f53b3",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/pvr_pool_results_2022/PVR_NO_CONFIRMED60_DAILY.json": "b439cd7ecda9a1f3668788483be7b7d5a5f3f86a3b4e1d5f0da9bc963552700a",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/no60_continuation2023_finance/PVR_NO_CONFIRMED60_2023_DAILY.json": "9e48e2ea3ef91293dba4b2d63ba3c9e6722eeee4425cc3c26322370fa6426f76",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/absolute_loss_2022_2023/PVR_2022_2023_DAILY.json": "df71c4aea61d0e3de67f9444f63c503a5333ae74635c80f0ecbcfcfd5bc7b7da",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/pvr_pool_results_2022/PVR_SLOT1_DAILY.json": "5c1e213ee2375a029d012d436939e5d81d28e8dfbe24620ff9a725d48cde5cb0",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/no60_continuation2023_finance/PVR_SLOT1_2023_DAILY.json": "cc58d93b569ede2649b182cd10b1e4c41b106b9cdec3e8fa38eda9def95c6d3b"
+  },
+  "scope": "saved TR/MA63 + native snapshots/daywealth only; no new account/model/ledger"
+}

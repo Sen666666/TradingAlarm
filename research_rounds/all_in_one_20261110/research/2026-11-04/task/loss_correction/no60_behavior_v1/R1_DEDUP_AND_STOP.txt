@@ -1,0 +1,50 @@
+R1排重及本轮停止边界，2026-11-04
+
+旧lot-aware-R1-20261031确实有1条最终有效完整经济，不只是最初
+invalid-hybrid。最终COMPLETION.json、RESUME_CLASS_GATE.json及run/FREEZE.json
+确认绝对路径加载原R1 harness、planning/opening/route身份；最初17.4724%
+混合续跑已撤回，不能作为R1结果。有效路径2025-07-01..2026-03-31，共182
+收盘，原SC/B_diag H1排序，只移除账户总风险准入，保留成熟池60%。它不是
+PVR_SLOT1，更不是No60；它也没有覆盖2026Apr-Jun半导体主升。
+
+冻结R1只对fresh canonical CP1、真实全股零持仓、无待买/待卖责任、原Q/ACT
+与confirmed/expanded行业有效的mobile首次/清仓后新凭据再入。完整正常
+目标必须等于2%决策NAV，不能把资源或stock10%剪裁后的余量当2%。仅当原
+next-OPEN preview因法定最低单位失败时，最低单位×原开盘+5bps preview
+毛额严格大于2%且不超过4%冻结NAV，才可恰好申请1个法定最低单位。开盘
+跳空超过4%仍拒；不得给已有持仓加仓例外。只走confirmed，须迁池与原
+现金10%reserve/费用/stock10%/行业资本10或20%/行业风险1%等全部约束。
+不改变保护：mobile仍原CP1/I复合线，核心仍原I/E0角色。4%为研究者固定
+容忍，非用户偏好或已证明最优尺度。
+
+有效经济负证据：旧Bdiag净261468.94501154，R1净240082.80968320，政策差
+−21386.13532834；DD13.1795%→13.7380%。R1实际9张minimum fills买款
+300995.85501675，分摊买卖费254.34433435，tagged层净−2070.21483435：
+6闭合亏层−16174.56275890、海博思创1闭合尾层+11937.33175283、2未平
+层+2167.01617173。tagged归属不是全政策因果差。逐日钱股/权息/NAV核账
+已通过；没有完整cost2或delay1经济，不能称执行压力稳健。
+
+角色/成本反例：安集200股成本31500.05→I_structure_exit净−2338.95；
+杰普特200成本31466.03→CP1保护−4150.59；胜宏100成本32024.46→CP1保护
+−4048.85；金海通100成本28877.05→CP1保护−2738.13。海博思创200成本
+39213.95同样CP1保护却+11937.33。不能按保护理由认定坏单或保留所有赢家。
+中际旭创仍无实际成交：既有R1_confirmed_unfunded、pool/行业/风险及4%
+超限；新易盛仅Mar17获100股，期末未平+2050.75。放开尺寸未解决全链。
+
+本轮No60只读规模：H1严格半导体211个原尺寸拒receipt，40股；signal-CLOSE
+法定单位毛额≤4%NAV158个(74.88%)、>4%53个；210个真实全股零持仓，
+其中157个在4%以内。1个金海通Feb5已有400股，R1明确不适用。5个June30
+右边界无后续OPEN，其中3个signal-CLOSE在4%内。完整逐receipt表见
+R1_SIZE_DIAGNOSTIC_ONLY.json。它们不是158个潜在实际fill：旧R1要求原
+opening-known preview、真实confirmed迁移与逐候选资金风险，当前211
+原账没有对应mobile开盘意图/保留；不能把另569个拒单的标签转嫁给它们。
+
+按root最新指令停在“剩余尺寸约束＋旧R1有效负结果＋No60交互未知”。
+不生成No60×R1经济卡、不实现、不跑账户，不从普冉未来涨幅复活4%规则。
+计划120万元与原100万元有离散单位差异，未来需真正120万元matched check，
+不能线性放大股数/收益、也不能先修改尺寸门。旧数据/旧契约均只读保留。
+
+来源：原lot-aware-R1-20261031/{CONTRACT.txt,COMPLETION.json,
+RESUME_IMPORT_ERRATUM.json,RESUME_CLASS_GATE.json,adapter_r1.py,
+planning_r1.py,opening_r1.py,route_r1_diag.py,analysis/R1_ACTUAL_LAYERS.json,
+analysis/NAMED_STOCKS.json}；绝对根路径及hash见本目录REVIEW_BINDING.json。

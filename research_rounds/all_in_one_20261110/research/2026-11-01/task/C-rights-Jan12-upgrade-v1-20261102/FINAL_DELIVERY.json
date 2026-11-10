@@ -1,0 +1,37 @@
+{
+  "status": "READY_FOR_INDEPENDENT_NO_EVENT_UPGRADE_REVIEW",
+  "version": "JAN12-NSR-UPGRADE-1",
+  "identity_sha256": "6c3e8631cdd645d752542dcd7ff086b11223769cb5680dcb5477e348d2652ca1",
+  "source_freeze_sha256": "4bb3cb899c0858afaffc6351f9a222e441a6a0bf9eb9c75903b976049dce94d2",
+  "runtime_sha256": "53340b55dbd5b02b8983df2f42181a3f325081b10bc49e05458e042fd776f0df",
+  "registry_sha256": "33a88674e8c6348521716a3d0a796d0e359ba1fa2ff627fbbbd994ff71529d32",
+  "upgraded": [
+    {
+      "arm": "2022-C10",
+      "checkpoint": "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan12-upgrade-v1-20261102/upgraded/2022-C10/JAN12_UPGRADED.pkl",
+      "sha256": "734dadf044ce78e52d7574d22a439dda08f63549db5dd56fefcede48f54107c4",
+      "provenance_sha256": "6092e78b78542842629e2e2a65cb269ed72d0eb17a83fdaba2de524fac15851c",
+      "cursor": "2022-01-12 15:10:00+08:00",
+      "prefix_sha256": "7733a5bc7032259034a01c7f2e0ca30c32f34a79565853855eab966246ff3b80"
+    },
+    {
+      "arm": "2022-C_BATCH20",
+      "checkpoint": "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan12-upgrade-v1-20261102/upgraded/2022-C_BATCH20/JAN12_UPGRADED.pkl",
+      "sha256": "9f80f70cfaa4c66a954bfb68a2fea0b4cdce9a57d6091176a45c39230d449647",
+      "provenance_sha256": "b523269d19f611f544a80d24fdaef37ecd3caa4e0dc1a9b300cf9c19748af59f",
+      "cursor": "2022-01-12 15:10:00+08:00",
+      "prefix_sha256": "15bd3253600eeb1ba104eb72faf97dad91f5d98fd6d572a79fd3386bc0d52f9e"
+    }
+  ],
+  "certificates": 14,
+  "outside_month_old": 8,
+  "negative_checks": 22,
+  "crossprocess_restores": 2,
+  "delivery_checks": 17,
+  "historical_events": 0,
+  "original_writes": 0,
+  "accounts_2025_opened": 0,
+  "future_ACTION_executed": false,
+  "future_grants_approved": false,
+  "rights_test05_New_Carry": "zero; positive New198000/Carry179769.2307692307692307692308 supplied by separate independent synthetic audit"
+}

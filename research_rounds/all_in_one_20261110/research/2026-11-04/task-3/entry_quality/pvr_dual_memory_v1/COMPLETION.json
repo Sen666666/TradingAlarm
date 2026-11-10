@@ -1,0 +1,34 @@
+{
+  "status": "COMPLETE_FIXED_DUAL_MEMORY_SIGNAL_DIAGNOSIS_NOT_ADMITTED",
+  "mother": 133713,
+  "fast_known": 133683,
+  "slow_known": 132991,
+  "fast_only": 692,
+  "COMMON_rows": 132962,
+  "COMMON_dates": 729,
+  "COMMON_source_picks_per_arm": 13619,
+  "FAST_ONLY_rows": 133654,
+  "FAST_ONLY_dates": 729,
+  "FAST_ONLY_source_picks_per_arm": 13690,
+  "new_accounts": 0,
+  "active_experimental_processes_owned_by_study": 0,
+  "remaining_execution_blocks": [],
+  "coefficients_unchanged": [
+    0.3,
+    0.7
+  ],
+  "decision": "No promotion of fixed CONT or unconditional FAST; not proof of all-source deterioration or account performance.",
+  "files_sha256": {
+    "FREEZE.json": "005fefe9b0259d05090c868ef0f504042e3cccf349f13ef58eb424aef386c2a2",
+    "READOUT.md": "6c11375347c7ef9537873aaedaf263bf6287b97390ef87a3eb711a2305c92161",
+    "features/SEAL.json": "7afe762ffc94317c154e587420a74ecfd61dfef4868ad1e352992fddb1b8b859",
+    "ranks/COMPLETION_PRE_FUTURE_LABELS.json": "f06879d0dbc61cfdcf4fc326e57a9aeb62133f34479103c59bf148971f399774",
+    "ranks/EXTRA_SOURCE_CORRELATION_RECEIPT.json": "6c4b2dd73b13e3bf9447391efd0559e77ce0ea87605cb6d03b5a1b8d537979f5",
+    "results/COMPLETION.json": "99bcb0786f585f4490f8c335cbfe1ad9ef0d66e7afbc38f9680616c963fd8d29",
+    "case_audit/DELIVERABLE_SHA256.json": "958274f7bf352e87ad29f83e508498e12ab764fe7355d9206534ef2f3a4743ac",
+    "independent_review/DUAL_INPUT_AUDIT.json": "35f0054b4efa7538839f141d1b991d25cade1b26df14b955bd74e7212eaece89",
+    "independent_review/RANK_SOURCE_AUDIT.json": "f5dde6b5cea1756521f44b77c8500380289490d24c256e87a7a7336deaf84f5b",
+    "independent_review/FORWARD_RESULT_AUDIT.json": "33fefb7cd7138691d6ebbb6cfad0b3f2a19c90cf9b6a56694f028e2d81fb7892",
+    "TECHNICAL_CORRELATION_FIX.json": "80810b8c8dae3c999d35fa2c6d14967162f362cbb9e35696d0e239e3032e00e5"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "result": "ATOMIC_BLOCK",
+  "days": 20,
+  "orders": 581,
+  "last": {
+    "day": "2024-10-08",
+    "cash": "158924.0054552009400",
+    "receivable": "0.000",
+    "market_value": "1386520.61",
+    "NAV": "1545444.6154552009400",
+    "net_liquidation_NAV": "1543556.9026145989905",
+    "stocks": 71,
+    "shares": 76149,
+    "weight_pct": "89.71661592619474887929075329",
+    "fees_paid": "4445.3831847990600"
+  },
+  "blockers": [
+    "2024-10-09 605499.SH Q0_SPLIT_SCOPE_LIVE_NEVER_SEEDED_TICKET_REQUIRED"
+  ],
+  "atomic_block": {
+    "day": "2024-10-09",
+    "reason": "2024-10-09 605499.SH Q0_SPLIT_SCOPE_LIVE_NEVER_SEEDED_TICKET_REQUIRED",
+    "atomic_rollback": true
+  },
+  "runtime_error": null,
+  "output": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v11_structural_maturity_entry/once_20250120",
+  "source_hashes_verified": true,
+  "finished_at": "2026-11-10 00:07:37.355375+00:00"
+}

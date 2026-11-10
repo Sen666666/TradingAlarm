@@ -1,0 +1,47 @@
+{
+  "status": "COMPLETE_NO_ACCOUNT_RUN",
+  "read_in_order": [
+    "SUMMARY.json",
+    "STRICT_112_RETROSPECTIVE_TIMING.csv",
+    "EXPLANATORY_SUMMARY.json",
+    "PAIRED_FIRST_CP_PATHS.json",
+    "INTERPRETATION_LIMITS.json",
+    "BASELINE_DATE_AUDIT.json",
+    "FIRST_CP_CONTEXT_SUMMARY.json",
+    "FIRST_CP_PRE_OUTCOME_CONTEXT.csv"
+  ],
+  "main_findings": [
+    "严格112股双当日端点口径：H1股价变化中位+92.54%，83只≥50%，51只≥100%；行业+91.10%，5/15后行业再+31.99%。",
+    "51只翻倍股43只年初I有效、36只1/15前CP；13只下跌股11只也年初I有效且1/15前CP。已有广泛早期识别，但不能区分所有持久赢家与失败。",
+    "行业E0于3/3与5/29失效，4/8与6/11恢复；第一CP授权在4/17与6/16，较E0恢复确认价再高6.77%与6.53%。这是确认成本，不是已算账户错失。",
+    "双前沿319个原I根首CP244同日、27更晚、6根只有原CP、42两者无，未见提前。Q1/Q2相同母集完整20日价格路径中位差均0，不能宣称改善。",
+    "PVR是最近21日加权的标准化带符号量价证据，非未来成功概率。首CP时下跌组PVR中位73.93，翻倍组76.52，不足以直接辨识H1终点赢家。"
+  ],
+  "verification": {
+    "stocks": 120,
+    "industry": 1,
+    "raw_physical_clock_cases": 357,
+    "raw_cuts": [
+      "2025-12-31",
+      "2026-05-15",
+      "2026-06-30"
+    ],
+    "raw_full_chain": "PASS exact production B5/G1/E0/I and native_down",
+    "CP": "PASS full canonical and2prefixes",
+    "PVR": "PASS exact cached full-H1 and2prefixes",
+    "dual": "PASS existing formula and old cutoff states/prefixes",
+    "factor": "PASS exact prior-close effective-action causal daily factors"
+  },
+  "reporting_repairs": [
+    "Supplemental final-state CSV initially used pre-receipt fields under last-state names. Repaired to last_observation_used_* plus explicit post_close_* and actual last date. No signal/count/price result changed."
+  ],
+  "not_claimed": [
+    "PIT membership or action announcement history",
+    "Official IPO dates from source first dates",
+    "Actual fills, holdings, capital constraints or account return",
+    "Full legal eligibility from raw CP intersect sector authorization",
+    "Independent observations or statistical significance across overlapping roots"
+  ],
+  "research_pool_scope": "当前研究池内126只半导体成员，现市值均≥100亿元；不是无门槛全A股行业历史总体。",
+  "pre_outcome_context": "完整后20日母集Q1 65根/Q2 88根：首CP PVR中位75.24/71.51；股票past20 11.67%/12.59%；行业past20 9.93%/15.98%；相对行业3.17%/−0.54%；前一收盘expanded36/65 vs15/88。Q2后续较好并不是更高PVR/更早CP，行业广泛上行与重启阶段不同是可见背景；不是因果证明或新策略。全部首CP母集Q1 65/Q2 141另列，Q1有8根首CP跨入Q2。"
+}

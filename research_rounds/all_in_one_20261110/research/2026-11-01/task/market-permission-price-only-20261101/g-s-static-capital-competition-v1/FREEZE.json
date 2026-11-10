@@ -1,0 +1,12 @@
+{
+  "scope": "read-only two-principle static competition",
+  "protocol_sha256": "f0a6733772d4ab62862ae15bc1baf56c633a67df93ab443556fc0673272cf6dc",
+  "analysis_sha256": "107ae34c8bc406191acd829031d72765c409919e3e17130c077bf11b92b72b31",
+  "dates": [
+    "2022-01-06",
+    "2025-07-03",
+    "2026-04-30",
+    "2026-05-07"
+  ],
+  "full_joint_target_solver": false
+}

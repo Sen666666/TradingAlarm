@@ -1,0 +1,140 @@
+{
+  "seconds": 1.8804492079652846,
+  "rows": [
+    {
+      "account": "ACT__C10_S0_base",
+      "budget_completed": 12,
+      "episode_rows": 12,
+      "same_structure_reentries": 1,
+      "outcomes": {
+        "no_same_structure_fresh_I": 6,
+        "fresh_I_without_submitted_order": 5,
+        "same_structure_actual_reentry": 1
+      },
+      "first_primary": {
+        "no_observed_fresh_I": 6,
+        "total_slots_full": 1,
+        "Q_false": 2,
+        "ACT_paused": 1,
+        "sector_issuer_slots_full": 1,
+        "order_submitted": 1
+      },
+      "fresh_I_days": 45,
+      "application_primary": {
+        "total_slots_full": 19,
+        "Q_false": 12,
+        "ACT_paused": 11,
+        "sector_issuer_slots_full": 2,
+        "order_submitted": 1
+      },
+      "history_unknown_episode_count": 0,
+      "Q_unknown_episode_count": 0,
+      "funding_unknown_application_days": 0
+    },
+    {
+      "account": "ACT__C10_S0_delay1",
+      "budget_completed": 19,
+      "episode_rows": 19,
+      "same_structure_reentries": 1,
+      "outcomes": {
+        "no_same_structure_fresh_I": 9,
+        "fresh_I_without_submitted_order": 6,
+        "submitted_without_same_structure_fill": 3,
+        "same_structure_actual_reentry": 1
+      },
+      "first_primary": {
+        "no_observed_fresh_I": 9,
+        "Q_false": 1,
+        "total_slots_full": 5,
+        "order_submitted": 3,
+        "ACT_paused": 1
+      },
+      "fresh_I_days": 18,
+      "application_primary": {
+        "Q_false": 3,
+        "total_slots_full": 7,
+        "order_submitted": 6,
+        "ACT_paused": 2
+      },
+      "history_unknown_episode_count": 0,
+      "Q_unknown_episode_count": 0,
+      "funding_unknown_application_days": 0
+    },
+    {
+      "account": "ACT__C20_S0_base",
+      "budget_completed": 0,
+      "episode_rows": 0,
+      "same_structure_reentries": 0,
+      "outcomes": {},
+      "first_primary": {},
+      "fresh_I_days": 0,
+      "application_primary": {},
+      "history_unknown_episode_count": 0,
+      "Q_unknown_episode_count": 0,
+      "funding_unknown_application_days": 0
+    },
+    {
+      "account": "ACT__C20_S0_delay1",
+      "budget_completed": 0,
+      "episode_rows": 0,
+      "same_structure_reentries": 0,
+      "outcomes": {},
+      "first_primary": {},
+      "fresh_I_days": 0,
+      "application_primary": {},
+      "history_unknown_episode_count": 0,
+      "Q_unknown_episode_count": 0,
+      "funding_unknown_application_days": 0
+    },
+    {
+      "account": "ACT__C30_S0_base",
+      "budget_completed": 0,
+      "episode_rows": 0,
+      "same_structure_reentries": 0,
+      "outcomes": {},
+      "first_primary": {},
+      "fresh_I_days": 0,
+      "application_primary": {},
+      "history_unknown_episode_count": 0,
+      "Q_unknown_episode_count": 0,
+      "funding_unknown_application_days": 0
+    },
+    {
+      "account": "ACT__C30_S0_delay1",
+      "budget_completed": 0,
+      "episode_rows": 0,
+      "same_structure_reentries": 0,
+      "outcomes": {},
+      "first_primary": {},
+      "fresh_I_days": 0,
+      "application_primary": {},
+      "history_unknown_episode_count": 0,
+      "Q_unknown_episode_count": 0,
+      "funding_unknown_application_days": 0
+    }
+  ],
+  "all_episodes": 31,
+  "all_application_days": 63,
+  "all_slot_intents": 17,
+  "natural_release_batches": 1,
+  "native_eligibility_log_identity_checks": [
+    {
+      "account": "ACT__C10_S0_base",
+      "at": "2024-07-31 15:10:00+08:00",
+      "symbol": "600521.SH",
+      "exact": true
+    },
+    {
+      "account": "ACT__C10_S0_base",
+      "at": "2024-08-01 15:10:00+08:00",
+      "symbol": "600521.SH",
+      "exact": true
+    },
+    {
+      "account": "ACT__C10_S0_base",
+      "at": "2024-08-02 15:10:00+08:00",
+      "symbol": "600521.SH",
+      "exact": true
+    }
+  ]
+}

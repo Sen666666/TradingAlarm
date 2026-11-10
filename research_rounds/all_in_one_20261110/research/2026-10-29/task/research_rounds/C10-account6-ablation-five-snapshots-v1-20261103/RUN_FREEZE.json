@@ -1,0 +1,13 @@
+{
+  "authorization_sha256": "17654a781c7b34561c91d163cc4b7ec04f3e8a6ccdc908aae65486ab58d0d7d5",
+  "source_sha256": {
+    "ar6_policy.py": "55c74381c88e93ccdd1978b2a38422dbf49b02ce2b67b49f0c0c7e77af544b77",
+    "prepare.py": "f9b5e67c9f38b4f0d9d686aeaa50f3f4327232db701a1ac3ff15d15bbd13b8f6",
+    "test_guards.py": "c072b2714fcfc25292cef6bb2ae21db906eceb636135aeea5d18a057287ef290",
+    "run.py": "db8345b7397dc5fd14d1bc3c0f7bb607158553b85a0a121d55d7df344a79487c"
+  },
+  "component_gate_sha256": "1d7c843f9370794da9f8cc22b69832d8817f757dcf289b83e9b12996affec1ec",
+  "patch_ast_sha256": "a5ece237db1cac529a026594020888e42e4fc00474a9ba6056c370c45a2ae210",
+  "financial_events": 0,
+  "full_snapshots_started": false
+}

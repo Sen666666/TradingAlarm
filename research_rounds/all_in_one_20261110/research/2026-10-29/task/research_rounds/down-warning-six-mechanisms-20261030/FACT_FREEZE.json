@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-30T08:03:37.495720+00:00",
+  "facts_sha256": "e50b7f7251ba9c9c8372a4e71accdb61c866b937e776f066236990803b9fc9a0",
+  "fixed_cycle_ids": [
+    "605118.SH|2024-01-02",
+    "601138.SH|2024-01-19",
+    "301486.SZ|2024-03-27",
+    "002130.SZ|2024-09-30",
+    "301486.SZ|2026-02-04",
+    "688143.SH|2026-06-03",
+    "688498.SH|2025-10-21"
+  ],
+  "T1_unchanged_from_first_pass": true,
+  "clarification": "首次事实文件同一行附带旧结局列；条件/字段与T1选择未使用结局。收到补注后先拆无结局固定事实并hash，再附结局。不是未见历史或最初未读取结局声明。无指标/经济重跑。",
+  "phase_files_sha256": {
+    "T0-fixed-facts.json": "839d5807a1bb25c5dd7386eb55c7c6c8d9b8fb1d53f6322f870df1c041486332",
+    "T1-fixed-facts.json": "9ecfc09da907bc7ec9558bde6aa6b74e06dd6a59cc8d827ffddf00302c7476fd",
+    "observation-endings-not-T0-features.json": "1f06f57acf65d85f8d53c3006e913e91c7e86bc673a44e322acd4f1bdf105d0a"
+  }
+}

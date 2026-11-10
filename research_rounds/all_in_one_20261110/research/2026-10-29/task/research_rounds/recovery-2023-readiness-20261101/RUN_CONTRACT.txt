@@ -1,0 +1,6 @@
+2023连续恢复｜已授权两条normal，不新建经济起点
+Bdiag/C1分别承接自己的2022-12-30完整检查点，初始真实NAV667323.8415468559430/796609.2729596113695元；原现金/分红应收/锁/凭据/行业attempt/累计损耗/ACT phase/历史全部保留。C1全程H100万元、c10%起，不随ACT恢复重置。输入固定1709/90，原暖机、I/Q/CP1/state/H1/保护/买卖执行/角色次序全不变，无R1/cost/D1/新stage。
+日历固定2023-01-03至12-29共242日，market事件不跳首日开盘/权益动作；9/28节前季度末另存检查点，不改变任何决策。旧2022不运行；技术1/3只作新期限物理前缀/重启门，正式路径从它继续。原存量应收不变可花现金。
+只增紧凑路由日志：原算法已算得的每pool合法数量和最低单位拒因、c/H/决策NAV、真实开盘budgetNAV/现金/资本risk/待单预留。没有调用反事实账户；confirmed_unfunded保留raw unknown，不全称C1造成。confirmed路由拒不等于整个机会被拒，probe允许与整体拒绝分列；预留不等于成交。
+源码不边运行边修改：冻结continuation_2023.py、run_continuation.py、两份route_trace、quarter checkpoint loop，以及全部原模型/输入/父checkpoint哈希；原planning/opening实际函数身份与父代逐项一致。新目录检查点含当前实际class/module/functions身份，旧provenance不回填。
+评价仅预先3问题：公式10/35/60恢复时点vs可用空间vs实际新增资本；完整合法机会容量/迁池阻挡及unknown；2022少亏与2023实际参与取舍。2023区间收益/DD和2022原1m以来累计财富/DD分开，closed/open尾部和gross-loss record_only分开。当前snapshot非PIT、全部历史已消费，原日线和权息时序代理限制不变，不称实盘/OOS。结束后不自动2024/latest/其他压力/参数。

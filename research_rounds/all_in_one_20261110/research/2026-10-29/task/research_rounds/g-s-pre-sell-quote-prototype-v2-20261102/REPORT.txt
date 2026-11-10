@@ -1,0 +1,15 @@
+V2：仅修复quote known_at与交易日矛盾，未接runner，金融事件0。
+
+规则：本原型固定A股交易时区Asia/Shanghai。proposal.at和quote.known_at分别转换到该时区，再与显式quote_session交易日核同；不使用ISO文本的前10位或UTC日期直接判断。known_at仍必须不晚于at。前一交易日时间伪装成当前session/current_open_print、未来时间、缺失/无时区/畸形时钟或session矛盾，一律UNKNOWN，Q/D=None，freeze_quantity_caps=False，receipt_consumed=False，实际释放0。
+
+独审原反例已复现并修复：B known_at=2025-07-01 09:30+08、声明session=7/2，不再批准499股，返回UNKNOWN。合法当前报价保持原提案；相同真实时刻写为前一天-05:00的文本，转换后仍属上海7/2，买卖数量不变。另测UTC7/1 16:30转换为上海7/2（仅日期函数边界，不假称凌晨有A股开盘成交）。
+
+原6组全部通过，15份原输出与V1 JSON逐项完全相同，含两真实例、部分合法/最低费/STAR、未ACK和恢复。新增9个时钟场景通过。V1全部54文件SHA保持，原缺口与独审证据保留；只在新V2目录修改。
+改动函数仅verified（删除按at文本日期判断）、quote_unknown（交易日及未知时钟检查）；新增exchange_session_day及显式时区常量。其余原型函数AST完全相同，未改变额度、排序、费用、Q/D算法或原账户。
+
+复核命令（原venv，均不推进账户）：
+python -B research_rounds/g-s-pre-sell-quote-prototype-v2-20261102/test_quote.py
+python -B research_rounds/g-s-pre-sell-quote-prototype-v2-20261102/test_session.py
+
+审计入口：SESSION_REGRESSION.json、SOURCE_DIFF.patch、SOURCE_FREEZE.json、DELIVERABLE_MANIFEST.json。
+覆盖仍限quote-only提案；不实现撤单ACK或原生金融回放，不宣称实盘就绪。

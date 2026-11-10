@@ -1,0 +1,15 @@
+{
+  "events": 10,
+  "main_notices_verified": 10,
+  "downloaded_notices": 12,
+  "auxiliary_bond_notices_excluded": 2,
+  "d_cash_equals_exact_local_action": 10,
+  "d_ref_differs_from_cash": 2,
+  "all_record_previous_observation": true,
+  "all_pay_ex": true,
+  "production_admitted": 0,
+  "backtest_runs": 0,
+  "source_hashes_unchanged": true,
+  "current_historical_not_PIT": true,
+  "actual_tax_verified": false
+}

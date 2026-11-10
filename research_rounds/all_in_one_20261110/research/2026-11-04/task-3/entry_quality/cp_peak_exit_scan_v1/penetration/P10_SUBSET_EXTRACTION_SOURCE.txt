@@ -1,0 +1,134 @@
+"""Read-only original MOBILE close/old-line penetration; no model or exit candidate."""
+from pathlib import Path
+from decimal import Decimal as D,getcontext
+from collections import Counter
+import csv,gzip,hashlib,json,math
+import pandas as pd
+
+getcontext().prec=50
+O=Path(__file__).resolve().parent;Q=O.parents[1]
+B=Q/'trend_exit_controls_v1/runs/BASELINE/2022_2024/pair'
+F=Q/'mobile_ema20_exit_audit_v1/original_facts'
+W=Path('/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds')
+R=Path('/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/inputs')
+SIDS=['601601.SH','601066.SH','601995.SH','601319.SH','601628.SH','002583.SZ'];SRC={};Z=D(0)
+def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def read(p,gz=False,lines=False):
+ p=Path(p);SRC[str(p.resolve())]=sha(p)
+ with (gzip.open(p,'rt') if gz else p.open()) as f:return [json.loads(l) for l in f] if lines else json.load(f)
+def frame(p,expected):
+ p=Path(p);assert sha(p)==expected;SRC[str(p.resolve())]=sha(p);return pd.read_parquet(p)
+def clean(x):
+ if isinstance(x,dict):return {str(k):clean(v) for k,v in x.items()}
+ if isinstance(x,(list,tuple)):return [clean(v) for v in x]
+ if isinstance(x,(D,pd.Timestamp)):return str(x)
+ if hasattr(x,'item'):x=x.item()
+ if isinstance(x,float) and not math.isfinite(x):return None
+ return x
+def save(n,x):(O/n).write_text(json.dumps(clean(x),ensure_ascii=False,indent=2,allow_nan=False)+'\n')
+def asof(f,day):
+ j=f.index.searchsorted(pd.Timestamp(day),side='right')-1
+ return (None,None) if j<0 else (str(f.index[j].date()),f.iloc[j].to_dict())
+def dec(v):return None if v is None or not math.isfinite(float(v)) else D(str(v))
+
+book=read(B/'B.json.gz',True);daily=read(B/'daily.jsonl.gz',True,True)
+sm={r['symbol']:r for r in read(W/'universe-cp1-inputs-20261031/STOCK_MANIFEST.json')}
+rm=read(R/'MANIFEST.json')
+buy={t['layer']:(i,t) for i,t in enumerate(book['trades']) if t['side']=='buy'}
+fills={a['receipt']['receipt_id']:(i,a) for i,a in enumerate(book['audit']) if a['kind']=='fill'}
+requests={a['event_id']:(i,a) for i,a in enumerate(book['audit']) if a['kind']=='exit_request'}
+entryj={r['layer']:r for r in book['journal'] if r['kind']=='real_buy_fill'}
+chains=read(Q/'structural_failure_v1/chains/COMPLETE_ORIGINAL_CHAINS.json')
+ids_by_sid={}
+for sid in SIDS:
+ if sid=='002583.SZ':ids_by_sid[sid]=set(next(c for c in chains if c['campaign']['sid']==sid)['campaign']['layer_ids'])
+ else:ids_by_sid[sid]={x['summary']['layer'] for x in read(F/(sid.replace('.','_')+'_ORIGINAL_FACTS.json'))['layers']}
+hist={}
+for di,d in enumerate(daily):
+ for h in d['layers']:
+  if h['sid'] in SIDS and h['id'] in ids_by_sid[h['sid']]:hist.setdefault(h['id'],[]).append((di,d['at'][:10],h))
+
+rows=[];details=[];provenances={};core_appendix=[]
+for sid in SIDS:
+ m=sm[sid];facts=frame(m['refs']['facts'],m['output_sha256'][m['refs']['facts']]);cp=frame(m['refs']['CP1'],m['output_sha256'][m['refs']['CP1']])
+ rrec=next(r for r in rm if r['sid']==sid);rp=Path(rrec['output_path']);assert sha(rp)==rrec['output_sha256'];canonical=read(rp);receipt_by_day={r['confirmed_day']:r for r in canonical}
+ for lid in sorted(ids_by_sid[sid]):
+  ti,bt=buy[lid]
+  first_req=[dict(audit_index=i,original=a) for i,a in enumerate(book['audit']) if a['kind']=='pilot_layer_exit' and a.get('sid')==sid and lid in a['layers']]
+  first_cp=next((r for r in first_req if r['original']['reason']=='CP1_add_protection'),None)
+  parts=[]
+  for tindex,t in enumerate(book['trades']):
+   if t['side']!='sell' or t['security_id']!=sid:continue
+   for pi,p in enumerate(t['parts']):
+    if p['layer']!=lid:continue
+    afi,af=fills[t['receipt_id']];ri,rq=requests[af['order_id']]
+    parts.append(dict(trade_index=tindex,part_index=pi,whole_original_trade=t,actual_part=p,fill_audit_index=afi,actual_fill_audit=af,order_request_audit_index=ri,original_order_request=rq))
+  if bt['kind']=='core':
+   core_appendix.append(dict(sid=sid,layer=lid,scope='CORE_I_APPENDIX_ONLY_NOT_CP_SCAN',actual_buy=bt,actual_requests=first_req,actual_sale_parts=parts,original_I_daily=[dict(day=day,daily_index=di,original_snapshot=h,source_day=asof(facts,day)[0],original_facts=asof(facts,day)[1]) for di,day,h in hist[lid] if day>='2024-10-08']))
+   continue
+  assert bt['kind']=='add'
+  for di,day,h in hist[lid]:
+   if day<('2024-10-14' if sid=='002583.SZ' else '2024-10-08'):continue
+   d=daily[di];previous=daily[di-1];prevday=previous['at'][:10];fd,ff=asof(facts,day);pfd,pff=asof(facts,prevday)
+   prev=next((v for v in previous['layers'] if v['id']==lid),None)
+   old_h=D(bt['floor']) if prev is None else D(prev['floor']);source='actual_initial_order_floor_known_before_buy' if prev is None else 'previous_saved_CLOSE_live_floor'
+   prior_history=[x for x in hist[lid] if x[0]<di]
+   run=[]
+   for v in reversed(prior_history):
+    if D(v[2]['floor'])!=old_h:break
+    run.append(v)
+   numeric_origin=bt['signal_at'][:10] if old_h==D(bt['floor']) else (run[-1][1] if run else None)
+   pk=(sid,lid,str(old_h),numeric_origin)
+   if pk not in provenances:
+    ofd,of=asof(facts,numeric_origin);ocd,oc=asof(cp,numeric_origin)
+    I=dec(of.get('i_floor'));candidate=dec(oc.get('candidate'));canonical_receipt=receipt_by_day.get(numeric_origin)
+    cp_match=bool(oc.get('receipt')) and candidate==old_h
+    I_match=I==old_h
+    if cp_match and canonical_receipt is not None:assert dec(canonical_receipt['original_candidate'])==old_h
+    if cp_match and I is not None and I<old_h and canonical_receipt is not None:kind='UNIQUE_CP_MAX_ORIGIN'
+    elif I_match and not cp_match:kind='I_DOMINATED_ORIGIN_NOT_UNIQUE_CP'
+    elif I_match and cp_match:kind='I_AND_CP_TIE_NOT_UNIQUE_CP'
+    else:kind='NUMERIC_RUN_OR_INITIAL_ORIGIN_NOT_UNIQUELY_IDENTIFIED'
+    pr=dict(sid=sid,layer=lid,old_adjusted_floor=old_h,numeric_run_or_initial_origin_day=numeric_origin,origin_kind=kind,
+     floor_is_actual_saved_state_not_replayed=True,origin_fact_source_day=ofd,origin_CP_source_day=ocd,origin_i_floor=I,origin_CP_receipt=oc.get('receipt'),origin_CP_candidate=candidate,
+     matching_CP_receipt=canonical_receipt if cp_match else None,unique_CP_receipt_id=canonical_receipt['receipt_id'] if kind=='UNIQUE_CP_MAX_ORIGIN' else None,
+     unique_frozen_scale=canonical_receipt['original_scale'] if kind=='UNIQUE_CP_MAX_ORIGIN' else None,
+     unique_scale_frozen_at=canonical_receipt['scale_frozen_at'] if kind=='UNIQUE_CP_MAX_ORIGIN' else None,
+     stock_scale_id_not_globally_unique_warning='Do not group stocks by scale_id alone; preserve sid and receipt_id.',canonical_source_path=str(rp),
+     provenance_limit='Numeric first appearance plus same-day actual I/CP sources. If I tie/dominance or source mismatch, no unique CP scale is assigned. Initial source uses actual entry-signal day when initial floor persists.')
+    provenances[pk]=pr
+   pr=provenances[pk]
+   Fnow=dec(ff['factor']);Fprev=dec(pff['factor']);Cprev=dec(pff['raw_close']);C=dec(ff['raw_close']);raw_h=old_h/Fnow
+   domain_known=fd==day and pfd==prevday and Fnow==Fprev
+   delta=distance=penetration=None
+   if domain_known:delta=Cprev-C;distance=Cprev-raw_h;penetration=raw_h-C;assert delta==distance+penetration
+   triggered_today=first_cp is not None and first_cp['original']['at'][:10]==day
+   prevqty=None if prev is None else prev['qty'];same_qty=prevqty==h['qty']
+   row=dict(sid=sid,layer=lid,day=day,previous_calendar_CLOSE_day=prevday,previous_observed_quote_day=pfd,current_observed_quote_day=fd,
+    held_previous_CLOSE=prev is not None,qty_current_original=h['qty'],qty_previous_original=prevqty,
+    C_prev_raw=Cprev,C_raw=C,old_floor_adjusted=old_h,current_factor=Fnow,old_floor_raw=raw_h,old_floor_source=source,
+    after_CLOSE_original_floor_adjusted=h['floor'],domain_status='KNOWN_SAME_RAW_UNIT_AND_EXACT_OBSERVATIONS' if domain_known else 'UNKNOWN_MISSING_EXACT_OBSERVATION_OR_UNAUDITED_CA_UNIT_BRIDGE',
+    delta_C=delta,previous_C_to_old_floor=distance,old_floor_minus_current_C=penetration,
+    delta_pct_of_Cprev=None if delta is None else delta/Cprev,old_distance_pct_of_Cprev=None if distance is None else distance/Cprev,penetration_pct_of_Cprev=None if penetration is None else penetration/Cprev,
+    quantity_weighted_delta=None if not same_qty or delta is None else D(h['qty'])*delta,quantity_weighted_old_distance=None if not same_qty or distance is None else D(h['qty'])*distance,quantity_weighted_penetration=None if not same_qty or penetration is None else D(h['qty'])*penetration,
+    current_CLOSE_at_or_below_old_floor=None if not domain_known else C<=raw_h,
+    actual_first_CP_request_today=triggered_today,actual_first_CP_request_at=None if first_cp is None else first_cp['original']['at'],
+    actual_first_proxy_fill_at=None if not parts else parts[0]['whole_original_trade']['at'],actual_first_proxy_raw_OPEN=None if not parts else parts[0]['whole_original_trade']['raw_open'],actual_first_proxy_price=None if not parts else parts[0]['whole_original_trade']['price'],
+    provenance_kind=pr['origin_kind'],floor_origin_day=pr['numeric_run_or_initial_origin_day'],unique_CP_receipt_id=pr['unique_CP_receipt_id'],unique_CP_frozen_scale=pr['unique_frozen_scale'],scale_frozen_at=pr['unique_scale_frozen_at'],
+    actual_ACT_on=d['on'],actual_i_target=ff['i_target'],pending_before_CLOSE=sid in previous['pending_sells'],pending_after_CLOSE=sid in d['pending_sells'],daily_index=di)
+   rows.append(row)
+   details.append(dict(summary=row,actual_previous_CLOSE_layer=prev,actual_initial_buy=bt,actual_after_CLOSE_layer=h,provenance=pr,first_actual_CP_layer_request=first_cp,all_original_exit_request_extensions=first_req,actual_whole_receipts_and_parts=parts,
+    source_refs=dict(book=str((B/'B.json.gz').resolve()),daily=str((B/'daily.jsonl.gz').resolve()),fact=m['refs']['facts'],CP=m['refs']['CP1'],canonical_2024_manifest=str(R/'MANIFEST.json'),canonical_stock_receipts=str(rp)),
+    interpretation='Signed close-to-close price identity, not an intraday line hit or executable line sale. Quantity-weighted terms are mark-price decomposition without fees, not a counterfactual return. First buy-day previous CLOSE was not yet held.'))
+
+save('MOBILE_DAILY_PENETRATION.json',details)
+with (O/'MOBILE_DAILY_PENETRATION.csv').open('w') as f:
+ w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(clean(r) for r in rows)
+save('OLD_FLOOR_PROVENANCE.json',list(provenances.values()));save('CORE_I_APPENDIX.json',core_appendix)
+cross=[r for r in rows if r['actual_first_CP_request_today']]
+save('ACTUAL_FIRST_CP_TRIGGER_POINTS.json',cross)
+with (O/'ACTUAL_FIRST_CP_TRIGGER_POINTS.csv').open('w') as f:
+ w=csv.DictWriter(f,fieldnames=list(cross[0]));w.writeheader();w.writerows(clean(r) for r in cross)
+save('SOURCE_MANIFEST.json',dict(source_sha256=SRC,script_sha256=sha(__file__),original_files_changed=False))
+save('EXTRACTION_RECEIPT.json',dict(status='PASS_READ_ONLY_ORIGINAL_CP_PENETRATION',mobile_layers=len({r['layer'] for r in rows}),daily_mobile_layer_points=len(rows),first_CP_layer_trigger_points=len(cross),provenance_classes=dict(Counter(r['provenance_kind'] for r in rows)),core_appendix_layers=[r['layer'] for r in core_appendix],no_new_accounts=0,no_new_models=0,no_new_backtests=0,new_indicators=0))
+print(json.dumps(dict(rows=len(rows),mobile_layers=len({r['layer'] for r in rows}),triggers=len(cross),classes=dict(Counter(r['provenance_kind'] for r in rows))),ensure_ascii=False))

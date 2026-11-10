@@ -1,0 +1,15 @@
+{
+  "approved": true,
+  "engine_sha256": "804d56f8b5a8e4b26d5a89caac5874c037911a38c339db9c6dfd5e99882aab6a",
+  "contract_sha256": "5dd19ad3696a819049e1c92ad5b1f34cb8781d20515abad93898e8d7d3d26e1c",
+  "scope": "One frozen M7 research-only historical run 2024-09-02 through 2024-10-08. No live orders, parameter search or historical-outcome tuning.",
+  "assertions": 203,
+  "waterfill_cases": 180,
+  "actual_method_and_identity_boundaries": 23,
+  "inherited_validation": "M6 execution, order roles, classification and donor execution method identities unchanged; atomic loop source unchanged.",
+  "audit_files": {
+    "synthetic_m7.py": "b61982c01105deb6f08e6b608326b59ad38e8d69fb943c88b16833af87952bf3",
+    "SYNTHETIC_QA.json": "b1460c54bd9ed60587d09eed732bee3eebc251a5d66ca1662e5fa7eb73673848"
+  },
+  "timestamp_utc": "2026-11-09T20:47:13.927320+00:00"
+}

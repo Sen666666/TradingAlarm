@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-30T17:36:58.161042+00:00",
+  "status": "fresh_I_source_and_single_candidate_read_only_review_complete",
+  "wall_seconds_since_protocol": 954.009818,
+  "successful_aggregation_seconds": 2.1020918753929436,
+  "remaining_environment_blockers": [],
+  "remaining_data_limit": "603087 2026-10-23 G1 complete up_reasons beyond old archive cutoff; native positive event and current facts known",
+  "new_economic_paths": 0,
+  "policy_not_promoted": true,
+  "next_stage_requires_parent_candidate_and_contract_review": true
+}

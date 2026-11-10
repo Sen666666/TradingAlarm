@@ -1,0 +1,52 @@
+CP公式本体：原式、独立批评与一套可编码候选（未实现/未验收）
+
+范围与撤回
+上一资金/仓位候选已明确撤回；未写入其合同、未启动账户或回测。本报告不继承其预算、仓位或组合上限。以下只定义CP市场公式及事件接口，不改变账户，也不声称收益改善。
+
+一、原CP的完整关键算式与时钟
+原model.py5：A=√5，K=√21，z_min=log(1.001)。令p_t=log(C_t)，r_t=p_t-p_(t-1)。按连续source segment：
+s_t=max(1e-8,1.4826·median(|r_(t-63)|,...,|r_(t-1)|))；z_t=max(s_t,z_min)。
+B_t=median(amount_(t-21),...,amount_(t-1))；u_t=tanh(r_t/s_t)，v_t=tanh(log(amount_t/B_t))，m_t=1+0.5·|u_t|·v_t。
+因此0.5<m_t<1.5，amount=B时m=1；当前下跌也可令|u|高，但只有新frontier位移获得credit。历史窗口在当前观察前shift，r_t和amount_t只能在当前CLOSE已知。
+原状态为phase/anchor/frontier/frozen_scale/credit/source。未ready或native I无效清空；source改变重启；初始或原down事件在当日p建SEEK锚，credit=0、scale=z_t；SEEK创新低同样重锚。注意股票输入名e0_valid实际映射f.i_target，并非仅原生E0_target；不能将native I和E0 episode混成一个状态。
+之后δ_t=max(p_t-frontier_old,0)，仅严格创新高时更新frontier和credit+=δ_t·m_t；D=frontier-anchor。
+receipt=(δ_t>0) AND (D≥A·旧冻结scale) AND (credit≥A·旧冻结scale)。保护候选为C_t·exp(-K·旧冻结scale)。先用旧scale算本次门和线，再在receipt后将anchor=frontier=p_t、credit=0、下轮scale=z_t。receipt重置不依赖资金、实际成交或后来输赢。
+原UP普通回落不扣credit、不降低锚；down/I/source等reset可另开更低市场锚。原市场计算没有账户实际止损失败输入。联合有效账户的Mobile旧线先在J235–236比较CLOSE，未破才在237–240抬I/新CP线；原CORE不走Mobile线。市场receipt既不是账户已买，也不是已卖。
+
+二、原式的实质取舍
+1. 原amount是“新高位移的速度/信用调制”，不是独立硬确认。若所有推进日m≥1，price位移门已蕴含credit门，后者无额外拦截；若量弱仍可用更大累计涨幅补齐credit（极限m≈0.5需约2A的位移）。这不是三个独立证据，也不等于原设计必错。
+2. 它不惩罚UP中的回落或此前账户失败，能保留强趋势的原市场证明，也可能让失败区间在down/I/source reset后再次被覆盖。将交易失败直接塞回市场CP，会让同一只股票因不同账户成交而产生不同“市场receipt”；必须显式分市场结构失败与账户退出ACK。
+3. 把量门改为amount≥过去21中位数更清楚，却严格放弃一部分缩量慢牛；放量高潮、对倒与开盘冲高仍能过门。成交额含价格上涨本身，不是外生于价格的新信息。单日量门可能把低量早段推迟到高量末端。
+4. 连续新高抬线会在两个receipt之间更快收紧。固定同一σ时，每新高抬C·exp(-Kσ)比等下一Aσ位移才抬的旧线可提前接近Aσ的对数距离；可能少回吐，也可能更早洗出正常回撤。这是明确新保护合同，不能包装为纯“确认分开”而不改变退出。
+
+三、一套具体候选：SPLIT_CONFIRM_WITH_PEAK_LINE（研究假设，不是已通过策略）
+仅沿用原A/K/z/B；不新增账户预算、指标参数或经验盈利门。C始终是同一因果复权坐标的有效收盘，peak指收盘高点，不是未来最高价。
+状态分两条：
+proof=(SEEK/UP,price_anchor,price_frontier,proof_scale,anchor_observation_id,last_receipt_id)；
+trend=(NONE/LIVE/FAILED,trend_peak,market_line,last_failure_id)。
+receipt只消费proof，不重置LIVE的trend_peak或market_line，避免把持有连续性与下一次入场证明混在一起。
+
+每个有效CLOSE按以下顺序：
+0 source不连续/原native I无效/预热不足时停止有效输出并按原源规则清状态；unknown与明确I=false分开记录。不得前向补缺指标或用未认证实际盘口。
+1 若trend=LIVE且C_t≤L_(t-1)，先输出market_structure_failure（含旧线/当日C与观测ID），令trend=FAILED；在当日p_t建新的恢复SEEK锚并冻结z_t。该失败日不再发receipt，不用今日新线回溯声称早已破线。
+2 原down事件若在I仍有效时出现，沿原式将proof重置为当日p的SEEK锚、冻结z_t，并禁止该日receipt；若旧trend线尚未破则保留该LIVE线/高点，不借proof重锚放宽保护。其余观察中，SEEK若p更低就重锚到该真实低收盘并冻结当时z；否则仅当p超过proof_frontier才累计锚后新增frontier。
+3 price_pass=(当日严格新frontier AND frontier-anchor≥A·proof_scale)。amount_pass=(amount_t≥B_t)。两门AND才发一次新receipt。无credit权重；量不达标不消费price_anchor，之后仍需新的高收盘及当日量门，不能在旧价仅靠后来量大重复发证。
+4 首次/恢复receipt使trend=LIVE，trend_peak=C_t，market_line=C_t·exp(-K·z_t)。恢复必须是t>failure_day、锚后新增推进，且source/native I有效；不要求收复全波旧最高点。可在失败后第一个CLOSE形成V形证明，不人为强制多等一个收盘。
+5 trend已LIVE且未失败：若C_t>trend_peak_old，则peak=C_t、candidate=C_t·exp(-K·z_t)，L_t=max(L_old,candidate)；否则peak和L保持。只在新收盘高使用当前lag63尺度，避免没有新高时仅因波动下降而突然把旧峰投影线抬到当前C上方。此保护更新不要求量门或新receipt。若波动放大使candidate下降，保留旧L，不放宽。
+6 receipt后proof_anchor=proof_frontier=p_t、proof_scale=z_t、credit不再存在；trend线不被receipt下调。市场receipt与其原观察身份单次消费仍应保留，不因取消/未成交重做同一receipt。
+
+这套公式相对原CP同时改变amount门、保护线时钟及市场失败重锚，不能从组合结果直接归因哪一项；它是可讨论的完整候选，并非单一机制消融已通过。若只要最小公式差异，应先单独比较其中一项，不悄悄打包。
+
+四、执行与可预见反例（未运行任何例子）
+- CLOSE_t才能读取C_t/amount_t；任何该日新receipt/失效提案最早次OPEN处理。CP公式不读取次日H/L/V，次OPEN成交不能回填为本日已执行。
+- 低量慢牛：price通过、amount长时间不通过，会漏入/延后；这是硬量门的直接代价，不应事后放宽门救赢家。
+- 高量假突破/高潮：两门可同时通过，次日跳空低开仍亏；量确认不保证结构可靠。
+- 震荡新高：连续抬线比旧receipt线紧，普通回撤会更早失效，随后恢复门会反复发证。公式既无费用也无可用现金，不能声称这种重启有经济价值。
+- 波动突增：新高时新candidate更宽但旧线不降，原紧线仍可能被正常回撤碰破；不因波动增大自动“让出空间”。
+- 急V：允许failure后第一根收盘恢复证据，但真正卖单可能T+1不可卖/跌停/部分成交。market failure不等于真实flat；恢复receipt不等于账户可以同日卖买。原执行adapter应分别保存proposal/ACK，不在市场公式里伪造。
+- 涨停：收盘证明不等于次日可买；持有期高点亦不保证可卖。
+- 分层：一个market_line不等于各MOBILE层原实际floor；某层退出也不必触发本市场线FAILED。若要按每层实际退出重入，必须另引typed、当时可知exit ACK作为账户局部状态，而非冒称本公式已覆盖。
+- 同一原native I中可反复出现新局部结构；可形成新receipt身份，不因此被证明是统计独立机会或应获无限资金。
+
+结论边界
+原公式/源码和因果顺序可核；上述候选有完整输入、状态与失败反例，但没有实现/数值/账户/经济验收。此包不批准回测、不修改原CP/账户，不重新解释历史盈亏。

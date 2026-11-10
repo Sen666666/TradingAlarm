@@ -1,0 +1,22 @@
+test_market_rules (unittest.loader._FailedTest.test_market_rules) ... ERROR
+
+======================================================================
+ERROR: test_market_rules (unittest.loader._FailedTest.test_market_rules)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_market_rules
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/code/test_market_rules.py", line 5, in <module>
+    from market_rules import quantity_version,market_identity_on,sellable_at,a_sellable_at,RuleUnavailable
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/code/market_rules.py", line 10, in <module>
+    from sector_account import QuantityRule
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/code/sector_account.py", line 16, in <module>
+    import sector_stock_admission as admission
+ModuleNotFoundError: No module named 'sector_stock_admission'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

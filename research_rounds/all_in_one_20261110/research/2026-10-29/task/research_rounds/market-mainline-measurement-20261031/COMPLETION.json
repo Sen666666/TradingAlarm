@@ -1,0 +1,42 @@
+{
+  "status": "completed_observational_only",
+  "at": "2026-10-31T09:16:16.131340+00:00",
+  "days": 242,
+  "industry_matrix_rows": 21780,
+  "quarters": [
+    "2025Q3",
+    "2025Q4",
+    "2026Q1",
+    "2026Q2"
+  ],
+  "main_opportunity_segments": 1708,
+  "unique_stocks_with_label": 1329,
+  "price_any": 1368,
+  "attention_any": 1260,
+  "attention_additional_uncovered_within_window": 108,
+  "price_first": 763,
+  "attention_first": 436,
+  "paired_delay": {
+    "n": 1260,
+    "median": 0.0,
+    "p90": 17.0,
+    "max": 127.0,
+    "positive": 575
+  },
+  "left_boundary_segments": 805,
+  "right_boundary_segments": 898,
+  "cached_price_formula_errors": {
+    "5": 0.0,
+    "21": 0.0,
+    "63": 0.0
+  },
+  "all_coverage_dates_on_still_qualifying_anchors": true,
+  "feature_hash_unchanged": true,
+  "calculation_seconds_failed_plus_success": 22.125080212485045,
+  "failed_attempt_preserved": true,
+  "new_economic_paths": 0,
+  "full_native_I_coverage_tested": false,
+  "new_strategy_implemented": false,
+  "L0_frozen": true,
+  "next": "jointly choose one action contract; attention not automatically hard gate"
+}

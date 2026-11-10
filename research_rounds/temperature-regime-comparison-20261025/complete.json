@@ -1,0 +1,59 @@
+{
+  "recorded_at": "2026-10-25T10:54:33.451494+08:00",
+  "status": "complete_no_promotion",
+  "economic_new_accounts": 756,
+  "old_readonly_accounts": 216,
+  "displayed": 972,
+  "technical_E0_R_identity": 108,
+  "technical_account_prefixes": 432,
+  "physical_signal_prefix_sets": 21,
+  "old_prototype_daily_replays": 14,
+  "behavior_tests": 10,
+  "accounting": {
+    "passed": true,
+    "recorded_at": "2026-10-25T10:37:09.963860+08:00",
+    "displayed_accounts": 972,
+    "new_economic_accounts": 756,
+    "reused_readonly_accounts": 216,
+    "fills_independently_replayed": 12046,
+    "max_nav_error": 5.329070518200751e-15,
+    "technical_old_E0_R_identity": 108,
+    "all_actual_new_threshold_buys_have_required_signal": true
+  },
+  "new_frozen_sources": {
+    "manifest": {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/temperature-regime-comparison-20261025/freeze.json",
+      "sha256": "5bbfa344a6a9eaba0421ef04d261389ddf6684d2654b7d01ca3f5c7f5dcb84f9"
+    },
+    "files": 1347,
+    "mismatches": 0
+  },
+  "old_source_freeze": {
+    "manifest": {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/strategy-switching-20261024/freeze.json",
+      "sha256": "8362292b17dfab793f49fdd404d6ab83054a5290ed5feea1da54322e564779fc"
+    },
+    "files": 261,
+    "mismatches": 0
+  },
+  "old_algorithm_registry": {
+    "manifest": {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/algorithm-baselines-20261024/registry.json",
+      "sha256": "e2acce6fd23bd8c67ce287896567cda6c224ab556b6f2bb024b7bbdf0608c114"
+    },
+    "files": 30,
+    "mismatches": 0
+  },
+  "artifact_manifest": {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/temperature-regime-comparison-20261025/artifact-sha256.json",
+    "sha256": "931d249fa8972f190b527a3836a5a2a09c3ffb7f3aa570e375061802f5903082"
+  },
+  "post_result_rules_changed": 0,
+  "technical_failure_preserved": true,
+  "report_url": "http://127.0.0.1:8784/report/",
+  "report_qa": {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/temperature-regime-comparison-20261025/audit/report-qa.json",
+    "sha256": "dc0f925974d364dd4ebb2bde9b4743b76022624de61a71c29afe24cc1bb559b0"
+  },
+  "scope_closed": true
+}

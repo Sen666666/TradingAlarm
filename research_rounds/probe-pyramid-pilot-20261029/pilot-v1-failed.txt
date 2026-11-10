@@ -1,0 +1,225 @@
+"""BP-1: three frozen normal paths, original market adapter and Decimal ledger."""
+from pathlib import Path
+import sys,json,gzip,hashlib,math,collections
+from decimal import Decimal as D
+from datetime import datetime,time
+from bisect import bisect_right
+from dataclasses import replace,asdict
+import pandas as pd
+import numpy as np
+O=Path(__file__).resolve().parents[1];ROOT=O.parents[1]
+sys.path.insert(0,str(ROOT/'research_rounds/pvr-act-comparison-20261027/code'))
+import experiment as P
+C,E,R=P.C,P.E,P.R
+L,A,N=C.ledger,C.admission,C.native
+ZERO=D(0);ONE=D(1);INITIAL=D(1000000)
+SNAP=ROOT/'TradingAlarm/runtime/market/update-20261027-153013-2ffe04/prepared'
+CP=ROOT/'research_rounds/continuous-protection-lines-20261028/signals'
+PV=ROOT/'research_rounds/pvr-act-comparison-20261027/scores'
+
+def save(p,x):
+ p=Path(p);p.parent.mkdir(parents=True,exist_ok=True)
+ with p.open('x') as f:json.dump(N.encoded(x),f,ensure_ascii=False,indent=2,allow_nan=False)
+def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def fee(q,b):return sum(q.fees.incremental('buy',b,{}, {},ONE,shares=b/q.raw_price,par_value=q.par_value).values(),ZERO) if b>0 else ZERO
+
+def allocate(items,cash):
+ """Capped proportional water filling; all inputs frozen at previous close."""
+ if not items or cash<=0:return {}
+ caps={i['sid']:i['budget'] for i in items};weights={i['sid']:D(str(i['weight'])) for i in items};out={s:ZERO for s in caps};left=min(cash,sum(caps.values(),ZERO));active=set(caps)
+ while active and left>0:
+  weight=sum((weights[s] for s in active),ZERO);hit=[s for s in active if left*weights[s]/weight>=caps[s]-out[s]]
+  if not hit:
+   for s in active:out[s]+=left*weights[s]/weight
+   break
+  for s in sorted(hit):x=caps[s]-out[s];out[s]+=x;left-=x;active.remove(s)
+ # Include estimated fees in the common scale. No ordering-based funding advantage.
+ cost=lambda scale:sum((b*scale+fee(next(i['quote'] for i in items if i['sid']==s),b*scale) for s,b in out.items()),ZERO)
+ low,high=(ONE,ONE) if cost(ONE)<=cash else (ZERO,ONE)
+ for _ in range(70):
+  mid=(low+high)/2
+  if cost(mid)<=cash:low=mid
+  else:high=mid
+ return {s:(b*low).quantize(D('.01'),rounding='ROUND_FLOOR') for s,b in out.items()}
+
+class Account(L.SectorAccount):
+ def __init__(self,name,market,facts):
+  super().__init__(fractional_split_policy=market.protocol['fractional_split_policy'])
+  self.name=name;self.market=market;self.facts=facts;self.current_nav=INITIAL;self.layers=[];self.layer_seq=0;self.sell_layers={};self.order_meta={};self.watch={};self.core_epoch={};self.last_buy={};self.pending=[];self.decisions=[];self.trades=[];self.counts=collections.Counter();self.minimum_available=INITIAL
+ def log(self,kind,at,**kw):self.audit_log.append(dict(kind=kind,at=at,**kw))
+ def live(self,sid):return [x for x in self.layers if x['sid']==sid and x['qty']]
+ def check(self):
+  assert self.available>=0
+  for sid in set(self.positions)|{x['sid'] for x in self.layers}:
+   assert sum(x['qty'] for x in self.live(sid))==self.quantity(sid),(self.name,sid,'virtual/physical inventory')
+ def fill_buy(self,sid,w):
+  order=self.buys.get(sid)
+  if order is None:return
+  meta=self.order_meta[order.order_id];f=self.facts.factor(sid,w.at)
+  if w.raw_open*f<=meta['floor']:
+   self.counts['open_at_or_below_protection']+=1;self.log('pilot_buy_rejected',w.at,sid=sid,reason='open_at_or_below_protection',intent=meta);self.cancel_buy(sid);return
+  receipt=super().fill_buy(sid,w)
+  if receipt:
+   self.layer_seq+=1
+   z=dict(id=self.layer_seq,sid=sid,kind=meta['kind'],qty=receipt.shares,initial_qty=receipt.shares,opened=w.at,signal_at=meta['clock'].decision_at,epoch=meta['epoch'],floor=meta['floor'],cash=-receipt.gross_cny-receipt.fees_cny,dividend=ZERO,closed=None,reason=None)
+   self.layers.append(z);self.last_buy[sid]=w.execution_price*f
+   if z['kind']=='core':self.core_epoch[sid]=meta['epoch']
+   self.trades.append(dict(**asdict(receipt),layer=z['id'],kind=z['kind'],signal_at=z['signal_at'],raw_open=w.raw_open,price=w.execution_price,floor=meta['floor'],pvr=meta['score'],reason=meta['reason'],epoch=meta['epoch']))
+   self.counts['buy_fills']+=1
+  self.check();return receipt
+ def fill_exit(self,sid,w):
+  receipt=super().fill_exit(sid,w)
+  if receipt:
+   left=receipt.shares;targets=self.sell_layers[sid];parts=[]
+   for z in self.live(sid):
+    if z['id'] not in targets:continue
+    take=min(left,z['qty']);z['qty']-=take;left-=take;cash=(receipt.gross_cny-receipt.fees_cny)*D(take)/receipt.shares;z['cash']+=cash
+    if not z['qty']:z['closed']=w.at
+    parts.append(dict(layer=z['id'],kind=z['kind'],shares=take,net_cash=cash,reason=z['reason']))
+    if not left:break
+   assert not left,(sid,receipt,'sale allocation')
+   self.trades.append(dict(**asdict(receipt),parts=parts,raw_open=w.raw_open,price=w.execution_price,reason=','.join(sorted({p['reason'] for p in parts}))))
+   if sid not in self.exits:self.sell_layers.pop(sid,None)
+   if not self.quantity(sid):self.last_buy.pop(sid,None)
+   self.counts['sell_fills']+=1
+  self.check();return receipt
+ def split(self,**kw):
+  sid=kw['sid'];layers=self.live(sid);old=sum(z['qty'] for z in layers);super().split(**kw)
+  if old:
+   target=self.quantity(sid);parts=[int(D(z['qty'])*kw['ratio']) for z in layers];remain=target-sum(parts)
+   # Fractional entitlement writeoff belongs to the original aggregate ledger.
+   for i in range(remain):parts[i%len(parts)]+=1
+   for z,q in zip(layers,parts):z['qty']=q
+   if sid in self.exits and self.exits[sid].remaining_target is not None:
+    self.exits[sid].remaining_target=sum(z['qty'] for z in self.live(sid) if z['id'] in self.sell_layers[sid]);self.exits[sid].submitted_remaining=min(self.exits[sid].submitted_remaining,self.exits[sid].remaining_target)
+  self.check()
+ def accrue_dividend(self,**kw):
+  super().accrue_dividend(**kw);layers=self.live(kw['sid']);qty=sum(z['qty'] for z in layers)
+  assert qty
+  for z in layers:z['dividend']+=kw['net_local']*D(z['qty'])/qty
+ def sell(self,sid,clock,quote,ids,reason):
+  ids=set(ids)
+  for z in self.live(sid):
+   if z['id'] in ids:z['reason']=reason
+  ids|=self.sell_layers.get(sid,set());self.sell_layers[sid]=ids
+  shares=sum(z['qty'] for z in self.live(sid) if z['id'] in ids)
+  if not shares:return
+  if sid not in self.exits:super().request_reduction(quote,clock,shares)
+  else:
+   ex=self.exits[sid];ex.remaining_target=shares
+   if shares==self.quantity(sid):ex.purpose='structure_exit';ex.remaining_target=None
+  self.log('pilot_layer_exit',clock.decision_at,sid=sid,layers=sorted(ids),shares=shares,reason=reason)
+
+class Pilot(N.HistoryRunner):
+ def __init__(self,cut=None,only=None):
+  P.setup('RS');self.bundle,self.market=R.context(cut);self.facts=E.Facts(self.bundle,self.market,cut)
+  self.accounts={k:Account(k,self.market,self.facts) for k in (only or ['P0','P1','D1'])};self.b0=N.B0Controller();self.applied_actions=set();self.actions_by_date={}
+  for sid,es in self.market.actions.items():
+   for n,event in enumerate(es):self.actions_by_date.setdefault(event['effective_date'],[]).append((sid,n,event))
+  self.cp={sid:pd.read_parquet(CP/f'{sid}.parquet').loc[:cut] if cut else pd.read_parquet(CP/f'{sid}.parquet') for sid in self.market.lines}
+  self.pv={sid:pd.read_parquet(PV/f'{sid}.parquet').score for sid in self.market.lines}
+  self.last_epoch={};self.epoch=collections.Counter();self.global_watch={};self.daily=[]
+ def source(self,sid,at):
+  f=self.facts.row(sid,at);return None if f is None else int(f.segment_id)
+ def planning(self,at):
+  clock,stocks,sectors=self.facts.packet(at,'I');sd={s.security_id:s for s in stocks};ss={s.sector_id:s for s in sectors};buyable=self.market.market_buyable(at);day=pd.Timestamp(at.date());event={};continuing={};cp={};score={}
+  for sid,s in sd.items():
+   r=self.facts.row(sid,at);key=(bool(r.i_target),int(r.segment_id)) if r is not None else (False,-1)
+   if self.last_epoch.get(sid)!=key:
+    self.epoch[sid]+=1;self.global_watch.pop(sid,None);self.last_epoch[sid]=key
+   epoch=(key[1],self.epoch[sid]);event[sid]=A.eligibility(s,ss,clock,'S0').q is True
+   continuing[sid]=A.eligibility(replace(s,buy_allowed=buyable[sid]),ss,clock,'S0').q is True
+   if event[sid]:self.global_watch[sid]=epoch
+   c=self.cp[sid];cp[sid]=c.loc[day] if day in c.index else None
+   p=self.pv[sid];score[sid]=float(p.loc[day]) if day in p.index and np.isfinite(p.loc[day]) else None
+  for a in self.accounts.values():
+   a.expire_day_buys(at);marks=self.market.marks(at,a.positions);a.current_nav=a.balance(at,marks)['nav'];E.risk_policy.step(a,at,'ACT20_BREAK');a.pending=[]
+   for sid in tuple(a.positions):
+    r=self.facts.row(sid,at);z=self.cp[sid];c=cp[sid];layers=a.live(sid);quote=self.market.quote(sid,at)
+    assert quote is not None,(sid,at,'exit quote missing')
+    if not a.risk_state['on'] or not bool(r.i_target):
+     a.sell(sid,clock,quote,[x['id'] for x in layers],'ACT_pause' if not a.risk_state['on'] else 'I_structure_exit');continue
+    for x in layers:
+     if x['kind']!='add' or x['id'] in a.sell_layers.get(sid,set()):continue
+     # Check the old line before accepting today's new protection.
+     if D(str(r.close))<=x['floor']:a.sell(sid,clock,quote,[x['id']],'CP1_add_protection')
+     else:
+      floor=self.facts.floor(sid,at,'I')
+      if floor is not None:x['floor']=max(x['floor'],floor)
+      if c is not None and bool(c.receipt):x['floor']=max(x['floor'],D(str(c.candidate)))
+   if a.risk_state['on']:
+    for sid,s in sd.items():
+     if sid in a.exits or sid in a.buys:continue
+     r=self.facts.row(sid,at);c=cp[sid];p=score[sid];epoch=self.global_watch.get(sid);held=bool(a.quantity(sid));floor=self.facts.floor(sid,at,'I')
+     if floor is None:continue
+     confirmed=bool(epoch is not None and continuing[sid] and bool(r.g_ready) and r.g_grade>=2 and p is not None and p>50 and c is not None and bool(c.receipt))
+     if held and D(str(r.close))<=a.last_buy[sid]:confirmed=False
+     early=a.name!='D1' and not held and event[sid] and a.core_epoch.get(sid)!=epoch
+     confirm=a.name!='P0' and confirmed and (held or a.core_epoch.get(sid)!=epoch)
+     if not early and not confirm:continue
+     kind='add' if held else 'core';quote=self.market.quote(sid,at)
+     if quote is None:a.counts['no_signal_quote']+=1;continue
+     value=a.quantity(sid)*quote.raw_price;budget=min(a.current_nav*D('.02'),max(ZERO,a.current_nav*D('.1')-value))
+     if budget<=0:a.counts['single_name_cap']+=1;continue
+     if kind=='add':floor=max(floor,D(str(c.candidate)))
+     cap=quote.quantity.buy_floor(int(budget/quote.raw_price))
+     meta=dict(sid=sid,clock=clock,quote=quote,budget=budget,cap=cap,weight=p-50 if confirm else 1.,group=0 if confirm else 1,score=p,kind=kind,floor=floor,epoch=epoch,reason='CP1_confirmation' if confirm else 'I_early_probe')
+     a.pending.append(meta);a.counts['intent_'+kind]+=1
+   a.decisions.append(dict(at=at,nav=a.current_nav,on=a.risk_state['on'],intents=[{k:v for k,v in i.items() if k not in ('clock','quote')} for i in a.pending],global_watches=len(self.global_watch)))
+   bal=a.balance(at,self.market.marks(at,a.positions));a.check();self.daily.append(dict(account=a.name,at=at,**bal,on=a.risk_state['on'],positions={s:p.shares for s,p in a.positions.items()},layers=[dict(id=x['id'],sid=x['sid'],kind=x['kind'],qty=x['qty'],floor=x['floor']) for x in a.layers if x['qty']],pending_sells=tuple(a.exits),pending_intents=len(a.pending),counts=dict(a.counts)))
+ def opening(self,a,at):
+  for sid in sorted(a.exits):
+   w=self.market.window(sid,at,'sell',ONE)
+   if w:a.fill_exit(sid,w)
+  a.settle_due(at)
+  items=[i for i in a.pending if i['clock'].earliest_execution_at==at];cash=max(ZERO,a.available-a.current_nav*D('.1'));budgets={}
+  # Both priority groups are allocated before any fill. Failed minimum/guard cash is not recycled in this opening.
+  for group in (0,1):
+   groupitems=[i for i in items if i['group']==group];z=allocate(groupitems,cash);budgets.update(z);cash-=sum((v+fee(next(i['quote'] for i in groupitems if i['sid']==s),v) for s,v in z.items()),ZERO)
+  for i in sorted(items,key=lambda x:(x['group'],x['sid'])):
+   sid=i['sid'];budget=budgets.get(sid,ZERO);a.log('pilot_frozen_funding',at,sid=sid,budget=budget,signal_at=i['clock'].decision_at,desired=i['budget'],kind=i['kind'],group=i['group'])
+   if budget<=0:a.counts['cash_unfunded']+=1;continue
+   ok,oid=a.reserve_budget(quote=i['quote'],clock=i['clock'],gross_budget_cny=budget,purpose='annual_rebalance',target_shares_cap=i['cap'],candidate_id='BP1:'+i['reason'],reservation_at=at)
+   if not ok:a.counts[oid]+=1;continue
+   a.order_meta[oid]=i;w=self.market.window(sid,at,'buy',ONE)
+   if w:a.fill_buy(sid,w)
+   else:a.counts['no_open_window']+=1
+  a.settle_due(at);a.minimum_available=min(a.minimum_available,a.available);a.check()
+ def run(self,end='2026-10-27'):
+  start=N.iso('2023-12-29T15:10:00+08:00');finish=N.iso(end+'T15:10:00+08:00');cutoffs={x for x in self.market.cutoffs if start<=x<=finish};opens={x for x in self.market.sessions['A'] if start<=x<=finish};acts={datetime.combine(datetime.fromisoformat(d).date(),time.min,N.TZ) for d in self.actions_by_date};events=sorted(cutoffs|opens|{x for x in acts if start<=x<=finish})
+  assert finish in cutoffs
+  for at in events:
+   for a in self.accounts.values():a.settle_due(at)
+   self._actions(at)
+   for a in self.accounts.values():self._payments(a,at)
+   if at in opens:
+    for a in self.accounts.values():self.opening(a,at)
+   if at in cutoffs:
+    self.planning(at)
+    if at.month in (1,7) and at.day<=3:print(str(at.date()),len(self.daily),flush=True)
+  return self
+ def write(self,out):
+  out.mkdir(parents=True,exist_ok=False)
+  with gzip.open(out/'daily.jsonl.gz','wt') as f:
+   for r in self.daily:f.write(json.dumps(N.encoded(r),ensure_ascii=False,allow_nan=False)+'\n')
+  for name,a in self.accounts.items():
+   save(out/f'{name}.json',dict(trades=a.trades,layers=a.layers,audit=a.audit_log,counts=dict(a.counts),decisions=a.decisions,minimum_available=a.minimum_available))
+  save(out/'meta.json',dict(paths=list(self.accounts),daily_rows=len(self.daily),last_at=self.daily[-1]['at'],cutoff_max={s:str(f.index.max().date()) for s,f in self.facts.f.items()},ledger=sha(Path(L.__file__)),raw_market_adapter=sha(Path(self.market.__class__.__module__ and sys.modules[self.market.__class__.__module__].__file__))))
+
+def freeze():
+ files=[O/'RULES.txt',O/'RAW_REVIEW.txt']+list((O/'code').glob('*.py'))
+ deps=[ROOT/'research_rounds/rs-h1-execution-20261025/code/sector_account.py',ROOT/'research_rounds/rs-h1-execution-20261025/code/sector_stock_admission.py',ROOT/'research_rounds/actual-risk-recovery-20261027/code/engine.py',ROOT/'research_rounds/actual-risk-recovery-20261027/code/risk_policy.py',ROOT/'research_rounds/temperature-sizing-20261026/code/fast_market.py',ROOT/'research_rounds/pvr-act-comparison-20261027/code/experiment.py',ROOT/'research_rounds/tech-finite-compound-20261026/code/run_v2.py',ROOT/'research_rounds/ix-a-share-entry-20261025/code/multi_runner.py',ROOT/'research_rounds/tech-compound-design-20261026/proposed-pool.csv',SNAP/'recovery.csv',SNAP/'h1.npz']
+ files+=deps+list((SNAP/'facts').glob('*.parquet'))+list((SNAP/'signals').glob('*.parquet'))+list(CP.glob('*.parquet'))+list(PV.glob('*.parquet'))
+ save(O/'FREEZE.json',dict(recorded_at=datetime.now().astimezone().isoformat(),before_portfolio_results=True,new_paths=3,params_search=False,sha256={str(p.relative_to(ROOT)):sha(p) for p in files}))
+ print('FROZEN',len(files))
+if __name__=='__main__':
+ if sys.argv[1]=='freeze':freeze()
+ elif sys.argv[1]=='economic':
+  frozen=json.loads((O/'FREEZE.json').read_text())
+  assert all(sha(ROOT/k)==v for k,v in frozen['sha256'].items())
+  pilot=Pilot()
+  try:pilot.run().write(O/'results-v1')
+  except BaseException as err:
+   dest=O/('failed-'+datetime.now().strftime('%H%M%S'));pilot.write(dest);save(dest/'FAILURE.json',dict(error=repr(err)));raise
+ elif sys.argv[1]=='prefix':Pilot('2025-12-31',['P1']).run('2025-12-31').write(O/'technical-prefix')
+ else:raise ValueError(sys.argv[1])

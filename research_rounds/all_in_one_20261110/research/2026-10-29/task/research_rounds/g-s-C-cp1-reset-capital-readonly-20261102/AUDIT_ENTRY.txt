@@ -1,0 +1,42 @@
+Read REPORT.txt then CONTRACT.txt. Analysis-only; no account events or source changes.
+
+Main denominator: 3336 canonical market receipts, identical across saved C10/C20.
+EVENTS.json retains original identities/permissions/demands/order/layer/price-path fields.
+SUMMARY.json: native evidence-family counts and actual attribution through Jul31.
+ROLE_POOL_GROUPS.json: role/pool/purpose plus capital denominators, not pooled winrates.
+CHECKS.json: unknown Q, all actual layer denominator; core-only outside CP1 mother retained.
+NO_OPPORTUNITY_SALE_PREVIEWS.json: saved original plan Q with D={} under exact B/J guards,
+standalone versus fixed prior-Q prefix separated. No new target or quantity optimization.
+IRON_NO_OPPORTUNITY_SALE.json: full original C10 13828 first request, D={} all constraints.
+CASH_PROVENANCE_EPISODE.json: actual Jul28/29 sales labelled by ORIGINAL reasons plus buys.
+Do not reclassify prior actionable_S_funding as independent exits or assert a cash history
+counterfactual. D={} only means the current receipt requires no new opportunity sale.
+
+Positive controls: POSITIVE_CONTROL_CANDIDATES preserves all deterministic positive-month
+stocks with repair and earlier/later UP receipts. NORMAL_PULLBACK_POSITIVE_CONTROLS further
+identifies repair below prior observed UP close for strong logic counterexamples ONLY;
+that condition is not used to classify the mother or trade. Posthoc controls, not holdout.
+Original code/economics unchanged. CP1.e0_valid=i_target; original negative events do not
+imply I invalidation. Native root lineage absent before warm seed stays explicitly unknown.
+
+Reproduce to a NEW temporary output, never overwrite frozen results:
+  import pathlib,sys,tempfile,shutil
+  src=pathlib.Path('/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-cp1-reset-capital-readonly-20261102')
+  sys.path.insert(0,str(src))
+  import analyze
+  out=pathlib.Path(tempfile.mkdtemp(prefix='cp1-reset-independent-'))
+  shutil.copyfile(src/'CONTRACT.txt',out/'CONTRACT.txt')
+  analyze.HERE=out
+  analyze.main()
+  import verify
+  verify.HERE=out
+  verify.main()
+  print(out)
+Interpreter /Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B
+Original analysis took17.375 seconds, no signal recalculation/account progression.
+Table-level prefix checks concern only this new read-only lineage classification;
+previous native ten-channel physical-prefix audits are reused, not rerun.
+
+Failure preserved: verify initially attempted JSON digest of tuple-key map; archive
+failures/01_tuple_key_serialization. Only verification serialization normalization fixed;
+main classifier/outcomes were not rerun or altered. No financial failure occurred.

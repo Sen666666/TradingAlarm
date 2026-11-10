@@ -1,0 +1,75 @@
+结论：本冻结grace口径无首次作用域，不能称EMA延缓经经济回测无效
+
+1. 先分清命题
+原G1_I是入场增强模式。policies_g1.py:8将use_x=False；cold/acute的额外
+退出只在use_x=True时成立(:22)，没有因grade变冷而独立关掉I的通道。
+在同一source segment、原有效价格观察、上一观察I active时，令：
+  S_t = 当日原E0 shadow target；C_t = 当日因果收盘；
+  F_{t-1} = 上一观察已发布的原I floor。
+源码:20-24先检查退出，再更新floor；退出后同日不得重入(:30)。因此：
+  I_t=0 <=> (S_t=0 OR C_t<=F_{t-1})。
+冻结grace要同时满足 S_t=1 AND C_t>F_{t-1}，与这个首次I失效条件互斥。
+这不是后验把样本挑到0，也不是EMA20/60预测无效的结论。
+
+E0本身在同源有效结构中的退出也只检查旧floor，policy.py:99-114；新up
+event只能在没当日退出时建立/提高结构。I进入时继承E0 floor，存续时
+max原E0 floor。E0的compare使用gamma4数值并列带，I是直接<=；因此不
+把浮点比较口径偷换成严格数学相等。主互斥证明直接使用I源码，不依赖
+两floor的精确数值恒等。全缓存I-on时2558465行两floor均在1e-12核对
+精度内一致；全66816次真实同源I on→off均有严格C<=前一观察I floor。
+
+2. 全池验证，非实际已买筛选
+读取固定1709股原facts，4081068个全热身历史观察；22股无观察单列，
+没有删除。66816个I on→off全部同源、prior floor已知、E0off、旧floor
+已破；没有above-prior-floor的首次转折。分期：
+  2022—23 13753次；2024全年7183次；2025-07..2026-06 7202次，均同结论。
+目标状态NaN记录数为0；E0/G1未ready各107798观察；Ioff且同源prior
+floor未知143891观察保留为未知参考，不拿off日重置floor补齐。
+本数据未出现跨source segment的I on→off。源首行/源重置在源码会清
+active/floor(:12)，旧源线不能拿到新源数值上比较；这是理论边界，不是
+可安全grace的证据。无当前有效价格时project暴露未知(:14-15)，不能把
+UNKNOWN当有效结构或延缓许可。原facts先eligible_prices，仅有效观察
+进入本缓存时钟。
+
+3. 原始“Ifalse且C>prior-known-I-floor”并非恒假
+全池有232113个这样的原观察，其中89018个当日E0还on。但这些不是
+I active→off的首次触发；是此前已经inactive后的后续观察，可能处于
+新的E0周期而尚未获得原G1入场/恢复许可。不能取消更早锁定的退出，
+再把后来的反弹当作首次grace时点。
+确定性首个例子：000001.SZ 2014-10-29，前一I=0、当日I=0、E0=1，
+C=20.22702403230421，历史同源已知旧I floor=19.93245572115415；当日
+新E0 floor=19.677163184824096。此例证明裸Ifalse条件可成立，不能证明
+“原持仓首次I失效而硬边界未破”可成立。具体缺哪一项fresh/warm许可
+本薄扫不细分，不添加事后恢复策略。
+
+4. 旧I floor与core last_core_line的地位
+原I floor是市场projector的结构边界，透过I_target失效触发整股退出。
+joint_v3.py:225-229在I false时直接原sell，core与mobile均覆盖。
+core没有另一个“C<=last_core_line”的原生硬止损分支；:231-234仅更新
+last_core_line然后continue。:48-50将last_core_line/factor用作真实
+账户授权risk镜像的参考线，不是另一个独立的卖出预测器。
+先前grace的冻结core参考guard属于本轮明示的保留旧结构风险约束，不
+能冒称原引擎已有该独立core stop。将它与原I boundary同时完整保留，
+恰好排除了现有G1_I全部同源首次退出；这叫scope冲突/无作用域。
+
+5. 时钟没有找到混用
+全池本扫只取true→false前一原有效观察的I floor，不取off日floor。
+旧NO_SOFT按同source组ffill再shift，亦排除当前观察；stale source的
+已发布旧线单列，原held Ioff仅2个stale观察且不是新软触发。
+原runner先在CLOSE得到Ioff并创建sell request，daily仍保留待实际卖的
+持仓，所以held-Ioff统计包含触发CLOSE是正确的。actual OPEN成交分开。
+launch_v3.py:98-103按原session OPEN调用opening、按cutoff调用planning；
+joint_v3.py:306+通过原market.window与fill_exit执行，未把当日收盘当成交。
+grace H3/5/10原提案的t0+H native CLOSE并未运行，因此不能将计时选择
+当作0覆盖的原因。原持仓的949/433首次Ioff均先硬触线，已在NO_SOFT
+收据验证。以后即使价格恢复也不撤销原退出；不存在可启动H计时的首点。
+
+6. 应如何表述
+推荐：保持原E0/I结构风险边界且不撤销已锁退出的冻结口径下，没有
+可延缓的首次I失效，故六个grace臂无作用域并停止。
+不推荐：EMA延缓回测无效、三种H均失败、所有延缓退出都不可行。
+若讨论不同边界或不同G1_X模型，必须另行说明变化；本审查不放松任何
+约束，不恢复grace账户，不将后续反弹当作撤销旧退出的授权。
+
+产物：ALL_POOL_TRANSITION_SUMMARY.json、全66816转折清单、确定性反例、
+source SHA。0新模型、0账户、0执行事件；原adapter与根冻结均未修改。

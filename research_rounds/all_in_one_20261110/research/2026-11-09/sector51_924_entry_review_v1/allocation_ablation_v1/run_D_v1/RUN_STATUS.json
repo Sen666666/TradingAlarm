@@ -1,0 +1,21 @@
+{
+  "arm": "D",
+  "days": 17,
+  "orders": 969,
+  "certified_through": "2024-09-26",
+  "blockers": [
+    "2024-09-27 603083.SH UNADMITTED_EQUITY_EVENT"
+  ],
+  "last": {
+    "day": "2024-09-26",
+    "cash": "121220.3583872300000",
+    "receivable": "0.0000",
+    "market_value": "1148817.00",
+    "NAV": "1270037.3583872300000",
+    "net_liquidation_NAV": "1267474.5634966648500",
+    "stocks": 267,
+    "shares": 102100,
+    "weight_pct": "90.45537065609133587457964525",
+    "fees_paid": "5397.5686127700000"
+  }
+}

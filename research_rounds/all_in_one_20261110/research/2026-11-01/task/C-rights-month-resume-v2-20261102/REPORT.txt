@@ -1,0 +1,9 @@
+Jan13两2022账户技术日完成，停待独审；不推进Jan14或2025。
+旧兼容检查修为真实旧类/旧源/旧输入的独立trusted snapshot副本重算，view.account=None禁止读当前账本；当前活对象验证前后完整pickle字节相同，跨进程仍用V3全字段。未改clock/_time、未提前完成游标、未改资格/排序/预算。
+7项最小合成及14个真实旧证书模拟OPEN重入通过；完整输入/物理前缀IMPORT、OPEN、CLOSE共6阶段账户/策略/原生审计决策一致，OPEN/CLOSE全部流水逐项一致。四CLOSE跨进程恢复全字段一致，24项权限/来源拒绝通过。
+C10：OPEN新增15成交（9卖/6买），CLOSE新增0，收盘可用现金283407.4875662830950。
+C_BATCH20：OPEN新增8成交（4卖/4买），CLOSE新增0，收盘可用现金97440.0670594725050。
+正式4金融phase，物理验证4phase；无ACTION重放。原75来源、旧失败包57文件hash保持，失败工作内存未被复用。C10从可信旧IMPORT恢复，C_BATCH20从可信ACTION恢复，均无账户/金融重置。
+可续版本为resume_runtime_v2.ContinuationRunner，full分支两CLOSE checkpoint/可信registry SHA列于CONTINUATION_CHECKPOINTS.json。它保留连续月输入和显式追加grant API；当前grant仍仅Jan13，后续必须另获授权并提供新可信grant SHA。
+物理删除单位为日，原OPEN日线HLV postcheck执行代理未改，不冒称逐笔盘中可观察验证；技术闭环不等于资金策略或实盘验证。
+审计入口TECHNICAL_DAY_RESULT.json、CONTINUATION_CHECKPOINTS.json、PREFIX_COMPARISON.json、REAL_CERT_READONLY.json。

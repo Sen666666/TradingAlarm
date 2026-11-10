@@ -1,0 +1,41 @@
+{
+  "actual_industry_indices": 90,
+  "concept_indices_certified": 0,
+  "latest_end": "2026-10-30",
+  "all90_latest": true,
+  "start_distribution": {
+    "2007-08-01": 52,
+    "2010-02-12": 1,
+    "2014-01-02": 6,
+    "2010-01-04": 21,
+    "2018-11-26": 8,
+    "2015-01-05": 1,
+    "2014-11-03": 1
+  },
+  "full90_common_price_start": "2018-11-26",
+  "positive_index_amount_all90": true,
+  "index_amount_cross_sector_currency_unit_not_certified": true,
+  "H1_unfiltered": true,
+  "H1_dates": [
+    "2007-08-01",
+    "2026-10-30"
+  ],
+  "H1_shape": [
+    4677,
+    1799
+  ],
+  "stock_reference1709_current_snapshot": true,
+  "working_one_sector_per_stock": true,
+  "members_min": 1,
+  "members_max": 126,
+  "industries_with_under5_subset_stocks": 11,
+  "latest_sector_facts": 11,
+  "research_generated_DRUG_sector_facts": 4,
+  "full_unfiltered_native_I_all_stock_cache_not_established": true,
+  "old_IX_caches": 1711,
+  "old_IX_last": "2026-10-22",
+  "new_economic_runs": 0,
+  "previous_task_checkpoint": "research_rounds/l0-operational-clock-drug-cache-20261031/CHECKPOINT.json",
+  "new_dynamic_mainline_account_this_task": false,
+  "concept_certification_scope": "current unified1799-series bundle and located industry snapshot; not claim all local artifacts absent"
+}

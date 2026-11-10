@@ -1,0 +1,10 @@
+{
+  "status": "RETAINED_SUPERSEDED_BY_NET_PATH_RESEARCH",
+  "amount_gate": "REJECTED_BY_PARENT_NO_MORE_TUNING",
+  "financial_candidate_0746": "WITHDRAWN_NEVER_STARTED",
+  "new_account_runs": 0,
+  "new_return_backtests": 0,
+  "completed_pure_CP_shadow": "V2 and V3 only, no strategy orders or returns",
+  "current_direction": "../cp_net_path_er_v1",
+  "caveat": "Do not interpret pure CP state changes as account performance"
+}

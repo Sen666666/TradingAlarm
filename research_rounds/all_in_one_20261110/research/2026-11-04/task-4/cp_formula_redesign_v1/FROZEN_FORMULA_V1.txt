@@ -1,0 +1,37 @@
+纯CP公式影子推演v1：固定于计算新状态之前。无账户/交易/资金参数/收益回测。
+
+共同域与数据钟
+仅原CP输入：log调整收盘p、成交额A(CNY)、source segment、原e0_valid(实际I_target)、原e0_down。沿原有效日观察钟。
+r_t=p_t-p_prev；z63_t=max(log1p(.001),1e-8,1.4826*median(|r_{t-63..t-1}|))；B_t=median(A_{t-21..t-1})。复用原已存r/z/B并核原源；新z21_t同式但窗口21。所有尺度排当前观察、source切换重热，不用自然日或未来。
+A0=sqrt5，K0=sqrt21仍为原先验；21/63也复用旧窗口，不证明最优，不据盈亏调参。
+
+推进修改
+新frontier位移delta=max(0,p-oldfrontier)，w=min(1,A_t/B_t)，credit+=delta*w。
+因此不以价格冲击u重复放大；放量只到满权，低额扣权。明确它仍是价格×金额的同源证据，不称两个统计独立证明。
+冻结proof scale沿原：start/down/SEEK新低时z63，当次receipt先用旧scale、之后下一段更新z63。
+price D=frontier-anchor；fresh>0且D>=sqrt5*scale且credit>=sqrt5*scale才一张receipt。
+每个原观察最多一张，超阈值多倍也不拆多张、不保留超额信用。receipt后只清下一次推进的anchor/frontier/credit，不清趋势高点和保护线。
+
+保护修改
+趋势线与receipt解耦。zH_t=max(z63_t,z21_t)。首次有效新receipt时趋势峰M=C_t，H=C_t*exp(-sqrt21*zH_t)。
+已有趋势先比较当日C_t<=昨日已知H_old，触发market protection failure；不先抬今日线再回溯触发。
+若未失败且C_t严格超过趋势历史收盘高，M=C_t，H_new=max(H_old,M*exp(-sqrt21*zH_t))；非新高H不动，防仅波动收缩在横盘时抬线。
+不放松已生效线。max两种滞后波动旨在避免忽略近期波动上升，但可能延迟保护、扩大回吐；新高连续抬线又可能更早洗出，均是待证伪代价。
+这里只输出CP市场参考线，不冒称修改了原层/CORE合同；原I失效仍使CP域OFF，原账户的真实保护/退出另列，不假称已产生新交易。
+
+重入/状态机
+双轴：proof phase SEEK/UP；trend state OFF/SEEK/TREND/REPAIR。
+未热/I无效/source切换：清proof及市场趋势，OFF；同source重新有效第一观察仅建SEEK锚，不同日出票。
+原down事件仅清推进锚至当日p并冻结z63，proof SEEK；若旧趋势H未破，不清趋势H/M，不拿局部重锚放宽旧保护。
+SEEK遇新低：只以该已观察低收盘重设proof anchor/frontier/credit/scale。
+market旧线于d收盘失效：记failed_episode与H_old，置REPAIR，p_d直接作为恢复锚，冻结z63_d；d当日不得出票/立即恢复，随后新低可下移锚；只在后续观察有真实新增位移且price+credit达门才新receipt，届时开始新趋势episode。
+不强求收复整波最高价、不固定冷却天数，允许d+1 V形推进；这种宽松也会保留失败反弹，不能先称改善。
+同趋势episode中的多张推进receipt共用parent_episode，只是不同advance_index和原price_event日期，不把同波推进说成独立趋势确认。
+market failure不是实际退出成交/ACK，不依据原持仓是否赚钱发CP，也不把重建receipt解释为真实可重入。
+
+固定只读案例与输出
+盈新000620.SZ 2022-01-04..02-08；海能002583.SZ与既有银之杰300085.SZ 2024-09-23..11-27。
+从原source完整已存暖历史起纯公式计算至各窗口尾，窗口只是展示范围；不以案例起点重建有利状态。无NAV/账户/交易收益计算。
+主combined按以上完整状态；另做amount-only对照，沿旧proof状态机但cap权重，不加新trend线/重入分支，仅用于识别原确认变化来自哪项，不混称独立策略收益。
+源前缀对照只验证没有未来依赖，不认证真实PIT/公告/日线盘中执行。
+已知代价与逻辑反例：放量高潮仍满权，一字缩量真趋势可能扣权；gap超过多阈值仍一张，会少计推进次数但不是少收益证明；收盘保护无法在盘中先卖；动态更宽尺度不能下调旧H，不能追认过去更宽止损；REPAIR可漏大V首跳或保失败反弹，须按原数报告。

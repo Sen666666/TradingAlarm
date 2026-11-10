@@ -1,0 +1,18 @@
+{
+  "Q1_complete": 492,
+  "Q1_exact_Q3_counterpart": 213,
+  "Q1_exact_autumn_counterpart": 348,
+  "Q1_exact_both": 173,
+  "Q1_within_Q3_caliper": 17,
+  "Q1_within_autumn_caliper": 15,
+  "Q1_within_both_anchor_calipers": 1,
+  "exact_three_period_stratum_members": {
+    "AUTUMN": 212,
+    "Q1": 173,
+    "Q3": 159
+  },
+  "new_thresholds": 0,
+  "new_matches": 0,
+  "outcomes_read": false,
+  "warning": "Violations overlap and are diagnostics only, not feature-deletion ablations or recommendations to relax calipers."
+}

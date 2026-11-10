@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-11-10T04:01:39.913463+00:00",
+  "result": "PASS",
+  "primary_entrypoint": "/Users/bytedance/Documents/ChatGPT/money/HANDOFF_2026-11-10.md",
+  "main_document": "/Users/bytedance/Documents/ChatGPT/money/docs/handoff_2026-11-10/README.md",
+  "source_file_inventory_count": 408547,
+  "copied_snapshot_count": 56655,
+  "copied_snapshot_bytes": 1240143272,
+  "copied_all_external_large_data": false,
+  "snapshot_validation_sha256": "033259923df9ec191d15351e8cccc9190c5f0e096aa0a12ceffff9bb12131309",
+  "document_seal_sha256": "ad0e16174694be919fa477fbb43b4d7d05d7b92620369f29b34e81c11ca0c754",
+  "entrypoint_change_receipt_sha256": "a45eb73bb0235921f6de36ca9adff5a58b95ea5f01b68994685c6800c3cc2d6a",
+  "entrypoint_old_bytes_preserved": true,
+  "contribution_copies_verified": true,
+  "latest_research_status": "M12 v2 halted on 2024-10-08 AVAILABILITY_EVENTS prefix mismatch; usable_result=false; last certified 2024-09-30; export activity is not historical advancement",
+  "new_strategy_runs_or_process_stops": 0,
+  "errors": [],
+  "prefix_event_readonly_comparison": {
+    "rows_each": 10,
+    "same_all_fields_multiset": true,
+    "mismatched_order_positions": [
+      7,
+      8
+    ],
+    "certification_not_extended": true
+  }
+}

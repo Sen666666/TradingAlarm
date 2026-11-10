@@ -1,0 +1,78 @@
+原I+同日fresh CP1共证CORE使用已有confirmed额度：只读排重/合法性便笺
+
+结论
+这是尚未在本次所核No60原合同中实现的资金角色许可；不是新买点或新CORE持有思想。
+旧BP1已经完整测试过flat CP1 confirmation首次建CORE、沿I线持有，但旧样本/定量/
+资金合同不同，不能拿它的账户结果冒称本No60许可已测。也不能只改名字重跑BP1。
+当前仅为research proposed，未获新资金路径准入；不跑账户、不补marks、不买卖旧仓。
+315个原fallback见证中H1半导体仅1例，不支持以该子集强行启动通用主线修复长账。
+尤其不能混淆两个分母：H1半导体167个首行业拒中同日原op共证有62个；其中同OPEN
+实际MOBILE填单只有1个。62全keys/原intent/op/preview另存ALL62文件，不替它们作新路由推演。
+62的原CORE最小手拒因中61带cash_or_original_reserve，14还带sector_risk；仅原前缀下
+改confirmed许可不能解除这些61的现金门。该必要事实不等于新完整路径只会改变1次：
+改变前序预留、实际买量/持有/退出会反馈后序资金。也不能仅凭Mobile未填推断Core不可填，
+Mobile2%名义和Core10%名义+.25%含费风险合同不同。
+
+原事实（SAVED_JOIN_SUMMARY及完整315行）
+315=long236+strong79；每条原op.core_Q=True、held=False、barriers空，原roles同时
+core/mobile，canonical CP1_id与后续同OPEN原MOBILE真实成交一致。315全部原MOBILE
+在confirmed池。CORE原合并门集合276 probe_risk+sector_capital、37 sector_capital、
+1 sector_capital+sector_risk、1 probe_risk+sector_capital+sector_risk；不称sorted首项为
+唯一首因。全部8335首拒中2940同日共证，315仅其事后成交子集，不能作为前瞻选样。
+
+H1半导体唯一见证：strong|2026-06-29|688469.SH|core，芯联集成-U，6/30 OPEN。
+原CORE .25%含费risk预算5631.01874093666138875元、max1706股、dated min200股；
+原I floor6.87，OPEN滑点价10.145070，最小CORE含费保护风险666.6057456607元。
+原CORE失败集合probe_risk+sector_capital；原MOBILE confirmed实填627股，floor
+8.781895870580687，原买毛额6360.958890/买费5.4077374648490元。
+同627股到I线名义风险2053.468890，到MOBILE线名义风险854.710179145909251，均不含费。
+这不是新CORE的合法数量或成交结果。315中242条MOBILE线显著高于I线；2条CORE最小手
+原sector_risk仍失败，换池不取消行业1%风险。这正是否定“Mobile填了所以Core必能填”的证据。
+
+精确排重
+1 BP1：probe-pyramid-pilot-20261029/RULES.txt18–29、43–44及code/pilot.py158–170。
+  P1/D1有shadow I watch后，可在后来的CP1/G1暖/PVR>50确认首次建CORE，未要求当日i_buy；
+  flat时kind=core且floor=I，仅held add用max(I,CP)。407股/11行业，2024Jan–2026Oct，
+  2%名义额及确认组比例分配，非1709/90 No60行业合同、非原LR0.25%含费CORE定量。
+  因此“CP1证明后首次CORE+I持有”已有先例；本次唯一可区分处是原合格同日i_buy CORE
+  对既有confirmed额度的许可，不能宣称重新发明确认持有，不能引用旧收益作新许可有效证据。
+2 原N1：broad-stage-reentry-20261029/RULES.txt 的TRIAL先V保护，买后新F/CP候选>K
+  才整层晋升CORE，继承bridge floor、取消原epoch一次限制且另有最小手金额例外。
+  n1-core-handoff-local-20261029只是1084原晋升层后取消继承局部保护的两臂局部诊断。
+  本提案只在原flat原i_buy入场前选CORE，无既有MOBILE/TRIAL转仓、无买后利润门槛、
+  无取消旧floor、无自动重入解epoch，不能混入N1转换/宽线效果。
+3 原case-stage-ledger INTEGRATION_CONTRACT.txt6–8明确更高资金只可mobile+grant，
+  同日core先试probe、失败可Mobile、首次合法预留后同股不再第二单。No60 component仅
+  删除confirmed60相关谓词，不改变该role许可。旧confirmed min-first/现金释放纯预览
+  保持原role/pool候选，不是本新许可经济测试。core_supplement的NEXT_RESOURCE_HYPOTHESIS
+  明确仍是纸面未实施。此为有边界的档案核查，并非对全磁盘“从未有人测过”的绝对证明。
+
+原合同下不能直接执行，至少缺以下闭环
+1 route现在只在role==mobile构造stock_cp1 token及添加confirmed路线。CORE意图原
+  CP1_id/trace为空，即使op有同日凭据，也须显式绑定同sid/sector/原signal日canonical
+  trace，不可伪造receipt或复用旧凭据。只使用已知同日证据，不用后来实际MOBILE填单。
+2 Contract.request有mobile_role_required，须显式typed CORE共证许可，不能把role假成
+  mobile：那会变成add、CP保护和不消费CORE epoch。原request的core_epoch_locked
+  检查仅probe_request分支，confirmed CORE必须保持同样检查；planning的flat、原S0/
+  i_target/i_buy、ACT、无pending、原epoch未实填全部保留。不能意外准许held转换。
+3 原stock_token核验/consume也只mobile分支。共证CORE须同样核valid/source21/episode/
+  attempt/stock/sector/confirmed_time==signalbar/unconsumed，跨role/pool共一消费集合。
+  探索非法路线不可先consume。一次实际预留成功后done锁同股，MOBILE不得重复fallback；
+  后来无成交、部分成交或日单取消也不能返还该凭据在本OPEN再选。原CORE epoch仍仅实际
+  CORE填单消费。若CORE未形成合法预留，原Mobile可保持原失败后fallback，而非提前吃token。
+4 行业仍须原active、financial level>=1、expand和同attempt migrate合法；旧cancel_pending/
+  live probe买单阻迁移，不可撤旧单假腾钱。不因个股共证新发或扩大行业grant；迁池不减少
+  sc/sr。保留行业1%风险、原现金10%reserve、股10%、原费用/最小手/OPEN重验。
+  No60原已去account3%与confirmed60；不得误抄回去，也不得称存在固定总3%风控。
+5 必须事前明确是仅原probe零合法量后考虑confirmed，还是双池取max合法量；后者还改变
+  原本能买CORE的尺寸，不只救这315。此选择未冻结，不实现任何一路。
+6 预算变更会增加真实持仓/占用/风险；原Mobile会变原CORE且按I持有，虽然退出代码原样，
+  实际保护/持有轨迹会改变。这不是风险中性或单纯“不改退出行为”的对照。旧健康仓不卖。
+
+STOP/下一步
+不因315见证或1个H1半导体例子启动长账，不预称收益。原H1实际25层/24MOBILE的薄事实
+链优先辨别原入场held、i_buy/G1、尺寸和OPEN多门，决定真正作用点；不放松风险或复活N1。
+另25实际买层薄join发现11次CORE OPEN拒后Mobile填（不是167 first相同分母，有后续尝试
+及只probe_risk事件），故first子集的1例不可冒充全部H1实际买入层的预算作用点。
+完整315、H1见证一例、H1首拒共证62全keys/联合门及原输入SHA均保留。初版saved join
+0.449秒，补62原行重读0.469秒，无新Account/marks/路由投影。

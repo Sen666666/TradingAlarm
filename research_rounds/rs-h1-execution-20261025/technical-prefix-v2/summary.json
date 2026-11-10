@@ -1,0 +1,11 @@
+{
+  "recorded_at": "2026-10-25T02:43:12.315876+08:00",
+  "passed": true,
+  "technical_prefix_accounts": 12,
+  "economic_accounts_added": 0,
+  "cutoffs": [
+    "2017-12-31",
+    "2020-12-31",
+    "2023-12-31"
+  ]
+}

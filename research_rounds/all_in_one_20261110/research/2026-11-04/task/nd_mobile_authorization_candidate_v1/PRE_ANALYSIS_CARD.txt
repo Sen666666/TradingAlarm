@@ -1,0 +1,15 @@
+行业授权续存的唯一候选（先逻辑与关联，不是经济准入）
+
+目标：924之后NOT_DOWN下新增mobile风险，而非个股第一次入场评分/MA/量因子。只研究同一原金融行业E0 episode内的权限寿命；不改已有仓位结构退出、ACT、core、CP1身份/时效、排序、费用、资金及原所有硬约束。
+
+P1：行业confirmed新增mobile许可在该行业本episode中任一真实已持mobile被原CP1_add_protection规则发出退出请求的CLOSE撤回。该退出请求是当时已知结构破坏，不以浮盈浮亏定义；即使该批最终盈利也计入。已有仓位不卖、不迁池、不毕业/释放额度。原Q和fresh stockCP1仍必要；在许可撤回期间，新增mobile最多按原probe通道尝试（原probe池/行业资本/风险及既有资源继续占用，可能没有合法试仓空间）。
+重新续权仅由同一行业episode中**严格晚于该失败CLOSE**的新、已被原行业预算层接纳的独立industryCP1；同CLOSE行业CP1不能先失效后立即满权。续权恢复原金融stage的原上限，不发新信号、不改变原stage，不根据后验结果调等待天数或比例。
+候选在CLOSE算权限、下一合法OPEN执行；若发生新的结构破坏再撤。未知episode/原receipt接纳状态保持UNKNOWN，不视作许可。
+
+数据最低验证：只读已完成D账pilot_layer_exit、metadata episode、已存industry stage_events及已审LAYERS净贡献；分类当前真实mobile的signal-CLOSE是否落在“行业发生结构破坏、其后尚无industryCP1”内，重点原confirmed fills。原probe不冒称会缩量。退出和行业事件按同日失败优先，权利只可由之后完整CLOSE证据恢复。
+这不是删除该组，原net不能叫可省：新probe路线会改变资金、后续股票及自身ACT/行业状态，未计算任何反事实q或NAV。
+
+排重：不同于全局H跨股信用、F/E保护成本额度、R0/gap减量、current grade/proposal/行业20、同股永久锁E0及market FAST/SECTOR退出。原budget.loss在record_only下仅记账，不因单个stock CP1结构破坏撤industry.active/level；原industry.invalidate只由行业E0/action终止。因此本候选是一个额外的sector/episode局部新增风险权利，尚不等于改进。
+
+反例/停止：结构破坏可来自真实赢家的正常保护兑现，不能称“亏损已证”。新leader可能与同sector旧层回撤并存；已持旧赢家占sector资本后probe通道可能完全不可达。若所有大规模损耗在新industryCP1之后，或候选只普遍缩量、同样覆盖June22快投入/Apr23真实赢家/Feb24/strong新leader，则停止，不调整阈值救它。若原事件无法精确重建同episode时钟，报告证据不足，不建loader/指标。
+最小成本：一个纯JSON/gzip脚本，同两D账和已有LAYERS/industry日志；不读价格、不算指标、无账户。先报告原受影响正/负净额/买款/层数与固定窗口和新leader反例，再决定是否值得任何进一步小验证；本卡不授权经济。

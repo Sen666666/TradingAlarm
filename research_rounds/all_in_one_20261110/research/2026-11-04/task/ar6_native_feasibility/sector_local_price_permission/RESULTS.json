@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "seconds": 2.179880500305444,
+  "sectors": 90,
+  "rows": 364796,
+  "end": "2026-06-30",
+  "new_accounts": 0,
+  "new_quantity_models": 0,
+  "new_Stage": false,
+  "no_new_loader": true,
+  "all_input_hashes_exact_to_manifest": true,
+  "all_old_positions_keep_original_exits": true,
+  "no_automatic_followup": true
+}

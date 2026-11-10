@@ -1,0 +1,98 @@
+{
+  "rows": [
+    {
+      "event": "2026H1_SEMI|M3|2026-04-09|URFI881121",
+      "right3": 44,
+      "I_valid": 31,
+      "original_top2": [
+        {
+          "sid": "688256.SH",
+          "name": "寒武纪",
+          "status": "REJECT_AT_CLOSE"
+        },
+        {
+          "sid": "001309.SZ",
+          "name": "德明利",
+          "status": "REJECT_AT_CLOSE"
+        }
+      ],
+      "passed_close": 14,
+      "legal_next_open_proxy": 13,
+      "selected": [
+        {
+          "sid": "688981.SH",
+          "name": "中芯国际",
+          "queue_rank": 8,
+          "next_quantity": 237.0,
+          "next_raw_open": 101.0,
+          "next_minimum_cash": 20216.39546741,
+          "next_minimum_reference_loss": 1884.9229097002
+        },
+        {
+          "sid": "300456.SZ",
+          "name": "赛微电子",
+          "queue_rank": 10,
+          "next_quantity": 200.0,
+          "next_raw_open": 53.8,
+          "next_minimum_cash": 5388.035030429,
+          "next_minimum_reference_loss": 1123.5817883473007
+        }
+      ],
+      "status": {
+        "REJECT_AT_CLOSE": 17,
+        "I_OR_RANK_INELIGIBLE": 13,
+        "LEGAL_CONDITIONAL_PROXY": 13,
+        "REJECT_AT_OPEN": 1
+      }
+    },
+    {
+      "event": "2026H1_SEMI|M3|2026-06-11|URFI881121",
+      "right3": 42,
+      "I_valid": 37,
+      "original_top2": [
+        {
+          "sid": "688012.SH",
+          "name": "中微公司",
+          "status": "REJECT_AT_CLOSE"
+        },
+        {
+          "sid": "002371.SZ",
+          "name": "北方华创",
+          "status": "REJECT_AT_CLOSE"
+        }
+      ],
+      "passed_close": 18,
+      "legal_next_open_proxy": 15,
+      "selected": [
+        {
+          "sid": "688126.SH",
+          "name": "沪硅产业",
+          "queue_rank": 7,
+          "next_quantity": 302.0,
+          "next_raw_open": 34.55,
+          "next_minimum_cash": 6918.8981524655,
+          "next_minimum_reference_loss": 1987.1555407743988
+        },
+        {
+          "sid": "605358.SH",
+          "name": "立昂微",
+          "queue_rank": 8,
+          "next_quantity": 100.0,
+          "next_raw_open": 73.91,
+          "next_minimum_cash": 7400.16949998155,
+          "next_minimum_reference_loss": 2026.8970958243501
+        }
+      ],
+      "status": {
+        "REJECT_AT_CLOSE": 19,
+        "LEGAL_CONDITIONAL_PROXY": 15,
+        "I_OR_RANK_INELIGIBLE": 5,
+        "REJECT_AT_OPEN": 3
+      }
+    }
+  ],
+  "seconds": 0.3807364576496184,
+  "account_runs": 0,
+  "returns_examined": 0,
+  "all86_candidates_retained": true
+}

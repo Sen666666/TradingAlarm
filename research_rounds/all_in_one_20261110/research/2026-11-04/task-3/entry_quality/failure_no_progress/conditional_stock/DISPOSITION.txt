@@ -1,0 +1,7 @@
+DESIGN_REJECTED_BEFORE_CANDIDATE_COVERAGE
+
+The proposed joint I-floor-ratchet definition is not accepted as 'no new price structure progress'. Independent review provided a decisive counterexample: close100->150 with I floor80 unchanged, later exit90, can be true price progress and normal giveback but the joint definition calls it an unprogressed F. It is a known floor-proof near-neighbor.
+
+Independent review also identified baseline-live restoration after q is cut to0 as unreachable in the candidate path, and final-exit-only administrative classification as incomplete. No candidate performance screen or account is run under this rejected definition. The PROTOCOL is retained as a proposed draft, not an implemented or approved contract.
+
+Next, only a necessary-condition coverage ceiling is computed: prior same-stock two consecutive completed negative-cash campaigns, without pretending that all are unprogressed failures. This is broader than any accepted no-progress gate; its original loss/profit associations constrain stock-only coverage, not policy returns. No threshold, floor proof or industry OR is added to save the rejected design.

@@ -1,0 +1,21 @@
+{
+  "status": "REJECT_CURRENT_SIGNED_EFFICIENCY_Q_AS_DIRECT_CONTINUOUS_RISK_PROGRESS",
+  "completed_at_utc": "2026-11-05T10:25:27.363925+00:00",
+  "scope": "Fixed formula diagnostic, not all continuous risk allocation mechanisms",
+  "daily_potential_rows": 19,
+  "coefficients_searched": 0,
+  "long_Q_ge1_veto": false,
+  "full_stateful_weight_grants_executed": false,
+  "new_accounts": 0,
+  "new_backtests": 0,
+  "new_orders": 0,
+  "holding_exit_changed": false,
+  "blockers": [],
+  "decisive_issue": "A<0, fixed A and increased L makes G/Q/F larger without price improvement",
+  "known_costs": [
+    "raw Q rebase jumps must be separated",
+    "per-event saturation cannot be summed without granularity effect",
+    "cumulative per-leg W saturates and later legs may retry old prices"
+  ],
+  "next_requires": "A separate explicit definition of negative-domain long progress, not coefficient tuning on these outputs"
+}

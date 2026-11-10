@@ -1,0 +1,11 @@
+{
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-August-continuation-v1-20261102/runs/C10/2025-08-29-CLOSE.json": "f48e34c0942c6c78c7eee138ebbf17cb59def5f4731b1ad95ee3914691347b35",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/runs/2025_26/FINAL.json.gz": "5c0edbad224672096d77d5975b673623b3606f2df11199b67e9e011d5d7d7d92"
+  },
+  "all_original_sources_unchanged": true,
+  "runner_result_index": "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/RUN_RESULT_INDEX.json",
+  "runner_index_sha256": "9bb753ef899c5e01c624be8c9ce7279004bd9216fc094a2a963b86342a21ce7f",
+  "analysis_source_sha256": "6993edf7fd888527a29c4eeec4f8e349078ac342ea99195cb2834dad91a650e8",
+  "financial_events_by_analysis": 0
+}

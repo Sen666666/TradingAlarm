@@ -1,0 +1,21 @@
+{
+  "status": "COMPLETE_SIGNAL_ONLY_NO_ACCOUNT",
+  "seconds": 73.79303249996156,
+  "stocks": 1709,
+  "union_events": 140941,
+  "original_account_firsts": 2693,
+  "I_spells": 30628,
+  "strict_complete_price_spells": 27663,
+  "prefix_checks": 90,
+  "eight_case_equivalence_rows": 21214,
+  "endpoint": "2026-05-15",
+  "limitations": [
+    "Fixed retrospective1709 universe, not PIT all-A tradability",
+    "All years already known historically, not pristine out-of-sample",
+    "2026 partial and forward labels right-censored",
+    "Event price outcomes are not0-to0 account win rate",
+    "CORE does not necessarily require CP",
+    "Hypothetical empty market candidates do not simulate actual holding/cash/sector/ranking/protection/fills",
+    "No causal profit claim from matched original rounds"
+  ]
+}

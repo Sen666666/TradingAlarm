@@ -1,0 +1,9 @@
+技术准备（尚未运行路由）
+固定完整OPEN：2026-02-11、2026-06-30，依parent事前指定，不另择优日期。
+仅复制已独审exact S0、全PREVIEWS、原完整OFF预期，并为所有原CORE冻结同signal日
+canonical CP查询。CP可取同日Mobile原intent trace或原receipt，不能按原Mobile填单选样。
+原PREVIEWS字节/字段不增改，CORE CP lookup单独文件，OFF输入身份不因附加metadata改变。
+不用Runner/Account、全市场facts/marks、执行窗口或未来收益；不运行任何route/request。
+输入准备上限20秒。技术运行需adapter及独审准入后另启动，两个完整OPEN OFF+ON纯计算
+合计60秒；OFF顺序/qty/pool/fee/reject全exact后才ON，任一差异/非法组合/超限保存停。
+这些是private allocation projections，不是组合账户、成交或收益。

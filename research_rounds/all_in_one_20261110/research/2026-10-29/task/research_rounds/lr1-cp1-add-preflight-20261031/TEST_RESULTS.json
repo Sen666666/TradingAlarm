@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "test_methods": 20,
+  "failures": [],
+  "errors": [],
+  "seconds": 0.011017875280231237,
+  "actual_old_BPLR_and_native_ledger": true,
+  "economic_paths_started": 0,
+  "findings": [
+    "LR reservation hardcodes delay0",
+    "native expiry credit excludes held ADD",
+    "role risk_restore patch is not automatically CP1_ADD policy"
+  ]
+}

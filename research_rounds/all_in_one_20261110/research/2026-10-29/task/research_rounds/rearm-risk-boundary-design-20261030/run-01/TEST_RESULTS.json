@@ -1,0 +1,40 @@
+{
+  "passed_defined_tests": true,
+  "defined_tests": 12,
+  "levels": {
+    "controller_unit": 9,
+    "normalization_unit_only": 2,
+    "real_original_offline_ledger_functions": 1
+  },
+  "unsupported_not_counted_as_pass": [
+    {
+      "interface": "new_controller_to_product_scheduler",
+      "status": "NOT_IMPLEMENTED",
+      "reason": "本轮没有修改产品接线，离线函数测试不代替完整调度集成"
+    },
+    {
+      "interface": "broker_async_cancel_ack_and_late_fill",
+      "status": "UNKNOWN",
+      "reason": "原离线cancel_buy同步生效，无券商撤单回报/迟到成交接口，未用桩冒充"
+    },
+    {
+      "interface": "real_corporate_action_factor_rights_share_mapping",
+      "status": "NOT_RUN",
+      "reason": "仅同单位归一化夹具；未读取真实行情/权益数据或串联公司行动账"
+    },
+    {
+      "interface": "v2_native_event_cache_adapter_historical_behavior",
+      "status": "NOT_RUN",
+      "reason": "规范已定义身份字段，尚未把新版本接历史事件；v1十三例不可沿用"
+    }
+  ],
+  "trace_observations": 42,
+  "protection_decreases": 0,
+  "source_hashes_unchanged": true,
+  "historical_market_files_read": 0,
+  "new_historical_trigger_checks": 0,
+  "profit_tests": 0,
+  "product_changes": 0,
+  "old_v1_coverage_not_reused": true,
+  "seconds": 0.3808468752540648
+}

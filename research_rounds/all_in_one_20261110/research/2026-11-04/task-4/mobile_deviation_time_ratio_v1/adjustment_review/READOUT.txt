@@ -1,0 +1,30 @@
+四股EMA历史复权映射：固定源前缀算术与真实可知性的独立审查
+
+结论
+没有发现本轮EMA使用“当前最新复权因子回填历史”的数值后视。四股8个预先冻结收盘切点，以独立Decimal40逐日价格算术重建prefix，144174项价格/因子/native坐标比较残差均0；仅是标量比较数，包含重复预热prefix，不是14万独立样本。158日EMA20/60共316个raw_current_units逐行映射残差0；158个C/EMA坐标抵消的最大无量纲比值差2.220446049250313e-16。
+通过只成立于本次已绑定raw和action文件snapshot。未来effective action/未来价格未进入此前因子的数学结论，不等于这些历史raw/action条款当时就已收到、未被事后修订。四份actions均declared_research_proxy、exact_pay_dates_certified=False；公告原始published_at/received_at和历史修订链未由该计算路径认证。
+
+一、实际来源链，而非随便找的复权文件
+STOCK_MANIFEST的refs.facts/source_sha256.signal与四股本轮METRIC_INPUTS_AND_WARMUP绑定；原prepared-v2/manifest的signal路径/字节SHA逐一相等。该prepared manifest继续绑定inputs-v2/input-manifest.json，后者明确raw、actions路径/SHA和theoretical_ex_price方法，四股均连续source声明。当前桥源码SHA等于prepared manifest.bridge_sha256。
+实际facts：盈新、山东为universe-cp1-inputs/facts；航天为case-stock-cp1-warmup/full-facts；海能为TradingAlarm/runtime/...20261027/prepared/facts复用文件。不能把路径名或缓存开始日期当作其实际预热起点。
+cache.py16–35以原signal及已核同的旧缓存OHLC构造native facts，factor/raw_close取原signal；只复用旧G1字段再project G1_I，不用旧IX target。universe.prepare20–44记实际复用refs；runtime refresh47–66保留同信号价格/factor。这里仅阅读来源，不运行任何E0/G1/I模型。独立价格检查还直接逐行核facts.close/factor/raw_close与所重建/所绑定signal坐标，避免仅靠文件名宣称同源。
+详见ACTUAL_SOURCE_BINDINGS.json，含原raw/action/signal/facts/CSV及三层manifest SHA，未下载新行情。
+
+二、因子究竟何时变化
+原read_actions109–142接受reviewed_terms或declared_research_proxy及带source_id的有效日期条款；它没有公告received_at准入门。prepare_signal153–164先取raw[:cutoff]，只纳入source起点之后、prefix末日之前的effective action；按日期顺序处理。
+179–217以factor=1、previous=None开始。到公司行为日，cash/split用该事件原signal覆盖项或普通条款；ex_price=(previous_raw_close-cash)/split，factor*=previous_raw_close/ex_price。然后该行adjusted OHLC=raw_OHLC*factor，后续previous只更新为该行raw close。未观测的合法action日可生成理论ex参考，但合成行不是真实市场价格观察。历史已输出factor不受未来事件或未来价格再乘一次。
+本轮不调用原prepare_signal函数，另用独立Decimal40/ROUND_HALF_EVEN与同源raw/actions作纯价格递推；不执行state_frame或build_series，后两者会跑模型所以本审查未调用。
+8个cut在计算前写入FROZEN_PRICE_PREFIX_CHECK_PLAN：盈新1/20、1/24；海能10/18、11/20；山东4/11、4/13；航天11/28、12/1。每次只迭代该cut前raw及effective action，与保存的完整signal此前行及native facts比。后续source价格仍在原完整文件但不被该prefix算术读取；后续有效事件排除清单记录在PREFIX_CHECKPOINTS。部分股票cut后已无后续action，不能把那部分数值检验夸大成对未来条款的扰动检验；一般依赖仍由原代码与山东/盈新存在后续条款的比较支撑。
+
+三、raw_current_units的current指历史该行，不是今天
+原metrics脚本21/48：EMA_a/f.factor、peak_a/f.factor，Pandas按历史行索引相除；不是f.factor.iloc[-1]。316项直接验证均0差。
+山东案例2023历史factor=1.2536364918747922；该原facts冻结末行2026-06-30 factor=1.4668499882960264。案例EMA展示确用前者，这个不同值使‘历史行因子’与‘错误套末行因子’可在数值上辨别。盈新、海能、航天案例窗口factor与各自原冻结末行恰相同，单看这三例不能辨别误用末因子；不能据此说末因子对所有股票都无影响。
+EMA_raw_current_units=EMA_a/F_t是把原EMA换成t的原价单位，不是在未复权历史raw序列上重新计算EMA。C_a/EMA_a与raw_C/(EMA_a/F_t)按同坐标抵消；本轮偏离本来在a坐标计算，展示换单位并未额外生成新的收益或信号。未重复计算EMA，仅读已保存EMA数值作坐标除法检查。
+
+四、仍未排除的后视风险
+固定原始文件SHA能证明重现同一snapshot，不能证明该snapshot在历史t时已存在。过去raw修订、公司行为effective_date/金额/拆股比率的后期补录或修订、公告收到时间不明，仍可能改变不同历史版本下t的因子/价格。effective_date不是公告收到时间，source_id/raw_text不是逐条历史received_at，paid_at未知与信号是否前缀因果也不是同一问题。
+本审查没有恢复公告归档/供应商版本历史，也没有认证研究代理公司行为的完整性、实际支付/可卖日；不能总括成“没有任何后视”或“已具备真实PIT证明”。它只排除了当前代码在固定输入下用未来价格/未来effective action改写此前因子，以及本次展示套最新factor的两种具体机制。
+这也不认证原OPEN执行可得性、现金回款时钟或任何新账户收益；此前dailyproxy边界完整保留。
+
+输出和成本
+PRICE_ADJUSTMENT_REVIEW为数值记录，PREFIX_PRICE_CHECKS/PREFIX_CHECKPOINTS为8cut范围与检查点，HISTORICAL_FACTOR_MAPPING_CHECKS为316个展示映射；SOURCE_*为源码行。只处理四股，0原模型/EMA重算、0账户/回测/参数拟合，没有改原项目或其它封存。

@@ -1,0 +1,345 @@
+{
+  "case": {
+    "window": "2025_26",
+    "signal": "2026-01-16",
+    "opening": "2026-01-19",
+    "checkpoint": "2025-12-31",
+    "intents": 342,
+    "stocks": 250
+  },
+  "OFF_orders": 2,
+  "ON_orders": 19,
+  "OFF_sector_orders": {
+    "URFI881279": 1,
+    "URFI881121": 1
+  },
+  "ON_sector_orders": {
+    "URFI881279": 1,
+    "URFI881121": 5,
+    "URFI881109": 1,
+    "URFI881117": 3,
+    "URFI881168": 1,
+    "URFI881170": 1,
+    "URFI881126": 1,
+    "URFI881172": 1,
+    "URFI881278": 2,
+    "URFI881132": 1,
+    "URFI881116": 1,
+    "URFI881270": 1
+  },
+  "changes": [
+    {
+      "key": "B|2026-01-16T15:10:00+08:00|002156.SZ|mobile",
+      "before": null,
+      "after": {
+        "key": "B|2026-01-16T15:10:00+08:00|002156.SZ|mobile",
+        "sid": "002156.SZ",
+        "role": "mobile",
+        "pool": "confirmed",
+        "quantity": 100,
+        "rank": 78,
+        "price": "47.52375",
+        "floor": "42.95287991592504913327347739",
+        "gross": "4752.37500",
+        "fee": "5.304627237500",
+        "CP1_id": "146e666a9debe8ad58c40caf640af7cbdb936d8d04914a98aef2f61a1e5901fe"
+      }
+    },
+    {
+      "key": "B|2026-01-16T15:10:00+08:00|002185.SZ|mobile",
+      "before": null,
+      "after": {
+        "key": "B|2026-01-16T15:10:00+08:00|002185.SZ|mobile",
+        "sid": "002185.SZ",
+        "role": "mobile",
+        "pool": "confirmed",
+        "quantity": 200,
+        "rank": 98,
+        "price": "12.70635",
+        "floor": "11.67999999999999934499462324",
+        "gross": "2541.27000",
+        "fee": "5.162895407000",
+        "CP1_id": "9b8603feda12e5f77d8afba039583f2e9b48429746e99ac135d28aafcd6deff9"
+      }
+    },
+    {
+      "key": "B|2026-01-16T15:10:00+08:00|002429.SZ|mobile",
+      "before": null,
+      "after": {
+        "key": "B|2026-01-16T15:10:00+08:00|002429.SZ|mobile",
+        "sid": "002429.SZ",
+        "role": "mobile",
+        "pool": "confirmed",
+        "quantity": 2700,
+        "rank": 92,
+        "price": "9.214605",
+        "floor": "8.699999999999999520190571998",
+        "gross": "24879.433500",
+        "fee": "6.5947716873500",
+        "CP1_id": "5b5b42b37b976577d1bfda337d45bef610aadb4172d19fa549dcc66421906997"
+      }
+    },
+    {
+      "key": "B|2026-01-16T15:10:00+08:00|300567.SZ|mobile",
+      "before": null,
+      "after": {
+        "key": "B|2026-01-16T15:10:00+08:00|300567.SZ|mobile",
+        "sid": "300567.SZ",
+        "role": "mobile",
+        "pool": "confirmed",
+        "quantity": 100,
+        "rank": 34,
+        "price": "135.347640",
+        "floor": "118.1572136781888121956527036",
+        "gross": "13534.764000",
+        "fee": "5.8675783724000",
+        "CP1_id": "83bb63d3b896c4a27449baac0888daeb3484e049f2feb3c2efddcffbfc0d8144"
+      }
+    },
+    {
+      "key": "B|2026-01-16T15:10:00+08:00|300672.SZ|mobile",
+      "before": null,
+      "after": {
+        "key": "B|2026-01-16T15:10:00+08:00|300672.SZ|mobile",
+        "sid": "300672.SZ",
+        "role": "mobile",
+        "pool": "confirmed",
+        "quantity": 100,
+        "rank": 48,
+        "price": "136.06800",
+        "floor": "121.4440626238752781878949499",
+        "gross": "13606.80000",
+        "fee": "5.872195880000",
+        "CP1_id": "ddd9ad147dabc66d05ab31ef24813ed4b13cbbf2531a72a3a31cafc4e151e420"
+      }
+    },
+    {
+      "key": "B|2026-01-16T15:10:00+08:00|301550.SZ|mobile",
+      "before": null,
+      "after": {
+        "key": "B|2026-01-16T15:10:00+08:00|301550.SZ|mobile",
+        "sid": "301550.SZ",
+        "role": "mobile",
+        "pool": "confirmed",
+        "quantity": 100,
+        "rank": 61,
+        "price": "203.371635",
+        "floor": "169.8854918902062158886650291",
+        "gross": "20337.163500",
+        "fee": "6.3036121803500",
+        "CP1_id": "d70492bc7c91b78d62ec12b31d86b88c51c8b99981d7648b418d105a35605352"
+      }
+    },
+    {
+      "key": "B|2026-01-16T15:10:00+08:00|600259.SH|mobile",
+      "before": null,
+      "after": {
+        "key": "B|2026-01-16T15:10:00+08:00|600259.SH|mobile",
+        "sid": "600259.SH",
+        "role": "mobile",
+        "pool": "confirmed",
+        "quantity": 300,
+        "rank": 53,
+        "price": "76.33815",
+        "floor": "66.46811588537453",
+        "gross": "22901.44500",
+        "fee": "6.467982624500",
+        "CP1_id": "1e366732b9447ff7763ae4fa0789aa05b8e3ea99fa28f71cb1118249ce80182f"
+      }
+    },
+    {
+      "key": "B|2026-01-16T15:10:00+08:00|600312.SH|mobile",
+      "before": null,
+      "after": {
+        "key": "B|2026-01-16T15:10:00+08:00|600312.SH|mobile",
+        "sid": "600312.SH",
+        "role": "mobile",
+        "pool": "confirmed",
+        "quantity": 1100,
+        "rank": 83,
+        "price": "21.11055",
+        "floor": "19.28690435027518856804924953",
+        "gross": "23221.60500",
+        "fee": "6.488504880500",
+        "CP1_id": "c3d26e4f08575d76b88886bf2773521e15f013ae1df1a9310f257bab7f77d053"
+      }
+    },
+    {
+      "key": "B|2026-01-16T15:10:00+08:00|600362.SH|mobile",
+      "before": null,
+      "after": {
+        "key": "B|2026-01-16T15:10:00+08:00|600362.SH|mobile",
+        "sid": "600362.SH",
+        "role": "mobile",
+        "pool": "confirmed",
+        "quantity": 300,
+        "rank": 47,
+        "price": "62.951460",
+        "floor": "56.05065692636051677075874110",
+        "gross": "18885.438000",
+        "fee": "6.2105565758000",
+        "CP1_id": "0032160b2ae04d2a32527f8f1301a3ba4cc46fd3ee9088c2f5027fdf64e67c76"
+      }
+    },
+    {
+      "key": "B|2026-01-16T15:10:00+08:00|601096.SH|mobile",
+      "before": null,
+      "after": {
+        "key": "B|2026-01-16T15:10:00+08:00|601096.SH|mobile",
+        "sid": "601096.SH",
+        "role": "mobile",
+        "pool": "confirmed",
+        "quantity": 200,
+        "rank": 316,
+        "price": "4.832415",
+        "floor": "4.528060531722340328945904309",
+        "gross": "966.483000",
+        "fee": "5.0619515603000",
+        "CP1_id": "f5a9482075bcbd4ccca31f90e329cbce515c7235350f24918b3714ac6bbf9dda"
+      }
+    },
+    {
+      "key": "B|2026-01-16T15:10:00+08:00|603920.SH|mobile",
+      "before": null,
+      "after": {
+        "key": "B|2026-01-16T15:10:00+08:00|603920.SH|mobile",
+        "sid": "603920.SH",
+        "role": "mobile",
+        "pool": "confirmed",
+        "quantity": 400,
+        "rank": 109,
+        "price": "58.52925",
+        "floor": "53.41000000000000214097299054",
+        "gross": "23411.70000",
+        "fee": "6.500689970000",
+        "CP1_id": "8c84093eefe1fa989b3bdee16f38a3529b8f94d307fe76045a82ca6d9d7c9cdf"
+      }
+    },
+    {
+      "key": "B|2026-01-16T15:10:00+08:00|603929.SH|mobile",
+      "before": null,
+      "after": {
+        "key": "B|2026-01-16T15:10:00+08:00|603929.SH|mobile",
+        "sid": "603929.SH",
+        "role": "mobile",
+        "pool": "confirmed",
+        "quantity": 100,
+        "rank": 99,
+        "price": "169.08450",
+        "floor": "134.1789692702173635393599746",
+        "gross": "16908.45000",
+        "fee": "6.083831645000",
+        "CP1_id": "e9a56b7da9318e0a05bd5bc70427dd4082c5d5223ab82560692bbed401de0fa3"
+      }
+    },
+    {
+      "key": "B|2026-01-16T15:10:00+08:00|688112.SH|mobile",
+      "before": null,
+      "after": {
+        "key": "B|2026-01-16T15:10:00+08:00|688112.SH|mobile",
+        "sid": "688112.SH",
+        "role": "mobile",
+        "pool": "confirmed",
+        "quantity": 607,
+        "rank": 91,
+        "price": "41.530755",
+        "floor": "38.98485638783175359093755755",
+        "gross": "25209.168285",
+        "fee": "6.6577413440685",
+        "CP1_id": "6b249cc6f245169eb7de6ff5b221ece75f0c22c7c407917bbb6acd9c7f30aa7d"
+      }
+    },
+    {
+      "key": "B|2026-01-16T15:10:00+08:00|688257.SH|mobile",
+      "before": null,
+      "after": {
+        "key": "B|2026-01-16T15:10:00+08:00|688257.SH|mobile",
+        "sid": "688257.SH",
+        "role": "mobile",
+        "pool": "confirmed",
+        "quantity": 556,
+        "rank": 57,
+        "price": "45.272625",
+        "floor": "39.91657884310370637551256623",
+        "gross": "25171.579500",
+        "fee": "6.6478141459500",
+        "CP1_id": "9c98bba6e3f815c22f660fc740fd9e67238166981ff8285d6b09ac193f3ef999"
+      }
+    },
+    {
+      "key": "B|2026-01-16T15:10:00+08:00|688362.SH|mobile",
+      "before": null,
+      "after": {
+        "key": "B|2026-01-16T15:10:00+08:00|688362.SH|mobile",
+        "sid": "688362.SH",
+        "role": "mobile",
+        "pool": "confirmed",
+        "quantity": 482,
+        "rank": 22,
+        "price": "52.02600",
+        "floor": "46.39466192514341950508856048",
+        "gross": "25076.53200",
+        "fee": "6.622712101200",
+        "CP1_id": "66c5f16b5161788c65ccc9ab743d50b96d4ab464a8adc3eecec9561fab1a53a1"
+      }
+    },
+    {
+      "key": "B|2026-01-16T15:10:00+08:00|688548.SH|mobile",
+      "before": null,
+      "after": {
+        "key": "B|2026-01-16T15:10:00+08:00|688548.SH|mobile",
+        "sid": "688548.SH",
+        "role": "mobile",
+        "pool": "confirmed",
+        "quantity": 1146,
+        "rank": 80,
+        "price": "20.61030",
+        "floor": "20.20192524948248663675303442",
+        "gross": "23619.40380",
+        "fee": "6.514003783580",
+        "CP1_id": "9143dc29e2d11fa6b2ad7dcd8b13d6444163c7ee264111eb4c683083f92a8820"
+      }
+    },
+    {
+      "key": "B|2026-01-16T15:10:00+08:00|688625.SH|mobile",
+      "before": null,
+      "after": {
+        "key": "B|2026-01-16T15:10:00+08:00|688625.SH|mobile",
+        "sid": "688625.SH",
+        "role": "mobile",
+        "pool": "confirmed",
+        "quantity": 407,
+        "rank": 16,
+        "price": "59.039505",
+        "floor": "58.71000000000000256714764694",
+        "gross": "24029.078535",
+        "fee": "6.5402639340935",
+        "CP1_id": "c05af9d7ee2ca9ee84982400687b1fc4db52027c1d06fbcbc80b19edd8032ab4"
+      }
+    }
+  ],
+  "capital_delta": 309052.6891199999,
+  "nominal_risk_delta": 29057.959598985442,
+  "reserved_cash_delta": 309157.5908533296,
+  "available_cash_delta": "-309157.5908533295920",
+  "fee_delta": "104.9017333295920",
+  "OFF": {
+    "capital": 808898.234,
+    "nominal_risk": 69113.57817739293,
+    "cash_reserve": 40200.6600561844,
+    "available": "435395.3559220124425",
+    "fees": "12.5760561844000"
+  },
+  "ON": {
+    "capital": 1117950.92312,
+    "nominal_risk": 98171.53777637838,
+    "cash_reserve": 349358.25090951397,
+    "available": "126237.7650686828505",
+    "fees": "117.4777895139920"
+  },
+  "pure_ON_real_fills": 0,
+  "new_policy_economic_paths": 0,
+  "not_PnL": true,
+  "not_strategy_improvement": true,
+  "seconds": 64.9212818746455
+}

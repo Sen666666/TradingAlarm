@@ -1,0 +1,140 @@
+{
+  "recorded_at": "2026-10-25T05:08:07.456532+00:00",
+  "assets": [
+    {
+      "asset": "AU0",
+      "name": "沪金主连",
+      "rows": 4575,
+      "first": "2008-01-09",
+      "last": "2026-10-23",
+      "phase_counts": {
+        "aligned_up": 1758,
+        "aligned_down": 1342,
+        "rebound": 740,
+        "pullback": 605,
+        "unknown": 67,
+        "building": 37,
+        "unconfirmed": 26
+      },
+      "events": 5685,
+      "volume_changed_structure_days": 278,
+      "sha256": "fa9802961be31c846223cbaf3a8c86d773e0897cc7024cf619876c16256eb4df"
+    },
+    {
+      "asset": "518880",
+      "name": "黄金ETF",
+      "rows": 2000,
+      "first": "2018-07-17",
+      "last": "2026-10-16",
+      "phase_counts": {
+        "aligned_up": 899,
+        "aligned_down": 398,
+        "rebound": 374,
+        "pullback": 250,
+        "unknown": 64,
+        "unconfirmed": 13,
+        "building": 2
+      },
+      "events": 2447,
+      "volume_changed_structure_days": 87,
+      "sha256": "e7195ec1e7af3e60352f2b9457a4cef6ef35df9bb80a9cc6af4dec9c8bd3d793"
+    },
+    {
+      "asset": "512480",
+      "name": "半导体ETF",
+      "rows": 1786,
+      "first": "2019-06-12",
+      "last": "2026-10-23",
+      "phase_counts": {
+        "aligned_down": 590,
+        "aligned_up": 495,
+        "pullback": 333,
+        "rebound": 245,
+        "unknown": 64,
+        "building": 48,
+        "unconfirmed": 11
+      },
+      "events": 2196,
+      "volume_changed_structure_days": 34,
+      "sha256": "7efbe5a96fffbfa361b65e41c98fca8dc52c5571adbbe92ee414fcfd7468acf6"
+    },
+    {
+      "asset": "001309.SZ",
+      "name": "德明利",
+      "rows": 1044,
+      "first": "2022-07-01",
+      "last": "2026-10-22",
+      "phase_counts": {
+        "aligned_up": 433,
+        "pullback": 219,
+        "aligned_down": 208,
+        "rebound": 80,
+        "unknown": 64,
+        "unconfirmed": 24,
+        "building": 16
+      },
+      "events": 1362,
+      "volume_changed_structure_days": 22,
+      "sha256": "cbc3b5bccb1a0975c03483462f12da9acb4ec5d3dc697cfe4e55e6e0db6a0216"
+    },
+    {
+      "asset": "688981.SH",
+      "name": "中芯国际",
+      "rows": 1513,
+      "first": "2020-07-16",
+      "last": "2026-10-22",
+      "phase_counts": {
+        "aligned_down": 548,
+        "aligned_up": 339,
+        "rebound": 298,
+        "pullback": 222,
+        "unknown": 64,
+        "building": 32,
+        "unconfirmed": 10
+      },
+      "events": 1843,
+      "volume_changed_structure_days": 62,
+      "sha256": "e68cfa2435301d63b9160b67c38be581060b6185d66e92108733d5d7b39b6891"
+    },
+    {
+      "asset": "600036.SH",
+      "name": "招商银行",
+      "rows": 3338,
+      "first": "2013-01-04",
+      "last": "2026-10-22",
+      "phase_counts": {
+        "aligned_up": 1379,
+        "aligned_down": 818,
+        "pullback": 532,
+        "rebound": 501,
+        "unknown": 64,
+        "building": 26,
+        "unconfirmed": 18
+      },
+      "events": 4055,
+      "volume_changed_structure_days": 54,
+      "sha256": "3bb6386f8f0ff477e532b5d18f4fc26c4c45b81917531db59b2053a720b72ef3"
+    },
+    {
+      "asset": "600519.SH",
+      "name": "贵州茅台",
+      "rows": 3349,
+      "first": "2013-01-04",
+      "last": "2026-10-22",
+      "phase_counts": {
+        "aligned_up": 1396,
+        "aligned_down": 1006,
+        "pullback": 442,
+        "rebound": 426,
+        "unknown": 64,
+        "unconfirmed": 13,
+        "building": 2
+      },
+      "events": 4300,
+      "volume_changed_structure_days": 45,
+      "sha256": "d633ad95de7b8cedbebaa960902e3b84ffda6a9908c6cfb3f256997605d67fff"
+    }
+  ],
+  "account_runs": 0,
+  "model": "PVS-B4"
+}

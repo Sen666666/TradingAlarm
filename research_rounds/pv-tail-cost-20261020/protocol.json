@@ -1,0 +1,144 @@
+{
+  "created_utc": "2026-10-20T09:35:28.547431+00:00",
+  "scope": "Read saved accounts and full signal paths; inspect fixed charts; at most one causal mechanism revision; zero account backtests",
+  "basis": "docs/NEXT_RESEARCH_TASKS.md, user authorization 2026-10-20",
+  "history": "All data already seen; exploratory attribution, not unseen or preregistered performance validation",
+  "baseline_sha256": "b61e889e684305cbb45223e0e2dd8da324e8e8d0a2d201794e2749eb9441540e",
+  "source_manifest_sha256": "9999b53ab1b467b1908e1115892bb91d973034418474ff15a7b41baa074a503a",
+  "cases": [
+    {
+      "id": "S1",
+      "intent": "slow advance",
+      "symbol": "USHJ518880",
+      "group": "etf17",
+      "start": "2025-01-01",
+      "end": "2026-03-31",
+      "checkpoint": "2025-09-01"
+    },
+    {
+      "id": "S2",
+      "intent": "slow advance hypothesis",
+      "symbol": "HK00002",
+      "group": "hk7",
+      "start": "2024-01-01",
+      "end": "2025-03-31",
+      "checkpoint": "2024-07-01"
+    },
+    {
+      "id": "F1",
+      "intent": "fast start",
+      "symbol": "USHJ512480",
+      "group": "etf17",
+      "start": "2024-08-01",
+      "end": "2024-12-31",
+      "checkpoint": "2024-09-30"
+    },
+    {
+      "id": "F2",
+      "intent": "fast start",
+      "symbol": "HK09618",
+      "group": "hk7",
+      "start": "2024-08-01",
+      "end": "2024-12-31",
+      "checkpoint": "2024-09-30"
+    },
+    {
+      "id": "R1",
+      "intent": "consolidation recovery hypothesis",
+      "symbol": "HK00700",
+      "group": "hk7",
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "checkpoint": "2025-05-01"
+    },
+    {
+      "id": "R2",
+      "intent": "consolidation recovery hypothesis",
+      "symbol": "USHJ518880",
+      "group": "etf17",
+      "start": "2024-01-01",
+      "end": "2024-12-31",
+      "checkpoint": "2024-06-03"
+    },
+    {
+      "id": "B1",
+      "intent": "breakdown",
+      "symbol": "USHJ512480",
+      "group": "etf17",
+      "start": "2026-04-01",
+      "end": "2026-10-16",
+      "checkpoint": "2026-07-01"
+    },
+    {
+      "id": "B2",
+      "intent": "breakdown",
+      "symbol": "HK03033",
+      "group": "etf17",
+      "start": "2022-01-01",
+      "end": "2022-12-31",
+      "checkpoint": "2022-04-01"
+    },
+    {
+      "id": "C1",
+      "intent": "range hypothesis",
+      "symbol": "USHJ510300",
+      "group": "etf17",
+      "start": "2023-01-01",
+      "end": "2023-12-31",
+      "checkpoint": "2023-07-03"
+    },
+    {
+      "id": "C2",
+      "intent": "range hypothesis",
+      "symbol": "HK00101",
+      "group": "hk7",
+      "start": "2023-01-01",
+      "end": "2023-12-31",
+      "checkpoint": "2023-07-03"
+    },
+    {
+      "id": "W1",
+      "intent": "weak market rebound",
+      "symbol": "HK03033",
+      "group": "etf17",
+      "start": "2023-01-01",
+      "end": "2023-12-31",
+      "checkpoint": "2023-07-03"
+    },
+    {
+      "id": "W2",
+      "intent": "weak market rebound",
+      "symbol": "HK03690",
+      "group": "hk7",
+      "start": "2022-03-01",
+      "end": "2022-12-31",
+      "checkpoint": "2022-07-01"
+    },
+    {
+      "id": "S3",
+      "symbol": "600919.SH",
+      "start": "2024-01-01",
+      "end": "2024-12-31"
+    },
+    {
+      "id": "C3",
+      "symbol": "600059.SH",
+      "start": "2024-01-01",
+      "end": "2024-12-31"
+    },
+    {
+      "id": "C5",
+      "symbol": "600917.SH",
+      "start": "2024-01-01",
+      "end": "2024-12-31"
+    }
+  ],
+  "population": "All saved pv-base episodes/orders/decisions ETF17 and HK7; 27 signal histories. Price/event-exit existing accounts for comparisons only. Open-or-claim separate.",
+  "attribution": "No parameter search. Retain continuous close-based MFE/MAE, final return, holding duration, inter-entry gaps, fees. Descriptive fixed MFE bands 0, 0-5%, 5-15%, >=15% for ordinary loser diagnostics; no trading thresholds inferred from bins. Attribute by symbol, year and current episode label. Reentry tags overlap other tags and are not additive.",
+  "charts": "Reuse existing15 fixed cases +18 boundary windows; de-duplicate windows. Root examines complete campaigns for existing winners and dominant losses; exploratory selections declared, not acceptance test.",
+  "revision_budget": 1,
+  "decision": "Use broad attribution plus repeated mechanism evidence, not one scenario. No change is permitted outcome. If revise, formula frozen before signal-only comparison and all fixed cases checked.",
+  "controls": "Existing no-volume and event-exit only; do not change volume multiplier, entry, risk and ranking together.",
+  "account_gate": "Closed. Do not import account runner or execute portfolio simulation. Saved-result read-only arithmetic is allowed.",
+  "stop": "One complete attribution, targeted chart review, zero or one change, all fixed-case review, causal checks and freeze. No second family after failure."
+}

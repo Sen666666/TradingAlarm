@@ -1,0 +1,107 @@
+{
+  "at": "2026-10-24T07:28:50.061212+00:00",
+  "user_authorization": "Gold Chan buy-rule interval backtest with prehistory warmup; existing algorithms unchanged",
+  "period": [
+    "2025-01-02",
+    "2026-10-13"
+  ],
+  "czsc_version": "1.0.2",
+  "native_path": "/Users/bytedance/Documents/ChatGPT/money/.tools/czsc/.venv/lib/python3.13/site-packages/czsc/_native.abi3.so",
+  "native_sha256": "e5716a48bd544e0e1044f738cdfcdc80efe50b1a6e4b1aca75ccbadb9517f683",
+  "min_bi_len": 6,
+  "max_bi_num": 100,
+  "buy_sets": {
+    "B1": [
+      "B1"
+    ],
+    "B2": [
+      "B2"
+    ],
+    "B3": [
+      "B3"
+    ],
+    "B3A": [
+      "B3A"
+    ],
+    "B23": [
+      "B2",
+      "B3"
+    ],
+    "B123": [
+      "B1",
+      "B2",
+      "B3"
+    ]
+  },
+  "signals": [
+    [
+      "first_buy",
+      "cxt_first_buy_V221126",
+      {
+        "di": 1
+      }
+    ],
+    [
+      "first_sell",
+      "cxt_first_sell_V221126",
+      {
+        "di": 1
+      }
+    ],
+    [
+      "second",
+      "cxt_second_bs_V230320",
+      {
+        "di": 1,
+        "ma_type": "SMA",
+        "timeperiod": 21
+      }
+    ],
+    [
+      "third",
+      "cxt_third_bs_V230319",
+      {
+        "di": 1,
+        "ma_type": "SMA",
+        "timeperiod": 34
+      }
+    ],
+    [
+      "third_aux",
+      "cxt_third_buy_V230228",
+      {
+        "di": 1
+      }
+    ]
+  ],
+  "scenarios": {
+    "base": {
+      "fee": 0.0002,
+      "slip": 0.04,
+      "delay": 1
+    },
+    "cost2": {
+      "fee": 0.0004,
+      "slip": 0.08,
+      "delay": 1
+    },
+    "delay1": {
+      "fee": 0.0002,
+      "slip": 0.04,
+      "delay": 2
+    }
+  },
+  "accounts": 39,
+  "hashes": {
+    "research_rounds/gold-czsc-backtest-20261024/PROTOCOL.md": "8d9ecd2e2c76a69d181ce7a5fde3d2076765d4d06564413d5fee5d55b66e914a",
+    "research_rounds/gold-czsc-backtest-20261024/prepare.py": "6e124865002c552aa7371a23fe4bd2faea27a9265433a22a0f883a880d914c63",
+    "research_rounds/gold-czsc-backtest-20261024/signals.py": "f3beed0254676aed67fc1768f7476ed2920f814d9dfda60c3e03a65835444458",
+    "research_rounds/gold-czsc-backtest-20261024/engine.py": "80b2c62380caff92d5b0b8598072ff2e008ee64f61e6dc4209fe85d80bd5aea5",
+    "research_rounds/gold-czsc-backtest-20261024/run.py": "11d1a35f96c94cc60ae77bc437b94e8590d3e3e723f9fdab2b7ae0527e76e904",
+    "research_rounds/gold-czsc-backtest-20261024/freeze.py": "19a849c221f4fcdb0dcc4cb8bc6e5ec6d8d7b394ebf8e7faef0ed45b89a4c668",
+    "research_rounds/gold-czsc-backtest-20261024/inputs/AU0-all.parquet": "99bf03bbfde31c2bbe1368dc6b5b0fdead7148105ce767c35e3e16679c2e2d8b",
+    "research_rounds/gold-czsc-backtest-20261024/inputs/AU0-main.parquet": "500972cf56175c5bd208ab2a188b55f93061104909fb3a47862e50e246c6de7e",
+    "research_rounds/gold-czsc-backtest-20261024/preparation.json": "e273270982a3b28093206a0ecfbf7484ab9dc5764dda3cf4189912b4a9c2d46f",
+    "research_rounds/gold-chart-fit-20261024/raw/sina-AU0.response": "3e5a754a34e7651ae1ebe297039e478775fde4feb8e7081f77ce3c0bda821779"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "scope": "Original 2024 shared A+B three signal days 2024-09-24,25,26 and CLOSE observations through 2024-10-16 only. No account or outcome simulation.",
+  "seed": "All original SELECTED_PENDING tickets on fixed three dates; primary mechanism subset requires positive original q and probe_risk in minimum trial. Keep other rejections separately.",
+  "formula": "For a prior known-no-fill selected A/B, t is after original signal and no earlier than rejection OPEN day CLOSE; original I entered-root is the same and continuously active, source lineage and daily required facts remain known; current industry M3 TRUE; exact fresh canonical per-stock CP confirmed at t, distinct from previous receipt; original I qualification and PVR known; original actual state FLAT and no original A/B at t. New CP creates a new next-OPEN probe opportunity, never an extension or virtual holding.",
+  "persistent_stratum": "Separately require industry and stock M3 continuously known TRUE from original signal through t, and no later original A/B since seed. This is the question of a persistent TRUE birth with no new edge. Not tuned after results.",
+  "source": "Source_kind,path,segment identity continuous across all common days; any missing flags or factor discontinuity cannot bridge by sid. Verify original entered-root via native policy, not contiguous target run.",
+  "qualification": "Original e0_ready=1,g_ready=True,i_target=1,finite positive i_floor; original PVR valid observation/state>=0/finite score. Do not add i_buy=true. Raw and original CLOSE conditions remain required.",
+  "queue": "No new policy queue is run. Report prequeue signal coverage; sector top2 and shared resources unchanged. Only if useful, check original-path resources to distinguish impossible from potentially fundable, not cumulative fills.",
+  "CP_role": "Proposal is I-protected initial probe. This changes role from old empty MOBILE max(I,CP); not new alpha. No claim tighter CP failure proves wider I better.",
+  "clocks": "CLOSE data only; next common OPEN conditional proxy only. No historical fill or outcome inferred. Original actual fills terminate prior missed-birth marker.",
+  "identity_dedup": "Ticket event_id, sid, original I entered day and canonical CP id reported separately. Multiple old tickets do not multiply a new signal.",
+  "case_selection": "All 217 original tickets, ordered date then sid. Examples first chronological qualifying and first excluded per reason. Previously fixed 300570.SZ and 000833.SZ identities retained without importing subsequent returns; old actual-failure controls are outside seed if funded.",
+  "not_done": [
+    "No account rerun",
+    "No parameter search",
+    "No minute data",
+    "No independent-round labels",
+    "No later returns",
+    "No claim 35% win rate"
+  ]
+}

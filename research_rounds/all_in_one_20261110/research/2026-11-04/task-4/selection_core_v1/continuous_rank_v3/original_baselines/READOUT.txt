@@ -1,0 +1,44 @@
+旧正式排名源核查；不读新A效果、不计算新排名/标签、不涉及资金方案或账户。
+
+结论
+找到原名“关注扩散/ATT”的正式成交额份额指标与排名接线；没有证据把口头“成交扩散法”唯一等同所有既有广度/份额方案。旧ATT可按其原始名称、公式和已有缓存作补充基线。新D保持已冻结的新探索式，不替换、不冒用旧名。
+原H1行业日cache在2022—2026H1全1085会话×90行业=97650 cells全部finite，日期与固定CSI300钟完全同。ATT缓存仅242会话×90，不能称全窗ATT。
+
+旧ATT的原样公式/参数
+源：/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/market-mainline-measurement-20261031/PROTOCOL.txt:4–6；study.py:8–16、39–54。
+T取26个共同市场日[t−25,...,t]。C_T为固定1709 snapshot中该26日amount/观察资格完整的股票交集；这个交集同时用于近5与之前21日的份额分母。
+源码输入资格：observed_bar、price_eligible真，synthetic_event_bar假，amount有限且>=0，CNY单位。未额外加当前新版流动性门；实际零额允许保留，缺失不补零。
+对每个d：s_i,d=A_i,d/Σ(j∈C_T)A_j,d，每个d的全交集分母须>0。
+q_i=median(s_i,t−4,...,s_i,t) / median(s_i,t−25,...,s_i,t−5)。近5对前21，不重叠。
+prior median须>0，否则该q_i unknown。行业ATT_g(T)=median(i属于该静态行业且q_i finite)q_i；没有可比成员则unknown，无最少5成员门。
+这是先逐股份额比、后行业成员中位数；不是行业金额总和的份额比，也不是上涨股比例或实际换手率turnover/free-float。
+原观测接受条件为ATT>1，<=1拒绝，unknown独报。原B21/B63和集中度只诊断，没有与ATT合成权重。
+原排序接线：rank_compare.py:10–13,28–32把attention_ratio作为独立排序分数倒序（同分稳定sector ID）；原mainline-I...adapter.py:101–105亦按所属行业attention_ratio降序整理已有股票候选。原研究还有价格P与固定候选压缩上下文，这些不能偷偷搬成当前v3新门。
+本次addendum只取原连续ATT分数，不应用ATT>1、旧P资格或旧账户配置。
+
+与已冻结D明确不同
+D=.5*p(share_change)+.5*p(dB5)，父已登记为新探索性对照。
+D的share_change为行业汇总share5/share20−1，窗口5对20；旧ATT为逐股daily share的中位比，窗口5对21，再取行业中位。
+D含价格广度变化dB；旧ATT不混合B。D用各原量横截分位后等权；旧ATT直接以行业中位ratio排序。
+旧ATT C_T是26日原完整交集；D沿新版U_T及配对cohort。即便都来自当前1709，聚合顺序、窗口、cohort与数据资格不同，不能叫旧算法仅改权重。
+没有据新A/D全窗口结果替换任何式；未读取这些效果。
+
+可复用ATT缓存的真实范围与接口
+真实源FEATURE_MATRIX_90.parquet SHA4be2fe5842221099f4c0fe9fb6380bf4ec77a26cca786d0cb9ac3a25c3464598，逐字核平旧FEATURE_FREEZE。
+源只有2025-07-01..2026-06-30，242会话、21780行业日，attention_ratio全部known。旧AMOUNT_INPUT.npz仅2025-05-26..2026-06-30暖窗267×1709，不能填更早843会话。
+已导ATT_ORIGINAL_SAVED_DAILY.parquet/csv：date, sector_id_static, ATT_original, ATT_known, ATT_member_known_count, ATT_static_member_count, ATT_global_complete26_stock_count。
+值逐字抄原字段，不重新计算，不0填/ffill，不重造2022—2025H1 ATT。仅可在这242日原共同窗口比较A/E/H1/D/ATT；全部用同T共同known母体、同日N及同未来标签分母。缺早窗不构成失败/零分，也不扩成全窗ATT结论。
+
+母体与source核验
+旧AMOUNT_INPUT的1709 symbols与当前STOCK_MANIFEST exact；原archive仅读取symbols/sector两个元数据数组，逐股桥与当前metadata exact；行业90 set与member_count逐行业exact。没有读取其MFE/end/机会标签等数组。
+旧FEATURE_FREEZE绑定同一原H1 SHA416ddabacb9b16105cf3e5d93c961049ac1b48da433a62995a71311be17e4615。
+但旧ATT金额从runtime update-20261030 prepared manifest的raw CNY bars读取；当前v3复用channels_v2，其金额是原STOCK_MANIFEST source绑定的prepared signal CNY amount（原inputs-v2 raw指向data-adjudicated-v2/bars）。两者尚未做逐股逐日全金额值相等证明；同pool/bridge不等于全部source vintage相同，应保此对照限制。
+固定2026存活/当下市值/行业桥仍非PIT，原指数amount跨行业尺度未认证，ATT没有用URFI index amount跨行业求和。
+
+原H1完整源
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/h1.npz；完整dates4677，symbols1799=1709股+90真实行业，score(4677,1799)float64；2007-08-01..2026-10-30。
+目标2022—2026H1逐日行业已知数全部90，分年会话242/242/242/243/116，与CSI300目标1085日期集合完全相同。没有重算H1或新A；finite只证明缓存可用，不认证历史vendor vintage/PIT。
+
+检索边界
+只搜money/research_rounds、Codex2026-10-29 research_rounds及当前selection_core_v1的小型py/md/txt与FORMULA/PROTOCOL/CONTRACT JSON。成交扩散/turnover diffusion等精确命名未命中唯一旧合同；“行业扩散度B_h”另在selection-rotation-abcd/PROTOCOL.md:15，指R_h>0的价格成员比例，不能自动认作成交扩散法。旧ATT定义已明确，不由父未给的口径猜造。
+完整旧源原件在source_copies，路径/行号在ORIGINAL_SOURCE_EXCERPTS，SHA在各audit。保留最初独立task-4/continuous_rank_v3/original_baselines并统一副本到本目录。

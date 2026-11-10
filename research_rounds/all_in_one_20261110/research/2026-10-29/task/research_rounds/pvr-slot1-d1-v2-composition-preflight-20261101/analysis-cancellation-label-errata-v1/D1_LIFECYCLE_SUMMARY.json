@@ -1,0 +1,15 @@
+{
+  "event_counts": {
+    "D1_actual_wait": 2226,
+    "D1_retained_original_order": 1453,
+    "D1_buy_deadline_cancel": 38,
+    "D1_retry_cancel": 365,
+    "D1_same_order_amend": 966
+  },
+  "buy_distinct_first_wait_orders": 1453,
+  "sell_distinct_first_wait_obligations": 773,
+  "raw_cancellation_reasons": {},
+  "initial_admission_vs_fill_separate": true,
+  "waiting_buy_orders_preserve_original_receipt_and_do_not_require_new_CP1": true,
+  "observations_are_market_sessions_not_natural_days": true
+}

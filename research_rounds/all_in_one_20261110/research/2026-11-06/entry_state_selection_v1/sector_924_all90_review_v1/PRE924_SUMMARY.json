@@ -1,0 +1,17 @@
+{
+  "sectors": 90,
+  "days": 14,
+  "rows": 1260,
+  "all_A_B_births": 994,
+  "selected_INITs": 230,
+  "TRUE_runs_started_in_window": 93,
+  "TRUE_runs_5day_complete": 93,
+  "TRUE_runs_5day_nonpositive": 43,
+  "TRUE_runs_pre924_nonpositive": 64,
+  "sources_unchanged": true,
+  "no_new_account": true,
+  "no_new_indicators": true,
+  "rank_definition": "No independent industry ranking exists. Queue is derived from original selected INITs by descending PVR then sid; ADD/sells have their own priority. Future returns/rank are strictly descriptive, never used in this queue.",
+  "unknown": "Original tri-state; NON-PIT fixed research members; K is common M3/PVR-known denominator, not full historical membership.",
+  "readout": "Positive post-924 index return is not net strategy profit, signal precision or a guarantee the event could be traded. No hindsight price used to permit an OPEN."
+}

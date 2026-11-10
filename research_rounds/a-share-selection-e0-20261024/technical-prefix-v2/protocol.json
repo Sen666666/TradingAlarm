@@ -1,0 +1,22 @@
+{
+  "recorded_at": "2026-10-24T23:27:16.330070+08:00",
+  "cutoffs": [
+    "2017-12-31",
+    "2020-12-31",
+    "2023-12-31"
+  ],
+  "base_policies": [
+    "T0",
+    "T1",
+    "S0",
+    "S1"
+  ],
+  "main_economic_accounts_unchanged": 13,
+  "technical_replay_accounts": 12,
+  "source_ref": {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/code/prefix_live_v2.py",
+    "sha256": "ea087b1d82d340515e90a8976fcf7d9a35dd959ca6f0fbd9900b5dce869201c7"
+  },
+  "invalid_old_industry_prefix_discarded": true,
+  "reason": "Original fixed three truncations on corrected classification; future raw/state/action rows removed"
+}

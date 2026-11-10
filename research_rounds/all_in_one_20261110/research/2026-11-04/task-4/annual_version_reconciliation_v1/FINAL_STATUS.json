@@ -1,0 +1,25 @@
+{
+  "status": "ORIGINAL_NAV_IDENTITY_AND_NEAR_QUOTE_SOURCES_RECONCILED",
+  "completed_at_utc": "2026-11-05T07:44:06.473468+00:00",
+  "baseline": "PVR_SLOT1_NO_CONFIRMED60_ONLY; ENTRY_BB20_FLAT_CONFIRM OFF",
+  "initial_decision": "2022-01-04 15:10:00+08:00",
+  "initial_cash": "1000000",
+  "first_execution": "2022-01-05 09:30:00+08:00",
+  "continuous_account": true,
+  "annual_reset": false,
+  "original_No60_2022_full_daily_and_trade_prefix_exact": 242,
+  "original_No60_2023_continuation_full_daily_and_trade_prefix_exact": 484,
+  "current_annual_returns_pct": {
+    "2022": "-29.5512152990123099500",
+    "2023": "5.811187736165332000316358600"
+  },
+  "found_2022_annual_near_minus26": "core_confirmed ON -26.146897519181937400, different policy; same ON2023 +4.452695260637119026256451500",
+  "found_2023_annual_minus34": false,
+  "found_near_minus34": "old PVR_SLOT1 2022-2023 cumulative NAV -33.7442089833%, cumulative trading net / initial1m -34.3546849833%; EARLY_EMA60 2023 full-path-peak DD33.8602%, neither is annual return",
+  "prior_chat_exact_source_verified": false,
+  "source_scope": "Original saved books and explicitly bounded existing report searches, no claim of exhaustive full chat history recovery",
+  "new_accounts": 0,
+  "new_backtests": 0,
+  "independent_version_adjustment_dividend_review": "version_review/FINAL_VERSION_REVIEW.json",
+  "review_status": "PASS_VERSION_ACCOUNT_CONTINUITY_RAW_MARK_AND_SEPARATE_DIVIDEND_RIGHTS_ONLY"
+}

@@ -1,0 +1,7 @@
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/bytedance/.cache/fontconfig
+	/Users/bytedance/.fontconfig
+Matplotlib is building the font cache; this may take a moment.
+{"series": 101, "prefix_checks": 23, "charts": 6, "accounts_run": 0}

@@ -1,0 +1,17 @@
+SC D1 own April1 -> June30: command/state/hash readiness ONLY. No April2 or later account event executed.
+
+Prepared command (NOT RUN; later root approval file required):
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-d1-v2-composition-preflight-20261101/run_SC_D1_Q2.py --execute
+
+Only existing Composition.restore + run_prepared. No new importer/recovery layer, no configure_d1 after restore. The executable authorization guard is tested before loading input or constructing a new account. FULL_RUN_AUTHORIZATION.json remains absent; FUTURE_AUTHORIZATION_REQUIREMENTS.json is a specification, NOT approval.
+
+Parent full-input checkpoint b6e09b25e6145f3efd618cd42cf242303419514f28d3a8b11b361787cc3de5ff at2026-04-01 15:10+08. Actual generation identity/source guard and all69 account / saved runner fields exact after direct restore. Next event Apr2 09:30 OPEN (original due settlement/actions/payments calls precede it), remaining59 original market sessions, endJun30 15:10. Old183 daily rows/1084fill history retained; exact fill count is in CONTINUOUS_INITIAL_STATE.json, not a reset account.
+
+NAV1254017.3510707366560; available869454.3910707366560; inventory383554.88; unpaid dividend receivable1008.0800; order reserve/settlement lock/sale receivable/payable0. 31stocks/34live layers. 270 new Apr2 intents across199stocks:188core/82mobile; full frozen objects and key digest saved. 11 unfinished exits:10delay consumed/1unconsumed. Active buys0, but1004historicalD1orders/476D1exitrecords/3352D1audit records preserved. Original1m is initial history only; no replenishment. ACT on, original phasepeak1365085.0364141978275/episode0;91coreepoch entries/25784consumed receipts/shared loss391779.35531926336 kept. All complete fields, including positions/roles/pools/lots/floors/reservations/sellable dates/loss logs/ACT/receipt and old cancelled records, are checked through native checkpoint equality.
+
+Source and input SHA list: SOURCE_AND_INPUT_SHA256.json. Composition de4f050a01a3a0c54e86f3851b593decaf8077adb052dac5f97b2e9c7c91a861; thin prepared command source74fb2696650d6e66253fa4cfd8340ef12e140c4dbbfd822c9ea018f65bfd92c1. Same fullJune1709/90/data/ACT/calendar/score identity, no model recompute. Readiness loading95.47s/total106.27s;0newaccount events.
+
+PVR money/prefix audit addendum: PVR_D1_AUDIT_MONEY_AND_BOUNDARY_ADDENDUM.json. EndJune30 exact actual realized trading net223411.4290916906987300320015, actual unrealized net407752.9263024679552699679985, recognized dividends5679.04000 ALL still receivable. Normal:313709.6652784409816005360860 /630192.4415775164568994639142 /5064.40880 ALL still receivable. Dividends are not counted as realized trading profit or spendable cash.
+PVR initial first event Jul1 15:10 CLOSE, own reused prefix endsJul7 15:10; next original event Jul8 00:00 corporate action, then OPEN; terminalJun30 15:10. Parent Jul7 checkpointb554bd42...47af0c/provenance6373e2d0...802d29 actually restored with same source/class/functions/full account and strategy.296pending intents/3active buys/0exits retained,48oldfills and allfive+rank streams append-only. No prefix rerun.
+
+Wait for SC first-session independent audit PASS and explicit future SC financial authorization; this preparation does not launch it.

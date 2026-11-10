@@ -1,0 +1,5 @@
+解释器：/Users/bytedance/repos/my-quant/.conda/envs/dev/bin/python
+设置PYTHONDONTWRITEBYTECODE=1、OPENBLAS_NUM_THREADS=1。
+按顺序运行run.py、fix_initial_prefix.py、finalize.py。run.py已含无共同扩散历史的UNKNOWN修正，fix_unknown_diffusion.py仅保留初次技术修正记录，不需再次运行。
+先保留已有结果，复验应使用独立输出目录或先复制本目录；原行情与账户只读。run.py需兄弟PVR目录已完成STOCK_DAILY及V2行业表。
+REPORT.txt是最终解释文档；旧父目录REPORT仅初版，不能拿旧条件价格统计作V2成绩。

@@ -1,0 +1,36 @@
+{
+  "emitted": 6878,
+  "decisions": {
+    "PASS_NOT_TOP2": 3552,
+    "SELECTED_PENDING": 1840,
+    "I_INELIGIBLE": 1270,
+    "CLOSE_MINIMUM_LOT_OR_RISK_REJECT_AT_CLOSE": 110,
+    "BLOCKED_HELD": 99,
+    "PVR_UNKNOWN": 5,
+    "BLOCKED_UNKNOWN": 2
+  },
+  "old_known_n": 1312,
+  "old_known_wins": 530,
+  "shared_fills": 80,
+  "shared_wins": 21,
+  "shared_matched_old_known": 46,
+  "matched_sign_differences": 0,
+  "new_other_old_decisions": {
+    "BLOCKED_HELD": 34
+  },
+  "budget_reject_reasons_last_minimum": {
+    "probe_risk": 1732,
+    "sector_capital": 215,
+    "NO_QUANTITY_TRIAL": 6,
+    "sector_risk": 4
+  },
+  "old_tail30": 122,
+  "old_tail_shared_status": {
+    "SHARED_BUDGET_KNOWN_NOFILL": 100,
+    "NOT_SELECTED": 17,
+    "COMPLETE_CONDITIONAL_STOCK_ROUND": 5
+  },
+  "old_tail_same_stock_any_fill": 17,
+  "old_weighted_rate_by_shared_signal_month": 0.31488251366137665,
+  "new_account_runs": 0
+}

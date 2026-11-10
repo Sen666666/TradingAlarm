@@ -1,0 +1,20 @@
+{
+  "layers": 25,
+  "stocks": 18,
+  "role_counts": {
+    "core": 1,
+    "mobile": 24
+  },
+  "entry_pool_counts": {
+    "probe": 1,
+    "confirmed": 24
+  },
+  "closed_negative": 15,
+  "closed_positive": 6,
+  "still_open": 4,
+  "core_line_must_not_use_stored_x_floor": true,
+  "mobile_check_then_update_order_explicit": true,
+  "new_accounts": 0,
+  "new_restores": 0,
+  "new_policy_paths": 0
+}

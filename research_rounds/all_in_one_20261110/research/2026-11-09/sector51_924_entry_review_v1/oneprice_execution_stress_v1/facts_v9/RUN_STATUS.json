@@ -1,0 +1,22 @@
+{
+  "scope": "CONDITIONAL_EXPOST_SCENARIO_NOT_LIVE_EXECUTION_OR_RETURN_BOUND",
+  "certified_through": "2024-10-25",
+  "days": 33,
+  "orders": 1852,
+  "no_fills": 4,
+  "blockers": [
+    "2024-10-28 300277.SZ OPEN_MISSING"
+  ],
+  "last": {
+    "day": "2024-10-25",
+    "cash": "136957.3171091514945",
+    "receivable": "0.0000",
+    "market_value": "1254153.35",
+    "NAV": "1391110.6671091514945",
+    "net_liquidation_NAV": "1388138.0471313038620",
+    "stocks": 324,
+    "shares": 62741,
+    "weight_pct": "90.15482230513258396933336393",
+    "fees_paid": "10764.1105358485055"
+  }
+}

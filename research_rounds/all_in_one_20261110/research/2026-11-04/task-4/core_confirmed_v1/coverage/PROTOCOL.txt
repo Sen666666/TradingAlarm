@@ -1,0 +1,29 @@
+No60 typed CORE confirmed fallback：冻结窄臂只读全母体必要覆盖
+授权：parent /root 新阶段；本目录独占，旧结果只读。不运行新账户/路由、不生成marks。
+行为以industry_capital_v1/NEXT_MECHANISM_CARD.txt当前SHA绑定，经济结果前固定。
+
+母体为原long_OFF(2022Jan–2024Dec)、strong_OFF(2025Jul–2026Jun)全部CORE OPEN日志。
+包含仅probe_risk，保留成功probe、OPEN quote/preview失败、industry invalid和全部多门拒绝。
+原完整CORE资格由原op.core_Q/flat/barriers、原原生CORE intent尺寸与epoch和源码联合核验。
+新增筛选只用当时原canonical同日CP、原active金融level>=1、未有同股预留及未消费token、
+原probe未预留且非空失败集合subset{probe_risk,sector_capital}。成功probe数量全不改。
+No60 migrate保留same-attempt live/cancel-pending probe订单阻挡；前排真实reserved在本OPEN
+全部买入成交前已提交，不可假取消。CLOSE已有买单预留是否为0复用已核全日cash来源。
+
+逐raw和window/sid/source-I epoch给不同去重数；first母体结果和first合格fallback另列，
+不混原行业首拒8335口径。年份按signal CLOSE，924后固定2024-09-24至2024-12-31，
+其它固定2024pre924、2025H2、2026H1；半导体固定metadata126身份只作评价分层。
+不以实际Mobile reservation/fill、未来收益或25已买层选规则。实际reserve见证筛后独立标记。
+
+原frozen cap/budget/.25%含费risk/I floor原样保存；dated最小手、signal reference上的
+I与canonical CP保护风险仅标量必要界，不虚构缺少的完整实际OPEN数值state/maxq。
+不读全市场facts或新rawOPEN；11点名既有完整轨迹/已存preview优先复用，缺源留unknown。
+
+原前缀最小手存在性见证仅当：同OPEN原Mobile在CORE后funding index紧邻且实际reserved，
+同sid/CP/行业/规则、qMobile_reserved>=CORE dated min；CORE原preview过、原sector_risk
+未失败，Mobile confirmed真实成功且原migration仅换池不改SC/SR/NAV/cash。检查费用非降。
+见证只覆盖原state的最低量，不推原max、新组合路径、未来可卖或收益。未达全条件标未知。
+
+原现金、行业风险等其它门集合完整列，不取sorted第一项当唯一因。current numerical
+SC/SR/全风险预算未知不重建RiskBook。typed Contract role/epoch/token缺口单独列。
+全组pure计算硬上限100秒；阶段写进度，接近上限保存partial并停，不自动扩容或重放。

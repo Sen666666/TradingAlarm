@@ -1,0 +1,28 @@
+{
+  "status": "COMPLETE_SIGNAL_ONLY",
+  "seconds": 51.5601800410077,
+  "membership_exact": true,
+  "calendar_exact": true,
+  "canonical_known": 1712316,
+  "canonical_right": 444862,
+  "strict_known": 1642064,
+  "strict_right": 430124,
+  "source_transitions": 1678,
+  "source_transition_stocks": 1678,
+  "prefixes": 5127,
+  "strict_prefixes": 3418,
+  "sources_unchanged": true,
+  "account_runs": 0,
+  "initial_prefix_repaired": true,
+  "first3_M3_PVR_stock_checks": 1709,
+  "industry_fields_after_20220106_exact": true,
+  "final_joint_checks": {
+    "same_membership_and_clock": true,
+    "PVR_own_gate_all_rows_exact": 97650,
+    "candidate_synthetic_assertions": 5,
+    "state_synthetic_sequences": 3,
+    "primary_native_mu_inherits_pre_gap_and_pre_source_history": true,
+    "initial_first3_diffusion_left_truncated": false,
+    "accounts": 0
+  }
+}

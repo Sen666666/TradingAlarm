@@ -1,0 +1,20 @@
+{
+  "status": "DESCRIPTIVE_PREFIX_FACTS_COMPLETE_NO_NEW_TRADING_RULE",
+  "events": 33,
+  "entry_days": 32,
+  "signal_days": 32,
+  "signal_days_with_cached_minute": 0,
+  "raw_bars": 1536,
+  "unique_prefixes": 32,
+  "prefix_bars": 128,
+  "prefix_compatible_events": 33,
+  "physical_prefix_passes": 33,
+  "future_poison_passes": 33,
+  "source_label_cutoff": "09:50",
+  "economic_runs": 0,
+  "parameter_searches": 0,
+  "new_fetches": 0,
+  "scored_candidates": 0,
+  "new_entry_rules": 0,
+  "seconds": 0.015748541802167892
+}

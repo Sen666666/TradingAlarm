@@ -1,0 +1,12 @@
+{
+  "approved": true,
+  "recorded_at": "2026-10-29T13:24:08.032823+00:00",
+  "before_new_economics": true,
+  "paths": 6,
+  "sha256": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-local-finite-capital-20261029/PROTOCOL.txt": "9b4ea693836514a7ca897b2db4a9ae9097981e0d32204acd793debe06a9c2df0",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-local-finite-capital-20261029/INPUT_IDENTITY.json": "ce7e0202ebd367530a5375c6efc8b84598e2c57b4dfedad2755e002d464d7adc",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-local-finite-capital-20261029/code/preflight.py": "36e615ad9e6e69bbd99a29bc7d9d9f2721c2b7d34feb097b4c5eb2453db253bd",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-local-finite-capital-20261029/code/run.py": "fbc4da32f43be8975b080960b359769a0716c6b4696c0246a6a9abc316e962dd"
+  }
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "review_id": "URFI881267|2025Q3",
+    "industry": "能源金属",
+    "pool_stocks": 9,
+    "industry_receipts": 9,
+    "same_day_rawI_receipts": 9,
+    "within_interval_rawI_receipts": 9,
+    "full_pureQ_overlap": "unknown; rawI is candidate upper layer, original postQ intents are observed account-dependent lower layer",
+    "stock_CP1_cached": 0,
+    "stock_CP1_missing": 9
+  },
+  {
+    "review_id": "URFI881155|2025Q3",
+    "industry": "银行",
+    "pool_stocks": 39,
+    "industry_receipts": 1,
+    "same_day_rawI_receipts": 1,
+    "within_interval_rawI_receipts": 1,
+    "full_pureQ_overlap": "unknown; rawI is candidate upper layer, original postQ intents are observed account-dependent lower layer",
+    "stock_CP1_cached": 0,
+    "stock_CP1_missing": 39
+  },
+  {
+    "review_id": "URFI881276|2025Q4",
+    "industry": "军工电子",
+    "pool_stocks": 18,
+    "industry_receipts": 7,
+    "same_day_rawI_receipts": 6,
+    "within_interval_rawI_receipts": 7,
+    "full_pureQ_overlap": "unknown; rawI is candidate upper layer, original postQ intents are observed account-dependent lower layer",
+    "stock_CP1_cached": 0,
+    "stock_CP1_missing": 18
+  },
+  {
+    "review_id": "URFI881128|2025Q4",
+    "industry": "汽车服务及其他",
+    "pool_stocks": 5,
+    "industry_receipts": 4,
+    "same_day_rawI_receipts": 4,
+    "within_interval_rawI_receipts": 4,
+    "full_pureQ_overlap": "unknown; rawI is candidate upper layer, original postQ intents are observed account-dependent lower layer",
+    "stock_CP1_cached": 0,
+    "stock_CP1_missing": 5
+  },
+  {
+    "review_id": "URFI881107|2026Q1",
+    "industry": "油气开采及服务",
+    "pool_stocks": 8,
+    "industry_receipts": 13,
+    "same_day_rawI_receipts": 13,
+    "within_interval_rawI_receipts": 13,
+    "full_pureQ_overlap": "unknown; rawI is candidate upper layer, original postQ intents are observed account-dependent lower layer",
+    "stock_CP1_cached": 0,
+    "stock_CP1_missing": 8
+  },
+  {
+    "review_id": "URFI881276|2026Q1",
+    "industry": "军工电子",
+    "pool_stocks": 18,
+    "industry_receipts": 5,
+    "same_day_rawI_receipts": 5,
+    "within_interval_rawI_receipts": 5,
+    "full_pureQ_overlap": "unknown; rawI is candidate upper layer, original postQ intents are observed account-dependent lower layer",
+    "stock_CP1_cached": 0,
+    "stock_CP1_missing": 18
+  }
+]

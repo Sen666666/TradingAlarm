@@ -1,0 +1,9 @@
+{
+  "rows": 5127,
+  "focal_rows": 18,
+  "all_three_ACT_on": true,
+  "no_resource_recomputation": true,
+  "current_core_epoch_not_filled": true,
+  "original_daily_state_source_sha256": "ed4377571cc1b4dcbd428b2fcbdfe4cde1e9597fbe77b653fbd66447d57a80b9",
+  "original_pending_intents_source_sha256": "7ee012ab7ac513fd8c6b6460e3553c11464ebe121130e379abcf6b9e3b8f752f"
+}

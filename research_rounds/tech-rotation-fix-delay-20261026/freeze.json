@@ -1,0 +1,25 @@
+{
+  "recorded_at": "2026-10-26T13:23:00.992378+00:00",
+  "paths": 12,
+  "new_mechanisms": 9,
+  "controls": 3,
+  "after_prior_results": true,
+  "sha256": {
+    "research_rounds/tech-rotation-fix-delay-20261026/code/audit_study.py": "3e2264db2fb7d7b293e5716b31c62e3ce297875218ae0f5d5bf1fca179705621",
+    "research_rounds/tech-rotation-fix-delay-20261026/code/run_study.py": "6e3b809ca842a43840e59b8ee4eb3cb1057b21de60c1982fb69d327d7ad5a6d3",
+    "research_rounds/tech-rotation-fix-delay-20261026/code/trace_old.py": "546c31a5dfef9650a97686e9a262efa015287786bdd039a6bfc1d69ba9a8358d",
+    "research_rounds/tech-rotation-fix-delay-20261026/code/admit.py": "494fbaef00cadf8b6600d7651290fb21aaa542c5c535f22bb952812318f55c95",
+    "research_rounds/tech-rotation-fix-delay-20261026/code/initial_diagnosis.py": "6af2877136b4c05678d73c330b16d495019041bd9b221bdd3235ca96a2fba7dd",
+    "research_rounds/tech-rotation-fix-delay-20261026/code/study_common.py": "084ca59f83b2ef135ba6588a0bdd7937e0b20d8fd4684b4e53ebf1c7e388e7ec",
+    "research_rounds/tech-rotation-fix-delay-20261026/code/engine_fix.py": "c71edd1c5e0790ce2b50f5546e24db9d616258360b839577efc65f96a67a0be1",
+    "research_rounds/tech-rotation-fix-delay-20261026/code/graphs.py": "168497f5e6c7e6834feb9306df9ec9c626f7b89f33e58f9f1e880f6626a08a4f",
+    "research_rounds/tech-rotation-fix-delay-20261026/code/test_fix.py": "530adaf1f9fc9c22d5f38f996b981fb9d0c915f1363f24d4050b50bd64dda6ce",
+    "research_rounds/tech-rotation-fix-delay-20261026/PROTOCOL.md": "cab0f01b2be738564aa08fd777b328b6940a63af216a43bc7b6ec1a0e0cdadea",
+    "research_rounds/tech-rotation-fix-delay-20261026/GRAPH_REVIEW.md": "983fec5188c0208effbec0d1084a305667fe1a6f3913f865a4f6ee9763959ff6",
+    "research_rounds/tech-finite-compound-20261026/account-freeze-v2.json": "abf149780a58efd6d971d5f4005a16d9b731683016ca981c10279a6366d7ea5c",
+    "research_rounds/tech-finite-compound-20261026/execution-rules-v2.json": "62b9dc603bf176abbf2160943e8ccdc17dcbd6277a7b70b45d3e44e39b0a12f7",
+    "research_rounds/tech-finite-compound-20261026/data/core-v3/manifest.json": "993eb45d11bf536d1b123bfa14af330ea63daa663d36e471356e0e3c7c9f16fb",
+    "research_rounds/tech-finite-compound-20261026/prepared-v2/manifest.json": "9a1d902cc6e971742fd3a93f436da65e026bac7ff6fc8307f98180da0dbb3285",
+    "research_rounds/tech-finite-compound-20261026/prepared-v2/h1.npz": "ec7298dcf8b694c16b1685275ee31c38d47f936db058c7b62bce452880c21b88"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "scope": "Two original empty common pre-INIT snapshots only: 2022-01-05 CLOSE -> 01-06 OPEN original30 tickets; 2024-09-02 CLOSE ->09-03 OPEN original42 tickets. Exact original72 reservation q reproduction before alternative. No fills, no subsequent dates, no PnL/outcome joins.",
+  "formula": "R=max(0,0.005*NAV-current probe nominal risk at common pre-INIT snapshot). w_i=original positive PVR_i. d_i=max(0,original OPEN buy proxy price-original raw I floor). rmax_i=original before_shared_q_i*d_i, where before_shared_q already includes original OPEN size and INIT close_q. Keep source_formula_q separately. Solve sum min(rmax_i,lambda*w_i)=min(R,sum rmax_i); quota_i=min(rmax_i,lambda*w_i).",
+  "consumer": "Freeze all quotas once from common known-OPEN snapshot. Process original PVR descending/sid queue; original down-quantity search adds nominal-risk<=own quota. All dated buy/sell fees, close_q,2% cash,0.25% round fee risk,probe10%capital/0.5%risk,industryALL2%capital/1%risk,10%cash reserve,stock cap,quantity,volume and all source guards unchanged. No third-name replacement, unused quota refill, minimum-lot-first reranking or second allocation.",
+  "fees": "Quota only splits nominal pre-buy-fee headroom. Each actual hypothetical reservation still faces original effective NAV minus previously unbooked and current buy fees. Lambda does not relax hard guards, promise full quota use, or lower trading risk free of cost.",
+  "edge_branches": {
+    "NAV_or_existing_asset_UNKNOWN": "Stop batch, no quotas or allocations.",
+    "candidate_open_source_factor_floor_fee_metadata_UNKNOWN": "Stop that bounded batch without completing alternative; report exact UNKNOWN, not a zero-risk opportunity.",
+    "nonpositive_or_nonfinite_PVR": "Stop batch as invalid specified weight; no invented shift or equal weight.",
+    "original_OPEN_not_strictly_above_I": "Original known nofill, quota0; cannot be a free zero-risk reservation.",
+    "before_shared_q_zero": "rmax0,quota0,original nofill; keep row and do not create a minimum order.",
+    "rmax_zero_with_positive_q": "Treat as original guard inconsistency and stop; valid original OPEN>floor and positive5bp guarantee positive d.",
+    "R_zero_or_negative": "All quotas0; no positive-risk reservation; no negative-balance rescue.",
+    "R_ge_sum_rmax": "All quotas equal rmax, lambda taken as maximum rmax/weight (or0 for allzero).",
+    "lambda_numerics": "Use exact rational representations of Decimal input caps/weights and analytical capped proportional allocation, not parameter optimization. Persist numerator/denominator."
+  },
+  "report": "Both windows: actual reservation names/q retained-lost-added, nominal and fee-inclusive risks, cash/fees and per-order fee ratios, minimum-unit rejects and min-unit selected, unused quota/headroom, original per-ticket quantities exact. Wider coverage is not alpha or win-rate evidence; lower total risk is not quality.",
+  "dedup": "LR-1 cash waterfill (lot-risk-allocation-20261029) is prior mathematical machinery but has cash resource, equal probe/PVR-50 confirmed weights, minimum-order-first reordering, second topup/refill and changed10%CORE cap. Prior0.125%study changes individual fee-risk cap regardless competition. Neither is this unchanged-top2/PVR-order capped nominal shared-risk quota/no-refill consumer. Do not call waterfill new."
+}

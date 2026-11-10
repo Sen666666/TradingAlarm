@@ -1,0 +1,1 @@
+Shadow v1 failed before any trace was saved: duplicated policy keyword when copying pure-function diagnostic. Corrected diagnostic copying only. Nullable absent supports now serialized explicitly as None; policy exits still occur before reading absent support. Source/kernel/rules unchanged; no economic account run. Source/log/empty shadow retained.

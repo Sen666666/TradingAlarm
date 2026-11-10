@@ -1,0 +1,1 @@
+最后一次保存值核对的首个版本直接对全UNKNOWN列进行numpy相减，在Parquet NullType/None与float NaN之间出现TypeError。未发现价格或广度值差异，影子时序和数据均未重算。verify_saved_outputs.py仅在验证数组中把None标准化为NaN（不是0），随后仍以rtol=atol=0核对并保留全部UNKNOWN；许可条件与算法不改。此为验证器类型处理修正。

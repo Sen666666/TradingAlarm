@@ -1,0 +1,97 @@
+{
+  "status": "COMPLETE_NO_USEFUL_INCREMENT_FOUND_UNDER_FIXED_RANK_TEST",
+  "directory": "pvr_raw_share_ablation_v1",
+  "overlap": "No equivalent persisted full-candidate raw-share PVR ablation found. Prior mapping was19 case-only calculations; volume_return_kernel_v1 uses amount and changes the return-response model.",
+  "scope": "Only m abnormal amount replaced by raw-share ratio. Original u, 21/.9 and outer tanh fixed; no original CP, legal eligibility, account state, sector quotas, sizing or capital backtest changes.",
+  "volume_support_observations": 42,
+  "price_support_observations": 85,
+  "feature_run_seconds": 59.020692749880254,
+  "evaluation_seconds": 4.514193833805621,
+  "candidates": 53121,
+  "dates": 796,
+  "stocks": 1631,
+  "known": 52357,
+  "unknown_preserved": 764,
+  "picks_each": 14185,
+  "swaps": 19,
+  "changed_selection_fraction": 0.001339443073669369,
+  "all_years_primary_price_delta_percentage_points": {
+    "h5": 0.002039923635126347,
+    "h20": -0.004610220086418687,
+    "h60": 0.0004167340491861083
+  },
+  "headline": "固定同日同行业同K下，只改19/14185个入选槽。价格路径差异极小且方向不一致，整体三个冻结期限的描述性分块区间均跨0。未见有用增量，不支持据此提高到35%净闭环胜率或替换原PVR。",
+  "original_campaign_membership_only": {
+    "all_actual_first_MOBILE": 1814,
+    "baseline_topK_original_closed": 1483,
+    "baseline_topK_original_winners": 385,
+    "baseline_topK_original_net_winrate": 0.2596089008766015,
+    "share_topK_original_closed": 1483,
+    "share_topK_original_winners": 384,
+    "share_topK_original_net_winrate": 0.2589345920431558,
+    "removed": {
+      "sid": "688331.SH",
+      "name": "荣昌生物",
+      "signal_day": "2022-10-18",
+      "historical_net": 1390.1908196730794
+    },
+    "added": {
+      "sid": "600161.SH",
+      "name": "天坛生物",
+      "signal_day": "2022-10-18",
+      "historical_net": -608.53879051975
+    },
+    "NOT_NEW_STRATEGY": true
+  },
+  "big60_fixed_root_capture": {
+    "h5": {
+      "old": 334,
+      "shares": 332
+    },
+    "h20": {
+      "old": 1020,
+      "shares": 1018
+    },
+    "h60": {
+      "old": 1952,
+      "shares": 1948
+    },
+    "added_at_any_frozen_horizon": 0
+  },
+  "unchanged_membership_periods": [
+    "2024 full year",
+    "2024-09-24..2024-10-31",
+    "2026Q1 semiconductor"
+  ],
+  "yearly_swap_dates": {
+    "2022": 4,
+    "2023": 5,
+    "2024": 0,
+    "2025": 6,
+    "2026": 4
+  },
+  "limitations": [
+    "Raw shares/previous21 median is relative same-share-unit activity, not free-float turnover.",
+    "volume_factor constancy is a source unit-coordinate check, not proof of all capital changes.",
+    "Primary complete-all-candidate supports are711/576/377 dates for5/20/60;2024_924 only11/5/3 and2026 60-day only2. Identical membership can still be checked on all dates without labels.",
+    "2022–2025 results and2026 are already-consumed historical cohorts, not train/test or OOS proof.",
+    "Result is specific to the original legal MOBILE domain and fixed same-sector K; it does not test other uses of share volume."
+  ],
+  "files": [
+    "PROTOCOL.json",
+    "RANK_SEAL.json",
+    "COMPLETION.json",
+    "SAME_DATE_SECTOR_K_RESULTS.csv",
+    "COMBINED_2022_2025_RESULTS.csv",
+    "PAIRED_60SESSION_BLOCKS.csv",
+    "EVALUATION_COVERAGE.csv",
+    "ALL_19_SWAPS_WITH_LABELS.csv",
+    "ORIGINAL_CAMPAIGN_ASSOCIATION.csv",
+    "NATIVE_ROOT_COVERAGE_SUMMARY.csv",
+    "BIG60_CAPTURE_CHANGED_ROOTS.csv",
+    "FIXED_CASE_SCORES.csv",
+    "SYNTHETIC_QA.json",
+    "PREFIX_QA.json",
+    "INDEPENDENT_AUDIT.json"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "before_one_T3_path": true,
+  "K": 3,
+  "K_not_optimized": true,
+  "economic_budget_seconds": 60,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-top3-entry-Q4-20261031/PROTOCOL.txt": "976e37a95a4ff7586ea34f1075765b464fe08dce6c03e5edce0f837193b637c9",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-top3-entry-Q4-20261031/top3.py": "4941716c50c26a68ee424e592d92b1bb010fc4d5499457ae00cfd4448beebc6b",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/FREEZE.json": "fae5734e36db0ca3c16779e80e4c1119e49e18aa3e23b64fc28c7432741b1d14",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/seed.chk": "e9501163c403f5fa2a5910e84d1fcaed9a07448e78c9cf098f6a3b95836abca8",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/recovery.csv": "76599d9013946bc5fc501a57b046f36a2868ad61f147ef1a6c73c9575b35906a",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/results/RAW.json.gz": "52d2b4ad4790cea783b99b66bccb0b37cd738434dccd2227d86efe236df05890",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/analysis/VERIFICATION.json": "b54eb1e866fa70b4370e5ef54be29eec223d2b4e280f548fb111d10d5c01a6fc",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/market-mainline-measurement-20261031/FEATURE_MATRIX_90.parquet": "4be2fe5842221099f4c0fe9fb6380bf4ec77a26cca786d0cb9ac3a25c3464598",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_stock_admission.py": "0ad8c13c87081f1b64657ee987130d1e90f9ff4fd1728a319844af073313ebb8"
+  }
+}

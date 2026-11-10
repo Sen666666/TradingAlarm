@@ -1,0 +1,37 @@
+FROZEN SMALL TECHNICAL ONLY. Authorization MARKET_GROSS_ADMISSION_SMALL_AUTHORIZATION.json.
+Arms B (original native J.Account/No60 route) and D_GROSS10. No full economic run.
+Cases legacy9 Jan4–14 2022, fresh_DOWN_technical6 Jan7–14 2022, strong9 Jul1–11 2025.
+Every account initial CNY1m, independent own native state. Fresh6 is a synthetic technical
+initialization; no comparison to old Jan4 gold. Normal B prefixes must be exact old gold.
+Reuse original immutable long inputs once for two weak cases, strong once; no new loader.
+Input functions reused from frozen capacity_inputs.py with import dependency redirected to
+No60/gross adapter only, not cost guard. No cost/F-E/basis observer initialized or imported.
+
+Background uses stored ETF CSV signal_close and stored inclusive ma63, with prior stored
+observation ma63, strict comparisons/no tolerance/no new rolling/TR calculation. CSV float
+parsing follows existing benchmark pandas reader. Observation becomes usable at 15:10+08
+on its date. OPEN uses last completed CLOSE, including pending order fill independent of
+intent age. Missing/invalid X/MA/priorMA means UNKNOWN and blocks only new grants.
+Long source existing2024 history; strong existing2026 history. Warm values retained.
+Physical info prefix removes all later rows and must give identical past states; provider
+pickle roundtrip must preserve clocks/source contract (not native historical restart proof).
+
+One extra admission predicate, same pure condition at route, actual reserve and actual fill.
+ND removes this extra condition only. ACT/BREAK/exit/stock/sector/pool/cash/fresh CP1/Q unchanged.
+DOWN: I+P+new gross commitment <=.10 projected NAV. I=original balance inventory all holdings;
+P=sum true a.buys remaining_budget_cny including unacknowledged cancellation. P excludes
+fee; fees are NAV/cash only. Intents are not pending reserves. Old I can be over cap, no sell.
+Reserve: denominator=N−sum(pending fee+gross*s/(1+s))−newfee−q*max(exec−rawmark,0);
+numerator=I+P+q*exec. Candidate q uses original legal-step maximum_quantity.
+Fill: current order already in P; never add it twice or delete its entire remainder.
+Keep I+P conservative gross bound; actual partial replaces only executed reservation gross
+with actual qty*rawmark, current remainder+others+cancelpending remain charged until ACK.
+Denominator replaces only current drag by max(old fee, cumulative full-fee bound)+
+max(old remaininggross*s/(1+s), affordablefullq*max(exec−rawmark,0)). This preserves partial
+buffer at lower execution price. Use original LR fees/_fee, no second fee/NAV engine.
+Fail fill => original cancel/ACK, no synthetic order resizing. Positive actual fill post-check
+only; q0/legacy passive overcap is allowed. No unconditional daily total<=10 assertion.
+No changes to original cash/AR/dividend/CA/T+1/holdings/exit. No new risk/epoch/cohort account.
+Every actual reserve/fill snapshot records native audit/trade/journal prefix, I/P/NAV,
+pending gross/fee/drag components, provider time, proposed q and projected denominator.
+Original EPS1e-6 for financial reader residuals, source/date/count and NONE traces exact.

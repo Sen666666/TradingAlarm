@@ -1,0 +1,136 @@
+
+FILE /Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py SHA256 85f21ad1622863645618f570b5f2e832558ebaca218ff2c71d0b4a0b545dd0bf
+1: """CP1 market-only receipt calculation. No account/trade engine imports."""
+2: import math
+3: import numpy as np
+4: import pandas as pd
+5: A=math.sqrt(5);K=math.sqrt(21);S_MIN=math.log1p(.001)
+6: EPS=4*2**-53/(1-4*2**-53)
+7: def ge(a,b):return a>=b or abs(a-b)<=EPS*max(abs(a),abs(b),1e-300)
+8: def gt(a,b):return a>b and not abs(a-b)<=EPS*max(abs(a),abs(b),1e-300)
+9: def features(f):
+10:  if not isinstance(f.index,pd.DatetimeIndex) or f.index.hasnans or not f.index.is_unique or not f.index.is_monotonic_increasing:raise ValueError('ordered unique daily index required')
+11:  if not f.index.normalize().is_unique:raise ValueError('daily only')
+12:  if not {'close','amount','segment_id','e0_valid','e0_down'}<=set(f):raise ValueError('required facts absent')
+13:  for k in ['close','amount']:
+14:   if not (np.isfinite(f[k]).all() and f[k].gt(0).all()):raise ValueError('no missing/nonpositive price or amount')
+15:  for k in ['e0_valid','e0_down']:
+16:   if not pd.api.types.is_bool_dtype(f[k]) or f[k].isna().any():raise ValueError('explicit Boolean facts required')
+17:  if f.segment_id.isna().any():raise ValueError('source identity required')
+18:  blocks=f.segment_id[f.segment_id.ne(f.segment_id.shift())]
+19:  if blocks.duplicated().any():raise ValueError('noncontiguous source')
+20:  out=pd.DataFrame(index=f.index,columns=['r','s','z','B','u','v','m'],dtype=float)
+21:  for _,g in f.groupby('segment_id',sort=False):
+22:   r=np.log(g.close).diff();s=r.abs().shift().rolling(63,min_periods=63).median().mul(1.4826).clip(lower=1e-8)
+23:   B=g.amount.shift().rolling(21,min_periods=21).median();u=np.tanh(r/s);v=np.tanh(np.log(g.amount/B))
+24:   out.loc[g.index]=pd.DataFrame(dict(r=r,s=s,z=s.clip(lower=S_MIN),B=B,u=u,v=v,m=1+.5*u.abs()*v),index=g.index)
+25:  return out
+26: def calculate(f,price_only=False):
+27:  z=features(f);out=[];phase=None;anchor=frontier=scale=None;credit=0.;segment=None
+28:  for day,row in f.iterrows():
+29:   q=z.loc[day];p=math.log(row.close);fresh=0.;receipt=False;candidate=math.nan;reason=None;disp=math.nan
+30:   if row.segment_id!=segment:
+31:    phase=None;segment=row.segment_id;reason='source_reset'
+32:   ready=math.isfinite(q.z)
+33:   if not ready or not row.e0_valid:
+34:    phase=None;anchor=frontier=scale=None;credit=0.;reason='unprepared' if not ready else 'E0_invalid'
+35:   elif phase is None or row.e0_down:
+36:    phase='SEEK';anchor=frontier=p;credit=0.;scale=float(q.z);reason='E0_down_reset' if row.e0_down else 'start'
+37:   elif phase=='SEEK' and gt(anchor,p):
+38:    anchor=frontier=p;credit=0.;scale=float(q.z);reason='lower_anchor'
+39:   else:
+40:    fresh=p-frontier if gt(p,frontier) else 0.
+41:    if fresh:
+42:     frontier=p;credit=math.fsum((credit,fresh*(1. if price_only else float(q.m))))
+43:    disp=frontier-anchor
+44:    receipt=bool(fresh and ge(disp,A*scale) and ge(credit,A*scale))
+45:    if receipt:candidate=float(row.close)*math.exp(-K*scale)
+46:   used_anchor,used_scale,used_credit=anchor,scale,credit
+47:   used_phase=phase
+48:   if receipt:
+49:    phase='UP';anchor=frontier=p;credit=0.;scale=float(q.z);reason='receipt_consumed'
+50:   out.append(dict(ready=ready,phase=used_phase,reset_reason=reason,anchor=used_anchor,frontier=frontier,scale=used_scale,credit=used_credit,delta_frontier=fresh,displacement=disp,receipt=receipt,candidate=candidate,next_anchor=anchor,next_scale=scale,next_credit=credit,next_phase=phase))
+51:  cols=['ready','phase','reset_reason','anchor','frontier','scale','credit','delta_frontier','displacement','receipt','candidate','next_anchor','next_scale','next_credit','next_phase']
+52:  result=pd.DataFrame(out,index=f.index,columns=cols)
+53:  for k in ['phase','reset_reason','next_phase']:result[k]=result[k].astype('string')
+54:  for k in ['ready','receipt']:result[k]=result[k].astype(bool)
+55:  for k in set(cols)-{'ready','receipt','phase','reset_reason','next_phase'}:result[k]=result[k].astype(float)
+56:  result=result.join(z)
+57:  result['e0_valid']=f.e0_valid;result['e0_floor']=f.i_floor if 'i_floor' in f else np.nan
+58:  return result
+
+FILE /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/prepare.py SHA256 f2c2e80103f75f5575bf8d45c7a20e6005eccf5daaea54b58f9cc2c1e433cf59
+20: def emit_stock(sid,case,prefix_sample):
+21:  start=time.monotonic();refs={};checks={};old_source_status=None;CP_reuse=False;facts_reuse=False
+22:  if case is not None:
+23:   assert all(sha(p)==h for p,h in case['source_sha256'].items())
+24:   assert all(sha(W/'case-stock-cp1-warmup-20261031'/p)==h for p,h in case['output_sha256'].items())
+25:   root=W/'case-stock-cp1-warmup-20261031';refs=dict(facts=str(root/'full-facts'/f'{sid}.parquet'),CP1_input=str(root/'CP1-input'/f'{sid}.parquet'),CP1=str(root/'CP1'/f'{sid}.parquet'));f=pd.read_parquet(refs['facts']).loc[:END];q=pd.read_parquet(refs['CP1_input']).loc[:END];z=pd.read_parquet(refs['CP1']).loc[:END];source_hash=case['source_sha256'];CP_reuse=facts_reuse=True;checks['previous_case_full_chain_verified']=True;mode='verified_case_reuse'
+26:  else:
+27:   f,receipt=N.derive(sid,END);paths=source_paths(sid);source_hash={str(p):sha(p) for p in paths.values()};native=pd.read_parquet(W/'native-I-cache-interface-20261031/facts'/f'{sid}.parquet').loc[BEGIN:END];G.exact(f.loc[BEGIN:END],native);checks['native_I_export_all_fields_exact']=True;q=G.frame(sid,f,END);z=M.calculate(q);old=C.O/'signals'/f'{sid}.parquet';mode='new_fixed_chain'
+28:   if old.exists():
+29:    try:
+30:     G.exact(q,C.frame(sid,END));G.exact(z,pd.read_parquet(old).loc[:END]);refs['CP1']=str(old);CP_reuse=True;old_source_status='full_input_and_CP1_exact';checks['old_CP1_current_source_exact']=True
+31:     oldfacts=C.PREP/'facts'/f'{sid}.parquet';ff=pd.read_parquet(oldfacts)
+32:     if set(N.COLS)<=set(ff):G.exact(f,ff.loc[:END,N.COLS]);refs['facts']=str(oldfacts);facts_reuse=True
+33:    except (AssertionError,ValueError,FileNotFoundError) as e:old_source_status='incompatible_or_unavailable:'+str(e)[:350]
+34:   if 'facts' not in refs:
+35:    path=O/'facts'/f'{sid}.parquet';f.to_parquet(path);refs['facts']=str(path)
+
+FILE /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py SHA256 fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425
+225:     if not a.risk_state['on'] or not bool(row.i_target):
+226:      if not bool(row.i_target):
+227:       for x in a.live(sid):
+228:        if x['kind']=='core':a.jmeta[x['id']]['pending_I_exit_reference']=True
+229:      a.sell(sid,clock,quote,[x['id'] for x in a.live(sid)],'ACT_pause' if not a.risk_state['on'] else 'I_structure_exit');continue
+230:     for x in a.live(sid):
+231:      if x['kind']=='core':
+232:       known_floor=self.facts.floor(sid,at,'I')
+233:       if known_floor is not None:a.jmeta[x['id']]['last_core_line']=str(known_floor)
+234:       continue
+235:      if x['kind']!='add' or x['id'] in a.sell_layers.get(sid,set()):continue
+236:      if D(str(row.close))<=x['floor']:a.sell(sid,clock,quote,[x['id']],'CP1_add_protection')
+237:      else:
+238:       floor=self.facts.floor(sid,at,'I')
+239:       if floor is not None:x['floor']=max(x['floor'],floor)
+240:       if cp is not None and bool(cp.receipt):x['floor']=max(x['floor'],D(str(cp.candidate)))
+241:    a.sync(at);self.industry(a,at)
+242:    for rank,sid in enumerate(ordered):
+243:     cpr=self.receipts[sid].get(gidday(at));roles=[];why=[];held=bool(a.quantity(sid));epoch=self.global_watch.get(sid);sector=self.sector_by_sid[sid]
+244:     if event[sid].q is True and not held and a.core_epoch.get(sid)!=epoch:roles.append('core')
+245:     if cpr and continuing[sid].q is True:roles.append('mobile')
+246:     if not a.risk_state['on']:why.append('ACT_paused')
+247:     if sid in a.exits:why.append('exit_pending')
+248:     if sid in a.buys:why.append('buy_pending')
+249:     if event[sid].q is not True and not (cpr and continuing[sid].q is True):why.extend(event[sid].reasons or ['no_fresh_signal_or_Q'])
+250:     self.opportunities.append(dict(account=a.label,day=gidday(at),sid=sid,sector=sector,rank=rank,core_Q=event[sid].q,mobile_Q=continuing[sid].q,CP1_id=cpr['receipt_id'] if cpr else None,roles=roles,held=held,barriers=why))
+251:     if why or not roles:continue
+252:     q=self.market.quote(sid,at);floor=self.facts.floor(sid,at,'I')
+253:     if q is None or floor is None:continue
+254:     for role in roles:
+255:      fline=max(floor,D(str(self.cp[sid].loc[day,'candidate']))) if role=='mobile' else floor;budget=min(a.current_nav*D('.02'),max(Z,a.current_nav*D('.1')-a.quantity(sid)*q.raw_price));i=dict(sid=sid,clock=clock,quote=q,budget=budget,cap=q.quantity.buy_floor(int(budget/q.raw_price)),weight=1.,group=0,score=sd[sid].rank.read(clock),kind='add' if role=='mobile' else 'core',role=role,floor=fline,epoch=epoch,reason='fresh_CP1_mobile' if role=='mobile' else 'I_early_core',rank=rank,CP1_id=cpr['receipt_id'] if role=='mobile' else None,CP1_trace=cpr if role=='mobile' else None)
+256:      if role=='core':LR.resize_core(i,a.current_nav,self.facts.factor(sid,at))
+257:      if not i.get('size_reject') and i['cap']>0:a.pending.append(i)
+302:  def opening(self,a,at):
+303:   C.activate(a)
+304:   for sid in sorted(a.exits):
+305:    win=self.market.window(sid,at,'sell',1)
+306:    if win:a.fill_exit(sid,win)
+307:   a.settle_due(at);a.sync(at);funded=[];done=set()
+308:   for i in sorted([i for i in a.pending if i['clock'].earliest_execution_at==at],key=lambda x:(x['rank'],x['role']!='core')):
+309:    sid=i['sid']
+310:    if sid in done or sid in a.buys or sid in a.exits:continue
+311:    raw=self.market.raw[sid];day=pd.Timestamp(at.date())
+312:    if day not in raw.index or not np.isfinite(raw.loc[day].open) or raw.loc[day].open<=0:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='missing_open'));continue
+313:    x,why=LR.preview(i,D(str(raw.loc[day].open)),self.facts.factor(sid,at),self.market.quantity(sid,at),self.market.fees(sid,at))
+314:    if why:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result=why));continue
+315:    x['known_open']=D(str(raw.loc[day].open))
+316:    route,why=self.route(a,i,x,at)
+317:    if why:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result=why));continue
+318:    q,pool=route;a.reserve_quantity(i,q,x['price'],x['schedule'],at);a.sync(at);done.add(sid);funded.append((sid,i,x,q));self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='reserved',pool=pool,shares=q,price=x['price'],CP1_id=i.get('CP1_id')))
+319:   # Execution proxies are consulted only after all H1-ranked funding decisions.
+320:   for sid,i,x,q in funded:
+321:    win=self.market.window(sid,at,'buy',1)
+322:    if win:assert win.execution_price==x['price'];a.fill_buy(sid,win)
+323:    else:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='no_execution_window_after_reservation'))
+324:   a.settle_due(at);a.sync(at);a.minimum_available=min(a.minimum_available,a.available);a.check()

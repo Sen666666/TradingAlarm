@@ -1,0 +1,32 @@
+{
+  "time_UTC": "2026-11-04T15:56:38.501794+00:00",
+  "before_new_feature_run": true,
+  "sample": [
+    "000001.SZ",
+    "300001.SZ",
+    "688001.SH"
+  ],
+  "prefix_cuts": [
+    "2022-04-29",
+    "2024-09-23",
+    "2026-03-31"
+  ],
+  "compute_seconds_budget": 60,
+  "new_accounts": 0,
+  "source_SHA256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_dedup_v1/compute_flags.py": "b535fc27dc7a6445013d4ee442a4f2b88ea8d56d6a927e2c20686d04bf0fe3a5",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_dedup_v1/FEATURE_VERIFICATION_SPEC.txt": "5b5e658ddf3192f392afd1137afba7cc2c2d2e433619c6383c4137ed5f8c6046",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_dedup_v1/FORMULA_AND_ABLATION_CARD.txt": "61e817c0e420be7b2025aea14d4d3d2993b4ea2e55f1e718ea9efa739f43c754",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stock-cp1-warmup-20261031/full-facts/000001.SZ.parquet": "c24c7cfb19467e17f4d7f4e97eb88647d51b36268ed71407416b1bc39e9b20f4",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stock-cp1-warmup-20261031/CP1-input/000001.SZ.parquet": "9245666a36cc4684ca0205179de24b8af110f5a11179f8899ab4df84e0cccdcd",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/prepared-v2/000000/signal.parquet": "2a7e8c5dc0e25ecfddbf7d0a8c67da61fc539348db8d7088345d040d76bb4d17",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/facts/300001.SZ.parquet": "40f20d9a91037961e2d9240373888907d127800635877d657d76ff786030ef16",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/CP1-input/300001.SZ.parquet": "aa9a04ad3455caa5b323bcc63be7f913c049ff21417f92e61b3b0c11057cdc24",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/prepared-v2/000492/signal.parquet": "f7d24703771e403c8579fe599327c561599d23d470cceb1ff8f35f27bb8d8691",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/facts/688001.SH.parquet": "8f52689e6f50585043ef17427774944e1aeeaf150d6525e642211e74f9b4963b",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/CP1-input/688001.SH.parquet": "16eea011f1297d59551feab358011e27620137a463b16c5aa258c41935497f20",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/prepared-v2/001468/signal.parquet": "58dae296e244b8f8a1ca54f19402b60b3efbac4dd94e9c06bb84273bac099c99",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_dedup_v1/verify_features.py": "5eef790eae68c49b94fe4628c064b0617d74f9c447e84eef79f0e352d052f186"
+  }
+}

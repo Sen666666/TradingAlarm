@@ -1,0 +1,9 @@
+工作目录：research_rounds/g-s-C-two-day-finance-20261102
+只读命令（不执行金融事件）：
+  /Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B test_provider_fix.py
+  /Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B verify_saved.py --out /tmp/C-two-day-verify-UNIQUE
+结果：4修复回归；20状态×7独立科目差0 + 股数/lot/asof/完整restore一致。
+原报告与失败：runs/2022-C10/ERROR.json及failure-state.pkl；report-failures/保留分析/测试失败。原mixed/入口/inputs未修改。
+修复：provider_fix1.py / PROVIDER_REPAIR_AUTHORIZATION.json，原失败账户显式身份导入在runs/2022-C10-recovered/IMPORT_MANIFEST.json，旧证书按真实旧source验证。
+终态入口：CONTINUATION_CHECKPOINTS.json，四个完整account/budget/goal/receipt/F1/ACT/source检查点。不要执行provider_fix1.py或原入口：授权事件已经全部完成，不可重复运行。
+范围：四条两日技术前缀；原生日线代理。无1/6、7/3或首月事件。经济效果、20%限速收益/持续趋势参与仍未验证。未来Q=0未知priority键等原限制仍存在。

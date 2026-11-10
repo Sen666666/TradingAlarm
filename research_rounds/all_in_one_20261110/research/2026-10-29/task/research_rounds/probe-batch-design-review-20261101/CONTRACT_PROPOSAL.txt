@@ -1,0 +1,34 @@
+研究草案：Bdiag 的 probe 同开盘两遍规划（仅源码／设计审查，未实施）
+
+结论：可用“两遍内部规划→每股一张最终聚合订单”表达，不需要新增向上改单API。原始“每个候选先一手”仍欠缺pool／role语义；以下给出唯一收窄建议，须经主审冻结后才可实现。它是资金分配政策改变，不是代码修复，也不保证更多落脚或更好收益。
+
+1. 底座和不变项
+使用原Bdiag，不含C1/R1/stage候选。Bdiag本来取消account 3%名义风险准入，本试验不重新加入；probe 10%资本/.5%名义风险、confirmed 60%资本、行业2/10/20%全部承诺资本、行业1%风险、股10%、现金及10%原现金reserve、原core .25%含费/退出滑点保护风险、mobile正常2%目标全部保留。行业所有旧attempt/core/mobile/pending仍共同占额；不卖旧仓、不换floor、不豁免浮盈回吐、不释放未确认撤单或未实卖的资金。
+先按原opening处理已请求卖单的真实代理成交、结算及sync，再取同一个规划初态。原前一决策NAV冻结目标、股cap、现金reserve；风险／池资源仍用原真实开盘权益及已知费用语义，不相互替代。原日线H/L/volume成交代理限制继续保留。
+
+2. 完整优先级与资格
+上一个原planning：H1降序，再股票代码升序；开盘沿保存rank，及同股role!='core'排序，即core优先。保留原clock/earliest_execution、Q/ACT、同股buys/exits、core_epoch、industry attempt、fresh canonical CP1及当日原保护。rank是原全输入0起位置，不能重新只按合法候选排序或换waterfill权重。
+先调用原独立sizing/preview：core必须满足原.25%与股10%，mobile必须在完整原2%及股剩余空间内；原cap/budget买不起最低单位即拒绝。不提高目标、不向上取整、不借R1、不用缩量后的剩余预算替代独立目标。
+原同股角色顺序完全保留：core未合法获得最低预留才看mobile；core一旦内部获准最低预留，该股即done，mobile当日不再分配，即使以后零fill。mobile首次／add／reentry同一canonical ID只消费一次。双role不是两个独立一手名额。
+
+3. 第一遍：限定为probe的最小单，confirmed保持原完整量
+在只读的批次资源视图中，沿完整原优先级处理股票／角色。按原route用原完整独立target上限求probe、confirmed各自最大合法数量；保留原迁池资格、真实旧probe／pending占用和“最大数量，平手probe”规则。
+不能先把两个pool的上限截成一手再比，否则原confirmed可买500、probe只可100的mobile会变成100:100并误走probe。
+若完整目标比较选中confirmed：按当时原最大合法量规划该单，不纳入第二遍。若选中probe：只在该pool规划恰好一个dated buy_minimum，固定该单role/pool。当前不能获得最小量则按原顺序尝试同股下一角色；均不能则无单。不能为了留最小单而使用原本不合法的行业资格／floor风险。
+这样仅推迟原选中probe单的补量；没有把confirmed订单也改成全市场最小单公平分配。已获准角色／pool不在第二遍重选。
+原route会尝试migrate并可能改变pool归属／status。规划中只能在私有资源表反映相同迁池，不得实际调用budget.request/migrate来试探；未ack的pending仍占用。保留最终提交时的相同迁池顺序。此项是未来薄接线必须核的接口，当前尚未实现。
+
+4. 第二遍：probe已获准单按原序补量
+只访问第一遍获准probe的股票一次，沿原完整优先级，向其原独立target的最大合法数量补量。原目标不是baseline最后因竞争被裁到的数量；但不得超原signal cap、gross budget、core risk或stockcap。没有新申请、没有第二张同股单、没有新receipt，也不把未获准股票放进第二遍。
+订单合法量为m+k*buy_step：普通A股m=100/step=100；原dated 688规则m=200/step=1，可从200补201，不能把每次增量都当200。fill_step另由真实成交器处理；不得借fill_step=1创造未满足初始minimum的新单。
+试算补量时替换该单原最小量的资本／风险／费用占用，不是再加一张订单。费用按最终聚合量F(q)计算，只占一次5元订单最低佣金，不算F(m)+F(q-m)。新股票更多导致全批最低佣金变多是实际经济代价，不能抹掉。每次补量保留其它所有最小预留，重验原池/行业/现金/股限制和费用扣权益；不能先释放最小预留再误花他人现金。
+
+5. 一次提交与原生命周期
+两遍只形成内部方案，不创建BuyOrder，不增加stock_requests/consumed，不运行fill或窗口postcheck。最后先按原顺序对最终数量、fee、迁池及每个资源前缀做只读可执行性核验；任一不一致停止工程闸门，不能暗中丢后序候选、借池或fallback另一政策。手续费影响NAV、迁池容量及其它预留，不能只核新加一笔差额。
+核验后沿原序，每股调用一次原预算准入及一次reserve_quantity，建立一个native buys[sid]和一个镜像order。receipt只在最终合法预留这一次消费；core成功预留仍跳mobile。原budget.request在部分资源失败前就会写consumed/stock_requests，故它不能充当无副作用planning preview。原native reserve与mirror不同步等异常须在任何buy fill前停止并留证，不能成交后补余额。
+所有最终预留完成后，才沿原序调用原market.window/fill_buy；不能按当日H/L/volume挑选第一遍候选或回收未成交的钱给同批别人。保留原部分成交、增量费用、剩余预留、日末取消、split与保护退出；部分成交不再获一次minimum、不再领CP1、不再跑补量。原退出义务、次日重新fresh信号语义不变。
+
+6. 明确代价和未来闸门（当前未实施／未开收益）
+可能让更多core小单预留成功而挤掉同股本可走confirmed的独立mobile；这是保留core-first的真实政策反馈，必须统计，不能写成信号机会完全不变。不得为美化结果临时改mobile优先。
+可能完全没有新增落脚：一手本身风险很大、旧probe已超限、所有原获准单都已最小。也可能更多弱试探挤小原盈利赢家，费用增加、风险周转更碎。不得用中际／新易是否买到作为验收优化目标。
+未来若获准实现，先whole-batch只读预览且包含不变／更差批次；逐批报告新unique股票落脚、原候选缩量/被挤、role与pool转变、minimum本身不可行、费用变化以及原始target，才决定是否跑账户。所有局部预览均非可执行反事实PnL；本轮没有实施分配器或推进任何账户。

@@ -1,0 +1,39 @@
+Scope fixed before receiving structural table: saved-money association only.
+Producer of D/P/C table is ar6, after pool source review. This directory must not
+calculate a market state, feature, risk budget, price feed or hypothetical account.
+
+Fixed important footprints, max5:
+1 first explicit D transition in old L01 2022Jan4-Apr26;
+2 first explicit D transition in old L03 2022Jul5-Oct31;
+3 first explicit D transition in 2023Q2 Apr1-Jun30;
+4-5 chronologically first two explicit D transitions in strong Jul1'25-Jun30'26.
+If a phase begins already D and has no new transition, report carry-in D at first
+saved day separately, not invent an exit request. If no D, report none.
+Select by frozen calendar and transition order, never by account PnL/losing dates.
+
+Join only already audited No60 daily/sector money, saved native daily quantities
+and old saved trade/action clocks. Old stock quantities at nextOPEN after fills
+can equal nextCLOSE quantities only after verifying all actual trade clocks are
+09:30 and quantity-changing actions are earlier. Money at nextCLOSE is not an
+OPEN mark. No new raw price loader or inventory revaluation is allowed.
+
+For each D: old request-day CLOSE NAV/gross/actual quantities/pending exits;
+next old actual execution-day quantity and separately nextCLOSE gross; asof old
+unrealized = existing marked inventory minus held cost basis, source clock clear.
+Original following wealth is old daily sum from next session to fixed phase end
+(L01 Apr26/L03 Oct31/Q2 Jun30/strong Jun30'26), with new buys/fees/dividend retained.
+It is not wealth of liquidated names and not avoidable loss/mis-harm PnL.
+
+AI context uses old computer equipment/communications equipment/culture-media
+sector aggregates, movie sector separate. Fixed explanatory sids 920808.BJ,
+603083.SH,601595.SH show actual held quantities, not falsely asof stock PnL.
+Strong original winner context uses the existing frozen94 old-PVR tail layers;
+SID membership is only a frozen stock-level label, not exact order/campaign match
+and not proof No60 held the same winning episode. Sector attribution remains
+whole original sector including later new stocks. No lifetime profit is pasted
+into an asof or forward-cutoff stock profit.
+
+Actual D request != actual new liquidation; D table owns no orders. No new NAV,
+benefit claim, buy-veto profit deletion, capital mapping or 4.5%/n risk formulas.
+If structural table arrives too late, report existing observed counterexample
+boundary and source pointers within15min rather than inventing the footprint.

@@ -1,0 +1,4 @@
+全3436 actual decision context已扩，industry自身EMA20与industry20-HS30020及原market-stage/authorization均逐行保留；不是新增准入门。三年13/strong4笔stock t-20端点缺失UNKNOWN，current stock/industry EMA已知。
+Dec实际fill122与Decdecision118交集118，另4笔决策2022-11-30、实填2022-12-01（000617/600221/600675/601858）；没有Decdecision在别月才fill。
+旧87按MONTH稳定intent精确join，月初/退出前/原request共248context，全部端点及EMA已知。Nov30行业C>=EMA且industry20>HS30020为45层；C>=EMA但行业非超额24层；行业C<EMA且非超额18层，仅事实计数不按钱挑门。
+持仓H2首作用域另见held_h2_diagnostic/READOUT.txt；非entry-only且未跑账户。

@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "scope": "read-only existing funded-path diagnosis",
+  "actual_campaigns": 1700,
+  "new_accounts": 0,
+  "algorithm_changes": 0,
+  "rotation_added": false,
+  "verification": {
+    "passed": true,
+    "rows": 1700,
+    "no_new_accounts": true,
+    "all_campaigns_match_original_independent_pnl": true,
+    "code_sha256": "747f46523b7bf048180bfdd47d00a8dd3eb7729d4a4bdaf1696903596def94fc"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-31T01:55:00.244952+00:00",
+  "before_local_economic_results": true,
+  "units": 101,
+  "sample_units": [
+    "TECH|base|605118.SH|fill:605118.SH:10",
+    "TECH|delay1|603256.SH|fill:603256.SH:637",
+    "TECH|delay1|300866.SZ|fill:300866.SZ:150",
+    "DRUG|base|688578.SH|fill:688578.SH:78",
+    "DRUG|delay1|603259.SH|fill:603259.SH:216",
+    "DRUG|delay1|688331.SH|fill:688331.SH:342",
+    "DRUG|delay1|688235.SH|fill:688235.SH:565"
+  ],
+  "arms": [
+    "R",
+    "G",
+    "N"
+  ],
+  "sha256": {
+    "research_rounds/partial-recovery-local-rgn-20261031/shared.py": "eb515dbf7cae9b392b6a7345429c5af7d618dfae5410cf806746c3a6efba79dc",
+    "research_rounds/partial-recovery-local-rgn-20261031/local.py": "cb34439d6c74d955ad3d3454d350002c51173d34e47db5dc0d645b8bc5202a42",
+    "research_rounds/partial-recovery-local-rgn-20261031/run.py": "5a70b35b25bd731a47e0cf6cf380e95499047869ef8253a66228041dacd6445d",
+    "research_rounds/partial-recovery-local-rgn-20261031/PROTOCOL.txt": "df18fb299bf15c874956f8ac3cdc1e9267ea31213bc55be6c6950493ab372860",
+    "research_rounds/partial-recovery-local-rgn-20261031/UNITS.json": "1143516e45be6354b305991765ef13459cb72e23e294a43e0b31f24b729469f5",
+    "research_rounds/partial-recovery-local-rgn-20261031/STATE_TESTS.json": "3d28f2934493443ef59a8fd979bafa1a49677e5cae3bdf3b8e643329764d9e34",
+    "research_rounds/partial-recovery-local-rgn-20261031/ACTUAL_R_REPRODUCTION.json": "8ee9aa7d9395e07c637dcd449135a61571cb8175eb5f71873a57879f999a65f6"
+  },
+  "implementation_repair": "Normalize evaluation to common original-exit DAY CLOSE, as protocol states. Original end_at is actual morning fill timestamp; old summary tried backwards balance after same-day close. No signal/execution/threshold changes."
+}

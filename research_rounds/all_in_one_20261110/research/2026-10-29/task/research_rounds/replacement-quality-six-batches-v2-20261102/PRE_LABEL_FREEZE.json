@@ -1,0 +1,16 @@
+{
+  "design_sha256": "c5bb793367faaf969a9f176c4f7a08ac453a2c2a94a24ecfdb45a3cab536d2f9",
+  "sample_sha256": "4ad5b278150ba8c67b730073038e1cbffbe8973570bb39509d6f766ff1fe8213",
+  "code_sha256": "f7385ffb3bb790d12b708f1978f324a319f6ae8a5f7309379f1c0b62973c565b",
+  "horizons": [
+    5,
+    21
+  ],
+  "primary": 21,
+  "fixed_market_session_endpoints": true,
+  "risk_near_zero_per_raw_share_yuan": "0.01",
+  "risk_ratios_not_pooled": true,
+  "financial_events": 0,
+  "new_indicators": 0,
+  "before_new_forward_price_read": true
+}

@@ -1,0 +1,48 @@
+{
+  "before_new_economic_results": true,
+  "engineering_gate_required": true,
+  "policies": [
+    "L0 frozen; no ADD/unlock"
+  ],
+  "pressures": [
+    "normal only"
+  ],
+  "cases": [
+    {
+      "period": "HIST",
+      "sector": "TECH"
+    },
+    {
+      "period": "HIST",
+      "sector": "DRUG"
+    },
+    {
+      "period": "CURRENT",
+      "sector": "TECH"
+    },
+    {
+      "period": "CURRENT",
+      "sector": "DRUG"
+    }
+  ],
+  "decision_dates": [
+    "2019-12-31",
+    "2024-12-31"
+  ],
+  "first_execution_dates": [
+    "2020-01-02",
+    "2025-01-02"
+  ],
+  "ends": [
+    "2023-12-29",
+    "2026-10-27"
+  ],
+  "capital": 1000000,
+  "budget_seconds": 180,
+  "matched_suffix_starting_NAV_used": true,
+  "wrapper_sha": "33558a73a55da8f7d5f950d92246422a6dfbc990df23655a03ccb6de9bd46ecd",
+  "state_wrapper_sha": "60708a9ed420f06f003cea3e325102aca9ae28eee0b94872d9f6e2f3d0fcaaed",
+  "protocol_sha": "1f3130b0d5de9bfee17aa5974f2b92003a3e5d5e6a42b4ed25c449f7a584b084",
+  "frozen_input_manifest_sha": "eeed978c5a558914c3ccecbe53e7e796ff6984b300eac9581e0ce814888d4360",
+  "report_fix_only": "datetime encoded before metrics; saved-账本后处理, no economic code change, first completed path not rerun"
+}

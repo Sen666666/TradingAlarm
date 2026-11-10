@@ -1,0 +1,23 @@
+{
+  "days": 37,
+  "orders": 1488,
+  "blockers": [],
+  "last": {
+    "day": "2024-10-31",
+    "cash": "524578.3562602610105",
+    "receivable": "0.00000",
+    "market_value": "926007.29",
+    "NAV": "1450585.6462602610105",
+    "net_liquidation_NAV": "1449369.9711354651550",
+    "stocks": 34,
+    "shares": 67604,
+    "weight_pct": "63.83678843006128363145097725",
+    "fees_paid": "11927.4255197389895"
+  },
+  "prefix_1008_pass": true,
+  "prefix_1009_pass": true,
+  "prefix_1010_pass": true,
+  "prefix_1014_pass": true,
+  "planned_end": "2024-10-31",
+  "completed_horizon": true
+}

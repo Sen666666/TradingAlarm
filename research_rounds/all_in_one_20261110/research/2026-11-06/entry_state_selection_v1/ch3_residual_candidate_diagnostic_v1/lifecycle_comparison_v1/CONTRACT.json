@@ -1,0 +1,66 @@
+{
+  "version": "FIXED_CH3_THREE_ARM_LIFECYCLE_V1",
+  "frozen_utc": "2026-11-07T18:25:29.847756+00:00",
+  "arms": [
+    "A_UNION_B",
+    "RAW_MOM11",
+    "CH3_RM"
+  ],
+  "windows": {
+    "2022": [
+      "2022-01-01",
+      "2022-12-31"
+    ],
+    "2024_924": [
+      "2024-09-01",
+      "2024-12-31"
+    ]
+  },
+  "management_end": "2026-06-30",
+  "market_events": 19795,
+  "market_stock_months": 14635,
+  "formula": "AST-exact frozen calc: 36m m-36..m-1 excess simple monthly return on intercept+CH3; epsilon including intercept; 11m m-12..m-2 mean/sample SD. RAW simple compounded same11m and exactly same known support. Machine epsilon degeneration only.",
+  "queue": "Per consumer live FLAT/I/PVR/close PASS first. Compress original PVR/sid feasible slots. Keep all UNKNOWN feasible positions. Permute only known positions by score DESC, PVR DESC, sid ASC. Preserve all infeasible emitted positions. K=min(2,live feasible count), not source queue_rank <=2. Negative scores eligible. Missing cache is fatal.",
+  "reuse": "Original repaired source engines loaded unchanged. 2022 functions unchanged. 2024 run_window AST changes only first assertion from A_UNION_B-only to fixed three approved arms. All clocks, prices, exits, fees, adds, sizing, UNKNOWN, entitlement registry and NET80 unchanged.",
+  "isolation": "Each consumer reset: independent states, rounds, archives, registrations, claims, snapshots. Arm embedded in round/claim identity. Market data and immutable close validation cache only may be reused. No cash shared or reallocated.",
+  "execution_order": "2022 baseline exact raw table/claims/bridges plus original core/financial report reproduction, then RAW then CH3; same for2024. One global exclusive RUN_ONCE marker. Economic run requires separate independent PASS and explicit parent START artifact.",
+  "baseline_expected": {
+    "2022": {
+      "legal": 5728,
+      "selected": 2732,
+      "evidence_usable_closed": 2616
+    },
+    "2024_924": {
+      "legal": 3505,
+      "selected": 1354,
+      "evidence_usable_closed": 1312
+    }
+  },
+  "report": "Initial-lot core is actual FULL entry/exit with independently dated fees and own core NET80 claim, not separate CORE lifecycle. Report all permits/statuses and financial UNKNOWN, evidence usable closed separately; strict positive wins, zero separate, average net CNY and mean returns, winner/loser sums/means, payoff strict loss denominator, >=50% tails. Same-stock actual entries and own gross/net, unknowns never substituted with zero.",
+  "accounting": "Raw open gross - exact5bp slippage impact - dated fees + NET80 = net; actual fill gross is after slippage before fees. Independently summed stock amounts are not account return.",
+  "limits": [
+    "No PIT claim: current revised factors and static pool/industry; historical release unknown; m-1 affects regression",
+    "Native adjusted close not certified total shareholder return",
+    "Same finite window-specific rights evidence as repaired originals; unknowns nonrandom",
+    "FAST independent unchanged absent",
+    "No new data sourcing, no installation, no external orders",
+    "No searches, no refits, no sign flips, no results-driven reruns"
+  ],
+  "source_hashes": {
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/ch3_residual_candidate_diagnostic_v1/SPECIFICATION_FREEZE.json": "0f38afc57ce0e4a826ae43c5645a60ef874defca843a8ccb5c08fa5fdaefd6c8",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/ch3_residual_candidate_diagnostic_v1/compute_features.py": "59b29f1608328345e50e5f13c111a67c5eea5a3d35a28a93c4f30bc96b4f21c7",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_stock_birth_during_sector_v1/relative_priority_v1/simulate.py": "dc8890a2cb09b861fbeb8a9b071359a20d2a7282b6d8078286391e89c9f1bfa3",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_stock_birth_during_sector_v1/relative_priority_v1/priority.py": "d8af1880c6daeeb3faffe54dc9639e24e13b6e43671c0fa4ae38fa25f6d3878c",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_stock_birth_during_sector_v1/SEALED_ALL_BIRTH_EVENTS.csv": "4e250563fc8e756ceeadd8aeb858032291fb28ed2912b7624847c20e4f941455",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_stock_birth_during_sector_v1/relative_priority_equity_run_2022_v1/engine.py": "77a5d6345a7f35cbfaffedc08320512140adc2cd853fc8fef560de6a1a1a303c",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_stock_birth_during_sector_v1/relative_priority_equity_run_2022_v1/run.py": "98a05f8f5eaefffa6641f02fd57cd1b48dd5577bc3915ab7ff66e6c4e78e6121",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_stock_birth_during_sector_v1/relative_priority_equity_run_2022_v1/report.py": "00b841b1da11e0f7e0f44856bf9e699dce709a091ed72b94f8482e4e2cd8d518",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_stock_birth_during_sector_v1/relative_priority_equity_run_2022_v1/dynamic/OUTPUT_HASHES.json": "1de7ad33ddcfc5125479e265569aababa2e0073af894eb1c3b04a93dc0a913e4",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_stock_birth_during_sector_v1/relative_priority_equity_run_2022_v1/report/CORE_AND_FULL_ROUNDS.csv": "4992d25f92fcf72e0321c9f5285af3152ebe2c0c00d6936303bf11e02e51cfd7",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_stock_birth_during_sector_v1/cash_equity_baseline_2024_v1/engine.py": "3c4fc71504bf1d6aa534387ede86008828e7d21a03b4a89a74d364c1a97a5c09",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_stock_birth_during_sector_v1/cash_equity_baseline_2024_v1/run.py": "2e8e8fc9be1b3c9a4346803122dfd199c06abb3556b13f9bcbffca4f2d61a3c9",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_stock_birth_during_sector_v1/cash_equity_baseline_2024_v1/report.py": "74315e1d9e78605aca46abe58779a2339ad444ea2a8cd19c407b3d7b68cd7ce0",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_stock_birth_during_sector_v1/cash_equity_baseline_2024_v1/economic/OUTPUT_HASHES.json": "f46a0d64e8f2a296174ca1797b8f3fb8ff7dde78607de0e263266120192c8283",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_stock_birth_during_sector_v1/cash_equity_baseline_2024_v1/report/CORE_AND_FULL_ROUNDS.csv": "560b468114913964a145d2f07f8167db453b0466558f41aed60c7382e44afd41"
+  }
+}

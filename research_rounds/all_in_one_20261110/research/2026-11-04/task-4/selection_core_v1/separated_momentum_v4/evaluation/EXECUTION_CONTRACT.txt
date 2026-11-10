@@ -1,0 +1,15 @@
+执行根 ../FROZEN_DESIGN.txt（29af69f...e495），不更改评分/2-3状态门/5-10-3名额/2021暖机/不确定初态。
+只消费正式STUDY_STATES_2022_2026、旧v3原生名单与自己同数H1及旧future5/20标签；不重算Rp/B、rank或状态，不读取2021未来标签。
+固定source接口从SCHEMA读取；唯一字段rename v3_common_H1_selected -> v3_H1_sameN3_selected为评价名，布尔值原样不变。P/T_known与score finite核同；Tscore与v3旧E及旧v3名单/H1逐键exact。
+主可比日必须同日90行、全部P/Tscore/public P_mature/H1/D/旧v3A-E输入known，独立重核并对source main_day90known；否则N4_actual、命中、评价分母、等宽期望全unknown。
+N_union_true_lower_bound只诊断，绝不当actual N。当天主不可比时旧v3原始名单仍保原源列，只在同日比较统计记unknown，不重排/扩容旧榜。
+主union N4已知时，新H1/D确取同90同N4；旧v3 N3与旧H1按原N3不变。P/T只分列解释，不后验挑一条冒新模型。
+未来主尾沿v3：同日全90中valid20 finite relative MFE的midpercentile>=.90且>0，保ties；absMFE、relative FINAL辅。未知比较日仍保all90 oracle审计尾数，但不把它加入可比指标分母。
+每日与pooled coverage/precision、N、absolute/relative final<=0、MAE/MFE分布、5日辅助均沿旧式，不凭未来label补名单。
+与各自同数H1的coverage/mean/exposure差分单列，同时保raw N/coverage/precision。宽榜召回较高不能直接验收。
+等宽期望仅m=min(N4,N3)、对五份既有主名单分别m*hits/N；comparison未知或N=0均unknown，不抽样、不未来选成员、不当实际排名/资金/收益策略。
+周用完整CSI真ISO周末、每报告段首周unknown、末行政周未到真正周末右删失；对称差/(Nold+Nnew)，日式辅助。unknown名单不转空集。
+主阶段2022–23、2024、2025–26H1；源state跨期不重置。统计段首尾删失仅报告，不能当真实P新成熟/移出。
+后补同冻结指标的自然年/月、持续段、P_ONLY/T_ONLY/BOTH成员归因，以及两个固定行情窗全90首次/carry/缺漏表；真实事件只用source P_known_new_maturity/exit等，不把NA->True解析/数据恢复当新I->A。
+2024-09-24..12-31、2026-01-01..06-30全90固定窗，不未来选行业；首次看到True与源真实新事件、carry-in/左删失严格分开。
+源码先独审，再一次core评价；只新增冻结后的描述汇总，不看结果改变模型。0账户/0新价格标签/0资金比例，70/30撤回。

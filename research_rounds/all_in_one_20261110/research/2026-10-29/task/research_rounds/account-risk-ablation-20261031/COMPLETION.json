@@ -1,0 +1,70 @@
+{
+  "complete": true,
+  "new_complete_economic_paths": 1,
+  "original_A_or_B_economic_replay": false,
+  "scope": "fixed snapshot 1709/90; 2025-07-01 through 2026-03-31; normal daily execution proxy; 1m cash",
+  "only_economic_change": "remove account total nominal-risk admission check from route and request",
+  "no_v4_lot_exception": true,
+  "gates": {
+    "real_ledger_synthetic_tests": {
+      "passed": true,
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "actual_ledger_fixtures": true,
+      "historical_paths": 0
+    },
+    "physical_prefix": {
+      "passed": true,
+      "cut": "2025-07-07",
+      "new_policy_full_source_vs_physical_prefix_exact": true,
+      "no_old_B_replay": true,
+      "engineering_prefix_seconds": 4.147617292124778,
+      "first_segment_is_continued_same_new_arm": true
+    },
+    "independent_cashflow_and_inventory_bridge": {
+      "valuation_days": 182,
+      "max_absolute_difference": {
+        "independent_NAV_difference": "0",
+        "budget_NAV_difference": "2.3283064365386963E-10",
+        "spendable_difference": "0",
+        "reserved_difference": "0",
+        "capital_occupancy_difference": "1.1641532182693481E-10",
+        "maximum_stock_quantity_difference": "0",
+        "maximum_pool_occupancy_difference": "1.1641532182693481E-10"
+      },
+      "ledger_equity_bridge": "initial cash + net trade cashflows + accrued dividends + marked inventory; original mark proxy shared",
+      "sector_contribution_NAV_gaps": {
+        "original_B": "0E-13",
+        "B_diag": "0E-13"
+      },
+      "direct_source_mark_gap": "0",
+      "original_v3_sources_and_results_unchanged": {
+        "research_rounds/case-stage-ledger-20261031/v3/joint_v3.py": true,
+        "research_rounds/case-stage-ledger-20261031/budget_v3/model.py": true,
+        "research_rounds/case-stage-ledger-20261031/v3/run-universe/pair/A.json.gz": true,
+        "research_rounds/case-stage-ledger-20261031/v3/run-universe/pair/B.json.gz": true,
+        "research_rounds/case-stage-ledger-20261031/v3/run-universe/pair/funding.jsonl.gz": true
+      }
+    }
+  },
+  "ending_NAV_difference_cny": "145256.4231567844060",
+  "blockers": [],
+  "unresolved_v4_policy_not_blocking_this_diagnostic": "one-minimum-unit exception remains unapproved, disabled, pure fixture only",
+  "timing": {
+    "preparation_seconds": 82.47890999959782,
+    "first_segment_wall_seconds": 3.5624692076817155,
+    "physical_prefix_extra_wall_seconds": 4.147617292124778,
+    "continuation_replay_audit_save_wall_seconds": 134.86506404075772,
+    "total_wall_seconds": 229.57597562484443,
+    "new_complete_economic_arms": 1,
+    "original_A_or_B_replayed": false
+  },
+  "limitations": [
+    "snapshot/survivorship bias; all historical windows development-consumed",
+    "daily open execution proxy uses same-day OHLC validity and H/L/volume; cannot certify real opening fills",
+    "only normal ablation, no cost2/delay extension",
+    "tail and role contributions are descriptive; higher exposure is not improved forecast quality"
+  ],
+  "no_automatic_new_experiments": true
+}

@@ -1,0 +1,211 @@
+test_explicit_wrong_probe_date_cannot_be_ignored (__main__.SnapshotIdentityIntegration.test_explicit_wrong_probe_date_cannot_be_ignored) ... FAIL
+test_missing_label_on_no_data_row_also_rejected (__main__.SnapshotIdentityIntegration.test_missing_label_on_no_data_row_also_rejected) ... FAIL
+test_missing_row_label_is_not_inferred_from_batch_or_observation (__main__.SnapshotIdentityIntegration.test_missing_row_label_is_not_inferred_from_batch_or_observation) ... FAIL
+test_next_day_observation_does_not_change_frozen_identity_or_company (__main__.SnapshotIdentityIntegration.test_next_day_observation_does_not_change_frozen_identity_or_company) ... ERROR
+test_unlabelled_legacy_probe_keeps_raw_evidence_but_cannot_select (__main__.SnapshotIdentityIntegration.test_unlabelled_legacy_probe_keeps_raw_evidence_but_cannot_select) ... FAIL
+test_wrong_batch_date_is_rejected_even_when_rows_match (__main__.SnapshotIdentityIntegration.test_wrong_batch_date_is_rejected_even_when_rows_match) ... FAIL
+test_wrong_row_date_cannot_be_hidden_by_correct_batch_label (__main__.SnapshotIdentityIntegration.test_wrong_row_date_cannot_be_hidden_by_correct_batch_label) ... FAIL
+
+======================================================================
+ERROR: test_next_day_observation_does_not_change_frozen_identity_or_company (__main__.SnapshotIdentityIntegration.test_next_day_observation_does_not_change_frozen_identity_or_company)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/audit-snapshot/validation/cap-join-v2/test_snapshot_identity.py", line 75, in test_next_day_observation_does_not_change_frozen_identity_or_company
+    self.assertEqual(rows['600001.SH']['issuer_id'], rows['00001.HK']['issuer_id'])
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'issuer_id'
+
+======================================================================
+FAIL: test_explicit_wrong_probe_date_cannot_be_ignored (__main__.SnapshotIdentityIntegration.test_explicit_wrong_probe_date_cannot_be_ignored)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/audit-snapshot/validation/cap-join-v2/test_snapshot_identity.py", line 117, in test_explicit_wrong_probe_date_cannot_be_ignored
+    self.assert_rejected_without_output()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/audit-snapshot/validation/cap-join-v2/test_snapshot_identity.py", line 66, in assert_rejected_without_output
+    self.assertNotEqual(result.returncode, 0, result.stdout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 == 0 : {
+  "snapshot_date": "2026-10-22",
+  "threshold_cny": 10000000000,
+  "comparison": "strictly greater than",
+  "raw_master_rows": 3,
+  "output_rows": 3,
+  "raw_pool_not_filtered": true,
+  "size_filter": {
+    "pass": 2,
+    "unknown": 1
+  },
+  "cap_status": {
+    "available": 2,
+    "missing_supplier_ZSZ": 1
+  },
+  "strategy_snapshot_filter": {
+    "pass": 2,
+    "unknown": 1
+  },
+  "available_supplier_zsz": 1,
+  "current_AH_pairs": 1,
+  "unmatched_native_quote_symbols": [],
+  "quotes_only_no_account_runs": true,
+  "industry_history_availability_not_certified_by_this_join": true,
+  "selection_status": "snapshot metadata eligibility only; requires subsequent data coverage and strategy protocol checks"
+}
+
+
+======================================================================
+FAIL: test_missing_label_on_no_data_row_also_rejected (__main__.SnapshotIdentityIntegration.test_missing_label_on_no_data_row_also_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/audit-snapshot/validation/cap-join-v2/test_snapshot_identity.py", line 100, in test_missing_label_on_no_data_row_also_rejected
+    self.assert_rejected_without_output()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/audit-snapshot/validation/cap-join-v2/test_snapshot_identity.py", line 66, in assert_rejected_without_output
+    self.assertNotEqual(result.returncode, 0, result.stdout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 == 0 : {
+  "snapshot_date": "2026-10-22",
+  "threshold_cny": 10000000000,
+  "comparison": "strictly greater than",
+  "raw_master_rows": 3,
+  "output_rows": 3,
+  "raw_pool_not_filtered": true,
+  "size_filter": {
+    "pass": 3
+  },
+  "cap_status": {
+    "available": 3
+  },
+  "strategy_snapshot_filter": {
+    "pass": 3
+  },
+  "available_supplier_zsz": 2,
+  "current_AH_pairs": 1,
+  "unmatched_native_quote_symbols": [],
+  "quotes_only_no_account_runs": true,
+  "industry_history_availability_not_certified_by_this_join": true,
+  "selection_status": "snapshot metadata eligibility only; requires subsequent data coverage and strategy protocol checks"
+}
+
+
+======================================================================
+FAIL: test_missing_row_label_is_not_inferred_from_batch_or_observation (__main__.SnapshotIdentityIntegration.test_missing_row_label_is_not_inferred_from_batch_or_observation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/audit-snapshot/validation/cap-join-v2/test_snapshot_identity.py", line 91, in test_missing_row_label_is_not_inferred_from_batch_or_observation
+    self.assert_rejected_without_output()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/audit-snapshot/validation/cap-join-v2/test_snapshot_identity.py", line 66, in assert_rejected_without_output
+    self.assertNotEqual(result.returncode, 0, result.stdout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 == 0 : {
+  "snapshot_date": "2026-10-22",
+  "threshold_cny": 10000000000,
+  "comparison": "strictly greater than",
+  "raw_master_rows": 3,
+  "output_rows": 3,
+  "raw_pool_not_filtered": true,
+  "size_filter": {
+    "pass": 3
+  },
+  "cap_status": {
+    "available": 3
+  },
+  "strategy_snapshot_filter": {
+    "pass": 3
+  },
+  "available_supplier_zsz": 3,
+  "current_AH_pairs": 1,
+  "unmatched_native_quote_symbols": [],
+  "quotes_only_no_account_runs": true,
+  "industry_history_availability_not_certified_by_this_join": true,
+  "selection_status": "snapshot metadata eligibility only; requires subsequent data coverage and strategy protocol checks"
+}
+
+
+======================================================================
+FAIL: test_unlabelled_legacy_probe_keeps_raw_evidence_but_cannot_select (__main__.SnapshotIdentityIntegration.test_unlabelled_legacy_probe_keeps_raw_evidence_but_cannot_select)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/audit-snapshot/validation/cap-join-v2/test_snapshot_identity.py", line 109, in test_unlabelled_legacy_probe_keeps_raw_evidence_but_cannot_select
+    self.assertEqual(r['company_market_cap_status'], 'unknown_snapshot_date')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'available' != 'unknown_snapshot_date'
+- available
++ unknown_snapshot_date
+
+
+======================================================================
+FAIL: test_wrong_batch_date_is_rejected_even_when_rows_match (__main__.SnapshotIdentityIntegration.test_wrong_batch_date_is_rejected_even_when_rows_match)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/audit-snapshot/validation/cap-join-v2/test_snapshot_identity.py", line 95, in test_wrong_batch_date_is_rejected_even_when_rows_match
+    self.assert_rejected_without_output()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/audit-snapshot/validation/cap-join-v2/test_snapshot_identity.py", line 66, in assert_rejected_without_output
+    self.assertNotEqual(result.returncode, 0, result.stdout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 == 0 : {
+  "snapshot_date": "2026-10-22",
+  "threshold_cny": 10000000000,
+  "comparison": "strictly greater than",
+  "raw_master_rows": 3,
+  "output_rows": 3,
+  "raw_pool_not_filtered": true,
+  "size_filter": {
+    "pass": 3
+  },
+  "cap_status": {
+    "available": 3
+  },
+  "strategy_snapshot_filter": {
+    "pass": 3
+  },
+  "available_supplier_zsz": 3,
+  "current_AH_pairs": 1,
+  "unmatched_native_quote_symbols": [],
+  "quotes_only_no_account_runs": true,
+  "industry_history_availability_not_certified_by_this_join": true,
+  "selection_status": "snapshot metadata eligibility only; requires subsequent data coverage and strategy protocol checks"
+}
+
+
+======================================================================
+FAIL: test_wrong_row_date_cannot_be_hidden_by_correct_batch_label (__main__.SnapshotIdentityIntegration.test_wrong_row_date_cannot_be_hidden_by_correct_batch_label)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/audit-snapshot/validation/cap-join-v2/test_snapshot_identity.py", line 87, in test_wrong_row_date_cannot_be_hidden_by_correct_batch_label
+    self.assert_rejected_without_output()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/audit-snapshot/validation/cap-join-v2/test_snapshot_identity.py", line 66, in assert_rejected_without_output
+    self.assertNotEqual(result.returncode, 0, result.stdout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 == 0 : {
+  "snapshot_date": "2026-10-22",
+  "threshold_cny": 10000000000,
+  "comparison": "strictly greater than",
+  "raw_master_rows": 3,
+  "output_rows": 3,
+  "raw_pool_not_filtered": true,
+  "size_filter": {
+    "pass": 3
+  },
+  "cap_status": {
+    "available": 3
+  },
+  "strategy_snapshot_filter": {
+    "pass": 3
+  },
+  "available_supplier_zsz": 3,
+  "current_AH_pairs": 1,
+  "unmatched_native_quote_symbols": [],
+  "quotes_only_no_account_runs": true,
+  "industry_history_availability_not_certified_by_this_join": true,
+  "selection_status": "snapshot metadata eligibility only; requires subsequent data coverage and strategy protocol checks"
+}
+
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.282s
+
+FAILED (failures=6, errors=1)

@@ -1,0 +1,63 @@
+{
+  "stock_manifest_entries": 1709,
+  "status_counts": {
+    "complete": 1687,
+    "not_applicable_no_local_observation_by_end": 22
+  },
+  "events": 99031,
+  "distinct_stocks_with_CP": 1664,
+  "scope": [
+    "2022-01-01",
+    "2026-06-30"
+  ],
+  "canonical_ID_missing": 9507,
+  "scope_original_CP_unready_count": 0,
+  "missing_facts_price_CP_events": 0,
+  "raw_price_ineligible_CP_events": 0,
+  "raw_positive_volume_unproven_CP_events": 0,
+  "raw_open_unavailable_CP_events": 0,
+  "facts_future_lt20_events": 1177,
+  "raw_future_lt20_events": 0,
+  "raw_positive_volume_future_lt20_events": 0,
+  "source_raw_columns_present_in_n_stock_files": {
+    "open": 1709,
+    "volume": 1709,
+    "amount": 1709,
+    "price_eligible": 1709,
+    "source_invalid": 1709,
+    "observed_bar": 1709,
+    "synthetic_event_bar": 1709,
+    "suspend_status": 0,
+    "is_suspended": 0,
+    "is_trading": 0,
+    "limit_up": 0,
+    "limit_down": 0,
+    "quality_status": 1709
+  },
+  "source_raw_schema_groups": {
+    "amount|amount_unit|close|high|is_observed_bar|low|observed_at|observed_bar|open|price_adjustment|price_eligible|quality_status|source_invalid|source_kind|source_path|symbol|synthetic_event_bar|trade_date|volume|volume_eligible|volume_unit": 1709
+  },
+  "CP_facts_index_mismatch_stocks": 0,
+  "canonical_only_without_original_CP_flag_count": 0,
+  "error_count": 0,
+  "account_runs": 0,
+  "numeric_models_recomputed": 0,
+  "new_features_computed": 0,
+  "labels_computed": 0,
+  "seconds": 57.70635858271271,
+  "mapping_PIT_verified": false,
+  "pool_PIT_verified": false,
+  "static_scope_date": "2026-10-22",
+  "static_research_basis": "current_pool_historical_development",
+  "canonical_source_bindings_verified": 5127,
+  "canonical_CP_source_hash_all_equal": true,
+  "canonical_entire_original_output_mapping_all_equal": true,
+  "actual_source_hash_checks": 5127,
+  "actual_source_hash_mismatches": 0,
+  "reference_calendar_source": "/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/data/ths-index-history-20261018/canonical/USHI1B0300.csv",
+  "reference_calendar_not_exchange_certified": true,
+  "stock_reference_dates_missing_eligible_raw_total": 2046,
+  "stocks_with_some_missing_reference_dates": 256,
+  "CP_events_with_missing_eligible_raw_among_next20_reference_dates": 689,
+  "CP_events_without20_future_reference_dates": 0
+}

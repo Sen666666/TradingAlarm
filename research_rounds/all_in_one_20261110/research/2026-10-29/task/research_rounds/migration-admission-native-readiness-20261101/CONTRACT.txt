@@ -1,0 +1,41 @@
+STATUS: isolated native readiness candidate; NEW POLICY, not a historical bug fix.
+Original singlepass Bdiag only. Two-pass remains separate and unpromoted.
+
+Only route/request decouple successful whole-old-probe migration from admission of
+a different/new confirmed mobile order. Best-effort migration calls and all their
+legal side effects remain in their original positions. Failed transfers leave old
+probe lots, open/cancel-pending quantities and resource occupancy unchanged.
+Later migration must recalculate actual capacity; a smaller new order can strand
+old probe longer. Successful earlier reservations/transfers are never rolled back.
+
+Original full-target route comparison, probe tie preference, core-first successful
+reservation suppression of same-stock mobile, one aggregate native order per stock,
+canonical receipt consumption, quantities/minimums/steps/fees and execution remain.
+All original stock/combined-industry/pool/cash/risk limits remain. Bdiag still omits
+only original account 3% admission, with no R1, C1, stage or two-pass addition.
+The authorization mirror never executes synthetic fills/sells for real trades.
+
+Native lifecycle gate: real order reservation; full/partial fill and incremental
+minimum fee; T+1 inventory; cancellation request remains occupied until native ack;
+late fill; split of held and remaining units; stale receipt refusal; later legal
+migration; capacity-full and combined-sector refusal; core/mobile collision.
+Only original-policy short identity replay is authorized here; no decoupled market
+history, account advancement or PnL result. Input caches are read, not recomputed.
+
+PREDECLARED EVENTUAL TWO-WINDOW COMPARISON (not run/approved by this readiness):
+2022 and existing 2025-07-01..2026-06-30 original Bdiag comparisons, fixed 1709/90
+snapshot identities and original source versions. Do not select stocks from future
+returns. Report actual funded distinct stocks/attempts gained AND lost; reservation,
+fill and exit request/fill separately. Follow all original qualifying opportunities
+and deduplicated canonical stock receipts, including missed/unknown/censored ones.
+Report old-probe migration waiting/censoring and blocked new trials, and cases where
+small new confirmed orders delay an older whole-probe transfer. Report mean/peak and
+daily confirmed/probe commitment/exposure, new buys/turnover/fees, realized losses by
+role/attempt, closed and still-open fat-tail contributions separately, NAV/global
+DD/ACT behavior. Include additional weak-market losses and original funded winners
+crowded out, rather than judging only increased coverage or total return.
+No threshold sweep, result-based policy changes or real trading authorization.
+
+Limits remain: current snapshot not PIT, correlated selected research windows,
+daily-bar execution uses later session H/L/volume/validity proxies and same-open
+sell cash reuse. Native ledger conservation does not certify live executability.

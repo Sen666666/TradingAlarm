@@ -1,0 +1,6 @@
+一次薄特征核验，计算实测预算60秒，0账户
+2026-11-04。固定原000001.SZ/300001.SZ/688001.SH完整warm；fixedprefix2022Apr29、2024Sep23、2026Mar31，每股3个实际物理截断，共9次，对full同日以前所有flag/known/诊断值逐项exact。
+函数compute_flags没有文件读取/重采样/订单/账户；调用者必须明确提供与原facts index逐点匹配的price_observed，来自原prepared signal的price_eligible AND observed_bar AND NOT synthetic_event_bar。facts中存在但证据无效的日槽仍输出UNKNOWN并打断连续性，不能dropna压缩；原source没有出现在facts原观察钟的行不由本函数创造。三夹具要证明原facts与原source前缀观测钟/close/segment一致。
+函数只读原facts close/segment/rawclose/factor并核旧同一价坐标。缺值、非正/非finite、单位不一致、原source边界均不能PASS；真实unknown后重新seed EMA，MA/BB完整重新warm。没有按持仓/I_target/年度重启特征。
+synthetic核验不模拟交易：常价等号/斜率0，明确未知槽打断且不压缩，source边界重新暖，EMA递归独立手算及MA/BB独立窗口算术。所有实际sourceSHA与代码/参数在运行前冻结；运行后末SHA检查。
+全1709只核manifest coverage、refs.facts/source signal存在与SHA；22无观察身份保UNKNOWN，不生成价格0。此阶段不读取全池特征/导出宽表，不接native。所有first-known等分母只作机械验收，不计算收益或择优参数。

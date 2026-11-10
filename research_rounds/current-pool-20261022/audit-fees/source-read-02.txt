@@ -1,0 +1,828 @@
+ (https://www.hkex.com.hk/-/media/HKEX-Market/Services/Circulars-and-Notices/Participant-and-Members-Circulars/SEHK/2022/CT03722B.pdf)
+citeturn65view0 [wordlim: 200] Crawled: today; Content type: application/pdf; Number of pages: 2; Source: open({"ref_id":"https://www.hkex.com.hk/-/media/HKEX-Market/Services/Circulars-and-Notices/Participant-and-Members-Circulars/SEHK/2022/CT03722B.pdf","lineno":null}); Total lines: 42
+L0@P0: 香港聯合交易所有限公司
+L1@P0: (香港交易及結算所有限公司全資附屬公司)
+L2@P0: THE STOCK EXCHANGE OF HONG KONG LIMITED
+L3@P0: (A wholly-owned subsidiary of Hong Kong Exchanges and Clearing Limited)
+L4@P0: 通告 CIRCULAR
+L5@P0: 中華通交易所參與者（CCEP）及透過中華通交易所參與者買賣之交易所參與者（TTEP）須留意，中
+L6@P0: 國證券登記結算有限責任公司（中國結算）於 2022 年 4 月 28 日（星期四）通告自 2022 年 4 月 29
+L7@P0: 日（星期五）起，將滬深市場 A 股交易過戶費由按照成交金額 0.002%雙向收取下調為按照成交金額
+L8@P0: 0.001%雙向收取。該交易過戶費調整亦適用於滬股通及深股通。
+L9@P0: 我們理解由於這次通告未能提前發出，可能會為各位帶來不便。務請各參與者儘快評估此次調整對
+L10@P0: 後勤系統的影響並於生效時做好準備。
+L11@P0: China Connect Exchange Participants (CCEPs) and Trade-through Exchange Participants (TTEPs)
+L12@P0: are requested to note that China Securities Depository and Clearing Corporation Limited
+L13@P0: (ChinaClear) announced (in Chinese only) on 28 April 2022 (Thursday) to revise the Transfer Fee
+L14@P0: of A shares on Shanghai Stock Exchange (SSE) and Shenzhen Stock Exchange (SZSE) from
+L15@P0: 0.002% to 0.001% of the consideration of each transaction per side, effective from 29 April 2022
+L16@P0: (Friday). This revision of transfer fee also applies to Northbound Trading under Stock Connect.
+L17@P0: We appreciate and understand the inconvenience of this last minute notice. CCEPs and TTEPs
+L18@P0: are advised to assess possible impact to their back office systems and to ensure that they are
+L19@P0: ready when the fee revision takes effect.
+L20@P0: 
+L21@P0: 1 所有參與者一般查詢熱線之通話可能會被錄音。請按此參閲香港交易所的私隱政策聲明。
+L22@P0: 2 All calls to and from the Participant General Enquiry Hotline may be recorded. HKEX Privacy Policy
+L23@P0: Statement is available here.
+L24@P0: 事項： 滬股通及深股通下股票交易過戶費調整
+L25@P0: Subject: REVISION OF NORTHBOUND TRANSFER FEE IN RELATION TO STOCK
+L26@P0: CONNECT
+L27@P0: 查詢： 參與者一般查詢熱線 1（電話：2840 3626 電子郵箱：trd@hkex.com.hk）
+L28@P0: Enquiry: Participant General Enquiry Hotline2
+L29@P0:  (Tel: 2840 3626 E-mail: trd@hkex.com.hk)
+L30@P0: 編號
+L31@P0: Ref. No.: CT/037/22
+L32@P0: 日期
+L33@P0-1: Date: 28/04/20222
+L34@P1: 營運科
+L35@P1: 交易部
+L36@P1: 署理聯席主管
+L37@P1: 郭含笑謹啟
+L38@P1: Sally Kwok
+L39@P1: Acting Co-Head
+L40@P1: Trading Department
+L41@P1: Operations Division
+--------------------------------------------------------------------------------
+HKEX Enhances Cash Market Trading Fee Structure to Boost Market Efficiency (https://www.hkex.com.hk/News/Market-Communications/2022/221101news?sc_lang=en)
+citeturn65view1 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.hkex.com.hk/News/Market-Communications/2022/221101news?sc_lang=en","lineno":null}); Total lines: 667
+L0: [Input]
+L1: 
+L2: [Input] [Input] [Input] [Input] [Input] [Input]
+L3: 
+L4: Market Turnover
+L5: 
+L6: -
+L7: 
+L8:  |  |
+L9: --- | --- | ---
+L10:  |
+L11:  |
+L12:  |
+L13:  |
+L14:  |
+L15:  |
+L16: 
+L17: -
+L18: 
+L19: -
+L20: 
+L21: |
+L22: 
+L23: |
+L24: 
+L25: |
+L26: 
+L27: |
+L28: 
+L29: |
+L30: 
+L31: |
+L32: 
+L33: [Input: ]
+L34: 
+L35: -
+L36: 
+L37:   *   *   *   *   *   *   *   *   * ---
+L38:  |  |  |  |
+L39: --- | --- | --- | --- | ---
+L40: ---
+L41:  |  |  |  |
+L42: --- | --- | --- | --- | ---
+L43: 
+L44: -
+L45: 
+L46:   *   *   *   *   *   *   *   *   *  |  |  |  |
+L47: --- | --- | --- | --- | ---
+L48: 
+L49: -
+L50: 
+L51: 繁 【0†简】
+L52: 
+L53: About HKEX
+L54: 
+L55: 【1†Image】
+L56: 
+L57: 【2†About HKEX†www.hkexgroup.com】
+L58: 
+L59: 【3†Investor Relations†www.hkexgroup.com】
+L60: 【4†Corporate Governance†www.hkexgroup.com】
+L61: 
+L62: 【5†Sustainability†www.hkexgroup.com】
+L63: 
+L64: 【6†Media Centre†www.hkexgroup.com】
+L65: 
+L66: 【7†Careers†www.hkexgroup.com】
+L67: 
+L68: Related Sites: LME
+L69: 
+L70: 【1†Image】
+L71: 
+L72: 【8†HKEX Group†www.hkexgroup.com】
+L73: 
+L74: 【9†LME†www.lme.com】
+L75: 
+L76: 【10†Bond Connect†www.chinabondconnect.com】
+L77: 
+L78: 【11†QME†www.qme.com】
+L79: 
+L80: 【12†HKEXnews†www.hkexnews.hk】
+L81: 
+L82: 【13†CESC†www.cesc.com】
+L83: 
+L84: 【14†Client Connect†connect.hkex.com.hk】
+L85: 
+L86: 【15†Latest Market Data】
+L87: 
+L88: 【15†Our Products】 【1†Image】
+L89: 
+L90: 【15†Securities】 【1†Image】
+L91: 
+L92: 【16†Equities】
+L93: 【17†Exchange Traded Products】
+L94: 
+L95: 【18†Structured Products】
+L96: 
+L97: 【19†Real Estate Investment Trusts】
+L98: 
+L99: 【20†Debt Securities】
+L100: 
+L101: 【15†Listed Derivatives】 【1†Image】
+L102: 
+L103: 【21†Equity Index】
+L104: 
+L105: 【22†Single Stock】
+L106: 
+L107: 【23†Foreign Exchange】
+L108: 
+L109: 【24†Interest Rate】
+L110: 
+L111: 【25†Commodities】
+L112: 
+L113: 【15†OTC Derivatives】 【1†Image】
+L114: 
+L115: 【26†Eligible OTC Clear Products】
+L116: 
+L117: 【27†Interest Rate Swaps】
+L118: 
+L119: 【28†Non Deliverable Forwards】
+L120: 
+L121: 【29†Cross Currency Swaps】
+L122: 
+L123: 【30†Deliverable FX】
+L124: 
+L125: 【31†Find a Partner】
+L126: 
+L127: 【32†MSCI Index Futures & Options】
+L128: 【33†HKEX Sustainable & Green Exchange】
+L129: 
+L130: 【15†Our Services】 【1†Image】
+L131: 
+L132: 【15†Trading】 【1†Image】
+L133: 
+L134: 【15†Securities】 【1†Image】
+L135: 
+L136: 【34†Overview】
+L137: 
+L138: 【35†Infrastructure】
+L139: 
+L140: 【15†Derivatives】 【1†Image】
+L141: 
+L142: 【36†Overview】
+L143: 
+L144: 【37†Infrastructure】
+L145: 
+L146: 【15†Connectivity】 【1†Image】
+L147: 
+L148: 【38†Hosting Services】
+L149: 
+L150: 【39†SDNet/2】
+L151: 
+L152: 【15†Data and Index Services】 【1†Image】
+L153: 
+L154: 【40†Real Time Data Services】
+L155: 
+L156: 【41†Historical Data Services】
+L157: 
+L158: 【42†Infrastructure】
+L159: 
+L160: 【43†Index Services】
+L161: 
+L162: 【15†Rules, Forms & Fees】 【1†Image】
+L163: 
+L164: 【44†Rules】
+L165: 
+L166: 【45†Forms】
+L167: 
+L168: 【46†Fees】
+L169: 【15†Clearing】 【1†Image】
+L170: 
+L171: 【15†Securities】 【1†Image】
+L172: 
+L173: 【47†Overview】
+L174: 
+L175: 【48†Infrastructure】
+L176: 
+L177: 【49†Risk Management】
+L178: 
+L179: 【50†CCP Disclosures】
+L180: 
+L181: 【15†Listed Derivatives】 【1†Image】
+L182: 
+L183: 【51†Overview】
+L184: 
+L185: 【52†Infrastructure】
+L186: 
+L187: 【53†Risk Management】
+L188: 
+L189: 【54†CCP Disclosures】
+L190: 
+L191: 【15†OTC Clear】 【1†Image】
+L192: 
+L193: 【55†Overview】
+L194: 
+L195: 【56†Infrastructure】
+L196: 
+L197: 【57†Risk Management】
+L198: 
+L199: 【58†CCP Disclosures】
+L200: 
+L201: 【15†Settlement and Depository】 【1†Image】
+L202: 
+L203: 【59†Settlement - Securities】
+L204: 
+L205: 【60†T+1 Settlement for the Hong Kong Cash Market】
+L206: 
+L207: 【61†Depository】
+--------------------------------------------------------------------------------
+Transaction (https://www.hkex.com.hk/Services/Rules-and-Forms-and-Fees/Fees/Securities-%28Hong-Kong%29/Trading/Transaction?sc_lang=en)
+citeturn65view2 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.hkex.com.hk/Services/Rules-and-Forms-and-Fees/Fees/Securities-%28Hong-Kong%29/Trading/Transaction?sc_lang=en","lineno":null}); Redirected to URL: https://www.hkex.com.hk/Services/Rules-and-Forms-and-Fees/Fees/Securities-(Hong-Kong)/Trading/Transaction?sc_lang=en; Total lines: 732
+L0: [Input]
+L1: 
+L2: [Input] [Input] [Input] [Input] [Input] [Input]
+L3: 
+L4: Market Turnover
+L5: 
+L6: -
+L7: 
+L8:  |  |
+L9: --- | --- | ---
+L10:  |
+L11:  |
+L12:  |
+L13:  |
+L14:  |
+L15:  |
+L16: 
+L17: -
+L18: 
+L19: -
+L20: 
+L21: |
+L22: 
+L23: |
+L24: 
+L25: |
+L26: 
+L27: |
+L28: 
+L29: |
+L30: 
+L31: |
+L32: 
+L33: [Input: ]
+L34: 
+L35: -
+L36: 
+L37:   *   *   *   *   *   *   *   *   * ---
+L38:  |  |  |  |
+L39: --- | --- | --- | --- | ---
+L40: ---
+L41:  |  |  |  |
+L42: --- | --- | --- | --- | ---
+L43: 
+L44: -
+L45: 
+L46:   *   *   *   *   *   *   *   *   *  |  |  |  |
+L47: --- | --- | --- | --- | ---
+L48: 
+L49: -
+L50: 
+L51: 繁 【0†简】
+L52: 
+L53: About HKEX
+L54: 
+L55: 【1†Image】
+L56: 
+L57: 【2†About HKEX†www.hkexgroup.com】
+L58: 
+L59: 【3†Investor Relations†www.hkexgroup.com】
+L60: 【4†Corporate Governance†www.hkexgroup.com】
+L61: 
+L62: 【5†Sustainability†www.hkexgroup.com】
+L63: 
+L64: 【6†Media Centre†www.hkexgroup.com】
+L65: 
+L66: 【7†Careers†www.hkexgroup.com】
+L67: 
+L68: Related Sites: LME
+L69: 
+L70: 【1†Image】
+L71: 
+L72: 【8†HKEX Group†www.hkexgroup.com】
+L73: 
+L74: 【9†LME†www.lme.com】
+L75: 
+L76: 【10†Bond Connect†www.chinabondconnect.com】
+L77: 
+L78: 【11†QME†www.qme.com】
+L79: 
+L80: 【12†HKEXnews†www.hkexnews.hk】
+L81: 
+L82: 【13†CESC†www.cesc.com】
+L83: 
+L84: 【14†Client Connect†connect.hkex.com.hk】
+L85: 
+L86: 【15†Latest Market Data】
+L87: 
+L88: 【15†Our Products】 【1†Image】
+L89: 
+L90: 【15†Securities】 【1†Image】
+L91: 
+L92: 【16†Equities】
+L93: 【17†Exchange Traded Products】
+L94: 
+L95: 【18†Structured Products】
+L96: 
+L97: 【19†Real Estate Investment Trusts】
+L98: 
+L99: 【20†Debt Securities】
+L100: 
+L101: 【15†Listed Derivatives】 【1†Image】
+L102: 
+L103: 【21†Equity Index】
+L104: 
+L105: 【22†Single Stock】
+L106: 
+L107: 【23†Foreign Exchange】
+L108: 
+L109: 【24†Interest Rate】
+L110: 
+L111: 【25†Commodities】
+L112: 
+L113: 【15†OTC Derivatives】 【1†Image】
+L114: 
+L115: 【26†Eligible OTC Clear Products】
+L116: 
+L117: 【27†Interest Rate Swaps】
+L118: 
+L119: 【28†Non Deliverable Forwards】
+L120: 
+L121: 【29†Cross Currency Swaps】
+L122: 
+L123: 【30†Deliverable FX】
+L124: 
+L125: 【31†Find a Partner】
+L126: 
+L127: 【32†MSCI Index Futures & Options】
+L128: 【33†HKEX Sustainable & Green Exchange】
+L129: 
+L130: 【15†Our Services】 【1†Image】
+L131: 
+L132: 【15†Trading】 【1†Image】
+L133: 
+L134: 【15†Securities】 【1†Image】
+L135: 
+L136: 【34†Overview】
+L137: 
+L138: 【35†Infrastructure】
+L139: 
+L140: 【15†Derivatives】 【1†Image】
+L141: 
+L142: 【36†Overview】
+L143: 
+L144: 【37†Infrastructure】
+L145: 
+L146: 【15†Connectivity】 【1†Image】
+L147: 
+L148: 【38†Hosting Services】
+L149: 
+L150: 【39†SDNet/2】
+L151: 
+L152: 【15†Data and Index Services】 【1†Image】
+L153: 
+L154: 【40†Real Time Data Services】
+L155: 
+L156: 【41†Historical Data Services】
+L157: 
+L158: 【42†Infrastructure】
+L159: 
+L160: 【43†Index Services】
+L161: 
+L162: 【15†Rules, Forms & Fees】 【1†Image】
+L163: 
+L164: 【44†Rules】
+L165: 
+L166: 【45†Forms】
+L167: 
+L168: 【46†Fees】
+L169: 【15†Clearing】 【1†Image】
+L170: 
+L171: 【15†Securities】 【1†Image】
+L172: 
+L173: 【47†Overview】
+L174: 
+L175: 【48†Infrastructure】
+L176: 
+L177: 【49†Risk Management】
+L178: 
+L179: 【50†CCP Disclosures】
+L180: 
+L181: 【15†Listed Derivatives】 【1†Image】
+L182: 
+L183: 【51†Overview】
+L184: 
+L185: 【52†Infrastructure】
+L186: 
+L187: 【53†Risk Management】
+L188: 
+L189: 【54†CCP Disclosures】
+L190: 
+L191: 【15†OTC Clear】 【1†Image】
+L192: 
+L193: 【55†Overview】
+L194: 
+L195: 【56†Infrastructure】
+L196: 
+L197: 【57†Risk Management】
+L198: 
+L199: 【58†CCP Disclosures】
+L200: 
+L201: 【15†Settlement and Depository】 【1†Image】
+L202: 
+L203: 【59†Settlement - Securities】
+L204: 
+L205: 【60†T+1 Settlement for the Hong Kong Cash Market】
+L206: 
+L207: 【61†Depository】
+--------------------------------------------------------------------------------
+HKEX Enhances Stock Settlement Fee Structure for Securities Market (https://www.hkex.com.hk/News/Market-Communications/2025/250221news?sc_lang=en)
+citeturn65view3 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.hkex.com.hk/News/Market-Communications/2025/250221news?sc_lang=en","lineno":null}); Total lines: 670
+L0: [Input]
+L1: 
+L2: [Input] [Input] [Input] [Input] [Input] [Input]
+L3: 
+L4: Market Turnover
+L5: 
+L6: -
+L7: 
+L8:  |  |
+L9: --- | --- | ---
+L10:  |
+L11:  |
+L12:  |
+L13:  |
+L14:  |
+L15:  |
+L16: 
+L17: -
+L18: 
+L19: -
+L20: 
+L21: |
+L22: 
+L23: |
+L24: 
+L25: |
+L26: 
+L27: |
+L28: 
+L29: |
+L30: 
+L31: |
+L32: 
+L33: [Input: ]
+L34: 
+L35: -
+L36: 
+L37:   *   *   *   *   *   *   *   *   * ---
+L38:  |  |  |  |
+L39: --- | --- | --- | --- | ---
+L40: ---
+L41:  |  |  |  |
+L42: --- | --- | --- | --- | ---
+L43: 
+L44: -
+L45: 
+L46:   *   *   *   *   *   *   *   *   *  |  |  |  |
+L47: --- | --- | --- | --- | ---
+L48: 
+L49: -
+L50: 
+L51: 繁 【0†简】
+L52: 
+L53: About HKEX
+L54: 
+L55: 【1†Image】
+L56: 
+L57: 【2†About HKEX†www.hkexgroup.com】
+L58: 
+L59: 【3†Investor Relations†www.hkexgroup.com】
+L60: 【4†Corporate Governance†www.hkexgroup.com】
+L61: 
+L62: 【5†Sustainability†www.hkexgroup.com】
+L63: 
+L64: 【6†Media Centre†www.hkexgroup.com】
+L65: 
+L66: 【7†Careers†www.hkexgroup.com】
+L67: 
+L68: Related Sites: LME
+L69: 
+L70: 【1†Image】
+L71: 
+L72: 【8†HKEX Group†www.hkexgroup.com】
+L73: 
+L74: 【9†LME†www.lme.com】
+L75: 
+L76: 【10†Bond Connect†www.chinabondconnect.com】
+L77: 
+L78: 【11†QME†www.qme.com】
+L79: 
+L80: 【12†HKEXnews†www.hkexnews.hk】
+L81: 
+L82: 【13†CESC†www.cesc.com】
+L83: 
+L84: 【14†Client Connect†connect.hkex.com.hk】
+L85: 
+L86: 【15†Latest Market Data】
+L87: 
+L88: 【15†Our Products】 【1†Image】
+L89: 
+L90: 【15†Securities】 【1†Image】
+L91: 
+L92: 【16†Equities】
+L93: 【17†Exchange Traded Products】
+L94: 
+L95: 【18†Structured Products】
+L96: 
+L97: 【19†Real Estate Investment Trusts】
+L98: 
+L99: 【20†Debt Securities】
+L100: 
+L101: 【15†Listed Derivatives】 【1†Image】
+L102: 
+L103: 【21†Equity Index】
+L104: 
+L105: 【22†Single Stock】
+L106: 
+L107: 【23†Foreign Exchange】
+L108: 
+L109: 【24†Interest Rate】
+L110: 
+L111: 【25†Commodities】
+L112: 
+L113: 【15†OTC Derivatives】 【1†Image】
+L114: 
+L115: 【26†Eligible OTC Clear Products】
+L116: 
+L117: 【27†Interest Rate Swaps】
+L118: 
+L119: 【28†Non Deliverable Forwards】
+L120: 
+L121: 【29†Cross Currency Swaps】
+L122: 
+L123: 【30†Deliverable FX】
+L124: 
+L125: 【31†Find a Partner】
+L126: 
+L127: 【32†MSCI Index Futures & Options】
+L128: 【33†HKEX Sustainable & Green Exchange】
+L129: 
+L130: 【15†Our Services】 【1†Image】
+L131: 
+L132: 【15†Trading】 【1†Image】
+L133: 
+L134: 【15†Securities】 【1†Image】
+L135: 
+L136: 【34†Overview】
+L137: 
+L138: 【35†Infrastructure】
+L139: 
+L140: 【15†Derivatives】 【1†Image】
+L141: 
+L142: 【36†Overview】
+L143: 
+L144: 【37†Infrastructure】
+L145: 
+L146: 【15†Connectivity】 【1†Image】
+L147: 
+L148: 【38†Hosting Services】
+L149: 
+L150: 【39†SDNet/2】
+L151: 
+L152: 【15†Data and Index Services】 【1†Image】
+L153: 
+L154: 【40†Real Time Data Services】
+L155: 
+L156: 【41†Historical Data Services】
+L157: 
+L158: 【42†Infrastructure】
+L159: 
+L160: 【43†Index Services】
+L161: 
+L162: 【15†Rules, Forms & Fees】 【1†Image】
+L163: 
+L164: 【44†Rules】
+L165: 
+L166: 【45†Forms】
+L167: 
+L168: 【46†Fees】
+L169: 【15†Clearing】 【1†Image】
+L170: 
+L171: 【15†Securities】 【1†Image】
+L172: 
+L173: 【47†Overview】
+L174: 
+L175: 【48†Infrastructure】
+L176: 
+L177: 【49†Risk Management】
+L178: 
+L179: 【50†CCP Disclosures】
+L180: 
+L181: 【15†Listed Derivatives】 【1†Image】
+L182: 
+L183: 【51†Overview】
+L184: 
+L185: 【52†Infrastructure】
+L186: 
+L187: 【53†Risk Management】
+L188: 
+L189: 【54†CCP Disclosures】
+L190: 
+L191: 【15†OTC Clear】 【1†Image】
+L192: 
+L193: 【55†Overview】
+L194: 
+L195: 【56†Infrastructure】
+L196: 
+L197: 【57†Risk Management】
+L198: 
+L199: 【58†CCP Disclosures】
+L200: 
+L201: 【15†Settlement and Depository】 【1†Image】
+L202: 
+L203: 【59†Settlement - Securities】
+L204: 
+L205: 【60†T+1 Settlement for the Hong Kong Cash Market】
+L206: 
+L207: 【61†Depository】
+--------------------------------------------------------------------------------
+港股通交易税费 | 上海证券交易所 (https://www.sse.com.cn/services/hkexsc/tax/)
+citeturn65view4 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.sse.com.cn/services/hkexsc/tax/","lineno":null}); Total lines: 157
+L0: 上海证券交易所服务热线：400-8888-400 【0†APP下载】 【1†微博微信】 【2†English†english.sse.com.cn】【3†繁†big5.sse.com.cn】
+L1: 
+L2: 【4†一网通办†one.sse.com.cn】【5†“三开门”专栏】
+L3: 
+L4: 【6†简中EN†english.sse.com.cn】
+L5: 
+L6: 【4†一网通办†one.sse.com.cn】 【5†“三开门”专栏】
+L7: 
+L8: 用户入口
+L9:     【7†投资者†one.sse.com.cn】
+L10:     【8†会员机构†one.sse.com.cn】
+L11:     【9†拟上市公司†one.sse.com.cn】
+L12:     【10†债券机构†one.sse.com.cn】
+L13:     【11†上市公司†one.sse.com.cn】
+L14:     【12†基金公司†one.sse.com.cn】
+L15: 高效办成一件事
+L16:     【13†股票投资一件事†one.sse.com.cn】
+L17:     【14†债券发行上市一件事†one.sse.com.cn】
+L18:     【15†期权投资一件事†one.sse.com.cn】
+L19:     【16†REITs发行上市一件事†one.sse.com.cn】
+L20:     【17†企业上市一件事†one.sse.com.cn】
+L21:     【18†服务预约一件事†one.sse.com.cn】
+L22:     【19†信息披露一件事†one.sse.com.cn】
+L23: 
+L24: 一网通办移动端
+L25: ## 上交所APP"通办"栏目
+L26: 
+L27: 【20†Image】 - 欢迎扫码安装 -
+L28: 
+L29: 【21†Image: 】
+L30: 
+L31: [Input: 代码 / 简称 / 关键词] [Input]
+L32: 
+L33: 展开导航菜单
+L34: 
+L35: 【22†Image】 上交所发布
+L36: 
+L37: 【23†Image】 上交所移动App
+L38: ## 港股通交易税费
+L39: 
+L40: 税费项目  | 征收标准
+L41: --- | ---
+L42: 印花税  | 按成交金额的0.1%计收（取整到元，不足一元按一元计）（双向）。
+L43: 交易费  | 按成交金额的0.00565%计收（四舍五入至小数点后两位）（双向）。
+L44: 交易征费  | 按成交金额的0.0027%计收（四舍五入至小数点后两位）（双向）。（自2014年11月1日起执行）
+L45: 会财局交易征费  | 按成交金额的0.00015%计收（四舍五入至小数点后两位）（双向）。（自2022年1月1日起执行）
+L46: 投资者赔偿征费  | 按成交金额的0.002%计收（双向）。（暂不征收）
+L47: 特别征费  | 按成交金额的0.03%计收（双向）。（暂不征收）
+L48: 
+L49: 注1：上述港股通交易税费中，港股通ETF和港股通股本认股权证的交易，暂不征收印花税。
+L50: 
+L51: 注2：结算收费项目根据中国证券登记结算有限责任公司的安排进行。
+L52: 
+L53: 【24†联系我们】 【25†网站地图】 【26†相关链接】 【27†法律声明】 【28†注册商标】 【29†个人信息保护告知书】
+L54: 
+L55: 【30†Image】官方微博
+L56: 
+L57: 【31†Image】官方微信
+L58: 
+L59: 【32†Image】APP下载
+L60: 
+L61: 党建
+L62:   * 【33†党建动态】
+L63:   * 【34†学习园地】
+L64:   * 【35†图文播报】
+L65: 
+L66: 发行上市
+L67: 
+L68:   * 【36†审核公告通知】
+L69:   * 【37†审核信息披露】
+L70:   * 【38†审核项目动态】
+L71:   * 【39†关于上市审核中心】
+L72:   * 【40†科创战略】
+L73: 
+L74: 披露
+L75: 
+L76:   * 【41†交易提示】
+L77:   * 【42†上交所公告】
+L78:   * 【43†上市公司信息】
+L79:   * 【44†融资融券信息】
+L80:   * 【45†基金信息】
+L81:   * 【46†公募REITs信息】
+L82:   * 【47†交易信息披露】
+L83:   * 【48†债券信息】
+L84:   * 【49†股票期权信息】
+L85: 
+L86: 监管
+L87: 
+L88:   * 【50†上市公司监管】
+L89:   * 【51†发行上市审核监管】
+L90:   * 【52†债券监管】
+L91:   * 【53†交易监管】
+L92:   * 【54†会员及其他交易参与人监管】
+L93:   * 【55†自律管理复核】
+L94:   * 【56†自律监管与市场服务事项】
+L95:   * 【57†诉求受理中心】
+L96: 
+L97: 数据
+L98:   * 【58†股票数据】
+L99:   * 【59†债券数据】
+L100:   * 【60†基金数据】
+L101:   * 【61†公募REITs数据】
+L102:   * 【62†其他数据】
+L103:   * 【63†行情信息】
+L104:   * 【64†上证系列指数】
+L105:   * 【65†中证系列指数†www.csindex.com.cn】
+L106:   * 【66†中华系列指数†www.cesc.com】
+L107: 
+L108: 产品
+L109: 
+L110:   * 【67†股票与存托凭证】
+L111:   * 【68†基金】
+L112:   * 【69†债券】
+L113:   * 【70†股票期权】
+L114:   * 【71†公募REITs】
+L115: 
+L116: 服务
+L117: 
+L118:   * 【72†企业上市服务】
+L119:   * 【73†IPO业务专栏】
+L120:   * 【74†沪港通】
+L121:   * 【75†绿色证券专栏】
+L122:   * 【76†交易服务】
+L123:   * 【77†交易技术支持专区】
+L124:   * 【78†收费及代收税费】
+L125:   * 【79†投资者服务】
+L126:   * 【80†上市公司服务】
+L127:   * 【81†路演服务†roadshow.sseinfo.com】
+L128:   * 【82†技术服务】
+L129:   * 【83†信息服务】
+L130:   * 【84†培训服务†pujiang.sse.com.cn】
+L131:   * 【85†司法服务】
+L132: 
+L133: 规则
+L134:   * 【86†法律法规】
+L135:   * 【87†部门规章】
+L136:   * 【88†本所业务规则】
+L137:   * 【89†本所业务指南与流程】
+L138:   * 【90†公开征求意见】
+L139:   * 【91†制度规则汇编】
+L140: 
+L141: 关于
+L142: 
+--------------------------------------------------------------------------------
+Internal Error ()
+citeturn65view5 [wordlim: 200] Source: open({"ref_id":"https://investor.szse.cn/warning/activities/stockintroduction/t20190531_567540.html","lineno":null}); Total lines: 1
+L0: Failed to fetch https://investor.szse.cn/warning/activities/stockintroduction/t20190531_567540.html: (400) Timeout fetching
+

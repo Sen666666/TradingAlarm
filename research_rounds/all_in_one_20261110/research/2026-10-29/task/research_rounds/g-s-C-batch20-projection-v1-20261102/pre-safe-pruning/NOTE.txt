@@ -1,0 +1,1 @@
+15 synthesis tests passed before adding a necessary zero-upper-bound prune for already-over-budget D. No static native snapshot had run. Prune is checked against exhaustive small-domain oracle and does not change policy.

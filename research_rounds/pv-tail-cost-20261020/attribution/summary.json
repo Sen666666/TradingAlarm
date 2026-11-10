@@ -1,0 +1,131 @@
+{
+  "task": "Read-only saved-account attribution; no model or account engine executed",
+  "initial_capital_per_market": 1000000.0,
+  "checks": {
+    "etf17": {
+      "episodes": 422,
+      "orders": 1064,
+      "decisions": 1210,
+      "all_orders_assigned_once": true,
+      "all_buy_cash_reconciled": true,
+      "saved_mfe_mae_sessions_reproduced": true,
+      "labels_reconciled": {
+        "ordinary": {
+          "n": 402,
+          "net_pp": -22.324085311125998,
+          "gross_same_labels_pp": -15.286199013399996,
+          "fees_pp": 7.037886297726
+        },
+        "tail": {
+          "n": 11,
+          "net_pp": 24.15459508450126,
+          "gross_same_labels_pp": 24.420471255500008,
+          "fees_pp": 0.26587617099875
+        },
+        "open_or_claim": {
+          "n": 9,
+          "net_pp": 1.9234948251950017,
+          "gross_same_labels_pp": 2.0193383530000015,
+          "fees_pp": 0.09584352780500001
+        }
+      },
+      "daily_episode_max_error": 1.8189894035458565e-12,
+      "original_positions_open": 9,
+      "closed_positions_with_open_claims": 0
+    },
+    "hk7": {
+      "episodes": 179,
+      "orders": 353,
+      "decisions": 1179,
+      "all_orders_assigned_once": true,
+      "all_buy_cash_reconciled": true,
+      "saved_mfe_mae_sessions_reproduced": true,
+      "labels_reconciled": {
+        "ordinary": {
+          "n": 163,
+          "net_pp": -54.048420570992484,
+          "gross_same_labels_pp": -43.65611618966026,
+          "fees_pp": 10.39230438133224
+        },
+        "tail": {
+          "n": 9,
+          "net_pp": 58.88786012477883,
+          "gross_same_labels_pp": 59.5907593195664,
+          "fees_pp": 0.7028991947875665
+        },
+        "open_or_claim": {
+          "n": 7,
+          "net_pp": 4.3275527797312945,
+          "gross_same_labels_pp": 4.6103190372272485,
+          "fees_pp": 0.2827662574959545
+        }
+      },
+      "daily_episode_max_error": 3.637978807091713e-12,
+      "original_positions_open": 5,
+      "closed_positions_with_open_claims": 2
+    }
+  },
+  "loss_findings": {
+    "etf17": {
+      "ordinary_loss_count": 293,
+      "ordinary_loss_net_pp": -69.3991554651185,
+      "ordinary_winner_count": 109,
+      "ordinary_winner_net_pp": 47.07507015399249,
+      "below_5_close_mfe_loss_count": 232,
+      "below_5_close_mfe_loss_net_pp": -55.077973062451484,
+      "below_5_close_mfe_share_of_all_losing_pnl": 0.7936403936519784,
+      "at_least_15_close_mfe_loss_count": 6,
+      "at_least_15_close_mfe_loss_net_pp": -1.1152765883975027,
+      "median_loss_return": -0.044080856736872794,
+      "median_loss_sessions": 14.0,
+      "losses_following_ordinary_loss_count": 202,
+      "losses_following_ordinary_loss_net_pp": -46.144751941835004,
+      "mfe_band_changes_if_exit_day_excluded": 8
+    },
+    "hk7": {
+      "ordinary_loss_count": 116,
+      "ordinary_loss_net_pp": -102.09286993606008,
+      "ordinary_winner_count": 47,
+      "ordinary_winner_net_pp": 48.0444493650676,
+      "below_5_close_mfe_loss_count": 94,
+      "below_5_close_mfe_loss_net_pp": -86.49525694098364,
+      "below_5_close_mfe_share_of_all_losing_pnl": 0.8472213289248789,
+      "at_least_15_close_mfe_loss_count": 0,
+      "at_least_15_close_mfe_loss_net_pp": 0.0,
+      "median_loss_return": -0.0622677657829441,
+      "median_loss_sessions": 12.0,
+      "losses_following_ordinary_loss_count": 73,
+      "losses_following_ordinary_loss_net_pp": -61.72968281047492,
+      "mfe_band_changes_if_exit_day_excluded": 1
+    }
+  },
+  "participation_checks": {
+    "etf17": {
+      "positive_signal_still_flat_asset_days": 31,
+      "of_these_with_saved_signal_observation": 0,
+      "interpretation": "No capital-blockage conclusion; verify calendar/raw tradability if needed."
+    },
+    "hk7": {
+      "positive_signal_still_flat_asset_days": 0,
+      "of_these_with_saved_signal_observation": 0,
+      "interpretation": "No capital-blockage conclusion; verify calendar/raw tradability if needed."
+    }
+  },
+  "limitations": [
+    "Saved MFE/MAE uses adjusted signal CLOSE relative to execution-day CLOSE, includes exit-day CLOSE after actual opening sale, excludes entry-day open-to-close move and all intraday extremes.",
+    "MFE/MAE is not executed account PNL: raw fills, FX, fees, dividends and multiple fills differ. Peak-to-terminal close giveback is diagnostic, never foregone executable profit.",
+    "An extra held-close field excludes exit-day close. It still excludes entry-day open-to-close and intraday extremes and is not a corrected true MFE.",
+    "Gross same-label PNL only adds recorded fees to same trades. It is not a no-cost counterfactual account, and tail labels stay net labels.",
+    "Entry/exit-year tables assign a whole episode to one year. Daily-year-label table uses saved daily PNL with final hindsight episode labels; it is the calendar-year attribution.",
+    "Reentry and preceding-loss flags overlap MFE groups and are not additive. Consecutive-loss runs terminate on any non-loss or open/claim episode, not on hindsight market troughs.",
+    "Saved decisions contain no rejection reason. Positive score while flat is a participation observation, not proof of capital blockage; holidays, pending fills, lots and liquidity may matter.",
+    "ETF17 contains five Hong Kong ETF symbols; ETF17/HK7 are saved portfolios, not currency or pure exchange partitions.",
+    "Floor-change attribution uses saved causal floors from first buy signal through final sale signal. States already active before first buy are marked inherited; multiple state entries during a still-open execution episode are marked separately.",
+    "Entry floor distance is (signal close - signal floor)/signal close, not actual initial risk or guaranteed loss. Gaps, costs, FX and delayed execution can exceed it. Correlations are exploratory, not causal effects.",
+    "All history was previously seen. Fixed MFE bins are descriptive and not candidate trading thresholds."
+  ],
+  "code_sha256": "e1ea0f042cba2608fb49d7e139644b0bbe51e361598285a755a5295c8afe0c09",
+  "protocol_sha256": "94bf039a822e69ee757b0401cbf384fca262be9e23aadbec68b31edf696ca50b",
+  "attribution_execution_code_sha256": "3a14d220941c8fb0f58c281f23210ee3bb372aa62613e72634e7d9857d9195ef",
+  "post_execution_change": "Only output path argument and finalized-output overwrite refusal added after successful generation; no attribution formulas changed and no account or attribution rerun."
+}

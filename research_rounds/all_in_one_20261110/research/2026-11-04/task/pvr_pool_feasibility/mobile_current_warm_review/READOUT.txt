@@ -1,0 +1,32 @@
+mobile新钱需当前G1暖（grade>=2）：限时只读逻辑/排重裁决
+
+单一裁决：此条件在当前mobile合同中非冗余，但不值得作为主要损耗修复继续接线/经济；关闭这个单候选，不改HOT>=3、不再叠门。旧完整只读证据已提出并否定‘主要亏损来自历史I仍持有、当前却不暖还继续加钱’解释；loss当前完整母体复核又显示作用规模小，尤其924后未暖组反而正贡献。没有据删组净额宣称新策略会改善或变差。
+
+为什么不是已蕴含
+actual-risk-recovery/code/engine.py::Facts.packet(I)：stock.trend_up映射i_target；buy_allowed=原market_allowed AND 当日i_buy。原G1_I.project的i_buy需要shadow E0有效、ready&&grade>=2、且E0 entered或fresh_up，所以原core的I日买点本身已有暖条件。
+但joint_v3.py:218用continuing=eligibility(replace(stock,buy_allowed=market_buyable[sid]),S0)，随后fresh stock CP1&&continuing.Q给mobile角色。market_buyable只查source/venue/历史availability，是执行资格，不检查G1。
+S0检查common/身份/市值/RS/stock_up与行业E0/fresh状态，stock_up仍是持有态i_target；没有g_grade>=2。CP1.calculate不读取G1。于是mobile可有freshCP1、原Q与I有效但grade<2。g_ready仅表示原强度输入可用/暖机完成，不能当作grade>=2。
+原I在grade转冷后沿E0/既有floor继续有效；只X/IX额外冷时退出。此次候选只拦mobile新钱且保原持有/退出，不能与G1_X/IX冷卖旧仓等价。
+
+已存在的直接排重与不同近邻
+1. W/g1-current-state-readonly-20261101/READOUT.txt及FINAL_STATUS：原完整576/602 confirmed-mobile层、1178层来源核同，2022未暖67/576、strong未暖62/602；约88.43%/89.06%该批闭合负仍来自grade>=2。原结论明确不启用暖门作为主要修复。该研究0新账户，是完整旧母体的只读分组；不能叫‘同一单门已有经济反事实回测’，其旧Bdiag也不是本轮No60新增全三年母体。
+2. 旧BP-1/P1确在实际407股2024→2026账户要求当前grade>=2，但同时要求PVR>50、held时价格>上次实买、其他core/资金规则不同；整户P1弱于P0也不能归因于暖门。不是同单差分。
+3. F1 currentpermit=ACTIVE+当前已知price+原breadth>.6，G/S再要求price_advance/独立局部资格、并改变行业/角色/资金映射，均不等于股票G1>=2；不能借这些多因素结果宣称本候选已经验证。
+4. T1-L是原attempt内历史前沿分散性验证latch，文件明确‘不是continuous current warmth’，仅设计未经济；不包含这个精确门。
+5. 旧replacement/rotation中的当前暖只是换出换入局部检查，非本No60全新mobile资金路径。未找到本合同只新增currentwarm、持有/退出/资金全原样的独立金融试验；这不构成必须再跑的理由。
+
+当前全量规模：只引用loss已冻结果，本任务不重复算特征/金额
+loss_correction/mobile_current_grade_quickcheck_v1提供全部2265三年/1171强窗实际层中的mobile子集：三年未暖117层原净-3246.76、暖1650层原净-302379.05；strong未暖34层-10013.52、暖833层+1207170.51。
+原Oct9–Dec31全部303买入里的mobile250：未暖14层原净+4543.07、暖236层-105839.23；L04未暖16层原净+3084.78。原暖门并不覆盖大部分主要损耗；这些原层贡献不是过滤后的账户收益，也不代表资本重新分配无影响。未暖／暖分母只在mobile内，不能写成全部303或全部2265的分类。
+固定旧83/94 tail身份、未知与金额由loss同目录另存，不能丢未匹配或不在该读取scope的旧强窗凯格层；本任务不重新取特征扩样本。
+
+为什么‘未暖’也不能直接叫失败续推
+原G1等级含promotion lock：降温可立即，升温须G1自己的新E0/S21/S63/旧S21前沿证据。CP1的局部新前沿收据不自动满足这个G1新事实，故grade仍冷不等于全部当日价格证据冷。
+已核旧盈利反例：宏和科技2025-08-06追加，grade=-3但proposal=4、acute_down=False，因缺新G1凭据保留旧grade；原mobile层净+8617.93元。旧东方钽业/利欧也有未暖盈利；不据单赢家否掉所有门，但必须保留误挡代价。
+反向也一样：grade>=2可以在下降后的局部反弹中成立，不是未来持续上涨/试错低成本证明。暖门既不自动区别失败续推与赢家正常回撤，也不卖原旧仓；不能靠概念好听把风险已解决写进结论。
+
+若复核盈利反例，必须保留的已有字段（不为缺项重跑新指标）
+精确budget_order决策CLOSE/source_segment；i_target/i_buy；g_ready/g_grade；原存在时的proposal/promotion_blocked/g_fresh_up/g_acute_down/up_reasons；fresh CP1 receipt/formation/end/原reset lineage；role/pool_at_fill/订单时序及同股core抑制；实际股数、含费买款、分红AR、已闭合/未闭合价值与净贡献；原固定tail成员ID与后续同股原实际再参与。
+proposal若本新简化facts没有就记未核、引用旧已核实例，不临时重算。未来净收益只能作事后反例，不能反定义当日暖或挑名单；不把后来上涨或原MFE叫可追回利润。
+
+范围：本任务只读源码与旧报告/引用另一agent已冻新母体；0新模型/特征/账户/订单/接线。源哈希和排重路径另存SOURCE_SHA256.json。无需新流水线或把门改到热级再试。

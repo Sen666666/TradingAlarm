@@ -1,0 +1,8 @@
+技术失败保留（均非经济收益后调参）
+1 初次系统python3运行prepare缺pandas；系统Framework3.13及bundled runtime缺matplotlib探测，改用项目已登记TradingAlarm/research/.venv/bin/python。无输入或模型改动。
+2 直接调用旧test_model.py完成测试后试图以x模式保存旧tests.json，被FileExistsError拒绝。旧文件未覆盖；本轮使用runpy仅导入Tests，独立保存model-tests.json（19通过）。旧CP冻结哈希在admit/complete再次全部验证。
+3 TECH短段首次未把COMBO/code加入sys.path，缺waiting。失败日志short-TECH-v1-import-failed.log；仅增加导入路径后短段运行一次成功。DRUG短段一次成功。
+4 审计器v1假设每条audit_log有at；v2未使用fill.receipt.at；v3时间T和空格直接字符串比较；v4默认参数提前求值，把CP checkpoint的布尔receipt当成dict；v5原E0已失效的NaN保护不能普通==。各失败版本源码和short-analysis-v*-validator-failed、日志保留。v6使用事件分支时间、Timestamp等值和明确双NaN等值，通过独立CP重建。未改变交易状态或保护计算。
+5 TECH短段尚未关流时过早启动v2审计，读取空缓冲，max(empty)失败；目录short-analysis-v2-premature-failed保留。后续均等待完成。
+6 图表脚本初放comparison目录，与冻结分析脚本独占输出目录冲突在运行前发现；将图独立移至case-plots并同步图表脚本路径，不碰交易/分析源码。无经济重跑。
+经济账户54路径各一次，无failed_partial；全量财务审计与30旧完整控制、物理截断均首次通过。

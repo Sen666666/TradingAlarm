@@ -1,0 +1,17 @@
+{
+  "stage": "technical_prototype_only",
+  "basis": "actual_daily_turnover_CNY",
+  "model": "E0-AMT-P1",
+  "real_history_replays": 0,
+  "financial_accounts": 0,
+  "legacy_models_unchanged": true,
+  "reclaim_question": "E0-REC-01 pending behavioural validation",
+  "sha256": {
+    "research_rounds/pv-participation-response-20261020/code/numeric.py": "b07f92f309864ba1cfdb84f76adbf7c4d97d5eff6d90b6b25acd62577be0c2e3",
+    "research_rounds/pv-participation-response-20261020/code/participation.py": "7a7017c7cd43dd2bdd7cfae4cfed29bf16d1b7452e9c411fe53c968692017cf0",
+    "research_rounds/e0-amount-contract-20261026/code/test_contract.py": "fdceac42b469f15d4cf129b416b21a97a8bc8c671376a48ba9ee2c9b1e1642e3",
+    "research_rounds/e0-amount-contract-20261026/code/e0_amount.py": "9f8ea70a404a2563e4af3ba0cbca8fdfd53073cfca0a562c98f9be7477303cc8",
+    "research_rounds/e0-amount-contract-20261026/README.md": "844e6adf13f7feb1af4c36275f4e69f0b7ae797ffe665a9ff096716c83e147d7",
+    "research_rounds/e0-amount-contract-20261026/technical.json": "68d547a6c9531c404d73ae412fa064b5cc2553493e1d9014c86c5191dc5f59b4"
+  }
+}

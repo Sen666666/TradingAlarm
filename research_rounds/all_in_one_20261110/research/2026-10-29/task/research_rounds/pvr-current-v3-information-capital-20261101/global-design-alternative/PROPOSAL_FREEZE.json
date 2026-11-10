@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-11-01T06:56:58.101536+00:00",
+  "status": "DESIGN_ONLY_INACTIVE_PENDING_INDEPENDENT_REVIEW",
+  "proposal_sha256": "ea9eb095c3e93fe59764efb788016f10ab1b9d6848bc13053c35a3606a5ed10f",
+  "basis": "pre-outcome coverage, not failed PVR returns; a single alternative estimand, no tolerance changes",
+  "original_contract_and_pairs_unchanged": {
+    "CONTRACT.txt": "0c28802f07901d00da5eca29247cba289094d75743ce4e113aefdb1ed44d79d8",
+    "CONTRACT_FREEZE.json": "0fcbe0480e4b557f3d82596373b409a4a63cf02267d785e7e118aab6478809e0",
+    "PAIR_ID_FREEZE.json": "38a7a50cf36364c71f920b69253550a2fdf91c0c904a9184dc4233ff09f0c6b4",
+    "2022/PAIRS_PRE_OUTCOMES.parquet": "3e1af6f55af39b92e2d68f360fe9060662524251930ffbfd4c4ba6d571de3c3e",
+    "2025_26/PAIRS_PRE_OUTCOMES.parquet": "f357011df5e1b0fbbc79bf105ee587a5720d4c6c886396837d959ac383495bda",
+    "COVERAGE_PRE_OUTCOMES.json": "591b9eed5023aa519b9c920f7768da94956bc0c226077e617ebb94adf784e5d0"
+  },
+  "original_protocol_sources": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/opportunity-quality-ranking-20261031/PROTOCOL.txt": "1b5e7623875955562a2219659d9b060286422611b17b0135bb168de93cb47d95",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/opportunity-quality-ranking-20261031/DISPLAY_CLARIFICATION.txt": "18806c50f17dbda06efc792732999ae1bb5b97005dc4afe704cd7e87e516a955",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/opportunity-quality-ranking-20261031/build_candidates.py": "5777808f5a7977a20c4dd093380863cd94bc937ee91a578bb99cabe8c87a5aa9",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/opportunity-quality-ranking-20261031/label_and_summarize.py": "5f46af8e46b059b394b0c35c1674edcbc9eed4ffc8f64ce62f611d7456bbc0e8"
+  },
+  "new_global_ranks_computed": false,
+  "new_pair_outcome_joins": 0,
+  "new_account_paths": 0,
+  "new_scores_calculated": false,
+  "finalized_at": "2026-11-01T06:57:57.028893+00:00",
+  "editorial_clarifications": [
+    "exact np.round(float(S),12)",
+    "N<2 rank summaries N/A, no group/mother exclusion"
+  ]
+}

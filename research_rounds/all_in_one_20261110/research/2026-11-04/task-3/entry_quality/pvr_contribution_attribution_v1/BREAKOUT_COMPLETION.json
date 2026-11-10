@@ -1,0 +1,7 @@
+{
+  "status": "COMPLETE_EXPLORATORY_PENDING_INDEPENDENT_REVIEW",
+  "seconds": 31.623394012451172,
+  "feature_event_rows": 243509,
+  "pairs": 85452,
+  "note": "Signal known after close; next actual observed open is unexecuted benchmark. No PIT ST/halt/limits/exchange calendar/order queue, gap dates are not proved fillable."
+}

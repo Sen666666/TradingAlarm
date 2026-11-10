@@ -1,0 +1,40 @@
+{
+  "status": "COMPLETE_BOUNDED_LOCAL_DATA_FEASIBILITY_AUDIT_NOT_PIT_CERTIFICATION",
+  "canonical_rows": 15739264,
+  "canonical_symbols": 5517,
+  "canonical_last": "2026-05-15",
+  "canonical_plus_retired_payload_identity_union": 5756,
+  "canonical_current_retired_identity_union": 5917,
+  "retired_payloads_present": 239,
+  "uniform_signal_ready_for_all5756": false,
+  "complete_historical_market_claim": false,
+  "source_refreshes": 0,
+  "network_calls": 0,
+  "new_accounts": 0,
+  "uploads": 0,
+  "active_experimental_processes_owned_by_study": 0,
+  "remaining_tool_blocks": [],
+  "data_blocks": [
+    "No certified full historical listing/delisting/aliases universe",
+    "Historical ST and suspension coverage absent",
+    "Historical industry known-time/end/THS bridge incomplete",
+    "2026May16+ whole market not one validated input",
+    "Corporate action and absolute unit/event-clock contract incomplete"
+  ],
+  "files_sha256": {
+    "READOUT.md": "146b975365f7eaa315ed80f6f19f9992a6a97da7bf69973bb69ecf9ccfc02380",
+    "bars/BASIC_COVERAGE.json": "afcdbb6a8110e8f400f3f61961a9e2929e08be63265ec01b8be97e51772737b3",
+    "bars/QUALITY_SCAN.json": "1caad2ea4586719f111ad5bc3b845e6e9047162f5f72db216c9f03fdb13c8246",
+    "bars/PULL_START_COVERAGE.json": "0219353978dda32c427bbe0e42896f0336df12a5ed2f7e54049c251ef7146557",
+    "bars/TIME_UNIT_AND_CALENDAR_LIMITS.json": "9819f3ce4946650e376e28f3209574137c640e18da4bdbcdf127c7f0f6c255b1",
+    "bars/BAR_SYMBOL_COVERAGE.csv": "c4e084e832897110621450c1d98b8103b33d644496269dcd0bce3bc31e15b29e",
+    "bars/BAR_YEAR_COVERAGE.csv": "1073bdd037cf4e6ba47a8b9f59be647a83e2cc1ed76cd2cb08b44a7f5780bddd",
+    "bars/YEAR_INTERNAL_GAPS_UNKNOWN_REASON.csv": "d44a59d0abc53d1a49474ed2ab41aa494f2cee567d12968d412d89955307c155",
+    "security_master/DELIVERABLE_SHA256.json": "f7b281fcb7df8349543d4d11635353227772e8bf80ab6030871526531d2b58fa",
+    "security_master/READOUT.md": "7335090b49d605b4498d3f378a986f95df27f615e99a04148d176ee096ab5590",
+    "status_adjustment/SEAL.json": "01eafa41cd65837b3483c8842b18a32d40c3a95a83e12eced1a5f4e4cbcace23",
+    "status_adjustment/READOUT.md": "66ce176c731ddfb3b6a024fc06ea7d0e1b9c319a3d859d997b5a7af6fc7f622f",
+    "industry_pit_review/SEAL_RECEIPT.json": "54819bd9b05ab59637708a3dd36e90ac4b1d64b7ee127a12bf7c54dc6e177f66",
+    "industry_pit_review/READOUT.md": "eca3e57ff8cbd411ed6dcf0de93047872669866e6bb5a0889e0507b378212d00"
+  }
+}

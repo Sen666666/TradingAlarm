@@ -1,0 +1,38 @@
+{
+  "created_utc": "2026-10-20T05:32:54.461284+00:00",
+  "code": {
+    "context_model.py": "2a1eb98c02c7b44fcd3b0df3ff3a20f1554a2fef01a114b322db86e65dbdffb9",
+    "run_context.py": "fc161c8a823624d3eb875d66239699ded5ba27b07d639e12b0d26816010f8701"
+  },
+  "protocol": "12deeded15c7ee2159734eb62655c11faa93f4e0daaf943418b7ee6244615ed4",
+  "inputs": {
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/600059.SH-signals.csv": "88077ec4d8b600e7bc9c6b7343af07f0280ad9e59632b3ae24c6e2cff1271451",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/600917.SH-signals.csv": "f34a33a3b2e95b5926621e71e5404e08544318e4088f2e296556eb0f8990157a",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/600919.SH-signals.csv": "5acd4e4421b8772e659f5a4d50ed440c7ae369234dde8c373c6d611dacbc6027",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/HK00002-signals.csv": "4f91c2cfccfcfd58da06f6ea7fad918fcd46ca5d882d9d8de4a6f0d433abb26c",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/HK00005-signals.csv": "03982df8fcb862269b6eba806a5c6426d5e1f6bfa6f667b9c4fb1f238bf0c5a0",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/HK00101-signals.csv": "28435e33f94cd46fe99d066d6d1034fecaf9ebb2b8db44e92d69e810980c1836",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/HK00700-signals.csv": "5727f527474bb735a21edd3fbce5428e434a86d97d675e798c05ea07b1dffdf0",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/HK00883-signals.csv": "49dadb76e0511b705e1b6f13870c8455c5fa2fae34e81a3f5eb98869dc1b5d03",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/HK02800-signals.csv": "599b47d18939b7d86d8151b0c346ed1e8d1be6057d81f596e625b6a9a6bb4391",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/HK02820-signals.csv": "dfb12106e3b32db547ac2c97ea4bd06ea50985d0a52edc5c66e4ad4be1c3feed",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/HK02845-signals.csv": "76fa282e4a51894ee97dcffcbaded7d736f538e786ebc336e55c915618373e77",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/HK03033-signals.csv": "289ce858006bf90b4e58a075a208397d42aaf89378145e561ce5e1b57720df7f",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/HK03110-signals.csv": "00d22dea2e6943cb542f54cbb3fb8d9175c7a8e08a955c02fc0653c5bfe50add",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/HK03690-signals.csv": "7afaef3bd02ad6cc9632cacc003af4f12ea4733436c738fed1c8e79d3276ceb2",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/HK09618-signals.csv": "aa0b87e57b944d5c8af8dbab6a24691894cd8ab2d8aee7603fd27666270ca0a9",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/USHJ510300-signals.csv": "e66d9cbfea510436792ec3f92d3e9380f0fa72f2cfb4b07ae647b800b499c20d",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/USHJ511010-signals.csv": "f18d373bccc2d85687977f27e97cba4429633daa16771fcb1d3b4d92098bc2d7",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/USHJ512010-signals.csv": "0876fa1e4d6199aad7829a2c9d7f3724e24d9794fc04effb36bc640fa7a4e6e5",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/USHJ512400-signals.csv": "f7951961a8d979170e81cc7fe002b4aed150da4064ee9a0b8c5ff40b48435660",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/USHJ512480-signals.csv": "a6e472553926e7af13973ecad4204fd649a0c324afa3b06c3c9241ccee318301",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/USHJ512660-signals.csv": "9a2634c8fd9aade07d6b2cdf2d06159fc8887104add246e45d0ddb2174c63f1b",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/USHJ512690-signals.csv": "0f61581bb05e180fa64879bfc6307e33d94e7eeea508ca8bb46ba045f23973dc",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/USHJ512800-signals.csv": "39bce751e25c995ad09103d7fc038580ab4f0001582063cca0bbdaf709122e8b",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/USHJ512980-signals.csv": "77db250b04bb5bd2d442028ffe97873570b912359f096ff4745d61e1d1a34be4",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/USHJ515030-signals.csv": "5834ecfe2fcab1e018d0285de34892f12d327eb820301dd391c527c2ce108300",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/USHJ515220-signals.csv": "3241ed2fda8a1fd28090b2f2f97dc30ac730e8b20c2c16644f0870864ebdcee6",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/pv-event-structure-20261020/USHJ518880-signals.csv": "d739e165ece137f7b0f14c786cf85a85e8e970980bb6d79124cf6223ec8cc5c4"
+  },
+  "account_calls": 0
+}

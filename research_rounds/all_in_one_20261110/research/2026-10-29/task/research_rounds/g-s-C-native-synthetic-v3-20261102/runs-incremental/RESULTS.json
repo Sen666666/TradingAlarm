@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "tests": 12,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 5.804353374987841,
+  "historical_account_events": 0,
+  "scope": "incremental native synthetic target coordination"
+}

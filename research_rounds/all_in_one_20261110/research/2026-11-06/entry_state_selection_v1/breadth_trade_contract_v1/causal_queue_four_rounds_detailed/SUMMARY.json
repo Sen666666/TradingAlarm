@@ -1,0 +1,10 @@
+{
+  "selected": 4,
+  "closed": 0,
+  "source_or_action_unknown": 2,
+  "open_censored_at_2026_06_30": 2,
+  "full_account_runs": 0,
+  "three_initial_investment_checks": "Selection4 still exact, historical tradabilityUNKNOWN, actual account risk/cash gate not supplied",
+  "completion_repair": "The output rows completed; generic summary assumed a closed round and failed. Added empty economic columns and correct zero-closed summary; no economic row or selection change.",
+  "completed_utc": "2026-11-07 00:40:45.346469+00:00"
+}

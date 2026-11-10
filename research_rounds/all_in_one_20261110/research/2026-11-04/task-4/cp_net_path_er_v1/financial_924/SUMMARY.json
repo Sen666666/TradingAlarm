@@ -1,0 +1,46 @@
+{
+  "evaluation_stocks": 19,
+  "daily_rows_each_anchor": 817,
+  "original_receipts": 153,
+  "receipts_with_defined_last_original_receipt_anchor_ER": 147,
+  "receipts_with_nonpositive_ER": 24,
+  "nonpositive_receipts_with_original_next_OPEN_buy": 1,
+  "original_next_OPEN_buys_on_nonpositive_receipts": [
+    {
+      "sid": "601319.SH",
+      "name": "中国人保",
+      "date": "2024-09-23",
+      "ER": -0.14552024653299006,
+      "old_next_OPEN_buys": [
+        {
+          "receipt_id": "fill:601319.SH:10396",
+          "security_id": "601319.SH",
+          "side": "buy",
+          "shares": 1300,
+          "gross_cny": "8038.017000",
+          "fees_cny": "5.5152368897000",
+          "at": "2024-09-24 09:30:00+08:00",
+          "settlement_id": "pay:601319.SH:10395",
+          "execution_basis": "explicit_daily_bar_proxy_past20_capacity_same_day_hlv_postcheck",
+          "fx_basis": "known_trade_time_reference_locked_until_settlement",
+          "layer": 1952,
+          "kind": "add",
+          "signal_at": "2024-09-23 15:10:00+08:00",
+          "raw_open": "6.18",
+          "price": "6.183090",
+          "floor": "6.840529878008069",
+          "pvr": 93.96497811132,
+          "reason": "fresh_CP1_mobile",
+          "epoch": [
+            0,
+            27
+          ]
+        }
+      ]
+    }
+  ],
+  "receipts_with_exact_ER1": 85,
+  "not_new_G_model": true,
+  "not_avoidable_trades_or_losses": true,
+  "new_accounts": 0
+}

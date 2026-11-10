@@ -1,0 +1,27 @@
+可行，但要把“两遍”限定为内部规划，并明确pool和同股role；目前不是可直接把旧whole_orders接上的改动。推荐的精确草案在CONTRACT_PROPOSAL.txt；本轮未实现或运行新账户。
+
+已确认的接口
+原planning优先级为H1降序/代码升序，opening用保存rank及core先于mobile；core一旦成功预留（并非成交）即同股done，哪怕零fill也不补mobile。
+native buys以sid为单键，reserve_quantity断言无同股买/卖单。没有通用增加数量的安全改单接口；已审D1 amendment明确只能减量。因此优先“两遍内部方案→每股一次最终预留”，不在两遍间真正提交或消费CP1。
+mobile目标正常2%NAV与股10%剩余空间；core resize覆盖初始2%预算，使用.25%含买卖费用/退出滑点风险及股10%上限。原独立目标买不起一手依然拒，不能偷带R1。
+原100最低/100增量与688的200最低/1增量必须区分；匹配fill_step通常1，不是新单minimum。订单最低佣金每订单5元，部分成交按已付/累计费增量收取。最终聚合单只收一次minimum，但更多股票会真实增加订单费用。
+budget.request是有状态准入，部分失败之前已写stock_requests/consumed；不能拿它做第一遍试探。纯规划必须保留资源占用与迁池、最终一次提交；原split/partial/cancel/fill回调继续处理真实订单。
+旧LR whole_orders虽有minimum-first，但按ideal/minimum比例、cash waterfill排序，且by[sid]会覆盖同股重复role；没有当前joint pool/sector风险约束，不能当同策略已验证。
+
+三个真实语义反例
+① 路由反例：某fresh mobile原完整目标在probe仅可100、confirmed可500。若第一遍都截成100再比较，平手选probe，原本走confirmed的资金会挤占probe。建议仍按完整目标比较路由，confirmed保持原完整量，仅probe延后补量。
+② 同股反例：原前序full probe挤满池，使X core minimum失败；X mobile因近floor或confirmed route仍可获准。两遍缩小前序订单后X core minimum可能成功，遂按原合同跳mobile。core/mobile不是两个独立候选，覆盖增多不保证mobile机会不变。原已审cost路径也真实证明“core预留成功即跳mobile”的离散效应，不能改成fill后才跳。
+③ 最小单反例：三个不同行业core各最低100股，每手毛额19000元（价190）、floor170、名义risk2000元，NAV100万下各自可满足.25%含费风险与行业2%资本，但probe总risk只有约5000元；两手已占约4000，第三仍失败，且原目标本就100股则两遍完全不改变。19000而非恰好20000也留出原费用扣NAV的边际。真实固定批次也出现这一类无从缩量情形。
+
+两个固定开盘只读minimum输入预览（不是两遍分配结果）
+成功计算13.52秒，其中只读native market加载8.91秒；0 Account/Contract实例、0订单、0凭据消费、0账户推进。首次尝试因旧四季度facts不含2022/23 factor而失败；修为读取本两账实际使用的fullwarm factor，保留失败说明，未涉及任何经济路径。
+
+2023-01-20：沿原1/19 pending共479个role意图、362股，117股同时有core/mobile；479个原独立target开盘preview均可达其最低单位。原实际36笔预留中probe只有4笔，其中3笔已最低100股；仅百亚core300→100可缩。原probe风险3325.324元；把这4笔各缩到minimum最多释放959.719元，只是局部缩量上界，不等于中际会轮到。最低单位自身已占参考probe风险预算>=20%的有56个role意图/50股，>=40%的7个role/6股。参考分母为上一决策NAV×.5%，不是当时完整fee-adjusted最终准入。
+
+2022-06-29：按完整2022原开盘funding含probe_risk的条数最多、并列日期取最早选择，未看未来收益。原有691个role意图/497股、194股双role；688个原最低量拒记录（统计单位不是688独立股票）。本次原独立开盘preview688可达minimum、1个600745 core因原冻结目标/开盘价失败，另002703 mobile和600063 core缺当日原open，保留unknown。
+该批原账没有任何新买预留，不仅没有新probe；原前一收盘probe名义风险6085元，已高于当时.5%NAV参考4133.10元。保留完整目标路由比较及顺序时，原maximum_quantity先检查minimum，全部实际路由无预留，故第一遍没有可以缩小的前序订单、第二遍为空；由原拒绝链可推出该批不新增落脚，不需要跑新策略。不能用前收盘风险冒称精确开盘前状态。
+688个原独立可行role中，minimum风险本身>=参考probe预算20%的76个role/71股，>=40%的13股，>=50%的2股：603026 mobile约2074.51元、605111 mobile约2456.57元。它们仍须行业2%/池资本等全部检查，不能以能买一手等于可获准。
+
+待验而非已完成
+本轮没有whole-batch两遍方案，因此1/20新增unique落脚/被缩原候选、费用与pool迁移反馈尚未计算，不用959.72元反推能买几只。2022固定批不变是已有原准入链的源逻辑证明，不是收益预览。精确后续设计应检查：完整目标路由固定；同股角色不可重复；费用F(q)替换而非两次minimum；迁池与待撤不释放；最终方案原顺序前缀与一次提交核同。
+未来任何whole-batch工程预览必须同时保留新增、无变化及更差批次，报告新增落脚与原候选缩量，不能只展示中际/新易被解锁。没有授权实施候选或经济回放，旧Bdiag/C1/所有历史结果不变。

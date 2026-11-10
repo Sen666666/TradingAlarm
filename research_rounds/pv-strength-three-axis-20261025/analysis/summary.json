@@ -1,0 +1,17 @@
+{
+  "recorded_at": "2026-10-25T04:00:33.924888+00:00",
+  "point_rows": 50,
+  "windows": 22,
+  "output_selection_is_posthoc_descriptive": true,
+  "formula_changes_after_real_outputs": 0,
+  "accounts": 0,
+  "inputs": {
+    "AU0": "c44913006a891b5abfca4a66d520ef57cdf0ea33c11939cad162570ddb06ae6d",
+    "518880": "7dc084209be511941e3552f31a17e730bb02d47a69592b9d0ea74ff74f925eeb",
+    "512480": "5338e9113b9d0a431a9a29cd389f755e6dc74d29686dbf43ea45d8d91645998f",
+    "001309.SZ": "fb4e186f1e5d78c6cc83136cdf54d65df77c252c92306957786b7fc8740c54d1",
+    "688981.SH": "816546064f871c94e4265ad116e32636918ec1a2857694731d89120c869d348c",
+    "600036.SH": "bf767454962f65824ce551b806bb848cf44df8975d31af85d9a62a87e0057dd8",
+    "600519.SH": "b9444554fcef2b36c3218738be1d9d6916ab37ff3a06d89d203b50cf6a282fe4"
+  }
+}

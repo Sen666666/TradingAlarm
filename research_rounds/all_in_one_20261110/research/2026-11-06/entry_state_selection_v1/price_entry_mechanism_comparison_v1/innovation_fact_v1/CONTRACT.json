@@ -1,0 +1,11 @@
+{
+  "status": "Fixed signal-only candidate before new values; known case outcomes, not OOS",
+  "question": "Does a target fresh price-root receipt coincide with peers experiencing positive innovations relative to their own original short drift, rather than merely remaining positive for three days?",
+  "base": "Original canonical native mu5_t=(1/3)*log(Ct/Cprev)+(2/3)*mu5_prev; reuse original native64 warm-up and existing output. No alpha/window fitted.",
+  "innovation": "mu5_t-mu5_prev=(r_t-mu5_prev)/3. Positive means an above-own-drift daily return, even if r_t<0; negative can coexist with positive return and persistent M3.",
+  "peer_breadth": "Fixed original industry peers excluding target; direction signed count=(positive innovation count-negative innovation count)/Npeer. Unknown bound adds +/-Upeer/Npeer; report known-only mean separately. No unknown constituent is set flat or down.",
+  "clock": "T CLOSE; finite original mu on T and previous common day, observed eligible source-identical adjacent raw bars and no invalid source; no wait for three positive mu days. Missing previous data UNKNOWN.",
+  "scope": "Only fixed named early-start and same-definition 2022/2024 positive/negative counterexamples. No orders, holdings simulation, filtering, parameter sweep, or filtered PnL.",
+  "differences": "Not M3 derivative or 3-to-1 window tweak: measures drift innovation rather than sign(mu) status transition. Not relativeUP: no stock/official-sector ratio or relative turning threshold. Not up1: compares return to its own prior drift, not zero. Leave-one-out/fixed denominator are controls, not novelty. Pure price, no new volume information.",
+  "limitations": "One-day innovation could be transitory rebound; original mu inherits pre-gap pace; static NON-PIT roster; no causal alpha claim. If named failures also show positive innovation or early starts negative, reject a positive-innovation gate without changing formula. Also retain current peer up-day and paired M3 diffusion control."
+}

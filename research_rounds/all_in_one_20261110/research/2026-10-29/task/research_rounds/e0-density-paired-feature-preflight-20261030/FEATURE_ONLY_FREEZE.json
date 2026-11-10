@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-30T09:30:08.421821+00:00",
+  "stage": "before_matching",
+  "all_inputs_feature_only": true,
+  "labels_opened": false,
+  "cohort_rule": "research E0 open; contemporaneous I and Q; positive T21; complete historical features",
+  "rows": 918,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-density-direction-observation-20261030/full/features-before-labels.csv": "368ce2dbde84d39c0e821951d0bc57e97b2a38fdcd937ccf5f4c72d3d0e0733b",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/tech-compound-design-20261026/proposed-pool.csv": "0808a6ff5f0b49bccae89436470751d2ca80aa8a07df45b32f7f4a781179a4de",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-density-paired-feature-preflight-20261030/PROTOCOL.txt": "8c84e748c9bcfc514952e432f1b0eeba0ebf801ed11059925bc54c9aeadac133",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-density-paired-feature-preflight-20261030/preflight.py": "4858e9a3701a9473131c08b765c37ab007b83c7b25bbba535ee576efc1f300f7",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-density-paired-feature-preflight-20261030/frozen-features.csv": "163f8a70557970cc687c62793dd21bcc6e335cde12856a49706ad3899bb2bb8c"
+  }
+}

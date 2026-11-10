@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-30T11:21:04.234829+00:00",
+  "status": "v2_spec_and_synthetic_only_completed_stop",
+  "passed_defined_tests": 12,
+  "unverified_interfaces": 4,
+  "historical_market_files_read": 0,
+  "new_historical_behavior_runs": 0,
+  "economic_tests": 0,
+  "product_changes": 0,
+  "v1_outcomes_not_reused": true,
+  "readiness": "conditional_read_only_historical_behavior_only_after_parent_review",
+  "follow_on_started": false,
+  "wall_minutes_since_specification": 9.237598844369252,
+  "sha256": {
+    "SPECIFICATION.txt": "86977b0cb60c27218a4071a57de6da5101e0fe1ebed726de44fc0483bed7e0cc",
+    "risk_boundary_v2.py": "10d03159a9aa6377bf14ac53a039dc5bd6be3f13bf246b5d780c3c2c11b46e76",
+    "synthetic_verify.py": "64a0be10d9d1abde75d0c2c4ca9bba40e71f1e33ff9fbddb979a20cbe159d976",
+    "TEST_FREEZE.json": "d2bd25c0ae3b4168b7bc57fa08a0db06bea9317665187024509373d5726e3359",
+    "TEST_RESULTS.json": "acce4593467be12a60598d5e165e2a00240dbbcdc21a09505e65293eb62497fa",
+    "TEST_CASES.csv": "5a8d9d659d61361303f2ecd4119f4428bc7e36ee96e936079fa9c7f9e4180351",
+    "STATE_TRACE.json": "c78d6ab3dbb2141d171ee6e3e93b9420a6999ca23c31fb3f6ce480662b91b7ef",
+    "OFFLINE_EXECUTION_TRACE.json": "84423c744f772add0195d2cd96071a1844e72c979ebd2e65e08a3f01638271c2",
+    "INTERFACE_GAPS.json": "e3720763008a687597a26b1e5ddb10abadc06b65514ca4bfc96b36c36d745d43",
+    "REPORT.txt": "fa5be8b80ca6409d30206f4cab30b43a1d518a5c2df6a75410ac5e7c334a69ed"
+  }
+}

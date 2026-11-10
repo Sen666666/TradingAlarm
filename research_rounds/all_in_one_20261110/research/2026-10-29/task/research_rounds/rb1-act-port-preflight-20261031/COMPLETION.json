@@ -1,0 +1,41 @@
+{
+  "completed": true,
+  "completed_at": "2026-10-31T05:05:12.817256+00:00",
+  "protocol_to_completion_seconds": 386.4945213794708,
+  "initial_reading_started_before_protocol_not_separately_timed": true,
+  "successful_synthetic_seconds": 0.6430047499015927,
+  "synthetic_tests_passed": 17,
+  "failed_harness_attempts": [
+    {
+      "log": "synthetic.log",
+      "cause": "missing local waiting-module import path before tests; corrected only sys.path; no strategy rule change"
+    }
+  ],
+  "final_success_log": "synthetic-v4.log (17 tests, strengthened real rejection top-up)",
+  "new_economic_paths": 0,
+  "new_historical_account_paths": 0,
+  "new_product_writes": 0,
+  "performance_throughput_of_history_not_measured": true,
+  "correctness_gate": {
+    "real_ledger_admission_synthetic": "passed",
+    "existing_RB1_formula_identity": "passed",
+    "native_I_ACT_restoration": "passed",
+    "new_adapter_six_full_off": "not_run",
+    "two_fixed_prefixes": "not_run",
+    "independent_full_path_NAV_audit": "not_run"
+  },
+  "ready_for": "short/full-off historical identity gate after parent review, not immediate economic grid",
+  "blocked": false,
+  "active_processes": 0,
+  "notable_source_reporting_issue": "old RB1 summary risk_rejections=0 disagrees with original audit events 6/7/42; no source files changed",
+  "remaining_boundaries": [
+    "causal actions pay/sellability proxies unchanged",
+    "current-survivor snapshot bias",
+    "all historical data consumed/not certified untouched",
+    "1pct planned initial loss is not realised or portfolio loss cap"
+  ],
+  "earlier_successful_logs": [
+    "synthetic-v2.log (15)",
+    "synthetic-v3.log (17)"
+  ]
+}

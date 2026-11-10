@@ -1,0 +1,17 @@
+{
+  "decision": "STOP_NOT_PROMOTED",
+  "new_account_run": false,
+  "new_economic_result": false,
+  "fixed_case_count": 63,
+  "unique_dates": 42,
+  "fixed_rule_UNKNOWN_dates": 42,
+  "certified_pressure_dates": 0,
+  "existing_AB_financial_labels": 48,
+  "point_positive_old_AB_labels": 11,
+  "point_positive_old_winners": 6,
+  "point_positive_old_nonwinners": 5,
+  "point_positive_old_full_return_ge30pct": 4,
+  "point_values_not_valid_permits": true,
+  "no_parameter_formula_or_sample_change": true,
+  "independent_joint_completion_limit": "40 finite dates admit both signs; Dec3 2024 excludes pressure under tighter audit, Sept30 empty down group. Frozen states unchanged."
+}

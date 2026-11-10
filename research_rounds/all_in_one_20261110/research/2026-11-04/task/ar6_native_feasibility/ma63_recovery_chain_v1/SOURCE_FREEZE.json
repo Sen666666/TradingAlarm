@@ -1,0 +1,25 @@
+{
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/ma63_recovery_chain_v1/analyze.py": "7f06fa3de4532f3a0ca26b7c9d8529985fc5ea8dc95dae779ac1a347a5511ce0",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/ma63_recovery_chain_v1/PROTOCOL.txt": "98b264322ad1b47a02ce2fdb380676bd5284fba133f64c48b7fc88ead3e11274",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/ma63_recovery_chain_v1/SCHEMA.json": "94f76c200e93e11aa895ec6616264b7e3f7f0a1ff00c535f0df7e8ae2aef320a",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/logs/MA63_90_signals.json": "f8d0c104a2cc5767e0c539b574b0e0648873933de6abc5cddbbcbc073614c644",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/logs/MA63_90_fills.json": "c0c8941d4f75e45d2b41cb1e21fec87f1c0d6a30c0bfabe15a5d134499b6eb9b",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/inputs/510300_history.csv": "fb6754b16fbfecb02bdb2fc9ff7e34546640009d268fc6b7896fd511530b8e41",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/inputs/calendar.csv": "c3d14e14f364cab4248e75a5ab5d9232502701b1a3a023a265e9f4737f52017d",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/prepare_inputs.py": "f4bd71a7246ca0ae8a742a584fc0c53043d57c41718d0f769b065e435da0094b",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/run_benchmarks.py": "fd0eaaff22336d8d6b0408c89c4862cc187dad99c69960fa8ce024d9c22e0e64",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/INPUT_FREEZE.json": "f61be5667fcde7d695662d44f64546b7e006f5369470aee9712af9cdf98fb825",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/market_phase_2022_2023/FUNNEL_DAILY.json": "60a29420d3114db6450a33e62566358303dee667cecea3f7873f431b61db52c6",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/market_phase_2022_2023/funnel.py": "da54f7c0a625154978d634fbcaaf350d837449ac250c3bc2aaea0ab706c56ace",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/market_phase_2022_2023/FUNNEL_SOURCE_SHA256.json": "40a7570d230b21b36cb854464ae7bf6faa8437a951e2bddb501b0b60be8472aa",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/market_phase_2022_2023/NO60_ACTUAL_EXECUTABLE_FILLS.json": "88bacf5f5764a869e588f34db1e5b0f9db9c118eb5577552e4f07bb97c274bb2",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/market_phase_2022_2023/PVR_ACTUAL_EXECUTABLE_FILLS.json": "cb44a7bee9e8240a9d06b3a989bdb65a1a424421947869c8cd59c714ea8c98bb",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/continuation2023/run-2023/pair/B.json.gz": "3d1ba5b60694a35efd5421b0cf220e675827db59fdb76e7244d047b1b5e1018b",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/continuation-2023-readiness/run-2023/pair/B.json.gz": "856e899e828f870de18024ec6998a09e18e4d6c5c0d4df1660f4ec888d28c817"
+  },
+  "native_books": {
+    "NO60": "pvr_pool_feasibility/continuation2023/run-2023/pair/B.json.gz",
+    "PVR": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/continuation-2023-readiness/run-2023/pair/B.json.gz"
+  }
+}

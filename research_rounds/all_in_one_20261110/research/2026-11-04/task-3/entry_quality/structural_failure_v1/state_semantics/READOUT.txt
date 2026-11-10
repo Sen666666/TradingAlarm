@@ -1,0 +1,74 @@
+原E0/I/CP/PVR/行业/ACT状态机制复核｜2026-11-04
+只读缓存、零新模型、零新账户、零生产adapter。母体为原No60三年2265层+strong1171层，原完整held CLOSE共57,213。原正负/net均为原路径贡献，含未平mark/应收；绝非删除/早卖可得收益。
+
+结论先行
+1. I_buy与CP高度共享当日价格确认，不能将二者当统计独立证据；但CP确有未消费的新frontier，不是重复使用旧凭证的bug。
+2. 行业成熟资本许可确实持续，首次真实买入可由mobile独立取得，CORE未获资并不阻止它。只是给每笔mobile再要一张当日行业凭证，会删去大量强窗赢家，当前不能成为改进规则。
+3. ACT暂停恢复从来不要求新的股票E0 epoch。2022/2024实际恢复当日分别56/42笔新买决策已在旧I结构内，直接否定“只能等新E0而漏已有结构恢复”的归因。
+4. 本轮唯一清楚的新权限候选“原负event后仅冻结mobile新增，原下一正event恢复”因主要亏损作用域不足否决。post303只9层，原负1568.08占全303原负219220.96的0.715%，且原正7506.70更大。不改成旧高/新比例/额外高量挽救。
+5. 把同一负leg移到I持有授权，会有很大覆盖，也会触及strong的60/67个已精确匹配固定赢家层、原贡献1135717.04。状态覆盖不能证明退出收益；不因原退出亏损就说退出晚。不提交新的经济候选。
+
+一、原数学与时钟
+E0事件：正有限C/V的原source有效观察；sigma_p=max(sqrt(mean(此前63个log-return平方)),1e-8)，量背景Vbase_p为极值观察p之前21量中位数。当前从反向极值p反转的确认度为 (-d)*log(Ct/Cp)*clip(sqrt(mean(Vp+1..t)/Vbase_p),.5,2)/(sqrt5*sigma_p)；达到1确认event=-d并切换摆动方向、极值设为当前t。极值及阈值都当时可知，gamma4是原浮点并列政策，不是经济阈值。负event只确认摆动高点，不等于E0 target off。
+E0参与：active时先查C<=旧floor退出；新正event才用此前确认低pivot抬floor，或inactive且非同日刚退时开启。单个负event不退出。native derive明确decline_candidate=False，参与记忆未开启。
+旧参与记忆另有含义：仅inactive、当日下跌、当日volume/此前21median>=2时创建lower=当日low/reclaim=前close；C>reclaim恢复，原正event亦可先消费。不能拿这套inactive的previous-close reclaim，冒称active负event之后已有原收复线；负event也不保证high_effort>=2。
+
+G1：上游S21/S63在log价上同时要求方向位移和量加权新frontier credit达到sqrt(h)*冻结尺度；量权clip(sqrt(V/Vref),.5,2)，确认后反向候选重置，不是h天持有。mu5/mu21是纯log-return EW pace；尺度为此前63绝对return中位数×1.4826。grade按原S21/S63与两pace非补偿分级；S21=S63=+且z5,z21>=1为4，acute_down强制冷。grade提升必须有fresh：新E0正event、新S21上确认、新S63上确认、已有S21上结构的新running价格高点四者任一。
+I：原当前G1_I入口为E0 shadow on & ready grade>=2 & (E0 entered或fresh_up)。活跃I的buy_event可在同一连续I内反复为真。持有只因E0 shadow off或C<=旧I floor退出，非G1转冷；随后承继max旧I线/E0 floor。没有原单独CORE hardstop；last_core_line是风险计量参考，不可冒称第二退出线。
+
+CP1：r=log(Ct/Cprev)，s=max(1.4826 median此前63 |r|,1e-8)，z=max(s,log1.001)；u=tanh(r/s)，v=tanh(log(amount/此前21amount median))，m=1+.5|u|v始终正。anchor冻结used scale，只有超过此前frontier的新位移才加credit=Σ新位移*m；displacement和credit均>=sqrt5*usedscale且当日真新frontier才receipt。candidate=Ct exp(-sqrt21*usedscale)。消费后锚/scale重设到当前；原负event触发E0_down_reset，随后可对局部反弹重新确认。CP输入名e0_valid在stock native实际上绑I_target，不是raw E0。√5/√21是同一冻结尺度上的位移/保护距离，非5/21持有天数。
+
+行业：原行业用E0，不是个股I。第一张新行业CP为probe，第二confirmed，第三expanded，后续newCP替换授权。先查旧行业mobile线/E0/source/episode失效，不能同日旧attempt破线又重启。无新凭证时仍保原stage/授权，expanded不逐日要求新恢复；状态stage与真实金融level/pool须分开。金融Contract消费canonical token一次，新attempt/epoch不清旧持仓责任和已实现loss；当前shared_loss exhausted_policy=record_only，不是亏损预算停买。
+
+PVR：同CP的有符号e=u*m，过去21观察用归一化0.9^age平均E，score=50+50tanh(2E)；只改原待买排序，不是新增质量门。signed e符号等于r，量不能把跌改涨。旧direction_divergence已核全部3436实际score精确，决策r<0且平滑正为0，故不可继续拿该怀疑解释303主亏。
+CORE/mobile与钱：CORE为当日event_Q、无持股、watch epoch未用，走原LR .25%NAV风险；mobile独立为freshCP+continuing_Q，不要求先有CORE实填。mobile名义目标min(2%NAV,单股10%剩余)。同股OPEN先CORE，CORE未获资后mobile仍可合法走confirmed路。既有全两年firstmobile537中468同日有CORE intent且全部精确失败；376含probe_risk、304含sector_capital(重叠)。strong454中390有CORE intent且全部精确失败，272/242分别含上述原因。此为明确原合同，不是CORE被漏执行；只此组数字不外推未追踪2024资金失败原因。
+
+执行：CLOSE决定，下一原合法OPEN执行。原ACT/I整股退出优先，mobile检查每layer旧floor后才用当日I/CP抬线；不能用日终新线解释刚才触线。新增审批/排序/费用/整手/额度不会让CP receipt成为立即成交。自建候选均未接生产，未改变原优先级。
+
+ACT：on时phase peak=max(旧peak,NAV)，回撤>=20%暂停并原路径请求清仓；本次CLOSE不能同日恢复。paused时peak冻结，只在实际flat(无shares/exits/buys)且当日BREAK恢复、episode+1、peak重置；fast/BREAK后来转弱不自动撤on。BREAK为固定池行业等权log-return合成market破此前63高、当日涨、金额修正方向正的行业等权breadth>.6。非HS300/ETF，非新E0 epoch；缺当日恢复行不可沿用旧breakout。旧FAST模式off→on edge不是当前BREAK。恢复后仍须原新I/CP/Q与真实资金，不自动回补。
+
+二、全实际入场分母与共享凭据
+                 三年2265          两年1557       strict post303        strong1171
+mobile           1767/-305625.82    1199/-220025.19 250/-101296.16        867/+1197156.99
+mobile同日I+CP   1627/-286103.79    1112/-187620.46 235/-104625.74        829/+1189767.79
+无当日行业新CP   1288/-266266.97    884/-147495.58  195/-118430.52        688/+861615.91
+后续mobile无买后行业新CP
+                 388/-48716.51      278/-28683.78  59/-24247.28          232/+239355.69
+各格层/原net。全部正负、买款、role/action/stage及尾部在RESULTS.json，不能仅读净额。
+mobile同时是G1新running价格frontier与CP新frontier：三年1397层净−245469.55；strong753层净+1120890.12。同一当前CLOSE为共同价格观察，不证明两算法formation区间完全相同，更不证明存在两个独立alpha。全部2634实际mobile canonical新推进核真。
+strong固定94全部保留、67精确No60对应，其中同日I+CP为62层/+1202010.92；无当日行业CP为48层/+803957.37；后续无买后行业新CP为17层/+272519.26。三年83/45对应同三格36/+231528.03、24/+136007.40、11/+99805.56。不能按赢家豁免，也不能把这些贡献等同禁买机会成本。
+
+三、唯一新权限候选及否决
+精确定义：原native leg=-1时仅令新mobile permission=false；原下一event=+1时恢复。leg由原source连续状态，UNKNOWN单列，使用当前CLOSE；只影响该CLOSE以后新增mobile，原CORE、存量I/每层CP/ACT/原钱钟不变，不新卖线、不缩首仓、不等固定天数/旧入场高/EMA/RS/5日反馈。此是原摆动方向许可，不是关闭native中未启用的参与记忆。
+它与旧R0 approved nominal风险保持无关；也不等于旧JOINT撤权后要求CP形成区间全新(后者Dec135命中0、三年仅3、已STOP)，不能改名复测。它亦不同于旧A-only既有S21 frontier来源过滤(原JOINT strong自身122尾107在A、贡献1436959.67，已否)。未找到旧local-rebound同一确切合同证据，不能因此宣称全球首次或直接等价。
+                 三年             两年          strict post303           strong
+负leg新mobile   69/-503.32        45/-12957.08   9/+5938.62              21/+242.55
+原负贡献        −30786.82        −22984.81     −1568.08                −15816.91
+原正贡献        +30283.50        +10027.73     +7506.70                +16059.46
+全部decision native leg unknown=0；均发生在当前I连续段内。post主负覆盖仅0.715%，不申请完整账户。改成C收复上次负event的原确认高pivot，则三年454/−53240.40、post51/−1272.69、strong127/+143078.38且14自身尾/+165094.23，已成为另一旧高等待，不可用来救当前候选。
+关键反例000620：2022Jan17负event，Jan20已正event；Jan21/24两坏add合−10706.78在恢复之后，当前候选不会拦。新正证据不保证后来不失败；不能拿“首次负event后一直冻结到原flat”的宽事后界限冒充−1→+1精确门。
+固定83/94全成员映射另存：该新mobile门只碰三年1个精确旧尾/+156.30、strong0。低赢家误伤来自作用域小，不是主亏识别准确。
+
+四、持有状态变更的额外审查(未批准规则)
+若把I_hold改为native I_target & native leg=+1，原持仓在I尚on但leg负的CLOSE即会退；这触及较短√5量价摆动，不再是原抬升pivot边界的同一持有尺度。按原最早specific-layer退出请求之前严格截止(含同CLOSE排除)，不重建已取消/复活pending，保守作用域：
+三年1812层，原正606382.34/负−968821.16/净−362438.82；其中mobile1366净−314637.77、core446净−47801.06。
+两年1269层原正406656.09/负−686767.24/净−280111.15；post202层原正65324.38/负−128749.81/净−63425.43。
+strong929层原正2032244.15/负−709961.68/净+1322282.47；mobile639净+1256995.57、core290净+65286.91。
+57,213 held CLOSE里当前native event行未知232(三年79/strong153)单列；因原RS上下文UNKNOWN造成的保守priority未知状态也分别51/32负leg观察单列，未把未知当允许退出。已pending/同CLOSE原请求的负态观察三年1237/strong661排除。
+strong固定94中的67精确对应有60层在此可见负态，原No60贡献+1135717.04；三年45对应有30层/+123032.28。首次可识别负态是当日新负event三年1763/1812、strong916/929，余为进入时已有或原更早不具可见资格。不是只有长期陈旧状态造成。
+旧old-side-exit-all69对57触发/69原闭合周期局部首次负event早退，正常成本比原少2442858.94，14尾少2721259.69；它无再入且是旧407域，不能把该差额直接套当前负leg→正leg重入版本，也不能把当前覆盖直接称该版本盈利。但它和本完整赢家覆盖共同反对无证把I持有缩为单个摆动。可执行局部界限由父cost/chains另审；本目录无替代成交/收益。
+
+五、ACT恢复已有结构的实证
+2022Jun17真实resume当日56个实际新买决策来自此前已启动的Iroot，下一OPEN Jun20实填；这些原层净+31822.90，正56084.78/负24261.88。后续截至下一resume的原新层中254层Iroot起点早于该resume，净−43456.96。
+2024May6恢复当日42层旧Iroot下一May7实填，净−22171.85；后续176层旧Iroot净−61107.68。这些只是原路径贡献，不是恢复带来/损失的因果收益。
+所以原系统可在已存上行I里通过新I买凭证或新CP恢复实际买入。真正可能的等待来自合成market63高/广度/actual flat、以及无当日fresh新凭证或core_epoch锁，而非笼统“必须新E0”。旧改恢复更早的REC21/EMA已有相反赢家代价，不据‘更早’再批复测。
+
+六、10条金额代表链与最大未解决点
+TEN_REPRESENTATIVE_CHAINS：weak完整股票净贡献最差3(000620−14511.72、600675−8253.83、002911−6912.09)，strict post最差3(300085−5920.08、601216−5825.73、002181−5624.20)，既有指定strong嘉美包装002969+101999.13、中船688146+207221.07、唯特偶301319+155785.47，另最大剩余strong光智300489+160044.78。每条保留该既定cohort的全部原实际层、原决定/实填、I/G1四类来源、CP锚/新推进/尺度/候选/绑定、行业stage/最近凭证、最近±event；追加版WITH_HOLD_CONTEXT再保留原请求/终态退出与最早原负leg时点。选例净额只用于解释与控制，不进信号、不缩全母体。
+最大未解决点是：真实新价格推进、最高G1、成熟行业许可已经同时存在于主亏和持续赢家中；不是缺一个尚未接上的独立凭证。把同源推进当足够的成熟资本证明在概念上偏强，但删除它或普遍更早退出又会破坏主要赢家。当前缓存支持这个机制缺口的存在，尚不支持一个能事前区分且有主亏覆盖的新动作合同；本轮不强造候选、不重命名旧门。
+
+限制与验证
+源码hash在SOURCE_SEMANTICS_HASHES、原parquet逐SHA在SOURCES/NATIVE_EVENT_SOURCES/HELD_NEGATIVELEG_SOURCES，IX1205源逐项与STOCK_MANIFEST相等。全3436精确决定日、G1当前close/grade/fresh核同；mobile2634新推进/receipt匹配复用既有canonical审计。232held日期无event行(多为原缓存无当前有效观察)按UNKNOWN，不前填捏造方向。当前快照/行业非PIT、已见开发历史、公司行动proxy与日线执行限制延续；没有OOS/可部署收益证明。
+技术修正保留：attempt01_schema.log为旧receipt导出无new_advance_observations字段，改读真实advance ID列表长度，未改公式；早版HELD逐层列表漏window键保存superseded_held_scope_without_window.json后补回精确window/layer键，分组统计未变。两源窗口原layer ID不得跨窗匹配。没有为错误/未知建立新引擎。
+
+最终裁决：STOP_NEW_MOBILE_NO_MAIN_LOSS_SCOPE；HOLD_NEGATIVE_LEG_NOT_APPROVED；ACT_NEW_E0_EPOCH_EXPLANATION_REJECTED。零新经济验证。

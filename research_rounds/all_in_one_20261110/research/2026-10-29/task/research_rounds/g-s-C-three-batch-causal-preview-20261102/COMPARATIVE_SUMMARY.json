@@ -1,0 +1,90 @@
+{
+  "rows": [
+    {
+      "day": "2025-07-08",
+      "targets": [
+        "000425.SZ",
+        "600031.SH",
+        "601100.SH"
+      ],
+      "all_Q_changes": [
+        {
+          "sid": "002602.SZ",
+          "before": 7700,
+          "after": 6900
+        },
+        {
+          "sid": "000970.SZ",
+          "before": 0,
+          "after": 100
+        },
+        {
+          "sid": "000415.SZ",
+          "before": 0,
+          "after": 100
+        },
+        {
+          "sid": "000425.SZ",
+          "before": 0,
+          "after": 11800
+        },
+        {
+          "sid": "600031.SH",
+          "before": 0,
+          "after": 5200
+        },
+        {
+          "sid": "601005.SH",
+          "before": 0,
+          "after": 100
+        }
+      ],
+      "all_D_changes": [
+        {
+          "sid": "002555.SZ",
+          "before": 4400,
+          "after": 5300
+        },
+        {
+          "sid": "300002.SZ",
+          "before": 0,
+          "after": 7600
+        }
+      ],
+      "seconds": 2.6530757090076804,
+      "rank_only_recovery_exact": true
+    },
+    {
+      "day": "2025-07-22",
+      "targets": [
+        "000157.SZ",
+        "000425.SZ",
+        "000528.SZ",
+        "000680.SZ",
+        "300201.SZ",
+        "600031.SH",
+        "601100.SH",
+        "603338.SH",
+        "688425.SH"
+      ],
+      "all_Q_changes": [],
+      "all_D_changes": [],
+      "seconds": 30.64339220803231,
+      "rank_only_recovery_exact": true
+    },
+    {
+      "day": "2025-07-29",
+      "targets": [
+        "688425.SH"
+      ],
+      "all_Q_changes": [],
+      "all_D_changes": [],
+      "seconds": 0.7160492087714374,
+      "rank_only_recovery_exact": true
+    }
+  ],
+  "seconds": 34.12113866675645,
+  "financial_events": 0,
+  "analysis_only": true,
+  "submit_allowed": false
+}

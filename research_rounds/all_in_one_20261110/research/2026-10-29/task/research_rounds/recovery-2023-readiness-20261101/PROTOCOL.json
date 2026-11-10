@@ -1,0 +1,72 @@
+{
+  "status": "conditional_ready_for_original_receipt_export_and_verified_continuation_engine_gates; no economic execution authorized in this turn",
+  "window": [
+    "2023-01-01",
+    "2023-12-31"
+  ],
+  "first_market_day": "2023-01-03",
+  "last_market_day": "2023-12-29",
+  "market_sessions": 242,
+  "identities": 1709,
+  "industries": 90,
+  "policies": [
+    "original_Bdiag",
+    "original_C1"
+  ],
+  "initialization": "each exact own 2022-12-30 checkpoint; not new 1m, not flat reset, not grant/receipt/lock/loss/ACT reset",
+  "C1_H": "continue 1000000 from 2022; 2023 ACT recovery must not reset it",
+  "first_decision_c": "carry 0.10 until next original known close updates formula",
+  "preserved": [
+    "available_cash",
+    "nonspendable_dividend_AR",
+    "positions_and_pending_orders",
+    "canonical_consumed",
+    "core_epoch",
+    "runner_epoch_and_watches",
+    "original_industry_attempts",
+    "ACT_phase_peak",
+    "cumulative_fees_and_record_only_loss",
+    "C1_high_and_decision_clock"
+  ],
+  "input_preparation": {
+    "numeric_recompute": 0,
+    "stock_receipts_to_export": 18781,
+    "industry_receipts_to_export": 1270,
+    "stock_nonempty_series": 1589,
+    "all_identity_files": 1799,
+    "pilot_series": 6,
+    "pilot_receipts": 56,
+    "pilot_seconds": 1.511142416857183,
+    "conservative_full_export_seconds": 361.3881482994184,
+    "estimate_includes_extra_checks": true,
+    "full_export_done": false
+  },
+  "estimated_future_economic_seconds": {
+    "pair_pure_loop_and_daily_audit": [
+      330,
+      400
+    ],
+    "based_on_completed_2022_Bdiag_seconds": 180.2019963748753,
+    "based_on_completed_2022_C1_loop_approx_seconds": 165.33,
+    "input_loading_each_approx_seconds": [
+      68,
+      74
+    ],
+    "additional_engine_gate_and_output_seconds_not_measured": true,
+    "not_a_promised_bound": true
+  },
+  "pre_economic_required": [
+    "full original trace export with all original source/output hash checks and resumable items",
+    "frozen new input manifest; untouched old receipts",
+    "explicit verified same-account horizon import; all account and strategy fields exactly retained before first event",
+    "generation-time new engine identity, original functions unchanged",
+    "2023-01-03 physical prefix and restart equality",
+    "existing independent journal cash/AR/inventory checks; no residual adjustment"
+  ],
+  "latest_tail_task": "paused; saved in july-extension-readiness-20261101; 2026-06-30 open contribution remains unresolved",
+  "C1_previous_results_independent_audit": "passed per parent; independent evidence archived, document-only followup correction applied",
+  "no_new_account_initializations": 0,
+  "no_new_account_events": 0,
+  "no_numeric_models_generated": 0,
+  "no_download_or_external_service": true
+}

@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-10-20T02:18:06.107482+00:00",
+  "status": "after field/geometry audit, before new conditional outcome computation; all price history seen in prior rounds",
+  "hypothesis": "At comparable price displacement, volatility, intraday body/range and close-location, sustained high-volume participation may distinguish continuation from isolated volume bursts. This is not presumed positive.",
+  "universe": "existing ETF17/HK7 raw OHLC and causal total-return close; 2018..2026-10-16; source coverage remains inherited cached data, not new THS pull",
+  "event": "last5 total-return log displacement normalized by previous21 RMS*sqrt5 >=1, prior63 return endingt-5>=0; events >=5 observed sessions apart per symbol; exclude invalid OHLC/volume before constructing observation clock",
+  "volume": "prior63 median endingt-5 baseline, last5 each volume / baseline. Sustained >=3 of5 at least1.5; isolated exactly1 of5 at least1.5; peak>=1.5 required for these groups, others retained. Same-bar ratios and split-adjusted volume.",
+  "controls": "severity=r5/(sqrt5*priorRMS21);background=r63/(sqrt63*priorRMS21);volatility=RMS5/priorRMS21;body_efficiency=sum5(logC/O)/sum5(logH/L);close_location=mean5((C-L)/(H-L)),zero range gives0.5;mean_relative_volume5",
+  "matching": "one-to-one, no reuse, same symbol and period2018-21/2022-23/2024-26, chronological sustained priority; calendar date gap<=63days; absseverity<=.5,absbackground<=1,abslogvolatility<=.5,body_eff<=.25,close_location<=.2,abslogmeanvolume<=.35; minimum squared normalized distance. Within a matched pair, event index distance must be >=21 observed sessions, avoiding overlap in primary21-session labels. Secondary63-session labels may overlap; mark dependence.",
+  "outcomes": "future21 and63 logreturn, future63 maximum close return>=30% (opportunity label, not actual trade), full63 horizon required",
+  "warning": "Calendar proximity and nonoverlap21-observation constraints can reduce support; report coverage. Never silently loosen constraints. Asset-cluster intervals descriptive only, cannot remove cross-asset market or63-label dependence.",
+  "decision": "Insufficient support (<30 pairs per market-period) means cannot infer volume shape increment. Do not promote a filter; next design must explicitly change sampling unit/time matching, not optimize for positive outcomes."
+}

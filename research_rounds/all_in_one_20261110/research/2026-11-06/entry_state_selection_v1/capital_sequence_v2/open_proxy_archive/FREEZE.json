@@ -1,0 +1,17 @@
+{
+  "initial_equity": 1200000.0,
+  "signal": "Original ready I-buy OR fresh CP with I target. No new RR, probability, breakout-age, market-breadth, wait-days or truth/false-rally filter. Native market/industry Q and full universe not integrated in bounded paths.",
+  "initial_stop": "Original I floor, raised to original fresh CP candidate if available; no added local-low filter.",
+  "risk_unit": ".001*known_E/(1+same_stock_loss_debt/(.005*known_E)); freeze at signal, reduce if OPEN E lower.",
+  "campaign_principal_cap": "min(first_probe_frozen_budget,current dynamic risk unit); never increased merely because price rises.",
+  "add": "Fresh CP plus existing same-stock liquidation net U>0 at signal AND actual/proxy OPEN. New stop=max(old stop,I,fresh CP). Marginal risk <= min(.0025*E,.5*U,campaign_cap+old stress-net L). Thus L need not already be positive; combined campaign stress loss stays within original principal cap.",
+  "stress": "X=S*exp(-2*s63)*(1-.0005), s63=1.4826*median(abs(prior63 log returns)); signal-day return excluded. Not worst-case loss or guaranteed sale.",
+  "trial_bucket": "Shared T initially .01E; refill .0001 prior-close E each observed common day, cap .01 prior-close E. Actual negative realized campaign PnL debits fully; half positive realized PnL credits. Negative balance carried, not erased. All live principal risks and pending obligations consume it.",
+  "same_day": "New buy gross<=.10*prior-close E, new probe risk<=.0025*prior-close E. Pending orders count.",
+  "account": "Post-buy single-name gross<=.10 E, total gross<=.60 E, cash>=.10 E, total mark-to-stress giveback<=.05 E, total principal-at-stress risk<=max(0,T). Existing breaches stop new risk, do not pretend an immediate fill or force retrospective disposal.",
+  "debt": "Per-stock D=max(0,D-realized campaign net PnL), retained across empty/reentry, no fixed freeze.",
+  "exits": "Old common stock stop checked at CLOSE before raising it; break or native I off sells next OPEN. All campaign shares share stop, explicitly changes old CORE I-only holding. T+1 respected.",
+  "execution": "Close fixes qcap, next OPEN only reduces. Near-upper-limit sensitivity refuses buys if O/priorC>=1.195 on 300085 or >=1.095 on the three main-board names. Not exact PIT limit metadata. Otherwise O +/-5bp assumed; no HLV admissibility, no actual quotes/ACK/fills.",
+  "scope": "Four already-seen isolated paths and the two 2024 names jointly. No original account initialization, no native full-account run, no parameter search, no OOS or validated-investment claim.",
+  "existing_comparison": "Do not modify or conflate with original 1.2m PVR/E31 or separate no-losing-add single-variable experiment."
+}

@@ -1,0 +1,20 @@
+{
+  "completed": true,
+  "new_full_economic_paths": 6,
+  "technical_prefix_paths": 1,
+  "failed_attempts": 0,
+  "not_promoted": true,
+  "files_sha256": {
+    "FINAL_REPORT.txt": "cb578107eba9ee5ffa1001bc69c30c9765ec5749b1df84cd81155203a8c8d955",
+    "FINAL_VERDICT.json": "59cf66cc90ece1acc9661652bd3fcf07625d5f8eb52dedd6b974681829fefae1",
+    "MECHANISM_RESULTS.json": "4036cfad1eb2e932e41d395549c929dced15d7ab70031057fb2d9d2ef775cd21",
+    "BASELINE_VERIFICATION.json": "c85ff30582e04265663b97a07e789ab7d60ef293d7df94c1e9bfa9d29ddc9731",
+    "SAMPLE_VERIFICATION.json": "1fb5d993fca85cfea63d99560c0a7bcf9e92500fb6036a93b36848501ed2d28f",
+    "LOCAL_VERIFICATION.json": "dd0b8347fd87c45a6e62f79bb506de643bd8e823145a10ae93a7bd153134a57f",
+    "summary.csv": "20d9f609e52f222ecd3a43c22fab72acf2c1be987ce581aa66476f2c5fb9019a",
+    "capital-displacement-orders.csv": "ec359fd829a7c6222fac01cce260febd59c2392338b1332081cfaa0709aff0f3",
+    "ACT-transmission.csv": "9003bb44975256f7d2a30b46dfc9771edc6422dfc87b537fa364c61158a742e0",
+    "event-contributions.csv": "d0141c7e4dd5ac5ed7f79172f22056dab5d535e901605adeb06b63399bba927b",
+    "COMPUTE_BUDGET.json": "f0a7df262f566438621cc5ddc0ff8aa1190e93cae8e3cb7c87b5d813d0dd3a1a"
+  }
+}

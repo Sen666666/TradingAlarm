@@ -1,0 +1,26 @@
+{
+  "window": [
+    "2026-01-01",
+    "2026-06-30"
+  ],
+  "market_days": 116,
+  "static_pool_size": 126,
+  "bought_stocks": 18,
+  "bought_layers": 25,
+  "daily_rows": 14616,
+  "canonical_CP_count": 1220,
+  "stocks_with_CP": 116,
+  "bought18_CP_count": 238,
+  "CP_cached_canonical_day_differences": [],
+  "facts_vs_CP_input_close_differences": [],
+  "RS20_CP_positive": 866,
+  "RS20_CP_negative": 351,
+  "RS20_CP_missing": 3,
+  "fixed_horizons": [
+    5,
+    20,
+    60
+  ],
+  "RS_units": "Natural log return differences, dimensionless; x100 is log-percentage-points, not arithmetic excess return.",
+  "no_model_account_order_or_future_return_computed": true
+}

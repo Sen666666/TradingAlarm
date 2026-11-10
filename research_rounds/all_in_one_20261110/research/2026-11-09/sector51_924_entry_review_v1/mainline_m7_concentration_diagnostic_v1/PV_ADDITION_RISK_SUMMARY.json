@@ -1,0 +1,23 @@
+[
+  {
+    "day": "2024-10-24",
+    "adds": 1,
+    "all_in_cost": "27020.634265350000",
+    "incremental_known_floor_loss": "4048.53431869412561961987632",
+    "not_profit_covered": 1
+  },
+  {
+    "day": "2024-10-28",
+    "adds": 20,
+    "all_in_cost": "540343.4211195257820",
+    "incremental_known_floor_loss": "70878.43375610856461080410799",
+    "not_profit_covered": 19
+  },
+  {
+    "day": "2024-10-29",
+    "adds": 4,
+    "all_in_cost": "84798.9970035965000",
+    "incremental_known_floor_loss": "13068.24570357700700849118326",
+    "not_profit_covered": 1
+  }
+]

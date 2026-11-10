@@ -1,0 +1,73 @@
+{
+  "events": 17,
+  "pause_batches": 3,
+  "batch_sizes": [
+    5,
+    6,
+    6
+  ],
+  "actual_sell_receipts_exact": 17,
+  "coincident_E0_exits": 3,
+  "hold_terminal_advantage_events": 7,
+  "ACT_avoided_loss_events": 7,
+  "all_events_later_any_Q": 17,
+  "first_any_Q_while_paused": 15,
+  "first_any_Q_after_resume_unexplained": 1,
+  "first_any_Q_explicit_capacity": 1,
+  "same_structure_future_Q_events": 11,
+  "same_structure_actual_reentry_events": 2,
+  "positive_economic_pnl_at_pause": 8,
+  "terminal_open_cases": 1,
+  "unknown_E0_signal_days": 0,
+  "same_structure_pending_gross_unknown": 5,
+  "batches": [
+    {
+      "batch": "2024-04-22",
+      "events": 5,
+      "stock_slice_equity_at_pause": "644346.68",
+      "ACT_actual_exit_net_proceeds": "641179.5047023051400",
+      "E0_terminal_equity": "630442.7520045827000",
+      "delta": "-10736.7526977224400",
+      "ACT_avoided_loss": "33650.7179796180900",
+      "ACT_foregone_equity": "22913.9652818956500",
+      "hold_terminal_advantage_events": 2,
+      "ACT_advantage_events": 3,
+      "coincident_E0_events": 0,
+      "E0_slice_max_local_drawdown": "0.1110505234623978920477938653",
+      "E0_slice_min_return_from_pause": "-0.0316485627364143476303781064",
+      "note": "Same-time existing-stock slice only; exclude alternative use and ACT feedback. Do not add batches into account return."
+    },
+    {
+      "batch": "2025-06-10",
+      "events": 6,
+      "stock_slice_equity_at_pause": "974703.56",
+      "ACT_actual_exit_net_proceeds": "976480.1830693644670",
+      "E0_terminal_equity": "1228237.0064545138815",
+      "delta": "251756.8233851494145",
+      "ACT_avoided_loss": "29831.0742360206810",
+      "ACT_foregone_equity": "281587.8976211700955",
+      "hold_terminal_advantage_events": 4,
+      "ACT_advantage_events": 2,
+      "coincident_E0_events": 0,
+      "E0_slice_max_local_drawdown": "0.1170538418148865195991984943",
+      "E0_slice_min_return_from_pause": "0",
+      "note": "Same-time existing-stock slice only; exclude alternative use and ACT feedback. Do not add batches into account return."
+    },
+    {
+      "batch": "2026-07-17",
+      "events": 6,
+      "stock_slice_equity_at_pause": "3497454.71",
+      "ACT_actual_exit_net_proceeds": "3604460.5649380717675",
+      "E0_terminal_equity": "3289146.0297982099170",
+      "delta": "-315314.5351398618505",
+      "ACT_avoided_loss": "326056.5750876609370",
+      "ACT_foregone_equity": "10742.0399477990865",
+      "hold_terminal_advantage_events": 1,
+      "ACT_advantage_events": 2,
+      "coincident_E0_events": 3,
+      "E0_slice_max_local_drawdown": "0.0717981792541325239919975976",
+      "E0_slice_min_return_from_pause": "-0.0717981792541325239919975976",
+      "note": "Same-time existing-stock slice only; exclude alternative use and ACT feedback. Do not add batches into account return."
+    }
+  ]
+}

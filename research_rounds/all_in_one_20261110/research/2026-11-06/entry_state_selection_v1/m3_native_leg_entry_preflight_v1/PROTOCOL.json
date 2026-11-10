@@ -1,0 +1,175 @@
+{
+  "created_utc": "2026-11-09T03:04:33.841891+00:00",
+  "status": "FROZEN_BEFORE_NEW_FEATURE_CALCULATION; historical labels previously seen, not blinded",
+  "cases": [
+    {
+      "sid": "002430.SZ",
+      "signal_day": "2022-06-01",
+      "scope": "prior_fixed_16_AB_pair"
+    },
+    {
+      "sid": "002407.SZ",
+      "signal_day": "2022-06-01",
+      "scope": "prior_fixed_16_AB_pair"
+    },
+    {
+      "sid": "002807.SZ",
+      "signal_day": "2022-03-30",
+      "scope": "prior_fixed_16_AB_pair"
+    },
+    {
+      "sid": "601998.SH",
+      "signal_day": "2022-03-30",
+      "scope": "prior_fixed_16_AB_pair"
+    },
+    {
+      "sid": "002653.SZ",
+      "signal_day": "2022-10-14",
+      "scope": "prior_fixed_16_AB_pair"
+    },
+    {
+      "sid": "605507.SH",
+      "signal_day": "2022-10-14",
+      "scope": "prior_fixed_16_AB_pair"
+    },
+    {
+      "sid": "002265.SZ",
+      "signal_day": "2022-06-06",
+      "scope": "prior_fixed_16_AB_pair"
+    },
+    {
+      "sid": "300395.SZ",
+      "signal_day": "2022-06-06",
+      "scope": "prior_fixed_16_AB_pair"
+    },
+    {
+      "sid": "600667.SH",
+      "signal_day": "2022-02-10",
+      "scope": "prior_fixed_16_AB_pair"
+    },
+    {
+      "sid": "002081.SZ",
+      "signal_day": "2022-02-10",
+      "scope": "prior_fixed_16_AB_pair"
+    },
+    {
+      "sid": "601801.SH",
+      "signal_day": "2022-07-20",
+      "scope": "prior_fixed_16_AB_pair"
+    },
+    {
+      "sid": "000719.SZ",
+      "signal_day": "2022-07-20",
+      "scope": "prior_fixed_16_AB_pair"
+    },
+    {
+      "sid": "601877.SH",
+      "signal_day": "2022-05-19",
+      "scope": "prior_fixed_16_AB_pair"
+    },
+    {
+      "sid": "600869.SH",
+      "signal_day": "2022-05-19",
+      "scope": "prior_fixed_16_AB_pair"
+    },
+    {
+      "sid": "300170.SZ",
+      "signal_day": "2022-05-06",
+      "scope": "prior_fixed_16_AB_pair"
+    },
+    {
+      "sid": "000034.SZ",
+      "signal_day": "2022-05-06",
+      "scope": "prior_fixed_16_AB_pair"
+    },
+    {
+      "sid": "600186.SH",
+      "signal_day": "2022-11-03",
+      "scope": "A_B_CASE"
+    },
+    {
+      "sid": "000921.SZ",
+      "signal_day": "2022-11-03",
+      "scope": "A_B_CASE"
+    },
+    {
+      "sid": "000603.SZ",
+      "signal_day": "2022-03-24",
+      "scope": "A_B_CASE"
+    },
+    {
+      "sid": "600301.SH",
+      "signal_day": "2022-03-22",
+      "scope": "A_B_CASE"
+    },
+    {
+      "sid": "300570.SZ",
+      "signal_day": "2024-09-25",
+      "scope": "A_B_CASE"
+    },
+    {
+      "sid": "002423.SZ",
+      "signal_day": "2024-10-30",
+      "scope": "A_B_CASE"
+    },
+    {
+      "sid": "000833.SZ",
+      "signal_day": "2024-09-26",
+      "scope": "A_B_CASE"
+    },
+    {
+      "sid": "300666.SZ",
+      "signal_day": "2024-09-30",
+      "scope": "A_B_CASE"
+    },
+    {
+      "sid": "300666.SZ",
+      "signal_day": "2025-12-15",
+      "scope": "EARLY_CONTEXT_ONLY"
+    },
+    {
+      "sid": "300666.SZ",
+      "signal_day": "2025-12-17",
+      "scope": "EARLY_CONTEXT_ONLY"
+    },
+    {
+      "sid": "300666.SZ",
+      "signal_day": "2026-01-05",
+      "scope": "EARLY_CONTEXT_ONLY"
+    },
+    {
+      "sid": "300666.SZ",
+      "signal_day": "2026-01-15",
+      "scope": "EARLY_CONTEXT_ONLY"
+    },
+    {
+      "sid": "301611.SZ",
+      "signal_day": "2026-01-15",
+      "scope": "prior_fixed_early_tech"
+    },
+    {
+      "sid": "603061.SH",
+      "signal_day": "2026-01-15",
+      "scope": "prior_fixed_early_tech"
+    }
+  ],
+  "hypothesis": "An I holding permission may survive a native E0 confirmed negative leg. A new original A/B first probe should use the current native positive leg rather than inherit the old holding permission.",
+  "formula": "Original A/B invitation and original I/PVR/flat qualification unchanged; gate ALLOW iff native events.leg_direction(t)==+1 with valid original signal/segment and recomputed endpoint agreement; DENY iff -1; UNKNOWN otherwise. No new thresholds. Original first new UP restores eligibility only for a newly born original A/B invitation; no replay or extra invitation.",
+  "consumer": "Gate only original new first entry before PVR top2, including days without competition; no existing position, exit, ADD, size, campaign or stop change. No new economy.",
+  "clock": "signal close only, earliest next common OPEN remains conditional proxy and actual tradability UNKNOWN. Native detector regenerated from physical prepared-source prefix ending at each fixed signal. Raw/adjustment reconstruction and PIT availability not certified.",
+  "formula_origin": "Original E0 volume-scaled directional event at current confirmed clock, prior63 RMS frozen at extreme and prior21 volume baseline; sqrt5 and [.5,2] unchanged; never use future extremum dates.",
+  "exclusions": [
+    "not later first-evidence race exit",
+    "not sector attempt failure gate",
+    "not relative direction clock",
+    "not raised I birth floor",
+    "not extra CP or first day return threshold",
+    "not stopped M3 birth-price breadth"
+  ],
+  "validation": "30 pre-fixed stock-days: prior16 same-sector representative AB pairs + prior8 actualAB cases + prior4 Jiangfeng early dates + prior2 earlytech dates. Fixed cases already used for development. Join corrected core/full old labels only after feature seal. Check original AB membership before labeling nonAB early context.",
+  "readout": "Report exact coverage, ALLOW/DENY/UNKNOWN, old labels only, next original invitation after denied date, no new strategy win rate or return; if no credible separation or major early harm, stop without parameter rescue.",
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_stock_birth_during_sector_v1/entry_quality_2022_v1/SEALED_REPRESENTATIVE_CASES.csv": "7cd431b71b03f30bf024752b58c71be877fde7fc04447e88487a7d7388cf0bad",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_birth_progress_breadth_preflight_v1/PROTOCOL.json": "5b247e87b0a4a55f78a2cf79b7df34ba718a520cc250dfd9b1c854361cc47292"
+  }
+}

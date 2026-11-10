@@ -1,0 +1,15 @@
+{
+  "before_extra_join": true,
+  "at_UTC": "2026-11-04T13:44:50.403607+00:00",
+  "rule": "strict CURRENTindustryC>PRIOR20H with originalknown/current/H20/event; no persistence; parent unique once join",
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/ma63_buy_chain_v1/ALL_1557_ROWS.json": "b5a5183a1ba52cd2e9bdfa525d95d530b4acc70f6d2b50014aecc589648ebe49",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/ma63_recovery_chain_v1/DAILY.json": "0ff188d9ede2ccd3b1b94197ad1ae57a89f4ff909273fc7425a335d1aabcc3d9",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/sector_local_price_permission/DAILY.jsonl.gz": "8861e07113ecb6ce59fa3d8c92eb98aacb7967afc040c6fa8bf063638ec7c631",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/sector_local_price_permission/SCHEMA.json": "a577e8ed4e5123b1b0b1731b52faf2c8bb90e0c86486afb5d4b7abd67da66e7a",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/ma63_information_diagnostic_v1/ORIGINAL_FIXED_TAIL_COHORT_PRE_FEATURE.json": "c9f6290120e51ab6be894452c5618e64bdce54b69f79cfe1e4bb4d8df1c8eb6f",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/no60_continuation2023_finance/analysis/2022_2023/PVR_SLOT1/LAYERS.json": "139621c4ca7f972b545c2ff3363e34f8cfbfa8b4c659a07f01138ebe409d96cb",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_monthly_axis_v1/MONTHLY_WIDE.csv": "67a8796490afb385a22c307a1247c4bb348d64f98d6563dc49b2b3bc219d68fb",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/no60_continuation2023_finance/PVR_NO_CONFIRMED60_2023_DAILY.json": "9e48e2ea3ef91293dba4b2d63ba3c9e6722eeee4425cc3c26322370fa6426f76"
+  }
+}

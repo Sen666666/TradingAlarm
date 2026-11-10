@@ -1,0 +1,29 @@
+{
+  "status": "PASS_PROTOCOL_SOURCE_AXIS_CLOCK_AND_ALL_BOUNDARIES",
+  "days": 298,
+  "full_calendar": 484,
+  "spells": 9,
+  "positive_spells": 2,
+  "negative_spells": 4,
+  "zero_spells": 3,
+  "all_frozen_day_members_exact_to_independent_full_calendar_reconstruction": true,
+  "previous_CLOSE_at_1510_lt_execution_OPEN_at_0930": true,
+  "clock_scope": "original audited CLOSE contract; dates in saved axis, not a new quote observation timestamp",
+  "source_money": "see AXIS_RECONSTRUCTION exact saved wealth/buy/fees totals",
+  "protocol_scopes": [
+    "carry actual live layer IDs at previous CLOSE",
+    "new actual fill in spell; may originate from older committed orders",
+    "period W(end)-W(previousCLOSE), not lifetime net",
+    "old closed/future layers must have unchanged W and are excluded from held/new counts",
+    "sale order not equated to financing causation",
+    "no strategy orders, price/statistic recompute or finance/basis engine"
+  ],
+  "finance_output_status": "PENDING_CORRECTED_READER_WITH_ORIGINAL_EPS_AND_UNALLOCATED_RESIDUAL",
+  "source_sha256": {
+    "ma63_down_replenishment_v1/PROTOCOL.txt": "16a3248bb832fcc9057173b528fe161af355ee1df0eea74540db4c487e8cbced",
+    "ma63_down_replenishment_v1/ALL_SPELLS_FROZEN.json": "b80b2645ff3852879d479b3d4a37a4300ff5c44ab55942949b62b6bf9cbc09dd",
+    "ma63_down_replenishment_v1/INPUT_FREEZE.json": "e7f2b6e8fe68845631fbb51f8882e56a84cafc14f3f13203c1f7aabe069d7b14",
+    "ma63_down_replenishment_v1/ORIGIN.json": "58db1f11b1852b741c014539eadbc779fa4817c67cc15b6ea15a8a67aba681a0",
+    "ma63_down_replenishment_v1/analyze_saved_spells.py": "fea82a369b9aefc1f452004f95c561c2905ebe4e00027b02bc290f1e3c1fee12"
+  }
+}

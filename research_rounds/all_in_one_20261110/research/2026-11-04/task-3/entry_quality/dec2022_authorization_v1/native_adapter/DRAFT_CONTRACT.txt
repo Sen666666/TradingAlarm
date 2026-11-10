@@ -1,0 +1,33 @@
+H2 mobile授权overlay，供父线程冻结/原生小段验证；本目录不开账户。
+
+四臂BASE/R_ONLY/P_ONLY/JOINT仅谓词不同，动作完全同一：R_ONLY在ready_R且RS20<=0；
+P_ONLY在ready_P且C<EMA20；JOINT两ready且两弱。RS=0弱、C=EMA20不弱。
+最终parent ContextProvider API为day,ready_R,ready_P,close,EMA20,RS20,sector,
+source_segment,source_max_day,anchor_day,unknown_reason；manifest_sha256。
+20共同市场session/HS300/行业比较和EMA来源由冻结provider负责，adapter不重算指标。
+
+两处严格源码插入：
+1. 原ACT/I分支已先完成、全部mobile旧CP保护检验并按原规则ratchet后，尚未pending
+   的原role=mobile（kind=add）在谓词known TRUE时交原Account.sell请求退出。
+   CORE从不被新增为退出目标；既有CORE/CP pending并集与原order-created钟保留。
+2. 原for role in roles内部仅mobile守卫跳过pending生成并记录拒绝。不能把弱信号塞到
+   整股why去误拦同日CORE角色；入场守卫显式facts.row(sid,at)，不使用别的循环残留row。
+   原Q、freshCP、行业attempt、ACT、已有exit/buy pending、core_epoch、预算与排序均保留。
+
+逐时点permission mask，不额外记“此I段曾弱”的锁。谓词false/UNKNOWN仅恢复原竞争资格；
+仍须当日真正fresh原CP、原Q/行业/资金/最小单位等通过，不能排队延期旧receipt，不自动买回。
+UNKNOWN不新增本overlay退出或否决；任何先前已锁卖都不因false/UNKNOWN取消、重设钟或续期。
+已pending层从本次新增目标中剔除，避免重记为H2作用、改原原因或原最低佣金计时。
+同股mobile平而CORE还在，按原held/add语义，不重命名成全股新周期。
+
+BASE直接调用原N.Runner.planning，没有provider调用/新限制；其余三臂原PVR priority只调用一次。
+opening、route、原Account类型及reserve/fill/exit/split/cancel/sync/expire方法身份均保留断言。
+新class policy/provider SHA/arm写入自己的checkpoint字段，仅恢复自身相同政策与provider版本。
+provider放class属性，不塞进checkpoint；只有日志和身份标记是新runner状态。无ledger/market修改。
+
+原EARLY_EMA20全股额外退出未拦mobile新单，不能充当本轮P_ONLY同动作消融。
+core直接规则不变不等于其后内生实际数量、ACT、资金和CORE参与一定不变；完整账户必须各臂自身形成。
+
+本版仅纯逻辑/源码与可选native class build（不实例化Account）。之后仍须父线程冻结输入源、
+domain/全部赢家对照，再验证原生小段/同钟pending、部分卖出/公司行动、checkpoint及完整账户。
+本目录没有经济执行CLI；__main__直接退出。任何性能改善、可避损或策略晋升均未由本草案证明。

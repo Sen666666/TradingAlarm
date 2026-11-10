@@ -1,0 +1,29 @@
+{
+  "passed_for_source_contract_scope": true,
+  "candidate_patch_reviewed": false,
+  "technical_execution_admitted": false,
+  "portfolio_execution_admitted": false,
+  "reviewer_new_accounts_or_ledgers": 0,
+  "reviewer_new_marks_or_market_reconstruction": 0,
+  "source_hashes": "NATIVE_CONTRACT_SOURCE_SHA256.json",
+  "requirements": "CONTRACT_AND_PATCH_REQUIREMENTS.txt",
+  "allowed_change": [
+    "Typed CORE confirmed permission only after original probe zero legal quantity, nonempty original minimum failure set subset probe_risk/sector_capital, original same-day I and canonical fresh CP, independent industry confirmed/expanded.",
+    "New confirmed order escapes probe pooled 10% capital/0.5% nominal risk and uses mature industry 10%/20% capital rather than probe industry2%; No60 has no confirmed60. This changes real resources/risk."
+  ],
+  "invariants": [
+    "Original successful probe quantity and pool; no pool max or split.",
+    "Frozen CORE .25% fee/slippage-inclusive I protection risk and 10% nominal sizing; native OPEN preview.",
+    "All-pool industry1% nominal risk, stock10%, cash10% reserve, real pending/order fees.",
+    "CORE epoch across pools, CP canonical single consumption, same-stock single-reserve/done.",
+    "Independent industry evidence/migrate/attempt, no new grants or forced sales.",
+    "Native I/ACT CORE and CP MOBILE holding/exit semantics, T+1/FIFO/CA/fees/daylease.",
+    "No restoration of removed account3%/confirmed60."
+  ],
+  "blocking_before_any_technical_or_account_run": [
+    "No root frozen candidate card/patch yet reviewed.",
+    "Typed request/route token and epoch closure must be explicit.",
+    "Whole-mother and exact pre-candidate resource evidence not supplied in this new round yet."
+  ],
+  "no_user_permission_blocker": true
+}

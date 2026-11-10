@@ -1,0 +1,32 @@
+PROPOSAL ONLY. Root grant required after import/Jan3/cross-process gates.
+
+Exactly ONE NO60 own-account2023 continuation, end2023-12-29 CLOSE. Resume
+saved full-input Jan3 technical checkpoint, strictly afterJan3 15:10; do not
+repeatJan3 or import/reset the2022 account again. Parent ultimately remains
+own NO60 Dec30 NAV704487.847, original715009 PVR state never enters this arm.
+Original native strategy/NO60 three gates/order/roles/2%target/exit/ACT/cost/
+settlement/corporate action code stays frozen. Input source identity is the
+same2023 full-horizon view that generated Jan3CP. All inherited fields remain.
+
+Use actual generating Continuation identity plus unchanged source/provenance
+restore guard. Preserve Jan3CP.source_freeze exactly; additional launcher and
+root authorization sources live in explicit EXECUTION_FREEZE, as the audited
+original2023 continuation does. No old provenance rewrite or generic restore
+source exception. Full-year H.run_prepared entry itself requires matching root
+scope, source/binding and approval. Own partial state can resume only after
+separate explicit recovery review; no automatic retry or silent new account.
+
+Outputs run-2023/{pair,checkpoints,DONE,TIMING}; complete cumulative native
+2022+2023 logs preserved. Own Mar31/Jun30/Sep28/Dec29 checkpoints, no reset.
+Old original PVR continuation-2023-readiness/run-2023 is read-only baseline,
+inheriting its own original715009 parent. Compare2023 segment normalized to
+each own Dec30 wealth AND2022→2023 cumulative wealth/DD. Inherited capital,
+ACT and holdings differ; this is policy-path continuation, not pure2023alpha.
+
+Independent finance/NAV/DD/fees/cash/risk and campaign loss/reentry reviews
+must assess ordinary failed trials as well as tail holdings/winners. Keep
+financial/economic labels distinct from post-hoc market-event labels; none
+enters real-time signal/rank/target. Candidate must repay its larger capital/
+risk use;35%DD is a boundary, not success. No2024/cost/delay/other variant or
+leverage by this grant. Same current1709A/90 snapshot/development bias, noPIT/
+OOS/H-share/real-trade claim. No new indicator/score/canonical generation.

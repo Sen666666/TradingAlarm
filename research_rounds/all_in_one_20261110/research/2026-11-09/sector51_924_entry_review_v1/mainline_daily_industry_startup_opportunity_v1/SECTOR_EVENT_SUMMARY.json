@@ -1,0 +1,278 @@
+[
+  {
+    "sector51": "动力电池",
+    "event_id": "动力电池|2024-09-26",
+    "birth_day": "2024-09-26",
+    "total": 6,
+    "T": 6,
+    "F": 0,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-30"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-27"
+    ]
+  },
+  {
+    "sector51": "医疗器械",
+    "event_id": "医疗器械|2024-09-26",
+    "birth_day": "2024-09-26",
+    "total": 1,
+    "T": 1,
+    "F": 0,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-30"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-27"
+    ]
+  },
+  {
+    "sector51": "商贸零售",
+    "event_id": "商贸零售|2024-09-23",
+    "birth_day": "2024-09-23",
+    "total": 3,
+    "T": 3,
+    "F": 0,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-25"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-24"
+    ]
+  },
+  {
+    "sector51": "基建工程",
+    "event_id": "基建工程|2024-09-23",
+    "birth_day": "2024-09-23",
+    "total": 10,
+    "T": 10,
+    "F": 0,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-26"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-25"
+    ]
+  },
+  {
+    "sector51": "房地产开发",
+    "event_id": "房地产开发|2024-09-19",
+    "birth_day": "2024-09-19",
+    "total": 13,
+    "T": 0,
+    "F": 13,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-24"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-23"
+    ]
+  },
+  {
+    "sector51": "旅游酒店",
+    "event_id": "旅游酒店|2024-09-26",
+    "birth_day": "2024-09-26",
+    "total": 1,
+    "T": 1,
+    "F": 0,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-30"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-27"
+    ]
+  },
+  {
+    "sector51": "汽车整车",
+    "event_id": "汽车整车|2024-09-20",
+    "birth_day": "2024-09-20",
+    "total": 5,
+    "T": 5,
+    "F": 0,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-24"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-23"
+    ]
+  },
+  {
+    "sector51": "游戏传媒",
+    "event_id": "游戏传媒|2024-09-23",
+    "birth_day": "2024-09-23",
+    "total": 1,
+    "T": 1,
+    "F": 0,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-30"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-27"
+    ]
+  },
+  {
+    "sector51": "煤炭",
+    "event_id": "煤炭|2024-09-20",
+    "birth_day": "2024-09-20",
+    "total": 11,
+    "T": 11,
+    "F": 0,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-25",
+      "2024-09-26"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-24",
+      "2024-09-25"
+    ]
+  },
+  {
+    "sector51": "白酒",
+    "event_id": "白酒|2024-09-23",
+    "birth_day": "2024-09-23",
+    "total": 7,
+    "T": 7,
+    "F": 0,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-25",
+      "2024-09-27"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-24",
+      "2024-09-26"
+    ]
+  },
+  {
+    "sector51": "美容护理",
+    "event_id": "美容护理|2024-09-26",
+    "birth_day": "2024-09-26",
+    "total": 1,
+    "T": 1,
+    "F": 0,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-30"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-27"
+    ]
+  },
+  {
+    "sector51": "计算机设备",
+    "event_id": "计算机设备|2024-09-23",
+    "birth_day": "2024-09-23",
+    "total": 7,
+    "T": 7,
+    "F": 0,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-25"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-24"
+    ]
+  },
+  {
+    "sector51": "证券保险",
+    "event_id": "证券保险|2024-09-18",
+    "birth_day": "2024-09-18",
+    "total": 33,
+    "T": 0,
+    "F": 33,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-23",
+      "2024-09-24"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-20",
+      "2024-09-23"
+    ]
+  },
+  {
+    "sector51": "软件与IT服务",
+    "event_id": "软件与IT服务|2024-09-23",
+    "birth_day": "2024-09-23",
+    "total": 5,
+    "T": 5,
+    "F": 0,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-25"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-24"
+    ]
+  },
+  {
+    "sector51": "通信运营服务",
+    "event_id": "通信运营服务|2024-09-23",
+    "birth_day": "2024-09-23",
+    "total": 2,
+    "T": 2,
+    "F": 0,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-26"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-25"
+    ]
+  },
+  {
+    "sector51": "金属钢铁",
+    "event_id": "金属钢铁|2024-09-23",
+    "birth_day": "2024-09-23",
+    "total": 6,
+    "T": 6,
+    "F": 0,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-25"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-24"
+    ]
+  },
+  {
+    "sector51": "银行",
+    "event_id": "银行|2024-09-23",
+    "birth_day": "2024-09-23",
+    "total": 8,
+    "T": 8,
+    "F": 0,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-27"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-26"
+    ]
+  },
+  {
+    "sector51": "食品饮料",
+    "event_id": "食品饮料|2024-09-23",
+    "birth_day": "2024-09-23",
+    "total": 2,
+    "T": 2,
+    "F": 0,
+    "U": 0,
+    "actual_OPEN_days": [
+      "2024-09-27"
+    ],
+    "original_plan_CLOSE_days": [
+      "2024-09-26"
+    ]
+  }
+]

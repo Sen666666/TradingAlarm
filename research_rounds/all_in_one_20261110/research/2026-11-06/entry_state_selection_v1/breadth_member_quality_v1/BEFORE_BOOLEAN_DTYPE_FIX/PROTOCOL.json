@@ -1,0 +1,11 @@
+{
+  "question": "Same-day same-industry equal current PVR: newly established M3 versus already established M3. Not a hard gate or ranking optimization.",
+  "history": "Prior full outcomes and related studies have been seen. Diagnostic only, not OOS.",
+  "source": "Exact22196 common-known close-feasible independent shadows; only M3 is analyzed; PVR3 identities retained separately and never mixed.",
+  "state": "Canonical mu5 original right3 with known3, previous immediate common session using actual2021Dec29-31 prefix. FRESH:today known true and prev known false; CONTINUING:today and prev known true; PREV_UNKNOWN separately. Any today not known true is an error.",
+  "matching": "Within exact event_id (same arm/date/industry/event_type), I_valid=True, exact I_buy_today and CP1_today. Original contract is same initial probe role for everyone; these extra two flags conservatively stratify native I/CP status. Not same I_start across different stocks. Both pass identical t-close original nominal/risk/lot/capacity feasibility. No next-open or future outcome filtering. Maximum-cardinality one-to-one without-replacement fresh/continuing matching with abs current PVR difference<=5; then minimize total PVR distance. Sort stock codes first for deterministic ties.",
+  "budget": "Same2pct reference initial nominal,.25pct plan risk,2pct one profitable freshCP add,4pct slot. Actual cash/quantity can differ due to risk/lot; report balance. No original shared-capital admission added.",
+  "labels": "Reuse final same-contract full0to0 net W/L; OPEN=U; missing/source/factor UNKNOWN separate; explicit no-entry separate. Future labels only after pair seal. Pairwise differences only among pairs where both complete; also each side all matched counts and missingness reported.",
+  "windows": "2022 full calendar year;2024Sep-Dec entire existing window, NOT all2024;2026H1 semiconductor. FALSE_TO_TRUE main, other industry event types separate.",
+  "stop": "No scan, no account, no formulas fitted. Stop if low support, unstable direction or material tail opportunity cost. No promotion on these consumed histories."
+}

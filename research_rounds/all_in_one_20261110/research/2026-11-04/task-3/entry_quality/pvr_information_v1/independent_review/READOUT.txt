@@ -1,0 +1,38 @@
+PVR信息研究独立预审｜不创建金融账户、不选择融合权重
+
+本线有明确独立问题：同一CLOSE的原候选中，原PVR有限聚合是否遗漏可用的路径/波动/位置/行业背景。η全账已结项，不调其归一化、窗口或并列规则救结果。分数末端50+50tanh(2E)单调；研究的是原r→u饱和、日调制和21加权汇总之前/之外的信息，不能把分数重标度称恢复信息。
+
+排重边界
+已读market_gross_rule_and_outcome_explanation_v1/READOUT与RULES_AND_CLOCKS：ETF X<inclusiveMA63且MA下降时D10只限新增TOTAL gross；ND仅撤附加cap，原ACT另按自身20%episode回撤与flat+合成breakout恢复。三年D仍亏28.14%，post全ND仍有损耗。该研究不是本线的选股信息验证，也不应将其较少亏倒推为新PVR标签。
+已读trend_confirmation_dedup_v1两卡：MA60位置+五观察斜率，或BB20 fresh上穿+EMA10斜率，作用于原计划量1/.5及四臂消融。本线不再提出MA/BB半量、宏观cap、恢复或退出线。
+已读task-4/core_supplement_v1最新两文：A/P新增I方向已停止优先；原合法CORE竞争已有confirmed额度仍是待证伪纸面资本契约。本线只记录这些原资格、role、尺寸/资源状态，不能伪造CORE token、改池、重开epoch，不能把合法市场证据等于真钱可投。
+
+母体和时钟
+主信息样本应与真正排序消费者相同：每原CLOSE已生成的全部pending意图，包含后续获资及未获资者，以(window,day,sid)唯一股票槽为单位。CORE/mobile双角色只给一次同股票价格标签；角色flags、各自cap/budget/floor单独保留。不得选事后较好角色，也不得将两角色当独立股票样本。
+另完整保留raw opportunities、native roles、barrier-free及CLOSE尺寸失败层级；它们不是主pending母体。planning intent仍待OPEN preview、行业attempt、现金/风险/最小单位与原执行窗重验，应称“CLOSE已计划候选”，不能称“全部可成交订单”。ACT暂停、pending锁、缺失和原尺寸失败均保原状态，不借研究移门。
+全部信息取t已完成原CLOSE。同日H/L只能作当日完成后的CLV，不用OPEN当日未来CLOSE决定旧单。PVR必须是真原score缓存；opportunities.rank和actualtrade.pvr不是PVR分数，后者原来承载H1。主pending身份应核原ranklog、原decision与roles，而非只以已成交层反推。
+
+价格评价
+冻结h=5/20/60原共享市场session，排t，端点t+h不挪动。主要行动参考为O(t+1)到C(t+h)，并列C(t)到C(t+h)及gap=O(t+1)/C(t)−1；逐可比行核(1+R_close)=(1+gap)(1+R_open)。如果只有close起点的分离，可能只预测了无法在nextOPEN取得的跳空，不能称入场质量改进。
+nextOPEN必须为紧接t的原共享session，不能看未来停牌/平盘/容量后改成首个能成交日。未获资、nextOPEN不可交易与未知报价都保留计数；即使存在观察到的rawOPEN，开盘后H/L/量代理才判定的可成交性也只作另层标签，不能在t过滤母体。
+端点必须正有限、真实observed/eligible、同一可比source/因果价格域；停牌缺bar、合成除权估值、source断点、上市前/退市后缺失与窗口未成熟分列。native stale-action理论参考不能冒充新交易价。future return只是价格参考，没有减费用后自融资收益含义。
+本冻结明确不从未来窗口补尾。这里window应指完整long2022–24和完整strong2025Jul–26Jun；2022/2023/2024/H2/H1只是signal日期分组，不能每个12月再次截断horizon。跨年但仍在同一完整window内的未来报价应按原期限保留。
+每h独立报总母体、anchor缺失、target缺失、source不比、未成熟和完整比例；不要因h60缺失删除h5/h20。endpoint回报可在中间无交易而终点有报价时计算，但路径最大/最小需要独立path-complete标记。future60 max-close涨>=30%是后视尾标签，不等于实际层收益>=30%，不用于信号、阈值或筛样。
+
+分组与重叠
+固定同日原PVR平均秩quartile，UNKNOWN单列。连续feature平均秩tercile需先明确是全当天主母体计算、再与PVR交叉，还是各PVR组内计算；两种不能见表后切换。相同数值保同秩，不按代码强行拆平分；空格和未知不要补0。breakout按已冻current C>prior20high事实，连续数日新高可以连续为真，并非另一个fresh-cross状态。
+每组先算当天统计，再等日汇总；另报机会加权。比较两组时保留共同有数据的同日paired差及覆盖，避免一个组主要出现在牛市日、另一个组主要出现在弱市日。无需引入新的PVR>50/volatility阈值；已冻0、CLV .5、quartile/tercile与两类交互不可事后改。
+每日全候选是排序问题的正确描述，但同股连续日和重叠60日标签不是独立试验。另做原CORE stock×source×I-epoch、mobile canonicalCP的首次原eligible出现视图；键必须当时已有，不用未来flat/campaign结束定组或重置。窗前已起结构标左删失，“窗内首次看到”不是全历史首次信号。多个新CP可是真新推进而仍经济相关，不能以canonical唯一就宣称独立。
+不做逐行iid显著性。先报告逐日、事件去重、2022/23/24和2025H2/26H1的完整稳定性；若要区间，应在读取结果前固定按日期的连续块方案及种子，并承认强窗60期重叠导致有效样本很少。所有这些历史已消费，不是样本外。
+
+原经济与资金覆盖
+3436已成交原层只作并列原路径关联；未成交不能净利润补0。原层life net、某阶段wealth、已实现、未实现和AR分开，双role不同floor/holding成本不混。拒绝原因是重叠集合，不将cash/probe/sector等计成互斥因果金额。
+固定83/94全母体及No60精确对应45/67均保留；原键不在当前pending、同股同日不同role、feature未知、标签未成熟要分别标记，不能仅保精确成交匹配。还需固定对应股票全窗所有实际入场/资金参与，避免“原键缺失”被写成整股漏买。
+原高/低特征组的亏损或尾部贡献，不能直接删单、乘计划量或重新使用释放现金当收益。只有信息分组与真实原稀缺资源/排序消费者有非微小交集，才有资金机制研究必要性；这仍不是获资替换可行证明。
+
+当前特征的精确待澄清点
+1. 股票return5/20、std20、prior20high按原观察钟，保anchor_date/market_session_span；20returns需要21close。
+2. relative_return20不能简单减去各自独立shift20的股票/行业收益，停牌会造成两个起点日期不同。应同t、同原market t−20端点，或行业取该股20观察真实anchor同日；选一个后固定，缺端点UNKNOWN。
+3. Lplus令p_j=w_j max(e_j,0)，L=(Σp)^2/Σp²；仅原完整21个finite e和有限正分母可用。1≤L≤n_positive≤21，不是持续天数。指数权下恒定正e通常约15，只有加权正贡献相等才到21。负质量可变化而L不变；高L仍可能反复失败，快启动真赢家可低L。该诊断不自动获准变新评分或资金门。
+
+本预审不创建金融账户、不导出全量特征或标签、不做融合/阈值搜索。已读冻结在数值导出前记录；以后审真实键/时钟/缺失和全部输出，再谈是否有一个小机制值得预注册。旧封版文件未改。

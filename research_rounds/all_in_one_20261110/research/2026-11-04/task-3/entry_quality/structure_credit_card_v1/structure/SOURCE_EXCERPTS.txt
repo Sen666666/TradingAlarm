@@ -1,0 +1,221 @@
+
+SOURCE /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py:101-135
+
+101:  def reserve_quantity(self,i,q,p,schedule,at):
+102:   bid=i['budget_order'];assert self.budget.orders[bid].qty==q
+103:   oid=super().reserve_quantity(i,q,p,schedule,at);self.order_bridge[oid]=bid;self.journal.append(dict(kind='real_reserve',at=at,sid=i['sid'],order=oid,budget_order=bid,receipt=i.get('CP1_id'),pool=i['pool'],role=i['role'],shares=q,price=p));return oid
+104:  def fill_buy(self,sid,w):
+105:   real=self.buys.get(sid);i=self.order_meta[real.order_id] if real else None;bid=self.order_bridge.get(real.order_id) if real else None;self._buy_filling=sid;self._deferred_buy_cancels=[]
+106:   try:r=super().fill_buy(sid,w)
+107:   finally:self._buy_filling=None
+108:   if r:
+109:    bo=self.budget.orders[bid];price=float(r.gross_cny/D(r.shares));floor=float(i['floor']/self.facts.factor(sid,w.at));assert price<=bo.limit+1e-8
+110:    x=self.layers[-1];self.jmeta[x['id']]=dict(sector=bo.sector,episode=bo.episode,pool=bo.pool,role=bo.role,attempt=bo.attempt,unit_cost=price,last_core_line=str(i['floor']),stock_structure=getattr(self.facts,'structure_lookup',{}).get(sid,{}).get(i['clock'].decision_at.date()),budget_order=bid)
+111:    self.budget.loss(bo.sector,bo.episode,float(r.fees_cny))
+112:    bo.qty-=r.shares
+113:    if not bo.qty:bo.status='filled'
+114:    elif sid in self.buys:
+115:     # The real partial fill has consumed principal and incremental fee once.
+116:     # Update only this actual order callback; generic sync asserts the bridge.
+117:     remaining=self.buys[sid]
+118:     assert bo.qty==remaining.remaining_shares
+119:     bo.limit=float(remaining.remaining_budget_cny/D(bo.qty))
+120:     bo.fee_per_share=float(remaining.fee_reserved_cny/D(bo.qty))
+121:    self.journal.append(dict(kind='real_buy_fill',at=w.at,sid=sid,layer=x['id'],budget_order=bid,shares=r.shares,price=r.gross_cny/D(r.shares),fees=r.fees_cny,pool=bo.pool,role=bo.role,attempt=bo.attempt,signal_at=i['clock'].decision_at,CP1_id=i.get('CP1_id')))
+122:   if r:self.sync(w.at,pending_ack=bool(self._deferred_buy_cancels))  # Actual lot/NAV first; no admission until ack.
+123:   # Native full fills call cancel_buy internally to return residual reserve.
+124:   # Mirror the actual fill first, then acknowledge only the actual remainder.
+125:   for cancelled in self._deferred_buy_cancels:
+126:    if self.budget.orders[cancelled].qty:self.budget.cancel(cancelled)
+127:    self.budget.cancel_ack(cancelled);self.pools_from_model()
+128:   self.sync(w.at)
+129:   return r
+130:  def fill_exit(self,sid,w):
+131:   before={x['id']:dict(x) for x in self.live(sid)};r=super().fill_exit(sid,w)
+132:   if r:
+133:    for part in self.trades[-1]['parts']:
+134:     meta=self.jmeta[part['layer']];fee=float(r.fees_cny)*part['shares']/r.shares;loss=max(0.,meta['unit_cost']-float(r.gross_cny/D(r.shares)))*part['shares']+fee;self.budget.loss(meta['sector'],meta['episode'],loss)
+135:    self.journal.append(dict(kind='real_sell_fill',at=w.at,sid=sid,shares=r.shares,price=r.gross_cny/D(r.shares),fees=r.fees_cny,parts=self.trades[-1]['parts']));self.sync(w.at)
+
+SOURCE /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py:175-256
+
+175:   self.sector_by_sid={l.security_id:l.sector_id for l in self.bundle.lines};self.accounts={p:Account(p,self.market,self.facts,p=='B',self.sector_by_sid) for p in policies};self.receipts=receipts;self.opportunities=[];self.stage_events=[];self.funding=[];self.balance_audit=[]
+176:   self.industry_rows={};self.industry_cp=industry_receipts if industry_receipts is not None else {r['canonical_series']+'|'+r['confirmed_day']:r for r in T.read(BASE.parent/'cp1-evidence-trace-20261031/RECEIPTS.json') if r['canonical_series'].startswith('URFI')};self.episode_starts={}
+177:   for sector in sorted(set(self.sector_by_sid.values())):
+178:    rows=industry_states[sector] if industry_states is not None else T.read(BASE.parent/'industry-mobile-stage-20261031'/f'{sector}_STATE.json');self.industry_rows[sector]={r['day']:r for r in rows}
+179:    for r in rows:
+180:     if r['E0_valid']:self.episode_starts.setdefault(r['E0_episode'],ordinal(r['day']))
+181:    past=[r for r in rows if r['day']<START];last=past[-1];ep=last['E0_episode']
+182:    if ep is None:ep=next((r['E0_episode'] for r in reversed(past) if r['E0_episode']),None)
+183:    for a in self.accounts.values():
+184:     b=a.budget
+185:     if ep is None:continue
+186:     b.start(sector,ep,self.episode_starts[ep]);s=b.sectors[sector];s.failed_bar=max((ordinal(r['day']) for r in past if r['action']=='end_attempt'),default=-1)
+187:     if last['attempt_id'] is not None:
+188:      ar=[r for r in past if r['attempt_id']==last['attempt_id']];first=next(r for r in ar if r['action']=='probe');rc=[r for r in ar if r['receipt'] and r['new_receipt']];s.active=True;s.started=ordinal(first['day']);s.attempt=f"{ep}:{first['receipt_id']}";s.level=last['stage']-1 if b.expand else 0;s.status=['probe','confirmed','expanded'][s.level];s.last_bar=s.last_end=s.last_evidence_time=ordinal(rc[-1]['day'])
+189:     b.consumed.update(r['receipt_id'] for r in past if r['receipt_id']);assert not b.lots and not b.orders
+190:   for sid,df in self.facts.f.items():
+191:    if sid not in self.market.lines:continue
+192:    on=df.e0_target.fillna(False).astype(bool);opening=on&~on.groupby(df.segment_id).shift(fill_value=False);z=pd.Series(None,index=df.index,dtype=object)
+193:    for d in df.index[opening]:z.loc[d]=f'{sid}|{int(df.loc[d,"segment_id"])}|{d.date()}'
+194:    self.facts.structure_lookup[sid]={d.date():v for d,v in z.groupby(df.segment_id).ffill().where(on,None).items()}
+195:  def industry(self,a,at):
+196:   day=gidday(at);bar=ordinal(day);b=a.budget
+197:   for sector,rows in self.industry_rows.items():
+198:    r=rows[day];ep=r['E0_episode'];current=b.sectors.get(sector)
+199:    if r['E0_valid'] and (not current or current.episode!=ep):b.start(sector,ep,self.episode_starts[ep])
+200:    if sector not in b.sectors:continue
+201:    if not r['E0_valid'] or r['action']=='end_attempt':
+202:     b.observe(sector,bar,failure=True);result='invalidated'
+203:    elif r['receipt']:
+204:     cp=self.industry_cp[sector+'|'+day];tok=V.Evidence(cp['receipt_id'],sector,'industry_cp1','21',ordinal(cp['formation_start_exclusive']),bar,bar,b.sectors[sector].episode)
+205:     result=b.observe(sector,bar,token=tok)
+206:    else:result='unchanged'
+207:    a.pools_from_model()
+208:    for sid,real in tuple(a.buys.items()):
+209:     bid=a.order_bridge[real.order_id]
+210:     if b.orders[bid].status=='cancel_pending':a.cancel_buy(sid)
+211:    a.sync(at)
+212:    if result!='unchanged':self.stage_events.append(dict(account=a.label,day=day,sector=sector,market_stage=r['stage_name'],result=result,episode=b.sectors[sector].episode,attempt=b.sectors[sector].attempt,financial_level=b.sectors[sector].level))
+213:  def planning(self,at):
+214:   clock,stocks,sectors=self.facts.packet(at,'I');sd={s.security_id:s for s in stocks};ss={s.sector_id:s for s in sectors};buyable=self.market.market_buyable(at);day=pd.Timestamp(at.date());event={};continuing={}
+215:   for sid,s in sd.items():
+216:    row=self.facts.row(sid,at);key=(bool(row.i_target),int(row.segment_id)) if row is not None else (False,-1)
+217:    if self.last_epoch.get(sid)!=key:self.epoch[sid]+=1;self.global_watch.pop(sid,None);self.last_epoch[sid]=key
+218:    ep=(key[1],self.epoch[sid]);event[sid]=BP.A.eligibility(s,ss,clock,'S0');continuing[sid]=BP.A.eligibility(replace(s,buy_allowed=buyable[sid]),ss,clock,'S0')
+219:    if event[sid].q is True:self.global_watch[sid]=ep
+220:   ordered=sorted(sd,key=lambda sid:(-(sd[sid].rank.read(clock) if sd[sid].rank and sd[sid].rank.read(clock) is not None else -1),sid))
+221:   for a in self.accounts.values():
+222:    C.activate(a);a.expire_day_buys(at);a.current_nav=a.balance(at,self.market.marks(at,a.positions))['nav'];M.E.risk_policy.step(a,at,'ACT20_BREAK');a.pending=[]
+223:    for sid in tuple(a.positions):
+224:     row=self.facts.row(sid,at);cp=self.cp[sid].loc[day] if day in self.cp[sid].index else None;quote=self.market.quote(sid,at);assert quote
+225:     if not a.risk_state['on'] or not bool(row.i_target):
+226:      if not bool(row.i_target):
+227:       for x in a.live(sid):
+228:        if x['kind']=='core':a.jmeta[x['id']]['pending_I_exit_reference']=True
+229:      a.sell(sid,clock,quote,[x['id'] for x in a.live(sid)],'ACT_pause' if not a.risk_state['on'] else 'I_structure_exit');continue
+230:     for x in a.live(sid):
+231:      if x['kind']=='core':
+232:       known_floor=self.facts.floor(sid,at,'I')
+233:       if known_floor is not None:a.jmeta[x['id']]['last_core_line']=str(known_floor)
+234:       continue
+235:      if x['kind']!='add' or x['id'] in a.sell_layers.get(sid,set()):continue
+236:      if D(str(row.close))<=x['floor']:a.sell(sid,clock,quote,[x['id']],'CP1_add_protection')
+237:      else:
+238:       floor=self.facts.floor(sid,at,'I')
+239:       if floor is not None:x['floor']=max(x['floor'],floor)
+240:       if cp is not None and bool(cp.receipt):x['floor']=max(x['floor'],D(str(cp.candidate)))
+241:    a.sync(at);self.industry(a,at)
+242:    for rank,sid in enumerate(ordered):
+243:     cpr=self.receipts[sid].get(gidday(at));roles=[];why=[];held=bool(a.quantity(sid));epoch=self.global_watch.get(sid);sector=self.sector_by_sid[sid]
+244:     if event[sid].q is True and not held and a.core_epoch.get(sid)!=epoch:roles.append('core')
+245:     if cpr and continuing[sid].q is True:roles.append('mobile')
+246:     if not a.risk_state['on']:why.append('ACT_paused')
+247:     if sid in a.exits:why.append('exit_pending')
+248:     if sid in a.buys:why.append('buy_pending')
+249:     if event[sid].q is not True and not (cpr and continuing[sid].q is True):why.extend(event[sid].reasons or ['no_fresh_signal_or_Q'])
+250:     self.opportunities.append(dict(account=a.label,day=gidday(at),sid=sid,sector=sector,rank=rank,core_Q=event[sid].q,mobile_Q=continuing[sid].q,CP1_id=cpr['receipt_id'] if cpr else None,roles=roles,held=held,barriers=why))
+251:     if why or not roles:continue
+252:     q=self.market.quote(sid,at);floor=self.facts.floor(sid,at,'I')
+253:     if q is None or floor is None:continue
+254:     for role in roles:
+255:      fline=max(floor,D(str(self.cp[sid].loc[day,'candidate']))) if role=='mobile' else floor;budget=min(a.current_nav*D('.02'),max(Z,a.current_nav*D('.1')-a.quantity(sid)*q.raw_price));i=dict(sid=sid,clock=clock,quote=q,budget=budget,cap=q.quantity.buy_floor(int(budget/q.raw_price)),weight=1.,group=0,score=sd[sid].rank.read(clock),kind='add' if role=='mobile' else 'core',role=role,floor=fline,epoch=epoch,reason='fresh_CP1_mobile' if role=='mobile' else 'I_early_core',rank=rank,CP1_id=cpr['receipt_id'] if role=='mobile' else None,CP1_trace=cpr if role=='mobile' else None)
+256:      if role=='core':LR.resize_core(i,a.current_nav,self.facts.factor(sid,at))
+
+SOURCE /Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/policies_g1.py:12-34
+
+12:         if r.segment_id!=segment:active=False;floor=math.nan;segment=r.segment_id
+13:         valid=bool(r.valid_price_observation)
+14:         if not valid:
+15:             rows.append(dict(date=dt,target=np.nan,entered=0,exited=0,floor=np.nan,exit_line=np.nan,buy_event=False,entry_kind='',exit_reason='',grade=a.grade));continue
+16:         shadow=bool(b.target);ready=bool(a.ready);entered=exited=0;reason='';entry_kind=''
+17:         fresh=bool(a.fresh_up) if ready else False
+18:         warm=ready and a.grade>=2
+19:         cold=ready and (a.grade<=-2 or bool(a.acute_down))
+20:         if active:
+21:             if not shadow or float(r.close)<=floor:reason='E0_structure_boundary'
+22:             elif use_x and cold:reason='G1_cold_or_acute'
+23:             if reason:active=False;exited=1
+24:             elif np.isfinite(b.floor):floor=max(floor,float(b.floor))
+25:         # Entry-only is a new-evidence gate and restoration channel, while
+26:         # exit-only preserves E0's new-cycle entry stream. An exit-only entry
+27:         # is first checked by the extra exit rule on the next observation,
+28:         # matching the original sensitive-policy ordering.
+29:         opportunity=shadow and warm and (bool(b.entered) or fresh) if use_i else bool(b.entered)
+30:         if not active and not exited and opportunity:
+31:             active=True;entered=1;floor=float(b.floor)
+32:             entry_kind='G1_fresh_warm_evidence' if use_i else str(b.entry_kind)
+33:         buy=bool(active and opportunity) if use_i else bool(active)
+34:         rows.append(dict(date=dt,target=int(active),entered=entered,exited=exited,floor=floor if active or exited else np.nan,exit_line=floor if active or exited else np.nan,buy_event=buy,entry_kind=entry_kind,exit_reason=reason,grade=a.grade))
+
+SOURCE /Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/grade.py:23-29
+
+23:         reasons=[]
+24:         if int(r.event)==1:reasons.append('new_E0_price_volume_up_event')
+25:         for h in [21,63]:
+26:             if float(r[f'strength_confirmed_direction_{h}'])==1:reasons.append(f'new_S{h}_up_confirmation')
+27:         ext=float(r.strength_running_extreme_price_21)
+28:         if a==1 and prior_s21==1 and np.isfinite(prior_extreme) and ext>prior_extreme+32*np.finfo(float).eps*max(abs(ext),abs(prior_extreme),1):reasons.append('new_price_frontier_in_confirmed_up_structure')
+29:         fresh=bool(reasons)
+
+SOURCE /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/budget_v3/model.py:127-152
+
+127:     def industry(self, token, bar):
+128:         if not self.valid(token, 'industry_cp1', bar) or token.event_id in self.consumed:
+129:             return 'rejected'
+130:         s = self.sectors[token.sector]
+131:         if token.confirmed_time <= s.failed_bar or token.end <= s.failed_bar:
+132:             return 'not_new_progress'
+133:         if bar <= s.last_bar or token.end <= s.last_end or token.confirmed_time <= s.last_evidence_time:
+134:             return 'not_new_progress'
+135:         if token.confirmed_time != bar:
+136:             self.audit.append(('late_industry_evidence_audit_only', token.event_id, bar))
+137:             return 'late_evidence_audit_only'
+138:         self.consumed.add(token.event_id)
+139:         s.last_bar, s.last_end = bar, token.end
+140:         s.last_evidence_time = token.confirmed_time
+141:         if not s.active:
+142:             s.active, s.level, s.started = True, 0, token.confirmed_time
+143:             s.attempt = f'{s.episode}:{token.event_id}'
+144:             s.status = 'probe'
+145:         else:
+146:             s.level = min(2, s.level + 1)
+147:         for order in self.orders.values():
+148:             if s.level > 0 and order.sector == token.sector and order.attempt == s.attempt and order.pool == 'probe' and order.qty > 0:
+149:                 self.cancel(order.oid)
+150:         self.migrate(token.sector)
+151:         self.audit.append(('industry_confirmation', token.event_id, s.level))
+152:         return s.status
+
+SOURCE /Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/native_adapter.py:11-40
+
+11: class NoConfirmed60Budget(N.BASE.NoAccountBudget):
+12:     request=P.MOD.Contract.request
+13:     def migrate(self,sector):
+14:         return P.MOD.Contract.migrate(self,sector) if self.expand else False
+15: 
+16: class Runner(N.Runner):
+17:     route=P.ROUTES[True]
+18:     def __init__(self,*args,**kwargs):
+19:         self._cap_bootstrap=True
+20:         super().__init__(*args,**kwargs)
+21:         self.remove_confirmed60=True
+22:         for a in self.accounts.values():a.budget.__class__=NoConfirmed60Budget
+23:         self.integration_policy=POLICY+':'+self.rank_mode
+24:         self._cap_bootstrap=False
+25:         self.assert_native_wiring()
+26: 
+27:     def assert_native_wiring(self):
+28:         bootstrap=getattr(self,'_cap_bootstrap',False)
+29:         assert self.integration_policy==(N.POLICY if bootstrap else POLICY)+':'+self.rank_mode
+30:         assert self.rank_scores_manifest_sha256==N.SCORES.manifest_sha256
+31:         assert self.opening.__func__ is J.Runner.opening
+32:         assert self.planning.__func__ is N.Runner.planning
+33:         assert self.route.__func__ is P.ROUTES[True]
+34:         for a in self.accounts.values():
+35:             assert type(a)is J.Account and type(a.budget)is (N.BASE.NoAccountBudget if bootstrap else NoConfirmed60Budget)
+36:             if not bootstrap:
+37:                 assert a.budget.request.__func__ is P.MOD.Contract.request
+38:                 assert a.budget.migrate.__func__ is NoConfirmed60Budget.migrate
+39:             for name in ('reserve_quantity','fill_buy','fill_exit','cancel_buy','split','sync','assert_budget_view','expire_day_buys'):
+40:                 assert getattr(a,name).__func__ is getattr(J.Account,name)

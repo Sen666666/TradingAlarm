@@ -1,0 +1,31 @@
+{
+  "completed_at": "2026-10-31T10:25:15.838817+00:00",
+  "status": "one_required_Q3_same_capacity_P_identity_baseline_complete",
+  "new_economic_paths": 1,
+  "old_paths_reused": 2,
+  "economic_budget_seconds": 60,
+  "seconds": {
+    "preparation_and_66day_list_gate": 37.54683741694316,
+    "single_new_economic_path": 30.004406708292663,
+    "read_only_three_path_analysis": 2.800569042097777
+  },
+  "old_code_input_and_result_hashes_unchanged": true,
+  "outside_shortlist_orders": 0,
+  "shortage_stock_days": 0,
+  "no_product_or_trading_changes": true,
+  "blockers": [],
+  "deliverables": {
+    "PROTOCOL.txt": "15ea8d920df444578b2867698f374f037201ccde7b557bfaba03bb49ccee0bf1",
+    "baseline.py": "0976ab3dd7a64d55153ecc3f147d1e10a4c8da7051953adee2691ae77dfe0c94",
+    "analyze.py": "b622ba3479e172388206e7e28fd300f65ff8f817f58d779a589e7ce78219b612",
+    "GATE.json": "a2ab82df4f01b308f0f2b7f41bc3a60ea764df496f521bf8c334b7a0dec9764f",
+    "FINAL_REPORT.txt": "0252ccf083305529904c18959dfa552154d6345479fc82689bf68aa69d3d72ff",
+    "analysis/SUMMARY_3.csv": "8b01c12c22a3f0c2475f7b84de6bfadb4f771148c9124fbbb70a77d6c69d1c0a",
+    "analysis/MONEY_BRIDGE.json": "48e54b24b6d2262e2fa3623f694331e777d610baf92038e8252745761e960447",
+    "analysis/PORTFOLIO_DAILY_3.csv": "6e504bb9d429910a9c2fab9e05a0ac1ffbd6d4a0901b506e7f674ed2306c07f3",
+    "analysis/INDUSTRY_DAILY_VALUES_3.csv": "95d98ff636daa5ce8b3fa16cc9f3cdf77291012fd4ec2c376ead32cd8e19a29f",
+    "analysis/CANDIDATE_FUNDING_3.csv": "246f883028059d69365603bae389691a4bd75c5b32d89cc908fae09e07751dc1",
+    "analysis/VERIFICATION.json": "5d759ef3d9cf799e7d8a4c64c2c70e93dc7090672d695491442aa55a58a5d2bd",
+    "analysis/DATA_QUALITY.json": "c05aeeaf7cfd2d5bb32c636522cb5547084abf7ef60d94e3db9d1abc737358fb"
+  }
+}

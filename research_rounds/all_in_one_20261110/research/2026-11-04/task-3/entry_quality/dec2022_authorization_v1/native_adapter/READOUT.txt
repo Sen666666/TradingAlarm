@@ -1,0 +1,28 @@
+H2 mobile授权overlay：最小适配器已实现，未运行账户。
+
+入口 mobile_authorization_adapter.build_runner_class(no60_module, provider, arm)。
+四臂精确为 BASE / R_ONLY / P_ONLY / JOINT；最终ContextProvider snake API已对齐。
+BASE原planning；R_ONLY ready_R且RS20<=0；P_ONLY ready_P且C<EMA20；JOINT两ready且两弱。
+UNKNOWN不新增本overlay限制、也不解除已挂卖。CORE不会被本overlay直接加入退出目标。
+
+只改原planning两处：原ACT/I/全部旧CP及ratchet后新增mobile卖出hook；原for role in roles
+内部mobile守卫，在其进入pending前拒绝。原source删去这两段后与原planning字节级一致。
+没有全股why禁令、没有重算I/CP、没有旧receipt延期/自动买回、没有永久同I段封锁。
+入场guard显式取当前sid的facts.row，避免使用其他循环留下的row变量。
+
+SOURCE_AND_BRANCH_CHECKS：144真值/边界组合通过；CORE-only不查provider；只退出未锁mobile；
+旧pending的CORE/CP原因与clock不变；重复弱态不重发；解除后新鲜CP恢复原竞争；UNKNOWN含
+无当日源/sectorNone保原；日志deepcopy无未来别名污染；错日/未来输入/错price/段/sector拒绝。
+真实No60原模块+实际ContextProvider已build JOINT class，原opening/route身份相同；
+没有调用该class构造器，没有native Account实例、OPEN/CLOSE事件或金融路径。
+
+类内保留Account/budget类型与原reserve/fill_exit/fill_buy/split/sync/cancel/expire等回调断言，
+保留PVR priority一次调用；checkpoint绑定own integration_policy/arm/provider manifest。
+只读provider置class属性，不序列化大行情；overlay日志和身份标记随原checkpoint保存。
+
+父线程尚需将source_freeze(A)与ContextProvider源、relative_context manifest/data源、
+最终域/协议一起冻结，并做原生prefix/部分成交/权息/pending/restart及完整账户核验。
+本目录不提供经济CLI；脚本主入口直接退出。已有EARLY_EMA20全股只退出不能复用为本轮P_ONLY。
+
+本阶段只证明源码/分支/类构建符合最小接口，不证明动态原生prefix、重启或完整策略收益。
+只改本目录文件，之前封版账户/统计/规则没有修改。

@@ -1,0 +1,7 @@
+{
+  "tests": 8,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "scope": "same pure planning functions, original Bdiag checks and explicit unused-field read-set proof"
+}

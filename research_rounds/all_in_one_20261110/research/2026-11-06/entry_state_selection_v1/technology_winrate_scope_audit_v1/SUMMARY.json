@@ -1,0 +1,95 @@
+{
+  "comparisons": [
+    {
+      "account": "M3_SHARED_2024_FALL",
+      "scope": "TECH407",
+      "total": 9,
+      "CORE_wins": 4,
+      "FULL_wins": 1,
+      "CORE_net": "2948.4906965229000",
+      "FULL_net": "127.5355977711500"
+    },
+    {
+      "account": "M3_SHARED_2024_FALL",
+      "scope": "NON_TECH407",
+      "total": 71,
+      "CORE_wins": 17,
+      "FULL_wins": 19,
+      "CORE_net": "5231.88128512893588888888889",
+      "FULL_net": "22055.7892427428470"
+    },
+    {
+      "account": "M3_SHARED_2024_FALL",
+      "scope": "ALL",
+      "total": 80,
+      "CORE_wins": 21,
+      "FULL_wins": 20,
+      "CORE_net": "8180.37198165183588888888889",
+      "FULL_net": "22183.3248405139970"
+    },
+    {
+      "account": "CONTINUOUS_PVR_2026_NEW_TO_MAY15",
+      "scope": "TECH407",
+      "total": 34,
+      "closed": 19,
+      "wins": 3,
+      "open": 15,
+      "closed_net": -21278.885323895658,
+      "open_net": "NOT_EVALUATED_NOT_ZERO"
+    },
+    {
+      "account": "CONTINUOUS_PVR_2026_NEW_TO_MAY15",
+      "scope": "NON_TECH407",
+      "total": 223,
+      "closed": 174,
+      "wins": 38,
+      "open": 49,
+      "closed_net": 56114.654539809926,
+      "open_net": "NOT_EVALUATED_NOT_ZERO"
+    },
+    {
+      "account": "CONTINUOUS_PVR_2026_NEW_TO_MAY15",
+      "scope": "SEMICONDUCTOR",
+      "total": 9,
+      "closed": 8,
+      "wins": 1,
+      "open": 1,
+      "closed_net": -8699.494842243354,
+      "open_net": "NOT_EVALUATED_NOT_ZERO"
+    },
+    {
+      "account": "CONTINUOUS_PVR_2026_NEW_TO_MAY15",
+      "scope": "ALL",
+      "total": 257,
+      "closed": 193,
+      "wins": 41,
+      "open": 64,
+      "closed_net": 34835.76921591429,
+      "open_net": "NOT_EVALUATED_NOT_ZERO"
+    }
+  ],
+  "semiconductor_M3": {
+    "events": 157,
+    "decisions": {
+      "PASS_NOT_TOP2": 108,
+      "I_INELIGIBLE": 24,
+      "CLOSE_MINIMUM_LOT_OR_RISK_REJECT_AT_CLOSE": 15,
+      "SELECTED_PENDING": 10
+    },
+    "funded": 0,
+    "pending": 10
+  },
+  "old_tech_A": {
+    "n": 69,
+    "wins": 28,
+    "net": 2984160.275660351,
+    "semiconductor_n": 4,
+    "semiconductor_wins": 2,
+    "semiconductor_net": 1777899.6566863141,
+    "largest_two_profit": 1792101.115398311,
+    "old_fall_entries": 8,
+    "old_fall_wins": 7,
+    "old_new_tech_fall_stock_overlap": 0
+  },
+  "new_accounts": 0
+}

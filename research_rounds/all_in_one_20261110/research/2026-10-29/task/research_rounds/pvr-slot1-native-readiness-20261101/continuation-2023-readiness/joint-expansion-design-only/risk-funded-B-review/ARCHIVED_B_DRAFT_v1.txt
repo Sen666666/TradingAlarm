@@ -1,0 +1,192 @@
+Decision before coverage: recommend ONE contract B for review, not execution
+2026-11-01. No coverage analysis, indicator, policy code or financial run.
+The prior A document and proof-clock freeze remain immutable as design history.
+This is an explicit change of hypothesis before outcomes, not an A bugfix.
+
+A versus B
+A asks whether positive pre-add nominal protected campaign PnL is useful as
+an expansion qualification. A expressly does not promise that profit pays the
+incremental risk. B=1000 and new-order downside+fees=4000 may pass A, yet leave
+the full campaign at-3000 at stated floors. That is coherent for predictive
+permission, but is NOT risk-financed expansion.
+
+Recommend B because its accounting claim is falsifiable without a fitted risk
+threshold: above the unchanged aggregate stock2% trial permission, an order
+may be admitted only if FULL current-campaign floor-valued net PnL remains
+>=0 after the order and ALL other commitments/known modeled buy+exit fees.
+There is no extra R0 or optimized cushion. B is NOT presumed to improve returns;
+it can materially delay or prevent winner participation. A will not be run as
+another variant. Only B is the current proposal if root accepts this review.
+
+Trial and industry/pool axes, unchanged from the joint design
+Trial is a stock action state, not the probe pool. A flat fresh CP1 stock in a
+confirmed/expanded industry may still seek its original first confirmed trial
+even when total industry commitments already exceed2%. The original probe
+route still tests ALL industry commitments against2%; it is not relaxed.
+First/additional trial allocation may remain within aggregate stock2% of the
+original frozen decision NAV without satisfying the financed-expansion test.
+Above2%, the FULL stock-campaign test applies, not just the portion above2%.
+Original I core risk sizing, mobile2% per-order target, stock10%, industry
+2/10/20 capital, industry risk1%, probe10% capital/.5% risk, confirmed60%,
+cash plus original cash reserve, fees, ACT, Q, dated lot/minimum/step, role
+priority, pool routing and migration coupling all remain independent checks.
+Reference Bdiag/PVR has no account3% admission ceiling; B does not add one.
+The2% trial ceiling is a research economic policy, not a user risk preference.
+Passive growth above2% is not sold; it simply does not grant unfunded new risk.
+
+Campaign scope and source of protected credit
+A campaign begins with an actual fill after actual full flat and completion
+of old pending buy/sell/cancel responsibilities. It includes every live and
+closed partial layer until actual full flat. Industry attempts/E0 calendar
+boundaries alone do not restart its money history. Actual trading cash flows
+include all actual buy and sell fees and all realized partial gains/losses.
+Recognized net dividends are included once; unpaid receivables are economic
+equity, never spendable cash. Separate original cash constraints still apply.
+After genuine full flat, a fresh original signal may start another trial
+without repaying all career stock losses. The global historical loss/fee
+ledger never resets. Old profitable campaigns cannot finance a new campaign's
+proof; this avoids both a permanent permission and C1-like lifetime lockout.
+
+Clock: unchanged last accepted completed signal-close line
+First apply original old-line/I/ACT exit decisions. Only unexited layers may
+accept original permitted line increases. Freeze the last accepted lines at
+that COMPLETED signal close for the NEXT observation/open. No same-bar
+retroactive stop or buy-day closing G1 enters the earlier opening admission.
+Shanghai+1032.39 used Mar20's new accepted line; Mar17's line gives-200.64.
+Those are different clocks, disclosed before coverage. The clock follows
+original update/effect semantics; it is not selected to retain that winner.
+Core uses its actual I/E0 reference, mobile its actual CP1 line, in the same
+current split/adjustment domain. There is no reassignment of a nearer line.
+
+Opening safeguards from the prior design remain
+Original preview must still reject open at/below the new intent's own floor.
+If the known opening price breaches ANY live campaign layer's accepted line,
+withdraw same-stock new-buy permission; do not fabricate an early sell.
+Pending exit or unknown opening quote/factor blocks permission. This added
+held-line buy veto is a proposed policy condition, not an existing guard.
+Value projected exits at accepted raw floor*(1-original sell slippage), capped
+by known open*(1-original sell slippage) when revalidating at the open. Proof
+can only weaken from the frozen close view, not be earned from a gap up.
+Use known opening price only, not market.window/HLCV future availability.
+This sell-price adjustment now enters B's explicit exit-cost accounting; the
+underlying accepted-line clock is unchanged. It does not assert real liquidity.
+
+Precise full-campaign valuation, no cash or double-credit fiction
+Let C be actual campaign trading cash flows net of actual fees. Let D be its
+recognized net dividends. Neither includes an unfilled future sell receipt.
+For each live remaining quantity, use its real accepted protective reference
+and the modeled sell-price adjustment above. Pending buys contribute their
+remaining quantity at their frozen floor and debit their remaining principal
+budget PLUS separately reserved remaining buy fees. Actual partial fills are
+already in C and live quantity; only their unfilled remainder is a placeholder.
+For the proposed order q, debit q*known modeled buy price plus the native
+full-order buy fee ONCE, and add q*its own original frozen protective reference
+with the same modeled sell-price adjustment.
+
+Subtract projected future sell fees for ALL live/pending/proposed quantities.
+For this nominal budget, group by stock, exit role/rule and exact accepted
+protective reference; quantities sharing that reference share one hypothetical
+sell order's minimum commission. Different references/exit rules are separate
+projected orders. No new rounding/tolerance matching of lines is introduced.
+Use the unchanged fee schedule available at the decision/open, including dated
+stamp/handling/regulatory/transfer/brokerage and original minimum/rounding.
+This is a deliberately conservative grouping assumption relative to possible
+future coalesced exits, not a forecast of actual future orders or fee dates.
+Already paid sell fees remain in C; never subtract them again. With an actual
+pending exit there is no new admission, so its old accrued fee cannot be
+recounted as a new credit or a fictitious fresh full-order charge.
+
+V(q) = C + D - pending principal - remaining pending buy fees
+       - proposed buy gross(q) - proposed buy fee(q)
+       + projected gross exit value of ALL live/pending/proposed shares
+       - projected remaining sell fees of those shares.
+
+For any order crossing the trial capital ceiling, require V(q)>=0 for the
+FULL campaign. This is not pre-add V(0)>0, not a test on the new layer alone,
+and not a test only on excess shares beyond2%. Realized profits from closed
+partial layers can finance risk only within their still-open campaign.
+The original cash/marked capital/nominal-risk constraints ALSO apply; protected
+credit is never added to cash or removed from mark-to-floor giveback risk.
+An exact V=0 is allowed; no hidden spare-credit threshold is added.
+
+Reservations consume the projection immediately, before any later request.
+On fill the pending placeholder is replaced ONCE by actual cash/quantity/fees;
+on cancellation it stays until native acknowledgement. No grant is issued,
+no historical receipt is revived, no new pool created. A new request needs its
+own fresh canonical CP1 and the current full campaign valuation. Core-first
+and one actual order per stock remain. Failed sizing/reservation consumes no
+new CP1 credit. Cash/role/pool/campaign lineage must reconcile before finance.
+
+Exact quantity clipping specification (math only; not policy code)
+For each originally eligible route, consider only the original dated legal
+quantities q=minimum+k*step, within its frozen original target/share/gross
+cap and ALL original opening constraints. q=0 means no order.
+Keep q if either:
+  (i) post-order total stock gross commitment <=2% frozen decision NAV, OR
+  (ii) full V(q)>=0.
+Take the largest such legal q. Then retain the original maximum-quantity
+route comparison/tie rule; do not rerank stocks or repick a role after success.
+Both planning preview and final admission must use the SAME full test.
+If one legal minimum fails both (i) and (ii), reject; do not round upward,
+borrow probe or invoke R1. Only reduce the original frozen quantity on an
+opening gap; a lower price cannot create a larger original share authorization.
+All pending commitments count in stock/trial/global/industry views and in V.
+
+Manual counterexamples / invariants, not executed model tests
+1 Pre-add1000, full new risk+fees4000: A may admit, B cannot admit that target.
+  If the old position already fills the trial allowance, B clips or rejects;
+  it cannot call the same1000 several independent expansion credits.
+2 Legal board minimum100/step100, original target400. For an illustrative
+  ALL-IN marginal loss function R(q)=10*q+10 (including modeled buy+exit fees),
+  available protected credit1000 cannot buy100 because R(100)=1010. Credit2010
+  can buy200 exactly; credit2009 permits100, not200. This arithmetic fee
+  function is only a manual example; native dated fee functions determine
+  real clipping and must never be replaced by R(q)=10*q+10 in implementation.
+3 Minimum200/step1, same illustrative R and target350: credit2050 permits204
+  shares exactly;205 needs2060. Credit2000 cannot buy minimum200 (needs2010).
+  Existing holding or repeated receipt cannot turn an illegal sub-minimum into
+  a permitted add. Reentry uses the dated opening-action rule, not a fixed100.
+4 Continuous winner, slow floor: a legal core100 shares at100 with floor80
+  used roughly2000 risk under the original .25%1m fixture. At price200 the
+  held capital reaches2%, but the far core line still gives negative campaign
+  V. B can leave it small despite a doubled price and fresh mobile signals.
+  Do not substitute a near CP1 line for that core to rescue the example.
+5 Positive but small credit/minimum: a one-unit trial acquires a slowly rising
+  floor and1000 credit, but the next legal unit needs2000 all-in risk. A can
+  admit its original target, B remains small until actual credit/line advances.
+  If the main move occurs first, B loses participation. A fresh CP1 alone does
+  not solve the cost/lot mismatch. No delayed credit or fitted buffer is added.
+6 Opening gap up raises new entry-minus-floor risk; V(q) can turn negative and
+  quantity shrink to0 although close proof was positive. Gap down below an old
+  held line invalidates new permission even if a LOWER new intent floor would
+  pass original preview. Existing risk clipped to0 is not protected wealth.
+7 Genuine false breakout still receives its unchanged first <=2% trial if
+  original confirmed route allows. It can lose at/through its real line, and
+  fresh flat campaigns can repeat losses. B is no total-loss/DD guarantee.
+8 Strong industry12% confirmed under20% cap: a fresh first stock trial can
+  still seek confirmed, nominally bringing industry to14%, PROVIDED original
+  fee-adjusted capital, cash and risk checks pass. A full confirmed/global pool
+  or unacknowledged pending commitment can still prevent entry. This is a
+  routing example, not an assertion of a currently executable trade.
+9 Actual stop gaps/liquidity/taxes can be worse than the modeled floor/fee
+  projection even when V(q)>=0. Unpaid dividends can improve economic V but
+  cannot pay the new buy. Original cash constraints remain decisive.
+
+Research meaning and next boundary
+B tests risk-funded stock expansion, not merely predictive permission or a
+new strength indicator. Its cash-flow constraint is mechanically stronger;
+that is not evidence of better returns or better fat-tail capture. Different
+entry costs still imply different permission under identical market evidence.
+The fee grouping and original close-line clock are fixed here before coverage,
+not chosen after inspecting which winners survive.
+Any later authorized readiness study must report first trials, full/partial
+original target, minlot-blocked credit, role/pool, pending and unknowns across
+ALL saved decisions. Include strong continuous core/mobile winners, false
+breakouts, past partial losses, genuine flat reentry, gaps and cash/cap-full
+negative controls. No new account replay or future-price optimization.
+If credit/fee/line history cannot be causally reconstructed, or B structurally
+prevents the intended winner expansion, report that limitation/falsification;
+do not tune R0, floor, trial size or fees to make examples pass.
+Root must adjudicate this recommendation before any coverage calculation,
+policy implementation or financial path. Only this ONE B contract is proposed;
+the archived A is not a second experimental arm or a hidden fallback.

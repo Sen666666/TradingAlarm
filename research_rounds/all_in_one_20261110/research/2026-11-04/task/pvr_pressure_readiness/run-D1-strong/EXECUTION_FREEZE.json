@@ -1,0 +1,18 @@
+{
+  "scope": "ONE_No60_PVR_D1v2_strong_2025July_2026June_from_own_July3",
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pressure_readiness/run_D1_strong.py": "78e8b16502418c5c711fb6f737879f2d8dc095c4c72d31a85e40a39366f8d97c",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pressure_readiness/D1_STRONG_SINGLE_CASE_CARD.txt": "fb65ceea92afd518947b44d7d0bea80de728065eab2b9d0da8029494d379296f",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/independent_review/PVR_PRESSURE_TECHNICAL_AUDIT.json": "1d5194cabd786ce688990c9ee3eed57a3f3eb940676fea6fc0cb48cf9bb4a003",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pressure_readiness/PREFIX_GATE.json": "d0c33576f745beaeb6bbcffd00fd798ca3d865937055d1aa8e3f0c11a4714801",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pressure_readiness/CROSS_PROCESS_RESTART.json": "3f081ce12b8114aed4834b9cb16ff05626104f3b920667f0dbcac41c5adb8a0f",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pressure_readiness/NEGATIVE_BINDING_GATE.json": "ba3c8ea3b70835c91595056065f90f32e077ea404c28941b4a6a8468e179c217",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-d1-v2-composition-preflight-20261101/run-PVR-D1/DONE.json": "621f331fe81dd99bcecdbed55b654788e36b2f9002e38b14c48c346fc6024659",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-d1-v2-composition-preflight-20261101/run-PVR-D1/EXECUTION_STATUS.json": "1233bf28a251443ca1dfbe3ee289eb55428f3319a80f3dff948747e8517437fc",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-d1-v2-composition-preflight-20261101/run-PVR-D1/checkpoint.pkl": "0548486335f26159bbcec2028a4df5f1693099e2575128d0095b9209d26e9213",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-d1-v2-composition-preflight-20261101/run-PVR-D1/pair/B.json.gz": "6cac027147b6db74362c8f99735afaa9f97791875fe7a93a6d59247e72ea20b6",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pressure_readiness/D1_STRONG_EXECUTION_PROPOSAL.json": "29632262212fdd4eafec1b9dd9540b9756aaba8efb9f49cfb217efec80875931",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pressure_readiness/D1_STRONG_ROOT_GRANT.json": "93a0201bd9ff6336a81ce84bd9453dd2e7a93a532dc5b262611d8ec4cf66aac5"
+  },
+  "parent_checkpoint_sha256": "3988459811f96af4883bb84c5a86963e1ee9b98c68d2682ac2fe1b79aa1bdf72"
+}

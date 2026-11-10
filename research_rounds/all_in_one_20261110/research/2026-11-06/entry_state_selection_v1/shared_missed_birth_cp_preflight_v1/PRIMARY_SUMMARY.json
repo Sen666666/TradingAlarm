@@ -1,0 +1,29 @@
+{
+  "primary_seed_tickets": 215,
+  "primary_seed_stocks": 215,
+  "side_only_zero_original_q_tickets": 2,
+  "primary_new_CP_receipts": 649,
+  "primary_CP_stocks": 215,
+  "primary_signal_qualified_receipts": 544,
+  "primary_signal_qualified_stocks": 211,
+  "primary_CLOSE_qualified_receipts": 520,
+  "primary_CLOSE_qualified_stocks": 209,
+  "primary_strict_continuous_M3_CLOSE_qualified_receipts": 518,
+  "primary_strict_continuous_M3_stocks": 209,
+  "strict_continuous_M3_is_diagnostic_not_main_hard_gate": true,
+  "per_stock_first_qualified_CP": {
+    "2024-09-25": 5,
+    "2024-09-26": 44,
+    "2024-09-27": 121,
+    "2024-09-30": 39
+  },
+  "original_path_minimum_independent_pass": 62,
+  "AB_first_spare_slot_and_minimum_independent_pass_times": 39,
+  "AB_first_spare_slot_and_minimum_independent_pass_stocks": 38,
+  "earliest_next_OPEN_with_spare_slot_and_minimum_independent_pass": "2024-10-08",
+  "probe_risk_headroom_after_original_reservations_at_earliest_OPEN": "226.934525037304596378895405",
+  "not_cumulative_buys": true,
+  "not_implemented": true,
+  "not_alpha_or_win_rate_evidence": true,
+  "status": "SEALED_STOP_NO_ACCOUNT_NO_EXPANSION"
+}

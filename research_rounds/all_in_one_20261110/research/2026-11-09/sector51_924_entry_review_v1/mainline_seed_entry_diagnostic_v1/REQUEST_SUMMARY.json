@@ -1,0 +1,195 @@
+[
+  {
+    "period": "startup_0923_0930",
+    "gate": "G1",
+    "status": "ALL",
+    "requests": 3170,
+    "unique_signals": 1073,
+    "baseline_close_approved": 227,
+    "phases": {
+      "EVENT": 564,
+      "MATURE": 1078,
+      "RESIDUAL": 1152,
+      "PAUSED": 376
+    }
+  },
+  {
+    "period": "startup_0923_0930",
+    "gate": "G1",
+    "status": "PASS",
+    "requests": 3170,
+    "unique_signals": 1073,
+    "baseline_close_approved": 227,
+    "phases": {
+      "EVENT": 564,
+      "MATURE": 1078,
+      "RESIDUAL": 1152,
+      "PAUSED": 376
+    }
+  },
+  {
+    "period": "startup_0923_0930",
+    "gate": "G1",
+    "status": "BLOCK",
+    "requests": 0,
+    "unique_signals": 0,
+    "baseline_close_approved": 0,
+    "phases": {}
+  },
+  {
+    "period": "startup_0923_0930",
+    "gate": "G1",
+    "status": "UNKNOWN",
+    "requests": 0,
+    "unique_signals": 0,
+    "baseline_close_approved": 0,
+    "phases": {}
+  },
+  {
+    "period": "startup_0923_0930",
+    "gate": "G2",
+    "status": "ALL",
+    "requests": 3170,
+    "unique_signals": 1073,
+    "baseline_close_approved": 227,
+    "phases": {
+      "EVENT": 564,
+      "MATURE": 1078,
+      "RESIDUAL": 1152,
+      "PAUSED": 376
+    }
+  },
+  {
+    "period": "startup_0923_0930",
+    "gate": "G2",
+    "status": "PASS",
+    "requests": 3160,
+    "unique_signals": 1072,
+    "baseline_close_approved": 227,
+    "phases": {
+      "EVENT": 559,
+      "MATURE": 1075,
+      "RESIDUAL": 1150,
+      "PAUSED": 376
+    }
+  },
+  {
+    "period": "startup_0923_0930",
+    "gate": "G2",
+    "status": "BLOCK",
+    "requests": 10,
+    "unique_signals": 8,
+    "baseline_close_approved": 0,
+    "phases": {
+      "EVENT": 5,
+      "MATURE": 3,
+      "RESIDUAL": 2
+    }
+  },
+  {
+    "period": "startup_0923_0930",
+    "gate": "G2",
+    "status": "UNKNOWN",
+    "requests": 0,
+    "unique_signals": 0,
+    "baseline_close_approved": 0,
+    "phases": {}
+  },
+  {
+    "period": "late_1106_0120",
+    "gate": "G1",
+    "status": "ALL",
+    "requests": 6149,
+    "unique_signals": 2991,
+    "baseline_close_approved": 1016,
+    "phases": {
+      "EVENT": 1924,
+      "MATURE": 1332,
+      "RESIDUAL": 2652,
+      "PAUSED": 241
+    }
+  },
+  {
+    "period": "late_1106_0120",
+    "gate": "G1",
+    "status": "PASS",
+    "requests": 6149,
+    "unique_signals": 2991,
+    "baseline_close_approved": 1016,
+    "phases": {
+      "EVENT": 1924,
+      "MATURE": 1332,
+      "RESIDUAL": 2652,
+      "PAUSED": 241
+    }
+  },
+  {
+    "period": "late_1106_0120",
+    "gate": "G1",
+    "status": "BLOCK",
+    "requests": 0,
+    "unique_signals": 0,
+    "baseline_close_approved": 0,
+    "phases": {}
+  },
+  {
+    "period": "late_1106_0120",
+    "gate": "G1",
+    "status": "UNKNOWN",
+    "requests": 0,
+    "unique_signals": 0,
+    "baseline_close_approved": 0,
+    "phases": {}
+  },
+  {
+    "period": "late_1106_0120",
+    "gate": "G2",
+    "status": "ALL",
+    "requests": 6149,
+    "unique_signals": 2991,
+    "baseline_close_approved": 1016,
+    "phases": {
+      "EVENT": 1924,
+      "MATURE": 1332,
+      "RESIDUAL": 2652,
+      "PAUSED": 241
+    }
+  },
+  {
+    "period": "late_1106_0120",
+    "gate": "G2",
+    "status": "PASS",
+    "requests": 5612,
+    "unique_signals": 2682,
+    "baseline_close_approved": 911,
+    "phases": {
+      "EVENT": 1692,
+      "MATURE": 1277,
+      "RESIDUAL": 2410,
+      "PAUSED": 233
+    }
+  },
+  {
+    "period": "late_1106_0120",
+    "gate": "G2",
+    "status": "BLOCK",
+    "requests": 537,
+    "unique_signals": 336,
+    "baseline_close_approved": 105,
+    "phases": {
+      "EVENT": 232,
+      "RESIDUAL": 242,
+      "MATURE": 55,
+      "PAUSED": 8
+    }
+  },
+  {
+    "period": "late_1106_0120",
+    "gate": "G2",
+    "status": "UNKNOWN",
+    "requests": 0,
+    "unique_signals": 0,
+    "baseline_close_approved": 0,
+    "phases": {}
+  }
+]

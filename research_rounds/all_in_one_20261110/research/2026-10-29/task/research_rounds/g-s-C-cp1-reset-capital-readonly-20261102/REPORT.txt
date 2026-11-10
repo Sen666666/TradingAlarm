@@ -1,0 +1,90 @@
+七月CP1重置证据→新增资本：全母体只读审查
+
+先给否定证据：repair是普遍的市场事件，但不是这两账主要已观察损耗来源。禁止repair凭据卖健康旧仓也挡不住铁建Jul29：原第一笔13828股、D={}已全量合法。没有新经济路径、指标、正式规则或参数。
+
+固定母体为全Jul1—31的3336张canonical fresh CP1，含未配置、Q未知。两档同一市场母体，不能当6672独立机会。
+860 RESET_SEEK_REPAIR（741股）：333负事件+低锚，287只有已见负事件，240只见低锚；后者并不等于此前有失败交易。
+2221 UP_CONTINUATION（1049股）；178 SEEK起源未知（178股）；77已知start后的首次（77股）。股票在类别间重叠。
+repair中133张外层root继承未知，但低锚重置本身已可见；UP中1617张root继承未知，原生phase=UP仍可读取，不能伪造完整历史。178张未知不并入UP或repair。
+recipe：只读原phase/reset_reason/delta_frontier/segment/I字段；E0_down_reset及lower_anchor之后第一张SEEK凭据归repair，receipt_consumed不重置市场证明。未重置UP凭据归延续。CP1.e0_valid实际是原i_target，不是新的原E0失效定义。
+
+源码native_c.py:350—363在fresh合法receipt后统一计算max_q=floor(决策NAV×10%/含滑点价)，不读CP1的SEEK/UP或重置原因。TARGET_SIZE_DESCRIPTIVE核：C10 repair/UP原raw目标中位数分别9.94995%/9.95067%NAV；C20为9.95316%/9.94829%。这是尚未联立裁剪的目标，不是获准或成交，最小单位也可能使raw_max=0。说明同映射是普遍代码机制，不只是铁建特例。
+
+2025_26-C10：事件类别 / 正C计划 / C实预留 / C实成交 / 所有关联角色层(首次/追加/再入) / 实际买款 / 实现 / 未实现 / 股息AR
+RESET_SEEK_REPAIR: 860 / 17 / 16 / 16 / 18{'first': 15, 'reentry': 2, 'add': 1} / 749,877.75 / 481.17 / 4.79 / 0.00
+UP_CONTINUATION: 2221 / 64 / 59 / 57 / 85{'first': 68, 'reentry': 7, 'add': 10} / 3,849,475.78 / -83,612.12 / 5,305.07 / 42.80
+SEEK_ORIGIN_UNKNOWN: 178 / 6 / 5 / 5 / 7{'first': 7} / 293,176.52 / -1,395.17 / -17.43 / 13.17
+START_SEEK_FIRST: 77 / 1 / 1 / 1 / 1{'first': 1} / 97,048.50 / -2,993.17 / 0.00 / 0.00
+closed正/closed负/open层总贡献：
+  RESET_SEEK_REPAIR: 14,513.55 / -8,435.57 / -5,592.02
+  UP_CONTINUATION: 44,943.86 / -128,513.18 / 5,305.07
+  SEEK_ORIGIN_UNKNOWN: 3,024.20 / -4,419.37 / -4.27
+  START_SEEK_FIRST: 0.00 / -2,993.17 / 0.00
+role/pool不能混：
+  SEEK_ORIGIN_UNKNOWN|mobile|confirmed|G: 层4，买194,139.02，净贡献-4,360.37，{'first': 4}
+  UP_CONTINUATION|mobile|confirmed|S: 层46，买3,071,005.28，净贡献-81,972.41，{'first': 37, 'reentry': 5, 'add': 4}
+  SEEK_ORIGIN_UNKNOWN|mobile|probe|T: 层1，买1,045.52，净贡献-53.66，{'first': 1}
+  SEEK_ORIGIN_UNKNOWN|mobile|confirmed|S: 层1，买97,223.59，净贡献3,018.86，{'first': 1}
+  SEEK_ORIGIN_UNKNOWN|core|probe|T: 层1，买768.38，净贡献-4.27，{'first': 1}
+  RESET_SEEK_REPAIR|mobile|confirmed|S: 层14，买646,257.97，净贡献-3,930.00，{'first': 12, 'add': 1, 'reentry': 1}
+  UP_CONTINUATION|core|probe|T: 层6，买17,532.76，净贡献4,479.05，{'first': 5, 'reentry': 1}
+  UP_CONTINUATION|mobile|confirmed|G: 层11，买684,063.52，净贡献-530.49，{'first': 11}
+  UP_CONTINUATION|mobile|probe|T: 层22，买76,874.22，净贡献-240.40，{'first': 15, 'add': 6, 'reentry': 1}
+  RESET_SEEK_REPAIR|mobile|confirmed|G: 层2，买103,334.64，净贡献4,413.12，{'first': 2}
+  RESET_SEEK_REPAIR|core|probe|T: 层2，买285.14，净贡献2.84，{'reentry': 1, 'first': 1}
+  START_SEEK_FIRST|mobile|confirmed|G: 层1，买97,048.50，净贡献-2,993.17，{'first': 1}
+完整原生买层118，其中111层可连到本母体；另7层core-only/非fresh单列，不硬塞CP1分类。8张Q未知、False=0。
+repair正计划无D校验17条：单独该原数量通过8，保留原早先Q前缀且全批D为空通过4。后者失败可能含早先Q冲突，不冒称该receipt独占因；Q为原计划数，不冒充实际fill量。
+2025_26-C_BATCH20：事件类别 / 正C计划 / C实预留 / C实成交 / 所有关联角色层(首次/追加/再入) / 实际买款 / 实现 / 未实现 / 股息AR
+RESET_SEEK_REPAIR: 860 / 16 / 16 / 16 / 18{'first': 15, 'reentry': 2, 'add': 1} / 648,367.72 / 1,738.96 / 138.92 / 0.00
+UP_CONTINUATION: 2221 / 64 / 59 / 58 / 93{'first': 76, 'reentry': 7, 'add': 10} / 3,244,980.69 / -60,525.21 / 22,832.84 / 642.64
+SEEK_ORIGIN_UNKNOWN: 178 / 6 / 5 / 5 / 7{'first': 7} / 293,176.52 / -77.93 / -17.43 / 13.17
+START_SEEK_FIRST: 77 / 1 / 1 / 1 / 1{'first': 1} / 4,852.42 / -157.75 / 0.00 / 0.00
+closed正/closed负/open层总贡献：
+  RESET_SEEK_REPAIR: 10,570.27 / -8,831.30 / 138.92
+  UP_CONTINUATION: 27,641.76 / -97,604.73 / 32,913.25
+  SEEK_ORIGIN_UNKNOWN: 3,024.20 / -3,102.14 / -4.27
+  START_SEEK_FIRST: 0.00 / -157.75 / 0.00
+role/pool不能混：
+  SEEK_ORIGIN_UNKNOWN|mobile|confirmed|G: 层4，买194,139.02，净贡献-3,043.14，{'first': 4}
+  UP_CONTINUATION|mobile|confirmed|S: 层47，买2,559,525.15，净贡献-56,159.01，{'first': 39, 'reentry': 4, 'add': 4}
+  SEEK_ORIGIN_UNKNOWN|mobile|probe|T: 层1，买1,045.52，净贡献-53.66，{'first': 1}
+  SEEK_ORIGIN_UNKNOWN|mobile|confirmed|S: 层1，买97,223.59，净贡献3,018.86，{'first': 1}
+  SEEK_ORIGIN_UNKNOWN|core|probe|T: 层1，买768.38，净贡献-4.27，{'first': 1}
+  RESET_SEEK_REPAIR|mobile|confirmed|S: 层14，买544,747.94，净贡献-1,612.25，{'first': 12, 'add': 1, 'reentry': 1}
+  UP_CONTINUATION|core|probe|T: 层11，买20,981.49，净贡献3,906.10，{'first': 10, 'reentry': 1}
+  UP_CONTINUATION|mobile|confirmed|G: 层11，买588,336.20，净贡献13,982.81，{'first': 11}
+  UP_CONTINUATION|mobile|probe|T: 层24，买76,137.85，净贡献1,220.36，{'first': 16, 'add': 6, 'reentry': 2}
+  RESET_SEEK_REPAIR|mobile|confirmed|G: 层2，买103,334.64，净贡献3,487.29，{'first': 2}
+  RESET_SEEK_REPAIR|core|probe|T: 层2，买285.14，净贡献2.84，{'reentry': 1, 'first': 1}
+  START_SEEK_FIRST|mobile|confirmed|G: 层1，买4,852.42，净贡献-157.75，{'first': 1}
+完整原生买层125，其中119层可连到本母体；另6层core-only/非fresh单列，不硬塞CP1分类。8张Q未知、False=0。
+repair正计划无D校验16条：单独该原数量通过7，保留原早先Q前缀且全批D为空通过4。后者失败可能含早先Q冲突，不冒称该receipt独占因；Q为原计划数，不冒充实际fill量。
+
+解释边界与关键反例
+repair市场事件860张中，实际层各18：15首次参与、1追加、2再入（其中1是微小core再入，另1才是铁建mobile）。不能把860张当重复买失败股，也不能把市场repair叫账户恢复。
+C10 repair实际新增74.99万，归属层净+485.96；C20新增64.84万、净+1877.88。UP组分别新增384.95万/324.50万、净−78264.25/−37049.73。来源、角色、资本量和期末删失不同，不能推出UP预测更差或small-repair政策有效；只能否定“这类repair解释了主要七月损耗”。
+铁建：C10首次UP层买96249.66、净−11355.25；Jul29 repair再入层买91310.43、净−2532.87（均实际已闭合）。铁建主要亏损早于repair；删除第二层损失不是可执行反事实收益。
+反例平安电工：Jul4 repair首次实际买94822.39，最终净+4302.11；之后Jul9负事件、Jul14低锚，Jul16再次repair，原同源close39.2974低于Jul8的41.3544；Jul17 UP新凭据已到43.2272，Jul23为54.5456。Jul16这张未获C资金，不能把此前老层利润归给它；若等下一证明才允许大目标，确有继续涨快、预算又拥挤的代价。
+反例德福科技：Jul8 UP close37.8844→Jul11负事件/14低锚→Jul17 repair close37.0141（尚未回旧高）→Jul21 UP40.4250→Jul31为50.4330。原账实际早先core/probe及小mobile层整月共+3928.80，Jul17 repair与后来UP仍未获C扩张资金。此为真实赢家的正常回撤价路，不是“给repair钱一定赚”的交易证明；也反驳恢复必须回原高的硬门。
+上述控制是确定性后视逻辑反例，不是独立验证集；全部正例候选列表留存，不只挑两股。月底后未知，未做持续年限判定。
+
+便宜必要性检查：不让repair凭据出售健康旧仓
+C10 Jul29铁建原第一项q=13828、D={}，全部原B/J约束通过；reserve现金底线后余46176.30，风险55414.47/56031.90、余617.43元，股资本余3.30元；不是靠放宽risk或借不存在款项。该凭据在本批前没有旧授权，故不需为它新卖健康仓。C20 q14376也在原第一项D={}通过。此门挡不住核心case，停止把它当解法，不补条件。
+但真实闲置现金不等于历史从未卖健康旧仓：附录完整列Jul28/29实际CP1退出与actionable_S_funding现金。后者没有改名为独立退出；资金可追溯但现金可互换，未声称移除过去筹资后的账户仍相同，也未把其他目标此前筹资变成该repair新授权。若要永久按现金历史来源禁用，会是另一个更大政策，当前没有测试。
+
+原生身份可复用范围
+可直接复用：canonical receipt_id/前一市场receipt链、原source/segment、I结构(原C_demand receipt_binding内可得时)、原E0_episode、F1行业context/permit。
+不能互相替代：E0_episode/I结构会跨CP1负事件而仍有效；canonical形成区间和receipt_consumed是凭据积累/消费钟，不是市场repair重置ID。
+现CP1无显式完整reset-context字段；本报告诊断ID仅由已见sid/segment/重置日/原原因组成。root继承未知保留未知，没导出完整前史补猜。未来如接策略，需原生持久该身份、严格as-of导入，不可拿这份诊断字符串冒充已存在字段。
+
+唯一最小候选轮廓（不冻结、不实现）
+把“市场资格仍在”“首次repair新机会”“同一已知重置片段之后再次真实UP前沿凭据”分开。首次repair不自动获得满stock目标；其有限新增金额尚待合同审查，不能先定2%。未买股票也独立积累市场证据，不能以首次成交获特权；同根后续新canonical+新frontier可讨论扩大，现有现金/真实保护风险/股行业上限继续逐单付费。
+不要求收复旧高、不禁止重入、不拿浮盈作保护信用、不因market proof弱便改原退出。新的负事件/低锚身份如何重复重置、继承未知如何处理必须先唯一规定；普通UP回撤和receipt消费不能随意重置。
+最强反例：真趋势低位repair后次日跳涨/最小200股高于有限试仓；不断UP的新凭据也可来自单轮急涨并迅速回落（本月主要损耗正是此组）；无持仓也要成熟，已有赢家正常回撤不得永久锁小仓。先在同前缀赢家/假启动/跌后真恢复合成说明主动资本到位及损耗代价，再决定是否值得任何经济验证。
+当前证据不足支持把此候选列为主要修复：repair并非主要损耗且有真实盈利反例。只保留可因果辨识的状态差异；不启动新规则覆盖率评估或新收益路径。
+
+验证与交付
+analyze.py仅扫描原CP1已算字段并连接两现账；首次输出17.375秒。verify.py覆盖消费不重置、UP普通回撤、负事件但I未失效、低锚、清除后start、继承未知，并核Jul8/22/29表级前缀分类/身份逐项一致；这不是另跑原金融物理截断分支。未运行账户，已审金融输入物理截断证据复用。
+EVENTS.json保留全部3336×2事件、原许可/目标/订单/实际层及当窗后续同源价路。后续观察长短不齐/末端删失，未拿变长终点做策略收益或胜率。ROLE_POOL_GROUPS及CHECKS有全层分母和已实现/未实现/股息桥。open层总贡献并非未实现：例如C10 repair open层−5592.02包含此前部分实卖，实际剩余未实现仅+4.79，不能混称浮亏。
+NO_OPPORTUNITY_SALE_PREVIEWS仅原量固定状态合法性；不能累加，也不是可同时执行资金或可实现盈亏。原金融checkpoint/源适配器/指标不改。首次verify遇tuple键序列化错误，原失败日志与脚本保留failures/01，无账户或分类结果变更。

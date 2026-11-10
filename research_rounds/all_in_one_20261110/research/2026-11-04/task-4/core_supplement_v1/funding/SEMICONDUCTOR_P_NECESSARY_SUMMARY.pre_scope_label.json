@@ -1,0 +1,72 @@
+{
+  "groups": {
+    "long|B_I_on_no_i_buy": {
+      "events": 1112,
+      "G1_G1_ready_below_warm": 1077,
+      "B_flat_ACT_S0_epoch_pending_intersection": 721,
+      "same_day_CP": 73,
+      "no_same_day_CP": 648,
+      "later_CP_same_I_epoch": 529,
+      "signal_minimum_pass": 469,
+      "OPEN_minimum_necessary_pass": 468,
+      "isolated_S0_cash_minimum_pass": 457,
+      "certified_sector_capital_failure": 437,
+      "not_eliminated_by_these_necessary_tests_ONLY": 147,
+      "G1_G1_warm_no_fresh": 35
+    },
+    "long|C_original_i_buy": {
+      "events": 257,
+      "G1_G1_warm_fresh": 257
+    },
+    "strong|B_I_on_no_i_buy": {
+      "events": 296,
+      "G1_G1_ready_below_warm": 293,
+      "B_flat_ACT_S0_epoch_pending_intersection": 290,
+      "same_day_CP": 31,
+      "no_same_day_CP": 259,
+      "later_CP_same_I_epoch": 255,
+      "signal_minimum_pass": 211,
+      "OPEN_minimum_necessary_pass": 212,
+      "isolated_S0_cash_minimum_pass": 158,
+      "certified_sector_capital_failure": 99,
+      "not_eliminated_by_these_necessary_tests_ONLY": 92,
+      "G1_G1_warm_no_fresh": 3
+    },
+    "strong|C_original_i_buy": {
+      "events": 79,
+      "G1_G1_warm_fresh": 79
+    },
+    "H1_2026|B_I_on_no_i_buy": {
+      "events": 259,
+      "G1_G1_ready_below_warm": 252,
+      "B_flat_ACT_S0_epoch_pending_intersection": 174,
+      "same_day_CP": 15,
+      "no_same_day_CP": 159,
+      "later_CP_same_I_epoch": 141,
+      "signal_minimum_pass": 105,
+      "OPEN_minimum_necessary_pass": 104,
+      "isolated_S0_cash_minimum_pass": 112,
+      "certified_sector_capital_failure": 133,
+      "not_eliminated_by_these_necessary_tests_ONLY": 21,
+      "G1_G1_warm_no_fresh": 7
+    },
+    "H1_2026|C_original_i_buy": {
+      "events": 67,
+      "G1_G1_warm_fresh": 67
+    },
+    "H1_2026|A_I_never_started_in_E0": {
+      "events": 8,
+      "G1_G1_ready_below_warm": 8
+    },
+    "long|A_I_never_started_in_E0": {
+      "events": 22,
+      "G1_G1_ready_below_warm": 22
+    },
+    "strong|A_I_never_started_in_E0": {
+      "events": 17,
+      "G1_G1_ready_below_warm": 17
+    }
+  },
+  "scope": "All original126 membership. Certified capital failures are a lower bound of obstruction; survivors are an optimistic upper count, not legally executable or a return.",
+  "new_accounts": 0
+}

@@ -1,0 +1,11 @@
+{
+  "status": "FINAL_FROZEN_DELIVERY",
+  "primary_report": "REPORT_FINAL_v2.md",
+  "no_new_economic_or_strategy_runs": true,
+  "native_structure_birth_definition_verified_source": "joint_v3.py:190-194 e0_target rising edge within segment; distinct from original-I big60 birth",
+  "files": {
+    "REPORT_FINAL_v2.md": "04493420f77157972c011d1e12896816440647cb773705ed4ee026c6fd67fcae",
+    "OUTPUT_SHA256.json": "0edde4bd41d134a3ce1376c5f5209c78fdb3f91f476e033ee7fcdc8ffc5b09da",
+    "FINAL_SUPPLEMENT_SHA256.json": "25f86ce764cc01b3273f31c5141caada72752dac5bf6736362aa1ac255a354bd"
+  }
+}

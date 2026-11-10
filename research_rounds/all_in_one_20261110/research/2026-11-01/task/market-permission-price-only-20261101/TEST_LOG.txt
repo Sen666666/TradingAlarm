@@ -1,0 +1,28 @@
+test_account_histories_are_not_signal_inputs (test_signal_core.PermissionTests.test_account_histories_are_not_signal_inputs) ... ok
+test_adverse_lagging_positive_breadth_bear_bounce_can_false_repair (test_signal_core.PermissionTests.test_adverse_lagging_positive_breadth_bear_bounce_can_false_repair) ... ok
+test_breadth_strict_threshold_and_temporary_weakness (test_signal_core.PermissionTests.test_breadth_strict_threshold_and_temporary_weakness) ... ok
+test_checkpoint_resume_every_cut_matches_uninterrupted (test_signal_core.PermissionTests.test_checkpoint_resume_every_cut_matches_uninterrupted) ... ok
+test_double_failure_then_bounce_requires_new_break (test_signal_core.PermissionTests.test_double_failure_then_bounce_requires_new_break) ... ok
+test_duplicate_or_out_of_order_input_is_rejected (test_signal_core.PermissionTests.test_duplicate_or_out_of_order_input_is_rejected) ... ok
+test_equal_line_is_not_strict_breach (test_signal_core.PermissionTests.test_equal_line_is_not_strict_breach) ... ok
+test_fast_break_start_without_five_day_wait (test_signal_core.PermissionTests.test_fast_break_start_without_five_day_wait) ... ok
+test_frontier_credit_equals_displacement_and_no_range_recycling (test_signal_core.PermissionTests.test_frontier_credit_equals_displacement_and_no_range_recycling) ... ok
+test_global_weak_industry_strong_are_independent (test_signal_core.PermissionTests.test_global_weak_industry_strong_are_independent) ... ok
+test_invalid_numbers_never_become_positive_evidence (test_signal_core.PermissionTests.test_invalid_numbers_never_become_positive_evidence) ... ok
+test_no_same_close_reopen_even_if_original_break_is_true (test_signal_core.PermissionTests.test_no_same_close_reopen_even_if_original_break_is_true) ... ok
+test_old_line_checked_before_new_line_is_created (test_signal_core.PermissionTests.test_old_line_checked_before_new_line_is_created) ... ok
+test_persistent_gradual_rise_accumulates_new_frontier (test_signal_core.PermissionTests.test_persistent_gradual_rise_accumulates_new_frontier) ... ok
+test_physical_prefix_in_fresh_process_has_no_future_file (test_signal_core.PermissionTests.test_physical_prefix_in_fresh_process_has_no_future_file) ... ok
+test_repair_below_old_high_and_new_line_next_observation (test_signal_core.PermissionTests.test_repair_below_old_high_and_new_line_next_observation) ... ok
+test_repair_known_weak_breadth_ends_even_when_price_unknown (test_signal_core.PermissionTests.test_repair_known_weak_breadth_ends_even_when_price_unknown) ... ok
+test_scale_prior_only_and_frozen_with_exact_formula (test_signal_core.PermissionTests.test_scale_prior_only_and_frozen_with_exact_formula) ... ok
+test_single_jump_then_flat_does_not_reuse_credit (test_signal_core.PermissionTests.test_single_jump_then_flat_does_not_reuse_credit) ... ok
+test_source_change_ends_context_and_rewarms_without_cross_credit (test_signal_core.PermissionTests.test_source_change_ends_context_and_rewarms_without_cross_credit) ... ok
+test_unknown_breach_is_explicit_blocker_without_mutation (test_signal_core.PermissionTests.test_unknown_breach_is_explicit_blocker_without_mutation) ... ok
+test_unknown_breadth_preserves_observed_price_progress (test_signal_core.PermissionTests.test_unknown_breadth_preserves_observed_price_progress) ... ok
+test_unknown_price_denies_preserves_and_does_not_bridge_return (test_signal_core.PermissionTests.test_unknown_price_denies_preserves_and_does_not_bridge_return) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.370s
+
+OK

@@ -1,0 +1,28 @@
+{
+  "created_utc": "2026-10-20T02:08:50.648000+00:00",
+  "status": "before candidate outputs; prior rounds fully seen",
+  "hypothesis": "A slope innovation changes both current level and ongoing slope, unlike a level jump; future observed prices distinguish them. Preserve total rare-intervention prior budget, not add a trading filter.",
+  "formula": "Four priors [1-.04a,.04a/3,.04a/3,.04a/3]. Ordinary/level/shock same as prior model. Drift-break Q=ordinaryQ+8.99*sigma^2*ones(2,2),R=.25*sigma². Its current observation variance equals level-jump mode, but covariance carries price innovation into slope.",
+  "controls": "prior3-state saved results; price activity=1; duplicate_level mode replaces drift break with an identical level-jump distribution at same four priors, isolates slope-covariance mechanism from prior reallocation",
+  "parameters": "all prior scale63,activity21,clip[.5,2],ordinary slopeQ.0025,entry>1 exit<=0 unchanged; no search",
+  "tests": "same prior synthetic paths plus one-bar positive shock returning next day and steep drift; prefix, units, covariance equivalence on first break, no perfect pre-fork discrimination required",
+  "cases": [
+    [
+      "HK03033",
+      "2022-01-01",
+      "2026-10-16"
+    ],
+    [
+      "HK09618",
+      "2024-08-01",
+      "2024-12-01"
+    ],
+    [
+      "USHJ512480",
+      "2024-01-01",
+      "2026-10-16"
+    ]
+  ],
+  "accounts_if_gate_passes": "ETF17/HK7 2022..2026-10-16,PV base/cost2/delay1,price base,duplicate_level base,10accounts total. Same initial equal engine, no selection changes. Sector implementation previous evidence retained; rerun only if mechanism improves sufficiently to warrant.",
+  "source_sha256": "f0d08f2a90213835e0c62ce0a6b8e041d92a0d45ff32091ef9b67d15e9392c44"
+}

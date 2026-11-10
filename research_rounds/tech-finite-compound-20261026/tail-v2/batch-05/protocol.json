@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "symbol": "URFI881121",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881122",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881123",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881124",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881129",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881130",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881162",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881172",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881270",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881271",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881272",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    }
+  ],
+  "max_requests": 24,
+  "request_interval_seconds": 0.3,
+  "read_timeout_seconds": 15,
+  "session_preference": "snapshot"
+}

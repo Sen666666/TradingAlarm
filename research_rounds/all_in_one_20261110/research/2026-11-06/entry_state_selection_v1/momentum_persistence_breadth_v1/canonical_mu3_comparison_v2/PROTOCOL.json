@@ -1,0 +1,10 @@
+{
+  "version": "CANONICAL_MU3_V2_AND_SOURCE_GAP_REWARM64_SENSITIVITY",
+  "authorized_parent_clarification": true,
+  "primary": "Keep original G native mu5 and its original warm-up. Three common-session positive condition requires valid bars and identical segment/source_kind/source_path across three dates; gap/source change resets only three-date state. Native mu can inherit pre-gap/pre-source pace: NOT source-isolated.",
+  "sensitivity": "Full bottom-layer EMA reset on every common gap or true source identity transition, then64 returns and3 usable mu. Separately reported, not substitute for primary.",
+  "candidate": "n>=3 AND ((share>=1/3 AND paired same-member 3-day diffusion>0) OR share>=1/2). n/K observed plus fixed N lower/upper UNKNOWN gate. This is parent-approved post-initial-data supplemental gate, not claimed unseen preregistration.",
+  "comparison": "All both-known stock identities on same dates, paired delta uses both-model known at t and t-3; no competing denominators. Same1709/90 membership exact.",
+  "prior_version": "v1 outputs retained. v1 did not reset bottom layer for source_kind/source_path changes when segment unchanged; specifically2026-05-18 raw vendor switch, so v1 does not certify source isolation. Corrected strict sensitivity is in this directory.",
+  "account_runs": 0
+}

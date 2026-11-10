@@ -1,0 +1,38 @@
+v4独立状态实现核验PASS。只审给定P/T顺序下的状态与解释，没有重算特征/分数/排名或读取未来标签、账户结果。
+根FROZEN SHA29af69f156ea9c14ea62ab5eea3fc1a7ee56dcdebdd33a3fc01d5e493e30e495。
+正式production状态表SHA2f81643aa9efd2bf075ce990a3b51564ec05595e9a30a15ec4faf759251423e1。
+
+真实逐行核验
+119520行=1328会话×90行业，含固定2021暖机243会话与研究1085会话。独立reference不import生产模块，不读取P_score/Rp/B/价格或future字段。
+possible_states_before/after、公开P_mature、Kleene UNION逐行均0差异；每个会话P_order的1-based排列也全部正确。
+P_prevpublic、entry/exit可能计数、状态事件、已识别新成熟/移除、unknown恢复标记及缺失断计数标记9字段逐项0差异。
+T_order到前三观察名单119520行及每日1-based排列均正确；T只用于union，不改变P内部状态。
+450个全部自然年界面状态精确承接，包含开发/验证边界；没有年初重置。2021末实际状态85 I0、2 I1、3 A0，90行业全部singleton，未解0；这些原样进入2022，绝非强填全I0。
+这只证明本次已存P_order路径下初态已确定。数学上一直6–10仍可保{I0,A0}，243会话并非普遍收敛保证。
+
+缺失与可识别事件
+本次真实warm/study P输入缺失均0，因此不能声称真实数据已覆盖输入缺失分支。
+另隔离生产源码advance/maturity两个纯函数的AST定义，不import生产模块，只合成调用：35个状态边界单元/6个phase测试含None缺失分支全对；生产使用的pandas nullable OR9格全对。
+独立reference的17条纸算路径、35个边界、9格Kleene OR亦全对，NaN规范化为missing，旧0-based/负/非整数/bool rank拒绝。
+missing断连续，保内部成熟可能，当天公开unknown；不可压缩缺失前后的两次观测，也不可把unknown算退出。
+全1328会话事件NEW_MATURE663/REMOVED660，其中2021暖机113/115；研究期2022—2026H1为550/545。初态RESOLVED_ACTIVE5/INACTIVE85与真正新入分开；warm中AMBIGUOUS208，真实DATA_RESUME事件0。
+
+first/carry解释核验
+生产180行预定窗口表10字段共1800项与独立reference全同。14行首次看见P成熟属于期初carry，首次可见日期与真正NEW_MATURE日期不同，未把carry标作新入。
+独立全90×两窗表在REFERENCE_FIXED_WINDOWS_STATE_ONLY.json/csv；所有源标记预期/实际在FIXED_WINDOW_ANNOTATION_EXPECTED_AND_ACTUAL.json。
+半导体2025-12-31为I0，2026-01-05 P74，01-13 P19，01-14 P9，01-15 P8，始终I0；01-15 T32，P/T/union均False。6–10只保已有A，不让I0直接成熟，故这不是跨年重置或rank8应自动成熟的状态bug。
+预定924窗口软件首次T=2024-10-14/P真正成熟=10-15，通信T=12-19/P=12-25；2026H1半导体首次T/union=01-16，P真正成熟=05-13。这些仅是状态时序，需另评价参与时机，不代表已验证收益或可交易性。
+
+人数和边界
+真实全1328会话成熟集合max11，1194会话超过5，确实没有另截成熟人数到前5。
+最少六行业合成例成熟数[0,5,5,6]：前5只是进入证据门，缓冲可保第6及以后。
+两次连续<=5使任意五初态集合坍缩A0；三次连续>10坍缩I0；rank10不退出、6–10保成熟并清exit计数。
+public maturity按阶段一致性（全A真/全I假/混合unknown），与完整counter singleton分开。T前三观察不授P成熟；T真可使Punknown时union真，T假则保unknown。
+所有更新在收盘；成熟/union只是观察候选记忆，不授E0/I/CP凭据、资金或交易，不强制卖原仓。
+
+可复核文件
+FINAL_STATE_AUDIT_SUMMARY.json汇总本轮全部检查；REAL_SAVED_STATE_AUDIT_SUMMARY是最初核心检查，后续aux字段已由REAL_COUNTER_EVENT_AUDIT另行完整核过。
+REAL_ALL_YEAR_BOUNDARIES.csv、REAL_2021_TO2022_STATE_BOUNDARY.json、REFERENCE_WARM_CONVERGENCE_ALL90.csv、VERIFIED_STATE_EVENTS_BY_YEAR.csv。
+原reference_state_machine.py为标准库；audit_saved_state_orders/flags/window_annotations是独立读取器，不调用生产市场计算。
+本核验不认证P/T上游原量、分位/ties、数据vintage/PIT或行情/账户效果；只证明当前状态实现与给定冻结规则及已存输入顺序一致。
+准备稿PENDING_FREEZE保留历史痕迹，正式以FROZEN_DESIGN_USED和本最终报告为准。

@@ -1,0 +1,9 @@
+{
+  "root_scope": "Known native I births >=2022 only; excludes 1017 left-truncated pre2022 roots from this new summary.",
+  "price_path_scope": "Prices anchored at next common OPEN after root birth, h common-session closing prices. Descriptive future price outcomes, not signal-executable returns or strategy performance. Incomplete paths excluded per horizon.",
+  "receipt_groups": "Membership can occur after the price horizon; group price distributions are ex-post association, never prediction or backtest.",
+  "case_scope": "19 frozen case windows, not 19 distinct stocks. CORE original first entries must not be removed because CP changes.",
+  "no_new_accounts": true,
+  "no_signal_rerun": true,
+  "no_parameters_changed": true
+}

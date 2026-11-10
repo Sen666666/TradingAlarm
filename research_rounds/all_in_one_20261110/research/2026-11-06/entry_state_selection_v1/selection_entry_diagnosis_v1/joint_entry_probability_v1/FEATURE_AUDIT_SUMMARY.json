@@ -1,0 +1,17 @@
+{
+  "status": "FEATURES_FROZEN_NO_NEW_OUTCOME_LABELS_READ",
+  "rows": 1814,
+  "stocks": 1044,
+  "dates": 501,
+  "prefix_checks": 1814,
+  "all_input_lineage_passed": true,
+  "monthly_count": 41,
+  "rank_deficient_months": [],
+  "max_condition": 3.853694146951166,
+  "feature_sha256": "c27ae6ca254c3b69d2f5541cbe3ccf0d6b8bd46691df5262f34362cc60f0e16a",
+  "freeze_sha256": "bf9ed0a8baaa0f63fb779061dd29a59fa8e3b3472de38c9ea2af856f225e266c",
+  "seconds": 9.32254937523976,
+  "account_runs": 0,
+  "parameter_searches": 0,
+  "outcome_model_runs": 0
+}

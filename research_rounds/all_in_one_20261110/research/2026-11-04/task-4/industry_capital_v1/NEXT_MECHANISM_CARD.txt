@@ -1,0 +1,58 @@
+下一项必要检验卡：原probe无合法量时，同日原I+fresh CP共证CORE竞争既有confirmed
+状态：paper_only / necessary_coverage_not_yet_run / no_new_policy_account
+
+目的与证据
+结束主动卖旧补行业额度方向。原2026H1半导体25已买层的24 MOBILE当日都有原i_buy、
+I_target和G1暖态新推进；11原CORE到OPEN拒后MOBILE填，其中9仅probe/行业资本，
+另2有行业风险。11行业已成熟，故先检验原资金角色许可，不能再加等待确认延误。
+9是已买条件样本的必要作用点，非策略作用量/可填数量/经济收益；不能据此选规则股票。
+H1首行业拒167中的62共证、1同OPEN Mobile填是另一去重口径，完整保留，不能互相代替。
+
+候选行为冻结（后续若验证使用以下窄臂，不双池取max）
+1 信号为原signal CLOSE完整CORE资格：原flat、E0/I_target/i_buy/ACT/暖态/原门槛/
+  原frozen尺寸通过、原CORE epoch未消费、无原硬退出或待执行冲突。原原生排序不变。
+  另绑定同股票/行业/该signal bar的原canonical fresh CP1，来源/episode/attempt合法。
+  仅凭当时已知op/trace；不得凭次日原Mobile是否成交、未来收益或半导体行业标签选样。
+2 下一原OPEN原位置仍先尝试probe。原probe已能合法预留的CORE完全沿原路径，
+  不改其买量，不增加同时第二单。不采用“probe和confirmed择最大尺寸”。
+3 仅当probe未形成任何预留、无合法最小量，且原生拒因非空且仅在
+  {probe_risk, sector_capital}之内，才可提出typed CORE confirmed fallback。
+  实际OPEN同attempt行业active且financial_level>=1、原migrate/expand允许；
+  不新发行业grant、不扩行业预算、不撤前排订单，也不把原不可执行金额变成现金。
+4 fallback保持role=core、原I floor、原signal冻结的.25%NAV含费保护风险预算及
+  原10%名义尺寸/原frozen cap，以原方法在实际OPEN重验量与费用。维持行业1%风险、
+  现金10%reserve、股10%和其它原真实硬约束、dated最小手/滑点/容量/限价。
+  No60本已取消account3%和confirmed60%，不得误抄回这些门，也不称总风险不变。
+5 confirmed CORE必须显式加入原CORE epoch核验。stock_cp1 token跨role/pool共一
+  消费集合，合法预留成功时consume；非法尝试不得先消费。一次合法预留后同股done，
+  当OPEN不可再Mobile fallback；之后未成交/部分成交/日单取消也不在本OPEN返还token。
+  CORE epoch仍在实际CORE fill时消费。若confirmed也未形成合法预留，原Mobile
+  fallback按既有路线/排序可尝试，同一token不能让两role重复预留。
+6 不把MOBILE假报CORE或反向假报，不转换/晋升已有层，不取消硬退出，不解重入epoch。
+  原CORE沿I/ACT退出，原MOBILE沿CP保护；新买身份改变会改变实际持有轨迹和资金/
+  风险占用，即使退出函数没改。这不是风险中性或“只改路由不影响持有”的实验。
+  所有买卖仍原native执行，T+1/跌停/费用/部分成交继续约束，不涉及卖旧换入。
+
+与旧规则的实质区别/重合
+BP1已测CP1确认首次CORE、沿I持有：该思想不新。本窄臂只针对No60原当日已合格
+i_buy在资金层被迫probe、行业已独立confirmed/expanded且same-day canonical CP1
+已提供原个股新证明的冲突。stock CP1本身不授予行业确认或新预算。
+旧BP1为407/11、2%名义和确认组分配；当前1709/90、原.25%含费风险/独立资金合同。
+N1已有TRIAL买后晋升CORE，另有MOBILE层；继承/再改floor、解epoch不同，本卡全部不采用。
+现原Contract.request的mobile_role_required、core_epoch仅probe分支、CP consume仅
+mobile分支都需显式typed闭环；不能只改一个role判断。边界来源见LEGALITY_AND_DEDUP。
+
+下一步先做必要覆盖与技术审查，本轮不启动长账户
+A 全市场原所有CORE OPEN probe资金拒母体（含仅probe_risk，不限行业拒首事件），
+  逐actual attempt枚举上述事前条件，保留全部失败/反弹、2022/2023/924/2025H2/2026H1。
+  raw与source/I首次分别给数，列只被新许可影响、现金/行业风险仍挡、已成功probe无变化。
+  使用原账和原已知状态，不先重建庞大资金平台。不按25层条件样本定义全母体。
+B 保存原I/CP风险线、原frozen cap、dated min及原现金/真实前排预留；报告CORE/Mobile
+  不同预算使可填量不能互推。原9次必须逐条解释，不把两条sector_risk纳入修复。
+  7个CLOSE最小手风险拒、5仅MOBILE已持仓flat拒是其它分支，本臂不救。
+C 独审时钟、typed role/epoch/token、同股排他、行业迁移、No60保留/已删门以及原合同
+  原样回放。必要覆盖小、与旧已测合同等价或主要仍被硬门阻挡则终止，不换参数硬救。
+D A-C确有额外可实现机会才另定有限技术路由校准、结果审查和最小连续同账户消融。
+  消融须同资金/成本/执行/起点、完整portfolio反馈，含原Mobile fallback被替代的损益、
+  失败小试损耗、原赢家/其它行业资金挤占和风险变化；未来净标签仅评价。
+  目前没有新路由可填证明、没有新账户提升数值；不能把9次或单股估值当经济准入。

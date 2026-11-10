@@ -1,0 +1,39 @@
+{
+  "completed_at": "2026-10-25T01:54:23.823704+08:00",
+  "state": "design_and_local_examples_complete",
+  "model": "RS-H1",
+  "candidate_count": 1,
+  "formula_revisions_after_outputs": 0,
+  "unavailable_metadata_boundary_fixes": 1,
+  "old_E0_R_R1_unchanged_files": 30,
+  "account_runs": 0,
+  "rotation_added": false,
+  "old_execution_code_changed": false,
+  "automatic_next_accounts": 0,
+  "report_url": "http://127.0.0.1:8782/",
+  "files": {
+    "PROTOCOL.md": "b85f16922dbc99ec215862735c3e7a4681ee54a48d2114d75f0f5d53895f9688",
+    "README.md": "8454d922f026eb50830d781d897804e1f9e3fb2d15045132039022704aa60181",
+    "inputs/source-manifest.json": "cc60a2f2e179353cf4a51a88b2efe16cdc49e2b9e56a25083517b9e0ccb9860d",
+    "inputs/facts.json": "fa306b945eb851b84f3784950cd28c2c81440ef7aff646f5bc64bed4c2d72872",
+    "results/summary.json": "fdb4605d1410789b3205d0bc7b2742bc4794d2de37cb52ed2c9dc45bc2b0d968",
+    "results/examples.json": "5d518568ba720080d27db0056b38a778b490e86346216f00913834be0c4014c1",
+    "results/latest-all.json": "6435383d18316edebc51d1c482785a856adcda16ff815b66f2ed4c1daf10381b",
+    "results/milestones.json": "f38a1240bc8a47b882f618123ef686a68ec17b9a98d3cac2d49dd71cd1b76913",
+    "results/artificial-truncations.json": "7aa515aba097fed66042e69cb9dff301d9f993c37dcb649d73cc0c6cc1537eb3",
+    "audit/verification.json": "2f335b85c03cde3ce8960ee042d9c9107e644930ae470e2590f83d811a3b6e00",
+    "audit/raw-review.json": "190d30e5c9820baf9e4b28a3d524507c18868963e84f5596726c861474d8b0ce",
+    "audit/metadata-boundary-fix.json": "2028e6d7228ec45c785c99cd781a7db257552917f4e2e28c51bb1c6f535bdc01",
+    "audit/unavailable-anchors.json": "973113e5ae7ff0882a2d83e871a3213fe191b2fb8e9f555378fc31d992a183b2",
+    "report/index.html": "f29866def7ce6d23c91f325176e25bf4696196078a329fba364c1b7bba02136d",
+    "report/provenance.json": "b90704cbdccfaa2fe08a63e642cadce6bc7d1e2fa4f9a2f7b8547bf64af6ab00",
+    "audit/final-qa.json": "586fb51f283d95261872d44f3535220f344ce63a54cf0c09374ad504c095e315"
+  },
+  "prototype_code": {
+    "code/calculate.py": "0772702aca1a4a9ca499c824fb087cbf98c9e4281998c83690ab456935eaef2e",
+    "code/model.py": "cb28e8fafd0fe1c45612175be7a42695e34ba5061aa700aa653bcfc1324df9d0",
+    "code/verify.py": "d89671e46b4d04631d586b1508607f8d61a727e35e8abca7a7ea08d553c27d8c",
+    "code/report.py": "da8b8deb19c73afb0698445015068dfc57e30ae04c7d4cff21d4cf26598f1e51",
+    "code/prepare.py": "d78f3ab2689d032f33638bbff3daddd3b0522d5e16bc27329e87e6ea97d8a642"
+  }
+}

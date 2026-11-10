@@ -1,0 +1,43 @@
+Read-only Q2 readiness and market-state description, fixed before aggregation.
+No new account path, cache generation, signal, filter or parameter.
+
+Identity/window: existing1709 snapshot stock IDs and90 source industries.
+Previous three quarters2025Q3/2025Q4/2026Q1 and next calendar quarter2026Q2.
+Q2 is consumed-history time extension, not unseen/OOS validation. Missing/N/A
+identities remain in the fixed mother population; no survivor/performance edit.
+
+Data audit: inspect all existing stock facts/CP1/receipt manifests, existing
+runtime rawOHLCV, industry facts/state, H1 and original external market clock.
+Count exact-date known observations/readiness and unknowns. No zero/forward fill.
+Compare Q2 I/floor/factor/price fields with existing raw nativeI cache, not IX/G1.
+
+Description, evaluation-only:
+1. Industry quarter price return = exact last common market-day close divided
+   by exact previous-quarter close minus1. Report valid denominator, positive/
+   negative/flat counts, min/p10/p25/median/p75/p90/max and top3 industry names.
+2. Positive-gain concentration = sum top3 positive industry price returns /
+   sum ALL positive industry price returns. Not turnover share or money flow.
+3. Daily up breadth = positive one-observation industry returns / known exact
+   adjacent-session returns. Also report existing R21-positive breadth; unknown
+   fields are excluded with denominator reported, not made false.
+4. Equal90 price reference = mean(P_s,t/P_s,2025-06-30), same fixed90 series.
+   Missing any required price makes that reference observation unknown. This
+   is a price-description reference, not a simulated tradable strategy/index.
+   For every fixed quarter and the combined previous9months, report max
+   drawdown from that window's initial reference and longest consecutive
+   observations below a prior high; recovery not observed is right-censored.
+   Below-high runs may contain rebounds; they are not every-day-decline runs.
+5. Original external ACT market series is used as-is: fast_on/breakout counts,
+   breadth quantiles, market measurement range. Do not replace it with our
+   equal90 reference, reinterpret it as PnL or add a no-mainline threshold.
+
+Continuation review: read original normal B/B_diag March31 checkpoints and
+their source/ledger evidence only. Do not restore/reset/replay an account in
+this audit. Identify required preserved cash, holdings, pending orders, costs,
+losses, locks, ACT and attempt state and old generation-identity limitations.
+Any future extension must verify old frozen sources/prefix and explicitly
+link a new version to the old checkpoint; do not backfill legacy provenance
+or spoof the old source_freeze to bypass restore checks.
+
+No classification above certifies 'no mainline'. Sector median decline does
+not preclude a local trend. No strategy returns are read to select windows.

@@ -1,0 +1,47 @@
+{
+  "status": "NUMERICAL_FIX_FROZEN_BEFORE_V2_FIT_V1_RESULTS_ALREADY_SEEN",
+  "domain": "53121 original legal PVR empty MOBILE opportunities; original-account conditional domain, not new policy",
+  "features": [
+    "within day and sector original_PVR ascending average percentile",
+    "log(native signal close / original candidate floor) / pre-existing PVR scale",
+    "audited candidate CE"
+  ],
+  "prediction_start": "2023-01-01; 2022 warmup only",
+  "refit": "first exchange session monthly",
+  "train": "signal t >= cutoff-504 and t+60 < cutoff, all three states and all payoff distributions use same 60-mature feature-complete source-continuous rows",
+  "targets": "C=first close >=2*next_open-floor within20 before close<=floor; F=first close<=floor, INCLUDING next_open<=floor as F0 at time0; U=neither. No trade exit. Finite positive immediate next open required for label only, never used in test features or rank eligibility.",
+  "payoff": "existing adjusted C[t+60]/O[t+1]-1 minus fixed40bp proxy; no actual commissions, taxes, liquidity, dividends double count or trading claim",
+  "labels": "state mature20, payoff/ES mature60. Main training deliberately waits60 for all. Missing path or source segment break unknown, not loss; unfilled treated identically to filled.",
+  "feature_scaling": "Risk feature only: weighted empirical1%99% bounds using training rows only, winsorize first, then weighted mean/std, final z clip+/-5. Other features unchanged. floor-scale UNKNOWN has fixed original rank slots.",
+  "weights": "equal signal date, equal sector within date, equal event within sector-date; normalize sum to row count",
+  "probability_model": "Exact same convex likelihood and ridge2 as v1, NumPy damped Newton already audited. Max200, gradient max<1e-4 required; no new tuning.",
+  "minimum": {
+    "rows": 300,
+    "dates": 60,
+    "each_state": 50
+  },
+  "conditional_distribution": "for each C/F/U, date/sector-balanced empirical payoff distribution in current market regime; fallback to all regimes if none. Sector empirical date-balanced distribution shrunk toward pool by lambda=distinct sector-state dates/(n+20). Full returns preserved.",
+  "score": "mixture expected payoff / exact fractional worst10% loss of mixture. If ES<=0/nonfinite UNKNOWN original slot. pC is second ranking.",
+  "comparators": [
+    "PVR",
+    "MIX_EV_ES",
+    "PC",
+    "DIRECT_MEAN",
+    "HISTORY_MEAN"
+  ],
+  "direct_mean": "same 3 features, same training/weights/standardization, squared-error objective sum w residual^2 +4 sum(beta^2), no intercept penalty",
+  "history_mean": "sector/current-market date-balanced mean shrunk to market mean by dates/(dates+20); constant within day-sector, PVR tiebreak",
+  "ranking": "original global topK=min(20,N) determines per-sector K; replace known slots only within each sector; all methods same sector counts, same totalK. UNKNOWN positions fixed. No score>0 or probability gate.",
+  "evaluation": "year/924/2026Q1; 5/20/60 price paths, 40bp and100bp cost proxies; paired all-method complete dates; 60-session block clustered uncertainty; primary price60; original root early big coverage and source-account closed-round association only",
+  "stability": "monthly parameters/support, per-year known fraction, same-date-sector score rank correlations and changes, probability Brier vs same-train historical state proportions",
+  "no_accounts": true,
+  "no_parameter_search": true,
+  "no_threshold_optimization": true,
+  "known_limitations": "Consumed history, future-selected universe/industry and adjustments not PIT; price proxy only, not executable net0-to0 win rate",
+  "reason_not_old_CE": "Old joint CE predicted actual-filled final net win with 120-session W/L/U and 1814 selected fills. This predicts price path C/F/U and 60-day distributions on all53121 original legal opportunities, keeps same-sector K and observes candidate counterfactual prices, not synthetic actual PnL.",
+  "numerical_fix": "Original PVR scale <=1e-8 numerical floor means UNKNOWN at signal time. For risk-distance feature only, compute training date/sector-weighted empirical inverse-CDF quantiles1%/99%, clip TRAIN and TEST to these frozen training bounds BEFORE weighted mean/std; retain original final +/-5. Other two features unchanged.",
+  "v1_preserved": true,
+  "one_corrected_forward_run": true,
+  "not_unseen_validation": true,
+  "no_strategy_threshold_change": true
+}

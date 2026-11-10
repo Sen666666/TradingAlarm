@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-30T15:52:30.744159+00:00",
+  "before_new_economic_results": true,
+  "paths": 12,
+  "prefix_group_runs": 2,
+  "no_parameter_search": true,
+  "sha256": {
+    "research_rounds/partial-action-full-account-20261030/run_stage.py": "4b9551d77d899c90bef996b94fc5577ae009589254cf8082355b80cc8e151256",
+    "research_rounds/partial-action-full-account-20261030/restore_reservation_kernel.py": "19344ec7e1aaaab8ecba1dec8ac48dab2cb69cf668a8e65d4445c50be71f4543",
+    "research_rounds/partial-action-full-account-20261030/cash_checks.py": "53542326013aeb406d5cb847a92acdd1b0f8b513bf96590ac4d40bd67bc448d6",
+    "research_rounds/partial-action-full-account-20261030/role_adapter.py": "cffac3fb0c010950d1b437bbb0451e9bf9638aaf7356bcf48d874e46255cd262",
+    "research_rounds/partial-action-full-account-20261030/integrated.py": "cb60b2a2100a09aee1b23a8daaf6f08d95b1b0866c28289acb62a0f20584dc35",
+    "research_rounds/partial-action-full-account-20261030/PROTOCOL.txt": "d8df3779c13e87e6c59289144a893e47f6f9a8c6d04fca7c855d2fc15db43ed2",
+    "research_rounds/partial-action-full-account-20261030/GATES.json": "8e991f9aa604e196bf7a639522ffd010db87d4943766041286ab1b8ce29325f6",
+    "research_rounds/partial-action-full-account-20261030/UPSTREAM.json": "cadfdf948ebb88814206d587050adfd3fe8f2cf406481222ae5d348fb3b4aecb"
+  }
+}

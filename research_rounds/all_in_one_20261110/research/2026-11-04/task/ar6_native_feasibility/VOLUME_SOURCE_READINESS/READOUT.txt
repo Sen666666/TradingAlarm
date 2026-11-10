@@ -1,0 +1,33 @@
+真实量冷算源链/预热/时间钟独立检查｜只读完成
+
+裁决：三卡原输入、版本与完整预热资料可读、可绑定，未发现缺源障碍；但原new_fixed_chain不等于G1/B4冷算已过。真正cold/neutral薄组装由risk owner唯一执行，本方不重复，不改既有缓存、不造中性公式。INSPECTION.json只是现成数据/clock/cache身份检查，new_model_feature_runs=0，不冒称cold通过。
+
+1 两种生成模式的真实含义
+000001 verified_case_reuse来自case-stock-cp1-warmup/generate已有全warm facts+CP1；300001/688001 new_fixed_chain来自universe/prepare新导出facts/CP1。两路共同依赖native-I-cache-interface/cache.py::derive：读取原prepared-v2 signal/events/states，读取IX_G1缓存grade/strength_ready/fresh_up/acute_down，再以decline_candidate=False重跑原e0_policy+project(G1_I)。因此new_fixed_chain没有从价格/量重算B4/G1。
+本方对三股全warm逐值核：U facts的g_grade/g_ready/g_fresh_up/g_acute_down exact IX缓存相应字段；价钟/close与CP1 input exact。由此只能证明缓存链相接，不能证明今天cold无差异。
+
+2 真正可复用cold入口与固定版本
+现成 TradingAlarm/desk/refresh.py::prepare_facts(signal) 正是：
+eligible_prices→OHLCV/source segment+原valid masks→api.run_b5(enhancements=False)→B5 evidence.build_evidence→grade.classify→e.decline_candidate=False→e0_policy→project(...,'G1_I')。
+IX prepare_ix.py::worker原缓存生成用了相同run_b5/build_evidence/classify及project('G1_IX')，但其存的旧e0 state可含decline recovery。不能把cold NR1 e0硬对旧IX e0或IX target/floor当I控制；G1 grade/ready/fresh/acute可直接对IX。
+B5 evidence固定load B4 model SHA=0beb0b16f2f2cac4f1aff23258b7c45722dc12f16e495be27bf5635c03888cf1，当前逐SHA一致。其_event_facts是numeric事件纯部分逐运算序抽出，B5 arithmetic.py的compare/log_ratio/higher AST主体与numeric.py逐个exact（本检查不算事件）。numeric使用gamma4/local log_ratio/log1p/local math.fsum；B4另用32epsilon、origin-normalized log与其既有状态推进。不能为追exact把两路算术统一、换np.log差或扩大epsilon。
+原native-I pilot确用raw_reference→prepare_facts全warm对原derive通过，但三只仅000002/000001/000009；F2/F3不在该pilot。原字段实测冷算须risk owner现在按卡核。
+
+3 三卡完整时间范围（全部至2026Jun30；不是首600行）
+F1 000001：2013Jan4起3271合法观察，G1/CP1首次ready2013Apr15；银行URFI881155从2007Aug1起4563，CP1 ready2007Nov6。
+F2 300001：2013Jan4起3186，G1/CP1 ready2013Apr22；电网URFI881278从2014Jan2起3031，CP1 ready2014Apr11。
+F3 688001：2019Jul22上市源起1682，G1/CP1 ready2019Oct28；专用设备URFI881118从2007Aug1起4563，CP1 ready2007Nov6。
+各六序列均source segment0，全部合法价观察的V正且finite，没有量缺失行在此小样本暴露；不能推广全1709。2021Dec31/2024Sep23/2026Jun30完整前缀行数逐序列见INSPECTION.json；F3在2021Dec31只有597行，尤其不能拿旧首600截段当3年预热/未来前缀。
+具体clock陷阱：F2行业原signal3034行，2016Mar7/Oct10/Nov8三行source_invalid=True、price_eligible=False且low>open；原eligible_prices排除后3031。不得只按close>0保留这些无效OHLC行，也不能删后再重置整段暖机。
+
+4 不能合并的观察钟
+原eligible_prices保留价格合法且observed、非synthetic、非source_invalid/异常OHLC；缺V本身不删价。B5 price_clock驱动previous_close与21价格观察volume窗口；事件clock只正finite C/V，63RMS排当日，65th有效close开始；strength_clock由正finite V显式subset mask驱动，B4 EW mu从第1个return暖起、前64观察不发布，65th才有公共指标，21/63尺度并非“等21/63天必确认”。reset只按真实source连续段。
+原CP1.features要同序列close/amount正finite且不允许默删；全warm np.log.diff+前63 median、前21 amount median，z=max(s,log1p(.001))。stock CP1_input.e0_valid尽管同名，实际用原I target；industry用原E0 target、其i_floor实际映射E0 floor。中性装配不能把行业stock G1_I混成原行业资格，更不能保留真量I/负event当neutral上游。
+原PVR.valid有额外amount与原mask，遇任何invalid行/源段变更重启63+21窗口（不同于E0/B4跳过单个价格无效行但同段继续）。原score finite21加权与warm NA必须保留。native scores仅市场日历导出score，非全warm8列cache；完整旧pvr-current-v3-information-capital/pvr-cache有现成序列才可逐8列对，缺域只能对共同已存日期，不伪称整个warm均有旧参考。
+原ACT.compute_recovery按各股rawvalid/source段的logreturn、amount21/EW21与64预热、行业5股/总8组，独立全1709合成价格和breadth。三卡无法认证中性ACT全池广度；原recovery.csv也不能拿来当中性ACT。实际执行V/ADV/日线HLV留原真实值，不借中性特征改原成交资料。
+
+5 薄组装的具体边界/停止条件
+build_evidence/prepare_facts尚无整链joint入口，B5内部固定_event_facts和B4 joint=True；卡中中性不能仅外层joint=False就声称所有下游变更。允许risk owner最小装配原numeric.event_frame_numeric(joint=False)、固定B4.strength_frame(joint=False)、原classify/e0_policy/project，再原CP1(price_only=True)/PVR/recovery对应已冻中和；不复制改写状态机。q_eff应r/s，不是1；event confirmation仍由价格阈值算，不是1。
+导入名api/evidence/policy/arithmetic/grade/policies_g1很通用，sys.path插入并不清sys.modules；fresh进程或明确记录各模块__file__/SHA是具体必要防串版本点，B4本身已有独立模块名+SHAguard。不要通过改旧缓存、换fixture、截掉差异warm行或数值容差“救”真量复现。冻结后cold失败应保差异/停止报具体source/字段/首时点，再由root裁决。
+
+交付：inspect_sources.py、SOURCE_FREEZE.json、INSPECTION.json。读取六源缓存及17个原模型/装配源；只执行既有eligible_prices mask和数据逐值连接检查，未调用run_b5/numeric/strength/CP1/PVR/ACT模型、未import或构造Account/Runner。原600小消融/S-AMT1不是此次3卡真量全warm控制。

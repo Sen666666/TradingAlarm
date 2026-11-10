@@ -1,0 +1,30 @@
+{
+  "status": "FROZEN_BEFORE_NEW_PEER_VALUES_OR_SCORES",
+  "created_utc": "2026-11-08T20:53:54.219254+00:00",
+  "case_count": 22,
+  "stock_count": 19,
+  "case_sha256": "e8ac153d5debe3f419d123ef1723b3fec1633417c9642d4d5b5708819ac2886d",
+  "only_formula": "Original u and original Aref21 on original observation/reset clock; v_i,j=log(A_i,j/Aref_i,j); h_i,j=median available same-day v_k,j of fixed original-industry members k != i; b*=tanh(v-h); e*=u*(1+0.5abs(u)b*); E*=sum original normalized .9^lag e* over21; score*=50+50tanh(2E*)",
+  "no_variant_or_parameter_search": true,
+  "scope": "Only22 fixed stock/date scores and their21 daily contributions. Peer histories only to construct these references; no all-candidate scores/ranks, no account, no new outcome labels.",
+  "peer_availability": "Original-clock current plus preceding21 valid observations must exist in one original PVR block. Additionally all22 have strict OHLC/raw geometry, shares/CNY, original masks plus volume_eligible, raw price*factor agreement, amount/raw shares inside raw range, one source_kind/source_path/segment and constant positive adjustment_factor/volume_factor. Missing/stale current or failed22 support => absent; never fill zero. Median of whatever available peers, row counts and missing reasons disclosed. At least1 peer defines mechanical median; no claim that one peer is robust; if no peer => UNKNOWN. No empirical coverage threshold.",
+  "candidate_validity": "Original score reproduced using exact original_pvr and observation clock; strict85 common-calendar lineage kept as separate status. Mechanical peer score may be displayed for strict85 UNKNOWN but never counted as supported. Constant-factor restriction is conservative lineage diagnostic, not proof original causal factor handling wrong.",
+  "clock": "Each historical j peer median uses only same-day close j and prior observations; t-close score usable no earlier than next independent trading point. Physical truncation/future perturbation tests are engineering checks, not historical publication or PIT proof.",
+  "coverage": "Fixed later-selected1709/90 roster NON-PIT, including survival/membership bias. Available-peer conditional median can move with IPO/missing/source/factor exclusions; absent values cannot establish full-industry median. Record every member/date eligibility and every contribution coverage.",
+  "controls": [
+    "exact original score and daily component replication",
+    "physical source prefixes per22 case and all peer dates",
+    "future source close/amount poisoning",
+    "fixed-unit scales",
+    "all members same abnormal v implies b*=0",
+    "common current amount multiplier cancellation conditional fixed available membership",
+    "leave-one-out independence from own value",
+    "singleton/no available peer UNKNOWN",
+    "source/invalid/factor boundary synthetic tests",
+    "sign and original +-1.5 bounds"
+  ],
+  "interpretation": "Common volume does not necessarily give independent individual persistence credit. Not net flows, not causal industry removal. For h>0 both positive AND negative evidence shrink in absolute magnitude; mixed/down-day cases can have a higher final score. Original e bound +-1.5 retained, not prior bounded+-1 candidate.",
+  "consumer": "None this round. If separately authorized later, only original pending order; current account has no TopK and CORE/MOBILE same-stock coupling. No eligibility/gate/delay/reentry/size/exit/account changes and no win-rate or economic improvement claim.",
+  "already_seen_cases": true,
+  "new_outcome_labels": false
+}

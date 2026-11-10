@@ -1,0 +1,45 @@
+def priority_plan(intents, score_at, day):
+    """Pure planning: preserve unique-stock original slots, not role slots."""
+    ordered = sorted(intents, key=lambda i: (i['rank'], i['role'] != 'core'))
+    original = []; rank = {}; roles = {}
+    for i in ordered:
+        sid = i['sid']
+        if sid not in rank:
+            original.append(sid); rank[sid] = i['rank']; roles[sid] = []
+        assert rank[sid] == i['rank'], ('inconsistent same-stock original key', sid)
+        assert i['role'] not in roles[sid], ('duplicate native role', sid)
+        roles[sid].append(i['role'])
+    assert len(set(rank.values())) == len(rank), 'original stock priority keys must be unique'
+    values = {s: score_at(s, day) for s in original}
+    values = {s: float(v) if v is not None and math.isfinite(v) else None for s, v in values.items()}
+    ready = [s for s in original if values[s] is not None]
+    oldpos = {s: n for n, s in enumerate(original)}
+    ready.sort(key=lambda s: (-round(values[s], 12), oldpos[s]))
+    ready_iter = iter(ready)
+    final = [s if values[s] is None else next(ready_iter) for s in original]
+    assert set(final) == set(original) and len(final) == len(original)
+    assert all(final[n] == s for n, s in enumerate(original) if values[s] is None)
+    # Retain original numeric slot keys (including full-universe rank gaps).
+    slots = [rank[s] for s in original]
+    keys = {s: slots[n] for n, s in enumerate(final)}
+    finalpos = {s: n for n, s in enumerate(final)}
+    return keys, [dict(sid=s, day=day, original_H1_rank=rank[s], priority_rank=keys[s],
+                      original_slot=oldpos[s], final_slot=finalpos[s], PVR=values[s],
+                      PVR_ready=values[s] is not None, roles=roles[s]) for s in original]
+
+def apply_priority(account, score_at, day):
+    """Only rank keys change; original target/price/floor/role/receipt stay exact."""
+    keys, log = priority_plan(account.pending, score_at, day)
+    before = [{k: v for k, v in i.items() if k != 'rank'} for i in account.pending]
+    d = account.decisions[-1]
+    assert str(d['at'])[:10] == day
+    by = {r['sid']: r for r in log}
+    added = {'original_H1_rank', 'priority_rank', 'PVR_score', 'PVR_ready', 'priority_policy'}
+    for i in account.pending+d['intents']:
+        r = by[i['sid']]
+        i.update(original_H1_rank=r['original_H1_rank'], priority_rank=keys[i['sid']],
+                 PVR_score=r['PVR'], PVR_ready=r['PVR_ready'], priority_policy=POLICY)
+        # Compatibility alias consumed by the UNCHANGED native opening sort.
+        # The original H1 key/score and explicit frozen new key remain separate.
+        i['rank'] = i['priority_rank']
+    assert before == [{k: v for k, v in i.items() if k != 'rank' and k not in added} for i in account.pending]

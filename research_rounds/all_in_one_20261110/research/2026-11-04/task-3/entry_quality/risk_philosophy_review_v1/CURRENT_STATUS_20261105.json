@@ -1,0 +1,17 @@
+{
+  "at_UTC": "2026-11-05T01:58:31.677433+00:00",
+  "preserve_old_sealed_reports": true,
+  "superseded_interpretation": "Earlier inference that CORE had no price-exit action from the absence of a second planning if was incorrect. Actual upstream G1_I close<=oldI_floor sets I_targetFalse; J then exits. No new CORE stop should be justified by that inference.",
+  "source_corrections": [
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/risk_philosophy_review_v1/execution_code/UPSTREAM_I_STOP_CORRECTION.md",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/unified_position_design_v1/independent_review/CORE_I_EXIT_LINEAGE_CORRECTION.json"
+  ],
+  "other_confirmed_facts_unchanged": [
+    "20000 record_only and other retained constraints",
+    "Line-distance0 does not release capital/pending exit responsibility",
+    "SilverCloud sold before new reserves; no demonstrated excess admission",
+    "Actual trade amounts and capital stage bridges"
+  ],
+  "followup_paper_design": "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/unified_position_design_v1/designer/ALGORITHM_CARD.md",
+  "new_backtests": 0
+}

@@ -1,0 +1,39 @@
+{
+  "status": "PASS_BOUNDED_PREFIX_ONLY",
+  "certified_start": "2024-09-02",
+  "certified_through": "2024-10-25",
+  "certified_days": 33,
+  "planned_end": "2024-10-31",
+  "completed_planned_horizon": false,
+  "checks": {
+    "account_and_reservations": 100516,
+    "causality_and_sources": 57861,
+    "integrity_and_path_difference": 40639,
+    "prefix_chain_and_hard_stop": 32847,
+    "final_all_version_seal": 69012
+  },
+  "final_pass_check_count": 300875,
+  "synthetic_cases_previously_passed_and_hash_verified": 47,
+  "scenario_NAV": "1391110.6671091514945",
+  "baseline_NAV": "1393545.7404640587445",
+  "NAV_difference": "-2435.0733549072500",
+  "actual_orders": 1852,
+  "buy_reservations": 1104,
+  "frozen_intent_rows": 5451,
+  "no_fills": 4,
+  "actual_ADDs": 54,
+  "trade_path_differences": 38,
+  "actual_exposed_targets": 346,
+  "held_symbols": 324,
+  "pending_seeds": 22,
+  "first_uncertified_day": "2024-10-28",
+  "primary_blocker": "300277.SZ held 100 shares, frozen raw source missing entire row",
+  "final_gateoff_exact_through": "2024-10-25",
+  "distinct_frozen_files": 8685,
+  "readout_sha256": "eaaefaa3cdd192ee6cfc7ac668eca011828d17fdbc60e5166d800f96cd0ac94d",
+  "limitations": [
+    "No real-fill/price-limit/auction certification or return-lower-bound claim.",
+    "All four observed no-fills are SEED; ADD/SELL failure semantics have synthetic coverage only.",
+    "No strategy rerun, data patch, suspension inference, stale mark carry or future-row substitution in this audit."
+  ]
+}

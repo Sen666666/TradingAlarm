@@ -1,0 +1,6 @@
+准备阶段技术失败v1：科技股物理前缀中，某上市较晚股票在2024-12-31之前为空。冻结S-AMT1计算器的空输出segment_id dtype为object，完整非空输出为int64；验证器因此中止。未启动资金账户。
+修复仅验证器：全部经济/布尔/事件/日期列仍check_exact=True且dtype严格；segment_id值check_exact=True，仅忽略空表与非空表的元数据dtype差异。没有更改冻结模型、公式或信号值。原prepare_signals-v1.py.txt、prepare-TECH-v1-failed.log及signals-partial-v1/TECH全保留。创新药第一版验证已通过，无需重算。
+
+独立trace验证器v1另一次技术失败：误要求signals与facts全日期相等，未接受原流程明确生成的75条非交易权益桥行。保留validate_traces-v1.py.txt、trace-validation-failed-v1.json及trace-validation.log；v2先逐行证明差集均synthetic_event_bar=True且observed_bar=False，再沿原facts时钟验证，924467行通过。没有改变模型或信号。第一次准备保留的23文件53260行与最终数据逐值逐dtype一致。两次均是账户运行之前的验证器修正，经济重跑0。
+
+结果后只读归因附录显示名称修订：path-attribution-review.json和-v2.json保留，-v3.json有效。原I/S、决策、成交、证券代码及全部金融数值不变，仅按名册核实股票中文显示名（特宝生物/三生国健/甘李药业）。未导致经济重跑或公式修订。

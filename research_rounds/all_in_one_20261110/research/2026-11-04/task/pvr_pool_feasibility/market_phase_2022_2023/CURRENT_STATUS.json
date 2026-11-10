@@ -1,0 +1,13 @@
+{
+  "status": "complete_read_only_attribution_awaiting_independent_phase_review",
+  "account_days": 484,
+  "calendar_months": 24,
+  "calendar_quarters": 8,
+  "HS300_all_zigzag10_legs": 5,
+  "source_strategy_runs": 0,
+  "new_strategy_rules": 0,
+  "all_phase_labels_retrospective_only": true,
+  "benchmark_latest_review_status": "PASS_WITH_SCOPE",
+  "boundary_scope": "actual native proxy fills only; no alternative route/cash allocation or perfect hindsight trading PnL",
+  "strong_control_complete242_days": true
+}

@@ -1,0 +1,274 @@
+original_signal_builder
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/code/current_pool_bridge.py
+SHA256 f5d228529662dfe364d2465a8f6f2adad86ba521ca5bff05bb41d67da5de4cf4
+   52 def checked_ref(ref, base):
+   53     path = Path(ref['path'])
+   54     if not path.is_absolute():
+   55         path = base / path
+   56     if not path.is_file() or sha256(path) != ref['sha256']:
+   57         raise ValueError('Missing or changed input: ' + str(path))
+   58     return path
+   59 
+   60 
+   61 def decimal(value):
+   62     # str avoids Decimal(float); original decoded/source bytes remain hashed.
+   63     x = Decimal(str(value))
+   64     if not x.is_finite():
+   65         raise ValueError('Nonfinite source decimal')
+   66     return x
+  109 def read_actions(record, base):
+  110     """Only explicit normalized terms; no HK text interpretation or cash guessing."""
+  111     adjustment = record['adjustment']
+  112     method = adjustment['method']
+  113     if method == 'unadjusted_index':
+  114         if record['kind'] != 'sector_index':
+  115             raise ValueError('Unadjusted index policy cannot be assigned to a stock')
+  116         return [], {'method': method, 'ledger_ready': False}
+  117     if method not in ('theoretical_ex_price', 'total_return'):
+  118         raise ValueError('Unsupported signal preparation policy')
+  119     path = checked_ref(adjustment['actions'], base)
+  120     obj = json.loads(path.read_text())
+  121     if obj.get('series_id') != record['series_id']:
+  122         raise ValueError('Action identity mismatch')
+  123     if obj.get('status') not in ('reviewed_terms', 'declared_research_proxy'):
+  124         raise ValueError('Action terms not reviewed; raw response is not a certificate')
+  125     if not obj.get('coverage_evidence') or obj.get('unresolved'):
+  126         raise ValueError('Action coverage evidence required and unresolved terms retained')
+  127     if obj.get('currency') != record['currency']:
+  128         raise ValueError('Action/raw currency mismatch')
+  129     events = obj.get('events')
+  130     if not isinstance(events, list):
+  131         raise ValueError('Explicit action events list required')
+  132     seen = set()
+  133     for event in events:
+  134         d = pd.Timestamp(event['effective_date'])
+  135         if d in seen:
+  136             raise ValueError('Same-date actions need explicit upstream aggregation')
+  137         seen.add(d)
+  138         if not event.get('source_id'):
+  139             raise ValueError('Every normalized event needs source evidence')
+  140         if decimal(event['cash_per_old_share']) < 0 or decimal(event['split_ratio']) <= 0:
+  141             raise ValueError('Invalid normalized action terms')
+  142     return events, obj
+  145 def prepare_signal(raw, record, events, cutoff=None):
+  146     """Prefix-causal signal coordinates, not shareholder total-return accounting.
+  147 
+  148     Theoretical ex-price uses prior raw close; total-return uses the event's
+  149     close, matching the existing two declared signal conventions. Factor changes
+  150     only on a supported action. Shares use source-origin units for volume.
+  151     """
+  152     method = record['adjustment']['method']
+  153     source = raw if cutoff is None else raw.loc[:pd.Timestamp(cutoff)]
+  154     if source.empty:
+  155         raise ValueError('Empty source prefix')
+  156     start, end = source.index[0], source.index[-1]
+  157     active = {}
+  158     for event in events:
+  159         date = pd.Timestamp(event['effective_date'])
+  160         if date == start and (decimal(event['cash_per_old_share']) != 0
+  161                               or decimal(event['split_ratio']) != 1):
+  162             raise ValueError('Origin-date action requires an explicit prior price/state')
+  163         if start < date <= end:
+  164             active[date] = event
+  165     full = source.reindex(source.index.union(pd.DatetimeIndex(active))).sort_index()
+  166     full.index.name = 'date'
+  167     observed = set(source.index)
+  168     # Input observation flags survive. Merely appearing in a source is not proof
+  169     # of a real traded bar, and ordinary missing volume is not a price exclusion.
+  170     declared_observed = boolean_column(source, 'observed_bar', True)
+  171     full['observed_bar'] = declared_observed.reindex(full.index).fillna(False).astype(bool)
+  172     full['synthetic_event_bar'] = ~full.index.isin(observed)
+  173     full['raw_volume'] = full.volume
+  174     for col in OHLC:
+  175         full['raw_' + col] = full[col]
+  176     output = {x: [] for x in OHLC + ('volume', 'adjustment_factor', 'volume_factor')}
+  177     with localcontext() as context:
+  178         context.prec, context.rounding = 40, ROUND_HALF_EVEN
+  179         factor, share_units, previous = Decimal(1), Decimal(1), None
+  180         for date, row in full.iterrows():
+  181             event = active.get(date)
+  182             cash = decimal(event.get('signal_cash_per_old_share', event['cash_per_old_share'])) if event else Decimal(0)
+  183             split = decimal(event.get('signal_split_ratio', event['split_ratio'])) if event else Decimal(1)
+  184             volume_split = decimal(event.get('volume_split_ratio',event['split_ratio'])) if event else Decimal(1)
+  185             is_observed = date in observed
+  186             prices = ({k: decimal(row[k]) if pd.notna(row[k]) and np.isfinite(float(row[k])) else None
+  187                        for k in OHLC} if is_observed else None)
+  188             if event:
+  189                 if method == 'unadjusted_index':
+  190                     raise ValueError('Index cannot receive stock distribution terms')
+  191                 if method == 'theoretical_ex_price':
+  192                     if previous is None or previous <= cash:
+  193                         raise ValueError('Invalid prior raw price for theoretical ex-price')
+  194                     ex_price = (previous - cash) / split
+  195                     factor *= previous / ex_price
+  196                     if not is_observed:
+  197                         prices = {k: ex_price for k in OHLC}
+  198                 elif method == 'total_return':
+  199                     if not is_observed:
+  200                         raise ValueError('Total-return event requires observed close or reviewed prepared source')
+  201                     if prices['close'] is None or prices['close'] <= 0:
+  202                         raise ValueError('Total-return event needs a positive finite close')
+  203                     if cash != 0 and split != 1:
+  204                         raise ValueError('Combined cash/split outside frozen total-return preparation convention')
+  205                     factor *= split + cash / prices['close']
+  206                 share_units *= volume_split
+  207             if prices is None:
+  208                 raise ValueError('Synthetic price requires supported explicit event')
+  209             for k in OHLC:
+  210                 output[k].append(float(prices[k] * factor) if prices[k] is not None else np.nan)
+  211             v = (decimal(row.volume) if is_observed and pd.notna(row.volume)
+  212                  and np.isfinite(float(row.volume)) else None)
+  213             output['volume'].append(float(v / share_units) if v is not None else np.nan)
+  214             output['adjustment_factor'].append(float(factor))
+  215             output['volume_factor'].append(float(1 / share_units))
+  216             if prices['close'] is not None and prices['close'] > 0:
+  217                 previous = prices['close']
+  218     for key, values in output.items():
+  219         full[key] = values
+  220     # A synthetic action row is never a market observation or executable price.
+  221     return full
+  240 def source_segments(raw, record):
+  241     """A reviewed source gap is a data boundary, never a one-session return."""
+  242     segments = record.get('segments')
+  243     if segments is None:
+  244         return [{'start': str(raw.index[0].date()), 'end': str(raw.index[-1].date()),
+  245                  'reason': 'declared_continuous_source'}]
+  246     if not isinstance(segments, list) or not segments:
+  247         raise ValueError('Nonempty explicit source segments required')
+  248     assigned = pd.Series(0, index=raw.index)
+  249     previous_end = None
+  250     for part in segments:
+  251         start, end = pd.Timestamp(part['start']), pd.Timestamp(part['end'])
+  252         if (not part.get('reason') or start not in raw.index or end not in raw.index
+  253                 or end < start or (previous_end is not None and start <= previous_end)):
+  254             raise ValueError('Ordered real-date nonoverlapping source segments required')
+  255         assigned.loc[start:end] += 1
+  256         previous_end = end
+  257     if not assigned.eq(1).all():
+  258         raise ValueError('Segments must retain every raw row exactly once')
+  259     return segments
+  361 def build_series(record, base, scope_date):
+  362     """Build exactly one input; failure stays attached to its original identity."""
+  363     item = SeriesData(record)
+  364     try:
+  365         if record.get('status') != 'ready':
+  366             raise ValueError(record.get('blocked_reason', 'Input coverage is not ready'))
+  367         time.fromisoformat(record['close_available_time'])
+  368         item.raw = read_raw(checked_ref(record['raw'], base), record)
+  369         if item.raw.index[-1] > pd.Timestamp(scope_date):
+  370             raise ValueError('Raw input extends beyond frozen round end')
+  371         actions, policy = read_actions(record, base)
+  372         item.action_policy = policy
+  373         signals, events, states, memories = [], [], [], []
+  374         for segment_id, part in enumerate(source_segments(item.raw, record)):
+  375             raw_part = item.raw.loc[part['start']:part['end']]
+  376             signal = prepare_signal(raw_part, record, actions)
+  377             _, event, state, memory = state_frame(signal)
+  378             for frame in (signal, event, state, memory):
+  379                 frame['segment_id'] = segment_id
+  380             signals.append(signal); events.append(event); states.append(state); memories.append(memory)
+
+native_facts_projection
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/native-I-cache-interface-20261031/cache.py
+SHA256 fe800283edacb57d1581b50b2bcfdb800ffe4d5f0a22114d0180d3836f6ec969
+   16 def derive(sid,cut=END):
+   17  start=time.monotonic();rec=RECORDS[sid];paths={k:OLD/rec['files'][k]['path'] for k in ['signal','events','states']}
+   18  for k,p in paths.items():assert sha(p)==rec['files'][k]['sha256'],(sid,k)
+   19  ip=IX/'signals'/f'{sid}.parquet';assert sha(ip)==IXRECORDS[sid]['output_sha256']
+   20  signal=pd.read_parquet(paths['signal']).loc[:cut];x=pd.read_parquet(ip).loc[:cut];event=pd.read_parquet(paths['events']).reindex(x.index);state=pd.read_parquet(paths['states']).reindex(x.index);valid=eligible_prices(signal);assert valid.index.equals(x.index),(sid,'same price-observation clock')
+   21  if x.empty:return pd.DataFrame(columns=COLS,index=pd.DatetimeIndex([],name=signal.index.name)),dict(sid=sid,status='no_observation_before_cut',rows=0,seconds=time.monotonic()-start)
+   22  for c in ['open','high','low','close','volume','segment_id']:np.testing.assert_equal(x[c].to_numpy(),valid[c].to_numpy(),err_msg=sid+'/'+c)
+   23  e=x[['segment_id','open','high','low','close','volume']].copy();e['valid_price_observation']=True;e['price_observation']=e.groupby('segment_id',sort=False).cumcount();e['event']=event.event;e['confirmed_pivot_price']=event.confirmed_pivot_price;e['ready']=state.ready;e['previous_close']=e.groupby('segment_id',sort=False).close.shift()
+   24  v=e.volume.where(np.isfinite(e.volume)&e.volume.gt(0));e['volume_baseline']=v.groupby(e.segment_id,sort=False).transform(lambda q:q.shift().rolling(21,min_periods=21).median())
+   25  for c in ['volume_ratio','high_effort','declined']:e[c]=state[c]
+   26  e['decline_candidate']=False;e['candidate_lower']=np.nan;e['candidate_reclaim']=np.nan
+   27  base,_=e0_policy(e);assert not base.pending.fillna(0).any()
+   28  g=x[['grade','strength_ready','fresh_up','acute_down']].rename(columns={'strength_ready':'ready'});out=project(e,base,g,'G1_I')
+   29  keep=x[['close','segment_id']].copy()
+   30  for mode,frame in [('e0',base),('i',out)]:
+   31   for c in ['target','floor']:keep[mode+'_'+c]=frame[c]
+   32  keep['i_buy']=out.buy_event
+   33  for c in ['grade','fresh_up','acute_down','ready']:keep['g_'+c]=g[c]
+   34  keep['e0_ready']=base.ready;keep['factor']=signal.adjustment_factor.reindex(keep.index);keep['raw_close']=signal.raw_close.reindex(keep.index);keep=keep[COLS]
+   35  return keep,dict(sid=sid,status='derived',warm_from=str(keep.index.min().date()),warm_rows=len(keep),rows=len(keep.loc[BEGIN:]),i_events=int(keep.loc[BEGIN:,'i_buy'].sum()),unknown_grade=int(keep.loc[BEGIN:,'g_grade'].isna().sum()),IX_target_difference=int((out.target.astype(float)!=x.ix_target.astype(float)).sum()),seconds=time.monotonic()-start,input_sha={str(p):sha(p) for p in list(paths.values())+[ip]})
+
+universe_facts_reuse
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/prepare.py
+SHA256 f2c2e80103f75f5575bf8d45c7a20e6005eccf5daaea54b58f9cc2c1e433cf59
+   20 def emit_stock(sid,case,prefix_sample):
+   21  start=time.monotonic();refs={};checks={};old_source_status=None;CP_reuse=False;facts_reuse=False
+   22  if case is not None:
+   23   assert all(sha(p)==h for p,h in case['source_sha256'].items())
+   24   assert all(sha(W/'case-stock-cp1-warmup-20261031'/p)==h for p,h in case['output_sha256'].items())
+   25   root=W/'case-stock-cp1-warmup-20261031';refs=dict(facts=str(root/'full-facts'/f'{sid}.parquet'),CP1_input=str(root/'CP1-input'/f'{sid}.parquet'),CP1=str(root/'CP1'/f'{sid}.parquet'));f=pd.read_parquet(refs['facts']).loc[:END];q=pd.read_parquet(refs['CP1_input']).loc[:END];z=pd.read_parquet(refs['CP1']).loc[:END];source_hash=case['source_sha256'];CP_reuse=facts_reuse=True;checks['previous_case_full_chain_verified']=True;mode='verified_case_reuse'
+   26  else:
+   27   f,receipt=N.derive(sid,END);paths=source_paths(sid);source_hash={str(p):sha(p) for p in paths.values()};native=pd.read_parquet(W/'native-I-cache-interface-20261031/facts'/f'{sid}.parquet').loc[BEGIN:END];G.exact(f.loc[BEGIN:END],native);checks['native_I_export_all_fields_exact']=True;q=G.frame(sid,f,END);z=M.calculate(q);old=C.O/'signals'/f'{sid}.parquet';mode='new_fixed_chain'
+   28   if old.exists():
+   29    try:
+   30     G.exact(q,C.frame(sid,END));G.exact(z,pd.read_parquet(old).loc[:END]);refs['CP1']=str(old);CP_reuse=True;old_source_status='full_input_and_CP1_exact';checks['old_CP1_current_source_exact']=True
+   31     oldfacts=C.PREP/'facts'/f'{sid}.parquet';ff=pd.read_parquet(oldfacts)
+   32     if set(N.COLS)<=set(ff):G.exact(f,ff.loc[:END,N.COLS]);refs['facts']=str(oldfacts);facts_reuse=True
+   33    except (AssertionError,ValueError,FileNotFoundError) as e:old_source_status='incompatible_or_unavailable:'+str(e)[:350]
+   34   if 'facts' not in refs:
+   35    path=O/'facts'/f'{sid}.parquet';f.to_parquet(path);refs['facts']=str(path)
+   36   path=O/'CP1-input'/f'{sid}.parquet';q.to_parquet(path);refs['CP1_input']=str(path)
+   37   if 'CP1' not in refs:
+   38    path=O/'CP1'/f'{sid}.parquet';z.to_parquet(path);refs['CP1']=str(path)
+   39   if sid in prefix_sample and not f.empty:
+   40    short,_=N.derive(sid,CUT);G.exact(short,f.loc[:CUT]);G.exact(M.calculate(G.frame(sid,short,CUT)),z.loc[:CUT]);checks['physical_I_CP1_prefix_exact']=True
+   41  if f.empty:rs=[];status='not_applicable_no_local_observation_by_end'
+   42  else:
+   43   events_path=next(p for p in source_hash if p.endswith('/events.parquet'));ev=pd.read_parquet(events_path).reindex(q.index);rs,_,_=T.trace(sid,q,z,ev,f.e0_target.reindex(q.index).astype(bool));status='complete';checks['trace_unknown_receipts']=sum(bool(r['trace_unknown']) for r in rs)
+   44  rpath=O/'receipts'/f'{sid}.json';save(rpath,compact(rs));refs['receipts']=str(rpath);checks['old_cache_source_compatibility']=old_source_status
+
+runtime_facts_producer
+PATH /Users/bytedance/Documents/ChatGPT/money/TradingAlarm/desk/refresh.py
+SHA256 6a144503d62891ae8856fe35b0475797226d2370b44ceb328d420dcc7084cdfc
+   47 def prepare_facts(signal):
+   48     paths=[ROOT/'research_rounds/b5-g1-20261025/code',ROOT/'research_rounds/pv-strength-b5-20261025/code',ROOT/'research_rounds/pv-participation-response-20261020/code']
+   49     for p in reversed(paths):sys.path.insert(0,str(p))
+   50     from data_utils import eligible_prices
+   51     from api import run_b5
+   52     from grade import classify
+   53     from policy import e0_policy
+   54     from policies_g1 import project
+   55     f=eligible_prices(signal)[['open','high','low','close','volume','segment_id']].copy();f['valid_price_observation']=True;f['valid_strength_observation']=np.isfinite(f.volume)&f.volume.gt(0)
+   56     z=run_b5(f,enhancements=False);e=z['evidence'].copy();g,_=classify(e)
+   57     e['decline_candidate']=False;b,_=e0_policy(e);ip=project(e,b,g,'G1_I')
+   58     keep=f[['close','segment_id']].copy()
+   59     for prefix,frame in [('e0',b),('i',ip)]:
+   60         for c in ['target','floor']:keep[prefix+'_'+c]=frame[c]
+   61     keep['i_buy']=ip.buy_event
+   62     for c in ['grade','fresh_up','acute_down','ready']:keep['g_'+c]=g[c]
+   63     # B5 base readiness is unchanged by disabling decline recovery.
+   64     keep['e0_ready']=z['state']['ready']
+   65     keep['factor']=signal.adjustment_factor.reindex(keep.index);keep['raw_close']=signal.raw_close.reindex(keep.index)
+   66     return keep
+
+descriptive_mapping
+PATH /Users/bytedance/Documents/Codex/2026-11-04/task-4/mobile_trend_measurements_v1/compute_four_stock_metrics.py
+SHA256 267ea95dbd2f16d02c12982f15228a8eb2bb9f43cc12e535bf102d6cce6302b3
+   12 def metrics(f,s,e,cp,g=None):
+   13  c=f.close.astype(float);valid=np.isfinite(c)&c.gt(0)&f.segment_id.notna()
+   14  block=(f.segment_id.ne(f.segment_id.shift())|~valid|~valid.shift(fill_value=False)).cumsum()
+   15  out=pd.DataFrame(index=f.index);out.index.name='date'
+   16  out['close_a']=c;out['raw_close']=f.raw_close;out['factor']=f.factor;out['source_segment']=f.segment_id
+   17  out['seed_date']=pd.Series(f.index,index=f.index).where(valid).groupby(block,sort=False).transform('first').dt.strftime('%Y-%m-%d')
+   18  out['observations_from_seed']=valid.astype(int).groupby(block,sort=False).cumsum()
+   19  for n in [20,60]:
+   20   out[f'ema{n}_a']=c.where(valid).groupby(block,sort=False).transform(lambda z:z.ewm(span=n,adjust=False,min_periods=n).mean())
+   21   out[f'ema{n}_raw_current_units']=out[f'ema{n}_a']/f.factor
+   22   out[f'ema{n}_ready']=out[f'ema{n}_a'].notna()
+   23  lag=out.ema20_a.groupby(block,sort=False).shift(5)
+   24  out['ema20_five_observation_change_pct']=100*(out.ema20_a/lag-1)
+   43    confirm,row=known;pivot=pd.Timestamp(row.confirmed_pivot_date)
+   44    out.at[day,'last_confirmed_peak_a']=float(row.confirmed_pivot_price)
+   45    out.at[day,'last_confirmed_peak_confirmation_day']=str(confirm.date())
+   46    out.at[day,'last_confirmed_peak_pivot_day']=str(pivot.date())
+   47    if pivot in f.index:out.at[day,'last_confirmed_peak_pivot_raw_saved']=float(f.loc[pivot,'raw_close'])
+   48  out['last_confirmed_peak_raw_current_units']=out.last_confirmed_peak_a/f.factor
+   49  out['signed_gap_to_confirmed_peak_pct']=100*(c/out.last_confirmed_peak_a-1)
+   50  out['drawdown_from_confirmed_peak_pct']=(-out.signed_gap_to_confirmed_peak_pct).clip(lower=0)
+   51  for col in ['e0_target','e0_floor','i_target','i_floor','i_buy','g_grade','g_fresh_up','g_acute_down','g_ready']:
+   52   out[col]=f[col]
+

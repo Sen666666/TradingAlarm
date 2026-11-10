@@ -1,0 +1,43 @@
+{
+  "id": "legacy_URFI881129",
+  "group": "original_e0_price_adapter",
+  "rows": 4666,
+  "price_observations": 4666,
+  "strength_observations": 4666,
+  "events": 376,
+  "entries": 91,
+  "exits": 91,
+  "floor_updates": 97,
+  "memories": 1,
+  "ledger_records": 1,
+  "first": "2007-08-01",
+  "last": "2026-10-16",
+  "historical_b4_compared": false,
+  "historical_e0_compared": false,
+  "prefixes": [
+    {
+      "rows": 65,
+      "completed": false
+    },
+    {
+      "rows": 1555,
+      "completed": false
+    },
+    {
+      "rows": 3110,
+      "completed": false
+    },
+    {
+      "rows": 4665,
+      "completed": false
+    }
+  ],
+  "differences": 6,
+  "passed": false,
+  "sha256": {
+    "evidence.parquet": "2ec9e118f8eb2e114f76b36edc4821db075f1fd691e283cb0520f7b3331aae68",
+    "journal.json": "e9d3286346a6a27b5108dd7763270e8a0c2332c83628317f3491d5e3f0162823",
+    "ledger.parquet": "b252c1c3314e1712323ae40cfbde9f096107d70ba48a57bf46db03483d78af06",
+    "state.parquet": "646ba65755387b33a1aa7794953b4fd2db833fb1d5e96f456a95719c46014922"
+  }
+}

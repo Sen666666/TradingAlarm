@@ -1,0 +1,16 @@
+按根FROZEN_DESIGN一次全量标签完成，运行195.32秒；无新账户、CP模型、特征、拟合或阈值选择。
+
+原CP母体99031行/1664股全部保留，包括9507个原canonical ID未保存的旗事件；audit key不冒充canonical。
+全部99031为COMPLETE20，0信号日prepared/facts/CPinput close/segment坐标错。原prepared源至2026-10-22，未拼raw尾。
+阶段事件：DEV 35,713；V2024 25,251；V2025 24,971；V2026H1 13,096。
+开发label_end<=2023-12-31可用34550；另外1163条DEV跨界标签不用于开发拟合。
+nonoverlap20 共38,598：DEV 15,751；V2024 8,936；V2025 9,329；V2026H1 4,582；全股全CP先选完整首张，后date严格大于上次label_end，不按特征/价格结果选。
+
+跨自然年标签4778；结束在2026H1之后1953；均保留完整20并列within-phase/crossyear，不截短。
+20有效观察的最大自然日跨度97。7条标签跨过已保存但不合有效条件的源行；689条标签路径经过CSI300参考会话中prepared未存行，未将这些统一推断为停牌。全部label_end在既有参考日历可覆盖范围内。
+原下一共同会话prepared行缺70；原OHLC精确一价555。真实limit_up/limit_down/suspend状态字段无保存，均未知；execution_proven=false，不能推成交。
+
+固定少数边界算术审查7例：首事件、海能9/30跨假期、6/30尾部延长、最长跨度、全后续收盘低于基点、跳过已存行、次共同会话缺行；用原源直接切片另算20条，MFE/MAE/final最大差0。非重叠区间全局核无共享未来区间。
+样本审查用于计算/时钟边界，不是选好例或特征研究；全部价格标签非成交收益/账户收益/已核总回报。
+
+读取LABELS.parquet/csv即可按sid,date和FEATURES合并。SOURCE_BINDINGS、SOURCE_SHA256、LABEL_PATHS、FIXED_CASE_ARITHMETIC_AUDIT保留复核证据。

@@ -1,0 +1,20 @@
+FROZEN BEFORE ATTRIBUTION. Only NO60, 2022–23 original 484-day execution calendar.
+DOWN uses prior_benchmark_CLOSE.axis_slope == below_down. Maximal contiguous runs in
+the complete original calendar, not compressed filtered dates. All zero/positive spells stay.
+Use reviewed saved reporting H.account and H.after924 layer-boundary method, not generic
+audit reader as a period API. A.price is the same existing original causal raw-close lookup.
+Layer boundary W = native cumulative cash + native booked dividend + actual qty * original
+mark while live; already-closed layer uses original saved final cash/dividend; future layer W=0.
+Period wealth = W(end CLOSE)-W(previous CLOSE). Sum all layers to native NAV difference.
+Carry group consists of actual live layers at prior CLOSE, plus any native already-closed
+claim whose unchanged cumulative booked dividend/cash cannot create new wealth on payment.
+New group consists only of layers with actual buy fill in this spell. No decision-cohort lifetime
+PnL substitution. Native AR payment only transfers liquid accounts; no new booked dividend.
+Actual new fills may originate from previously committed orders/partial orders: the new-fill
+group is interval attribution, not proof every fill was then cancelable or could be blocked.
+Per-spell old/new positive, negative and zero rows all saved. Full-spell sum must match exact
+source 298-day wealth. No deletion NAV, q sizing, market allowance, new recovery, new account,
+CA reconstruction, acquisition basis, fee model or cash engine. First-sell before/after buys
+use native trade-list ordering (even same timestamp); no claim of one-to-one sale financing.
+Actual current gold is the independently exact audited No60 B full continuous 726-day view.
+Only 2022–23 DOWN spells attributed. No future labels or 2024 results select spell membership.

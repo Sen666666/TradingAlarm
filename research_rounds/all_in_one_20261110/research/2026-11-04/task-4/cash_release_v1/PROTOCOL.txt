@@ -1,0 +1,40 @@
+2026-11-04 现金预留释放：完整原账必要能力上界，非新收益回测。
+原No60 own连续2022-2024与独立2025Jul-2026Jun，当前1709池/行业快照、日线代理不变。
+完整相关集合：全部原OPEN含cash_or_original_reserve的拒绝（long74185/strong58557），
+按role、实际当时是否空仓/曾持有、原行业stage、年份/季度、严格半导体分层；包括失败年。
+三股14个min-first余拒另交funding分解，不能只看三股或把min-first与释放同时改成单因素。
+
+现金定义：A=已扣真实订单gross+fee预留后的available；同OPEN已提交/未ACK订单不可
+当作自由现金。尚未提交的pending意图不是支付负债。R=原额外10% decisionNAV保留，
+U=当时已知、尚未扣除的额外现金支付责任；未知未来买点/价差不凭空制造U。当前账本
+是否U=0先核源/审计；若U=0，释放实质是许可条件下额外10%缓冲消融，不包装新预测。
+未来未到账卖款/dividendAR不可花，真实cash不得透支；风险、股票/行业门与费用不变。
+
+市场许可口径必须分开：主No60原market开关ACT_on、行业原CP1 confirmed/expanded；
+另完整列native F1 global AND industry permit的更严格分层，UNKNOWN保留。
+F1不是原No60同一合同，不能静默引入或挑效果有利口径。若未来以联合许可开关释放，
+false应保留原10%，不是额外禁掉原本可买单。
+
+全OPEN可用现金代数重建只在以下原记录断言成立后使用：
+1 所有trade只在OPEN；原保护卖出在fresh分配前，sale cash_due/settle在该时点已到；
+2 无其它OPEN后独立现金收支/FX/股息到账/rights现金替代；全部EOD available逐日等于
+  初始现金+实际累计卖净款-实际买毛额与费，检查全部日期而不只13例；
+3 全部EOD订单预留/settlement_locked/payable/sale_AR为0；OPEN买预留均在后续成交或
+  CLOSE expiry/cancel ACK释放；原OPEN reserve前缀不提前使用其后fill/release反馈；
+4 对原13 exact S0和15 exact候选前available逐项核同。
+则S0.available=EOD.available+该日原真实buy gross+fee，原卖出已在其中不能重复加；
+候选前A=S0.available-同OPEN此前原native reserve gross+fee。它是历史重建，不把EOD
+数据作为候选信号。若其它日期任一前提不成立，保留unknown/停止对应重建。
+
+每条拒绝读取原frozen intent与原下一OPEN/dated最小单位/买费，仅问qmin现金必要条件：
+原A-R够不够、物理A够不够、从R释放的最少金额、留给未确定未来机会的现金减少多少。
+第二天价格用真实原OPEN重验，不用收盘估计冒充开盘。原quote/preview已通过的cash
+拒绝仍核实min与frozen cap/预算，不将涨价导致原合同无效的单列成可救。
+每条上界固定原prefix/持仓，不说risk都已通过；同日候选共享R，不能把逐条能力相加
+为订单数、同时资本或可追回收益。可释放存量只按day汇总，不累计跨日当新增本金。
+
+不利年流动性代价：完整2022/2023/2024/strong的原现金库存、10% buffer/NAV、cash
+原意图/拒绝/成交分布、ACT与F1状态。原账事后表现可评价，不产生no-buffer收益或
+把暴露上界线性换成drawdown。若物理现金/已锁订单或风险占用已使释放无实际空间，
+停止方向；若有必要能力，再经独审决定有限整批静态对照，不自动新连续Account。
+禁止为次日费用发明百分比参数；必要支出未知明确列出，不伪造精确动态阈值。

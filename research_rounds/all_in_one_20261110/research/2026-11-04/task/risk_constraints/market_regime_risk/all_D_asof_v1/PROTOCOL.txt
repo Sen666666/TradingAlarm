@@ -1,0 +1,21 @@
+All v1 requested_state=D dates in original2022-23 and strong2025Jul-2026Jun,
+including continuingD and actual-flat dates; not only4 transitions. v2 not joined.
+No model/Account/RiskBook/state/price pipeline, no hypothetical PnL.
+
+Classification asof CLOSE: current stock flat-to-flat campaign economic net =
+actual net trade cash since most recent stock-flat + current original raw marked
+inventory + net dividends recognized by ex_at through cutoff once (paid/AR not
+double counted). Actual sell cash includes sell fees; buy cash includes buy fees.
+Pure chronological sum of saved transactions; future terminal layers/net unused.
+Original saved split adjusts ledger quantity only, no invented PnL. Noninteger
+unsupported split, quote/mapping gap or native quantity mismatch =>unknown.
+Current quote uses existing frozen facts.raw_close asof<=CLOSE, matching original
+saved inventory in a daily whole-account bridge; never use future close/factor.
+Known profit>0/loss<0/zero=0; don't use lifetime terminalwinner labels.
+
+Report original current inventory touched by all-exit versus exit loss+zero+
+unknown, with profitable inventory retained under original stock protection.
+Daily repeated amounts aggregate only as yuan-CLOSE exposure sums/mean, never
+unique deployed money or avoidable loss. Native flat dates remain in denominator.
+Keep every datedstock record, four transition snapshots, and existing old forward
+footprint context only; no new NAV/benefit/guaranteed no-winner-harm claim.

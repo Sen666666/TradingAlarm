@@ -1,0 +1,26 @@
+{
+  "ready": true,
+  "independent_review_entry": "AUDIT_ENTRY.txt",
+  "corrected_market_dates": [
+    "2026-04-30",
+    "2026-05-07"
+  ],
+  "corrected_candidates": [
+    14,
+    62
+  ],
+  "May7_advance": 55,
+  "tests": 16,
+  "verification": 48,
+  "original_file_replacements": 31,
+  "normalizer_sha256": "ddd95f469ffda8a5a24b24cf4d61a9cfaae1926819f867eac58a01b6a5f00056",
+  "protocol_sha256": "dcb218208d9675d99894fdbda7e236eb216e4f7473ae9e3957a54c1510520ad2",
+  "rebuild_sha256": "a938ed496b1ecb248cc671866fcca2c05cb921c71d5fbda8776222be6a730f81",
+  "report_sha256": "e36831a9bc49308c6a5884e5ea75b7d6bb54ab92033105eceed0a8a7352cd4c2",
+  "old_targets_and_all_old_drafts_preserved": true,
+  "no_financial_events": true,
+  "documentation_revision": "documentation-revision-1/DOCUMENTATION_PATCH.json",
+  "independent_audit_passed": true,
+  "independent_audit_sha256": "db4496847c0173ce9bc14073a08c0aa7a108912ac1bca053d6df74a729e6949f",
+  "technical_tests_and_verification_not_rerun": true
+}

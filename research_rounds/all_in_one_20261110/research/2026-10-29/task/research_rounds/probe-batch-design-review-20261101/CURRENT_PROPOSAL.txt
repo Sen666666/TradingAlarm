@@ -1,0 +1,1 @@
+Current documentation: CONTRACT_PROPOSAL.v2.txt. Old CONTRACT_PROPOSAL.txt and READOUT.txt remain the v1 review evidence. No allocator or new preview/commit has been implemented. Scope results: SCOPE_READOUT.txt.

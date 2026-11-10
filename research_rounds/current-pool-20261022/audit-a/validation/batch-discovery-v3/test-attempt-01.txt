@@ -1,0 +1,53 @@
+test_bad_OHLC_rejected (test_prepare_a.CacheTests.test_bad_OHLC_rejected) ... ok
+test_conflicting_source_not_silently_spliced (test_prepare_a.CacheTests.test_conflicting_source_not_silently_spliced) ... ok
+test_duplicate_date_rejected (test_prepare_a.CacheTests.test_duplicate_date_rejected) ... ok
+test_no_overlap_is_explicit_bridge_gap (test_prepare_a.CacheTests.test_no_overlap_is_explicit_bridge_gap) ... ok
+test_units_avoid_false_volume_jump (test_prepare_a.CacheTests.test_units_avoid_false_volume_jump) ... ok
+test_unverified_units_rejected (test_prepare_a.CacheTests.test_unverified_units_rejected) ... ok
+test_complete_replacement_resolves_sampling_gap_without_deleting_failure (test_finalize_a.DiscoveryTest.test_complete_replacement_resolves_sampling_gap_without_deleting_failure) ... ok
+test_full_source_order_precedes_pilot_tail (test_finalize_a.DiscoveryTest.test_full_source_order_precedes_pilot_tail) ... ok
+test_nested_queue_and_pilot_found_snapshot_excluded (test_finalize_a.DiscoveryTest.test_nested_queue_and_pilot_found_snapshot_excluded) ... FAIL
+test_price_conflicts_and_raw_conflicts_never_auto_resolve (test_finalize_a.DiscoveryTest.test_price_conflicts_and_raw_conflicts_never_auto_resolve) ... ok
+test_short_pilot_cannot_resolve_full_history_failure (test_finalize_a.DiscoveryTest.test_short_pilot_cannot_resolve_full_history_failure) ... ok
+test_boundary_is_not_listing_date_or_suspension_fact (test_finalize_a.IntegrityTest.test_boundary_is_not_listing_date_or_suspension_fact) ... ok
+test_evidence_path_cannot_escape_batch (test_finalize_a.IntegrityTest.test_evidence_path_cannot_escape_batch) ... ok
+test_export_tamper_rejected (test_finalize_a.IntegrityTest.test_export_tamper_rejected) ... ok
+test_failed_source_never_certifies_boundary (test_finalize_a.IntegrityTest.test_failed_source_never_certifies_boundary) ... ok
+test_master_end_and_protocol_identity (test_finalize_a.IntegrityTest.test_master_end_and_protocol_identity) ... ok
+test_matching_evidence (test_finalize_a.IntegrityTest.test_matching_evidence) ... ok
+test_raw_tamper_rejected (test_finalize_a.IntegrityTest.test_raw_tamper_rejected) ... ok
+test_tail_success_does_not_prove_start_boundary (test_finalize_a.IntegrityTest.test_tail_success_does_not_prove_start_boundary) ... ok
+test_wrong_endpoint_rejected (test_finalize_a.IntegrityTest.test_wrong_endpoint_rejected) ... ok
+test_actual_valid_price_conflict_stays_quarantined (test_finalize_a.RowPreservationTest.test_actual_valid_price_conflict_stays_quarantined) ... ok
+test_bad_geometry_stays_raw_but_not_price_eligible (test_finalize_a.RowPreservationTest.test_bad_geometry_stays_raw_but_not_price_eligible) ... ok
+test_invalid_unique_date_not_dropped (test_finalize_a.RowPreservationTest.test_invalid_unique_date_not_dropped) ... ok
+test_missing_amount_preserves_volume_and_price (test_finalize_a.RowPreservationTest.test_missing_amount_preserves_volume_and_price) ... ok
+test_missing_volume_preserves_valid_price (test_finalize_a.RowPreservationTest.test_missing_volume_preserves_valid_price) ... ok
+test_one_incomplete_overlap_does_not_erase_good_tail (test_finalize_a.RowPreservationTest.test_one_incomplete_overlap_does_not_erase_good_tail) ... ok
+test_parser_missing_ohlc_date_recovers_without_inventing_price (test_finalize_a.RowPreservationTest.test_parser_missing_ohlc_date_recovers_without_inventing_price) ... ok
+test_arithmetic_does_not_claim_official_unit_definition (test_finalize_hk.HKTest.test_arithmetic_does_not_claim_official_unit_definition) ... ok
+test_geometry_does_not_enter_price_clock (test_finalize_hk.HKTest.test_geometry_does_not_enter_price_clock) ... ok
+test_missing_volume_equal_overlap_kept (test_finalize_hk.HKTest.test_missing_volume_equal_overlap_kept) ... ok
+test_missing_volume_preserves_price_clock (test_finalize_hk.HKTest.test_missing_volume_preserves_price_clock) ... ok
+test_new_finite_volume_does_not_silently_overwrite_missing (test_finalize_hk.HKTest.test_new_finite_volume_does_not_silently_overwrite_missing) ... ok
+test_parser_dropped_raw_observation_recovered_without_fake_price (test_finalize_hk.HKTest.test_parser_dropped_raw_observation_recovered_without_fake_price) ... ok
+test_zero_volume_also_preserves_price (test_finalize_hk.HKTest.test_zero_volume_also_preserves_price) ... ok
+
+======================================================================
+FAIL: test_nested_queue_and_pilot_found_snapshot_excluded (test_finalize_a.DiscoveryTest.test_nested_queue_and_pilot_found_snapshot_excluded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/audit-a/test_finalize_a.py", line 127, in test_nested_queue_and_pilot_found_snapshot_excluded
+    self.assertEqual(set(discover_history_batches(root)),{p,nested});self.assertEqual(discover_history_batches(root/'queue'),[nested])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Items in the first set but not the second:
+PosixPath('/private/var/folders/sj/6vknnkzj0_q6yp4myjk4mtt00000gn/T/tmpqaquzzic/pilot')
+PosixPath('/private/var/folders/sj/6vknnkzj0_q6yp4myjk4mtt00000gn/T/tmpqaquzzic/queue/batches/batch-001')
+Items in the second set but not the first:
+PosixPath('/var/folders/sj/6vknnkzj0_q6yp4myjk4mtt00000gn/T/tmpqaquzzic/pilot')
+PosixPath('/var/folders/sj/6vknnkzj0_q6yp4myjk4mtt00000gn/T/tmpqaquzzic/queue/batches/batch-001')
+
+----------------------------------------------------------------------
+Ran 34 tests in 0.242s
+
+FAILED (failures=1)

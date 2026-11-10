@@ -1,0 +1,21 @@
+{
+  "archive_regular_files": 685923,
+  "archive_logical_bytes_before": 374971218952,
+  "protected_current_inputs": 9108,
+  "exclusions": {
+    "source_conclusion_small_or_unsupported": 666377,
+    "current_frozen_input": 9106,
+    "current_m12_evidence": 1877
+  },
+  "duplicate_copies": 1766,
+  "byte_identical_logical_bytes": 15278200802,
+  "mode": "APPLIED_BYTE_IDENTICAL_HARDLINKS",
+  "applied": 1766,
+  "original_external_files_deleted": 0,
+  "no_source_conclusions_or_current_m12_evidence_deleted": true,
+  "file_paths_removed": 0,
+  "unique_information_deleted": 0,
+  "free_bytes_before": 31152996352,
+  "free_bytes_after": 31138701312,
+  "free_space_is_observation_not_attributable_saving": true
+}

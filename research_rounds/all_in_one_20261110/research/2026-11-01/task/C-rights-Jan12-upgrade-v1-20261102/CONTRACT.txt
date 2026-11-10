@@ -1,0 +1,11 @@
+JAN12-NSR-UPGRADE-1，2026-11-02。仅两个2022原Jan12 CLOSE checkpoint的无事件升级；不读取/恢复2025账户，不运行任何历史ACTION/OPEN/CLOSE。
+
+必须先以真实原month_runtime.MonthRunner.restore恢复，检查原checkpoint/provenance/source/input/mode身份及全部原C证书。升级只换新runner/input读取类并记录来源，不改账户类、证书、trusted snapshot、角色/现金/股数/锁/风险责任、流水、策略/F1/预算/授权消费。以原C.prefix_view完整金融/策略/流水前缀逐字段hash核同。原文件绝不修改，所有新记录/检查点只写本目录。
+
+所有升级前authority.certificates（含Jan7–12不在month_old_certificates的）冻结certificate/trusted/source hash。在新类verify_native中必须走真实旧MonthRunner视图、真实旧MonthInputs实例；原MonthRunner再按其原horizon/month旧证书路由验证。旧类原方法完整检查certificate hash、mode/source、trusted body、snapshot envelope并调用原_solve重算Q/D/receipt/projection。不得改旧证书source_binding或把旧视图改成新source，不得缓存一次PASS替代重算。保留旧输入独立实例；旧视图copy账户只为owner/input指针正确，不构造新金融账户，不执行事件。
+
+新版本从已审NSR1组合rights mixin；新source binding额外冻结本模块、IDENTITY与SOURCE_FREEZE，以及原rights module/合同。全部旧证书保持旧来源验证；升级后新source/engine/input-class身份另记，不篡改原授信。错来源/模式/证书/trusted snapshot拒绝；重复升级/恢复不追加事件或升级记录。
+
+无新历史执行权限。step/event/普通ACTION在该准备版均拒绝。未来Jan13 ACTION入口必须另有parent_approved、精确IDENTITY/升级checkpoint hash、arm、phase/day和source/code绑定的新grant；不能把旧Jan12 grant延长或改写。未来仅不认购rights ACTION，OPEN/CLOSE仍拒绝。当前只写未批准的grant模板，不执行Jan13。
+
+本包不改已审NSR1；原test05只有New/Carry=0，不能称其验证正预算。正New=198000、正Carry=179769.2307692307692307692308的保持来自独审额外真实生成合成，见独审记录。不得将无事件真实升级冒称真实配股事件已验证。

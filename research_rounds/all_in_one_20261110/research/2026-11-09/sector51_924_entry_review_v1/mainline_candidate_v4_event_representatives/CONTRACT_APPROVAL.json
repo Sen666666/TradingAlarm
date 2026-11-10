@@ -1,0 +1,17 @@
+{
+  "approved": true,
+  "engine_sha256": "7d79b0ddb230ec8f2e50c754c83db86a8d1021cd6d4a9af350bc6328e283527f",
+  "contract_sha256": "3e58a429b3bda21f290430c71c8c20aaeb74d2d0b8af781233d02c2feb3ce1ca",
+  "scope": "One frozen combined M4 research run 2024-09-02 through 2024-10-08 only; checkpoints 09-23,09-27,09-30,10-08. No live orders, no parameter search. Atomic missing-fact boundaries remain.",
+  "independent_actual_method_tests": 27,
+  "independently_repeated_author_tests": 106,
+  "prior_M3_migration": "22 ordered exact families; 1 complete-record multiset exception solely AVAILABILITY_EVENTS diagnostics; all8606 source hashes equal",
+  "sort_tie_break": "20-day capacity, not fee efficiency",
+  "execution_caveat": "OPEN+/-5bp is a conditional cost proxy, not matching certification",
+  "audit_files": {
+    "ACTUAL_METHOD_QA.json": "9db81c460788feba7bc023374c461368b3ae768ccbd58ba234f346510e5d28b4",
+    "AUTHOR_SYNTHETIC_INDEPENDENT_REPEAT.json": "a91a9a2eac99e6f57953d82943dd4c302860843a7473b01559aac207973953c4",
+    "M3_MIGRATION_AUDIT.json": "a4c7eb7e0a5a6709099edc396769895b04f186bad893516348fe901d8452ef09",
+    "STATIC_SNAPSHOT_AUDIT.json": "490e716257eab431622442ac38021d9a3fbb5fa5732953534fe7eb6ab7531441"
+  }
+}

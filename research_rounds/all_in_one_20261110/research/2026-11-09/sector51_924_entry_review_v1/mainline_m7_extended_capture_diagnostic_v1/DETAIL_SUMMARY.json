@@ -1,0 +1,466 @@
+{
+  "anchor": "2024-11-06",
+  "end": "2025-01-20",
+  "new_rounds": 954,
+  "new_net": "-183704.0578492558175",
+  "new_fees": "14775.7921942558175",
+  "new_model_slippage": "8857.075655",
+  "new_fill_price_plus_div_pnl": "-168928.2656550000000",
+  "new_raw_price_plus_div_pnl": "-160071.1900000000000",
+  "phase_role_counts": {
+    "INITIAL_EVENT": 473,
+    "EXPANSION_MATURE": 479,
+    "INITIAL_RESIDUAL": 2
+  },
+  "actual_sell_orders_since_anchor": 981,
+  "gap_covered_sale_orders": 981,
+  "gap_excluded_action_day_orders": 1,
+  "negative_raw_open_gap_sold_shares": "68178.34",
+  "positive_raw_open_gap_sold_shares": "33529.50",
+  "worst_gap_sales": [
+    {
+      "day": "2024-12-23",
+      "prior_close_day": "2024-12-20",
+      "sid": "002181.SZ",
+      "name": "粤 传 媒",
+      "sector51": "游戏传媒",
+      "round_id": "002181.SZ|2|2024-12-09",
+      "side": "SELL_LAYERS",
+      "reason": "CP_LAYER_EXIT",
+      "qty": 4000,
+      "previous_raw_close": "9.11",
+      "raw_open": "8.2",
+      "actual_fill": "8.19590",
+      "raw_open_gap_pct": "-9.989023051591657519209659710",
+      "raw_open_gap_on_sold_shares": "-3640.00",
+      "fill_minus_prior_close_on_sold_shares": "-3656.40000",
+      "fee": "25.049948760000",
+      "corporate_action_on_day": false,
+      "below_prior_protection_raw_loss": "987.8919902269600075832934760",
+      "prior_lot_protections": [
+        {
+          "lot_id": "002181.SZ|2|2024-12-09|2892",
+          "qty": 4000,
+          "protection_raw": "8.446972997556740001895823369",
+          "locked_exit": null
+        }
+      ]
+    },
+    {
+      "day": "2024-12-20",
+      "prior_close_day": "2024-12-19",
+      "sid": "002354.SZ",
+      "name": "天娱数科",
+      "sector51": "游戏传媒",
+      "round_id": "002354.SZ|1|2024-12-09",
+      "side": "SELL_ALL",
+      "reason": "I_OPEN_PROTECTION",
+      "qty": 4300,
+      "previous_raw_close": "8.04",
+      "raw_open": "7.5",
+      "actual_fill": "7.49625",
+      "raw_open_gap_pct": "-6.716417910447761194029850750",
+      "raw_open_gap_on_sold_shares": "-2322.00",
+      "fill_minus_prior_close_on_sold_shares": "-2338.12500",
+      "fee": "24.629903887500",
+      "corporate_action_on_day": false,
+      "below_prior_protection_raw_loss": "1203.999999999995555814431204",
+      "prior_lot_protections": [
+        {
+          "lot_id": "002354.SZ|1|2024-12-09|2711",
+          "qty": 1100,
+          "protection_raw": "7.779999999999998966468472373",
+          "locked_exit": null
+        },
+        {
+          "lot_id": "002354.SZ|1|2024-12-09|2897",
+          "qty": 3200,
+          "protection_raw": "7.779999999999998966468472373",
+          "locked_exit": null
+        }
+      ]
+    },
+    {
+      "day": "2024-11-19",
+      "prior_close_day": "2024-11-18",
+      "sid": "300409.SZ",
+      "name": "道氏技术",
+      "sector51": "动力电池",
+      "round_id": "300409.SZ|2|2024-11-06",
+      "side": "SELL_ALL",
+      "reason": "I_OPEN_PROTECTION",
+      "qty": 1700,
+      "previous_raw_close": "16.01",
+      "raw_open": "14.65",
+      "actual_fill": "14.642675",
+      "raw_open_gap_pct": "-8.494690818238600874453466580",
+      "raw_open_gap_on_sold_shares": "-2312.00",
+      "fill_minus_prior_close_on_sold_shares": "-2324.452500",
+      "fee": "19.0418860447500",
+      "corporate_action_on_day": false,
+      "below_prior_protection_raw_loss": "1155.999999999999198623565053",
+      "prior_lot_protections": [
+        {
+          "lot_id": "300409.SZ|2|2024-11-06|2023",
+          "qty": 1700,
+          "protection_raw": "15.32999999999999952860209709",
+          "locked_exit": null
+        }
+      ]
+    },
+    {
+      "day": "2024-12-25",
+      "prior_close_day": "2024-12-24",
+      "sid": "000681.SZ",
+      "name": "视觉中国",
+      "sector51": "游戏传媒",
+      "round_id": "000681.SZ|2|2024-12-09",
+      "side": "SELL_LAYERS",
+      "reason": "CP_LAYER_EXIT",
+      "qty": 1100,
+      "previous_raw_close": "25.1",
+      "raw_open": "24.0",
+      "actual_fill": "23.98800",
+      "raw_open_gap_pct": "-4.382470119521912350597609560",
+      "raw_open_gap_on_sold_shares": "-1210.0",
+      "fill_minus_prior_close_on_sold_shares": "-1223.20000",
+      "fee": "20.162153880000",
+      "corporate_action_on_day": false,
+      "below_prior_protection_raw_loss": "3052.617914452039685030380970",
+      "prior_lot_protections": [
+        {
+          "lot_id": "000681.SZ|2|2024-12-09|2890",
+          "qty": 1100,
+          "protection_raw": "26.77510719495639971366398270",
+          "locked_exit": "CP_CLOSE_PROTECTION"
+        }
+      ]
+    },
+    {
+      "day": "2025-01-06",
+      "prior_close_day": "2025-01-03",
+      "sid": "601933.SH",
+      "name": "永辉超市",
+      "sector51": "商贸零售",
+      "round_id": "601933.SH|2|2024-11-29",
+      "side": "SELL_ALL",
+      "reason": "I_OPEN_PROTECTION",
+      "qty": 5300,
+      "previous_raw_close": "6.12",
+      "raw_open": "5.9",
+      "actual_fill": "5.89705",
+      "raw_open_gap_pct": "-3.594771241830065359477124180",
+      "raw_open_gap_on_sold_shares": "-1166.00",
+      "fill_minus_prior_close_on_sold_shares": "-1181.63500",
+      "fee": "23.881460296500",
+      "corporate_action_on_day": false,
+      "below_prior_protection_raw_loss": "212.0000000000007944342032859",
+      "prior_lot_protections": [
+        {
+          "lot_id": "601933.SH|2|2024-11-29|2363",
+          "qty": 1500,
+          "protection_raw": "5.940000000000000149893245903",
+          "locked_exit": null
+        },
+        {
+          "lot_id": "601933.SH|2|2024-11-29|2536",
+          "qty": 100,
+          "protection_raw": "5.940000000000000149893245903",
+          "locked_exit": null
+        },
+        {
+          "lot_id": "601933.SH|2|2024-11-29|3051",
+          "qty": 3700,
+          "protection_raw": "5.940000000000000149893245903",
+          "locked_exit": null
+        }
+      ]
+    },
+    {
+      "day": "2024-12-18",
+      "prior_close_day": "2024-12-17",
+      "sid": "603099.SH",
+      "name": "长白山",
+      "sector51": "旅游酒店",
+      "round_id": "603099.SH|4|2024-12-12",
+      "side": "SELL_ALL",
+      "reason": "CURRENT_SEED_TRIAL_SECTOR_FALSE",
+      "qty": 200,
+      "previous_raw_close": "54.6",
+      "raw_open": "49.14",
+      "actual_fill": "49.115430",
+      "raw_open_gap_pct": "-10.0",
+      "raw_open_gap_on_sold_shares": "-1092.00",
+      "fill_minus_prior_close_on_sold_shares": "-1096.914000",
+      "fee": "10.5412028126000",
+      "corporate_action_on_day": false,
+      "below_prior_protection_raw_loss": "0",
+      "prior_lot_protections": [
+        {
+          "lot_id": "603099.SH|4|2024-12-12|3125",
+          "qty": 200,
+          "protection_raw": "38.80000000000000314888692403",
+          "locked_exit": "CURRENT_SEED_TRIAL_SECTOR_FALSE"
+        }
+      ]
+    },
+    {
+      "day": "2024-12-24",
+      "prior_close_day": "2024-12-23",
+      "sid": "002181.SZ",
+      "name": "粤 传 媒",
+      "sector51": "游戏传媒",
+      "round_id": "002181.SZ|2|2024-12-09",
+      "side": "SELL_ALL",
+      "reason": "CURRENT_SEED_TRIAL_SECTOR_FALSE",
+      "qty": 1200,
+      "previous_raw_close": "8.2",
+      "raw_open": "7.38",
+      "actual_fill": "7.376310",
+      "raw_open_gap_pct": "-10.0",
+      "raw_open_gap_on_sold_shares": "-984.00",
+      "fill_minus_prior_close_on_sold_shares": "-988.428000",
+      "fee": "9.9931717652000",
+      "corporate_action_on_day": false,
+      "below_prior_protection_raw_loss": "0",
+      "prior_lot_protections": [
+        {
+          "lot_id": "002181.SZ|2|2024-12-09|2801",
+          "qty": 1200,
+          "protection_raw": "4.660000000000000749345274427",
+          "locked_exit": "CURRENT_SEED_TRIAL_SECTOR_FALSE"
+        }
+      ]
+    },
+    {
+      "day": "2024-11-07",
+      "prior_close_day": "2024-11-06",
+      "sid": "600895.SH",
+      "name": "600895",
+      "sector51": "房地产开发",
+      "round_id": "600895.SH|2|2024-11-04",
+      "side": "SELL_ALL",
+      "reason": "MAINLINE_EXPANSION_SURPLUS",
+      "qty": 800,
+      "previous_raw_close": "33.98",
+      "raw_open": "32.78",
+      "actual_fill": "32.763610",
+      "raw_open_gap_pct": "-3.531489111241907004120070630",
+      "raw_open_gap_on_sold_shares": "-960.00",
+      "fill_minus_prior_close_on_sold_shares": "-973.112000",
+      "fee": "20.0277395208000",
+      "corporate_action_on_day": false,
+      "below_prior_protection_raw_loss": "0",
+      "prior_lot_protections": [
+        {
+          "lot_id": "600895.SH|2|2024-11-04|1589",
+          "qty": 800,
+          "protection_raw": "29.74864823913734023289044253",
+          "locked_exit": null
+        }
+      ]
+    },
+    {
+      "day": "2024-12-12",
+      "prior_close_day": "2024-12-11",
+      "sid": "601933.SH",
+      "name": "永辉超市",
+      "sector51": "商贸零售",
+      "round_id": "601933.SH|2|2024-11-29",
+      "side": "SELL_LAYERS",
+      "reason": "NON_MAINLINE_EXPANSION",
+      "qty": 4400,
+      "previous_raw_close": "6.31",
+      "raw_open": "6.11",
+      "actual_fill": "6.106945",
+      "raw_open_gap_pct": "-3.169572107765451664025356580",
+      "raw_open_gap_on_sold_shares": "-880.00",
+      "fill_minus_prior_close_on_sold_shares": "-893.442000",
+      "fee": "20.5317933678000",
+      "corporate_action_on_day": false,
+      "below_prior_protection_raw_loss": "0",
+      "prior_lot_protections": [
+        {
+          "lot_id": "601933.SH|2|2024-11-29|2536",
+          "qty": 4400,
+          "protection_raw": "5.479999999999999682579008676",
+          "locked_exit": null
+        }
+      ]
+    },
+    {
+      "day": "2024-12-13",
+      "prior_close_day": "2024-12-12",
+      "sid": "300607.SZ",
+      "name": "拓斯达",
+      "sector51": "自动化与机器人",
+      "round_id": "300607.SZ|3|2024-12-03",
+      "side": "SELL_LAYERS",
+      "reason": "MAINLINE_EXPANSION_SURPLUS",
+      "qty": 700,
+      "previous_raw_close": "35.39",
+      "raw_open": "34.2",
+      "actual_fill": "34.18290",
+      "raw_open_gap_pct": "-3.362531788640858999717434300",
+      "raw_open_gap_on_sold_shares": "-833.00",
+      "fill_minus_prior_close_on_sold_shares": "-844.97000",
+      "fee": "18.497801723000",
+      "corporate_action_on_day": false,
+      "below_prior_protection_raw_loss": "0",
+      "prior_lot_protections": [
+        {
+          "lot_id": "300607.SZ|3|2024-12-03|2832",
+          "qty": 700,
+          "protection_raw": "31.32899257179180186920740096",
+          "locked_exit": null
+        }
+      ]
+    },
+    {
+      "day": "2024-11-07",
+      "prior_close_day": "2024-11-06",
+      "sid": "002312.SZ",
+      "name": "川发龙蟒",
+      "sector51": "化工材料",
+      "round_id": "002312.SZ|1|2024-11-05",
+      "side": "SELL_ALL",
+      "reason": "CURRENT_NON_MAINLINE_SEED_RETIREMENT",
+      "qty": 400,
+      "previous_raw_close": "20.57",
+      "raw_open": "18.55",
+      "actual_fill": "18.540725",
+      "raw_open_gap_pct": "-9.820126397666504618376276130",
+      "raw_open_gap_on_sold_shares": "-808.00",
+      "fill_minus_prior_close_on_sold_shares": "-811.710000",
+      "fee": "9.1835291890000",
+      "corporate_action_on_day": false,
+      "below_prior_protection_raw_loss": "0",
+      "prior_lot_protections": [
+        {
+          "lot_id": "002312.SZ|1|2024-11-05|1564",
+          "qty": 400,
+          "protection_raw": "9.619999999999999009978829508",
+          "locked_exit": null
+        }
+      ]
+    },
+    {
+      "day": "2024-11-07",
+      "prior_close_day": "2024-11-06",
+      "sid": "601865.SH",
+      "name": "福莱特",
+      "sector51": "光伏风电设备",
+      "round_id": "601865.SH|2|2024-10-23",
+      "side": "SELL_ALL",
+      "reason": "CP_LAYER_EXIT",
+      "qty": 1000,
+      "previous_raw_close": "24.52",
+      "raw_open": "23.8",
+      "actual_fill": "23.78810",
+      "raw_open_gap_pct": "-2.936378466557911908646003260",
+      "raw_open_gap_on_sold_shares": "-720.00",
+      "fill_minus_prior_close_on_sold_shares": "-731.90000",
+      "fee": "18.418867210000",
+      "corporate_action_on_day": false,
+      "below_prior_protection_raw_loss": "45.01350211236252201930528000",
+      "prior_lot_protections": [
+        {
+          "lot_id": "601865.SH|2|2024-10-23|1370",
+          "qty": 1000,
+          "protection_raw": "23.84501350211236252201930528",
+          "locked_exit": null
+        }
+      ]
+    },
+    {
+      "day": "2024-11-12",
+      "prior_close_day": "2024-11-11",
+      "sid": "002222.SZ",
+      "name": "福晶科技",
+      "sector51": "光学电子",
+      "round_id": "002222.SZ|1|2024-11-06",
+      "side": "SELL_LAYERS",
+      "reason": "MAINLINE_EXPANSION_SURPLUS",
+      "qty": 700,
+      "previous_raw_close": "37.9",
+      "raw_open": "36.96",
+      "actual_fill": "36.941520",
+      "raw_open_gap_pct": "-2.480211081794195250659630610",
+      "raw_open_gap_on_sold_shares": "-658.00",
+      "fill_minus_prior_close_on_sold_shares": "-670.936000",
+      "fee": "19.7589108024000",
+      "corporate_action_on_day": false,
+      "below_prior_protection_raw_loss": "0",
+      "prior_lot_protections": [
+        {
+          "lot_id": "002222.SZ|1|2024-11-06|1938",
+          "qty": 700,
+          "protection_raw": "34.05930445312055185711737529",
+          "locked_exit": null
+        }
+      ]
+    },
+    {
+      "day": "2024-11-07",
+      "prior_close_day": "2024-11-06",
+      "sid": "600606.SH",
+      "name": "绿地控股",
+      "sector51": "房地产开发",
+      "round_id": "600606.SH|2|2024-11-01",
+      "side": "SELL_ALL",
+      "reason": "MAINLINE_EXPANSION_SURPLUS",
+      "qty": 12200,
+      "previous_raw_close": "2.48",
+      "raw_open": "2.43",
+      "actual_fill": "2.428785",
+      "raw_open_gap_pct": "-2.016129032258064516129032260",
+      "raw_open_gap_on_sold_shares": "-610.00",
+      "fill_minus_prior_close_on_sold_shares": "-624.823000",
+      "fee": "22.6411823457000",
+      "corporate_action_on_day": false,
+      "below_prior_protection_raw_loss": "0",
+      "prior_lot_protections": [
+        {
+          "lot_id": "600606.SH|2|2024-11-01|1587",
+          "qty": 12200,
+          "protection_raw": "2.029273557006014917893392619",
+          "locked_exit": null
+        }
+      ]
+    },
+    {
+      "day": "2024-12-16",
+      "prior_close_day": "2024-12-13",
+      "sid": "002670.SZ",
+      "name": "国盛证券",
+      "sector51": "证券保险",
+      "round_id": "002670.SZ|2|2024-12-12",
+      "side": "SELL_ALL",
+      "reason": "CURRENT_SEED_TRIAL_SECTOR_FALSE",
+      "qty": 500,
+      "previous_raw_close": "19.14",
+      "raw_open": "17.95",
+      "actual_fill": "17.941025",
+      "raw_open_gap_pct": "-6.217345872518286311389759670",
+      "raw_open_gap_on_sold_shares": "-595.00",
+      "fill_minus_prior_close_on_sold_shares": "-599.487500",
+      "fee": "10.0602661012500",
+      "corporate_action_on_day": false,
+      "below_prior_protection_raw_loss": "0",
+      "prior_lot_protections": [
+        {
+          "lot_id": "002670.SZ|2|2024-12-12|2955",
+          "qty": 500,
+          "protection_raw": "10.94000000000000108780708492",
+          "locked_exit": "CURRENT_SEED_TRIAL_SECTOR_FALSE"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "All cohort group ALL/CLOSED/OPEN and add classifications overlap; do not add across overlapping tables.",
+    "Prices-only flat intervals show opportunity and avoided declines, no hypothetical funded portfolio. No aggregation into causal return.",
+    "All price bars and sources verified through certified 1/20, factor and lineage constant within each fixed-five diagnostic.",
+    "Net PnL already includes actual fees and modeled fills. Raw-price PnL adds back fixed modeled slippage; this is decomposition, not an executable no-cost alternative."
+  ]
+}

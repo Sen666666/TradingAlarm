@@ -1,0 +1,69 @@
+{
+  "created_at_UTC": "2026-11-04T20:27:43Z",
+  "phase": "DESCRIPTIVE_FEATURE_AND_EVALUATION_PROTOCOL_BEFORE_NEW_LABEL_TABLES",
+  "hypothesis": "At the same decision CLOSE among original legally planned candidates with comparable PVR, directional observation persistence, original price volatility, position versus prior price frontier and contemporaneous industry progress may distinguish repeated early failures from continued trends. This is unproven; no new trading score is admitted yet.",
+  "baseline": "Original No60, original PVR, continuous fresh1000000CNY 2022-01-01..2024-12-31 and independent fresh1000000CNY 2025-07-01..2026-06-30. Reuse saved books, do not replay to produce diagnostics.",
+  "excluded_research": [
+    "Rejected eta score, its parameter variants, ties or magnitude rescue",
+    "Macro MA63 gross cap, ACT recovery or drawdown budgets",
+    "MA60/BB/EMA conditional uniform50 planned sizing",
+    "CORE pool access or independent new I entry permissions",
+    "New holding/defense lines or future profit-based early exits"
+  ],
+  "mathematical_distinction": "Final50+50tanh(2E) is monotone; the information questions concern prior normalization/saturation and finite weighted aggregation, plus contextual variables absent from E. No claim score rescaling itself restores information.",
+  "candidate_populations": [
+    "Original complete opportunities, retaining barrier/role/UNKNOWN statuses; no silent removal",
+    "Original no-barrier opportunities with native role, reported separately from actual planned intents",
+    "Original unique-stock pending/ranklog candidates before OPEN resource allocation, all funded and unfunded; primary same-CLOSE comparison",
+    "Actual filled layers only as secondary original-path economic association, never the sole selection population"
+  ],
+  "feature_clock": "Current completed original signal CLOSE only, effective at the next original legal OPEN if a later candidate is admitted. Original input/source/invalid boundaries preserved; no future bars, actual fills or future returns in features.",
+  "stock_features": {
+    "original_PVR": "Original source scorer r/scale/amount_ref/u/b/e/E/score, exact original readiness",
+    "sign_persistence21_w09": "sum(j=0..20,wj*sign(r[t-j])), wj=0.9^j/sum(0.9^k), same valid/source domain; not eta and not fitted duration",
+    "logreturn_std20": "std of last20 original signal logreturns including t, ddof0; independent raw absolute-volatility context",
+    "close_gap_prior_high20": "C[t]/max(C[t-20:t-1])-1; excludes current CLOSE from frontier",
+    "breakout_prior_high20": "C[t] strictly greater than max prior20 observed same-source closes; a current price fact, not a claim it will be reliable",
+    "close_location_in_day_range": "(C[t]-L[t])/(H[t]-L[t]); zero/nonpositive or invalid range UNKNOWN",
+    "return5_and20": "C[t]/C[t-h]-1 for h5 and20, same original signal/source domain"
+  },
+  "industry_features": {
+    "source": "Original frozen industry signal series, current fixed stock-sector mapping; all empty/unready industries UNKNOWN, no future carried quote",
+    "sector_return20": "sector_C[t]/sector_C[t-20]-1 on exact available t observed bar",
+    "sector_sign_persistence21_w09": "same21/.9 sign statistic on original industry logreturns",
+    "relative_return20": "stock return20 minus contemporaneous sector return20, not max of future benchmarks"
+  },
+  "grouping_before_labels": {
+    "PVR_control": "Within same original decision-day planned unique-stock candidates, known PVR percentile rank average ties, fixed quartiles; UNKNOWN separate",
+    "continuous_features": "Report raw distributions and within-day average-tie percentile terciles, preserving UNKNOWN; signed persistence and sector progress additionally split at0",
+    "breakout": "true/false/UNKNOWN",
+    "CLV": "below0.5/at-or-above0.5/UNKNOWN",
+    "interactions": "Only persistence-sign x volatility-tercile and stock-persistence-sign x sector-persistence-sign, within PVR quartiles; no exhaustive cross-product or outcome-selected cutpoint",
+    "periods": "All2022,2023,2024,2025H2,2026H1 and original fixed924/strong diagnostic windows. All are consumed historical development, never OOS.",
+    "dedup": "Report stock-day opportunity-weighted and causal receipt-event views separately. CORE source-I epoch and mobile canonicalCP first original eligible appearance; no future campaign end for event resets. Unresolved IDs retained as UNKNOWN, not silently fabricated. Exact source identity to be independently checked before use.",
+    "inference": "Repeated stock-days and overlapping horizons are not independent trials. Show daily/event/year stability, no nominal iid significance claim and no interpretation of bins as executable orders."
+  },
+  "future_evaluation_separate_from_features": {
+    "fixed_horizons": [5,20,60],
+    "calendar": "Original shared market trading calendar, t+h CLOSE; t+1 OPEN is separate start reference. A halt or missing/non-observed endpoint is missing, never forward-filled into a quote. Current window end truncates evaluation; future windows do not fill unmatured samples.",
+    "primary": "Future h CLOSE original signal price / next shared-session observed original signal OPEN -1. Also show decision-CLOSE return and OPEN gap to expose execution-clock sensitivity. These are price diagnostics, not realizable account returns.",
+    "missing": "Unmatured, next-session OPEN not observed/eligible, endpoint missing, source transition and unavailable input each counted separately. No selection only of filled or closed actual trades.",
+    "summaries": "Count, mature/missing coverage, median/mean forward reference return, positive fraction, lower-tail return; future fixed60 max-close rise>=30% only as outcome label with full-window maturity. No future outcome is an input or trading trigger.",
+    "original_economics": "All3436 original filled layers and fixed83/94 mother with current exact45/67 baseline tails, first/add/reentry, roles, costs, positive/negative contribution and planned/actual funding coverage. Static removed contribution is not account benefit; released money and ACT feedback unknown without full account."
+  },
+  "gate_to_one_possible_candidate": [
+    "Stop if primary planned/unfunded population or source-clock coverage cannot be verified",
+    "Stop if apparent separation vanishes within comparable same-day PVR groups, after causal event dedup, or across years",
+    "Stop if a supposedly weak group contains more important strong-tail contribution than the weak failures it could plausibly address, or overlap offers no economic distinction",
+    "If descriptive evidence is material, specify at most one small fusion/risk-allocation contract with exact formula, UNKNOWN/tie/clock and unchanged eligibility/holding rules, pre-register before account results and independently review code",
+    "Full accounts only after that later gate; at most two fresh same-contract complete windows plus reused original references, no parameter sweep or rule rescue"
+  ],
+  "new_account_paths_at_this_freeze": 0,
+  "known_limits": [
+    "All history already used for development",
+    "Current surviving1709-stock universe, market cap and sector mapping are not historical PIT",
+    "Industry index history does not certify historical constituents or publication vintages",
+    "Original execution/capacity/limit proxies and unknown corporate-action payment dates remain",
+    "Descriptive price return is neither net trading profit nor a new strategy backtest"
+  ]
+}

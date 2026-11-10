@@ -1,0 +1,19 @@
+{
+  "scope": [
+    "2024-09-24",
+    "2026-01-15",
+    "2022-01-24"
+  ],
+  "rows": 5127,
+  "source_signal_legal": 1329,
+  "Sstar_rankable": 1269,
+  "formula": "(4 midnum_PVR+3 midnum_RS20+2 midnum_D20+midnum_A21)/(20N)",
+  "same_N_all_four_components": true,
+  "single_candidate_percentile_all_half": true,
+  "formal_PIT_known": 0,
+  "score_or_weight_variants_computed": 1,
+  "account_runs": 0,
+  "new_CP_or_price_models": 0,
+  "new_returns_or_labels_computed": 0,
+  "seconds": 1.149241584353149
+}

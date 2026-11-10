@@ -1,0 +1,530 @@
+Internal Error ()
+citeturn66view0 [wordlim: 200] Source: open({"ref_id":"https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20230827_5725662.shtml","lineno":null}); Total lines: 1
+L0: Failed to fetch https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20230827_5725662.shtml: (400) Timeout fetching
+--------------------------------------------------------------------------------
+Internal Error ()
+citeturn66view1 [wordlim: 200] Source: open({"ref_id":"https://one.sse.com.cn/onething/gptz/","lineno":null}); Total lines: 1
+L0: Failed to fetch https://one.sse.com.cn/onething/gptz/: (400) Timeout fetching
+--------------------------------------------------------------------------------
+HKEX Enhances Cash Market Trading Fee Structure to Boost Market Efficiency (https://www.hkex.com.hk/News/Market-Communications/2022/221101news?sc_lang=en)
+citeturn66view2 [wordlim: 200] Crawled: today; Content type: text/html; Source: find({"ref_id":"turn65view1","pattern":"Effective"}); Total lines: 667
+L438:     * Trading
+L439:       * Securities
+L440:         * 【34†Overview】
+L441:         * 【35†Infrastructure】
+L442:       * Derivatives
+L443:         * 【36†Overview】
+L444:         * 【37†Infrastructure】
+L445:     * Connectivity
+L446:       * 【38†Hosting Services】
+L447:       * 【39†SDNet/2】
+L448:     * Data and Index Services
+L449:       * 【40†Real Time Data Services】
+L450:       * 【41†Historical Data Services】
+L451:       * 【42†Infrastructure】
+L452:       * 【43†Index Services】
+L453:     * Rules, Forms & Fees
+L454:       * 【44†Rules】
+L455:       * 【45†Forms】
+L456:       * 【46†Fees】
+L457:     * Clearing
+L458:       * Securities
+L459:         * 【47†Overview】
+L460:         * 【48†Infrastructure】
+L461:         * 【49†Risk Management】
+L462:         * 【50†CCP Disclosures】
+L463:       * Listed Derivatives
+L464:         * 【51†Overview】
+L465:         * 【52†Infrastructure】
+L466:         * 【53†Risk Management】
+L467:         * 【54†CCP Disclosures】
+L468:       * OTC Clear
+L469:         * 【55†Overview】
+L470:         * 【56†Infrastructure】
+L471:         * 【57†Risk Management】
+L472:         * 【58†CCP Disclosures】
+L473:     * Settlement and Depository
+L474:       * 【59†Settlement - Securities】
+L475:       * 【60†T+1 Settlement for the Hong Kong Cash Market】
+L476:       * 【61†Depository】
+L477:       * 【62†Uncertificated Securities Market】
+L478:       * 【63†Common Nominee Services】
+L479:       * 【64†Securities Admission into CCASS】
+L480:       * 【50†PFMI】
+L481:       * 【65†Unclaimed Entitlements Held by HKSCC Nominees Limited】
+L482:     * Platform Services
+L483:       * 【66†Corporate Action Messaging Standardisation】
+L484:       * 【67†Client Connect】
+L485:       * 【68†Orion Derivatives Platform】
+L486:       * 【69†FINI - A New Era for Hong Kong’s IPO market】
+L487:       * 【70†Orion Cash Platform】
+L488:       * 【71†Integrated Fund Platform】
+L489:       * 【72†HKEX Issuer Access Platform】
+L490:       * 【73†Digital Payment Adoption for After-Hours Trading】
+L491:     * 【74†Circulars & Notices】
+L492: View important information issued by HKEX to Exchange and Clearing House Participants, Market Data vendors and Hosting Services members
+L493: 
+L494:     * 【75†Become a Participant】
+L495: 
+L496: Connect to Hong Kong’s financial market through HKEX
+L497: 
+L498:     * 【76†HKEX Connect Hall】
+L499: 
+L500: A centrally-located venue at the heart of Hong Kong financial hub, the HKEX Connect Hall is an iconic venue for Hong Kong’s financial community.
+L501: 
+L502:   * 【77†Join Our Markets】
+L503:     * IPO
+L504:       * 【77†Listing with HKEX】
+L505:       * 【78†GEM】
+L506:       * 【79†Southeast Asia Listing Insights】
+L507:     * Northbound and Southbound
+L508:       * 【80†Stock Connect】
+L509:       *     * Commodities
+L510:       *       *     * 【83†Sustainable Finance at HKEX】
+L511:       * 【84†Core Climate】
+L512:       * 【85†Sustainable & Green Exchange (STAGE)】
+L513:       * 【86†HKEX Green Equity】
+L514:     * 【87†Biotech @ HKEX】
+L515: 
+L516: HKEX connects capital with a rich range of biotech issuers and investment products.
+L517:     * 【88†Listing of Specialist Technology Companies】
+L518: 
+L519: A new listing pathway for Specialist Technology Companies.
+L520: 
+L521:     * 【84†Core Climate】
+L522: 
+L523: The new carbon marketplace from HKEX
+L524: 
+L525:   * 【89†Listing Regulations】
+L526:     * 【90†Explore By Role】
+L527:       * 【90†Potential Applicants】
+L528:       * 【91†Listed Issuers】
+L529:       * 【92†Directors】
+L530:     * 【93†Rules & Resources】
+L531:       * 【94†Listing Rules】
+L532:       * 【95†Guidance】
+L533:       * 【96†Checklists, forms & templates】
+L534:       * 【97†Enforcement】
+L535:     * 【98†News & Publications】
+L536:       * 【99†What's New】
+L537:       * 【100†Listing Newsletters】
+L538:       * 【101†Reports】
+L539:       * 【102†Listing Consultations】
+L540:     * 【103†Sustainability & Corporate Governance】
+L541:       * 【103†ESG Academy】
+L542:       * 【104†Board Diversity Hub】
+L543:       * 【105†Corporate Governance Practices】
+L544:       * 【106†Shareholder Value in Focus】
+L545:       * 【107†INED Corner】
+L546:     * 【108†Education Centre】
+L547: A centralised education platform, including e-Learning.
+L548: 
+L549:     * 【109†About Listing & Contacts】
+L550: 
+L551: Find information about listing, including committee members and contact persons.
+L552: 
+L553:   * 【110†News centre】
+L554: 
+L555:     * 【111†Corporate News Releases】
+L556:     * 【112†Regulatory Announcements】
+L557:     * 【113†Market Communications】
+L558:     * 【114†Market Consultations】
+L559:     * 【110†News Centre】
+L560: 
+L561: Snapshot about HKEX latest news and information
+L562: 
+L563:     * 【115†HKEX Calendar】
+L564: Subscribe to our calendar containing trading and clearing information, public holidays and more
+L565: 
+L566:     * 【116†Research Reports】
+L567: 
+L568: Research and survey conducted by HKEX on its securities and derivatives markets and related topics
+L569: 
+L570:   * 【15†Connect Programmes】
+L571: 
+L572:     * 【117†Connect Hub】
+L573:     * 【80†Stock Connect】
+L574:     *     * 【119†Swap Connect】
+L575:     * 【120†Daily Statistics】
+L576: 
+L577: Statistics on Shanghai and Shenzhen Connect updated daily
+L578: 
+L579:     * 【121†Market Highlights】
+L580: View the market capitalization, number of listed companies and more in the Hong Kong, Shanghai and Shenzhen markets
+L581: 
+L582:     * 【122†Eligible Securities】
+L583: 
+L584: A list of securities eligible for trading under Shanghai and Shenzhen Stock Connect
+L585: 
+L586:   * 【15†Market Data】
+L587:     *     * Securities Prices
+L588:       * 【123†Equities】
+L589:       * 【124†Exchange Traded Products】
+L590:       * 【125†Derivative Warrants】
+L591:       * 【126†Inline Warrants】
+L592:       * 【127†Callable Bull / Bear Contracts】
+L593:       * 【128†Real Estate Investment Trusts】
+L594:       * 【129†Debt Securities】
+L595:     * Futures & Options Prices
+L596:       * 【130†Equity Index】
+L597:       * 【131†Single Stock】
+L598:       * 【132†Foreign Exchange】
+L599:       * 【133†Interest Rate】
+L600:       * 【134†Commodities】
+L601:     * Statistics
+L602:       * 【135†Consolidated Reports】
+L603:       * 【136†Securities Market】
+L604:       * 【137†Derivatives Market】
+L605:       * 【138†Participant】
+L606:       * 【139†Clearing, Settlement and Depository】
+L607:     * 【140†HKEXnews】
+L608: View listed company announcements and more on the centralised platform for regulatory filings and disclosures
+L609: 
+L610:     * 【141†News Alerts】
+L611: 
+L612: Sign up to receive company announcements or website updates by email
+L613: 
+L614:     * 【142†Market Data Services】
+L615: 
+L616: Vendors can sign up to purchase wholesale market data from HKEX’s Market Data Services department
+L617: 
+L618: [Input: Search Website] [Input]
+L619: ## Market Communications
+L620: 
+L621: ## 2022
+L622: 
+L623: 【147†Image: Navigation Icon】【148†Image: Navigation Icon】
+L624: ## HKEX Enhances Cash Market Trading Fee Structure to Boost Market Efficiency
+L625: 
+L626: Market Operations
+L627: 
+L628: 01 Nov 2022
+L629: 
+L630:   * Existing cash market fixed trading tariff of $0.50 to be removed
+L631:   * Cash market ad valorem trading fee to be adjusted from 0.005% to 0.00565%
+L632:   * Effective on 1 January 2023
+L633: Hong Kong Exchanges and Clearing Limited (HKEX) is today (Tuesday) pleased to announce enhancements to the existing cash market trading fee structure, including 1) the removal of the trading tariff of $0.50 payable on each transaction; and 2) the adjustment of the ad valorem fee on all trades from the current level of 0.005% to 0.00565%. The new trading fee structure will take effect on 1 January 2023.
+L634: These enhancements will result in a simpler and more predictable cash market trading fee structure, lowering the effective trading fee rate (trading tariff and trading fee in percentage terms) from a historical average of approximately 0.00576% to 0.00565%^{1}.
+L635: HKEX Co-Chief Operating Officer & Co-Head of Markets Wilfred Yiu said: “HKEX has worked with regulators, business partners and market participants to agree to the new fee structure, providing greater simplicity and market efficiency. It reflects HKEX's longstanding ongoing commitment to enhancing the attractiveness and competitiveness of its markets as we work to further strengthen Hong Kong’s role as one of the world’s premier international financial centres.”
+L636: The introduction of the new trading fee structure is the latest HKEX initiative focused on enhancing the attractiveness of Hong Kong’s markets. Over the past six months, HKEX launched Derivatives Holiday Trading; announced revisions to the position limit regime for single stock options and futures markets; and welcomed upcoming enhancements to the trading calendar under Stock Connect. HKEX looks forward to continuing to work with all its stakeholders to support the growth of the Hong Kong market.
+L637: Please refer to the 【149†circular】 for details of the enhancements to the cash market trading fee structure.
+L638: Amendments will be made to the Listing Rules and Trading Rules of the Exchange in connection with the change in the ad valorem trading fee rate. Please refer to 【150†Update No. 139†en-rules.hkex.com.hk】 and 【151†Update No. 74†en-rules.hkex.com.hk】 for details of the amendments to the Main Board Listing Rules and the GEM Listing Rules respectively; amendments to Trading Rules of the Exchange will be announced separately in due course.
+L639: 
+L640: 
+L641: 
+L642: Note:
+L643: 
+L644:   1. Based on trading statistics from 2014 to 2021.
+L645: About HKEX
+L646: 
+L647: Hong Kong Exchanges and Clearing Limited (HKEX) is a publicly-traded company (HKEX Stock Code:388) and one of the world’s leading global exchange groups, offering a range of equity, derivative, commodity, fixed income and other financial markets, products and services, including the London Metal Exchange.
+L648: As a superconnector and gateway between East and West, HKEX facilitates the two-way flow of capital, ideas and dialogue between China and the rest of world, through its pioneering Connect schemes, increasingly diversified product ecosystem and its deep, liquid and international markets.
+L649: 
+L650: HKEX is a purpose-led organisation which, across its business and through the work of HKEX Foundation, seeks to connect, promote and progress its markets and the communities it supports for the prosperity of all.
+L651: 【8†www.hkexgroup.com†www.hkexgroup.com】
+L652: 
+L653: 
+L654: 
+L655: 
+L656: 
+L657: Ends
+L658: 
+L659: Updated 13 Jan 2023
+L660: ## Latest
+L661: 
+L662: [Input]【15†View All  】
+L663: 
+L664:   * 【15†NEWS RELEASE】
+L665: 
+L666: ©2017-26 Hong Kong Exchanges and Clearing Limited. All rights reserved.
+--------------------------------------------------------------------------------
+Transaction (https://www.hkex.com.hk/Services/Rules-and-Forms-and-Fees/Fees/Securities-%28Hong-Kong%29/Trading/Transaction?sc_lang=en)
+citeturn66view3 [wordlim: 200] Crawled: today; Content type: text/html; Source: find({"ref_id":"turn65view2","pattern":"SFC Transaction Levy"}); Redirected to URL: https://www.hkex.com.hk/Services/Rules-and-Forms-and-Fees/Fees/Securities-(Hong-Kong)/Trading/Transaction?sc_lang=en; Total lines: 732
+L438:     * Trading
+L439:       * Securities
+L440:         * 【34†Overview】
+L441:         * 【35†Infrastructure】
+L442:       * Derivatives
+L443:         * 【36†Overview】
+L444:         * 【37†Infrastructure】
+L445:     * Connectivity
+L459:         * 【47†Overview】
+L460:         * 【48†Infrastructure】
+L461:         * 【49†Risk Management】
+L462:         * 【50†CCP Disclosures】
+L463:       * Listed Derivatives
+L464:         * 【51†Overview】
+L465:         * 【52†Infrastructure】
+L466:         * 【53†Risk Management】
+L467:         * 【54†CCP Disclosures】
+L468:       * OTC Clear
+L469:         * 【55†Overview】
+L470:         * 【56†Infrastructure】
+L471:         * 【57†Risk Management】
+L472:         * 【58†CCP Disclosures】
+L473:     * Settlement and Depository
+L474:       * 【59†Settlement - Securities】
+L475:       * 【60†T+1 Settlement for the Hong Kong Cash Market】
+L476:       * 【61†Depository】
+L477:       * 【62†Uncertificated Securities Market】
+L478:       * 【63†Common Nominee Services】
+L479:       * 【64†Securities Admission into CCASS】
+L480:       * 【50†PFMI】
+L481:       * 【65†Unclaimed Entitlements Held by HKSCC Nominees Limited】
+L482:     * Platform Services
+L483:       * 【66†Corporate Action Messaging Standardisation】
+L484:       * 【67†Client Connect】
+L485:       * 【68†Orion Derivatives Platform】
+L486:       * 【69†FINI - A New Era for Hong Kong’s IPO market】
+L487:       * 【70†Orion Cash Platform】
+L488:       * 【71†Integrated Fund Platform】
+L489:       * 【72†HKEX Issuer Access Platform】
+L490:       * 【73†Digital Payment Adoption for After-Hours Trading】
+L491:     * 【74†Circulars & Notices】
+L492: View important information issued by HKEX to Exchange and Clearing House Participants, Market Data vendors and Hosting Services members
+L493: 
+L494:     * 【75†Become a Participant】
+L495: 
+L496: Connect to Hong Kong’s financial market through HKEX
+L497: 
+L498:     * 【76†HKEX Connect Hall】
+L499: 
+L500: A centrally-located venue at the heart of Hong Kong financial hub, the HKEX Connect Hall is an iconic venue for Hong Kong’s financial community.
+L501: 
+L502:   * 【77†Join Our Markets】
+L503:     * IPO
+L504:       * 【77†Listing with HKEX】
+L505:       * 【78†GEM】
+L506:       * 【79†Southeast Asia Listing Insights】
+L507:     * Northbound and Southbound
+L508:       * 【80†Stock Connect】
+L509:       *     * Commodities
+L510:       *       *     * 【83†Sustainable Finance at HKEX】
+L511:       * 【84†Core Climate】
+L512:       * 【85†Sustainable & Green Exchange (STAGE)】
+L513:       * 【86†HKEX Green Equity】
+L514:     * 【87†Biotech @ HKEX】
+L515: 
+L516: HKEX connects capital with a rich range of biotech issuers and investment products.
+L517:     * 【88†Listing of Specialist Technology Companies】
+L518: 
+L519: A new listing pathway for Specialist Technology Companies.
+L520: 
+L521:     * 【84†Core Climate】
+L522: 
+L523: The new carbon marketplace from HKEX
+L524: 
+L525:   * 【89†Listing Regulations】
+L526:     * 【90†Explore By Role】
+L527:       * 【90†Potential Applicants】
+L528:       * 【91†Listed Issuers】
+L529:       * 【92†Directors】
+L530:     * 【93†Rules & Resources】
+L531:       * 【94†Listing Rules】
+L532:       * 【95†Guidance】
+L533:       * 【96†Checklists, forms & templates】
+L534:       * 【97†Enforcement】
+L535:     * 【98†News & Publications】
+L536:       * 【99†What's New】
+L537:       * 【100†Listing Newsletters】
+L538:       * 【101†Reports】
+L539:       * 【102†Listing Consultations】
+L540:     * 【103†Sustainability & Corporate Governance】
+L541:       * 【103†ESG Academy】
+L542:       * 【104†Board Diversity Hub】
+L543:       * 【105†Corporate Governance Practices】
+L544:       * 【106†Shareholder Value in Focus】
+L545:       * 【107†INED Corner】
+L546:     * 【108†Education Centre】
+L547: A centralised education platform, including e-Learning.
+L548: 
+L549:     * 【109†About Listing & Contacts】
+L550: 
+L551: Find information about listing, including committee members and contact persons.
+L552: 
+L553:   * 【110†News centre】
+L554: 
+L555:     * 【111†Corporate News Releases】
+L556:     * 【112†Regulatory Announcements】
+L557:     * 【113†Market Communications】
+L558:     * 【114†Market Consultations】
+L559:     * 【110†News Centre】
+L560: 
+L561: Snapshot about HKEX latest news and information
+L562: 
+L563:     * 【115†HKEX Calendar】
+L564: Subscribe to our calendar containing trading and clearing information, public holidays and more
+L565: 
+L566:     * 【116†Research Reports】
+L567: 
+L568: Research and survey conducted by HKEX on its securities and derivatives markets and related topics
+L569: 
+L570:   * 【15†Connect Programmes】
+L571: 
+L572:     * 【117†Connect Hub】
+L573:     * 【80†Stock Connect】
+L574:     *     * 【119†Swap Connect】
+L575:     * 【120†Daily Statistics】
+L576: 
+L577: Statistics on Shanghai and Shenzhen Connect updated daily
+L578: 
+L579:     * 【121†Market Highlights】
+L580: View the market capitalization, number of listed companies and more in the Hong Kong, Shanghai and Shenzhen markets
+L581: 
+L582:     * 【122†Eligible Securities】
+L583: 
+L584: A list of securities eligible for trading under Shanghai and Shenzhen Stock Connect
+L585: 
+L586:   * 【15†Market Data】
+L587:     *     * Securities Prices
+L588:       * 【123†Equities】
+L589:       * 【124†Exchange Traded Products】
+L590:       * 【125†Derivative Warrants】
+L591:       * 【126†Inline Warrants】
+L592:       * 【127†Callable Bull / Bear Contracts】
+L593:       * 【128†Real Estate Investment Trusts】
+L594:       * 【129†Debt Securities】
+L595:     * Futures & Options Prices
+L596:       * 【130†Equity Index】
+L597:       * 【131†Single Stock】
+L598:       * 【132†Foreign Exchange】
+L599:       * 【133†Interest Rate】
+L600:       * 【134†Commodities】
+L601:     * Statistics
+L602:       * 【135†Consolidated Reports】
+L603:       * 【136†Securities Market】
+L604:       * 【137†Derivatives Market】
+L605:       * 【138†Participant】
+L606:       * 【139†Clearing, Settlement and Depository】
+L607:     * 【140†HKEXnews】
+L608: View listed company announcements and more on the centralised platform for regulatory filings and disclosures
+L609: 
+L610:     * 【141†News Alerts】
+L611: 
+L612: Sign up to receive company announcements or website updates by email
+L613: 
+L614:     * 【142†Market Data Services】
+L615: 
+L616: Vendors can sign up to purchase wholesale market data from HKEX’s Market Data Services department
+L617: 
+L618: [Input: Search Website] [Input]
+L619:   * 【147†Trading】
+L620:     * Trading
+L621:     * 【148†Participantship】
+L622:     * 【149†Infrastructure】
+L623:   * 【150†Clearing and Settlement】
+L624:     * Clearing and Settlement
+L625:     * 【151†Participantship】
+L626:     * 【152†Operational】
+L627:   * 【153†Market Data】
+L628:     * Market Data
+L629:     * 【154†Market Data Vendors】
+L630:     * 【155†End Users】
+L631:   * 【156†Hosting】
+L632: ## Transaction
+L633: 
+L634: 【157†Image: Fees tabs_sHK】  |    |    |
+L635: 
+L636: General
+L637: 
+L638: The following fees apply to each security transaction^{1}:
+L639: 
+L640: Brokerage^{2}
+L641: 
+L642: Effective 1 April 2003, the brokerage of security transactions becomes freely negotiable between brokers and their clients.
+L643: 
+L644: SFC Transaction Levy
+L645: Effective 1 November 2014, a SFC Transaction Levy of 0.0027% (rounded to the nearest cent) is charged per side of the consideration of a transaction, and the amount is collected for the SFC. There is no SFC Transaction Levy on Securities Market Maker (SMM) transactions.
+L646: To simplify operations with a unified basis for fee calculation for transactions in non-Hong Kong dollar currencies, the Exchange will adopt the same exchange rates as for stamp duty calculation purpose for calculating SFC Transaction Levy if applicable.
+L647: 
+L648: Investor Compensation Levy
+L649: 
+L650: Effective 19 December 2005, the payment of Investor Compensation Levy (i.e. 0.002% per side of the consideration of a transaction, rounded to the nearest cent) has been suspended by the SFC.
+L651: To simplify operations with a unified basis for fee calculation for transactions in non-Hong Kong dollar currencies, the Exchange will adopt the same exchange rates as for stamp duty calculation purpose for calculating Investor Compensation Levy if applicable.
+L652: 
+L653: AFRC Transaction Levy
+L654: Effective 1 January 2022, an AFRC Transaction Levy of 0.00015% (rounded to the nearest cent) is charged per side of the consideration of a transaction, and the amount is collected for the Accounting and Financial Reporting Council (AFRC). There is no AFRC Transaction Levy on Securities Market Maker (SMM) transactions.
+L655: To simplify operations with a unified basis for fee calculation for transactions in non-Hong Kong dollar currencies, the Exchange will adopt the same exchange rates as for stamp duty calculation purpose for calculating AFRC Transaction Levy if applicable.
+L656: 
+L657: Trading Fee^{}^{3}
+L658: A Trading Fee of 0.00565% per side of the consideration of a transaction (rounded to the nearest cent) is payable to the Exchange. Different rate of exemption of the Trading Fee will apply to the SMM transactions in different categories of Exchange Traded Products.
+L659: To simplify operations with a unified basis for fee calculation for transactions in non-Hong Kong dollar currencies, the Exchange will adopt the same exchange rates as for stamp duty calculation purpose for calculating Trading Fee if applicable.
+L660: 
+L661: Stamp Duty on Stock Transaction
+L662: Unless stated otherwise, all securities listed on the Exchange are subject to a stamp duty at a rate of 0.1% (rounded up to the nearest dollar) on the value of the transaction, on both the buyer and the seller. Please 【158†click here】 for a full list showing securities not subject to Hong Kong Stamp Duty. Stamp Duty remissions apply to all eligible DCMM transactions and SMM transactions.
+L663: To facilitate the calculation of stamp duty to be paid through the Exchange for transactions in non-Hong Kong dollar currencies on any trading day, the exchange rates of Hong Kong dollars against renminbi and US dollars will be published on the HKEx website. Please 【159†click here】 to access the exchange rate information.
+L664: 
+L665: Transfer Deed Stamp Duty
+L666: Independent of the quantity of shares traded, the Government levies a transfer deed stamp duty of HK$5.00, payable by the registered holder of the pertaining share certificate(s), i.e. the seller, on each new transfer deed.
+L667: 
+L668: Transfer Fee
+L669: 
+L670: Independent of the quantity of shares traded, the registrar of each listed company levies a transfer fee of HK$2.50 per share certificate from the registered holder, i.e. the buyer, for each new certificate issued.
+L671: 
+L672: Initial Public Offer Shares
+L673: Of the transaction costs discussed above, brokerage, SFC Transaction Levy, AFRC Transaction Levy and trading fee are applicable to initial public offer share. For ease of reference, below please find a simple illustration of how some of the above transaction costs are involved and calculated in an application for new shares offered by a new listing issuer.
+L674: Contents of the below illustration are agreed following consultation among the Exchange, the SFC and the Hong Kong Association of Banks and the demonstration is mainly for the benefit of the public in understanding the method of calculating a correct amount in application for new shares.
+L675: Formula for Amount Payable for Initial Public Offer Shares
+L676: 1.  | The amount payable for initial public offer shares (“Amount Payable”) comprises five elements, namely:
+L677:  | (i) Application Money - the offer price of the number of the shares applied for;
+L678:  | (ii) Brokerage Fees^{2} - 1% of the Application Money;
+L679:  | (iii) SFC Transaction Levy^{4} - 0.0027% of the Application Money;
+L680:    | (iv) AFRC Transaction Levy^{5} - 0.00015% of the Application Money; and
+L681:  | (v) the Exchange Trading Fee^{6 }- 0.00565% of the Application Money
+L682: 2.  | Each component in (1) above should be calculated separately to arrive at a sub-total. Where applicable, the relevant sub-total should be rounded to the nearest cent i.e. if the third digit after the decimal point is 0.005 or above, it should be rounded up; otherwise it should be rounded down. The five sub-totals should then be added together to arrive at the Amount Payable.
+L683: 3.  | For example:
+L684:  | No. of Public Offer Shares Applied  | : 2,000 shares
+L685:  |
+L686: * Issue Price
+L687:  | : HK$5.23
+L688:  |
+L689: * Brokerage
+L690:  | : 1%
+L691:  |
+L692: * SFC Transaction Levy
+L693:  | : 0.0027%
+L694:  |
+L695: * AFRC Transaction Levy
+L696:  | : 0.00015%
+L697:  |
+L698: * The Exchange Trading Fee
+L699:  | : 0.00565%
+L700: Component  | Sub-total
+L701: (Before rounding)  | Sub-total
+L702: (After rounding)
+L703: Application Money
+L704: [2,000 x $5.23]  | N/A  | $10,460.00
+L705: Brokerage
+L706: [$10,460 x 1%]  | N/A  | $104.60
+L707: SFC Transaction Levy
+L708: [$10,460 x 0.0027%]  | $0.28242  | $0.28
+L709: AFRC Transaction Levy
+L710: [$10,460 x 0.00015%]  | $0.01569  | $0.02
+L711: the Exchange Trading Fee
+L712: [$10,460 x 0.00565%]  | $0.59099  | $0.59
+L713: Amount Payable for Public Offer Shares  | $10,565.49
+L714: 
+L715: 
+L716: 
+L717: Financial Transaction Tax Charged by Other Foreign Jurisdictions
+L718: Relevant transactions conducted on or reported to the SEHK on shares issued by companies incorporated in other foreign jurisdictions (e.g. France and Italy) and their related derivative products may be subject to financial transaction tax charged by their home tax authorities. For details, investors are advised to consult their tax advisors or refer to the issuer announcements at 【12†http://www.hkexnews.hk/†www.hkexnews.hk】.
+L719: 
+L720: * * *
+L721: 1  | Brokers or custodians have to pay HKSCC service fees for use of the clearing, settlement, custody and nominee services offered by CCASS. Investors may be charged by their brokers or custodians for such CCASS services unless investors settle with brokers or custodians outside CCASS. The decision on whether and how to pass these CCASS related service fees on to investors will be totally at the discretion of the brokers or custodians. For details of CCASS service fees, please 【152†click here】.
+L722: 2  | The brokerage of IPO transactions is currently set at 1% of the application money (Paragraph 7 of Appendix 8 to the Rules Governing the Listing of Securities ('Main Board Listing Rules') and Paragraph 6 of Appendix 9 to the Rules Governing the Listing of Securities on GEM ('GEM Listing Rules')).
+L723: 3  | Effective 1 January 2023, Trading Tariff was removed and the Trading Fee was revised from 0.005% to 0.00565% per side of the consideration of a transaction (rounded to the nearest cent).
+L724: 4  | Treatment as mandated in Paragraph 5 of Appendix 8 to the Main Board Listing Rules - SFC Transaction Levy on New Issues states that the SFC Transaction Levy together with the Investor Compensation Levy shall be calculated on an aggregated basis (rounded to the nearest cent) by applying the percentage rates as specified from time to time in the Securities and Futures (Levy) Order and the Securities and Futures (Investor Compensation - Levy) Rules to the total consideration payable to the issuer by investors.
+L725: Similar reference can also be found in Paragraph 3 of Appendix 9 to the GEM Listing Rules. Due to the suspension of payment of the Investor Compensation Levy, investors are not required to pay Investor Compensation Levies in respect of sales and purchases of securities and futures contracts with effect from 19 December 2005 until terminated by a termination notice published by the SFC.
+L726: Effective 1 December 2006, the SFC Transaction Levy was reduced from 0.005% to 0.004% of the consideration for each purchase or sale of securities pursuant to the Securities and Futures (Reduction of Levy) Order 2006. Effective 1 October 2010, the SFC Transaction Levy payable by a buyer or a seller for a securities transaction was further lowered from 0.004% to 0.003% pursuant to the Securities and Futures (Levy) (Amendment) Order 2010.
+L727: Effective 1 November 2014, the SFC Transaction Levy payable by a buyer or a seller for a securities transaction was further lowered from 0.003% to 0.0027% pursuant to the Securities and Futures (Levy) (Amendment) Order 2014.
+L728: 5  | Treatment as mandated in Paragraph 11B of Appendix 8 to the Main Board Listing Rules - AFRC Transaction Levy states that the AFRC Transaction Levy shall be calculated (rounded to the nearest cent) by applying the percentage rate as specified from time to time in the Accounting and Financial Reporting Council Ordinance to the total consideration payable to the issuer by investors. Similar reference can also be found in Paragraph 9B of Appendix 9 to the GEM Listing Rules.
+L729: In the case of an initial public offering (IPO), the AFRC Transaction Levy shall be payable where the IPO allotment results announcement date falls on a date on or after 1 January 2022 (as shown in the indicative timetable set out in the relevant prospectus).
+L730: 6  | Treatment as mandated in Paragraph 6 of Appendix 8 to the Main Board Listing Rules - Trading Fee on New Issues (see also Paragraph 4 of Appendix 9 to the GEM Listing Rules).
+L731: ©2017-26 Hong Kong Exchanges and Clearing Limited. All rights reserved.
+--------------------------------------------------------------------------------
+HKEX Enhances Stock Settlement Fee Structure for Securities Market (https://www.hkex.com.hk/News/Market-Communications/2025/250221news?sc_lang=en)
+citeturn66view4 [wordlim: 200] Crawled: today; Content type: text/html; Source: find({"ref_id":"turn65view3","pattern":"30 June"}); Total lines: 670
+No matching text found for "30 June"--------------------------------------------------------------------------------
+HKEX Enhances Stock Settlement Fee Structure for Securities Market (https://www.hkex.com.hk/News/Market-Communications/2025/250221news?sc_lang=en)
+citeturn66view5 [wordlim: 200] Crawled: today; Content type: text/html; Source: find({"ref_id":"turn65view3","pattern":"0.002"}); Total lines: 670
+No matching text found for "0.002"

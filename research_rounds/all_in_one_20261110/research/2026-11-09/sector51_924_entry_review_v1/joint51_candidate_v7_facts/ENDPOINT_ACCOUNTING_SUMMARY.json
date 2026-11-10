@@ -1,0 +1,34 @@
+{
+  "scope": "FROZEN_EXPERIMENT_NOT_DEPLOYABLE_STRATEGY",
+  "certified_through": "2024-10-22",
+  "NAV": "1385370.3305121256500",
+  "net_liquidation_NAV": "1384319.3008740819500",
+  "cash": "978961.3305121256500",
+  "receivable": "0.0000",
+  "market_value": "406409.00",
+  "position_pct": "29.33576611603657031515666717",
+  "stocks": 123,
+  "held_sectors": 17,
+  "total_marked_PnL": "185370.3305121256500",
+  "total_return_pct": "15.447527542677137500",
+  "realized_trade_PnL_net_all_buy_and_sell_fees": "161528.8610142046000",
+  "recognized_NET80_dividend": "898.0800",
+  "realized_trade_plus_dividend": "162426.9410142046000",
+  "remaining_lot_cost_basis": "383465.6105020789500",
+  "unrealized_marked_PnL": "22943.3894979210500",
+  "hypothetical_liquidation_unrealized_PnL": "21892.3598598773500",
+  "reconciliation_residual": "0E-13",
+  "maximum_close_NAV_drawdown": {
+    "peak_day": "2024-10-08",
+    "peak_NAV": "1514195.7583872300000",
+    "trough_day": "2024-10-17",
+    "trough_NAV": "1376969.2633311075500",
+    "drawdown_cash": "137226.4950561224500",
+    "drawdown_pct": "-9.062665398183547861888399740"
+  },
+  "drawdown_scope": "Recorded CLOSE NAV only, not intraday or execution-certified",
+  "blocked": [
+    "2024-10-23 002226.SZ UNADMITTED_EQUITY_EVENT"
+  ],
+  "economic_rule_changes": 0
+}

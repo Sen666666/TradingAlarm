@@ -1,0 +1,37 @@
+{
+  "result": "PREFIX_MISMATCH",
+  "days": 20,
+  "orders": 612,
+  "last": {
+    "day": "2024-10-08",
+    "cash": "164902.7657109198675",
+    "receivable": "0.000",
+    "market_value": "1445019.04",
+    "NAV": "1609921.8057109198675",
+    "net_liquidation_NAV": "1608027.5932569800995",
+    "stocks": 50,
+    "shares": 84980,
+    "weight_pct": "89.75709471565912365387129199",
+    "fees_paid": "4757.5662040801325"
+  },
+  "blockers": [],
+  "atomic_block": null,
+  "runtime_error": null,
+  "storage_error": null,
+  "prefix_22_certified": false,
+  "usable_bounded_result": false,
+  "output": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v12_winner_funding_cash_688200_v2/once_20250120",
+  "latest_checkpoint": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v12_winner_funding_cash_688200_v2/runtime_checkpoint/state_20240930",
+    "receipt_sha256": "e8f2bed3cbdfcbc9858a96508e12f9378049714978c682fb4b482d6e8ccb2e50",
+    "state_sha256": "b8a4997d8c801f7f190be260c6d4a576a75220efcd0e5e2a1885781ace84e6f4",
+    "certified_day": "2024-09-30",
+    "binding_id": "f7107d9505b335a6bafb9d91cb1237c1b5e86462bc8c25e576b739441a0bc356",
+    "state_directory": "state_20240930",
+    "latest_only": true,
+    "previous_state_removed_after_verified_commit": true,
+    "latest_pointer_sha256": "36e519f338c35310f3c6837bebace0206abb287f19a47c2331d785ea7f49042f"
+  },
+  "source_hashes_verified": true,
+  "finished_at": "2026-11-10 04:01:21.054329+00:00"
+}

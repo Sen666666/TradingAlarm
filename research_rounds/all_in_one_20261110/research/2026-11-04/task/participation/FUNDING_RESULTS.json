@@ -1,0 +1,117 @@
+{
+  "financial_events": 0,
+  "no_new_price_labels": true,
+  "semiconductor_old_PVR_H1_2026": {
+    "unit": "canonical stock CP1 + signal day; original mobile Q and industry confirmed/expanded, ACT separately retained",
+    "stock_count_with_any_signal": 116,
+    "stock_count_with_filled_signal": 11,
+    "stock_count_with_signals_but_no_filled_signal_in_this_mother": 105,
+    "signal_events": 833,
+    "categories": {
+      "opening_rejected_raw_merged_constraints": 537,
+      "not_planned_original_target_or_sizing": 257,
+      "reserved_and_filled": 13,
+      "terminal_close_next_open_outside_saved_account": 26
+    },
+    "monthly": {
+      "2026-01": {
+        "signal_events": 294,
+        "unique_stocks": 101,
+        "categories": {
+          "opening_rejected_raw_merged_constraints": 199,
+          "not_planned_original_target_or_sizing": 90,
+          "reserved_and_filled": 5
+        }
+      },
+      "2026-02": {
+        "signal_events": 82,
+        "unique_stocks": 55,
+        "categories": {
+          "not_planned_original_target_or_sizing": 24,
+          "opening_rejected_raw_merged_constraints": 57,
+          "reserved_and_filled": 1
+        }
+      },
+      "2026-03": {
+        "signal_events": 3,
+        "unique_stocks": 3,
+        "categories": {
+          "not_planned_original_target_or_sizing": 2,
+          "opening_rejected_raw_merged_constraints": 1
+        }
+      },
+      "2026-04": {
+        "signal_events": 19,
+        "unique_stocks": 19,
+        "categories": {
+          "opening_rejected_raw_merged_constraints": 11,
+          "not_planned_original_target_or_sizing": 8
+        }
+      },
+      "2026-05": {
+        "signal_events": 302,
+        "unique_stocks": 112,
+        "categories": {
+          "not_planned_original_target_or_sizing": 92,
+          "opening_rejected_raw_merged_constraints": 206,
+          "reserved_and_filled": 4
+        }
+      },
+      "2026-06": {
+        "signal_events": 133,
+        "unique_stocks": 88,
+        "categories": {
+          "not_planned_original_target_or_sizing": 41,
+          "opening_rejected_raw_merged_constraints": 63,
+          "reserved_and_filled": 3,
+          "terminal_close_next_open_outside_saved_account": 26
+        }
+      }
+    }
+  },
+  "C10_July_August_2025": {
+    "unit": "window-first stock/market-context freshCP1+stockQ and market permit, July1 through actual cutoff; permission is not all-resource executable",
+    "contexts": 2241,
+    "stocks_with_any_context": 1577,
+    "statuses": {
+      "unfunded_market_context_ended": 107,
+      "unfunded_market_context_not_ended_at_cutoff_other_stock_constraints_not_inferred": 2001,
+      "actually_funded_same_context": 133
+    },
+    "by_offered_use": {
+      "G": {
+        "contexts": 798,
+        "unique_stocks": 798,
+        "statuses": {
+          "unfunded_market_context_not_ended_at_cutoff_other_stock_constraints_not_inferred": 780,
+          "actually_funded_same_context": 18
+        },
+        "filled_unique_stocks": 18
+      },
+      "S": {
+        "contexts": 1424,
+        "unique_stocks": 1424,
+        "statuses": {
+          "unfunded_market_context_ended": 107,
+          "unfunded_market_context_not_ended_at_cutoff_other_stock_constraints_not_inferred": 1202,
+          "actually_funded_same_context": 115
+        },
+        "filled_unique_stocks": 115
+      },
+      "T": {
+        "contexts": 19,
+        "unique_stocks": 19,
+        "statuses": {
+          "unfunded_market_context_not_ended_at_cutoff_other_stock_constraints_not_inferred": 19
+        },
+        "filled_unique_stocks": 0
+      }
+    }
+  },
+  "source_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/semiconductor-2026H1-readonly/SEMICONDUCTOR_OPPORTUNITY_FUNNEL.json": "c37ea22e90125111bb79ffb3ff302d2167be0d548e1788dbfa585176a7bab50b",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-August-continuation-v1-20261102/analysis/C10-FIRST_OPPORTUNITIES.json": "9d7add73bf29b27aefa28706ffca5d9a7d466fa81d34bd9c00706c08aca68b06",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/participation/PROTOCOL.txt": "896f11242ce698c3f29008f002c63822c510cd77270f3a7d2e15517b270311c3",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/participation/audit_funding.py": "f3aa412ae0bb14cf88256589e2de255d140c47d2e067f51aa608c241d8de49e7"
+  }
+}

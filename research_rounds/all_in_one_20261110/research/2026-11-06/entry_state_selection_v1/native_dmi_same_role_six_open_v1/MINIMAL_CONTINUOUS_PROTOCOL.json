@@ -1,0 +1,40 @@
+{
+  "status": "PROPOSED_NOT_EXECUTED",
+  "reason": "Six-date rank intervention changes real private resource reservations on 2/6 dates; alpha and win-rate unknown.",
+  "arms": [
+    "native PVR/ACT original",
+    "same-sector exact-role-set flat-only DMI/PVR stock-slot permutation"
+  ],
+  "windows": [
+    {
+      "window": "2022Jan",
+      "start": "2022-01-04",
+      "end": "2022-01-28",
+      "signal_closes": 19,
+      "initialization": "Original 1200000 empty account with original industry warm state; no imported future account. End at final CLOSE, pending remain censored."
+    },
+    {
+      "window": "2026Jan",
+      "start": "2026-01-05",
+      "end": "2026-01-30",
+      "signal_closes": 20,
+      "initialization": "Restore complete original act_only PVR checkpoint at 2025-12-31 CLOSE in both branches. First Jan5 OPEN retains original Dec31 pending; intervention begins first new CLOSE."
+    }
+  ],
+  "unchanged": "Exact original ACT, NoConfirmed60 consumer, signal/industry/role eligibility, PVR base slots, core/mobile definitions, heldADD priorities, sizing/protection, profit/add behavior, stops/reentry, lot/fees, nextOPEN proxy; do not combine any active add redesign.",
+  "execution_gates": [
+    "Verify source and checkpoint SHA/provenance; restore exact original native fields, not resource-only snapshots.",
+    "No-intervention baseline must match daily NAV/components, all orders/fills, receipt consumption, fees and eligibility from original saved window.",
+    "Physical CLOSE prefix and OPEN current/future HLCV poison tests; per-branch restart equality and order ledger/valuation bridges.",
+    "Then one frozen DMI arm per window. Own holdings and cash/epoch/token state must drive all later queues; never reset to original each day. No threshold sweep or repeated economical arms."
+  ],
+  "metrics": [
+    "All candidate/pending/mutable/UNKNOWN stock-days, first-entry and heldADD separation, reason-level refusals, changed allocations and delays in fixed named early signals.",
+    "Account net NAV and drawdown, fees/slippage, invested exposure and cash, with inherited positions separated but full-account total reconciled.",
+    "Independent initial-layer fee-net wins/losses and closed/full-round fee-net wins/losses, payoff ratios and denominators; unknown/open explicit.",
+    "Complete full-round net / all dated-fee purchase capital >=30% count. MFE not substitute. Few mature rounds at January end are inconclusive; do not infer tail preservation."
+  ],
+  "stop_and_claim": "A resource translation test only unless economic sign/denominators justify further work. Both historical windows are development seen, not OOS. No fixed-month result alone validates 35% or default deployment.",
+  "2024_gap": "No verified full original checkpoint immediately before 2024Sep exists in act_only outputs. Six-date route snapshots omit future CLOSE engine state. Need separate independently verified full-state reconstruction or explicit original-prefix replay permission; no silent 2022->2024 rerun.",
+  "later_tail_extension": "Not authorized/run here. Only after explicit go-ahead freeze a common longer end for both arms, never stop at individual winner outcomes; preserve open censoring."
+}

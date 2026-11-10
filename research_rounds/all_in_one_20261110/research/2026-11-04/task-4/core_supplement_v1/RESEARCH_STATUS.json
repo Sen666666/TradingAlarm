@@ -1,0 +1,49 @@
+{
+  "phase": "COMPLETE_FIXED_PULLBACK_NECESSARY_COVERAGE_AND_ACCOUNT_CONTEXT",
+  "new_accounts": 0,
+  "new_authorizations": 0,
+  "production_changes": 0,
+  "price_rule": "PRICE_EVENT_PRECARD.txt",
+  "events": {
+    "P_all": 35699,
+    "B_all": 155917,
+    "A_P_long": 874,
+    "A_P_strong": 337,
+    "A_gap_epochs_all": 13295
+  },
+  "conclusions": [
+    "No full-account admission for the exact A/P hypothesis as a major-trend repair: narrow semiconductor coverage and later native-I activation usually occur first. No claim all supplemental entry strategies fail.",
+    "No-P is not no-native-entry. After924 mature first-observed A breakouts:85 without P20,79 of those native-I20; only6 lack both,1 has max-close20 rise>=20pct.",
+    "B-P substitutes upstream G1 warm-and-fresh proof unless warm is explicitly retained.97.5pct of B-P are below warm. The warm-preserving subgroup is a diagnostic, not implemented policy.",
+    "H1 semiconductor B-P259, original-context intersection174, necessary residual upper21 including19belowwarm and2warm; not executable orders or returns.",
+    "Focus3 show existing evidence and actual size/sector constraints. New price evidence alone cannot bypass them."
+  ],
+  "next_unimplemented_hypothesis": "NEXT_RESOURCE_HYPOTHESIS.txt",
+  "next_hypothesis_status": "Paper only; historical dedup, full contract, necessary opportunity and economic validation pending. No automatic queue of accounts.",
+  "completed_reviews": [
+    "review/PRICE_EVENT_CENSUS_REVIEW.json",
+    "review/COVERAGE_AND_ACTIVATION_REVIEW.json",
+    "review/SAVED_RESOURCE_CONTEXT_REVIEW.json"
+  ],
+  "readout": "RESEARCH_READOUT.txt",
+  "remaining_execution_or_permission_blockers": [],
+  "remaining_economic_gaps": [
+    "New A authorization/holding/floor handoff is not implemented.",
+    "Saved P cash/sector tests do not establish full OPEN risk, shared allocation or execution.",
+    "No new strategy has verified account profit."
+  ],
+  "known_costs": {
+    "first_census_budget_failure_seconds": 120.0010507083498,
+    "empty_prefix_dtype_failure_seconds": 20.1225943332538,
+    "completed_census_attempt_seconds": 50.286866792012006,
+    "additional120_reviewed_census_used_seconds": 70.4094611252658,
+    "resource_preparation_read_seconds": 136.61647074995562,
+    "resource_limit_seconds": 120,
+    "resource_overrun_seconds": 16.61647074995562,
+    "early_two_data_type_failures": "Elapsed not fully instrumented; source/log preserved and not hidden in these totals."
+  },
+  "final_readout_review": "review/FINAL_READOUT_REVIEW.json",
+  "final_readout_review_sha256": "cf8f5f3d0201cbbee8e1a41d990b502d25ab6e6737cb3b2997aa028f4ff86e04",
+  "final_readout_sha256": "3dae0affb1e3896e8c69476548c0d09b346512b9d11fdef6e914404d9ad79c7b",
+  "economic_policy_validated": false
+}

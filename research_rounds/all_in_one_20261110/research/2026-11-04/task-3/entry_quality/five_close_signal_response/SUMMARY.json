@@ -1,0 +1,502 @@
+{
+  "2022_weak": {
+    "days": 242,
+    "scope_first_signals": 5847,
+    "including_warmup_first_signals": 5847,
+    "label_tail_end": "2023-01-09",
+    "label_status_counts": {
+      "MATURED": 5829,
+      "HORIZON_AMBIGUOUS": 18
+    },
+    "matured_by_analysis_end": 5750,
+    "matured_in_fixed_tail": 79,
+    "no_trade_delayed_events": 0,
+    "feedback_days": {
+      "NO_MATURE_DATA": 5,
+      "negative": 135,
+      "positive": 102
+    },
+    "next_day_groups": {
+      "positive": {
+        "asof_days": 102,
+        "evaluable_future_days": 101,
+        "future_statuses": {
+          "COMPLETE": 94,
+          "PARTIAL_TARGET_LABELS": 7,
+          "NO_TARGET_SIGNALS": 1
+        },
+        "target_events": 2197,
+        "target_evaluable": 2189,
+        "target_missing": 8,
+        "mean_next_cohort_median": -0.004754730941104913,
+        "median_next_cohort_median": 0.0,
+        "mean_next_positive_fraction": 0.48095220696165336,
+        "mean_next_p10": -0.06026421560954173
+      },
+      "negative": {
+        "asof_days": 135,
+        "evaluable_future_days": 128,
+        "future_statuses": {
+          "COMPLETE": 120,
+          "NO_TARGET_SIGNALS": 5,
+          "PARTIAL_TARGET_LABELS": 8,
+          "NO_EVALUABLE_TARGETS": 1,
+          "OUTSIDE_TARGET_WINDOW": 1
+        },
+        "target_events": 3570,
+        "target_evaluable": 3561,
+        "target_missing": 9,
+        "mean_next_cohort_median": -0.014510070087305567,
+        "median_next_cohort_median": -0.009714464080256335,
+        "mean_next_positive_fraction": 0.4455111235407756,
+        "mean_next_p10": -0.06804992236158769
+      },
+      "zero": {
+        "asof_days": 0,
+        "evaluable_future_days": 0,
+        "future_statuses": {},
+        "target_events": 0,
+        "target_evaluable": 0,
+        "target_missing": 0,
+        "mean_next_cohort_median": null,
+        "median_next_cohort_median": null,
+        "mean_next_positive_fraction": null,
+        "mean_next_p10": null
+      },
+      "NO_MATURE_DATA": {
+        "asof_days": 5,
+        "evaluable_future_days": 5,
+        "future_statuses": {
+          "COMPLETE": 5
+        },
+        "target_events": 63,
+        "target_evaluable": 63,
+        "target_missing": 0,
+        "mean_next_cohort_median": -0.0050999651475981626,
+        "median_next_cohort_median": -0.006397067075680107,
+        "mean_next_positive_fraction": 0.455068761647709,
+        "mean_next_p10": -0.05541283327750031
+      }
+    },
+    "positive_minus_negative_bootstrap95": [
+      -0.00328336329664461,
+      0.023037050607980766
+    ],
+    "valid_bootstrap_resamples": 1000,
+    "market_asof_strata": [
+      {
+        "market_R5_state": "positive",
+        "feedback_state": "positive",
+        "days": 73,
+        "mean_future_cohort_median": -0.004561991179657422
+      },
+      {
+        "market_R5_state": "positive",
+        "feedback_state": "negative",
+        "days": 40,
+        "mean_future_cohort_median": -0.012894008171939458
+      },
+      {
+        "market_R5_state": "positive",
+        "feedback_state": "zero",
+        "days": 0,
+        "mean_future_cohort_median": null
+      },
+      {
+        "market_R5_state": "positive",
+        "feedback_state": "NO_MATURE_DATA",
+        "days": 2,
+        "mean_future_cohort_median": -0.006917707104652171
+      },
+      {
+        "market_R5_state": "negative",
+        "feedback_state": "positive",
+        "days": 28,
+        "mean_future_cohort_median": -0.005257231033450156
+      },
+      {
+        "market_R5_state": "negative",
+        "feedback_state": "negative",
+        "days": 88,
+        "mean_future_cohort_median": -0.015244643685199254
+      },
+      {
+        "market_R5_state": "negative",
+        "feedback_state": "zero",
+        "days": 0,
+        "mean_future_cohort_median": null
+      },
+      {
+        "market_R5_state": "negative",
+        "feedback_state": "NO_MATURE_DATA",
+        "days": 3,
+        "mean_future_cohort_median": -0.003888137176228823
+      },
+      {
+        "market_R5_state": "zero",
+        "feedback_state": "positive",
+        "days": 0,
+        "mean_future_cohort_median": null
+      },
+      {
+        "market_R5_state": "zero",
+        "feedback_state": "negative",
+        "days": 0,
+        "mean_future_cohort_median": null
+      },
+      {
+        "market_R5_state": "zero",
+        "feedback_state": "zero",
+        "days": 0,
+        "mean_future_cohort_median": null
+      },
+      {
+        "market_R5_state": "zero",
+        "feedback_state": "NO_MATURE_DATA",
+        "days": 0,
+        "mean_future_cohort_median": null
+      }
+    ],
+    "capacity": {
+      "signal_amount_quantiles": [
+        56603333.4,
+        262452380.0,
+        1294969481.800001
+      ],
+      "prior20_amount_known": 5847,
+      "actual_fillability_or_capacity_not_verified": true
+    }
+  },
+  "2024_recovery": {
+    "days": 58,
+    "scope_first_signals": 1629,
+    "including_warmup_first_signals": 19028,
+    "label_tail_end": "2024-12-06",
+    "label_status_counts": {
+      "MATURED": 1625,
+      "HORIZON_AMBIGUOUS": 4
+    },
+    "matured_by_analysis_end": 1588,
+    "matured_in_fixed_tail": 37,
+    "no_trade_delayed_events": 0,
+    "feedback_days": {
+      "negative": 31,
+      "positive": 27
+    },
+    "next_day_groups": {
+      "positive": {
+        "asof_days": 27,
+        "evaluable_future_days": 26,
+        "future_statuses": {
+          "COMPLETE": 25,
+          "NO_TARGET_SIGNALS": 1,
+          "PARTIAL_TARGET_LABELS": 1
+        },
+        "target_events": 584,
+        "target_evaluable": 583,
+        "target_missing": 1,
+        "mean_next_cohort_median": -0.0017510383377171445,
+        "median_next_cohort_median": -0.017565538583897644,
+        "mean_next_positive_fraction": 0.45132460772724586,
+        "mean_next_p10": -0.046104780029006184
+      },
+      "negative": {
+        "asof_days": 31,
+        "evaluable_future_days": 30,
+        "future_statuses": {
+          "COMPLETE": 29,
+          "PARTIAL_TARGET_LABELS": 1,
+          "OUTSIDE_TARGET_WINDOW": 1
+        },
+        "target_events": 1029,
+        "target_evaluable": 1026,
+        "target_missing": 3,
+        "mean_next_cohort_median": 0.028172018799067968,
+        "median_next_cohort_median": 0.005232306878145243,
+        "mean_next_positive_fraction": 0.6187606510451338,
+        "mean_next_p10": -0.021955405993623014
+      },
+      "zero": {
+        "asof_days": 0,
+        "evaluable_future_days": 0,
+        "future_statuses": {},
+        "target_events": 0,
+        "target_evaluable": 0,
+        "target_missing": 0,
+        "mean_next_cohort_median": null,
+        "median_next_cohort_median": null,
+        "mean_next_positive_fraction": null,
+        "mean_next_p10": null
+      },
+      "NO_MATURE_DATA": {
+        "asof_days": 0,
+        "evaluable_future_days": 0,
+        "future_statuses": {},
+        "target_events": 0,
+        "target_evaluable": 0,
+        "target_missing": 0,
+        "mean_next_cohort_median": null,
+        "median_next_cohort_median": null,
+        "mean_next_positive_fraction": null,
+        "mean_next_p10": null
+      }
+    },
+    "positive_minus_negative_bootstrap95": [
+      -0.08011080140563774,
+      0.01600469477402279
+    ],
+    "valid_bootstrap_resamples": 1000,
+    "market_asof_strata": [
+      {
+        "market_R5_state": "positive",
+        "feedback_state": "positive",
+        "days": 20,
+        "mean_future_cohort_median": -0.007224318990704098
+      },
+      {
+        "market_R5_state": "positive",
+        "feedback_state": "negative",
+        "days": 12,
+        "mean_future_cohort_median": 0.055469550207477014
+      },
+      {
+        "market_R5_state": "positive",
+        "feedback_state": "zero",
+        "days": 0,
+        "mean_future_cohort_median": null
+      },
+      {
+        "market_R5_state": "positive",
+        "feedback_state": "NO_MATURE_DATA",
+        "days": 0,
+        "mean_future_cohort_median": null
+      },
+      {
+        "market_R5_state": "negative",
+        "feedback_state": "positive",
+        "days": 6,
+        "mean_future_cohort_median": 0.016493230505572703
+      },
+      {
+        "market_R5_state": "negative",
+        "feedback_state": "negative",
+        "days": 18,
+        "mean_future_cohort_median": 0.009973664526795274
+      },
+      {
+        "market_R5_state": "negative",
+        "feedback_state": "zero",
+        "days": 0,
+        "mean_future_cohort_median": null
+      },
+      {
+        "market_R5_state": "negative",
+        "feedback_state": "NO_MATURE_DATA",
+        "days": 0,
+        "mean_future_cohort_median": null
+      },
+      {
+        "market_R5_state": "zero",
+        "feedback_state": "positive",
+        "days": 0,
+        "mean_future_cohort_median": null
+      },
+      {
+        "market_R5_state": "zero",
+        "feedback_state": "negative",
+        "days": 0,
+        "mean_future_cohort_median": null
+      },
+      {
+        "market_R5_state": "zero",
+        "feedback_state": "zero",
+        "days": 0,
+        "mean_future_cohort_median": null
+      },
+      {
+        "market_R5_state": "zero",
+        "feedback_state": "NO_MATURE_DATA",
+        "days": 0,
+        "mean_future_cohort_median": null
+      }
+    ],
+    "capacity": {
+      "signal_amount_quantiles": [
+        63592622.2,
+        241708435.0,
+        1154657050.2000003
+      ],
+      "prior20_amount_known": 1629,
+      "actual_fillability_or_capacity_not_verified": true
+    }
+  },
+  "strong": {
+    "days": 242,
+    "scope_first_signals": 6108,
+    "including_warmup_first_signals": 6108,
+    "label_tail_end": "2026-07-07",
+    "label_status_counts": {
+      "MATURED": 6099,
+      "HORIZON_AMBIGUOUS": 9
+    },
+    "matured_by_analysis_end": 5959,
+    "matured_in_fixed_tail": 140,
+    "no_trade_delayed_events": 0,
+    "feedback_days": {
+      "NO_MATURE_DATA": 5,
+      "positive": 111,
+      "zero": 3,
+      "negative": 123
+    },
+    "next_day_groups": {
+      "positive": {
+        "asof_days": 111,
+        "evaluable_future_days": 111,
+        "future_statuses": {
+          "COMPLETE": 108,
+          "PARTIAL_TARGET_LABELS": 3
+        },
+        "target_events": 2597,
+        "target_evaluable": 2594,
+        "target_missing": 3,
+        "mean_next_cohort_median": -0.0022423930007657135,
+        "median_next_cohort_median": -0.002849002849002802,
+        "mean_next_positive_fraction": 0.502271191424845,
+        "mean_next_p10": -0.05777465545986556
+      },
+      "negative": {
+        "asof_days": 123,
+        "evaluable_future_days": 121,
+        "future_statuses": {
+          "COMPLETE": 115,
+          "PARTIAL_TARGET_LABELS": 6,
+          "NO_TARGET_SIGNALS": 1,
+          "OUTSIDE_TARGET_WINDOW": 1
+        },
+        "target_events": 3360,
+        "target_evaluable": 3354,
+        "target_missing": 6,
+        "mean_next_cohort_median": -0.004354191061183266,
+        "median_next_cohort_median": -0.004103967168262668,
+        "mean_next_positive_fraction": 0.47770707342380614,
+        "mean_next_p10": -0.0648423046361233
+      },
+      "zero": {
+        "asof_days": 3,
+        "evaluable_future_days": 3,
+        "future_statuses": {
+          "COMPLETE": 3
+        },
+        "target_events": 65,
+        "target_evaluable": 65,
+        "target_missing": 0,
+        "mean_next_cohort_median": 0.00409799577432457,
+        "median_next_cohort_median": 0.0,
+        "mean_next_positive_fraction": 0.5080287929125138,
+        "mean_next_p10": -0.026456055100831117
+      },
+      "NO_MATURE_DATA": {
+        "asof_days": 5,
+        "evaluable_future_days": 5,
+        "future_statuses": {
+          "COMPLETE": 5
+        },
+        "target_events": 69,
+        "target_evaluable": 69,
+        "target_missing": 0,
+        "mean_next_cohort_median": -0.0034763087232292157,
+        "median_next_cohort_median": 0.0033003300330032292,
+        "mean_next_positive_fraction": 0.4921269841269842,
+        "mean_next_p10": -0.025727466183527482
+      }
+    },
+    "positive_minus_negative_bootstrap95": [
+      -0.007199282563863249,
+      0.011724811237469674
+    ],
+    "valid_bootstrap_resamples": 1000,
+    "market_asof_strata": [
+      {
+        "market_R5_state": "positive",
+        "feedback_state": "positive",
+        "days": 96,
+        "mean_future_cohort_median": -0.004032737868303499
+      },
+      {
+        "market_R5_state": "positive",
+        "feedback_state": "negative",
+        "days": 51,
+        "mean_future_cohort_median": -0.002943358878520675
+      },
+      {
+        "market_R5_state": "positive",
+        "feedback_state": "zero",
+        "days": 2,
+        "mean_future_cohort_median": 0.006146993661486855
+      },
+      {
+        "market_R5_state": "positive",
+        "feedback_state": "NO_MATURE_DATA",
+        "days": 5,
+        "mean_future_cohort_median": -0.0034763087232292157
+      },
+      {
+        "market_R5_state": "negative",
+        "feedback_state": "positive",
+        "days": 15,
+        "mean_future_cohort_median": 0.009215814151476114
+      },
+      {
+        "market_R5_state": "negative",
+        "feedback_state": "negative",
+        "days": 70,
+        "mean_future_cohort_median": -0.005382083079980296
+      },
+      {
+        "market_R5_state": "negative",
+        "feedback_state": "zero",
+        "days": 1,
+        "mean_future_cohort_median": 0.0
+      },
+      {
+        "market_R5_state": "negative",
+        "feedback_state": "NO_MATURE_DATA",
+        "days": 0,
+        "mean_future_cohort_median": null
+      },
+      {
+        "market_R5_state": "zero",
+        "feedback_state": "positive",
+        "days": 0,
+        "mean_future_cohort_median": null
+      },
+      {
+        "market_R5_state": "zero",
+        "feedback_state": "negative",
+        "days": 0,
+        "mean_future_cohort_median": null
+      },
+      {
+        "market_R5_state": "zero",
+        "feedback_state": "zero",
+        "days": 0,
+        "mean_future_cohort_median": null
+      },
+      {
+        "market_R5_state": "zero",
+        "feedback_state": "NO_MATURE_DATA",
+        "days": 0,
+        "mean_future_cohort_median": null
+      }
+    ],
+    "capacity": {
+      "signal_amount_quantiles": [
+        167070027.3,
+        656526433.0,
+        2890708675.9
+      ],
+      "prior20_amount_known": 6108,
+      "actual_fillability_or_capacity_not_verified": true
+    }
+  }
+}

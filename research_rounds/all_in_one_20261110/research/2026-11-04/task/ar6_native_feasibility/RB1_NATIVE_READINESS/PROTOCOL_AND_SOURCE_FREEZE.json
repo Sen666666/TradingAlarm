@@ -1,0 +1,25 @@
+{
+  "scope": "read-only original evidence + existing input availability for actual layers, no new policy calculation or account",
+  "windows": {
+    "2022_2024": "2024-12-31",
+    "strong": "2026-06-30"
+  },
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/RB1_NATIVE_READINESS/check_sources.py": "d7c7eb321de45e18fb80aac5b08db8d5bd7f3dd481fc35ab430aefa4658ea2e8",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/prepare.py": "f2c2e80103f75f5575bf8d45c7a20e6005eccf5daaea54b58f9cc2c1e433cf59",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/native-I-cache-interface-20261031/cache.py": "fe800283edacb57d1581b50b2bcfdb800ffe4d5f0a22114d0180d3836f6ec969",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rearm-risk-boundary-design-20261030/risk_boundary_v2.py": "47dc7fa6d63fea2a1e1740d8c9c14c5caa9cbe5dd3aba484e15fe1010cb44c19",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/full-account-risk-reentry-20261030/wire.py": "351e4d04fd1250b3a6ef35db928d156dbbf7697afed70676da9ecdc21c11437d",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/full-account-risk-reentry-20261030/SUMMARY_12.csv": "9372c6f2a443224dc55104224f3d6628583fcf645512229012dd07e2491bc5e0",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/full-account-risk-reentry-20261030/FINAL_REPORT.txt": "b05d296dd5da1029d81719bb8d9da5f96b416b4126a3320189390bd0feacfd13",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/full-account-risk-reentry-20261030/COMPLETION.json": "58d87301f1dcb61cc40e07d82944d62b4bfb6f16862ac3a9f79e86c1f8499ae5",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rb1-act-finite-20261031/adapter.py": "e2982f372d74e1fa4de8e738f01bba06fc14dd9d922ec690bc936c7ba6c7866f",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rb1-act-finite-20261031/MATRIX_12.csv": "40381a5fab0501873e9f76c63c66053c63505622c5efa8c5b66c99add38bb5de",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rb1-act-history-pressure-2019-2023-20261031/adapter.py": "4fc49648b3e650150644a70c24f298e5bdb4b163b0b5f110ff0f206372ca36e4",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rb1-act-history-pressure-2019-2023-20261031/MATRIX_12.csv": "d868e0df7f5dc2c7334b0bdfb2125c0e102033f94a12626a3a39cac1bee6529a",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py": "fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/continuation2024_finance/analysis/2022_2024/PVR_NO_CONFIRMED60/LAYERS.json": "5799e71dc05a8d94cfab0a14801b7aad0fb98a3726e8140f3e026983c4c2d80c",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/pvr_no60_2025_26/analysis/2025_26/PVR_NO60/LAYERS.json": "cf3eb8e5934148f6344c05b5733a5b7dbe22b95551d37386b651427ac568bb6c"
+  }
+}

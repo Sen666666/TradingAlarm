@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "new_accounts": 0,
+  "new_orders": 0,
+  "receipt_consumptions": 0,
+  "new_account_progression": false,
+  "new_batch_allocator_implemented": false,
+  "seconds": 13.517892417032272,
+  "readonly_native_market_load_seconds": 8.911859042011201,
+  "dates": [
+    {
+      "opening": "2023-01-20",
+      "decision_day": "2023-01-19",
+      "policy": "unchanged saved Bdiag",
+      "weak_date_selection": "previously fixed Jan20 opening",
+      "original_probe_rejection_rows": 347,
+      "pending_role_intents": 479,
+      "distinct_stocks": 362,
+      "both_roles_stocks": 117,
+      "independent_preview_passed": 479,
+      "independent_preview_rejected": 0,
+      "unknown": [],
+      "original_actual_probe_reservations": 4,
+      "already_minimum_probe_reservations": 3,
+      "original_probe_reserved_risk": "3325.324000000000695008935897",
+      "shrink_only_risk_release_upper_bound": "959.7190000000000767421922840",
+      "independent_minimum_risk_over_reference_20pct_of_probe": 56,
+      "independent_minimum_risk_over_reference_50pct_of_probe": 0,
+      "not_a_two_pass_allocation": true,
+      "new_footholds_or_downsizes_not_estimated": true,
+      "limitation": "Baseline-dependent orders/route sets are not an alternative batch. Exact new footholds require a separately reviewed full-batch shadow-resource planner including failed/suppressed roles and migration side effects. No shared capacity is relaxed."
+    },
+    {
+      "opening": "2022-06-29",
+      "decision_day": "2022-06-28",
+      "policy": "unchanged saved Bdiag",
+      "weak_date_selection": "max count of original opening funding rows containing probe_risk, then earliest date; no price/PnL selection",
+      "original_probe_rejection_rows": 688,
+      "pending_role_intents": 691,
+      "distinct_stocks": 497,
+      "both_roles_stocks": 194,
+      "independent_preview_passed": 688,
+      "independent_preview_rejected": 1,
+      "unknown": [
+        {
+          "sid": "002703.SZ",
+          "role": "mobile",
+          "why": "original opening price unavailable"
+        },
+        {
+          "sid": "600063.SH",
+          "role": "core",
+          "why": "original opening price unavailable"
+        }
+      ],
+      "original_actual_probe_reservations": 0,
+      "already_minimum_probe_reservations": 0,
+      "original_probe_reserved_risk": "0",
+      "shrink_only_risk_release_upper_bound": "0",
+      "independent_minimum_risk_over_reference_20pct_of_probe": 76,
+      "independent_minimum_risk_over_reference_50pct_of_probe": 2,
+      "not_a_two_pass_allocation": true,
+      "new_footholds_or_downsizes_not_estimated": true,
+      "limitation": "Baseline-dependent orders/route sets are not an alternative batch. Exact new footholds require a separately reviewed full-batch shadow-resource planner including failed/suppressed roles and migration side effects. No shared capacity is relaxed."
+    }
+  ]
+}

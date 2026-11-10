@@ -1,0 +1,169 @@
+{
+  "created_utc": "2026-10-20T03:55:26.566405+00:00",
+  "purpose": "Frozen diagnostic, no model change or new accounts; all previously seen development cases",
+  "source": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results",
+  "code_sha256": "4c78e16ed961effae8fa5100a4695c957cd164999ec13cf8e0a588df001f3fa5",
+  "inputs": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/HK09618-signals.csv": "05dba4cee72f8fc4a0b6608b6c63790be41912ad6afdcd819fa6c1ba5f2ba8f2",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/USHJ515030-signals.csv": "7a1c6335bf742eaf34350770a532b64051a2e79168865d741b02324c1a1604d1",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/USHJ512980-signals.csv": "d94662952618561ff49e3c040ab53f7b1e6e56fab09d621119f8ee104f7d97bb",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/HK00883-signals.csv": "e3a993d62c06761ebb104767c9a57d20b11f262f3c51f88dd2896d2bbdd3fe6d",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/USHJ512660-signals.csv": "d47a6f9504d2253970e073c46c9ffd84219a83e5deb836fbec879843f7cd50d9",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/HK00101-signals.csv": "077d8880bdfe695efadd29ceabd041df26ca77d99a54b4e71ca9864df6086bc3",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/HK03690-signals.csv": "ee6b58777248681d66eabd9b8921a7ad75499ca0c144b30690a60e897249c6a0",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/HK02845-signals.csv": "e85f031af29b925e4b8e213026ca1de7f06751f236f6fd991929d964e72f30cc",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/HK00700-signals.csv": "b8f81c735a4c810d1e7b833419112ddf42fa2849114c1760893a0f9bdee345e9",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/HK02820-signals.csv": "3427c5b1fd6a1cc83b0dec6f5751c4498edf4245a49ea9bc674b868c3c94e22d",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/HK00005-signals.csv": "af73f3e97eab613aea414bc3efc6bf2cc5b43d96104d0d35c61cc5e3e3646210",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/USHJ512480-signals.csv": "a07f12b5ebdf86b4eb20b83f17317cbdb9e52c83b47a14ff269847cab4293229",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/USHJ512800-signals.csv": "d13be3a4c90c8bfdcea7b47b13a09c19483f97407c970f2ebeea05dd6052a1cd",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/600917.SH-signals.csv": "2f66a2a65e9a308bf2673bc603d8a6833b2d6726c686cc55c75bcd0e34be69a6",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/USHJ518880-signals.csv": "dc03df65fe1eaf394ebd6fef0bb60d099d7e644f9725aad5477596bbf5fd349d",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/USHJ510300-signals.csv": "1fcb420060fb92973379fe1cbc6ec751eba0f19aa2132552f3a24186e2b308a1",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/HK03033-signals.csv": "8540943d672bc2d8b56c0fe0663fcd0a804d5a27788d7cfccd08feedc262ba70",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/600919.SH-signals.csv": "8c88de8548676c9692988d6c994de2af437e234ca15f742833b6e948f9b530f9",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/HK00002-signals.csv": "28e6e1ac0533bb5642f8e716078f0ac3b4889ce80cf140e5652ca83f8203d776",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/USHJ512690-signals.csv": "4968bf3cfeef872198ec43d2c6edf0119badf3a2c784072d03bfa183f028fc2e",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/USHJ511010-signals.csv": "88933644bcbd6e3c6f1c61d8df08fb339c01244563b9badae6959e3c6c15132f",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/600059.SH-signals.csv": "b870e0e4acf562acdbd962f954f5fb96eb2fc5ce9e0ba6988aa07f20e9c7bf6e",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/HK02800-signals.csv": "ea62a388ec268ae07a0e4fddef1e788124a9f901b4f70fb5ba5838445ae4a2e8",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/USHJ512400-signals.csv": "7247171b47ce5dc6d141b9f21a047a41e419e8d47865a24143828c8d1033f361",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/USHJ515220-signals.csv": "028ae30cc71660b1a6d6a375bc77b43166192743a6472c48be1f60aec4da2f72",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/USHJ512010-signals.csv": "54c4280307f08a7d0d0bf2806dd48a7be6698979a7e3d3725905f541fb165907",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/HK03110-signals.csv": "f2e48329916753b66f8044f86d408e58efa4709d0289ad7687a61ca70dce8afa",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/code/trend_price_region.py": "47de029173dfecf17a1fee68d8528b0219b8c8a9dcbc11e6f880a0388580330d",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/results/trend-behavior-panel-20261020/protocol.json": "40b3912156132d307267cb635b1faa10f6b4a488d184dcfe2cf44eca2030c134"
+  },
+  "cases": [
+    {
+      "id": "S1",
+      "intent": "slow advance",
+      "symbol": "USHJ518880",
+      "group": "etf17",
+      "start": "2025-01-01",
+      "end": "2026-03-31",
+      "checkpoint": "2025-09-01"
+    },
+    {
+      "id": "S2",
+      "intent": "slow advance hypothesis",
+      "symbol": "HK00002",
+      "group": "hk7",
+      "start": "2024-01-01",
+      "end": "2025-03-31",
+      "checkpoint": "2024-07-01"
+    },
+    {
+      "id": "F1",
+      "intent": "fast start",
+      "symbol": "USHJ512480",
+      "group": "etf17",
+      "start": "2024-08-01",
+      "end": "2024-12-31",
+      "checkpoint": "2024-09-30"
+    },
+    {
+      "id": "F2",
+      "intent": "fast start",
+      "symbol": "HK09618",
+      "group": "hk7",
+      "start": "2024-08-01",
+      "end": "2024-12-31",
+      "checkpoint": "2024-09-30"
+    },
+    {
+      "id": "R1",
+      "intent": "consolidation recovery hypothesis",
+      "symbol": "HK00700",
+      "group": "hk7",
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "checkpoint": "2025-05-01"
+    },
+    {
+      "id": "R2",
+      "intent": "consolidation recovery hypothesis",
+      "symbol": "USHJ518880",
+      "group": "etf17",
+      "start": "2024-01-01",
+      "end": "2024-12-31",
+      "checkpoint": "2024-06-03"
+    },
+    {
+      "id": "B1",
+      "intent": "breakdown",
+      "symbol": "USHJ512480",
+      "group": "etf17",
+      "start": "2026-04-01",
+      "end": "2026-10-16",
+      "checkpoint": "2026-07-01"
+    },
+    {
+      "id": "B2",
+      "intent": "breakdown",
+      "symbol": "HK03033",
+      "group": "etf17",
+      "start": "2022-01-01",
+      "end": "2022-12-31",
+      "checkpoint": "2022-04-01"
+    },
+    {
+      "id": "C1",
+      "intent": "range hypothesis",
+      "symbol": "USHJ510300",
+      "group": "etf17",
+      "start": "2023-01-01",
+      "end": "2023-12-31",
+      "checkpoint": "2023-07-03"
+    },
+    {
+      "id": "C2",
+      "intent": "range hypothesis",
+      "symbol": "HK00101",
+      "group": "hk7",
+      "start": "2023-01-01",
+      "end": "2023-12-31",
+      "checkpoint": "2023-07-03"
+    },
+    {
+      "id": "W1",
+      "intent": "weak market rebound",
+      "symbol": "HK03033",
+      "group": "etf17",
+      "start": "2023-01-01",
+      "end": "2023-12-31",
+      "checkpoint": "2023-07-03"
+    },
+    {
+      "id": "W2",
+      "intent": "weak market rebound",
+      "symbol": "HK03690",
+      "group": "hk7",
+      "start": "2022-03-01",
+      "end": "2022-12-31",
+      "checkpoint": "2022-07-01"
+    },
+    {
+      "id": "S3",
+      "symbol": "600919.SH",
+      "start": "2024-01-01",
+      "end": "2024-12-31"
+    },
+    {
+      "id": "C3",
+      "symbol": "600059.SH",
+      "start": "2024-01-01",
+      "end": "2024-12-31"
+    },
+    {
+      "id": "C5",
+      "symbol": "600917.SH",
+      "start": "2024-01-01",
+      "end": "2024-12-31"
+    }
+  ],
+  "metrics": "Causal past5/21 log returns, past5 signed sqrt-volume return, 5-mean/prior21median volume, floor distance, current/prior quantile daily change; all saved transitions, no outcome selected sample",
+  "synthetic": "Reverse closed 21-observation loop with unique interior prices and equal endpoint volume, equal-magnitude last return; identical endpoint region evidence, opposite recent direction.",
+  "stopping": "Complete diagnostics and subjective review; no fit, threshold scan, claims of predictive improvement or new portfolio run",
+  "amendment": "Initial exact symmetry counterexample failed due weighted-quantile tie-order artifact; retained failed inputs, outputs and source. Replace loop with unique interior prices; add minimal tied-price test. No change to model, real sample, metrics or accounts."
+}

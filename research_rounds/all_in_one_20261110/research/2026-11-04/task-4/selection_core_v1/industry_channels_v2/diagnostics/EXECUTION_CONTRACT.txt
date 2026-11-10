@@ -1,0 +1,11 @@
+执行根 FROZEN_CHANNELS_DESIGN.txt，0阈值变化、0新机会规则、0账户/成交/预算仿真。
+只读exante正式97,650行日表原CONT/START/UNION与known。窗口为2022–23、2024、2025–26H1。
+逐日交并/Jaccard在前后都known的行业上统计，空交并分母为unknown，另报known/unknown分母。使用原prevsession列，跨窗口日转移仍注明原观察来源。
+连续段分别在各固定窗口内识别：头日True或unknown后恢复True是左删失；末日True/转unknown为右删失；已知True→False才是退出。窗口截段不当经济退出。分通道段与UNION段分别保留，换CONT/START标签但UNION True不产生UNION退出/重入。
+每段first day与全部active days均保留；first day中左删失另分列，不冒充新进入。短暂1/3/5会话许可比例只在左右均未删失且已知结束的完整段上报告，并同时披露删失数，不能把短剩余窗当短许可。
+价格评价只用已存行业prepared signal至2026-10-22、CSI300原price至2026-10-16，共同会话未来5/20；不压缩缺口。每个期限要求基点及全部未来共同会话行业/市场正价格、原价有效标志、同一行业source segment；缺失/源边界/源末分别标未知，不截短或0补。
+q_abs,j=ln(I_future_j/I_t)，q_rel,j=q_abs,j−ln(CSI_future_j/CSI_t)。final5/20为对应终点，MFE/MAE含j0=0，另存绝对/相对路径极值，不当行业股票组合或可交易收益/总回报。
+未来标签可超出机会统计窗口，沿既存冻结源；duration右删失与price-label右删失是两个字段。
+完整段first day按short<=1/3/5与未来5/20 absolute/relative final<=0作2×2计数，先验阈值不变，不命名真假趋势、不倒推新门。
+配对B_lag5_pairedU与历史B_lag5_ownU分开：后者原历史分子可在full表前5会话取到时，才用整数交叉乘比较变化方向；最初5会话不从浮点猜人数。只作覆盖/成员变动诊断，不生成另一条START资格。
+分原窗口、自然月给覆盖/段数/机会数/标签分布；不报告IID显著性，不把共同市场冲击下的行业日当独立N。formal_PIT始终unknown。

@@ -1,0 +1,75 @@
+原 No60 的执行时钟、实际输入和可执行结论边界
+
+结论已由源码线、实际输入线及独立质疑线交叉核查。本轮没有创建或运行 Market、Account、指标、账户回测或参数测试，没有修改原代码和原行情。
+
+一、确切的原调用时钟
+
+原规则 A OPEN 为 09:30:00+08:00，CLOSE 为 15:10:00+08:00。行情记录声明 close_available_time=15:05:00。这些是研究协议时钟，不是供应商真实发布时间凭证。
+实际 context 在 mainline-I-quarter-2025Q3-20261031/adapter.py:58-65 把 prepared manifest 的记录交给 FastMarket；原 No60 native_adapter.py:31 明确断言 opening 就是 J.Runner.opening。
+原调度 adapter.py:125-136 / launch_v3.py:86-108 将 OPEN、CLOSE、公司行动排序；到 OPEN 就调用 opening，到 CLOSE 才 planning。
+
+FastMarket.window 的核心原样代码（原 fast_market.py:52-63；完整上下文见 code/SOURCE_EXCERPTS.txt）：
+
+  a=self.arr[sid];day=pd.Timestamp(at.date()).value//86400000000000;p=np.searchsorted(a['days'],day)
+  if p>=len(a['days']) or a['days'][p]!=day or not a['valid'][p] or not np.isfinite(a['volume'][p]) or a['volume'][p]<=0:return None
+
+  if policy['reject_flat_day'] and a['high'][p]<=a['low'][p]:buy=sell=False
+  prior=a['volume'][a['positive'][j-20:j]];capacity=int(min(prior.mean()*float(self.protocol['participation_rate']),a['volume'][p]));slip=D(policy['slippage_bps'])/10000
+  if cost_multiplier==2 and policy['stress_slippage']:slip*=2
+  op=D(str(a['open'][p]));price=op*(1+slip if side=='buy' else 1-slip)
+
+其中 p 就是该 OPEN 所在日期。第53行检查当天最终 volume；59行用当天完整 H/L；60行用当天完整 volume 截断容量。原协议 participation_rate=.01、slippage_bps=5。FillWindow 第63行仍使用传入的 at，因此成交时间记为该日09:30，成交价记为该日原始 OPEN±5bp。
+平盘日通常返回 buy_allowed=sell_allowed=False 的窗口，再由 ledger 拒成交；不能笼统说都返回 None。过去20日均量不含当日，前视部分是当日完整 H/L/V。
+
+二、全日 H/L/V 如何反馈到同一 OPEN 的资金
+
+J.opening 原顺序（joint_v3.py:304-324）：
+
+  for sid in sorted(a.exits):
+   win=self.market.window(sid,at,'sell',1)
+   if win:a.fill_exit(sid,win)
+  a.settle_due(at);a.sync(at);funded=[];done=set()
+
+随后第308-318行按冻结 rank，用当天 raw OPEN 做 preview/route/reserve；全部 reserve 完成后，第320-322行才逐个调用 buy window/fill_buy。
+
+由此可确认：
+1. 买方没有先用其未来窗口删掉前排候选再重分这批预算。这项防护存在。
+2. 卖方已先用全日 H/L/V 决定成交及数量；原协议现金 lag=0，307行结算后净卖款可以资助后续买单。该影响还会改变剩余持仓、行业/风险占用及后排订单可获数量。
+3. 买方虽后检查，最终成交仍由全日 H/L/V 决定，并回填同一个原始 OPEN±滑点。
+4. 已知道最终开盘价后才定量，并不证明随后提交的订单还可以按刚发生的开盘价成交。若声称是预先提交的开盘竞价订单，则数量、现金和限价必须在竞价结果公布前可确定；当前路径不是这种证据。
+
+原协议本来批准 A_daily_hl_liquidity、A_same_day_sell_cash_reuse，且写有日线代理局限。本轮确认的是这些代理在实际代码中的影响，未量化收益偏差的方向或金额。
+
+三、实际原行情保存了什么
+
+data_schema/ACTUAL_MANIFEST_BINDINGS.json 将有效 context、prepared/manifest.json、完成运行的 source freeze 和抽查股票绑定。
+抽查 long 的300085.SZ、strong的300666.SZ：各读 execution raw、原 numeric signal、实际 I/E0 facts，共6个原文件。所有日期均为每日午夜且唯一；没有 bid/ask、trade_time、分钟成交等字段。
+raw 有 observed_at 字段，但不是全空：分别113/10行非空，示例值为2026-10-23、26、27的时间戳；所选历史样本2024-10-10、2026-01-16均为空。未逐条认证这些字符串的含义，不能直接当作历史报价发生/可获得时间。
+
+有效 read_raw（current_pool_bridge.py:69-106）明确要求日级日期：
+
+    if (frame.index != frame.index.normalize()).any():
+        raise ValueError('Expected daily dates, not intraday timestamps')
+
+FastMarket.quote 转 native.quotes；实际基类为 ix-a-share-entry-20261025/code/multi_runner.py。其182-219行把 known_at 拼成 Date+声明的15:05，或该日期的声明OPEN，205行原样：
+
+                price, known = dec(row.open), opens[0]
+
+因此此实际执行路径没有消费开盘后报价或分钟成交来支持成交。schema 抽查的结论限上述6个实际文件；没有穷尽搜索整个项目，不能宣称其他目录一定没有分钟数据。
+
+四、满足原账户约束的一次最小因果时序（说明边界，未实施）
+
+T日收盘数据实际收到后：计算当日 E0/I/CP/PVR，冻结意图、保护责任和排序；最早执行时点取下一个交易 session。15:05/15:10的协议声明不能替代真实数据接收记录。
+T+1开盘后：先接收真实报价/开盘成交及其发布时间，检查停牌/涨跌限制、可卖存量、整手、保护距离、现金和风险额度，然后提交订单。不能使用尚未产生的全天 H/L/V。
+若新买依赖卖款：只有卖单实际成交、费用已计且回款按实际可用时钟获确认后，才能据当时的新报价再次审查并提交新买；不能把未成交卖款当现金，也不能回填此前已发生的 OPEN。
+成交后：只按真实成交数量和费用更新现金与责任；部分成交余量、待退出量和不可撤责任继续占账。按原协议，新买 sellable_lag_sessions=1，不能当日卖；原存量须逐 lot 检查 sellable_at。cash lag=0 是该原协议中的设定，不是用日线证明历史券商每笔实际可用时间。
+缺报价/订单/成交时间序列时，不能指定09:31或任何任意分钟作为已验证替代，也不能计算该序列下的替代收益。
+
+五、结论的强弱
+
+可以复核：日线 CLOSE 信号、原意图、拒绝原因及代理下的层、现金、费用和损益；可以说明这套代理假设下账户为何这样变化。
+不能据此证明：09:30真实可成交数量、涨停排队结果、先卖后买的实际报价与顺序、精确滑点、修正执行后的账户收益。
+本轮没有发现或证明 E0/I/CP/PVR 的 CLOSE 公式使用未来日期，也没有证明每一笔收益均高估。平盘过滤、容量和理想 OPEN 价格的误差可能方向不同。
+OFF/原账 exact、FastMarket==基类、按整根日线截断的 prefix exact，分别证明重放/实现/日级前缀一致，不能证明09:30以后那根K线的所有字段已经可知。所有原账“收益”“实际成交”应完整表述为“原日线代理账本记录的收益/成交”，不升级为真实市场回执。
+
+核查入口：code/SOURCE_EXCERPTS.txt、data_schema/ACTUAL_INPUT_SCHEMA_AND_SAMPLES.json、review/READOUT.txt。

@@ -1,0 +1,32 @@
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py
+SHA256 85f21ad1622863645618f570b5f2e832558ebaca218ff2c71d0b4a0b545dd0bf
+20:  out=pd.DataFrame(index=f.index,columns=['r','s','z','B','u','v','m'],dtype=float)
+21:  for _,g in f.groupby('segment_id',sort=False):
+22:   r=np.log(g.close).diff();s=r.abs().shift().rolling(63,min_periods=63).median().mul(1.4826).clip(lower=1e-8)
+23:   B=g.amount.shift().rolling(21,min_periods=21).median();u=np.tanh(r/s);v=np.tanh(np.log(g.amount/B))
+24:   out.loc[g.index]=pd.DataFrame(dict(r=r,s=s,z=s.clip(lower=S_MIN),B=B,u=u,v=v,m=1+.5*u.abs()*v),index=g.index)
+25:  return out
+26: def calculate(f,price_only=False):
+27:  z=features(f);out=[];phase=None;anchor=frontier=scale=None;credit=0.;segment=None
+28:  for day,row in f.iterrows():
+29:   q=z.loc[day];p=math.log(row.close);fresh=0.;receipt=False;candidate=math.nan;reason=None;disp=math.nan
+30:   if row.segment_id!=segment:
+31:    phase=None;segment=row.segment_id;reason='source_reset'
+32:   ready=math.isfinite(q.z)
+33:   if not ready or not row.e0_valid:
+34:    phase=None;anchor=frontier=scale=None;credit=0.;reason='unprepared' if not ready else 'E0_invalid'
+35:   elif phase is None or row.e0_down:
+36:    phase='SEEK';anchor=frontier=p;credit=0.;scale=float(q.z);reason='E0_down_reset' if row.e0_down else 'start'
+37:   elif phase=='SEEK' and gt(anchor,p):
+38:    anchor=frontier=p;credit=0.;scale=float(q.z);reason='lower_anchor'
+39:   else:
+40:    fresh=p-frontier if gt(p,frontier) else 0.
+41:    if fresh:
+42:     frontier=p;credit=math.fsum((credit,fresh*(1. if price_only else float(q.m))))
+43:    disp=frontier-anchor
+44:    receipt=bool(fresh and ge(disp,A*scale) and ge(credit,A*scale))
+45:    if receipt:candidate=float(row.close)*math.exp(-K*scale)
+46:   used_anchor,used_scale,used_credit=anchor,scale,credit
+47:   used_phase=phase
+48:   if receipt:
+49:    phase='UP';anchor=frontier=p;credit=0.;scale=float(q.z);reason='receipt_consumed'

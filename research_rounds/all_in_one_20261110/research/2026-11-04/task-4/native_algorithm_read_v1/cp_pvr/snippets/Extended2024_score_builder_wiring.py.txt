@@ -1,0 +1,8 @@
+O=Path(__file__).resolve().parent
+W=Path('/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds')
+P=W/'pvr-slot1-native-readiness-20261101';H=P/'continuation-2023-readiness';U=W/'universe-cp1-inputs-20261031'
+TRACE=W/'cp1-evidence-trace-20261031/trace.py'
+FORMULA=W/'pvr-current-v3-information-capital-20261101/original_score_function.py'
+MODEL=Path('/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py')
+H1=Path('/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/h1.npz')
+BEGIN,END,CUT='2024-01-01','2024-12-31','2024-06-28'

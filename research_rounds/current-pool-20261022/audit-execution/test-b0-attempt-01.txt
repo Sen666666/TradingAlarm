@@ -1,0 +1,16 @@
+test_below_one_lot_keeps_explicit_target_and_cash (test_b0_rebalance.B0Tests.test_below_one_lot_keeps_explicit_target_and_cash) ... ok
+test_empty_pool_requests_exit_and_retains_no_hidden_buy_target (test_b0_rebalance.B0Tests.test_empty_pool_requests_exit_and_retains_no_hidden_buy_target) ... ok
+test_finite_reduction_preserves_target_position_and_no_trend_exit_event (test_b0_rebalance.B0Tests.test_finite_reduction_preserves_target_position_and_no_trend_exit_event) ... ok
+test_fractional_target_units_fail_without_partial_controller_edit (test_b0_rebalance.B0Tests.test_fractional_target_units_fail_without_partial_controller_edit) ... ok
+test_missing_sale_quote_fails_before_old_instructions_are_cancelled (test_b0_rebalance.B0Tests.test_missing_sale_quote_fails_before_old_instructions_are_cancelled) ... ok
+test_more_than_six_targets_and_no_buys_at_annual_decision (test_b0_rebalance.B0Tests.test_more_than_six_targets_and_no_buys_at_annual_decision) ... ok
+test_new_year_cancels_only_old_annual_instructions_and_refreezes (test_b0_rebalance.B0Tests.test_new_year_cancels_only_old_annual_instructions_and_refreezes) ... ok
+test_sell_first_and_unsettled_proceeds_cannot_fund_new_annual_buy (test_b0_rebalance.B0Tests.test_sell_first_and_unsettled_proceeds_cannot_fund_new_annual_buy) ... ok
+test_split_adjusts_frozen_units_not_original_evidence_or_gross (test_b0_rebalance.B0Tests.test_split_adjusts_frozen_units_not_original_evidence_or_gross) ... ok
+test_stable_issuer_route_and_later_selection_does_not_rebudget (test_b0_rebalance.B0Tests.test_stable_issuer_route_and_later_selection_does_not_rebudget) ... ok
+test_unknown_and_false_market_pause_without_replacing_budget (test_b0_rebalance.B0Tests.test_unknown_and_false_market_pause_without_replacing_budget) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.001s
+
+OK

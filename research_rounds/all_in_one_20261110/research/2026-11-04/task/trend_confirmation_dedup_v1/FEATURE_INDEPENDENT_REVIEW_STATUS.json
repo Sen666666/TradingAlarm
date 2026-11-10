@@ -1,0 +1,6 @@
+{
+  "audit": "/Users/bytedance/Documents/Codex/2026-11-04/task/independent_review/trend_confirmation_flags_v1/FEATURE_SOURCE_AND_RECEIPT_AUDIT.json",
+  "SHA256": "5b924905406ba6485b315efc1f36ddc3700ce1c1b654711c3703a85e26d9191e",
+  "scope": "source and saved producer physical-prefix receipts; no independent second feature engine, no account admission",
+  "passed": true
+}

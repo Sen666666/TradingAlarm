@@ -1,0 +1,54 @@
+2026-11-05｜原CORE行业资本需释放下界，非轮动账户/卖单
+
+计算完整完成73.499秒，100秒硬限内。旧events未修改；无新Account/RiskBook，
+不准备全市场，只对7634个原S0旧行业snapshot的18703个stock-OPEN按需取价。
+18656个严格known_at=该OPEN且native mark=该日raw OPEN；47个陈旧/非OPEN参考单列。
+MARK.price只用于加载只读view，返回的CLOSE价弃用；金额实际调用原F.latest_mark(atOPEN)。
+
+优先文件
+RELEASE_BOUND_EVENTS.jsonl.gz：全33569事件的金额/比例/unknown/原front引用。
+SNAPSHOT_OPEN_VALUES.json：旧层分项与原锁证据、gross和去已知锁后的上界。
+OPEN_MARK_STATUS.json：每个stock-OPEN的known_at/raw OPEN/native source/陈旧状态。
+RELEASE_BOUND_SUMMARY.json：raw、原全窗source/I首拒、2026H1半导体分母。
+SECTOR_ONLY_FIRST_RELEASE_SUMMARY.json：可能直接针对行业门的170首拒单独保留。
+带.partial文件只为过程审计，完整结果以不带.partial文件及complete:true为准。
+
+公式与安全边界
+SC_old=原S0幸存旧层实际数量×该OPEN真实raw mark，同业所有pool都算；
+front=原候选之前同业实际已提交reserved gross，不能假撤或当旧可卖股票；
+CnG=原dated最小BUY单毛额(含原买入5bps价格，不含买费)。
+NAVupper只复用旧P原资源表的window/OPEN全局S0乐观上界，不用其行业SC。
+L=max(0,SC_old+front+CnG-.02*(NAVupper+1e-6))。
+最终SAFE再减1e-6元；与旧库存上界比较亦加1e-6元。不改变经济门槛，只保守对待浮点。
+忽略卖出滑点/费用造成的NAV下降，所以L只是资本减少的乐观必要下界，并非足够卖量。
+其他现金/probe/行业风险等门仍未知，不以L=0称获准；更不能按原新标签收益决定卖旧。
+
+可释放上界
+old_inventory_gross是假设所有旧库存可按raw OPEN卖出的gross上界；
+nonlocked_old_gross_upper剔除明确由前CLOSE pending sid+存活层退出reason证明的锁。
+未完整重构的公司行为新股/T+1/容量/涨跌停/FIFO可卖性仍可能令可动量更小。
+故L大于全部旧gross(或去已知锁后upper)可证明卖光这批可考虑旧库存也不够；
+反方向不成立，L未超过上界并不代表真正可以卖，更没有得到可执行换仓利润。
+外行业卖出不能释放此行业SC；原front新单不可假撤、同OPEN新股T+1不可卖。
+
+完整分母
+全raw33569：33168金额界已知、209旧价格陈旧/非OPEN、192缺既有NAVupper，均保留。
+原首拒8335：8306已知，17陈旧/非OPEN、12缺NAVupper。
+已知首拒L常规中位14550.02元；逐事件L/CnG中位5.15倍(不是两个中位数相除)。
+2647首拒即使卖光全部旧gross仍不足；254最小单本身就超2%乐观额度。
+H1半导体raw592：585知/7陈旧；其原全窗首拒子集167全知。
+167首拒L中位29119.72元、L/CnG中位3.67倍，60卖光全部旧gross仍不够，
+10最小单本身超额度。这里FIRST是原全window首拒在H1的子集，不在H1重新重置取首。
+
+单独行业门首拒不能混入8165多门首拒宣称单改行业即可放行
+capital-only153中147金额知：L中位4851.36元、L/CnG中位5.05，53卖光旧gross仍不够。
+两sector门17全知：L中位96276.53元、L/CnG中位107.98，2卖光仍不够。
+合计行业-only170中164知：L常规中位13159.16元、逐事件比例中位12.89。
+这些仍不是收益/可交易配对，只说明不能默认卖Cn旧仓买Cn新股就能满足原2%行业门。
+
+独审RELEASE_BOUND_SAVED_REVIEW.json已PASS保存金额公式/覆盖计数(未重新跑marks)。
+原聚合对偶数N取了上中位，现仅saved显示重聚合0.679秒，改为两中点均值；
+原summary已归档，raw金额行及所有阻挡/unknown计数未变。见SAVED_DISPLAY_CORRECTION。
+
+金额不跨重复日相加为资金缺口/经济提升。同日多候选共享原钱/额度，首组也非独立冲击。
+全部事件保持原key和其它原拒因，父研究负责新旧同期净评价；本目录不构造该金融结果。

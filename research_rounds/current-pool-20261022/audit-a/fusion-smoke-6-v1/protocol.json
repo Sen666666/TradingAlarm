@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-10-22T16:07:07.323404+00:00",
+  "prepared": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/audit-a/prepared-current-master-v1",
+  "master_sha256": "232d7cb382b558fd8ea09b3f090639985c28bb0dc7535a2aaefaa300f54fe13d",
+  "downloads": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads",
+  "batches": [
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/a-01-tail-and-new-001",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/a-pilot-01",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/hk-pilot-01"
+  ],
+  "start": "2013-01-01",
+  "end": "2026-10-22",
+  "network_requests": 0,
+  "account_runs": 0,
+  "limit": 6,
+  "source_merge_policy": "Canonical old overlap preserved; conflicting new source quarantined whole; no-overlap requires bridge.",
+  "source_boundary_policy": "Short/empty terminal page proves available-source boundary, not an exchange listing date or suspension reason.",
+  "action_policy": "Data collection closure distinct from precise pay-date accounting; raw id211 and unparsed records retained."
+}

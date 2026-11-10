@@ -1,0 +1,12 @@
+{
+  "ready": true,
+  "scope": "read-only coverage diagnostic, all native1709 original90 sectors",
+  "canonical_rows": 40003,
+  "industry_rows": 47160,
+  "verification_checks": 54,
+  "report_sha256": "67466ed2cbcbdd3e30774d52215c8b41962f8d57d98b967538ee5a8a0fe5e17c",
+  "formal_wait_file": "STOCK_CONTEXT_WAIT_ASOF.parquet",
+  "formal_wait_sha256": "ddc04c14d105f5141cbab96c43ffcc32fd2091f04471a078a72d4c0b8802960a",
+  "may7_old_to_complete": "61/54 -> 62/55; only 300184.SZ",
+  "no_strategy_or_account_changes": true
+}

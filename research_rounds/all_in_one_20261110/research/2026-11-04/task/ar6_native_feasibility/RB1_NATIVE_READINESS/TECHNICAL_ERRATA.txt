@@ -1,0 +1,1 @@
+Initial read-only checker stopped before any summary: a reused original facts file extended to Oct2026 while canonical CP1 input ends Jun2026. Corrected checker uses common frozen loader horizon through2026-06-30. No source files changed, no account/feature/candidate run. Failed source retained as check_sources_v0_failed_horizon.py.

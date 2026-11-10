@@ -1,0 +1,27 @@
+固定原目标在完整strong_ON的真实路径追踪：当前仅准备
+
+不得读取未完成的新经济账；收到root DONE通知后且新run/DONE.json.completed=True才执行。
+本目录独占，只读全部旧账/最终新账，不创建Account、Runner、Market、RiskBook或新交易。
+不新增marks、不恢复、不重放、不改变full源、规则或运行路径。
+
+固定三个分母
+1 原ALL11 signal/OPEN，9原窄臂机会与2 sector_risk原拒并列，不按新结果删行。
+2 原H1半导体25实际层/18股全部信号与参与链，不只新有买单的点。
+3 固定metadata全部126半导体身份，新全账实际H1买入/持有/退出，包括H2既有CORE带入、
+  没买/全程空仓者。行业身份只评价，不能回流规则。原25买层不代表原126全部机会。
+
+跨账匹配只用sid+signal_day+原source/Iepoch+canonical receipt；原layer ID仅原材料引用。
+新账内部layer ID仅用于本账trade/journal/daily层对账，不拿原旧ID寻找新层。
+先查新信号CLOSE op/decision/ACT/持仓/真实此前CORE fill epoch；已有同I CORE必须列为
+更早参与，不能因该原点无新CORE买单就判未修复。已锁退出/ACT暂停仍另列，不能掩盖。
+5仅Mobile held/7原尺寸不自动转CORE；新NAV下尺寸/现金/行业风险及既有持仓都可能变化。
+
+新CORE intent存在才逐OPEN核原真实funding及native core-confirmed before/after；保存新
+frozen cap/budget/risk、preview maxq/最小量、联合拒因、真实reserve和实际fill。未预留/未填
+与更早已持有分开。原Mobile数量/收益不得复制给新Core；真正资金前缀用新book原reserve。
+fallback日志after.available在route返回、ledger reserve之前；真实最终可用以native账为准。
+未记录全SC/SR/NAV的非fallback分支明确UNKNOWN，不新造RiskBook/全市场marks补齐。
+
+全126参与只用真实qty/roles/事件；权重/期末未平净收益可接root完成的原价源财务分析，
+本脚本不以cost当市值、不用未来价格制造PnL。closed layer cash+div可标实际整层终身净额；
+open layer cash+div必须标现金余额非利润。每个旧原目标都保留实际新路径及证据来源。

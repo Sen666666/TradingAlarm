@@ -1,0 +1,92 @@
+[
+  {
+    "sector": "TECH",
+    "stress": "base",
+    "requests": 26,
+    "actual_restore_fills": 16,
+    "actual_gate": {
+      "fail": 13,
+      "pass": 3
+    },
+    "all_request_workflow": {
+      "no_fresh_I_Q_observed": 14,
+      "first_IQ_fail": 12
+    },
+    "reason_combinations": {
+      "new_E0_price_volume_up_event": 6,
+      "new_E0_price_volume_up_event|new_S21_up_confirmation": 4,
+      "new_S21_up_confirmation": 2,
+      "new_price_frontier_in_confirmed_up_structure": 4
+    },
+    "new_E0_starts": 0,
+    "same_epoch": 16,
+    "old_B_available": 26
+  },
+  {
+    "sector": "TECH",
+    "stress": "delay1",
+    "requests": 28,
+    "actual_restore_fills": 10,
+    "actual_gate": {
+      "fail": 8,
+      "pass": 2
+    },
+    "all_request_workflow": {
+      "no_fresh_I_Q_observed": 13,
+      "not_applicable_not_flat": 2,
+      "first_IQ_fail": 13
+    },
+    "reason_combinations": {
+      "new_price_frontier_in_confirmed_up_structure": 9,
+      "new_S63_up_confirmation|new_price_frontier_in_confirmed_up_structure": 1
+    },
+    "new_E0_starts": 0,
+    "same_epoch": 10,
+    "old_B_available": 28
+  },
+  {
+    "sector": "DRUG",
+    "stress": "base",
+    "requests": 31,
+    "actual_restore_fills": 20,
+    "actual_gate": {
+      "fail": 20
+    },
+    "all_request_workflow": {
+      "first_IQ_fail": 17,
+      "no_fresh_I_Q_observed": 14
+    },
+    "reason_combinations": {
+      "new_price_frontier_in_confirmed_up_structure": 3,
+      "new_E0_price_volume_up_event|new_S21_up_confirmation": 3,
+      "new_E0_price_volume_up_event": 9,
+      "new_S21_up_confirmation": 3,
+      "new_E0_price_volume_up_event|new_price_frontier_in_confirmed_up_structure": 1,
+      "archive_unknown": 1
+    },
+    "new_E0_starts": 0,
+    "same_epoch": 20,
+    "old_B_available": 31
+  },
+  {
+    "sector": "DRUG",
+    "stress": "delay1",
+    "requests": 30,
+    "actual_restore_fills": 11,
+    "actual_gate": {
+      "fail": 11
+    },
+    "all_request_workflow": {
+      "no_fresh_I_Q_observed": 11,
+      "first_IQ_fail": 18,
+      "not_applicable_not_flat": 1
+    },
+    "reason_combinations": {
+      "new_price_frontier_in_confirmed_up_structure": 9,
+      "new_S21_up_confirmation": 2
+    },
+    "new_E0_starts": 0,
+    "same_epoch": 11,
+    "old_B_available": 30
+  }
+]

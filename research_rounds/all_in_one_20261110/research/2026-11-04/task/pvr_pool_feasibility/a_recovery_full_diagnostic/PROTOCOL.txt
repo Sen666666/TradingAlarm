@@ -1,0 +1,18 @@
+A_PRIOR63_MEAN_RECOVERY 全原暂停阶段诊断；先冻协议，0新账户/S0
+2026-11-04。唯一候选/0参数修订：同原NATIVE1709 synthetic market M，M_t>mean(M[t-63:t])，M_t>M_(t-1)，原fast=breadth>.6。前63槽排今日；不加均线斜率/5日连续/股行业门，不换窗口，不补AB。
+
+完整母体固定：No60自身2022-01-04→2024-12-31全部726原risk_checkpoint；另独立原2025-07-01→2026-06-30 strong全部242。逐一提取每实际pause至实际resume（或源截止右删失）的episode，不挑已讲两段、不在跨年重置；强窗无pause也明确分母0。
+原flat直接读取risk_checkpoint.advance前记录：无实际股票/无挂买/无退出单，不要求pending CLOSE intents或AR=0。pause当日不能同次恢复。原resume日虽post on=True但pre on=False，须保留为旧BREAK恢复边界。所有其他originalpaused且flat日都保留。
+
+每episode必出：实际pause/首flat/实际resume或删失、首原BREAK许可、首A输入、首A新增许可(A且非原BREAK)、全部A许可及全部新增许可日数/逐日记录、原暂停日nav/peak与候选许可日原nav/cash。actual oldstate只用于描述候选可作用范围，不当新策略后来状态。
+所有日期共同算固定21/63原市场观察后的诊断背景：终点M变化、最大上行/最大下行与包含起点的峰后回撤；完整后窗与源末右删失分开，不把部分63当完整63。未来标签仅诊断，绝不进入A、原Q或真假定义。M为非可交易复合price，任何涨幅/回撤不叫账户收益/可做空利润。
+‘假恢复’不以原账户未来亏损先分类。只并列上述完整固定后窗与最大逆行/回撤、后续A许可和旧BREAK时间；没有独立真趋势标签，不造假恢复胜率。特别完整呈现2023Jul20暂停后至2023末/2024旧恢复、2024Mar1及所有其他episode；无新增日同样保留。
+
+信号/机会母体：对每A新增许可日，从原保存opportunities全1709身份读取core_Q、mobile_Q、freshCP1、原role和所有barriers；仅将ACT_paused看作正在讨论的恢复门，其他障碍保持。每段首增量与全部增量均保留，不只赢家。
+最小合法量若可直接从已有数据解析：以精确原CLOSE信号、原dated买入单位/原freshCP1与I保护/原行业active及attempt身份/原2%mobile或原core风险目标，报告‘单只独立最小单位可能承接’数值；使用后续OPEN价格时只标执行参考，不当CLOSE已知。实际现金沿oldflat原账，未付AR不能当现金。仅逐单保守下界/必要条件，不并加为组合总可成交，不生成订单/资金预留/新S0、不按新政策推进后续状态。
+若缺某项原合同/源/身份，未知单列，不用简化费用/100股一律代替；本阶段仍可先交全部episode+市场延续/逆行+原Q/freshCP1第一关键结果。原off账户无实际fill不能冒称已验证新账户可执行下界。
+
+既有负对照完整复用：407/11 recovery-only原REC21/REC21_P5/RECEMA_P5与ACT20_BREAK12路径的normal/cost2/delay1、试错与尾部、2026Aug假恢复实际损失。原63max基准不保证最优，旧EMA较早且压力排名反转不能当A已证有效。不得选单一压力最高收益。
+
+源：原recovery.csv+已有known/coverage导出；两个原book/daily/opportunities；已冻原输入manifest/quantity/fee/CP1/state。M不能只因fillna后有限就认作真实可知；原2022–26已有可观察覆盖证据须绑定。只读既有文件，不下载行情/重算原I/CP1/新账户。
+停止/推进：如果A新增许可大多处于明显后续逆行，或更早但没有原有效信号/合法尺寸，关闭A；真实延续与不利样本并存则只报告取舍，不自动小验证。即使市场后窗好，也不能据此直接授予新金融路径。所有新数值均在本协议SHA冻结之后。

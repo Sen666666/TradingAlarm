@@ -1,0 +1,32 @@
+真实全清后重入：事前排重与机制审查（2026-11-04）
+
+当前裁决：只支持一个全母体只读冗余/边界诊断，不支持新账户、定仓或执行接线。
+最先要回答的是新close-high条件是否提供任何新增信息。若在原fresh CP1+Q母体几乎同义，则否决将其包装为新的重入质量算法。当前No60原mobile已有真实全清后的freshCP1再参与通道，不可称旧系统完全没有再入。
+
+一、CP1对『退出后最高收盘』的条件性蕴含
+令tau为真实全股清仓完成日，H(t)=max{C(s):tau<=s<t}，仅比较同源同经济价格坐标的真实已知收盘。
+原calculate在每次有效观察更新frontier=max(oldfrontier,logC)。fresh>0才允许receipt；receipt_consumed后frontier只是设为当前刚创新高的logC，不降低。
+因此，只要[tau,t)整段都在同一个未降低/清空frontier的run，fresh CP1严格蕴含C(t)>H(t)。这不需要满63日，退出后短窗也成立。
+不能用『同I段/同attempt/同source』直接替代该run假设。会破坏蕴含的边界：source变更；unprepared；e0_valid=False（当前stock绑定实际I有效性）；e0_down；phase首次start；SEEK lower_anchor。应读真实reset_reason、source和上游绑定，不能将receipt_consumed当降低frontier的重置。
+所以非冗余候选主要落在重置后的修复/新结构，要求重回退出后的旧高会额外推迟这些反转；这不是已证明更可靠的证据。
+
+若『局部高点』改成max(OHLC high)，CP1只消费close，不能推出C(t)>此前high。这是独立更强的wick-break门，不能与max-close结果混用，也不能在close门冗余后悄悄换high来救候选。当前优先固定close版本。
+
+二、时钟、首日空窗和公司行动
+- tau是所有core/mobile/旧attempt实际总股数归零的回执，不是exit request日，也不是某一层close。零股后仍有未ACK买/卖责任要继续计，不凭零股数释放承诺。
+- 真实OPEN清仓后，同日CLOSE原fresh信号可以合法为次OPEN排队；但H(t)的[tau,t)同日集合为空。若规定空窗不通过，相当于新增至少一天等待，不应称已有高点检验。保留单独empty_first_close标签；不能临时引入退出信号日高点补空。
+- 使用t之前已形成的高点，不能把t的high/close放进被突破门槛。不得未来极值确认pivot后倒填形成日期。
+- CLOSE/raw HIGH/actual fill必须同权息坐标。跨source不可拼接，缺观察不填前价造新高。源缺口/动作unknown应留unknown；沿既有declared corporate-action proxy不升级为真实PIT认证。
+
+三、旧机制精确排重
+1. rearm-risk-boundary / negativeevent v2：变化在持有期的负event锚、冻结风险线、安全移交/再武装与额外退出；真实清仓后按原新I/Q正常竞争，无退出后max-close门和专用小额再入。TECH正常298.42%→109.92%，负周期损耗62.41→128.08万等负证据禁止复活原额外退出。当前不改原退出，因此不等同该整套政策；不能把其负结果说成所有再入都已无效。
+2. entry-loss-budget/reentry-local153：实际成本10/20/30%预算退出后，同原E0结构内原fresh I/Q闭环；清仓前信号不重播，OPEN全清后同日新I可次OPEN买，原条件资源/15%目标；没有新高门或专用独立小试风险。完整账户已显示正常同段再入稀少及容量/ACT传导，不能把局部恢复收益当可得整户收益。
+3. Frozen R1-IR-20261024：R波幅退出信号后，原E0仍有效，新正event的pivot必须晚于退出信号且pivot close高于退出支持F_x；不是实际全清后max-high门。严格新pivot会漏V形，旧2波幅出口也会切碎趋势，不能换名。
+4. lot-aware R1-20261031：另一同名R1是完整2%目标不足最小手时确认池一次最低单位、最多4%NAV例外；明确真实全清后新canonical CP1可再入、core_epoch不禁mobile。它改合法单位能力，不是新重入质量证据；当前不能为昂贵后验赢家复活4%例外。
+5. N1/BSR-1：原I/当日新CP1/新F事件可在真实空仓后重试，不受同I段只建一次core限制；初始2%目标且可补最小单位到股10%上限，用继承V保护，买后成本proof晋升与mobile快保护。原市场CP1不因账户卖出重置。当前『空仓+新合法CP1+小试』已与此高度重合；若只重复新鲜度和2%，不新。结构持有N1只改TRIAL/CORE额外保护，不是新入场。
+6. LR1/L0_ADD：空仓首次为原I，含费0.25%NAV到原floor风险/单张10%；core_epoch段内消耗。CP1 ADD须已有真实核心、close高于最近实买价、2%目标。它没有开放空仓CP1首次/同段重入，因此与当前No60全清mobile不同；不能直接移植锁或声称ADD规则已检验本新门。
+
+四、『允许限定风险』还不是独立新通道
+No60已有fresh reentry与通常2%名义目标；2%资本不是2%风险，core原0.25%风险又是不同角色。新增close门不会释放现金或行业风险，也不能给未成交的原receipt延寿。
+如果真正变化是更小的再入风险数量、预留恢复现金或提高重入优先级，应作为唯一资本政策另行定义、排重RB1/R0与旧小试结构，并报告最小手/原floor/费用/现金/行业上限的可达量和赢家裁剪代价。无资金时不能默认卖健康旧仓。
+本轮先只量化：真实flat后所有原fresh CP1+Q（含未获资和坏例）的PASS、FAIL、空首日、unknown；标出是否实际原run重置、是否原Q/ACT、是否计划/成交、原拒因和原后续路径。多行业/全2022–24和独立strong窗分开，未来端点只评价。若FAIL只在少量新结构或无有意义规模，拒绝新gate，不加新的high窗口/阈值救结果。

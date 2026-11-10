@@ -1,0 +1,119 @@
+{
+  "passed": true,
+  "seconds": 11.630161041859537,
+  "real": [
+    {
+      "symbol": "000001.SZ",
+      "rows": 3271,
+      "original_observation_index_exact": true,
+      "invalid_or_synthetic_native_slots": 0,
+      "A_known": 3207,
+      "B_known": 3251,
+      "A_true": 1311,
+      "B_true": 109
+    },
+    {
+      "symbol": "300001.SZ",
+      "rows": 3186,
+      "original_observation_index_exact": true,
+      "invalid_or_synthetic_native_slots": 0,
+      "A_known": 3122,
+      "B_known": 3166,
+      "A_true": 1360,
+      "B_true": 119
+    },
+    {
+      "symbol": "688001.SH",
+      "rows": 1682,
+      "original_observation_index_exact": true,
+      "invalid_or_synthetic_native_slots": 0,
+      "A_known": 1618,
+      "B_known": 1662,
+      "A_true": 590,
+      "B_true": 57
+    }
+  ],
+  "physical_prefix_checks": [
+    {
+      "symbol": "000001.SZ",
+      "cut": "2022-04-29",
+      "rows": 2263,
+      "exact": true
+    },
+    {
+      "symbol": "000001.SZ",
+      "cut": "2024-09-23",
+      "rows": 2846,
+      "exact": true
+    },
+    {
+      "symbol": "000001.SZ",
+      "cut": "2026-03-31",
+      "rows": 3211,
+      "exact": true
+    },
+    {
+      "symbol": "300001.SZ",
+      "cut": "2022-04-29",
+      "rows": 2178,
+      "exact": true
+    },
+    {
+      "symbol": "300001.SZ",
+      "cut": "2024-09-23",
+      "rows": 2761,
+      "exact": true
+    },
+    {
+      "symbol": "300001.SZ",
+      "cut": "2026-03-31",
+      "rows": 3126,
+      "exact": true
+    },
+    {
+      "symbol": "688001.SH",
+      "cut": "2022-04-29",
+      "rows": 674,
+      "exact": true
+    },
+    {
+      "symbol": "688001.SH",
+      "cut": "2024-09-23",
+      "rows": 1257,
+      "exact": true
+    },
+    {
+      "symbol": "688001.SH",
+      "cut": "2026-03-31",
+      "rows": 1622,
+      "exact": true
+    }
+  ],
+  "synthetic_checks": [
+    "equal_price_zero_slope",
+    "independent_EMA_recursion",
+    "independent_MA_BB_arithmetic",
+    "unknown_slot_rewarms_without_compression",
+    "ineligible_slot_same_unknown_behavior",
+    "source_boundary_rewarms"
+  ],
+  "new_accounts": 0,
+  "full_universe_feature_exports": 0,
+  "no_native_integration": true,
+  "params": {
+    "ma": 60,
+    "ma_lag": 5,
+    "bb": 20,
+    "bb_k": 2.0,
+    "bb_ddof": 0,
+    "ema_span": 10,
+    "ema_lag": 3,
+    "ema_adjust": false,
+    "ema_min_periods": 10,
+    "weak_multiplier": 0.5,
+    "strong_multiplier": 1.0,
+    "bb_rule": "fresh_cross",
+    "coordinate_rtol": 1e-10,
+    "coordinate_atol": 1e-10
+  }
+}

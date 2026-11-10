@@ -1,0 +1,12 @@
+{
+  "name": "E3_epoch_local_semantics_only",
+  "status": "POST_E2_DESIGN_NO_ECONOMIC_PROMOTION",
+  "root": "Use original cached I_entered/I_exited/I_target solely as existing causal structural epoch boundaries. On I_entered, previous local failure debt is retired explicitly, not carried across a structurally new original I segment. Before fresh I entry left-censored active state remains UNKNOWN.",
+  "prebreak": "At fresh I entry freeze B=max prior20close, S=min prior5low-.25prior20ATR and a=prior20ATR. If C<=B: PREBREAK small-risk research observation; if C>B: FIRST_BREAK at tau_break=t. Original i_buy can make PREBREAK a separate exploratory candidate; do not pretend it is confirmed or add maturity score.",
+  "firstbreak": "From PREBREAK, first C>B sets tau_break. Consecutive new highs update peak but not tau_break. Confirmation requires later C>B, C>C_tau_break, positive signed amount since break. Before firstbreak, being below B is expected and does NOT trigger breakout-rejection; only C<S or originalIexit invalidates.",
+  "rejection": "After firstbreak, C<S or highamount down close belowB enters REPAIR_WAIT; freeze H_failure. Reclaim above max(H_failure,previous2closes) can occur nextday. No cooldown. New originalI entry resets this local debt.",
+  "independent_rebase": "Within same I epoch, confirm trough at k only at t=k+2 when L_k is strictly below previous2 lows and <=next2 lows. Two consecutive confirmed troughs k1<k2 with Lk2>Lk1 define support Lk2; overhead B=max highs from k1 through k2. After both troughs are confirmed, first C>B can replace old failure pressure with new base, S=Lk2-.25prior20ATR. Old failed event remains in audit history. This costs at least two right-side bars and may miss V-reversals, which are handled only by separate PREBREAK small-risk observations/newI epochs.",
+  "continuation": "After break, same E2 pullback>=frozenATR enters local setup; first later C>previous2closemax creates PULLBACK with support actual setuptrough-.25setupATR; it does not end the root I epoch or replace real holding exits.",
+  "ranking": "No economic rerank in this version. PREBREAK/firstbreak/verified/reclaim remain separate states. E2 conditional-score family is NOT accepted; all known E2 cell bounds were nonpositive. Need new prespecified event-return study before any main ranking claim.",
+  "scope": "Same37known stocks, original sources unchanged, prefix-causal semantics only. User requested mathematical design and checking; no accounts, no parameter grid."
+}

@@ -1,0 +1,36 @@
+冻结原CP信号级评估：完整4族×3输出结果，非账户/交易结果。
+2026静态池条件母体；当前行业映射PIT未证。2024/2026此前已研究，仅时间留出复核。
+所有系数/标准化/MAE切点只用2022—23、实际label_end不晚于2023-12-31开发集。验证不重fit、不选新窗/方向/阈值，不clip线性预测。
+开发fit每股总权重相等；主评价是未加权原CP事件。标签MFE/MAE/FINAL为后20有效股票观察的收盘自然log价格路径，不是可实现回报。
+全母体99031，purged开发标签34550，跨开发边界purge 1163。
+全purged开发标签一次固定尾阈：MFE90=0.198144710452，MAE10=-0.190991730403；含等号、保留ties。
+
+G1_RS: train 34290事件/1588股；predMAE20%加权经验切点 -0.102071439931；低于才去除，等于保留。
+  V2024: feature/fullCP=99.3426%, kept/fullCP=82.8601%, conditionalKeep=83.4084%; MAE q10差=0.030294, FINAL中位差=0.006884, 上尾保留−条件保留=-0.038906; meanMAE差95%股票CI=[0.012071,0.013763]。
+  V2025: feature/fullCP=99.1150%, kept/fullCP=76.6930%, conditionalKeep=77.3778%; MAE q10差=0.029853, FINAL中位差=0.001475, 上尾保留−条件保留=-0.172402; meanMAE差95%股票CI=[0.010574,0.012181]。
+  V2026H1: feature/fullCP=98.9997%, kept/fullCP=62.7443%, conditionalKeep=63.3783%; MAE q10差=0.047371, FINAL中位差=0.000042, 上尾保留−条件保留=-0.155872; meanMAE差95%股票CI=[0.018709,0.022412]。
+  全三验证期所有预注册门：False
+G2_PRICE: train 34058事件/1588股；predMAE20%加权经验切点 -0.0972371393406；低于才去除，等于保留。
+  V2024: feature/fullCP=98.9189%, kept/fullCP=64.7103%, conditionalKeep=65.4176%; MAE q10差=0.029065, FINAL中位差=0.007424, 上尾保留−条件保留=-0.042547; meanMAE差95%股票CI=[0.012589,0.014447]。
+  V2025: feature/fullCP=98.3461%, kept/fullCP=62.8689%, conditionalKeep=63.9262%; MAE q10差=0.043825, FINAL中位差=0.001977, 上尾保留−条件保留=-0.208343; meanMAE差95%股票CI=[0.015611,0.017686]。
+  V2026H1: feature/fullCP=98.2819%, kept/fullCP=50.3360%, conditionalKeep=51.2159%; MAE q10差=0.061322, FINAL中位差=0.000269, 上尾保留−条件保留=-0.178202; meanMAE差95%股票CI=[0.026026,0.030193]。
+  全三验证期所有预注册门：False
+G3_AMOUNT: train 34328事件/1588股；predMAE20%加权经验切点 -0.0924173993136；低于才去除，等于保留。
+  V2024: feature/fullCP=99.3941%, kept/fullCP=74.6109%, conditionalKeep=75.0657%; MAE q10差=0.019917, FINAL中位差=0.002691, 上尾保留−条件保留=-0.034824; meanMAE差95%股票CI=[0.009077,0.010649]。
+  V2025: feature/fullCP=99.1911%, kept/fullCP=80.3452%, conditionalKeep=81.0004%; MAE q10差=0.004843, FINAL中位差=0.001274, 上尾保留−条件保留=-0.048896; meanMAE差95%股票CI=[0.002141,0.003303]。
+  V2026H1: feature/fullCP=99.0455%, kept/fullCP=82.0785%, conditionalKeep=82.8695%; MAE q10差=-0.000571, FINAL中位差=0.002899, 上尾保留−条件保留=0.000212; meanMAE差95%股票CI=[-0.000232,0.001800]。
+  全三验证期所有预注册门：False
+ALL17: train 34058事件/1588股；predMAE20%加权经验切点 -0.103355397365；低于才去除，等于保留。
+  V2024: feature/fullCP=98.9189%, kept/fullCP=79.7157%, conditionalKeep=80.5869%; MAE q10差=0.024528, FINAL中位差=0.006915, 上尾保留−条件保留=-0.057977; meanMAE差95%股票CI=[0.010274,0.012054]。
+  V2025: feature/fullCP=98.3461%, kept/fullCP=72.2718%, conditionalKeep=73.4873%; MAE q10差=0.036706, FINAL中位差=0.002016, 上尾保留−条件保留=-0.190323; meanMAE差95%股票CI=[0.013082,0.015027]。
+  V2026H1: feature/fullCP=98.2819%, kept/fullCP=57.1854%, conditionalKeep=58.1851%; MAE q10差=0.055316, FINAL中位差=0.000424, 上尾保留−条件保留=-0.177111; meanMAE差95%股票CI=[0.022724,0.026520]。
+  全三验证期所有预注册门：False
+
+结论仅依照PREREGISTERED_DECISION.json全部原子门；无因失败追加候选或更换参数。
+非重叠：原全母体按每股最早完整标签CP贪心，随后date>前次label_end才选；直接消费独立标签线程已存nonoverlap20。固定模型/标准化/切点完全复用，非重叠CI照报且不另加硬门。
+within-phase只选label_valid且label_within_phase子母体，作为固定敏感性，不加新coverage门。
+环境三分位来自purged开发完整标签事件的market20_log未加权linear分位，按事件计数；不是对验证重新分位。
+95%区间为固定seed20261105、200次股票multinomial cluster重采样；同一draw内比较kept与同完整母体均值。没有重新拟合，也没有消除共同日期市场冲击，不称独立市场时段显著性。
+主要覆盖分母：features/fullCP、kept且特征标签完整/fullCP。路径和尾部比较均用同模型特征+标签完整母体；另列未知特征丢失的母体与尾部，不暗算为弱信号。
+未确认真实停牌/限价/T+1可卖/排队/流动性、费用、账户或资金可行性；没有账户收益或新CP权限。
+文件：FROZEN_FITS_AND_CUTOFFS.json、COEFFICIENTS.csv、PRIMARY_VALIDATION_SUMMARY.csv、COVERAGE_TAILS_AND_DISTRIBUTION_DIFFERENCES.csv、PATH_DISTRIBUTIONS.csv、PREDICTION_DIAGNOSTICS.csv、EVENT_PREDICTIONS.parquet/csv、STOCK_CLUSTER_BOOTSTRAP_DRAWS.csv、PREREGISTERED_PHASE_GATES.csv、PREREGISTERED_DECISION.json、RUN_SUMMARY.json。

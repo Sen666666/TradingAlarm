@@ -1,0 +1,47 @@
+Fixed benchmark continuation only |2026-11-04| freeze before2024 account events
+
+Root corrected the request's BH90 label: existing BUY_HOLD is maximum affordable
+whole-lot investment, not90%. Continue that actual200500-share parent book.
+MA63 remains original90% crossing entry. No new90%BH or strategy candidate.
+
+Own parents: ../logs/{BUY_HOLD,MA63_90}_terminal.json at2023-12-29 CLOSE,
+plus original daily/signal/order logs for previous signal, order counter,
+cumulative actual friction and global peak. Restore every financial field and
+preserve old lots even if zero. Cash/qty/AR/NAV and totals must match last
+original daily. Never fresh1m/reset cash/annual peak/MA warmup or import PVR.
+
+Only new account loop2024-01-02 through2024-12-31,242days. Original2022-2023
+484daily rows/trade/order/signal entries inherited directly; old sources and
+outputs remain read-only. Extended historical prices/causal TR/MA63/priorADV
+retain exact serialized old rows; recomputed overlap must match original.
+Original parent input/source/audit SHA checked before extension and afterward.
+
+Trading body reused verbatim. Thin continuation changes only initial local
+state seed, inherited money/peak/cost bases, function parent argument, and
+suppresses original presetJan4'22 buy at a new calendar's first day. MA regime
+state/order obligations carry, no annual trigger. No filters/parameters altered.
+Keep rawOPEN, one15bp estimated friction+min5/order,100lot,T+1,1%strict prior20
+volume, indicative10%band proxy; distributions ex-oldqty/pay-cash as original.
+Original dated halt/limit/queue gaps remain execution_verified=false. No data
+download or changed price/fee/rights contract. No new No60 economics.
+
+2024 dividend source is originalF10 exJan18/payJan23/0.69per10=0.069/share;
+original float parser precision retained, displayed currency rounds normally.
+No ETF splits in covered period; stop on any unexpected event.
+
+Report2024 return vs own2023 actualNAV, year-periodDD and full2022-2024
+return/globalDD (global peak never reset), all12quarters and36months. Direct
+cost bridge keeps actual same quantities (netNAV+cumulative friction), never
+turns saved fees into imaginary reinvestment. Hold terminal shares/claims at
+Dec31mark, no forced liquidation. Source input/state/card first, then run.
+
+924 diagnostics are retrospective only: fixed pre2024Jan2-Sep23 and whole
+Sep24-Dec31 (left mark Sep23), plus every signal/order/daily row Sep2-Oct15
+to show chronology aroundSep24 without selecting an optimal endpoint. No
+event date enters the MA signal or execution. No mapping ETF gate to PVR ACT.
+HS300 raw2024 prices may provide reference arithmetic only, never executable
+index fills. Compare separately to PVR/No60, not a one-factor causal ablation.
+
+Independent reviewer checks parent restore/old overlap/whole-year cash/qty/AR/
+fee/NAV/MA/ADV/nextOPEN and timing around924. Failure/partial artifacts retained;
+no silent rerun or result-dependent rules. Do not migrate a framework.

@@ -1,0 +1,55 @@
+盈新000620.SZ待退风险归零与其它订单授资：原No60日志只读核查
+
+结论：不能把期间2笔probe新单归因为盈新M113/122的clipped风险为0。可直接证明
+其原池归属、仍占用的持股资本、发生的原授资/拒绝与源代码读取的资源范围。
+本次没有定义其它风险合同，也没有反事实账户。全部成交均为原日线代理账本，非券商。
+
+区间为2022/1/27 CLOSE至2/8 OPEN实际退出。1/28、2/7是退出前仅有的两个OPEN。
+2/8同一09:30原journal先盈新sell，再其它real_reserve；原opening也先卖/结算后授资，
+所以这天6笔新买必须单列退出后，不能归入仍持股risk0期间的获资。
+
+三个原CLOSE（1/27、1/28、2/7）均保存CORE68+M113/M122在confirmed池；后两层
+5100+4700=9800股各自clipped风险为0。总股9900，原mark分别35145/31680/28512；
+两MOBILE静态源价市值34790/31360/28224；总未回收费用后成本38110.41526363755，
+其中MOBILE37804.2380515882。全股clipped风险分别约56/21/0，股票没有消失。
+原order_reserved均0：这里是现金早已买成股票、尚未卖回，不是额外订单冻结现金。
+原pending_sells均含盈新；1/27提出两MOBILE9800股CP退出，2/7扩成全股I退出。
+2/8卖9900股，净收款27373.96614991005。
+
+仅按保存范围说池迁移：3个原CLOSE均confirmed；原journal切片没有显式migrate事件。
+原日志并不记录每次migrate调用，因此不能声称所有盘中瞬间都绝无重新分池。
+地产URFI881153在1/27、1/28、2/7原industry日志均observe/invalidated、level1，
+同一个episode及attempt，未记录新行业attempt。3个CLOSE各21只同地产原opportunity
+全部roles=[]；本区间214条资金日志中地产授资/拒单记录0。不能将全表缺地产资金记录
+说成地产21股都下了单被拒。
+
+退出前19个OPEN资金结果：15 industry_invalidated、1 probe_risk,sector_capital、
+1 sector_capital,sector_risk、2 reserved。另有2条CLOSE尺寸失败，分别1/28
+300850 core minimum_unit_exceeds_risk_or_nominal_cap，2/7 601888 mobile no_nominal_gap。
+
+1/28没有新单获资。2/7两笔获资且均有原实际buy fill：
+600113.SH，原1/28 opportunity.sector=URFI881158，CORE/probe，1600股，price6.98349，
+gross11173.584，fee5.9910969008，原净现金支出11179.5750969008。
+000582.SZ，原sector=URFI881148，CORE/probe，100股，price7.84392，gross784.392，
+fee5.0695755704，现金支出789.4615755704。合计11969.0366724712。
+sector来自原信号日opportunity原字段，并保留原stream索引；未按公司名称猜。
+
+代码依赖可证的边界：原route的probe_risk读取b.resources('probe')；sector_risk
+读取候选自身sector。盈新在已存CLOSE属于confirmed且不同sector，不能直接把其
+confirmed风险0算作probe风险预算释放。No60实际接线又删除account_risk准入和
+confirmed60资本限制；这不改变盈新已有资本、现金占用与待退状态。源代码原样片段
+在ORIGINAL_POOL_AND_OPEN_ORDERING_SOURCE.txt；仅读取，没有执行任何模型。
+不存在每单route前完整资源证书，故不能断言改成某个未定义预测风险后仍会获资或
+一定失去这2单。也不能将两笔无因果证据的并存现象包装成已发生“风险0放贷”。
+
+全部原19笔前退出OPEN结果在PRE_EXIT_ORIGINAL_OPEN_FUNDING_19_ROWS.json；完整214条
+（含退出后193条）及前CLOSE sector/intent在ALL_ORIGINAL_FUNDING_ROWS*.json/csv。
+ACTUAL_RESERVED_AND_FILLED_BUYS.json逐笔分列funding reserved、reserve audit、trade
+fill、journal及原冻结order；reject MOBILE缺具体路由池，明确NOT_SAVED，没有擅归池。
+FOUR_ORIGINAL_CLOSE_ACCOUNT_AND_YINGXIN_INPUTS.json保留原全账户+股票诊断+balances；
+CAPITAL_CASH_GUARD_RISK_AND_POOL.csv并列资本/现金/风险/原pool总数。
+ORIGINAL_REALESTATE_OPPORTUNITIES_AND_ALL_INDUSTRY_EVENTS.json保留原行业/同地产记录。
+
+缺口：没有每次route前全仓marks、逐池/行业资源、pending fee及逐量失败数值，
+不能用后CLOSE值替代。没有新行情、Market、Account、风险模型、指标或授资重演。
+成功只读提取约0.703秒；之前一次CSV列集合不齐中止，修正列union后成功，没有金融运行。

@@ -1,0 +1,22 @@
+{
+  "approved": true,
+  "engine_sha256": "6796da045f19744db06915c6b73448e16b28ef79421aff21df73b21d94516926",
+  "contract_sha256": "f365a34aad684db8539c093694a8d552d0852103814d44bed9c76e8200067cfa",
+  "manifest_sha256": "bb3372d35635a030b65d48593c057bf65010d6f2f3c227436d16e7479301dff7",
+  "reviewer": "independent_parent_review",
+  "reviewed_utc": "2026-11-09T22:46:42.614046+00:00",
+  "scope": "One frozen M7 fact/conditional-execution extension toward 2026-06-30, stopping atomically at first actual unknown boundary; historical offline research only",
+  "checks": [
+    "Parent independently reran all124 cash/source/accounting tests PASS",
+    "Independent native auditor reran final124 tests and13 Q0 logic tests PASS; Q0 runtime disabled",
+    "Inherited v4 final37 execution tests and independent mixed donor/buyer cash tests PASS",
+    "19 exact pure-cash events,18 additions with300760 deduplicated",
+    "Only evidence-container and exact event-scope loader amendments; actual cash methods unchanged",
+    "M7 strategy/alpha/allocation/capital roles unchanged; no shared risk pool",
+    "600157 source/gross/reference amounts separated; no guessed payment or entitlement",
+    "Exact November6 prefix gate30economic/statefamilies mandatory;58baselinefiles sealed",
+    "LocalEngine.run and atomic loop route independently checked; new paused state rolls back",
+    "Conditional OPEN, single-symbol ST overlay, nonPIT and metadata proxy limitations retained",
+    "No rerun permitted when RUN_STARTED exists; no completed2026 claim without actual endpoint"
+  ]
+}

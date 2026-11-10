@@ -1,0 +1,8 @@
+{
+  "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0",
+  "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/selection_entry_diagnosis_v1/actual_round_probability_v1/ALL_ORIGINAL_ROUNDS_WITH_FORWARD_PREDICTIONS.csv": "7f18b6bdb692f2ef6a4441f39b4d04a5a5304bf80b1a12bf83e48353af135b8d",
+  "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/selection_entry_diagnosis_v1/cp1_signal_mechanism_v1/cp_timing_quality_v1/candidate_test/CANDIDATE_CE.parquet": "91720d8bf8b5d868d74c9db56df8accb1f8db3fcfd6e310bc1c0c7d71042c550",
+  "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/selection_entry_diagnosis_v1/entry_probability_signal_v1/MARKET_CLOCK.csv": "3a9de991f361f947439b2b891cc227a2ef487a8910428c8514bc70a8b7c660a4",
+  "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/selection_entry_diagnosis_v1/joint_entry_probability_v1/FREEZE.json": "bf9ed0a8baaa0f63fb779061dd29a59fa8e3b3472de38c9ea2af856f225e266c",
+  "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/selection_entry_diagnosis_v1/joint_entry_probability_v1/prepare_features.py": "3de2896a4b5ed4809412348dbeb4b2071fa47e3974a78bc9471f5c739e629a81"
+}

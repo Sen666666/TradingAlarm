@@ -1,0 +1,69 @@
+C1State
+@dataclass
+class C1State:
+ initial_nav:D
+ high:D
+ decision_nav:D
+ drawdown:D=D(0)
+ fraction:D=D('.60')
+ decision_at:str=None
+ mode:str='C1'
+ version:str='C1-close-H-live-cap-v1'
+ def observe(self,at,nav):
+  nav=D(nav);key=at.isoformat();assert nav>=0 and nav.is_finite()
+  if self.decision_at==key:
+   assert nav==self.decision_nav,'same decision cannot be repriced';return
+  assert self.decision_at is None or key>self.decision_at,'decision clock regressed'
+  self.high=max(self.high,nav);self.decision_nav=nav;self.drawdown=max(D(0),D(1)-nav/self.high)
+  self.fraction=D('.60') if self.mode=='fixed60' else D('.10')+D('.50')*max(D(0),D(1)-self.drawdown/D('.20'))
+  self.decision_at=key;self.validate()
+ def validate(self):
+  assert self.mode in ('C1','fixed60') and self.high>=self.initial_nav>0 and self.high>=self.decision_nav>=0
+  dd=max(D(0),D(1)-self.decision_nav/self.high)
+  c=D('.60') if self.mode=='fixed60' else D('.10')+D('.50')*max(D(0),D(1)-dd/D('.20'))
+  assert self.drawdown==dd and self.fraction==c
+
+
+freeze_close
+def freeze_close(a,at,nav):
+ # Called only in original planning after native close NAV, before ACT step.
+ # Never assigns account.current_nav, mirror equity, cash, marks or ACT peak.
+ a.budget.c1.observe(at,D(nav))
+
+
+Budget
+class Budget(BASE.NoAccountBudget):
+ request=request_c1
+ def confirmed_fraction(self):return float(self.c1.fraction)
+ def migrate(self,sector):return migrate_c1(self,sector) if self.expand else False
+
+
+actual planning wrapper
+ def planning(self,at):
+  planning_c1(self,at)
+  for a in self.accounts.values():
+   b=a.budget;s=b.c1;assert s.decision_at==at.isoformat() and s.decision_nav==a.current_nav
+   fees=sum(o.qty*o.fee_per_share for o in b.orders.values() if o.status in ('open','cancel_pending'))
+   capital=b.resources('confirmed')[0];live_nav=b.nav-fees;cap=b.confirmed_fraction()*live_nav
+   self.c1_rows.append(dict(at=at,**asdict(s),live_budget_NAV=live_nav,confirmed_cap=cap,confirmed_capital=capital,cap_minus_commitment=cap-capital,over_cap=capital>cap+1e-8,probe_capital=b.resources('probe')[0],pending_fees=fees,ACT=copy.deepcopy(a.risk_state)))
+
+
+source substitutions
+{
+  "request": "--- request_Bdiag\n+++ request_C1\n@@ -37,7 +37,7 @@\n     budget_nav = self.nav - pending_fees - qty*fee_per_share\n     failures = []\n     if reserve + qty*(limit+fee_per_share) > self.cash + 1e-9: failures.append('cash')\n-    if pc+cap > (0.10 if pool == 'probe' else 0.60)*budget_nav + 1e-9: failures.append('pool_capital')\n+    if pc+cap > (0.10 if pool == 'probe' else self.confirmed_fraction())*budget_nav + 1e-9: failures.append('pool_capital')\n     if pool == 'probe' and pr+risk > .005*budget_nav + 1e-9: failures.append('probe_risk')\n     sector_fraction = .02 if probe_request else (0.02, 0.10, 0.20)[s.level]\n     if sc+cap > sector_fraction*budget_nav + 1e-9: failures.append('sector_capital')\n",
+  "migrate": "--- migrate_Bdiag\n+++ migrate_C1\n@@ -9,7 +9,7 @@\n     moved = sum(x.qty*self.prices[x.stock] for x in self.lots if x.sector == sector and x.attempt == s.attempt and x.pool == 'probe')\n     pending_fees = sum(o.qty*o.fee_per_share for o in self.orders.values()\n                        if o.status in ('open', 'cancel_pending'))\n-    if self.resources('confirmed')[0] + moved > .60*(self.nav-pending_fees) + 1e-9:\n+    if self.resources('confirmed')[0] + moved > self.confirmed_fraction()*(self.nav-pending_fees) + 1e-9:\n         s.status = 'confirmed_unfunded'\n         return False\n     before = (self.cash, self.nav, self.resources(), self.shared_loss)\n",
+  "route": "--- route_Bdiag\n+++ route_C1\n@@ -14,7 +14,7 @@\n    def allowed(q,detail=False):\n     fee=float(LR.fees(q,x['price'],x['schedule'],'buy',i['quote'].par_value));nav=b.nav-pending_fees-fee;cap=q*p;risk=q*max(0.,p-floor);fails=[]\n     if cap+fee>min(float(a.available-a.current_nav*D('.1')),b.cash-reserve)+1e-9:fails.append('cash_or_original_reserve')\n-    if pc+cap>(.10 if pool=='probe' else .60)*nav+1e-9:fails.append('pool_capital')\n+    if pc+cap>(.10 if pool=='probe' else b.confirmed_fraction())*nav+1e-9:fails.append('pool_capital')\n     if pool=='probe' and pr+risk>.005*nav+1e-9:fails.append('probe_risk')\n     if sc+cap>frac*nav+1e-9:fails.append('sector_capital')\n     if sr+risk>.01*nav+1e-9:fails.append('sector_risk')\n",
+  "planning": "--- planning_Bdiag\n+++ planning_C1\n@@ -7,7 +7,7 @@\n   if event[sid].q is True:self.global_watch[sid]=ep\n  ordered=sorted(sd,key=lambda sid:(-(sd[sid].rank.read(clock) if sd[sid].rank and sd[sid].rank.read(clock) is not None else -1),sid))\n  for a in self.accounts.values():\n-  C.activate(a);a.expire_day_buys(at);a.current_nav=a.balance(at,self.market.marks(at,a.positions))['nav'];M.E.risk_policy.step(a,at,'ACT20_BREAK');a.pending=[]\n+  C.activate(a);a.expire_day_buys(at);a.current_nav=a.balance(at,self.market.marks(at,a.positions))['nav'];freeze_close(a,at,a.current_nav);M.E.risk_policy.step(a,at,'ACT20_BREAK');a.pending=[]\n   for sid in tuple(a.positions):\n    row=self.facts.row(sid,at);cp=self.cp[sid].loc[day] if day in self.cp[sid].index else None;quote=self.market.quote(sid,at);assert quote\n    if not a.risk_state['on'] or not bool(row.i_target):\n"
+}
+
+checkpoint/restore
+ def checkpoint(self,out,last_event):
+  E.env2['checkpoint'](self,out,last_event);out=Path(out);day=str(last_event.date())
+  IO.write_json(out/'C1-checkpoint-status.json',J.W.canon(dict(at=last_event,mode=self.c1_mode,accounts={k:dict(NAV=a.current_nav,trades=len(a.trades),C1=asdict(a.budget.c1)) for k,a in self.accounts.items()})))
+  if day in {'2022-03-31','2022-06-30','2022-09-30','2022-12-30','2025-09-30','2025-12-31','2026-03-31','2026-06-30'}:
+   for suffix in ('pkl','json'):shutil.copyfile(out/('checkpoint.'+suffix),out/('checkpoint-'+day+'.'+suffix))
+ def restore(self,path):
+  expected=self.c1_mode;at=super().restore(path);assert self.c1_mode==expected
+  for a in self.accounts.values():
+   assert type(a.budget) is Budget and a.budget.c1.mode==expected;a.budget.c1.validate()
+  return at

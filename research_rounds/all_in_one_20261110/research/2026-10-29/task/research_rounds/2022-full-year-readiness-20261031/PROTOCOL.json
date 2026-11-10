@@ -1,0 +1,24 @@
+{
+  "fixed_year": 2022,
+  "calendar_start": "2022-01-04",
+  "calendar_end": "2022-12-30",
+  "previous_close": "2021-12-31",
+  "market_days": 242,
+  "fixed_identities": 1709,
+  "industries": 90,
+  "proposed_initial_cash": 1000000,
+  "new_account_paths": 0,
+  "new_signal_or_large_cache_generation": 0,
+  "year_not_selected_by_strategy_returns": true,
+  "point_in_time_membership": false,
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/INDUSTRY_MANIFEST.json": "339c89777f488b3bbd5685cd93e38ad47748585b783808e7da35c685ad0775cd",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/FREEZE.json": "f9bab0c4de45ea465ed085f982d763f6189f58b296b8781bfd821e65c445b977",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/manifest.json": "a2649ed5e3debd412dd8b5df0f35244cb8249275b8e23d6739ee3bf7330a8e1a",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/h1.npz": "416ddabacb9b16105cf3e5d93c961049ac1b48da433a62995a71311be17e4615",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/recovery.csv": "76599d9013946bc5fc501a57b046f36a2868ad61f147ef1a6c73c9575b35906a",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-act-comparison-20261027/execution-rules-v2.json": "e54d23fb4be1740415364e757d300231c3871a99de43a328773cbe391eadb614",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/results/stock-data-audit/master-crosswalk.csv": "92e99ea6c05401f29556b2e80671c16903272119607d1b7bed7fed1544821b89"
+  }
+}

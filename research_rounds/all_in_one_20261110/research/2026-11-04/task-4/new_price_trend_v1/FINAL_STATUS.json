@@ -1,0 +1,65 @@
+{
+  "status": "COMPLETED_AUDITED_EXACT_BB_GATE_NOT_PROMOTED",
+  "sealed_at_UTC": "2026-11-04T17:08:30.463190+00:00",
+  "scope": "Research-only plug-in ENTRY_BB20_FLAT_CONFIRM within unchanged native E0/I/PVR/No60 framework. No live, publication or production modification.",
+  "implemented_policy": "Causal prior-20-close BB upper strict crossing added only to original otherwise-qualified true-flat CORE/MOBILE entry; held ADD unchanged. Native execution, budgets, exits and costs unchanged.",
+  "full_account_paths": 4,
+  "full_windows": {
+    "long": "2022-2024 continuous fresh 1m",
+    "strong": "2025-07 through 2026-06 fresh 1m"
+  },
+  "full_compute_seconds": 1881.2724700011313,
+  "full_compute_limit_seconds": 2400,
+  "technical_short_paths": 8,
+  "technical_compute_seconds": 103.89108054386452,
+  "native_OFF_full_book_and_six_stream_identities_passed": true,
+  "simulation_source_freeze_sha256": "ce05de6d19b626920d26f583b44f10fb46aef0daa0cf0e5db5899bc6103be394",
+  "frozen_source_count": 44,
+  "frozen_source_integrity_at_seal": true,
+  "results": {
+    "long": {
+      "No60_return_pct": "-36.20103876489761400",
+      "BB20_return_pct": "-37.7464857390105176500",
+      "No60_DD_pct": "38.0880952407232978500",
+      "BB20_DD_pct": "46.1940558789072362500"
+    },
+    "strong": {
+      "No60_return_pct": "126.3281230975329756500",
+      "BB20_return_pct": "80.550568000915324700",
+      "No60_DD_pct": "11.65952364895303383718413153",
+      "BB20_DD_pct": "10.00469676822695706863395756"
+    },
+    "H1_semiconductor_all126": {
+      "No60_held_stocks": 18,
+      "BB20_held_stocks": 8,
+      "No60_mean_NAV_weight_pct": "3.222438426968096094970286613",
+      "BB20_mean_NAV_weight_pct": "1.576525020950662593904553087",
+      "No60_wealth": "-16783.5804624931475",
+      "BB20_wealth": "18531.9863459328860"
+    }
+  },
+  "disposition": "Do not promote this exact hard AND entry filter or add account/parameter variants to rescue it. Local 924 improvement retained. No general claim that all BB/EMA tools fail.",
+  "parallel_research": {
+    "CP_tail": "Necessary bounds only, no financial path. First CP 1749. Fixed25:18 CP/3 I/4 open; 4 price/hardline/SELL-unit possible events, not execution/risk approval. Original CORE not-held and same-stock FIFO/hard-priority issues unresolved.",
+    "I_authorization": "Original 1368 first-I exits all occurred with E0 off. EMA protection against cold-G1 turning off active I is a no-op in this source. Raw E0-on/I-off price events are not tradable permissions.",
+    "supplemental_CORE_evidence": "Paper hypothesis only, no implementation or account admission; requires precise buy_allowed evidence replacement and old-policy dedup."
+  },
+  "financial_reader_fix": "Read-only reconstruction uses unchanged native latest_mark for stale post-action 001331 reference. No account rerun; preserved failure/source evidence.",
+  "final_readout": {
+    "path": "RESULTS_AND_DISPOSITION.txt",
+    "sha256": "d980db95f4af5048344e33b291a0439cb38c8810722f5c4ef00d29845eb30186"
+  },
+  "independent_reviews": {
+    "data_and_evidence": "review/FINAL_FIXED_BB_INDEPENDENT_REVIEW.json",
+    "readout": "review/FINAL_READOUT_REVIEW.json",
+    "all_passed": true
+  },
+  "running_account_experiments": 0,
+  "known_account_sessions": "Four full and eight short paths complete; no machine-wide process inventory claimed.",
+  "remaining_blockers_for_completed_evidence": [],
+  "limitations": [
+    "Current survivor and industry snapshots, not PIT/OOS/live qualification.",
+    "Daily execution and limit/capacity proxies do not establish actual exchange queue fills.",
+    "Future supplemental authorization and CP-tail policies are untested and unapproved as economic improvements."
+  ]
+}

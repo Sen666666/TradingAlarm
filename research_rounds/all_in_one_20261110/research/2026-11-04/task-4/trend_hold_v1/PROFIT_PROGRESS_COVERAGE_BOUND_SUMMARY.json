@@ -1,0 +1,99 @@
+{
+  "groups": {
+    "any_quoted_close_above_fill": {
+      "layers": 20,
+      "stocks": 15,
+      "mobile_layers": 19,
+      "original_closed_negative_layers": 10,
+      "original_closed_negative_stocks": 8,
+      "original_negative_contribution_of_contactable_layers": "-33915.5210705264660",
+      "original_net_of_all_contactable_layers": "500.0538930116130",
+      "layer_ids": [
+        636,
+        640,
+        658,
+        664,
+        670,
+        674,
+        677,
+        684,
+        702,
+        737,
+        743,
+        780,
+        1019,
+        1058,
+        1059,
+        1079,
+        1084,
+        1166,
+        1168,
+        1171
+      ],
+      "negative_layer_ids": [
+        636,
+        640,
+        658,
+        670,
+        702,
+        737,
+        743,
+        780,
+        1058,
+        1084
+      ]
+    },
+    "quoted_advance_at_least_1R": {
+      "layers": 7,
+      "stocks": 5,
+      "mobile_layers": 7,
+      "original_closed_negative_layers": 1,
+      "original_closed_negative_stocks": 1,
+      "original_negative_contribution_of_contactable_layers": "-993.9167331026000",
+      "original_net_of_all_contactable_layers": "24240.0014878155030",
+      "layer_ids": [
+        674,
+        677,
+        684,
+        737,
+        1019,
+        1059,
+        1079
+      ],
+      "negative_layer_ids": [
+        737
+      ]
+    },
+    "quoted_advance_at_least_2R": {
+      "layers": 7,
+      "stocks": 5,
+      "mobile_layers": 7,
+      "original_closed_negative_layers": 1,
+      "original_closed_negative_stocks": 1,
+      "original_negative_contribution_of_contactable_layers": "-993.9167331026000",
+      "original_net_of_all_contactable_layers": "24240.0014878155030",
+      "layer_ids": [
+        674,
+        677,
+        684,
+        737,
+        1019,
+        1059,
+        1079
+      ],
+      "negative_layer_ids": [
+        737
+      ]
+    }
+  },
+  "total_original_layers": 25,
+  "total_original_stocks": 18,
+  "total_original_negative_layers": 15,
+  "total_original_negative_contribution": "-51199.1554260312265",
+  "rule_selection": "No rule or threshold selected; zero/1R/2R are fixed descriptive scales of original quoted CLOSE progress",
+  "bound": "Only which original holdings a rule activated at that price-progress scale could contact before the actual exit. These are original contributions, not recoverable profit, a continuous account bound, or an estimated counterfactual PnL",
+  "units": "R is original initial shares times raw fill-price minus frozen initial raw floor, no fees; adjusted CLOSE relative to entry normalized fill converted back to entry-share units. Original legal holding CLOSE maxima exclude the sell-OPEN date CLOSE",
+  "other_values": "Corporate-action account cash/receivables and current shares are not reconstructed here. Daily trace is required for any executable net-profit handoff",
+  "new_accounts": 0,
+  "new_financial_paths": 0
+}

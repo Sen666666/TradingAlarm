@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "seconds": 3.967264083214104,
+  "rank_freeze_before_label_access": true,
+  "protected_conditional_exact": true,
+  "new_account_paths": 0,
+  "new_model_coefficients": 0,
+  "new_state_restorations": 0,
+  "paired_outcomes_calculated_once": true,
+  "source_code_sha256": "814203d2f80ce8dcdc55ec549d1465d2ace959c802ee1afb783b2b02f1623915",
+  "first_attempt_failure_preserved": "context-key-error-v1",
+  "first_attempt_no_statistical_outputs": true,
+  "decision_file": "DECISION.json",
+  "self_separate_aggregation_verification": "VERIFICATION.json",
+  "independent_results_review_pending": true
+}

@@ -1,0 +1,24 @@
+{
+  "completed": true,
+  "read_only": true,
+  "data_window": [
+    "2023-01-03",
+    "2023-12-29"
+  ],
+  "account_paths_executed": 0,
+  "numeric_models_recomputed": 0,
+  "full_export_executed": false,
+  "conditional_readiness": true,
+  "remaining": [
+    "original2023_receipt_full_export",
+    "verified_exact_state_horizon_import",
+    "physical_Jan3_prefix_restart_gate",
+    "parent_authorization_for_2023_two_normal_continuations"
+  ],
+  "actual_seconds": {
+    "input_coverage": 33.06683762464672,
+    "pilot": 1.511142416857183,
+    "saved_state_audit": 11.97713491693139
+  },
+  "latest_unresolved": true
+}

@@ -1,0 +1,11 @@
+{
+  "ready": true,
+  "at": "2026-11-01T07:26:11.198189+00:00",
+  "contract_sha256": "30c45dc60293cbe27638479e6e83e0911029966e2750df6103ce60667ff8c243",
+  "initial_rank_producer_preserved": true,
+  "protected_conditional_exact": true,
+  "new_economic_paths": 0,
+  "decision": "STOP current fixed PVR unconditional global-priority replacement; retain informational finding",
+  "self_verification": 48,
+  "independent_audit_not_yet_claimed": true
+}

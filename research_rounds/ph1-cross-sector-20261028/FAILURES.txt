@@ -1,0 +1,7 @@
+准备阶段技术记录，所有旧产物保留。
+1. E0 event 准备的 DataFrame.pivot 名称冲突修复，仅访问改为 ['pivot']。详见 event-technical-failures.txt；失败版本保留，未启动资金账户。
+2. 第一份 DRUG/R_PH 短账完成后，为阶段归因补充 mature 和累计 Loss_fill 日志。原产物移动保留为 technical/short-before-observability，随后仅同参数短账重放；该改动不改变交易/资金逻辑。完整经济回测尚未开始。
+3. 独立审计器初版未同步新增 Loss_fill 字段，严格键比较失败；验证器补累计 Loss_fill 核验，旧代码/日志/失败审计目录保留。未重跑账户。
+4. 固定窗影子记录器初版将 policy 字段传入两次，保存失败代码/日志/空产物目录后只修记录器；见 shadow-technical-failures.txt。v2 12窗未改观察锚/阶段机制。
+5. 结果后的临时只读汇总命令使用 DataFrame.mode.str，与pandas方法重名而报错；该命令未写结果、未执行账户，改为['mode']后只重读既有表。冻结分析器及经济结果不变，失败输出保留在本聊天工具记录。
+完整经济前的代码冻结会包含修正版本；不将上述技术修正计为策略改善或经济参数迭代。

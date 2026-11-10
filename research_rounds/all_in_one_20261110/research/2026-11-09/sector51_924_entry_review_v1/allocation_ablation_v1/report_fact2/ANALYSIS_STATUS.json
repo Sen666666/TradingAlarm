@@ -1,0 +1,15 @@
+{
+  "common_certified_date": "2024-09-27",
+  "arms": [
+    "B",
+    "D",
+    "F",
+    "A",
+    "E"
+  ],
+  "C": "DISABLED",
+  "all_losses_and_winners_in_fixed_cohorts": true,
+  "own_longer_prefix_must_not_be_used_for_cross_arm_return_ranking": true,
+  "price_proxy_not_real_fills": true,
+  "source_roster_not_PIT": true
+}

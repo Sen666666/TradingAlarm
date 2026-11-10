@@ -1,0 +1,58 @@
+CP公式本体原值：海能达与既有银之杰案例
+
+范围仅原CP/facts/原日线OHLC/amount及旧保护退出时钟。没有CP重算、影子公式计算、
+新指标、资金候选、订单设计、账户、收益对照或回测。旧退出记录只证明原日线代理
+账本事件，不是分钟报价或券商成交证据。后续纯数学影子计算须另有根线程冻结公式。
+
+海能达002583 2024/9/23—11/27原43日，ready43，receipt19；复用已封存逐日原值。
+银之杰300085同窗43日，ready43，receipt13；固定使用旧examples_924已存在的7关键点/
+完整10月CP保护案例，直接切原缓存，未扩大找赢家。7旧点与本次缓存逐字段一致；旧
+JSON null与本次SOURCE_NULL都是同一个原缺失值，不是数值差异。
+
+每股ORIGINAL_CP_DAILY.csv/json列C/a、raw OHLC、factor、amount、r/s/z/B/u/v/m、
+phase、anchor/frontier/credit、冻结scale、delta_frontier/displacement、receipt/
+candidate、next_anchor/next_scale/next_credit/next_phase。原63/21窗口历史在43日
+窗口之前，完整原输入/缓存路径和SHA已绑定；这里读取保存的s/B等，未重算窗口。
+
+原公式（原样源及行号/SHA在ORIGINAL_CP_FORMULA_SOURCE.txt）：
+r_t=log(C_t)-log(C_prev)。s_t=1.4826*median(此前63个|r|)，先shift排除本日，
+下限1e-8；B_t=此前21个amount中位数，同样先shift。z_t=max(s_t,log1p(.001))。
+u=tanh(r/s)，v=tanh(log(amount/B))，m=1+.5*abs(u)*v。
+只有log收盘p超过已记frontier时，fresh=p-frontier，credit+=fresh*m。
+同时displacement>=sqrt(5)*冻结scale且credit>=sqrt(5)*冻结scale，且本日fresh>0，
+才receipt；candidate=C*exp(-sqrt(21)*冻结scale)。receipt后新anchor/frontier=p，
+credit归零，scale更新为今日z供后续用。本次candidate用的是此前冻结scale，
+不是今日next_scale。SEEK lower-anchor与原down事件也可重新冻结scale。
+
+输入门身份不能误读：股票字段名e0_valid实际接原i_target；e0_down接原价格
+event=-1；CP缓存的e0_floor接i_floor。不是直接把原E0_target复制过来。
+两份原stock input源片段已保存；不在本包改这些门或重新解释为资金许可。
+
+原9/24：海能达raw O=H=L=C5.24，前C4.76，amount61865117、B92239992，
+u=.9991788408、v=-.3794673968、m=.8104221032；冻结scale=.024642118520553227，
+fresh/displacement=.096073830089622，credit=.07786035543916353，receipt真，
+candidate_a26.303882526950407。日线是一字上涨，不能写成盘后取得某分钟新报价。
+9/25 amount2060893517、v=.9962081571、m=1.4976437036，receipt真。
+
+原10月强趋势：10/18 rawC11.95，m1.3749269922，冻结scale.02771295640381738，
+credit.1609551172772647，candidate_a59.14866295659032；10/21 rawC13.15，
+m1.1728495699、scale.032506539668504，candidate_a63.67407589811411；
+10/31 rawC28.2，m1.0158196422、scale.03851125614147488，credit.17382367302089377，
+candidate_a132.84202755479672。11/4 rawC22.84(a128.35922939367774)低于原
+两个MOBILE前/当CLOSE共同已存线a132.84202755479672；原CP当日E0_down_reset，
+receipt假，旧线仍是保护比较依据，11/5记录原CP退出。CORE另走I，未混作CP退出。
+
+银之杰原9/24 rawO13.08/C15.82、amount2193119027，u.9999929833、v.9978629317、
+m1.498927965、冻结scale.029071519680407183、credit.2736659237121905，receipt真，
+candidate_a73.08160593118804。10/8一字raw39.37，amount111615210、v-.1558345108，
+m.9220837911，仍receipt真。10/9 rawC47.2，m1.4992109825，scale.030605215212689017，
+credit.2719415617348681、candidate_a216.5166306929101。
+10/10 rawC37.76(a199.29268531910324)低于旧entry CP a216.5166306929101，原保护退出
+提案明确；当日CP reset=E0_down_reset、receipt假，10/11原代理退出价30.194895。
+当日m仍1.499721745：m含abs(u)，放量急跌也能m>1；原公式只有fresh正推进才
+计credit，不能将m>1独立当上涨/买入许可。这里只描述原数学关系，不提新交易方案。
+
+*_ORIGINAL_PROTECTION_CLOCKS.json仅保留原每日层floor/last_core_line与原CP退出
+事件、旧交易时钟，不输出预算/NAV/费用/收益。新买层前CLOSE不存在则保留空列，
+不把最终层floor回填过去。日内check/update瞬时独立证书仍NOT_SAVED。
+原43日为消费CLOSE协议时间，来源observed_at不提供历史分钟认证。

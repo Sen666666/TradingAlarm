@@ -1,0 +1,9 @@
+第一可定位差异：序列化假别名，不是已发现的财务值变化。
+仅7旧证书重算、无ACTION：205字段在原/修正诊断编码下均无变化，7projection及金融prefix/原守恒均同。
+C10可丢弃副本rights观察：原字段检查额外误报account.rejections（list，1000项）与runner.goal_intents（dict，7项）；修正诊断编码下两者均未改变，完整财务守恒视图无差异。合法变化只有市场价格/因子/已知时点、ACTION证明与审计/观察时钟等11字段。
+第一假别名具体路径：account.rejections[1].route.alternatives[0].schedule.components[1]，sector_account.FeeComponent；被误编码为components[0]的state引用，两个真实对象id不同。调用栈见REAL_FIELD_FALSE_ALIASES.json。
+机制：state_snapshot.py:42创建临时dataclass字段dict；:43递归编码后临时dict释放，其id仍留在seen；后续FeeComponent临时dict复用id，:35误当别名。rights_wiring.py:65/67的state_value同有此缺陷。
+最小合成：第二个qty由22改为999，两个原检查器竟给相同编码；隔离修正复制保留真实__dict__（含动态字段），slots按字段直接编码，8项合成通过。修正仅在本诊断目录，不替换任何正式守卫。
+本次private观察之后再验7证书：原/修正诊断字段均无差异，未复现前次正式失败的post-certificate时间点。随后用相同pickle回装赋值技术动作，修正诊断全字段与Jan12基线完全相同、prefix及原守恒相同；原字段编码仍误报上述两字段。没有实际异常发生，此回装是主动模拟失败处理动作，不宣称重跑原失败路径已通过。
+因此已证编码器同时可能误报和漏报，未发现本次副本现金/持股/预算/旧责任的实际变化。不能把旧回滚报错直接当现金/持股回滚损坏，也不能追认旧失败run为PASS。原失败当时未保存字段差异，不能精确追溯其每个不一致字节。
+仅有一次可丢弃私有观察；未调用正式run_one、未保存/注册任何Jan13 checkpoint，未执行C20、OPEN/CLOSE或2025。全部原件及前一失败包未改，保留全部失败样本。两Jan12原/升级checkpoint仍为唯一可信态。停止在定位结果，正式接线仍阻断，等待主审。

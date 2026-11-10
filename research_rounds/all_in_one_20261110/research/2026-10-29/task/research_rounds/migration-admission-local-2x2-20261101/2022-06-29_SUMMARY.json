@@ -1,0 +1,291 @@
+{
+  "cells": {
+    "SC": {
+      "seconds": 0.13801479199901223,
+      "orders": 0,
+      "distinct_stocks": 0,
+      "role_pool": {},
+      "capital": 533020.44,
+      "nominal_risk": 61006.19161521736,
+      "cash_reserve": 0,
+      "available": "288367.3115612368855",
+      "fees": "0",
+      "pool_resources": {
+        "probe": {
+          "capital": 23718.0,
+          "risk": 5909.000000000002,
+          "reserve": 0
+        },
+        "confirmed": {
+          "capital": 509302.44,
+          "risk": 55097.19161521736,
+          "reserve": 0
+        }
+      },
+      "migration_calls": 234,
+      "failed_migration_reasons": {
+        "confirmed_capacity_for_whole_old_transfer": 234
+      },
+      "migration_calls_without_final_order": 234,
+      "new_confirmed_despite_failed_migration": 0,
+      "new_confirmed_failed_migration_details": [],
+      "old_pending_count": 0,
+      "old_pending_unchanged": true,
+      "rejection_counts": {
+        "missing_open": 2,
+        "probe_risk": 517,
+        "probe_risk,sector_capital,sector_risk": 7,
+        "probe_risk,sector_capital": 164,
+        "open_minimum_exceeds_frozen_contract": 1
+      },
+      "named_stock": {
+        "300308.SZ": {
+          "order": null,
+          "rejections": [
+            {
+              "key": "B|2022-06-28T15:10:00+08:00|300308.SZ|mobile",
+              "sid": "300308.SZ",
+              "role": "mobile",
+              "reason": "probe_risk,sector_capital"
+            }
+          ]
+        },
+        "300502.SZ": {
+          "order": null,
+          "rejections": []
+        }
+      }
+    },
+    "TC": {
+      "seconds": 0.22260379185900092,
+      "orders": 0,
+      "distinct_stocks": 0,
+      "role_pool": {},
+      "capital": 533020.44,
+      "nominal_risk": 61006.19161521736,
+      "cash_reserve": 0,
+      "available": "288367.3115612368855",
+      "fees": "0",
+      "pool_resources": {
+        "probe": {
+          "capital": 23718.0,
+          "risk": 5909.000000000002,
+          "reserve": 0
+        },
+        "confirmed": {
+          "capital": 509302.44,
+          "risk": 55097.19161521736,
+          "reserve": 0
+        }
+      },
+      "migration_calls": 234,
+      "failed_migration_reasons": {
+        "confirmed_capacity_for_whole_old_transfer": 234
+      },
+      "migration_calls_without_final_order": 234,
+      "new_confirmed_despite_failed_migration": 0,
+      "new_confirmed_failed_migration_details": [],
+      "old_pending_count": 0,
+      "old_pending_unchanged": true,
+      "rejection_counts": {
+        "missing_open": 2,
+        "probe_risk": 517,
+        "probe_risk,sector_capital,sector_risk": 7,
+        "probe_risk,sector_capital": 164,
+        "open_minimum_exceeds_frozen_contract": 1
+      },
+      "named_stock": {
+        "300308.SZ": {
+          "order": null,
+          "rejections": [
+            {
+              "key": "B|2022-06-28T15:10:00+08:00|300308.SZ|mobile",
+              "sid": "300308.SZ",
+              "role": "mobile",
+              "reason": "probe_risk,sector_capital"
+            }
+          ]
+        },
+        "300502.SZ": {
+          "order": null,
+          "rejections": []
+        }
+      }
+    },
+    "SD": {
+      "seconds": 0.14414374995976686,
+      "orders": 0,
+      "distinct_stocks": 0,
+      "role_pool": {},
+      "capital": 533020.44,
+      "nominal_risk": 61006.19161521736,
+      "cash_reserve": 0,
+      "available": "288367.3115612368855",
+      "fees": "0",
+      "pool_resources": {
+        "probe": {
+          "capital": 23718.0,
+          "risk": 5909.000000000002,
+          "reserve": 0
+        },
+        "confirmed": {
+          "capital": 509302.44,
+          "risk": 55097.19161521736,
+          "reserve": 0
+        }
+      },
+      "migration_calls": 234,
+      "failed_migration_reasons": {
+        "confirmed_capacity_for_whole_old_transfer": 234
+      },
+      "migration_calls_without_final_order": 234,
+      "new_confirmed_despite_failed_migration": 0,
+      "new_confirmed_failed_migration_details": [],
+      "old_pending_count": 0,
+      "old_pending_unchanged": true,
+      "rejection_counts": {
+        "missing_open": 2,
+        "probe_risk": 344,
+        "pool_capital,probe_risk": 173,
+        "probe_risk,sector_capital,sector_risk": 4,
+        "pool_capital,probe_risk,sector_capital,sector_risk": 3,
+        "pool_capital,probe_risk,sector_capital": 58,
+        "probe_risk,sector_capital": 106,
+        "open_minimum_exceeds_frozen_contract": 1
+      },
+      "named_stock": {
+        "300308.SZ": {
+          "order": null,
+          "rejections": [
+            {
+              "key": "B|2022-06-28T15:10:00+08:00|300308.SZ|mobile",
+              "sid": "300308.SZ",
+              "role": "mobile",
+              "reason": "pool_capital,probe_risk,sector_capital"
+            }
+          ]
+        },
+        "300502.SZ": {
+          "order": null,
+          "rejections": []
+        }
+      }
+    },
+    "TD": {
+      "seconds": 0.23100595921278,
+      "orders": 0,
+      "distinct_stocks": 0,
+      "role_pool": {},
+      "capital": 533020.44,
+      "nominal_risk": 61006.19161521736,
+      "cash_reserve": 0,
+      "available": "288367.3115612368855",
+      "fees": "0",
+      "pool_resources": {
+        "probe": {
+          "capital": 23718.0,
+          "risk": 5909.000000000002,
+          "reserve": 0
+        },
+        "confirmed": {
+          "capital": 509302.44,
+          "risk": 55097.19161521736,
+          "reserve": 0
+        }
+      },
+      "migration_calls": 234,
+      "failed_migration_reasons": {
+        "confirmed_capacity_for_whole_old_transfer": 234
+      },
+      "migration_calls_without_final_order": 234,
+      "new_confirmed_despite_failed_migration": 0,
+      "new_confirmed_failed_migration_details": [],
+      "old_pending_count": 0,
+      "old_pending_unchanged": true,
+      "rejection_counts": {
+        "missing_open": 2,
+        "probe_risk": 344,
+        "pool_capital,probe_risk": 173,
+        "probe_risk,sector_capital,sector_risk": 4,
+        "pool_capital,probe_risk,sector_capital,sector_risk": 3,
+        "pool_capital,probe_risk,sector_capital": 58,
+        "probe_risk,sector_capital": 106,
+        "open_minimum_exceeds_frozen_contract": 1
+      },
+      "named_stock": {
+        "300308.SZ": {
+          "order": null,
+          "rejections": [
+            {
+              "key": "B|2022-06-28T15:10:00+08:00|300308.SZ|mobile",
+              "sid": "300308.SZ",
+              "role": "mobile",
+              "reason": "pool_capital,probe_risk,sector_capital"
+            }
+          ]
+        },
+        "300502.SZ": {
+          "order": null,
+          "rejections": []
+        }
+      }
+    }
+  },
+  "contrasts": {
+    "gate_effect_given_singlepass": {
+      "gained_order_stocks": [],
+      "lost_order_stocks": [],
+      "gained_planned_flat_footholds": [],
+      "lost_planned_flat_footholds": [],
+      "changes": [],
+      "capital_delta": 0.0,
+      "risk_delta": 0.0,
+      "cash_reserve_delta": 0,
+      "available_delta": "0E-13",
+      "fee_delta": "0",
+      "not_PnL": true
+    },
+    "gate_effect_given_twopass": {
+      "gained_order_stocks": [],
+      "lost_order_stocks": [],
+      "gained_planned_flat_footholds": [],
+      "lost_planned_flat_footholds": [],
+      "changes": [],
+      "capital_delta": 0.0,
+      "risk_delta": 0.0,
+      "cash_reserve_delta": 0,
+      "available_delta": "0E-13",
+      "fee_delta": "0",
+      "not_PnL": true
+    },
+    "allocator_effect_given_coupling": {
+      "gained_order_stocks": [],
+      "lost_order_stocks": [],
+      "gained_planned_flat_footholds": [],
+      "lost_planned_flat_footholds": [],
+      "changes": [],
+      "capital_delta": 0.0,
+      "risk_delta": 0.0,
+      "cash_reserve_delta": 0,
+      "available_delta": "0E-13",
+      "fee_delta": "0",
+      "not_PnL": true
+    },
+    "allocator_effect_given_decoupling": {
+      "gained_order_stocks": [],
+      "lost_order_stocks": [],
+      "gained_planned_flat_footholds": [],
+      "lost_planned_flat_footholds": [],
+      "changes": [],
+      "capital_delta": 0.0,
+      "risk_delta": 0.0,
+      "cash_reserve_delta": 0,
+      "available_delta": "0E-13",
+      "fee_delta": "0",
+      "not_PnL": true
+    }
+  },
+  "input_view_sha": "db0c779b2a2288eb4b8b102c1cdb42ea01d3a93fc5c909bb8ca437163f80aece",
+  "projection_limit": "audited allocation-read-set projection only, not complete runner restoration; same explicit unused prior status unknown",
+  "existing_pending_at_S0": 0
+}

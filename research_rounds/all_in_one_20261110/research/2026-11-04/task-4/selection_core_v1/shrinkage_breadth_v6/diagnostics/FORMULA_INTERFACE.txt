@@ -1,0 +1,25 @@
+v6 thin diagnostic interface — preparation only, waiting root freeze
+User-fixed kappa=10; no tuning, no new ranking or labels executed.
+
+Inputs at T:
+n = original N_U_t
+u1 = original N_above20_t
+u0 = original N_above20_tminus5 (the same T industry U members observed at T-5)
+Original B1=u1/n; original paired B0=u0/n; original paired delta=(u1-u0)/n.
+Bm1 = sum industry N_above20_t / sum industry N_U_t at T.
+Bm0 = the same aggregate at the preceding fifth CSI session, using that dates own observed U, not todays U backfilled across the market.
+Use saved2021 warm counts for the first2022 five-session market lag; do not make initial2022 lag unknown solely because the report starts then.
+
+Frozen candidate algebra to be executed only after root contract:
+B1prime=(u1+10*Bm1)/(n+10)
+B0prime=(u0+10*Bm0)/(n+10)
+DeltaBprime=(u1-u0)/(n+10)+10*(Bm1-Bm0)/(n+10).
+Self term = (u1-u0)/(n+10) = n/(n+10)*original paired delta.
+Market term = 10*(Bm1-Bm0)/(n+10).
+The market coefficient grows when n is smaller. For equal n the market term is the same daily shift; across n it can change cross-sectional order. It cannot be called industry-specific diffusion.
+
+Planned output fields (root freeze governs actual names/ties):
+date,sector_id_static,industry_static,n,u1,u0,original_B1,original_pair_B0,original_delta,Bm1,Bm0,market_delta,shrunk_B1,shrunk_pair_B0,shrunk_delta,self_term,market_term,self_weight,market_weight,original_delta_rank,shrunk_delta_rank,rank_change,known flags.
+Raw original own-U lag/change and U join/leave counts remain separate diagnostics. Never substitute own-U industry change for paired same-T-industry change.
+Rank ties/cutoff/display order await root freeze. No stock/industry order is computed here.
+The fixed v5 cases remain168 rows; known risk windows are exploratory counterexamples, not a fresh blind holdout. No case is selected because a shrink result looks favorable.

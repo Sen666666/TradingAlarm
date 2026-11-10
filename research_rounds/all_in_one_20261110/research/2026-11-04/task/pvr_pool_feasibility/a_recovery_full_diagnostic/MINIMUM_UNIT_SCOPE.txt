@@ -1,0 +1,6 @@
+三固定重点日单笔必要条件：2022-06-01、2023-07-25、2024-03-01。
+前两日为全域每个有增量episode首A日，第三日是root预先点名的同第二episode内条件检查；不是第三独立新策略恢复。
+只检查原freshCP1 mobile role、无非ACT障碍的全部原对象（120/157/345来自已核Q表，不选盈利股）；只走原small probe路作为保守可承接子集，不试confirmed、不迁池/建S0/分配。
+逐单读取原dated quantity/fee schedule、same-source CLOSE i_floor/CP1候选、下一市场OPEN原价与factor、原行业active/attempt。用实际原flat CLOSE NAV/available，AR不当现金；knownOPEN只作执行价参考，不进入A信号。
+检查最小合法单位对原2%mobile目标、原10%股/10%probe/2%行业probe资本、.5%probe风险/1%行业风险与10%现金预留，含原买费/5bp不利价，原fresh canonical ID匹配。逐单单独空仓资源界限，绝不相加为组合成交，不生成订单或声称可实际fill。
+缺价/缺身份/行业无active等逐项保留；通过也只是‘整手、目标、费用、资金和原probe名义资源必要条件可成立’，非重放route/consume/监管限价停牌/流动性或新账户交易利润。

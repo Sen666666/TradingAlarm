@@ -1,0 +1,35 @@
+PROGRESS 1000 27.4
+PROGRESS 1250 33.7
+SUMMARY 2022 {"registered": 2411, "entered": 2395, "completed": 2055, "ordinary": 1883, "features_known": 2149, "ordinary_features": 1643, "ordinary_feature_wins": 320, "features_unknown_on_entered": 262, "max_pvr_error": 1.4210854715202004e-14}
+ORDINARY_MONTHS               n  wins  stocks
+signal_day                   
+2022-01     383    28     380
+2022-02     172     8     172
+2022-03     137    13     131
+2022-04      72     6      72
+2022-05      75    41      75
+2022-06     106    41     106
+2022-07      51    12      48
+2022-08     109    10     109
+2022-09      46     5      46
+2022-10     145    48     145
+2022-11     306   100     304
+2022-12      41     8      41
+SUMMARY 2024 {"registered": 1210, "entered": 1198, "completed": 1115, "ordinary": 1032, "features_known": 1121, "ordinary_features": 951, "ordinary_feature_wins": 422, "features_unknown_on_entered": 88, "max_pvr_error": 1.4210854715202004e-14}
+ORDINARY_MONTHS               n  wins  stocks
+signal_day                   
+2024-09     518   337     516
+2024-10     186    47     185
+2024-11     106    13     106
+2024-12     141    25     140
+CUT 2022-07-01 {"n": 776, "wins": 54, "losses": 722, "dates": 80, "stocks": 624, "min_signal": "2022-01-04 00:00:00", "max_signal": "2022-06-23 00:00:00", "train_windows": {"2022": 776}}
+CUT 2022-08-01 {"n": 841, "wins": 79, "losses": 762, "dates": 101, "stocks": 662, "min_signal": "2022-01-04 00:00:00", "max_signal": "2022-07-14 00:00:00", "train_windows": {"2022": 841}}
+CUT 2022-09-01 {"n": 947, "wins": 116, "losses": 831, "dates": 129, "stocks": 717, "min_signal": "2022-01-04 00:00:00", "max_signal": "2022-08-23 00:00:00", "train_windows": {"2022": 947}}
+CUT 2022-10-10 {"n": 1102, "wins": 150, "losses": 952, "dates": 151, "stocks": 795, "min_signal": "2022-01-04 00:00:00", "max_signal": "2022-09-16 00:00:00", "train_windows": {"2022": 1102}}
+CUT 2022-11-01 {"n": 1141, "wins": 154, "losses": 987, "dates": 160, "stocks": 809, "min_signal": "2022-01-04 00:00:00", "max_signal": "2022-10-24 00:00:00", "train_windows": {"2022": 1141}}
+CUT 2022-12-01 {"n": 1210, "wins": 168, "losses": 1042, "dates": 179, "stocks": 829, "min_signal": "2022-01-04 00:00:00", "max_signal": "2022-11-17 00:00:00", "train_windows": {"2022": 1210}}
+CUT 2024-09-02 {"n": 636, "wins": 168, "losses": 468, "dates": 84, "stocks": 561, "min_signal": "2022-08-05 00:00:00", "max_signal": "2022-12-29 00:00:00", "train_windows": {"2022": 636}}
+CUT 2024-10-08 {"n": 554, "wins": 161, "losses": 393, "dates": 73, "stocks": 520, "min_signal": "2022-09-01 00:00:00", "max_signal": "2024-09-12 00:00:00", "train_windows": {"2022": 538, "2024": 16}}
+CUT 2024-11-01 {"n": 632, "wins": 214, "losses": 418, "dates": 76, "stocks": 580, "min_signal": "2022-09-28 00:00:00", "max_signal": "2024-10-16 00:00:00", "train_windows": {"2022": 496, "2024": 136}}
+CUT 2024-12-02 {"n": 681, "wins": 265, "losses": 416, "dates": 74, "stocks": 591, "min_signal": "2022-11-03 00:00:00", "max_signal": "2024-11-11 00:00:00", "train_windows": {"2024": 384, "2022": 297}}
+ELAPSED 38.98825716972351

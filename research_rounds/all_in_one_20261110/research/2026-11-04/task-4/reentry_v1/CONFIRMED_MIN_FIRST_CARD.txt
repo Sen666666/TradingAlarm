@@ -1,0 +1,38 @@
+2026-11-04 替代假说：只改变No60同次OPEN confirmed新订单的资金分配节奏。
+研究动机来自已独立恢复的原15拒绝：13条confirmed最小手只被现金/原10%reserve挡，
+2条还被同OPEN前序新增行业风险挡；原新高门不解决这些资源。此候选不合并新高门。
+
+排重身份：旧probe-batch两遍政策只对probe先min、confirmed仍full。本候选相反只改
+confirmed，probe保持原full single-pass。不是新趋势信息，不叫算法修复或已赚钱。
+
+固定全部13个真实focus OPEN（15拒绝对应13OPEN）；每个取原保护卖出/settle/sync后、
+第一个新准入前的exact S0，完整原pending候选序列，不只三指定股。
+先从原frozen intent/原canonical trace/原raw OPEN/factor/dated qty/fees重建LR.preview，
+No60原单遍必须逐单数量/pool/费用及原拒因OFF身份通过。不得重新算信号或造新账户。
+若薄复用无法恢复完全原身份，报告缺口，不为候选新造恢复平台。
+
+ON仅私有resource reservation规划，不提交/成交：
+1. 同股core先，PVR/rank/原code tie、原ACT/pending/receipt/epoch及原全部门不变。
+2. 第一遍调用原full-maxq route评估来选择pool。若选probe，保留原full合法量；若选
+   confirmed，先按其原dated最小合法初始量规划，包含ADD等所有confirmed新单，不把
+   它们都叫首次试探。不能把两池先截min后重新平手选probe。
+3. 新资源状态会影响后续原序候选的route与迁池，必须保留该反馈；不预先锁定原OFF
+   pool或用冻结原路由释放量冒充全政策上界。每股至多一个最终订单。
+4. 所有候选第一遍完成后，只对已选confirmed订单按原序补至原frozen cap/预算所允许
+   的最大量。role/pool/原保护/CP1不改，quote/frozen clock不延寿。
+5. 每次尝试用原S0重放固定迁池与最终数量组合独立验证，补量不得使后排已选min失效。
+   final固定组合/迁池验证失败必须保存invalid-plan并停止，不能丢后排min或重选pool救结果。
+   费用F(q)按最终单笔股数重算、每股聚合一次，不收两次minimumfee；原filled/pending
+   历史单不改、不取消ACK伪释放；10%现金、probe10/.5%、行业资本/1%风险、股10%保持。
+6. No60 request/migrate/route三处一致不得借回confirmed60。输入hash与原state不得变。
+
+事前读数：全候选新增/丢失落脚、原持仓ADD/真实再入/首次参与、sector/role/pool、
+总预留资本/费用/风险、各原订单缩量、仍拒门及原scope16目标。不得仅按多买几只通过。
+原层事后净额只列被裁剪/新增对应的旧状态机会成本，不按比例编造新PnL。
+
+成本边界：先重建一处最早S0并通过OFF，再做全部13 OFF；均通过且独审后才ON。
+整个13OPEN的OFF+ON私有规划合计计算墙钟上限180秒（不含必要源读取），不是每个OPEN
+180秒；不新启动任何连续策略账户。
+若无实际新增可达目标、反而挤出重要原订单或接口必须换平台，本候选止于事件层。
+若事件层有规模，仍须独审完整执行/费用/迁池后才能考虑2022-24与strong连续资金对照，
+不能仅凭本13强窗OPEN晋升。真实旧持仓不因新增候选被强卖。

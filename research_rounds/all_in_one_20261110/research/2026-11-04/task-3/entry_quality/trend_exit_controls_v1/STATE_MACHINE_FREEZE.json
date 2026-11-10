@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "frozen_before_alternative_account_results": true,
+  "active_arms": ["BASELINE", "EARLY_EMA20", "EARLY_EMA60", "EARLY_BOLL20_MID", "EARLY_BOLL20_LOWER"],
+  "stopped_arms": ["HOLD_EMA20_H3", "HOLD_EMA20_H5", "HOLD_EMA20_H10", "HOLD_EMA60_H3", "HOLD_EMA60_H5", "HOLD_EMA60_H10"],
+  "stopped_reason": "No actual original I-exit event is above its prior valid stock I protection floor. Delaying these exits would relax the requested original structural risk boundary. No grace economic account will be run or claimed as validated. All-held-close no-first-eligible-event check is separately audited.",
+  "changed_scope": "Only additional position exit trigger. Entry eligibility, I_target facts, CP evidence creation, industry state, ranking, target sizing and budgets remain original definitions; endogenous quantities and later account decisions may change.",
+  "signal_formula": "Original I exit OR READY current valid observed causal_close strictly below the chosen EMA20/EMA60/BOLL20_MID/BOLL20_LOWER line",
+  "conflict_priority": ["ACT_pause", "I_structure_exit", "original per-mobile old-floor CP1_add_protection", "additional indicator exit of remaining nonpending live layers"],
+  "indicator_equals_close": "No tool exit",
+  "indicator_unknown": "No tool exit; original exits and management continue",
+  "execution": "CLOSE only creates native sell request; unchanged native next eligible OPEN/T+1/liquidity/quantity/fee/settlement/action engine executes; no sell fill at triggering CLOSE",
+  "existing_exit": "Never cancel, replace, postpone or rearm an existing exit request to improve indicator outcome",
+  "same_day_new_CP": "Preserve original old-floor test-before-new-proof ratchet ordering; indicator does not create receipt or new risk permission",
+  "partial_or_failed_fill": "Use original pending-order/layer locking; no manual forced fill or same-day reuse",
+  "baseline": "Reproduce original No60 exact path before claiming plugin account comparison",
+  "parameters": {"EMA_spans": [20,60], "EMA_adjust": false, "EMA_seed": "first valid close of original source segment", "min_periods": "n for EMA_n;20 for Boll", "Boll_n":20,"Boll_sigma":2,"Boll_ddof":0},
+  "no_outcome_selected_arm_or_parameter": true
+}

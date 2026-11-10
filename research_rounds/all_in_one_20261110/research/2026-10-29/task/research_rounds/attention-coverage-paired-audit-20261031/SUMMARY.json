@@ -1,0 +1,37 @@
+{
+  "events": 75,
+  "groups": 55,
+  "joint_common_scorable": 75,
+  "counts": {
+    "remains": 75
+  },
+  "disappeared_prior_already_out": 0,
+  "disappeared_current_still_in": 0,
+  "common_pool_min": 1637,
+  "common_pool_max": 1656,
+  "pool_loss_from_prior_max": 2,
+  "pool_loss_from_current_max": 3,
+  "pool_loss_from_prior_median": 0.0,
+  "pool_loss_from_current_median": 1.0,
+  "own_members_loss_events": 1,
+  "common_industry_min": 1,
+  "common_industry_max": 60,
+  "global_only_counts": {
+    "remains": 75
+  },
+  "members_only_counts": {
+    "remains": 75
+  },
+  "indicator_interaction_counts": {
+    "0": 75
+  },
+  "changed_stocks_raw_read": 59,
+  "quality_counts_stockdates": {
+    "no_local_bar": 58,
+    "before_first_local_bar": 17
+  },
+  "no_future_labels_read": true,
+  "no_economic_paths": true,
+  "seconds_before_output": 1.7805730002000928,
+  "seconds_with_output": 1.7983272499404848
+}

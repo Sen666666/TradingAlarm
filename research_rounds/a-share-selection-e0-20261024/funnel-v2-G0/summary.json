@@ -1,0 +1,12 @@
+{
+  "recorded_at": "2026-10-25T00:08:36.131936+08:00",
+  "source": {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/accounts-v2/groups/G0/decisions.jsonl.gz",
+    "sha256": "b0c3b16b45fea6e8768494939af24a7801b1d3cac7071b9bf7457a516606c0dd"
+  },
+  "decision_rows": 17196,
+  "diagnostic_groups": 38352,
+  "counting_unit": "candidate-day; not trades or unique stocks; one eligibility evaluation per account/day, executor rejection separate",
+  "source_retained_full": true,
+  "unverified_nonqualified_BSE_annual_outcomes_excluded_from_A_opportunity_labels": true
+}

@@ -1,0 +1,1 @@
+Pure synthetic prefix assertion failed before freeze/new real signals: confirmed_pivot_date inferred object in prefix vs StringDtype in full. Normalize both original event date output fields explicitly to string; no numerical/state/strategy change.

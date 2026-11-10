@@ -1,0 +1,45 @@
+{
+  "created_utc": "2026-10-20T01:52:58.011386+00:00",
+  "status": "before candidate outputs; all history development",
+  "hypothesis": "Volume-weighted displacement that remains unreversed reflects accepted directional movement; reversal cancels old impulse and can jump score without a slope reset.",
+  "formula": "r_i=logP_i-logP_(i-1); e_i(t)=sign(r_i)*min(abs(r_i),max(0,sign(r_i)*(logP_t-logP_(i-1)))); w_i=2^(-(t-i)/21)*sqrt(clip(V_i/median(V_(i-21)..V_(i-1)),.25,4)); S=sum(w_i*e_i)/(RMS(last63 returns)*sqrt(sum(w_i^2)))",
+  "parameters": {
+    "window": 63,
+    "half_life": 21,
+    "volume_reference": 21,
+    "weight_clip": [
+      0.25,
+      4
+    ],
+    "entry": 1,
+    "exit": 0
+  },
+  "strategy": "Cross above1 enters, <=0 exits; first finite>1 eligible; missing holds prior target, next tradable execution, initial equal allocation. Model independent of positions.",
+  "difference": "Unlike dry_shock trade-state filter or shock_scale rebound denominator, cancellation changes signed market evidence for every prior move; unlike segment fit no new fitted slope or break penalty.",
+  "falsifiers": [
+    "Repeated traversal of a bounded range manufactures accumulating strength",
+    "A one-time jump without further progress stays strong from stale evidence",
+    "Recovery and persistent reversal indistinguishable after their observed paths diverge",
+    "Volume has no meaningful increment against constant-volume/price controls"
+  ],
+  "gates": "Prefix and scaling invariance required. Inspect synthetic range/jump/drift and fixed real cases before accounts. If bounded oscillation materially inflates directional strength, reject architecture before account ranking; quantify rather than tune window.",
+  "cases": [
+    [
+      "HK03033",
+      "2022-01-01",
+      "2026-10-16"
+    ],
+    [
+      "HK00700",
+      "2024-01-01",
+      "2026-10-16"
+    ],
+    [
+      "SH512480",
+      "2024-01-01",
+      "2026-10-16"
+    ]
+  ],
+  "accounts_if_trajectory_passes": "ETF17/HK7 volume vs price, simple63SMA and saved half_slow controls; base/cost2/delay1. Then same sector-gate ETF vs fixed three-stock pilot, separately from algorithm comparison.",
+  "code_sha256": "74921171b7bf91678cf847667b5779aad962f548c68b7a094b8fc3bdb8f6843b"
+}

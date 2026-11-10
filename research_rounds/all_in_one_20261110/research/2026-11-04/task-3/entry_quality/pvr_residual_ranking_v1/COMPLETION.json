@@ -1,0 +1,32 @@
+{
+  "status": "COMPLETE_STATIC_RANK_STUDY_NOT_ADMITTED",
+  "reporting_version": "run_v1_exact_ties",
+  "rows": 133713,
+  "known_rows": 49612,
+  "known_sector_day_groups": 3083,
+  "fixed_target_dates": 151,
+  "fixed_target_known": 117,
+  "fixed_competitor_rows": 2570,
+  "fixed_competitor_groups": 116,
+  "new_accounts": 0,
+  "active_experimental_processes_owned_by_this_study": 0,
+  "remaining_execution_blocks": [],
+  "economic_admission": false,
+  "files_sha256": {
+    "FREEZE.json": "d719502bcd7bc1c1ff655dc03e73752c95b363ed6291ef2cc97eb0a2aa6a3675",
+    "READOUT.md": "4b058ccf7d6fd303fb20a465ffd4841ed72ebb2e7af79c3e1070941677eb677f",
+    "EXACT_TIE_CLARIFICATION.json": "78e341f6cc80c4637a62017477f5758fb5d27284ce4d6354087241afe4ab69d5",
+    "MATHEMATICAL_COUNTEREXAMPLE.json": "43f40a8dcb5a45372641f2481505e63a46f4165f05bdeaafa4ffb00a4ea11e78",
+    "rank_saved_candidates.py": "a2929c4c5ad8d551ad33d3213578b56f66a111b68bfc98b74d43bddd79d037ab",
+    "exact_ties_from_saved.py": "996b93a51bb40aa1b01d9522a585c287790d9cc1d82fdc56e427939f5138abd8",
+    "run_v1/COMPLETION.json": "56403a565ad19756ad9f0c074413e1d61c2628e5cab6afc95cac6b1d3fb9f3aa",
+    "run_v1_exact_ties/COMPLETION.json": "65b7172d2971278776afb3b506d559fba666fe149f107f4cbe901effc88d21bc",
+    "structure_feature/DELIVERABLE_SHA256.json": "344af43d6a31f9384ddf0ab49ed4a8f4b6a2c9c7a568846f00a0409b13d98f4b",
+    "case_date_audit/DELIVERABLE_SHA256.json": "8f8739f061b44962c03bbf6f0023552e3ce1481ec930ff3e67e1fe9230d2ffa2",
+    "independent_review/FINAL_AUDIT_INDEX.json": "52dd6e6c29b72c479b4b65ca16d17e7966f851943e91b64e9c6c19e0cd9410d8",
+    "independent_review/EXACT_TIE_AND_FINAL_RANK_AUDIT.json": "f796b36434f30d2cfbf13b66042f55d377163fe3da79a9070376120343b6d557",
+    "POST_RANK_CASE_ANNOTATION_RECEIPT.json": "39df375ad5bb2ccf56cfe93eb8f2c670ebe5f18f88fe33847f92a0283fa670d7",
+    "run_v1/FIXED_CASE_EXISTING_LAYER_OUTCOME_ANNOTATIONS.csv": "c6be03c443676584b8f5dbe2e52576a4e26ef6910b9cf5fed71c6e0378ba68d5",
+    "run_v1/FIXED_COHORT_EXISTING_FILL_DIAGNOSTICS.csv": "a10b14ea923d550032c7b897e65b674852c493ca3b619f30bf55e20660629186"
+  }
+}

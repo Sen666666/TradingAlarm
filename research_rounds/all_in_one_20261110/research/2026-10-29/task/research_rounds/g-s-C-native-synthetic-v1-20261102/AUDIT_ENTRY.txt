@@ -1,0 +1,32 @@
+C10 / C_BATCH20 最小原生合成接线：独立审查入口
+
+结论范围：17/17合成用例通过，18个已保存状态的journal权益/现金资产/层现金差均为0。仅证明这份生成价格接口的原生接线；不是历史策略收益、指标预测力或实盘认证。历史账户事件0，未运行Jan4–5/Jul1–2或首月，原C10/C20/JF2及既有金融源码hash核同。
+
+复放（可用全新输出目录，不覆盖本包）：
+cd /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-native-synthetic-v1-20261102
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B test_native.py --out /tmp/C-native-independent-unique
+
+主入口 native_c.py；合成输入/断言 test_native.py；独立进程恢复 restore_check.py。
+AUTHORiZATION对应文件名为AUTHORIZATION.json；SOURCE_FREEZE.json含源码/fixture、原审组件依赖、范围及未覆盖项；runs/RESULTS.json与TEST_STDERR.txt为完整17项结果；NATIVE_BRIDGES.json为18状态桥；runs/checkpoints/carry.pkl及provenance是实际跨进程状态。哈希见ARTIFACT_SHA256.json。
+
+三个接线点：
+1. 持久BatchBook通过advance_snapshot验证实际provider/责任后显式old→new绑定。原solve_C20单快照guard保留。加载的是完整旧book历史，不是new_book重建；Carry/New、plan和观察身份保留。New重置/股数/filled→cancelled伪装均拒绝。
+2. 原静态C结果保持analysis_only和submit_allowed=False。新C_NATIVE_AUTHORITY_V1在真实provider上重算C/C20并绑定具体receipt、数量、deadline、输入及源身份；不调用旧A solve充当C证明。原生账持有全部现金/库存/费用/结算，Authority/BatchBook只有数量和授权镜像。原生层→指定lot→订单→真实FillReceipt映射唯一，最低佣金/现金只记一次。
+3. 共用原SyntheticRunner的收盘F1/ACT/旧线次序，隔离替换旧K均分/筹资tail；同一新opening按冻结C键整批预留后执行，保留独立core/T与成功预留压制同股第二角色语义。C10/C20仅20%机会D谓词off/on，未叠D1或其他政策。
+
+可核实际行为（不是收益比较）：
+- 空仓G：两档真实9股，实际exposure同为89.9637103889%，D=0，不受20%卖出预算影响。
+- 满仓健康旧仓：成熟新行业四股的原生筹资退出责任C10毛额396000，C20毛额198000；审批时现金/风险未释放，不能把这两个数称已实卖。
+- C20实卖100股后，当批New仍198000；下一CLOSE未成carry=188100。实际卖款结算前available不变，结算后才增加；旧receipt未续命，后来fresh才能实际参与。
+- 行业原生先启动、再price_advance：此前高价STAR买不起小试，未持股8股仍可后续真实部署至79.92078423995%，K为空，不凭持股事实积累目标。
+- STAR同原单余量50可成交；每张新单仍由原min200规则审查。部分买单/持仓/退出责任2倍送转后账、授权锚数量和风险同域；零股归属不支持的反例原子拒绝。
+- 真I失败产生独立退出，预算不挡；把排名下降改名I失败无已知证据会拒。旧退出先处理，风险按实际卖出释额；未结算资金不能抢先买。
+- 实际行业C顺序用于原生预留，无窗口仍保留预留，不回灌后排。未来已知时点、错源/目标/期限、错误snapshot、回调/数量篡改和错误恢复mode拒绝。
+
+明确未覆盖／不能直接接历史连续runner：
+1. 原目标还有买单/健康筹资卖责任或未结算卖款时，新的C目标返回WAIT_NATIVE_OLD_GOAL_RECONCILIATION，原订单/授权/责任/carry不清。当前没有把旧目标覆盖重分给新fresh目标的原生协调器；这项工程等待不能宣传为已冻结的新经济政策或完整连续能力。合成已验证等待→真实卖出→结算→fresh新授权闭环；未证明复杂多目标并行覆盖。
+2. 一般零股指定层损失、多个S待单向G备用子集退化、较大机会性责任被部分mandatory升级等仍原子阻断，不能跳股票/事件或默认为0。unsupported action/未知risk拒绝，不视为策略亏损。
+3. I/Q/CP1与行业H1/股票PVR完整优先键由明确因果fixture接口提供；F1用冻结原内核。未绑定真实历史canonical/行业覆盖/支付包，没有新的指标计算或历史账户。
+4. 权益桥库存估值沿原native mark，不是第二价格源；日线执行代理的既有可执行性限制不因合成通过消失。
+
+失败留档：failures/01–04分别保留复制类导入/fixture时钟、T+1与报告时钟、未触发预算差异的G20场景/错用post-new carry/实际整数送转fixture、Decimal报告编码器错误。pre-hardening-10-pass保留早期10项版本；原经济参数/阈值未为通过用例调整。最终代码冻结后停止，待独立审查。

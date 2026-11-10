@@ -1,0 +1,9 @@
+MANUAL_CYCLES.csv columns:
+record_id, sector, name, start, end, priority, priority_code, note, boundary_rationale, origin, aux_ids, aux_count, old_overlap_ids, old_priority_overlap_ids, exact_old_ids, old_containing_ids, relation_to_old, fully_missing, new_priority_kind, is_genuinely_new_priority, nested_in, selection_method, member_scope, price_basis, industry_return_pct, mdd_pct, mdd_peak, mdd_trough, sessions_after_start, sessions, calendar_days, period_peak_is_highest, period_start_is_lowest, period_true_low, period_true_high, peak_following_low, peak_to_observed_low_pct, at_cutoff_vs_peak_pct, observation_end, last_aux_status, last_aux_down_confirm, observed_cycle_status, current_all_members, research_pool_members, known_members, unknown_members, outside_pool, full_path_members, unknown_symbols, positive_members, n, K, P, F, full_path, unknown, above30_members, above50_members, member_p25_pct, member_median_pct, member_p75_pct, member_mean_pct, top3_positive_share_pct, mean_without_top3_pct
+
+Units: all percentage fields are percentage points. n=positive_members; K=known_members; P=research_pool_members; F=current_all_members; full_path=full_path_members; unknown=P-K.
+Comparison: old_overlap_ids are SAME-INDUSTRY old intervals with strict positive time intersection. is_genuinely_new_priority requires priority_code K and zero such overlaps, not merely zero overlaps with old priority records.
+Priority codes: K=重点肥尾候选; O=普通或次级波段; D=等级待讨论.
+TC019 keeps the old broad trial/restart campaign start, though 2020-02-04 is 1.4205% lower. All other 68 starts are in-window observed minima; all 69 ends are in-window observed maxima.
+No main or member numbers changed after initial delivery. Added three observation-status columns and clarified text only.
+Author second implementation check is not an independent human/agent review.

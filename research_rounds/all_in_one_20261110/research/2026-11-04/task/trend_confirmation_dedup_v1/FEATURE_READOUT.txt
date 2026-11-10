@@ -1,0 +1,27 @@
+薄特征函数与因果前缀核验：完成，0账户
+
+compute_flags.py是纯函数，输入原facts index/close/segment/rawclose/factor及明确price_observed掩码。掩码来自同source的price_eligible & observed_bar & ~synthetic_event_bar；函数不下载、不重采样、不dropNA、不读账户，不改变E0/I/CP1。
+未知或无效价格证据占原输入槽并打断连续性；下一known段重新暖机。A inclusiveMA60+lag5需65同段known观察；BB ddof0 inclusive20 fresh上穿需前上轨，至少21观察；EMA10 adjustFalse/min10、lag3按同段原槽，未知后重新seed。
+未知A/B用nullable boolean NA保留，m默认0.5只表示不获满原量证书，绝不把它当价格/Q/原执行已有效。未准入native，日后仍须先过原全部硬资格。
+
+固定真实夹具（完整warm至2026Jun30）
+000001.SZ 3271行，Aknown3207/Bknown3251，Atrue1311/Btrue109；
+300001.SZ 3186行，Aknown3122/Bknown3166，Atrue1360/Btrue119；
+688001.SH 1682行，Aknown1618/Bknown1662，Atrue590/Btrue57。
+合8139原观察。三者原facts索引与原source截至同日索引/close/segment逐点exact；实际夹具native槽中无invalid/synthetic行，不能把此事实推广为全池皆无未知。
+2022Apr29/2024Sep23/2026Mar31每股3次，facts和eligibility source各自物理截断后重新调用函数，所有known/nullable flag/倍率/诊断浮点与完整计算同前缀exact，共9次。
+
+非交易的独立边界检查
+EMA10递归单独手算；MA60/BB20窗口用math.fsum单独算术核对。
+常价等号与零斜率；一个未知槽和一个eligibilityFalse槽分别使特征unknown并完整重新暖；source变化独立重暖，未通过压缩槽补足历史。
+追加小边界未重跑上述实股/全池源检查：价格恰等于MA60且MA确上行则A True；前收盘恰等于旧上轨后严格突破时B True；次日仍在上轨外但没有freshcross时B False。追加不到0.1秒。
+
+全1709仅coverage与来源SHA
+1687 complete：每股现facts和原signal两个文件存在且SHA与manifest frozen值exact；22 not_applicable_no_local_observation_by_end身份明确UNKNOWN_NO_SOURCE。
+不读取全池特征、不生成宽表、不按已买股删母体；已核SHA不等于已独立重算全池eligibility或A/B。
+
+成本与冻结
+一次主核验共11.630161秒（含全池source SHA前后检查和三夹具/9prefix/合成机械验收），低于60秒预算。没有native接入/数量求解/账户/回测。
+FEATURE_PRE_RUN_FREEZE.json在新特征计算前记录脚本/参数卡及原输入；全部末SHA复核。FEATURE_VERIFICATION_RESULTS.json和FEATURE_COVERAGE_AND_SOURCE_SHA.json保真实计数/9断言/全3374已核路径及22未知身份。BOUNDARY_EDGE_FREEZE/RESULTS保追加精确等号与fresh-state区别，原主核验不重复。
+独立capacity_logic_review_v1首源审无阻断；正式收据由该agent按源码/producer前缀结果/源SHA范围审，不冒充其第二套重跑模型。收到收据前只称producer机械PASS。
+当前仅可供将来原loader每sid内存缓存，不能自动接入四消融经济运行；成本额度首轮结果后root决定下一阶段。

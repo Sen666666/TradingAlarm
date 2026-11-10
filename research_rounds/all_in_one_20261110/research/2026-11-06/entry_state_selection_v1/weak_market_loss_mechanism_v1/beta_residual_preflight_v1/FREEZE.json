@@ -1,0 +1,20 @@
+{
+  "status": "DESIGN_AND_CAUSAL_COVERAGE_ONLY_NO_NEW_RANKING_OR_ECONOMIC_RUN",
+  "hypothesis": "Recent native stock advance may include heterogeneous common industry exposure; separate that part before interpreting it as idiosyncratic advance. Not proven alpha.",
+  "formula": "At signal close t, use 85 immediate common-calendar closes t-84..t. r=log(C_j/C_j-1). Fit beta=SUM((r_s-mean_s)*(r_i-mean_i))/SUM((r_s-mean_s)^2) on 63 returns t-83..t-21. Q=SUM(r_i-beta*r_s) over 21 returns t-20..t. Beta not clipped. No intercept subtraction in evaluation Q: historical persistent alpha remains; this is explicit.",
+  "scope": "Original A_UNION_B frozen per-day per-industry feasible queues (SELECTED_PENDING or PASS_NOT_TOP2) for2022 and Sep-Dec2024. Original held/unknown/pending decisions not counterfactually altered in preflight. Full strategy later would need dynamic replay.",
+  "unknown": "85 immediate shared closes required; positive finite native adjusted prices; observed/eligible/non-synthetic/non-source-invalid raw inputs; per-series source_kind/source_path/segment continuity; factor positive and raw_close*factor consistent with native close. No row skipping. Sector variance exactly zero, nonfinite beta/Q, or missing invalid data -> UNKNOWN. No variance floor or coefficient winsorizing.",
+  "planned_consumer": "Not executed. Known Q would reorder only known candidates within original same-date same-industry feasible positions by Q desc, then original PVR desc, then sid; UNKNOWN keeps its exact original feasible queue position. Same original K, same original entry/exit/fees/T+1. No Q>0 gate.",
+  "limits": "Native historical adjustment versions and static1709industry mapping are NON-PIT; source validation does not prove historical availability or tradability. No residual standardization/volatility penalty; high-beta true winners can be demoted. Beta can drift after fit.",
+  "preflight_tests": [
+    "Handworked heterogeneous-beta rank difference and equal-beta reduction",
+    "Pure common industry boom counterexample retains high-beta tail risk",
+    "Scale and prefix invariance",
+    "Zero-sector-variance UNKNOWN",
+    "Missing/segment gap UNKNOWN; no skipping",
+    "Coverage and beta/Q ranges before any selection comparison"
+  ],
+  "no_parameters_searched": true,
+  "history_seen": true,
+  "numerical_amendment": "Standard float64 OLS design rank detection only: numpy.linalg.matrix_rank([ones,r_sector]), default tolerance. Rank<2 -> UNKNOWN. No economic variance threshold, beta clipping or formula change for identified rows. Approved after degenerate-growth handcheck, before any ranking/economic run. Original failure preserved."
+}

@@ -1,0 +1,30 @@
+{
+  "event_counts": {
+    "D1_actual_wait": 2226,
+    "D1_retained_original_order": 1453,
+    "D1_buy_deadline_cancel": 38,
+    "D1_retry_cancel": 365,
+    "D1_same_order_amend": 966
+  },
+  "buy_distinct_first_wait_orders": 1453,
+  "sell_distinct_first_wait_obligations": 773,
+  "raw_cancellation_reasons": {
+    "original_protection_failed": 37,
+    "original_principal": 192,
+    "pool_capital": 3,
+    "original_principal,probe_risk": 31,
+    "open_at_or_below_protection": 30,
+    "original_principal,pool_capital": 4,
+    "probe_risk": 46,
+    "continuing_Q_false_or_unknown": 5,
+    "sector_risk": 9,
+    "sector_capital": 2,
+    "original_principal,sector_risk": 3,
+    "pool_capital,sector_risk": 1,
+    "original_principal,sector_capital": 1,
+    "original_principal,probe_risk,sector_capital": 1
+  },
+  "initial_admission_vs_fill_separate": true,
+  "waiting_buy_orders_preserve_original_receipt_and_do_not_require_new_CP1": true,
+  "observations_are_market_sessions_not_natural_days": true
+}

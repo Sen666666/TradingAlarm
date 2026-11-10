@@ -1,0 +1,23 @@
+{
+  "frozen_total": 222,
+  "EVENT_unmodified": 100,
+  "MATURE_total": 122,
+  "MATURE_T": 76,
+  "MATURE_F": 46,
+  "MATURE_U": 0,
+  "original_OPEN0924_MATURE": 28,
+  "OPEN0924_T": 5,
+  "OPEN0924_F": 23,
+  "OPEN0924_U": 0,
+  "frozen_top19": 19,
+  "top19_EVENT_unmodified": 13,
+  "top19_MATURE_T": 2,
+  "top19_MATURE_F": 4,
+  "top19_WAIT_names": [
+    "新华保险",
+    "大名城",
+    "浦东金桥",
+    "新城控股"
+  ],
+  "no_PnL_savings_or_portfolio_claim": true
+}

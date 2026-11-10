@@ -1,0 +1,42 @@
+{
+  "groups": {
+    "FIRST_CAPITAL_ONLY": {
+      "events": 153,
+      "known": 147,
+      "no_old_inventory": 10,
+      "own_min_above_cap": 0,
+      "need_more_than_all_old": 53,
+      "median_relief": "4851.364259537338870",
+      "median_relief_to_new_minimum_gross": "5.051359256522040532674839051",
+      "unknown_reasons": {
+        "STALE_OR_UNKNOWN_OLD_PRICE": 1,
+        "NO_NAV_UPPER_IN_EXISTING_CONTEXT": 5
+      }
+    },
+    "FIRST_SECTOR_ONLY": {
+      "events": 170,
+      "known": 164,
+      "no_old_inventory": 10,
+      "own_min_above_cap": 0,
+      "need_more_than_all_old": 55,
+      "median_relief": "13314.347020516671770",
+      "median_relief_to_new_minimum_gross": "13.42936768176740648603143223",
+      "unknown_reasons": {
+        "STALE_OR_UNKNOWN_OLD_PRICE": 1,
+        "NO_NAV_UPPER_IN_EXISTING_CONTEXT": 5
+      }
+    },
+    "FIRST_BOTH_SECTOR_ONLY": {
+      "events": 17,
+      "known": 17,
+      "no_old_inventory": 0,
+      "own_min_above_cap": 0,
+      "need_more_than_all_old": 2,
+      "median_relief": "96276.530871344858930",
+      "median_relief_to_new_minimum_gross": "107.9793660003764980578631361",
+      "unknown_reasons": {}
+    }
+  },
+  "seconds": 0.18542104214429855,
+  "scope": "Already saved rows only. Other-gate first rejects are not made admissible by a sector-only change. No sums or rotation profit."
+}

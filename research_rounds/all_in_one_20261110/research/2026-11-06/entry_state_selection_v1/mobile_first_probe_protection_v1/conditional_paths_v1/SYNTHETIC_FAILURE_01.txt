@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/mobile_first_probe_protection_v1/conditional_paths_v1/synthetic_callbacks.py", line 56, in <module>
+    try:main()
+        ~~~~^^
+  File "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/mobile_first_probe_protection_v1/conditional_paths_v1/synthetic_callbacks.py", line 20, in main
+    m.window=synthetic_window;r.opening(a,at)
+                              ~~~~~~~~~^^^^^^
+  File "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py", line 321, in opening
+    win=self.market.window(sid,at,'buy',1)
+  File "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/mobile_first_probe_protection_v1/conditional_paths_v1/synthetic_callbacks.py", line 19, in synthetic_window
+    return replace(w,capacity_shares=37,window_id=w.window_id+':SYNTHETIC37')if w else None
+                                                  ^^^^^^^^^^^
+AttributeError: 'FillWindow' object has no attribute 'window_id'

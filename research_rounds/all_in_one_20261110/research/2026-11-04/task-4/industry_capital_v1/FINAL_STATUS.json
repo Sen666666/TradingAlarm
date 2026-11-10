@@ -1,0 +1,58 @@
+{
+  "task": "Original No60 industry CORE quota opportunity cost and ex-ante rotation separability",
+  "read_only_evaluation_complete": true,
+  "active_rotation_disposition": "stop_this_direction_no_new_policy_account_no_parameter_search",
+  "reason": "Material capital constraints and future profitable opportunities exist; frozen legacy price/amount/PVR predicates do not provide a supported ex-ante weak-donor rotation rule; required relief often exceeds new buy capital or entire old inventory.",
+  "scope": {
+    "current_stocks": 1709,
+    "current_industries": 90,
+    "long": "2022-2024 continuous original 1m",
+    "strong": "2025Jul-2026Jun continuous original 1m",
+    "historical_point_in_time": false
+  },
+  "original_sector_reject_raw_events": 33569,
+  "first_original_source_I_epoch_reject_events": 8335,
+  "only_industry_gates_first_events": 170,
+  "known_common_horizon_old_basket_matches": 7282,
+  "native_conditional_single_asset_labels": 8335,
+  "technical_calibration_single_asset_ledgers": 5,
+  "new_portfolio_policy_accounts": 0,
+  "quadrants": {
+    "new_profit_old_loss": 1020,
+    "new_loss_old_profit": 1447,
+    "both_profit": 1340,
+    "both_loss": 3475
+  },
+  "fixed_COR_weak_specific_stock_pairs": 23,
+  "capital_not_excluded_fixed_COR_weak_pairs": 6,
+  "capital_not_excluded_weak_pair_quadrants": {
+    "both_loss": 5,
+    "both_profit": 1,
+    "new_profit_old_loss": 0
+  },
+  "actual_2026H1_semiconductor_buy_layers": 25,
+  "actual_2026H1_semiconductor_CORE_layers": 1,
+  "actual_2026H1_semiconductor_MOBILE_layers": 24,
+  "MOBILE_signal_day_original_i_buy_warm_fresh": 24,
+  "MOBILE_held_blocks_new_CORE": 6,
+  "MOBILE_original_CLOSE_CORE_size_rejects": 7,
+  "MOBILE_original_CORE_OPEN_rejects": 11,
+  "of_11_only_probe_or_sector_capital_gates": 9,
+  "of_11_still_sector_risk_gate": 2,
+  "all_11_already_industry_financial_confirmed_or_expanded": true,
+  "next_mechanism": "Paper-only original-probe-zero typed CORE confirmed fallback for original same-day I and canonical fresh CP co-evidence; preserve original hard risk/epoch/token/single-stock exclusion/execution; no healthy-old sales.",
+  "next_mechanism_all_market_coverage_done": false,
+  "next_mechanism_legal_routing_validated": false,
+  "next_mechanism_portfolio_value_validated": false,
+  "environment_or_approval_blockers": [],
+  "remaining_research_limits": [
+    "Current survivor/current industry universe, no PIT/OOS proof",
+    "Original daily-bar execution proxy",
+    "Conditional isolated labels freeze original ACT; no portfolio feedback",
+    "Old matched baskets and release-bound algebra are not FIFO executable sale orders",
+    "Next CORE permission has not passed necessary all-market coverage or typed route/epoch/token checks"
+  ],
+  "primary_readout": "RESEARCH_READOUT.txt",
+  "next_paper_card": "NEXT_MECHANISM_CARD.txt",
+  "review_manifest": "review/FINAL_READOUT_REVIEW.json"
+}

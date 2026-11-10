@@ -1,0 +1,50 @@
+{
+  "status": "STOPPED_UNREGISTERED",
+  "financial_event_retry_authorized_by_this_report": false,
+  "scope": "two 2022 Jan13 ACTION only; no OPEN/CLOSE or2025",
+  "accounts": [
+    {
+      "arm": "2022-C10",
+      "ACTION_attempted_in_memory": true,
+      "handler_returned_observed_no_subscription": true,
+      "committed_trusted_output": false,
+      "restore_verified": false,
+      "first_failure": "action_runtime.py:117 post-ACTION certificate verification changed fields",
+      "secondary_failure": "action_runtime.py:126 failed ACTION did not roll back",
+      "rollback_status": "rollback assignment ran; fingerprint verification failed; atomic rollback is NOT claimed",
+      "observed_checks_before_failure": [
+        "handler financial conservation guard returned successfully",
+        "outer financial/strategy/budget conservation passed",
+        "all declared ACTION field changes passed allowlist",
+        "one ACTION/event/action_log/audit/native_callback each passed",
+        "theoretical ex-reference and layer quantity/stored protection/actual-share-ratio checks passed",
+        "seven genuine old-source certificate projections passed"
+      ],
+      "persisted_state": "none; ephemeral process ended with exit1"
+    },
+    {
+      "arm": "2022-C_BATCH20",
+      "ACTION_attempted_in_memory": false,
+      "committed_trusted_output": false,
+      "restore_verified": false
+    }
+  ],
+  "committed_ACTIONs": 0,
+  "registered_outputs": 0,
+  "Jan13_cross_process_restore": "BLOCKED: no committed output",
+  "duplicate_ACTION_test": "NOT RUN: no registered output",
+  "old_certificates_after_ACTION": {
+    "C10": 7,
+    "C_BATCH20": "not run"
+  },
+  "original_approved_Jan12_restore": "both preflight restored under original strict registry, original fourteen certificates verified",
+  "source_checks_passed": true,
+  "no_event_diagnostic": "NO_EVENT_FINGERPRINT_DIAGNOSTIC.json: pure pickle roundtrip prefix and sampled typed financial fields match; this does not explain or resolve failed ACTION fingerprints",
+  "cause": "UNRESOLVED complete-state/fingerprint mismatch after old certificate replay. No field-level post-failure diff was persisted, so cache mutation versus serialization defect is not established.",
+  "unsupported_settlement_or_mixed_batch": "not the reported failure; no bypass used",
+  "no_subscription_cash_or_share_operations": true,
+  "OPEN_CLOSE_executed": 0,
+  "accounts_2025_executed": 0,
+  "original_writes": 0,
+  "retry_disposition": "STOP; retain all failed attempt code/authority/logs; do not treat an empty output directory or the handler return as an approved Jan13 checkpoint"
+}

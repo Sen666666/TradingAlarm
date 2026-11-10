@@ -1,0 +1,37 @@
+一次纯求量已完成；有实质缩量幅度，经济方向仍未知。
+
+范围/验收
+原No60自身2022→24共2265单＋2025Jul→2026Jun强窗1171单，合3436实际原获资单。按原CLOSE整单计划cap计算并固定nominal R，搜索上界为原实际总成交q；没有用原实填q反造R，也未把core .25%含费预算套给mobile。原函数LR.maximum_quantity仅AST提取，dated quantity_versions/version_on与原approved proxy继承。新纯函数和16项源/卡在首次求量前冻结；单次全量0.193秒，源后SHA exact。
+11项性质检查/405有限穷举通过：R0/负width不买、原actualq小不补量、同R更大gap降低q、exact tie、100/100、STAR200/1、BJ100/1、合法minimum消失、core未知旁路、quantity单调且不超过原q。3436原actualq均本来满足新整单合法单位，本次实际结果没有整手投影制造的“风险缩量”。这仍不是账户或恢复验收。
+
+主结果（仅已审同source/factor已知mobile；毛额是累计原固定成交价口径）
+                         2022→24              强窗2025Jul→2026Jun
+已知mobile单              1758                    863
+约束真正缩量单             418                    187
+缩量单qnew/q0中位           77.78%                 75.00%
+累计固定原价gross减少       1615814.01元           1325893.58元
+其中因minimum整单消失       24单                   6单
+消失单原gross               240261.45元            143256.95元
+原actual名义风险减少        191489.22元            168616.63元
+
+418受影响单原gross6068409.94→4452595.93元，减少26.63%；187单4927950.09→3602056.52元，减少26.91%。这是反复使用本金产生的累计买入毛额，不是同时可用现金、账户资本节省或可恢复利润。
+原R不缩。新q导致nominal实际风险下降可能大于原超计划金额（11.71/11.95万元）：合法最小单位与step取整会留下未使用R，不能把19.15/16.86万元名义距离下降叫避免损失或原违约额。
+core498/304单全部原q，含强窗2个因子变化控制。mobile9/4未知单单列理论q0，其原gross93302.68/67606.79元，不混418/187主缩量或minimum消失；这些不是已执行拒单。
+
+固定周期/用途
+2022、2023、2024已知mobile缩184/96/138单，原价gross分别少702044.14/379173.65/534596.22元。强窗2025/2026分别115/72单，gross少776743.16/549150.42元。
+三年first/add/reentry缩170/134/114单，对应gross少732723.40/476370.06/406720.56元；强窗91/80/16单，少663566.88/556551.84/105774.86元。pool、dated原规则、逐季度及year×quarter×用途×pool完整交叉表均保留，无行业/年份豁免。
+2024Oct8之后303实际原fill中，78已知mobile缩量、1mobile未知、53core不变；78单原价gross少350421.61元，6单minimum消失原gross56858.62元。含未知理论不新买的合计gross差360623.71元另存，不能混作已知缩量量。2024pre924与六收盘反弹期同时输出，不只挑303。
+
+赢家代价
+原PVR事后固定尾部母体83/94保持，No60原单精确匹配45/67、未匹配38/27全部保留；没有把同股别次买入补成exact match。
+精确匹配中三年9单缩量，原价gross少36544.08元，无整单消失；强窗19单缩量，gross少167966.94元，其中1单因minimum消失，原gross21064.53元。受影响强窗尾部单的gross少35.34%，不只是细微调整。
+418缩量单原净贡献为−169635.92元，187缩量单原净贡献为+366484.03元；其中固定原尾部9/19单原净贡献+72990.12/+407657.78元。这些全是原账关联事实，绝非新q对应的收益预测。原buyfee/net/realized/open/divAR仅原值展示，未按比例改造；没有计算新fee、PnL、NAV，未重排、未利用释放现金。
+
+公司行动和接口边界
+原candidate卡同factor/source主域；独审 ENTRY_RISK_ACTION_INTERVAL_AUDIT现已核3436区间，9＋6原行动全部被原factor标记、未标0，13mobile未知和2core控制分类不变。本求量仅绑定这份独立收据，不冒称自己重扫1205calendar；源仍declared_research_proxy，不认证公告/支付/可卖时点，不支持任何CA cap/R/partial股数转换。
+纯接口报告另在../MOBILE_OPEN_RISK_INTERFACE/READOUT.txt。未来若接线，最小可在原LR.preview通过后、J.route前收紧maxq，原core/持有floor/出口/费用/预算/股数桥保留。新intent元数据虽可由原checkpoint完整字典承载，source/engine/policy必须另freeze，旧quarterCP不能冒名恢复。这里没有创建候选账户、事件、S0恢复或真实下单，未证明连续经济收益。
+
+交付
+FREEZE.json（首次计算前16源）、quantity_core.py、screen.py、PROPERTIES.json、DONE.json；两窗ROWS/SUMMARY、SUMMARY.json、UNKNOWN_NO_NEW_MOBILE、FIXED_ORIGINAL_TAIL_COHORTS、FIXED_ORIGINAL_TAIL_CHANGED_DETAILS、KNOWN_MOBILE_SCALE_CROSSTABS。所有逐单S计划cap/R预算/actualq/qnew/datedrule/floor/来源/未知与原财务关联值可复核。
+结论仅限：原接口下可以精确算，作用幅度非微小，也会显著削弱已知真赢家的原数量。root应据该幅度和独审决定下一有限技术范围或关闭，不能由此直接晋升或自动开连续矩阵。

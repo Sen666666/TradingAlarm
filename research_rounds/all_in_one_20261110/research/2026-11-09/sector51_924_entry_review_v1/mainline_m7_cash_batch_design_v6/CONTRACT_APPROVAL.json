@@ -1,0 +1,23 @@
+{
+  "approved": true,
+  "engine_sha256": "ad0f77fb92d47af4046bf5ab7ef3b4f9b51451d4fe6a6b86a62163f35076a056",
+  "contract_sha256": "995169d7f98dfb90a2c5726c2b758aabd061cc233b677ba7b35ba6f61728d0eb",
+  "manifest_sha256": "5bc6059de6021dcd14e4b81e57b35240982b6858cddd8c45b94b73d330110d90",
+  "reviewer": "independent_parent_review",
+  "reviewed_utc": "2026-11-09T23:00:42.426485+00:00",
+  "scope": "One offline frozen M7 extension with full-universe Nov-Dec exact cash batch; stop atomically on unknown; no strategy or live-trading changes",
+  "checks": [
+    "Parent independently reran final428 tests PASS",
+    "Separate native auditor final428, source PDFs, exact exception rejection, economic method identities and prefix validators PASS",
+    "Complete Data initialization287events/9081hashes PASS without history",
+    "63 exact events: inherited19 plus44, not blanket future approval",
+    "Two explicit amount-pair exceptions only; source/gross/reference kept separate; no global tolerance or rounded cash",
+    "Cash/accrual/pay/fees/allocation/exit execution unchanged from frozen v4",
+    "Mandatory Nov6 30family and Nov7 32family exact prefix including paused state and execution log",
+    "Prior outputs and manifests SHA sealed; no v5 rewrite or rerun",
+    "Q0 factor-only disabled; complex issuance and unknown facts remain blocking",
+    "Old inline comment is stale; actual contract/self_check/diff explicitly disclose cash_pair validation change",
+    "Conditional OPEN, NET80, partial historical ST coverage, nonPIT and metadata proxy limits retained",
+    "One-run marker enforced; calendar target is not a completion claim"
+  ]
+}

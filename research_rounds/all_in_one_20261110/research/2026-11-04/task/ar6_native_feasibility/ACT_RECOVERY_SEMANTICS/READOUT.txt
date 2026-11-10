@@ -1,0 +1,57 @@
+原ACT恢复条件精确语义｜独立源码核查，账户0，未实现A/B候选
+
+最重要的边界
+原63新高不是沪深300、ETF价格、账户NAV，也不是PVR排名。它是recovery.csv.market这个固定当前股票池的等行业收益合成序列，突破其自身此前63个观察的最高值。把它换成均值，是放宽该合成市场价格背景的恢复凭据；不能借ETF MA63基准结果直接推断它的收益，也不能仅因条件较早就认定趋势已成熟。
+
+1 实际来源与公式
+实际native来源：mainline-absolute-Q4-20261031/recovery.csv，SHA76599d9013946bc5fc501a57b046f36a2868ad61f147ef1a6c73c9575b35906a，2013-01-04..2026-06-30。experiment.py:prepare按固定1709身份的可用原prepared-v2 signal和当前行业meta，调用TradingAlarm/desk/refresh.py:compute_recovery，再单独赋fast_on=breadth>.6。准备记录全程无源22身份；不是1709股每天都有有效观察。raw CSV和原full源均未改。
+compute_recovery当前函数AST与Nov1 market-proof-lifecycle保存的ORIGINAL_COMPUTE_RECOVERY.py完全一致。既有PREPARED记录旧Q3决策布尔exact、浮点差约1e-16；本轮不再次全池重算合成序列，复用原source/已审组件证据，并对冻结CSV全部行核fast和BREAK恒等式。
+
+每股只取price_eligible & observed_bar & ~synthetic_event_bar，按原source segment分组：
+r_s,t = log(C_s,t/C_s,t-1)
+q_s,t = A_s,t / median(A_s,t-21..t-1)
+w_s,t = min(1,sqrt(q_s,t))
+m_s,t = EWMA21(r_s,t * w_s,t, adjust=False)
+前64个价格观察的r/m输出无效，原源码ready索引>=64；不是64个自然日。amount是成交金额，非净流入/主动买卖金额；成交额相对于自身此前21观察中位数，当前量不进背景。高于背景的量不会把收益放大超过r；低量将上涨和下跌幅度都折扣。valid价格掩码本身没有再加“当日amount必须有限”的新过滤，缺失量的EWMA行为沿原pandas源码，不能擅自补0或重定义ready。
+行业日收益R_g,t是本行业可用r的算术平均；合成日收益R_t是可用行业R的算术平均；M_t=cumprod(exp(R_t.fillna(0)))。因此它是行业等权、行业内可用股票log-return等权的描述序列；缺失分母动态变化、基点任意，无持仓股数/交易费/现金/融资账，不是可交易/自融资指数。价格分项不使用amount，且没有breadth的每行业5股门；广度分项另有准备与覆盖门。
+行业广度b_g,t = m>0股票数 / m非NA股票数，至少5只；B_t=可用行业b的等权均值，至少8行业。它不是当日上涨股票比例、市值权重或成交额权重。
+native fast_on = B_t > .6。
+BREAK = M_t > MAX(M_t-63..M_t-1) AND M_t>M_t-1 AND B_t>.6，完整63个前观察，严格大于，不含当前观察；缺广度不通过。63是此价格参考窗，不是m的EMA尺度。
+绝对/相对含义：r与M是自身价格变动，不与HS300/ETF比较；m的量背景相对自身过去金额；B是行业等权正方向参与比例。没有相对收益基准或实际股东资金流。
+
+价格坐标
+C来自原signal.close。current_pool_bridge.prepare_signal明确为prefix-causal signal coordinates，并不等于真实股东总回报会计；按每条记录的theoretical_ex_price/total_return/unadjusted_index约定，在已支持行动日期更新factor，过去因子不回改。facts.close沿该信号域，raw_close另作实际估值。行业指数亦走原signal/CP1_input.close。segment_id来自source_segments的真实源日期分段，不是E0/I趋势段、attempt、episode或stock_structure，不应因新趋势而重置MA暖机。
+
+2 同价格不同量为什么能改变fast（解析反例，不运行账户）
+EMA21的alpha=1/11。充分暖机、m_prev=0，随后同一价格路径先+a、再-a。两次金额背景中位数保持不变：
+甲：上涨q=1、下跌q=.01，最终m=alpha*a*((1-alpha)-.1)>0。
+乙：上涨q=.01、下跌q=1，最终m=alpha*a*(.1*(1-alpha)-1)<0。
+两者价格路径/合成M完全相同，量分布使m符号相反。每行业5个同类股、8行业均已准备时，可得到B=1与B=0，从而native fast=True/False。相反，所有日金额统一乘常数会在q中约掉，不改变fast。这是相对量的时间分布作用，不是“量越大就越好”。也不能把fast简单叫价格均线门。
+
+3 20%暂停、清仓与恢复的真实时钟
+joint_v3.Runner.planning先按当前原生marks计算真实NAV，再调用risk_policy.step(...,'ACT20_BREAK')。active时phase peak=max(旧peak,当前NAV)，DD=1-NAV/phase peak；>=.2置paused。本次收盘不能又恢复。原日买单先按原expire流程处理，paused不建立新买意图，存量创建ACT_pause卖出请求，按之后原可执行OPEN成交，不回填到20%阈值价格。
+paused时phase peak冻结；flat只检查无真实shares、无exits、无buys，不要求股息/结算应收为零。恢复看独立市场BREAK，不要求NAV自己涨回旧峰，也不要求fast先关再开。只在flat且BREAK真时resume，phase peak重置为当前NAV、episode加1；随后仍须原I/CP1新信号和合法数量/资金，最快下一OPEN成交，不自动买回旧仓。
+step只读<=当日的恢复行；没有当日行时fast可延用最后已知值，但breakout强制False，不把旧breakout延用未来。实际2022/23/24已核均有完整对应市场日。
+恢复后fast/BREAK转弱不会撤销on；on分支只看账户阶段DD。故A不是每天的新买/持仓MA过滤。恢复行日志episode_drawdown是在旧phase peak下先算的值，虽然同一行peak已被重置；不能当新阶段一恢复即亏过20%。
+20%不是全程或35%硬上限：1m→.8m清仓恢复、重置peak后再亏20%→.64m，即使无跳空也累计亏36%。跳空、费用、T+1/退出锁又可能越过阶段20%。本轮No60全程38.0881% DD是实际结果，不是由本解析例子估算。
+
+4 L02与2024延迟：哪些子句真正阻挡
+实际Original：2022-04-25CLOSE暂停，4/26CLOSE首次flat；No60：4/20暂停，4/21首次flat。两侧L02(4/27..7/4)首fast为5/20，原BREAK直到6/17CLOSE，真实首买6/20OPEN。期间有15个在实际旧账户paused+flat、且fast和M上涨均真但旧63high失败的观察；4/27至5/19的等待还包含广度未过，不可全部归63门。
+No60在2023-07-20暂停、7/21首次flat；Original在9/21暂停、9/22首次flat。2024首fast为2/8，原BREAK直到5/6CLOSE，两侧真实首买5/7。2月至4月有多次fast，但63高点仍挡住；指定2/1..5/6窗口有21个paused+flat、fast和M上涨均真而旧high失败的观察。
+单差分A若保原shift/63完整前窗、只MAX→MEAN，加原M当日上涨/B>.6，静态输入首次通过：2022-06-01、2024-03-01。不是4/27或2/8，不能声称覆盖整段反弹。
+此前讨论的inclusive SMA63分别首过5/31和2/27，和prior63均值不是同条件；inclusive的M_t>mean(M_t-62..M_t)不等式等价M_t>前62观察均值。pool草案已明确选保shift的prior63均值，inclusive未冻结未实装，列出只为消除定义混用。
+所有A列只是冻结原输入和原账户已观察flat状态的子句诊断，不是A真实恢复日、合法订单、收益或可追回利润；一旦更早恢复，后续NAV/flat/阶段峰/持仓会改变，不能继续沿原路径拼收益。
+
+5 已有近邻研究与反例
+actual-risk-recovery-20261027：旧407科技/11行业，ACT20_FAST/ACT20_BREAK/ACT10_BREAK已有完整资金+压力。旧FAST输入来自.4/.6迟滞锁存，并需saw_off &&fast&&!previous_fast新edge；当前1709 native fast是直接B>.6，不等价。旧FAST基础203.36%/DD38.45%，BREAK298.42%/26.87%，但它们的域/排序/初仓/行业占位等与当前native PVR不同，不能直接套收益。
+recovery-only-20261027：同407域，仅改恢复，REC21(prior21 high)、REC21_P5、RECEMA_P5(P>EMA21、EMA21高于lag5且B持续5、当日上涨)已12完整路径/真实前缀。不是prior63均值精确同候选，但直接否定“更早恢复必更好”：基础REC21/REC21_P5/EMA总收益133.07/137.90/87.65%，低于BREAK298.42%，普通损耗/全部亏损也更大。反向压力结果必须保留：EMA与REC21_P5的delay收益105.71/100.75高于BREAK66.43，故不能笼统说所有情景都劣或证明63最优。
+market-proof-lifecycle-readonly-20261101：0账户原m/价格/资本生命周期核查，已区分旧407和native1709的fast字段。关键反例是native Bdiag2022首次fast=False为7/6，阶段峰却在8/18；2023首次fast=False2/16，阶段峰5/4。不能把首次市场转弱等同赢家结束，也不是已测试新恢复/持续退出门。
+tech-drawdown-regime-20261027的FAST/SECTOR/MARKET_NEW/MARKET_ALL等是连续新买/持有过滤或其他动作，非“保原20%暂停、只换63恢复参考”。act-action-architecture-review-20261031是只禁新买/保留持仓动作合同，与恢复A也不同。ETF510300 MA63 long/cash基准用实际ETF自身价格并持续切仓，不是此合成M的暂停后一次恢复事件。
+有限代码/合同排重未找到当前1709、仅prior63 MAX→MEAN且其余合同完全相同的已完成账户证据；这不是全球未研究过的证明。原已见开发身份不因新agent或新名字重置。
+
+6 对A草案的独立语义约束
+保shift、原63个前观察、原当前上涨/B>.6/flat/20%及原I/CP1/资金时钟，才是清楚的参考统计量单差分。旧high已隐含当日上涨，换mean后上涨子句不再冗余，不能漏掉。不可暗加MA斜率/edge/新成熟期、改fast为price>MA或借ETF结果预设收益。
+A有语义上的较早输入机会，但不自动等于更好的交易恢复。尤其账户因个股损耗暂停而宏观仍在均值上/广度暖时，新均值level可能在清仓后很快再次允许进入；原ACT_BREAK也无强制off→on证明，mean会放宽这种可能，需保留反复试错负控制。没有据此增加新冷却期或阈值。
+本轮只提供源码/时钟/反例，未生成新恢复序列、未改risk_policy或完成源、未实装A/B/2×2、无新账户。A/B是否值得有限验证由root审草案与证据，不由本语义核预先晋升或硬否决。
+
+证据文件：SOURCE_FREEZE.json、ORIGINAL_COMPUTE_RECOVERY.py、ACT_CLOCK_AND_CLAUSES.json；全阶段逐行子句和实际事件时点均在JSON。本轮静态诊断不是连续回测。

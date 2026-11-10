@@ -1,0 +1,8 @@
+{
+  "scope": "Fixed original shared queues and PVR 21-term native I provenance. No account replay/model/score changes.",
+  "case_selection": "All actual buys on fixed days, first two pending by sid per day, first three chronological actual repeat buys per window, three prior assigned tail identity controls unlabelled if rejected.",
+  "dates": "2022-01-05,06,07;2024-09-02,24,25,26,27,30",
+  "identity": "Regenerate original e0_policy/project G1_I entered/exited exactly. Distinguish original I episode from E0 extrema. Term date attribution is distinct from raw dependency history.",
+  "no_new_economics": true,
+  "no_parameter_scan": true
+}

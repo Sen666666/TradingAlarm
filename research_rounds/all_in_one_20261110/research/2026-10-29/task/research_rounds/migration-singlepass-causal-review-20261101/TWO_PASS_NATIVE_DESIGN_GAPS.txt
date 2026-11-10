@@ -1,0 +1,55 @@
+TD native接线可行性（仅设计，不实施、不运行preview或经济路径）
+
+结论：可在原opening的“实际sell/settle/sync之后、任何buy fill之前”接入纯planning，
+两遍完成后每股只提交一张固定role/pool/最终数量委托，因此不必发两张单或新增amend API。
+已有局部planner和2x2证明资源投影/排序逻辑；没有证明native固定计划提交、异常恢复及完整生命周期。
+本轮未把planner接到原生账户，没有运行两遍新批次或新收益。
+
+原native边界
+joint_v3.py:302-324：原完整key=(i.rank, role!='core')；same-stock首个成功reserve即done，
+0 fill也跳mobile；全部资金预留后才调用window/fill。Native buys[sid]仅一张订单。
+当前isolated planner.py:plan/fixed_validation/reserve_fixed：两遍操作PRIVATE State/AccountView，
+reserve_private只扣投影available；没有真实BuyOrder、incremental minfee、T+1、settlement或权息。
+variant.py中的TD使用已审decoupled request/route，不能误接回旧coupled源。
+
+必须闭合的薄接口（沿冻结合同，不增加经济规则）
+1. S0投影：由真实native sell/settle/sync完成后的budget lots/orders/marks/receivables、
+   available、上一决策NAV、ACT/pending/exits/epoch/consumed/stock_requests生成完整可读副本。
+   不能复用两个局部日期的core_epoch={}或未知sector.status假设；真实账户字段可直接取。
+   F是原close intents及其原floor/quote/clock/预算/股数上限/core .25风险/原Q；LR.preview原样。
+2. 两遍均仅shadow。Pass1沿原完整key在演化的minimum-probe/full-confirmed前缀上比较完整目标，
+   不冻结历史pool/confirmed数量。core-first仍生效；更多最低core可能反而压掉同股mobile。
+   Pass2只补已选probe，保持原role/pool；不得借R1、改minimum/step或让core+mobile各领一手。
+3. 最终native提交需要新的“固定计划commit”薄入口：不得再调用原argmax route重选pool/量。
+   显式用已定q/pool走原request一次、原Account.reserve_quantity一次；receipt只消费一次。
+   提交前先核完整固定前缀，原stock/sector/pool/cash/risk/fees与token/core-lock均复核。
+4. 保留每次migrate调用及无单候选的side effects；按已验证attempt顺序重现，不能只遍历成功单。
+   合法迁池不得因后来候选失败回滚；旧pending/cancel_pending仍在原pool，ack前不释放。
+   新confirmed资格采用SD解耦语义，原旧probe整迁失败不强迁、不洗占额；后来迁池实时重算。
+5. Fee F(final_q)必须只计一份最低佣金；planner的F(q)替换与native gross/fee_reserved逐项核同。
+   不按线性fee_per_share猜native partial费用。Native fill/cancel/T+1/split回调继续复用。
+   100/100和688初始200/step1须同时覆盖；frozen原目标本身买不起minimum仍拒。
+6. 一股一张单并非全批原子事务。原request与native reserve是有状态顺序调用；没有batch rollback。
+   若固定计划提交中发生未知异常，必须停止且保存实际已提交前缀、migrate序列和消费记录；
+   不重新route、不悄悄删后序订单、不得用回滚抹掉之前合法动作。恢复需要绑定plan hash/commit索引，
+   或明确中止该研究路径待查；不能先假称已有安全batch transaction。
+7. 必要native闸门：shadow与真实固定提交逐事件同；core/mobile碰撞与零fill；route反转；
+   无单migrate；已满/部分满容量；minfee/partial/cancel ack；T+1；split held+pending；旧receipt拒；
+   fixed-plan中途异常和恢复；D0关闭两遍的原SD短前缀恒等与物理prefix/身份守卫。
+
+这次归因对是否值得接线的限制
+- 长飞9/1与12/19主要是已持通信行业风险占用，不是这个开盘几张probe full订单可缩的问题。
+- 德福4/22 SD：旧probe6层全部不是当前attempt，风险12202.64>约6015.43上限；
+  它们仍I有效且此前经济净贡献均正。无原规则可迁走它们，也无新probe能获得minimum。
+  因而在同一固定S0/F下，probe-only两遍分配没有可缩的当日probe预留；confirmed仍full原序，
+  不能声称两遍会在这个开盘救回德福。此为源逻辑/保存状态的不变推论，未运行新planner。
+- 金安与德福这次都是confirmed mobile；“新股第一次/全清后重入”不等于资金pool=probe。
+  原两遍故意保持confirmed full目标，因此并不均分这个真正发生的confirmed新资金竞争。
+  若研究目标要把行业confirmed中的个股首次参与也作为small trial，属于另一经济合同，
+  当前native接线不得偷偷扩展。本候选只能检验其已冻结的probe分配问题。
+- 浙江东日显示更早的role/保护路径依赖：SD8/1 core700成功即跳当天mobile；
+  后来远core线承担较大回吐risk，SC则后来fresh mobile近线参与。两遍仍保留该经济选择，
+  最低core增加覆盖可能同时抑制mobile，必须作为反例，不用更多foothold等同更好行为。
+- 早期两遍可能改变后来持仓/额度路径，方向未知。这不否定小试方向，也不足以直接授权整窗收益。
+
+设计选择尚未实施：native固定提交边界和异常恢复协议。未要求新筛选、卖赢家、放宽预算或改保护。

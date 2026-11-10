@@ -1,0 +1,41 @@
+{
+  "scope": "native readiness ONLY; source stable before independent review",
+  "source_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/migration-admission-native-readiness-20261101/native_adapter.py": "879579695da6b8b28fb9d411400836eea6f375dc1698b51b0502621ffd714b30",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/migration-admission-native-readiness-20261101/test_native.py": "d5c750fc24bfec1484db72b7d544f857fe4efcc7e9a98fee95d81ccf7ab6d2f9",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/migration-admission-native-readiness-20261101/check_identity.py": "87d5a7eed423a7e003576eab1f1a58ec06a57b23774a233f8807ad49ab006f34",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/migration-admission-native-readiness-20261101/package_readiness.py": "d8e682100c96f707823a2dee2746ed05dc526c69cc7f81aee9455990e3e2adf3",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/migration-admission-native-readiness-20261101/CONTRACT.txt": "90ad154a673574e6ff1255bed76d2251f1736bbafacf343baf3023fd1114b068",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/migration-admission-native-readiness-20261101/sources/model_decoupled.py": "42774ad14d3d365d67358b456d97460d5293b1936ede284749080e4345004793",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/migration-admission-native-readiness-20261101/sources/route_decoupled.py": "c2d06df473ac5b027b462e3a55bc8788a150bf130aa341c0e451ead5b4b4c82d"
+  },
+  "original_inputs_and_dependencies": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/migration-admission-native-readiness-20261101/native_adapter.py": "879579695da6b8b28fb9d411400836eea6f375dc1698b51b0502621ffd714b30",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/migration-admission-native-readiness-20261101/sources/model_decoupled.py": "42774ad14d3d365d67358b456d97460d5293b1936ede284749080e4345004793",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/migration-admission-native-readiness-20261101/sources/route_decoupled.py": "c2d06df473ac5b027b462e3a55bc8788a150bf130aa341c0e451ead5b4b4c82d",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/model_without_account_check.py": "2fb801bcadfe3aa0fe0ecac97a9730861079bc16d908a3674a404b255729c2c3",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/route_without_account_check.py": "7bc31864d1d3944e800bb3f51297f01c417ecf8ac8487b857aa897bde22d66a1",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/adapter.py": "a998b45d6ab7c243f6161ddfe53721203f0f746e58edbee0d56138737d5d427f",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py": "fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/launch_v3.py": "e90e1ccc0e891218c9120d58430860f468f06840dc6186c0fb8f7aec17bd60b1",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/_shared/research_output_io.py": "3d7cae91648150fa09d17f048156c2ea7f9bc4ebeed96c87a9397942d431c2fa",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/wire.py": "87287700466328aa767ee28e0791853ca33d87a406e4b125256cc96c587f42fe",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/budget_v3/model.py": "c4e61fc6f12eb47aeaa9bfb7faea82f29467a2fb2627875c39308ef9f642af26",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lr1-cp1-add-preflight-20261031/adapter.py": "b81569bd13f22a39e973ebd38b8b382fbafe9da959536bae455ca7bed2a45185",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/lot-risk-allocation-20261029/code/study.py": "2e7cfbdded269ae5430c9146d0b1f5c2b2281e5a5c774fdffb088b620d72bff4",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/probe-pyramid-pilot-20261029/code/pilot.py": "38ac36ba3b9da599c66307451f4173249efc229f54dfb6a0d8469517431f94b4",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/INDUSTRY_MANIFEST.json": "339c89777f488b3bbd5685cd93e38ad47748585b783808e7da35c685ad0775cd",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/FREEZE.json": "f9bab0c4de45ea465ed085f982d763f6189f58b296b8781bfd821e65c445b977",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/recovery.csv": "76599d9013946bc5fc501a57b046f36a2868ad61f147ef1a6c73c9575b35906a",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/h1.npz": "416ddabacb9b16105cf3e5d93c961049ac1b48da433a62995a71311be17e4615",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/run/prefix-full-source/pair/daily.jsonl.gz": "8020ce757e5b3c0a88d8908e68ca64e8397775dac5f8a9898795cd82d9788b89",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/run/prefix-full-source/pair/funding.jsonl.gz": "bdbef6ed7d5e20ef03a86bb7cd1656b97905075ad810476ae1350c06129b056f",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/run/prefix-full-source/pair/opportunities.jsonl.gz": "987c01d519f5486e0f33a5c59d749878ed569314d79eb8921684562dfd00c5db",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/run/prefix-full-source/pair/industry.jsonl.gz": "d208f66c703a78ae83cda788942dfa38bc969ca3e0094ac5e27152741c65d922",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/run/prefix-full-source/pair/balances.jsonl.gz": "174b5ff5c24e356a1253ff062329546f24a1a9f64a0169a03ccb7a5fb9f7c0d4",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/run/prefix-full-source/pair/B.json.gz": "5247f952ff0874bf96b1288650d133b48b60e70d0bb78972d46ba4e41e2df72a"
+  },
+  "new_policy_version": "singlepass-migration-admission-decoupled-native-1",
+  "no_financial_run": true
+}

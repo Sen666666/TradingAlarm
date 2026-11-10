@@ -1,0 +1,22 @@
+{
+  "status": "READY_FOR_SEALED_BRANCH_ANALYSIS",
+  "economic_runs": 0,
+  "analyzer": "analyze_followthrough.py",
+  "renderer": "render_report.py",
+  "python": "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python",
+  "first_branch": "2026",
+  "suggested_first_out": "analysis/first_2026",
+  "suggested_final_out": "analysis/final_both",
+  "baseline_CSV_hash_checks": "PASS",
+  "baseline_full_1054_day_mark_NAV_fee_round_and_2026_period_bridges": "PASS",
+  "baseline_final_stale_held_stocks": 0,
+  "baseline_full_validation_path": "baseline_full_validation_v2",
+  "notes": [
+    "Initial baseline dry call under system Python stopped before any financial analysis because no parquet engine; empty baseline_full_validation is not a result. Existing research venv completed baseline validation.",
+    "No strategy, Account, Runner, training, tuning, or economic run was invoked.",
+    "Use --branches 2026 or --branches 2022 only after that branch DONE and complete output seal. Default analyzes both and requires both seals.",
+    "Analyzer was extended after baseline validation with candidate denominators and mutually exclusive NEW/held-ADD classification; syntax passed."
+  ],
+  "native_role_source": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py",
+  "native_role_source_SHA256": "fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425"
+}

@@ -1,0 +1,28 @@
+from pathlib import Path
+import sys,json,hashlib,gzip,importlib.util
+import pandas as pd
+import numpy as np
+ROOT=Path(__file__).resolve().parents[3];O=Path(__file__).resolve().parents[1]
+PREV=ROOT/'research_rounds/cp1-cross-sector-20261028'
+SA=ROOT/'research_rounds/s-amount-cross-sector-20261028';CP=ROOT/'research_rounds/continuous-protection-lines-20261028';PH=ROOT/'research_rounds/ph1-cross-sector-20261028'
+COMBO=ROOT/'research_rounds/swf-pvr-combination-20261028';LOCAL=ROOT/'research_rounds/innovative-drug-local-recovery-20261028'
+sys.path.insert(0,str(SA/'code'))
+from sa_common import PRIOR,PREPS,POOLS,OLD_TABLES,SFOLD,pool,read,rows,save,sha
+MODES=['ACP','A3CP','A10CP','SCP','WCP','W10CP']
+CPS=set(MODES);STRICT_CP={'SCP','WCP','W10CP'};WINDOWS={'A3CP':3,'A10CP':10,'WCP':3,'W10CP':10}
+END='2026-10-27';SCENARIOS=['base','cost2','delay1']
+LABELS={'ACP':'ACT+CP1','A3CP':'ACT+CP1+W3','A10CP':'ACT+CP1+W10','SCP':'S+CP1','WCP':'S+CP1+W3','W10CP':'S+CP1+W10','ACT':'ACT','SF':'SF','SW3F':'SFW3_RS_1','SW10F':'SFW10_RS'}
+def load(name,path):
+ s=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(s);sys.modules[name]=m;s.loader.exec_module(m);return m
+def cpdir(sector):return CP/'signals' if sector=='TECH' else PREV/'signals/DRUG'
+def run_modes(sector,stage):return MODES+(['SW10F'] if sector=='DRUG' or stage=='short' else [])
+def reference(sector,mode):
+ if mode in ['ACP','SCP','WCP']:return PREV/sector/'accounts-v2'
+ if mode=='SW10F' and sector=='TECH':return COMBO/'RS/S0/accounts-v2'
+ return None
+def baseline_analysis(sector,mode):
+ if mode=='SW10F':return O/sector/'analysis' if sector=='DRUG' else COMBO/'RS/S0/analysis'
+ return PREV/sector/'analysis'
+def baseline_accounts(sector,mode):
+ if mode=='SW10F':return O/sector/'accounts-v2' if sector=='DRUG' else COMBO/'RS/S0/accounts-v2'
+ return PREV/sector/'accounts-v2'

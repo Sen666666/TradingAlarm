@@ -1,0 +1,26 @@
+{
+  "frozen_at": "2026-11-01T06:21:21.096644+00:00",
+  "contract_sha256": "0e1f3dfe07c25c23613bc08823cd602f5cc2516ee26afe1a76179a790d8283f0",
+  "prior_outcomes_seen": [
+    "old PVR matched/finite-capital/ACT reports",
+    "current opportunity aggregate H1 labels",
+    "SC/SD causal reports"
+  ],
+  "new_paired_outcomes_read": false,
+  "new_accounts": 0,
+  "matching_source": {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-incremental-order-20261029/code/study.py",
+    "sha256": "4400a9c5aaa2ea1a7a2a856f5cdd567254e9f5062d3ec4de21fd8b70ee4fc927"
+  },
+  "formula_source": {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-act-comparison-20261027/code/experiment.py",
+    "sha256": "124cf2f65ad6e2befac6c0e945b4574b64ff68ed75692bff5234bf47b81509bf"
+  },
+  "original_formula": {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-rank-q1-20261027/FORMULA.json",
+    "sha256": "ed47df6a52e12769ecb907f8880d2bf9ca6353bc844b53280a900630adf1aa94"
+  },
+  "version": "v1.1",
+  "supersedes": "CONTRACT.v1.txt; pre-outcome explicit native-competition definition",
+  "amendment_basis": "parent independent adversarial review: local one-order substitution, unmatched distributions, conditional scope and shared features"
+}

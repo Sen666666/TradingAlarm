@@ -1,0 +1,225 @@
+{
+  "2022": {
+    "legal_queue_rows": 6482,
+    "industry_days": 2895,
+    "mixed_industry_days": 243,
+    "changed_industry_days": 85,
+    "original_selected": 4127,
+    "role_selected": 4127,
+    "original_PRICE_selected": 2411,
+    "PRICE_removed": 63,
+    "PRICE_added": 22,
+    "PRICE_net_change": -41,
+    "AB_removed": 22,
+    "AB_added": 63,
+    "original_AB_rank_1_removed": 0,
+    "original_AB_rank_2_removed": 22,
+    "single_PRICE_industry_days": 1648,
+    "single_PRICE_selected": 2127,
+    "single_PRICE_one_candidate_days": 1169,
+    "single_PRICE_two_or_more_candidate_days": 479,
+    "single_PRICE_selected_from_one_candidate": 1169,
+    "single_PRICE_selected_from_two_or_more_candidates": 958,
+    "direct_same_state_AB_displaced": 174,
+    "direct_AB_displacement_industry_days": 147,
+    "direct_AB_displacement_days": 62,
+    "direct_AB_displacement_stocks": 160,
+    "direct_AB_displaced_baseline_decision": {
+      "SELECTED_PENDING": 123,
+      "PASS_NOT_TOP2": 47,
+      "BLOCKED_HELD": 4
+    },
+    "baseline_selected_not_retained": 1440,
+    "baseline_lost_joint_reason": [
+      {
+        "decision_before_joint": "BLOCKED_HELD",
+        "blocking_lane": "AB",
+        "n": 136
+      },
+      {
+        "decision_before_joint": "BLOCKED_HELD",
+        "blocking_lane": "PRICE",
+        "n": 786
+      },
+      {
+        "decision_before_joint": "BLOCKED_UNKNOWN",
+        "blocking_lane": "AB",
+        "n": 31
+      },
+      {
+        "decision_before_joint": "BLOCKED_UNKNOWN",
+        "blocking_lane": "PRICE",
+        "n": 362
+      },
+      {
+        "decision_before_joint": "PASS_TO_JOINT_QUEUE",
+        "blocking_lane": null,
+        "n": 125
+      }
+    ],
+    "direct_effect_scope": "Fix the saved joint state, remove PRICE from this close queue, compare top2. Not a dynamic AB-only rerun or a financial causal effect.",
+    "added_unknown_PRICE": 2,
+    "fixed_old_loss_label_only": [
+      {
+        "sid": "000977.SZ",
+        "signal_day": "2022-01-05",
+        "status": "COMPLETE_CONDITIONAL_STOCK_ROUND",
+        "net_pnl": -4599.82469480635
+      }
+    ],
+    "unknown_PRICE_boundary": {
+      "legal_candidates": 78,
+      "old_selected": 40,
+      "added": 2,
+      "removed": 0,
+      "role_selected": 42,
+      "changed_rows": [
+        {
+          "day": "2022-05-27",
+          "sid": "600938.SH",
+          "name": "中国海油",
+          "sector": "URFI881107",
+          "joint_feasible_rank": 3,
+          "change": "ADDED"
+        },
+        {
+          "day": "2022-05-27",
+          "sid": "001289.SZ",
+          "name": "龙源电力",
+          "sector": "URFI881145",
+          "joint_feasible_rank": 12,
+          "change": "ADDED"
+        }
+      ]
+    },
+    "legacy_slot_label_count": 124,
+    "legacy_slot_label_not_strict_direct": [
+      {
+        "event_id": "2022|B_STOCK_BIRTH_DURING_SECTOR|2022-06-02|URFI881281|600110.SH",
+        "name": "诺德股份",
+        "day": "2022-06-02",
+        "original_ab_feasible_rank": 3.0,
+        "joint_feasible_rank": 9,
+        "result": "PRICE_INDUSTRY_SLOT_DISPLACEMENT"
+      }
+    ]
+  },
+  "2024": {
+    "legal_queue_rows": 5259,
+    "industry_days": 1275,
+    "mixed_industry_days": 180,
+    "changed_industry_days": 102,
+    "original_selected": 1950,
+    "role_selected": 1950,
+    "original_PRICE_selected": 1210,
+    "PRICE_removed": 91,
+    "PRICE_added": 11,
+    "PRICE_net_change": -80,
+    "AB_removed": 11,
+    "AB_added": 91,
+    "original_AB_rank_1_removed": 0,
+    "original_AB_rank_2_removed": 11,
+    "single_PRICE_industry_days": 679,
+    "single_PRICE_selected": 950,
+    "single_PRICE_one_candidate_days": 408,
+    "single_PRICE_two_or_more_candidate_days": 271,
+    "single_PRICE_selected_from_one_candidate": 408,
+    "single_PRICE_selected_from_two_or_more_candidates": 542,
+    "direct_same_state_AB_displaced": 181,
+    "direct_AB_displacement_industry_days": 141,
+    "direct_AB_displacement_days": 22,
+    "direct_AB_displacement_stocks": 176,
+    "direct_AB_displaced_baseline_decision": {
+      "SELECTED_PENDING": 145,
+      "PASS_NOT_TOP2": 34,
+      "BLOCKED_HELD": 2
+    },
+    "baseline_selected_not_retained": 866,
+    "baseline_lost_joint_reason": [
+      {
+        "decision_before_joint": "BLOCKED_HELD",
+        "blocking_lane": "AB",
+        "n": 112
+      },
+      {
+        "decision_before_joint": "BLOCKED_HELD",
+        "blocking_lane": "PRICE",
+        "n": 568
+      },
+      {
+        "decision_before_joint": "BLOCKED_UNKNOWN",
+        "blocking_lane": "AB",
+        "n": 3
+      },
+      {
+        "decision_before_joint": "BLOCKED_UNKNOWN",
+        "blocking_lane": "PRICE",
+        "n": 36
+      },
+      {
+        "decision_before_joint": "PASS_TO_JOINT_QUEUE",
+        "blocking_lane": null,
+        "n": 147
+      }
+    ],
+    "direct_effect_scope": "Fix the saved joint state, remove PRICE from this close queue, compare top2. Not a dynamic AB-only rerun or a financial causal effect.",
+    "added_unknown_PRICE": 0,
+    "named_saved_selection_projection": [
+      {
+        "day": "2024-09-23",
+        "sid": "002583.SZ",
+        "owner_lane": "AB",
+        "original_ab_feasible_rank": 4.0,
+        "joint_feasible_rank": 6,
+        "original_selected": false,
+        "role_selected": false
+      },
+      {
+        "day": "2024-09-24",
+        "sid": "002583.SZ",
+        "owner_lane": "PRICE",
+        "original_ab_feasible_rank": null,
+        "joint_feasible_rank": 4,
+        "original_selected": false,
+        "role_selected": false
+      },
+      {
+        "day": "2024-09-25",
+        "sid": "002583.SZ",
+        "owner_lane": "PRICE",
+        "original_ab_feasible_rank": null,
+        "joint_feasible_rank": 1,
+        "original_selected": true,
+        "role_selected": true
+      },
+      {
+        "day": "2024-09-25",
+        "sid": "688660.SH",
+        "owner_lane": "PRICE",
+        "original_ab_feasible_rank": null,
+        "joint_feasible_rank": 1,
+        "original_selected": true,
+        "role_selected": true
+      }
+    ],
+    "unknown_PRICE_boundary": {
+      "legal_candidates": 14,
+      "old_selected": 2,
+      "added": 0,
+      "removed": 0,
+      "role_selected": 2,
+      "changed_rows": []
+    },
+    "legacy_slot_label_count": 146,
+    "legacy_slot_label_not_strict_direct": [
+      {
+        "event_id": "2024_924|B_STOCK_BIRTH_DURING_SECTOR|2024-09-25|URFI881130|300857.SZ",
+        "name": "协创数据",
+        "day": "2024-09-25",
+        "original_ab_feasible_rank": 3.0,
+        "joint_feasible_rank": 7,
+        "result": "PRICE_INDUSTRY_SLOT_DISPLACEMENT"
+      }
+    ]
+  }
+}

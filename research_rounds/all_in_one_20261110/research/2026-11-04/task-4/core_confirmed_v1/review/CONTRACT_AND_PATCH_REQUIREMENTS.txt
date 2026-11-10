@@ -1,0 +1,90 @@
+本轮范围：原CORE probe零合法量后的typed confirmed fallback，源码合同审查
+状态：SOURCE_CONTRACT_REVIEW_COMPLETE / NO_CANDIDATE_PATCH_YET / NO_NEW_FINANCIAL_PATH
+
+读取对象与有效No60核对
+原生native_adapter.py采用component.P.ROUTES[True]，Budget.request采用P.MOD.Contract.request。
+component.py20–29逐字移除migrate的confirmed60、request的confirmed60、route的confirmed60，
+仍保留probe10%。account-risk-ablation的model/route已经移除account3%总风险门。
+直接读joint_v3.py原始route看到的3%/60%不是当前No60有效合同，不能抄回。
+本轮没有import或构造Account/Runner/Market，没有新的marks、订单、资金路径或参数搜索。
+所有已读源码SHA见NATIVE_CONTRACT_SOURCE_SHA256.json；未读全底层ledger依赖，此处不是依赖闭包准入。
+
+经济约束矩阵（先原probe，只有该路零合法量才可能转confirmed）
+约束                         原probe                      新typed confirmed                 性质
+全probe池资本                <=10% budgetNAV               不计入probe/无confirmed60         实际资金许可变化
+全probe池名义风险            <=0.5% budgetNAV              不计入probe risk                   实际风险许可变化
+同业所有pool资本             <=2% budgetNAV                level1<=10%/level2<=20%            实际行业额度变化
+同业所有pool名义风险         <=1% budgetNAV                <=1% budgetNAV                    原样保留
+同股旧仓OPEN值+新毛额        <=10% decisionNAV             同左                              原样保留
+CLOSE原CORE含费保护风险       <=0.25% decisionNAV           同左冻结并OPEN重验                 原样保留
+CLOSE原CORE名义毛额/股数cap   <=10% NAV，原冻结budget/cap    同左，不换mobile2%/CP紧线          原样保留
+实际现金和原额外reserve      cap+fee<=min(available-10%decisionNAV,cash-existingreserve)          原样保留
+全账户3%风险/confirmed60     当前No60无此二门               仍无                              禁止复活
+budgetNAV=budget.nav-全部待单fee-本单buyfee；decisionNAV为原最近CLOSE current_nav。
+名义行业/probe风险为q*max(0,known_price-raw_floor)，含真实旧lot和open/cancel_pending单。
+CORE单笔protection_risk另含buyfee+floor卖出fee及原止损滑点，不可用名义风险代替。
+
+这不是风险中性换池。行业迁移只改pool，不减sc/sr、不造现金；新单可增加真实敞口。
+窄臂入口的probe最小手失败集合必须非空且subset{probe_risk,sector_capital}，因此
+pool_capital、cash_or_original_reserve、sector_risk、stock_capital等任何一项存在就不准。
+即使如此，confirmed最终合法最大量也可超过原probe剩余额承接量，因为新路不受上述
+probe10%/0.5%及2%行业资本门，必须诚实披露；不得称所有经济风险门不变。
+原probe有任何合法量（哪怕远小于confirmed可能量）就立即走原probe，无第二池择max。
+不对probe/confirmed做min-first、额外现金释放、换排序、卖健康旧仓、双池拆单等附加政策。
+
+必须补齐的真实接口
+1 joint_v3.planning244–257：CORE原flat且原S0事件Q真、i_buy/I/G1暖新推进、epoch未用，
+  通过ACT/无pending/quote/I floor和LR.resize_core才发意图。MOBILE另用continuingQ+freshCP。
+  新入口不是补新i_buy，不能改eligibility、warm、rank、floor、尺寸、原真实平仓或held转换。
+  在原signal CLOSE保存同sid/sector/day canonical freshCP trace供窄臂，不能用未来Mobile成交
+  选样；不要为成功probe改CP消费/核心身份。CP证明不将CORE I floor改为max(I,CP)。
+2 原route只为mobile构造token和加入confirmed；默认max两池的逻辑不能原封不动推广core。
+  必须先原probe求量，成功原样return；零量且完整最小手拒因集合合格才进入typed新分支。
+  LR.preview先保持原I风险/开盘价/dated min/fee/factor验证，preview失败不可作为资源拒救。
+3 model.request223仅在probe core校epoch；226默认非probe必须mobile；227–232仅mobile
+  校验stocktoken并消费。必须显式添加typed CORE confirmed许可，同时保core epoch锁。
+  不能假报mobile后改lot角色、不能把kind改add绕过含费I风险检查。
+4 typedCORE token同原stockCP的source=stock_cp1、scale21、canonicalID、stock/sector、
+  current episode/attempt、formation/end/confirmed<=原signalbar、confirmed==signalbar、
+  跨role/pool消费集合核验。来源未知/换段/过期/已用一律不新发别名解锁。
+  只在所有数值门通过并合法预算预留时consume；失败typed尝试不得消费CP或CORE epoch。
+  原request的mobile在数值门前consume，实际原route先验数值后assert request成功；新typed
+  分支不应复制这个失败调用可消耗凭据的隐患。旧mobile实际成功行为须保持身份核验。
+5 b.migrate仍必须expand=true、industry.active、level>=1、同attempt无live probe/cancel
+  pending订单阻挡；不撤单腾钱、不动旧attempt、不新授行业CP/level/grant，不把stockCP
+  当行业确认。失败迁池的status及真实pool镜像反馈需遵循原native，不能先放宽再回滚抹迹。
+6 原opening顺序先真实保护卖出/settle/sync，再原PVR排序CORE优先尝试，全部预留后才看
+  HL/volume执行代理。成功新CORE合法预算预留后同sid done，原Mobile本OPEN不得再试；
+  后续未成交/部分成交/取消也不在本OPEN返还token替补。若两CORE路都不合法预留，原
+  Mobile fallback仍可沿原路；不得因失败CORE CP检查先吃掉原Mobile凭据。
+7 实际核心epoch只在原BP.Account.fill_buy的kind==core回调消费，非预算reserve时消费。
+  CPtoken在reserve时消费与COREepoch在实际fill时消费是两种时钟，不可合并。真实单/预算
+  单桥接必须唯一，reserve失败/回调异常必须停机而非静默另下Mobile。
+8 保留原J.Account.real ledger回调：fee一次、deferred cancel_ack、CA/份额/factor、旧已知
+  I线在OPEN的风险镜像、CLOSE才更新I线、FIFO同股卖出层、T+1/交易量/停牌/限价/日单。
+  CORE沿原I/ACT；Mobile沿CP。这次身份替换会改变持有/退出和风险/资金轨迹，即使退出
+  函数源代码不变。新CORE不能复制原Mobile股数或把其旧净收益线性缩放为新收益。
+
+最小技术准入（仅条件清单；目前没有候选源码，因此没有技术/账户执行准入）
+A 源码diff和依赖SHA完整冻结：显式类型许可+token/epoch闭环+probe先行，不改变其它门。
+  OFF直接原No60方法，不靠ON开关模拟原始；预算/route有效源码必须确认去3%和60%。
+B 全原CORE OPEN probe资金拒母体含probe-only；失败集合AND完整合法CP/行业/原资格逐条
+  连接。raw与source/I首事件分开，含全部年份、全部行业和失败。不能只选25已买层或33569
+  行业拒子集。保留preview/min/现金/行业风险等阻挡；没有exact preCandidate就仅必要上界。
+C 无Account的pure typed合同/route fixtures：成功probe小量时confirmed更大也不改量；
+  各额外cash/poolcap/sectorrisk/stockcap门拒；invalid/reused/cross-source/cross-attempt CP；
+  COREepoch已用；probe/confirm取消pending阻迁移；sameCP跨role重复；每次失败不消费；
+  reserve不耗epoch、actualfill才耗；confirmed失败后Mobile仍可用，成功预留后不可再Mobile。
+  需分别覆盖行业level1/2、10%reserve和fee边界、不同buymin/step，原qmax cap不增。
+D 少量已存exact真实OPEN全候选批次：OFF原intent/预留顺序、pool、qty、fees、拒因全同，
+  再ON自原S0完整前缀反馈；不能拿S0静态上界假作候选时点risk/前排订单全可行。
+  检查新增/被替代Mobile/原probe成功单/健康旧仓全部身份，预算镜像与真实ledger对账。
+E 只有必要覆盖实质且真实可执行证据到位、代码独审、OFF/ON技术/physical-prefix无未来钟
+  通过后才讨论两完整窗口fresh1m同账户。不能凭9个条件样本直接经济准入；也不能凭稀疏
+  或1/62说机制必无价值。完整账户须由各自NAV推进ACT和资金/持有反馈，成本/日历一致。
+F 每段有事前预算、partial保存和明确fail stop，无自动扩参数/缩母域/救结果。本清单没有
+  指定新数值策略参数，没有要求新增金融平台；应复用原native和已存材料。
+
+本次结论
+允许作为待证单一合同变化研究，不等于可执行/有效/账户准入；当前只完成源码合同边界。
+旧BP1/N1架构重合沿上一轮已核结论，不扩大史料。待根提交冻结卡和候选patch后逐diff复审。

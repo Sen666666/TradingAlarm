@@ -1,0 +1,11 @@
+# Pre-result interpretation and QA addendum
+
+Parent clarification received after the initial analysis process was launched, but before its result output was retrieved or examined. This timing is stated explicitly; this is not a claim of blind preregistration.
+
+The single intended hypothesis is that PRICE entries with AT_LEAST_HALF peers in M3 and POSITIVE whole-fixed-N robust daily change have better independent initial CORE quality in BOTH windows than other fully classifiable half-share x robust-change cells. Publish every fixed cell and the all-entry baseline. Do not select a winning cell after looking. Lifecycle and stock-M3 layers only test consistency/natural exceptions of that intended relationship. Failure in one window, a small usable sample or dominant UNKNOWN means a repeatable condition was not established. Do not splice separate year-specific rules or claim causal alpha.
+
+Independent CORE mean net, total net and positive-net rate are primary; FULL net is an ancillary complete-participation comparison. Saved original CORE buy_cash and original entry_gross/entry_risk will be shown as scale descriptors, not optimized metrics or new groups. Different nominal mean PnL can reflect entry size and risk rather than selection quality alone.
+
+M3 definition precision: native mu is computed over segment-wise valid-strength observations, r_j=log(C_j/C_(j-1)), first-return initialization, mu_j=r_j/3+2*mu_(j-1)/3, public after 64 valid returns. It is not a mandatory 64-common-session restart after every gap/source change. M3 requires three consecutive common sessions with valid strength, observed, price/volume eligible, no invalid source, positive close and volume, finite mu, and identical segment/source_kind/source_path. All three mu strictly positive means ON; fully known and any <=0 means OFF; otherwise UNKNOWN. Native EMA may still inherit earlier history. No PVR-known selection.
+
+Additional fixed daily-bound QA: H-L=U_T+U_prev; -N<=L<=H<=N. If N>0 and both endpoints all-known, J=N and L=H=D_pair and robust sign equals paired sign. Thus exact FLAT requires all peers known at both endpoints; paired flat amid unknown peers remains robust UNKNOWN. No-peer industry is UNKNOWN.

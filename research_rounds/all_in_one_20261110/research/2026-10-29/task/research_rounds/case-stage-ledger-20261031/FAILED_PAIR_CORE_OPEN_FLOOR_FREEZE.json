@@ -1,0 +1,28 @@
+{
+  "before_run": true,
+  "arms": [
+    "A_probe_only",
+    "B_finite_expansion"
+  ],
+  "scope": [
+    "2025-07-01",
+    "2026-03-31"
+  ],
+  "cash_each": 1000000,
+  "stocks": 77,
+  "industries": 5,
+  "no_account_before_start": true,
+  "no_grants_before_start": true,
+  "budget_seconds": 120,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/run_pair.py": "adfa339f23802b551726921b327d1ebd925bf8c892dbf39fca57a67636c92a3c",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/joint.py": "812a0fa384dd77ce64b0f68da8734a6d1451ecbdc54cf65ff1bde00d3b2f7007",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/wire.py": "87287700466328aa767ee28e0791853ca33d87a406e4b125256cc96c587f42fe",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/INTEGRATION_CONTRACT.txt": "a15c5aff1c01c470dce911b82beb949ccbfe653c4d6683b7ee784fe286404635",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/budget_v2/model.py": "63167f40fcac93f24de7f89f61b7703c716d1eb669db20e2ba9c1576afc08674",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stock-cp1-warmup-20261031/MANIFEST.json": "49a2b474fdf52966353499d9a79da7a99b5953ece6ea4c7ce24f5b6d0f262e6b",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/STOCK_CANONICAL_RECEIPTS.json": "70c44d4d660037c83cba6aef70a3e95ac8d65142c061345d893d1f356b1621a3",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/JOINT_GATE.json": "348957223e9c41a9f87ec0b71439f4844c0d6e933ab49f9de3c328d31eb61d12",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/recovery.csv": "76599d9013946bc5fc501a57b046f36a2868ad61f147ef1a6c73c9575b35906a"
+  }
+}

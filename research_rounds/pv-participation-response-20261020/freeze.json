@@ -1,0 +1,59 @@
+{
+  "frozen_utc": "2026-10-20T11:30:03.548375+00:00",
+  "decision": "Admitted to finite simple-strategy economic research; not validated profitable or live-tradable",
+  "candidate": "results/v0-input-fixed",
+  "new_candidates": 1,
+  "post_candidate_mechanism_revisions": 0,
+  "numerical_input_revision": "action-only algebraically equivalent factor recursion + faithful decimal/round-trip parsing; no gamma enlargement",
+  "account_runs": 0,
+  "seen_history": true,
+  "core_code_sha256": {
+    "compare_precision_results.py": "fd286087e2fa3a0c5bb7bcb1e62b495ccb007d7e3aff4bedb205facba55eee18",
+    "data_utils.py": "e5623d85b66ca575e9ba3066389d0a1119f757388ae68e2711e4a70852909668",
+    "diagnose_numeric.py": "64e2aca7db1441f4765536b48ae3b87c10a92032d11f5affae79685c422f5bd6",
+    "legacy_event_structure.py": "b61e889e684305cbb45223e0e2dd8da324e8e8d0a2d201794e2749eb9441540e",
+    "numeric.py": "b07f92f309864ba1cfdb84f76adbf7c4d97d5eff6d90b6b25acd62577be0c2e3",
+    "participation.py": "7a7017c7cd43dd2bdd7cfae4cfed29bf16d1b7452e9c411fe53c968692017cf0",
+    "prepare_input.py": "39ef0c064eeb3c67539c76bee9a41fdbd3ebd5e1d858b48f19539ccc1c9521c4",
+    "ranking.py": "2f5d1ce4e297667a72386f47b99a4ee7f3ace8b75fc41990be06117fae36e04d",
+    "review_chains.py": "512e49004771187ae99e35b53edbec041015a0ea26f077e5480c780f3bbaf6cb",
+    "run_study.py": "13f2c878297852935621daed7ac856db2cd76524e5f9c3e712ea64bd81553753",
+    "tests_numeric.py": "eaaaaeab5ccdc8c30316f1fb6de1bbd87546d30a9354d5f668819d01a4f1cbe9",
+    "tests_participation.py": "597849e3f2773ddaa90345e86c88818eb7ea4cc74cb22023ea84ac1b4d2d6219",
+    "tests_ranking.py": "6e595c568250afb11048ea2cd07338de4f2e9834049960fc97be6711e3acdbd6",
+    "validate_candidate.py": "5466b2bcf81f2871c660c0999372d0df555183035dbee7b26e918c7c6f464bfd",
+    "validate_numeric.py": "58d6281c6f56c2e1f7ed27cccefb5d469a0c230e3a3375504f38b000a3f1c7cc",
+    "validate_upstream_prepared.py": "e0754a274a46790966731f62b6c4ded4384362600a747e0f96979d04e0afd0fa"
+  },
+  "contracts": {
+    "protocol.md": "031f43f76f2867e69e0548bf71b62218c53625962f6d89f172d4d30c5d36b32e",
+    "strategy-contract.md": "08929ccdc230668e11729af211bbdae796689e9e12b7b858fed25020b58a691f",
+    "reviews/algorithm-contract.md": "87959f5526a9f4a74cca6730b22c1c5d6d0299655f1efe580af57280d5259b13",
+    "reviews/admission-before-results.md": "5b2c4267318f132dab9bccb3be10f6b53d750ac34fdbb247d8b2f1adbcb96234",
+    "reviews/admission-final.md": "d0cffe6265ef28b894c3930a96b6e8c3643f67a38c02221e67f1fd222610f314",
+    "reviews/numeric-input-amendment.md": "ef4d5efa2a52bcc979bc49eb2f584e6b3bbef63cadb47a15fb337cb43572c3f7"
+  },
+  "manifests": {
+    "inputs/manifest.json": "3e71bf6414fa37b431c6cc82ab709f3910cc8ddcc3e5b2025f2ea88f2f4f0d6c",
+    "prepared/source-precision-v1/manifest.json": "f69f9a8f77f375e20dcb605f0ac39c08f00ad2da4098d980d51628586cff1afe",
+    "results/v0/manifest.json": "93518642cea447e494783bf1fb737c74151c77fd0a9a4857aebce449bf617131",
+    "results/v0-input-fixed/manifest.json": "fcf07d950d3b241f3770a95ddd283b1fae3363db1f7894860bfa7b0656db1aff"
+  },
+  "validation": {
+    "validation/candidate.json": "270eebdee30b900bf8cc1f28057d2457db39f5b7a8bfabaa9e06daa0837746ab",
+    "validation/upstream-input-fixed.json": "3c17fccb0d02cad6e654ca164687e1dd9ee33ccd1ebb8aaffc609b9034c3f36d",
+    "validation/ranking-input-fixed.json": "75b3fad279615fd91f5cb0638426cfc08cddf6addb2315ee773f64e4cb4e6e72",
+    "prepared/source-precision-v1/preparation-validation.json": "05e723d478f8e221595a3c2f13ee4313650a4dacc556590b85fd8edc2ff1aaba"
+  },
+  "preserved_failure": {
+    "candidate_attempt2": "750/760; same required all-mode event failed units",
+    "old_new_full_equivalence": "55/58 CSV contract-equivalent, 3 upstream / 5 observations have explained actual differences; saved false retained",
+    "old_numeric_and_prior_round": "Preserved; no claim all previous models repaired"
+  },
+  "admission_limits": [
+    "14 seen series; no out-of-sample claim",
+    "volume contribution is added eligibility, not proven profit",
+    "late starts and ordinary failed attempts remain",
+    "strategy adaptation and nine-asset execution bridge precede accounts"
+  ]
+}

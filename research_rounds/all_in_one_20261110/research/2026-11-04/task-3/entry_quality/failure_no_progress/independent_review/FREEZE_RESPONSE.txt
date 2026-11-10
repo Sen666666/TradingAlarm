@@ -1,0 +1,44 @@
+对父线程随后拟冻结“全股campaign＋联合I-floor推进”定义的即时反方意见
+2026-11-04；仅语义审，不计算新覆盖/绩效，未改父协议。
+
+父后续方案：全股真实flat campaign一次结论；strict tradecash<0、末次退出
+为I/CP保护、无progress才F；progress需同时新入场后close高＋当前原I_floor
+高于首fill对应decision冻结F0，且旧保护活；两相邻F后新mobile cap减半，
+CORE/旧仓不变；联合progress或flat时越连续失败高可恢复，I/receipt换号
+不清。此为新提案，应与此前本目录mobile子周期建议分开命名。
+
+必须公开的三个关键反例
+
+1. 价格推进≠I floor抬升。C从100到150，I floor一直80，后跌至90因保护
+退出并全股netcash负。可有显著真实趋势推进与正常回吐，但联合progress
+为假，故该周期被计F。它不能叫“没有新price结构进展的初试失败”，准确
+语义是“没有联合I-floor-ratchet证明的负现金周期”。旧远线缓升/保护迟动
+反例适用。若仍冻结，须单列price-only新高但floor未抬的周期/赢家；联合
+条件不是无新增阈值就自动有新信息，它仍是旧price/protection proof近邻。
+首fill当日没有之前完成close的H空窗也不能描述成已观察到未突破。
+
+2. 最后一次退出理由不能代表全周期。某周期曾有ACT或筹资partial sale，
+最后剩余微小core由I退出；按“只看最后reason”会把混合政策cycle变成纯
+信号失败。应在冻结时选：只要任一ACT/筹资part存在即neutral，或公开只按
+最后责任定义的限制。不得事后挑最后一腿来解释整个现金亏损。full-stock
+周期本身可正确避免同exit多层计败，但会故意漏掉tiny-core内mobile重复
+失败；这不是bug，也不能再宣称覆盖全部mobile重试。
+
+3. 恢复观察依赖出资会死锁。guard下半cap低于一手且无合法CORE时始终
+flat，因而“当前live campaign里的联合progress”永远不产生；旧高以下
+再好的新市场结构只能继续受限。唯一恢复是越全部连续失败高，构成跨I
+旧高锁的明确成本。若用baseline真实live campaign证明会恢复，必须标明
+静态反例：新候选若根本没买到，该campaign不存在。市场恢复观察若要与
+资金脱钩，需要另冻virtual market anchor，不能静默复用baseline填单。
+
+可继续做静态scope的边界
+两次F之前，包括first与早期fresh CP1加仓必须完全原样；guard仅作用于
+下一新mobile原cap，不能按实际q一律减半冒充“原cap减半”，更不能改旧
+floor或旧持仓。未知源域和factor不设0股，fee-only F单列；任何原预算/
+spent损耗不因新receipt、取消、抬线或I换号退款。static比率缩net不等于
+账户NAV，真实少买后的跨股票资金填补与进度恢复均未重算。
+
+定义审结论：没有否定“条件式暂减”这一个问题；上述联合proof、混合退出
+和资金依赖恢复三项必须作为冻结语义/明确成本，不能在看到静态赢家后
+修成有利版本。若题目仍要求排除正常赢家回吐并允许旧高以下可达恢复，
+则当前定义还未同时满足这两项。未计算任何新绩效。

@@ -1,0 +1,8 @@
+{
+  "synthetic_tests": 9,
+  "all_passed": true,
+  "forward_price_clock": "t close to t+h common-session close, all path source-valid and same block; no execution, costs or portfolio; overlapping and correlated",
+  "account_runs": 0,
+  "first_known_right_stockdays": 656,
+  "verified_new_onset_stockdays": 106182
+}

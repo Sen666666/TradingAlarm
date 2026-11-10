@@ -1,0 +1,11 @@
+{
+  "no_future_labels": true,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/attention-turnover-source-audit-20261031/PROTOCOL.txt": "82e670d65885125b777854ad384b455ac0fe8e76fa22ed6ff134bd17dca087e9",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/attention-turnover-source-audit-20261031/audit.py": "b6e7515d8c70f4b4e72b5405dd3cf472f7083a43f3361b338249ee3ece71f154",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/market-mainline-measurement-20261031/AMOUNT_INPUT.npz": "5cdb56e4d42363b295f1ab052debeed2458e00481e05b6351ad47acc2f4943e9",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/market-mainline-measurement-20261031/FEATURE_MATRIX_90.parquet": "4be2fe5842221099f4c0fe9fb6380bf4ec77a26cca786d0cb9ac3a25c3464598",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-attention-top3-Q4-20261031/TARGETS.json": "7a6960330d8a0da0cfcc259b41b9f0764a9c908dcc71e14abe56159be100aa68",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-forward-Q1-20261031/analysis/TARGETS.json": "968881f8799d59f367c1133f10ff1d27600e54ac66873d15dca2f52c257dd910"
+  }
+}

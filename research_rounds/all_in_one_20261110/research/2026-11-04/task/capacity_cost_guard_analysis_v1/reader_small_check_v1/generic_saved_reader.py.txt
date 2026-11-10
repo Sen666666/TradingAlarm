@@ -1,0 +1,26 @@
+def account(win,ref,root,expected_days):
+ b=book(root/'pair/B.json.gz');ds=rows(root/'pair/daily.jsonl.gz');byday={day(r['at']):r for r in ds};end=day(ds[-1]['at']);jr={x['layer']:x for x in b['journal'] if x['kind']=='real_buy_fill'};cost=collections.defaultdict(lambda:Z)
+ for t in b['trades']:
+  if t['side']=='buy':cost[t['layer']]+=n(t['gross_cny'])+n(t['fees_cny'])
+ layers=[];stock=collections.defaultdict(lambda:Z)
+ for x in b['layers']:
+  val=D(x['qty'])*price(x['sid'],end) if x['qty'] else Z;net=n(x['cash'])+n(x['dividend'])+val;j=jr[x['id']];m=b['metadata'][str(x['id'])]
+  r=dict(layer=x['id'],sid=x['sid'],name=META[x['sid']]['name'],industry=META[x['sid']]['industry'],sector=m['sector'],role=j['role'],pool_at_fill=j['pool'],signal_day=day(x['signal_at']),opened=x['opened'],closed=x['closed'],qty=x['qty'],cost=cost[x['id']],net=net,value=val,receipt=j['CP1_id'],attempt=m['attempt']);layers.append(r);stock[x['sid']]+=net
+ assert abs(sum(stock.values(),Z)-(n(b['ending_NAV'])-D(1000000)))<D('.00000001')
+ flows=collections.defaultdict(lambda:Z);div=collections.defaultdict(lambda:Z)
+ for t in b['trades']:flows[t['security_id']]+=(n(t['gross_cny']) if t['side']=='sell' else -n(t['gross_cny']))-n(t['fees_cny'])
+ for a in b['audit']:
+  if a['kind']=='dividend_accrual':div[a['receivable']['security_id']]+=n(a['receivable']['net_local'])
+ for sid in stock:
+  terminal=sum((x['value'] for x in layers if x['sid']==sid),Z);assert abs(flows[sid]+div[sid]+terminal-stock[sid])<D('.00000001')
+ values={}
+ for r in ds:
+  d=day(r['at']);values[d]={sid:D(q)*price(sid,d) for sid,q in r['positions'].items() if q};assert abs(sum(values[d].values(),Z)-n(r['inventory']))<D('.00001'),(win,ref,d,'raw mark inventory mismatch')
+ checks=rows(root/'pair/balances.jsonl.gz');assert len(ds)==len(checks)==expected_days and all(n(r['independent_NAV_difference'])==0 and n(r['maximum_stock_quantity_difference'])==0 for r in checks)
+ metrics=dict(window=win,reference=ref,return_pct=(n(b['ending_NAV'])/D(1000000)-1)*100,global_DD=dd([('initial',D(1000000))]+[(day(r['at']),n(r['nav'])) for r in ds]),mean_exposure_pct=sum((n(r['inventory'])/n(r['nav'])*100 for r in ds),Z)/len(ds),peak_exposure_pct=max(n(r['inventory'])/n(r['nav'])*100 for r in ds),mean_cash_pct=sum((n(r['available'])/n(r['nav'])*100 for r in ds),Z)/len(ds),fees=sum((n(t['fees_cny']) for t in b['trades']),Z),buy_cash=sum((n(t['gross_cny'])+n(t['fees_cny']) for t in b['trades'] if t['side']=='buy'),Z),buy_fills=sum(t['side']=='buy' for t in b['trades']),sell_fills=sum(t['side']=='sell' for t in b['trades']),paused_closes=sum(not r['on'] for r in ds),whole_layers=aggregate(layers),new_confirmed_mobile=aggregate([x for x in layers if x['role']=='mobile' and x['pool_at_fill']=='confirmed']),open_contribution=sum((x['net'] for x in layers if x['qty']),Z),terminal_inventory=ds[-1]['inventory'],terminal_dividend_receivable=ds[-1]['dividend_receivable'])
+ phases=[x for x in b['audit'] if x['kind']=='risk_checkpoint'];worst=max(phases,key=lambda x:n(x['episode_drawdown']));metrics['worst_ACT_phase_DD']=dict(day=day(worst['at']),percent=n(worst['episode_drawdown'])*100,phase=worst['episode'],phase_peak=worst['peak']);metrics['ACT_events']=[r for r in phases if r.get('event')]
+ quarters=[];prior=D(1000000)
+ for q in sorted({str(pd.Timestamp(d).to_period('Q')) for d in byday}):
+  rr=[r for r in ds if str(pd.Timestamp(day(r['at'])).to_period('Q'))==q];tx=[t for t in b['trades'] if str(pd.Timestamp(day(t['at'])).to_period('Q'))==q];quarters.append(dict(quarter=q,return_pct=(n(rr[-1]['nav'])/prior-1)*100,DD_pct=dd([('quarter_start',prior)]+[(day(r['at']),n(r['nav'])) for r in rr]),mean_exposure_pct=sum((n(r['inventory'])/n(r['nav'])*100 for r in rr),Z)/len(rr),new_buy_cash=sum((n(t['gross_cny'])+n(t['fees_cny']) for t in tx if t['side']=='buy'),Z)));prior=n(rr[-1]['nav'])
+ metrics['quarters']=quarters;save(Path('analysis')/win/ref/'METRICS.json',metrics);save(Path('analysis')/win/ref/'LAYERS.json',layers);save(Path('analysis')/win/ref/'STOCKS.json',[dict(sid=s,name=META[s]['name'],industry=META[s]['industry'],net=v) for s,v in sorted(stock.items(),key=lambda x:-x[1])])
+ return dict(book=b,daily=ds,byday=byday,metrics=metrics,layers=layers,stock=stock,values=values,journal=jr)

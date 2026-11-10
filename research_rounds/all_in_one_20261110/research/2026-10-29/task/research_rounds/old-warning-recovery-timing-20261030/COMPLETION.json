@@ -1,0 +1,21 @@
+{
+  "status": "completed_stage1_timing_and_one_contract_only",
+  "start_utc": "2026-10-30T05:05:06+00:00",
+  "end_utc": "2026-10-30T05:31:40.143627+00:00",
+  "wall_seconds": 1594.143627,
+  "mother": 69,
+  "warning_cycles": 57,
+  "no_warning_unchanged": 12,
+  "legal_recovery_signals": 35,
+  "old_harm_coverage": "20/20",
+  "old_benefit_coverage": "15/37",
+  "target_recovery_signals": 0,
+  "C_economic_paths": 0,
+  "AB_paths_replayed": 0,
+  "new_indicators": 0,
+  "timing_scan_seconds_v2": 1.8372167912311852,
+  "technical_repair": "descriptive price ties use existing E0 GAMMA4; no policy identity/date/economic decomposition change",
+  "source_hashes_unchanged": true,
+  "blockers": [],
+  "next_action": "wait for main review before any C computation"
+}

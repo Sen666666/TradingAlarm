@@ -1,0 +1,45 @@
+海能达原No60 MOBILE资金审计（原日线代理账本，非券商回执）
+
+只读原保存表与源码；未新建Market/Account/策略，未计算指标或重演授资。
+
+10/15 CORE1994：100股，raw OPEN8.9，fill8.90445，gross890.445，买费
+5.0570775245，现金支出895.5020775245。10/14原计划cap1400、budget12376.93，
+risk_budget1787.0220867826；最终只100的逐量审批失败数值未保存，不能断定唯一原因。
+
+10/21 MOBILE2017：1100股，raw12，fill12.006，gross13206.6，费5.84654306。
+10/18 CLOSE NAV719209.691208357912，已有100×11.95=1195；10%余额70725.96912，
+2%预算14384.19382416715824主导，cap1200。1200×新fill=14407.2已超冻结预算。
+
+10/22 MOBILE2039：1000股，raw14，fill14.007，gross14007，费5.8978487。
+10/21 CLOSE已有1200×13.15=15780；10%余额57097.13293；2%预算14575.42658699438495，
+cap1100。1100×新fill=15407.7已超预算。两笔都是当日原资金顺序第一笔reserve。
+已有持股扣减10%股票余额，不是从每次2%预算直接扣；CORE另经resize_core。
+
+三层entry raw保护线7.58、10.524801904077677、11.330045376421975来自原冻结order/
+买入记录，不用持有层终态floor回填。10/21 CLOSE2017提至continuous63.6740758981，
+10/22 CLOSE两MOBILE提至69.8321044015。MOBILE risk_budget=null，不有CORE0.25%合同。
+10%资本是新增申请约束，持有自然上涨超过上限没有自动卖出分支。
+
+拒绝：10/16、17为probe_risk；10/23、24、25、28为sector_capital,sector_risk；
+10/30另含probe_risk；11/1含cash_or_original_reserve,sector_capital,sector_risk。
+这些是原最低单位失败项并集，不是第一约束次序。17个10月CLOSE原意图已逐笔连接
+下一原OPEN。10/8承接9/30意图，不在17行里；旧daily_hytera仍保留该原快照。
+
+10/21 CLOSE NAV728771.3293497192475、available99854.4201497192475、inventory611035.48；
+probe风险1853.9861723457057、confirmed风险55058.62279810568。
+10/22相应728389.9160564297225、81054.2068564297225、629454.28；风险1811.4782259192468、
+57275.22196655092。原应收dividend_receivable17881.4292计入NAV，非不明资金。
+
+原daily直接保存43日全账户NAV/现金/库存、全layers及两池[capital,risk,reserve]。
+已核原NAV分项和两池资本恒等式；它们是收盘原汇总，不是逐单OPEN前资源快照。
+全仓历史b.prices/逐股mark未保存；pending_intents只有数量，未保存逐量失败数值。
+不能以facts.close补全仓价后声称独立风险重建。CSV海能达qty×原raw_close为单股静态
+源价估值，不是一个新账户mark。风险公式原qty×max(mark-guard,0)+未结订单风险；
+CORE guard取last_core_line，MOBILE取当日floor。风险占用不是损失保证。
+
+THREE_ACTUAL_PROXY_BUYS_ALLOCATION_AND_PROTECTION.json保留原trade/intent/reserve/
+journal/冻结order；OCTOBER_INTENT_TO_NEXT_OPEN_ORIGINAL_ROWS.json与CSV保留17笔。
+ORIGINAL_43_CLOSE_ACCOUNT_SNAPSHOTS.json和DAILY_ACCOUNT_AND_STOCK_OCCUPANCY.csv
+保留全账户与原pool汇总；KEY_OPEN_GLOBAL_ORIGINAL_FUNDING_AND_CASH_CONTEXT.json
+保留11个关键OPEN原资金顺序/买卖及前后CLOSE。源码绝对路径/行号/SHA见
+ORIGINAL_SOURCE_EXCERPTS.txt，输入SHA与缺口见SOURCE_SHA256.json/SCOPE_AND_GAPS.json。

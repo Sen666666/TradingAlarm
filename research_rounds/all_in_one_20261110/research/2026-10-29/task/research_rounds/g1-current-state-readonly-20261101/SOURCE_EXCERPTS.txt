@@ -1,0 +1,285 @@
+EXCERPT grade: /Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/grade.py:9-63
+9: def classify(e):
+10:     required=['segment_id','valid_strength_observation','close','event','strength_mu5','strength_mu21','strength_s','strength_S21','strength_S63','strength_r','strength_qeff','strength_acute_down','strength_acute_up','strength_confirmed_direction_21','strength_confirmed_direction_63','strength_running_extreme_price_21']
+11:     if any(c not in e for c in required):raise ValueError('Missing G1 evidence')
+12:     if not e.index.is_unique or not e.index.is_monotonic_increasing:raise ValueError('Ordered unique observations required')
+13:     rows=[];events=[];previous_segment=None;previous_grade=None;prior_extreme=math.nan;prior_s21=0
+14:     for dt,r in e.iterrows():
+15:         segment=str(r.segment_id)
+16:         if segment!=previous_segment:
+17:             previous_grade=None;prior_extreme=math.nan;prior_s21=0;previous_segment=segment
+18:         out=dict(date=dt,segment_id=segment,ready=False,proposal=np.nan,grade=np.nan,score=np.nan,label='未知',phase='unknown',z5=np.nan,z21=np.nan,fresh_up=False,up_reasons='',transition='unknown',promotion_blocked=False,acute_down=False,acute_up=False,display='未知')
+19:         if not bool(r.valid_strength_observation) or not np.isfinite(r.strength_mu21):rows.append(out);continue
+20:         a,b=int(r.strength_S21),int(r.strength_S63);m5=float(r.strength_mu5);m21=float(r.strength_mu21);scale=float(r.strength_s)
+21:         z5=math.sqrt(5)*m5/scale;z21=math.sqrt(21)*m21/scale
+22:         down=bool(r.strength_acute_down);up=bool(r.strength_acute_up)
+23:         reasons=[]
+24:         if int(r.event)==1:reasons.append('new_E0_price_volume_up_event')
+25:         for h in [21,63]:
+26:             if float(r[f'strength_confirmed_direction_{h}'])==1:reasons.append(f'new_S{h}_up_confirmation')
+27:         ext=float(r.strength_running_extreme_price_21)
+28:         if a==1 and prior_s21==1 and np.isfinite(prior_extreme) and ext>prior_extreme+32*np.finfo(float).eps*max(abs(ext),abs(prior_extreme),1):reasons.append('new_price_frontier_in_confirmed_up_structure')
+29:         fresh=bool(reasons)
+30:         if a==0 and b==0:g=0;why='structure_unconfirmed'
+31:         elif m21<0 and m5<=0:g=-3 if a==b==-1 else -2;why='both_paces_negative'
+32:         elif m21<0 and m5>0:g=1 if a==1 else -1;why='local_repair' if a==1 else 'countertrend_rebound'
+33:         elif m21>0:
+34:             if a==b==1:g=3;why='up_structure_and_positive_medium_pace'
+35:             elif a==1:g=2;why='local_up_with_positive_medium_pace'
+36:             elif m5>0:g=1;why='pace_recovery_not_locally_confirmed'
+37:             else:g=-1;why='local_support_missing'
+38:         else:g=1 if m5>0 else -1 if m5<0 else 0;why='medium_pace_zero'
+39:         if a==b==1 and z5>=1 and z21>=1:g=4;why='two_scale_pace_expansion'
+40:         launch=up and int(r.event)==1 and m5>0
+41:         if launch and g<2:g=2;why='acute_up_and_new_volume_price_up_event'
+42:         if z5<=-1 and g>-2:g=-2;why='fast_adverse_displacement'
+43:         if down:g=min(g,-3);why='acute_down_overrides_old_structure'
+44:         proposal=g;old=previous_grade
+45:         blocked=old is not None and proposal>old and not fresh
+46:         if blocked:g=old
+47:         transition='initialize' if old is None else 'upgrade' if g>old else 'downgrade' if g<old else 'blocked_upgrade' if blocked else 'unchanged'
+48:         if down:phase='acute_down'
+49:         elif launch:phase='fast_launch'
+50:         elif up:phase='acute_up'
+51:         elif a==b==1 and z5>=1 and z21>=1:phase='expansion'
+52:         elif m21<0 and m5>0:phase='local_repair' if a==1 else 'downtrend_rebound'
+53:         elif m21<0 and m5<=0:phase='decline'
+54:         elif a==b==1 and (m5<0 or abs(z21)<1):phase='up_structure_consolidation'
+55:         elif a==b==1:phase='up_continuation'
+56:         elif a==1:phase='up_structure_building'
+57:         elif a==b==0:phase='unconfirmed'
+58:         else:phase='mixed_evidence'
+59:         out.update(ready=True,proposal=proposal,grade=g,score=25*g,label=LABELS[g],phase=phase,z5=z5,z21=z21,fresh_up=fresh,up_reasons='|'.join(reasons),transition=transition,promotion_blocked=blocked,acute_down=down,acute_up=up,display=('freeze·' if down else '')+LABELS[g],reason=why)
+60:         if transition!='unchanged':events.append(dict(date=str(dt.date()),segment=segment,previous=old,proposal=proposal,grade=g,score=25*g,kind=transition,basis=why,new_up_evidence=reasons))
+61:         rows.append(out);previous_grade=g;prior_extreme=ext;prior_s21=a
+62:     f=pd.DataFrame(rows).set_index('date')
+63:     return f,events
+
+EXCERPT I_project: /Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/policies_g1.py:6-35
+6: def project(e,base,g,kind):
+7:     if kind not in ['G1_I','G1_X','G1_IX']:raise ValueError(kind)
+8:     use_i=kind in ['G1_I','G1_IX'];use_x=kind in ['G1_X','G1_IX']
+9:     active=False;floor=math.nan;segment=None;rows=[]
+10:     for dt,r in e.iterrows():
+11:         b=base.loc[dt];a=g.loc[dt]
+12:         if r.segment_id!=segment:active=False;floor=math.nan;segment=r.segment_id
+13:         valid=bool(r.valid_price_observation)
+14:         if not valid:
+15:             rows.append(dict(date=dt,target=np.nan,entered=0,exited=0,floor=np.nan,exit_line=np.nan,buy_event=False,entry_kind='',exit_reason='',grade=a.grade));continue
+16:         shadow=bool(b.target);ready=bool(a.ready);entered=exited=0;reason='';entry_kind=''
+17:         fresh=bool(a.fresh_up) if ready else False
+18:         warm=ready and a.grade>=2
+19:         cold=ready and (a.grade<=-2 or bool(a.acute_down))
+20:         if active:
+21:             if not shadow or float(r.close)<=floor:reason='E0_structure_boundary'
+22:             elif use_x and cold:reason='G1_cold_or_acute'
+23:             if reason:active=False;exited=1
+24:             elif np.isfinite(b.floor):floor=max(floor,float(b.floor))
+25:         # Entry-only is a new-evidence gate and restoration channel, while
+26:         # exit-only preserves E0's new-cycle entry stream. An exit-only entry
+27:         # is first checked by the extra exit rule on the next observation,
+28:         # matching the original sensitive-policy ordering.
+29:         opportunity=shadow and warm and (bool(b.entered) or fresh) if use_i else bool(b.entered)
+30:         if not active and not exited and opportunity:
+31:             active=True;entered=1;floor=float(b.floor)
+32:             entry_kind='G1_fresh_warm_evidence' if use_i else str(b.entry_kind)
+33:         buy=bool(active and opportunity) if use_i else bool(active)
+34:         rows.append(dict(date=dt,target=int(active),entered=entered,exited=exited,floor=floor if active or exited else np.nan,exit_line=floor if active or exited else np.nan,buy_event=buy,entry_kind=entry_kind,exit_reason=reason,grade=a.grade))
+35:     return pd.DataFrame(rows).set_index('date')
+
+EXCERPT pace_scale_acute: /Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-b4-20261025/code/model.py:158-185
+158:                  r=float(r[t]), volume=float(v[t]), candidate=copy.deepcopy(candidate))
+159:         confirmed = (eligible and ge(x, candidate['threshold'])
+160:                      and ge(candidate['credit'], candidate['threshold']))
+161:         return bool(confirmed)
+162: 
+163:     for t in range(len(f)):
+164:         if t >= 1:
+165:             for h in PACE_SPANS:
+166:                 alpha = 2. / (h + 1.)
+167:                 mu[h] = float(r[t]) if mu[h] is None else float(alpha * r[t] + (1. - alpha) * mu[h])
+168:         row = _blank_row()
+169:         if t < 64:
+170:             rows.append(row)
+171:             continue
+172: 
+173:         # Exactly the preceding 63 returns and 21 volumes; never today's data.
+174:         scale = max(1.4826 * float(np.median(np.abs(r[t - 63:t]))), 1e-8)
+175:         vref = float(np.median(v[t - 21:t]))
+176:         activity = float(v[t] / vref)
+177:         q = float(r[t] / scale)
+178:         qeff = float(q * math.sqrt(float(np.clip(activity, 1., 4.)) if joint else 1.))
+179:         row.update(
+180:             r=float(r[t]), r_bp=float(1e4 * r[t]), s=scale,
+181:             volume_reference=vref, activity=activity, q=q, qeff=qeff,
+182:             acute_down=float(le(qeff, -2.)), acute_up=float(ge(qeff, 2.)),
+183:         )
+184:         for h in PACE_SPANS:
+185:             row.update({
+
+EXCERPT current_fields: /Users/bytedance/Documents/ChatGPT/money/TradingAlarm/desk/refresh.py:47-65
+47: def prepare_facts(signal):
+48:     paths=[ROOT/'research_rounds/b5-g1-20261025/code',ROOT/'research_rounds/pv-strength-b5-20261025/code',ROOT/'research_rounds/pv-participation-response-20261020/code']
+49:     for p in reversed(paths):sys.path.insert(0,str(p))
+50:     from data_utils import eligible_prices
+51:     from api import run_b5
+52:     from grade import classify
+53:     from policy import e0_policy
+54:     from policies_g1 import project
+55:     f=eligible_prices(signal)[['open','high','low','close','volume','segment_id']].copy();f['valid_price_observation']=True;f['valid_strength_observation']=np.isfinite(f.volume)&f.volume.gt(0)
+56:     z=run_b5(f,enhancements=False);e=z['evidence'].copy();g,_=classify(e)
+57:     e['decline_candidate']=False;b,_=e0_policy(e);ip=project(e,b,g,'G1_I')
+58:     keep=f[['close','segment_id']].copy()
+59:     for prefix,frame in [('e0',b),('i',ip)]:
+60:         for c in ['target','floor']:keep[prefix+'_'+c]=frame[c]
+61:     keep['i_buy']=ip.buy_event
+62:     for c in ['grade','fresh_up','acute_down','ready']:keep['g_'+c]=g[c]
+63:     # B5 base readiness is unchanged by disabling decline recovery.
+64:     keep['e0_ready']=z['state']['ready']
+65:     keep['factor']=signal.adjustment_factor.reindex(keep.index);keep['raw_close']=signal.raw_close.reindex(keep.index)
+
+EXCERPT continuing_Q: /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py:213-219
+213:  def planning(self,at):
+214:   clock,stocks,sectors=self.facts.packet(at,'I');sd={s.security_id:s for s in stocks};ss={s.sector_id:s for s in sectors};buyable=self.market.market_buyable(at);day=pd.Timestamp(at.date());event={};continuing={}
+215:   for sid,s in sd.items():
+216:    row=self.facts.row(sid,at);key=(bool(row.i_target),int(row.segment_id)) if row is not None else (False,-1)
+217:    if self.last_epoch.get(sid)!=key:self.epoch[sid]+=1;self.global_watch.pop(sid,None);self.last_epoch[sid]=key
+218:    ep=(key[1],self.epoch[sid]);event[sid]=BP.A.eligibility(s,ss,clock,'S0');continuing[sid]=BP.A.eligibility(replace(s,buy_allowed=buyable[sid]),ss,clock,'S0')
+219:    if event[sid].q is True:self.global_watch[sid]=ep
+
+EXCERPT mobile_roles: /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py:241-256
+241:    a.sync(at);self.industry(a,at)
+242:    for rank,sid in enumerate(ordered):
+243:     cpr=self.receipts[sid].get(gidday(at));roles=[];why=[];held=bool(a.quantity(sid));epoch=self.global_watch.get(sid);sector=self.sector_by_sid[sid]
+244:     if event[sid].q is True and not held and a.core_epoch.get(sid)!=epoch:roles.append('core')
+245:     if cpr and continuing[sid].q is True:roles.append('mobile')
+246:     if not a.risk_state['on']:why.append('ACT_paused')
+247:     if sid in a.exits:why.append('exit_pending')
+248:     if sid in a.buys:why.append('buy_pending')
+249:     if event[sid].q is not True and not (cpr and continuing[sid].q is True):why.extend(event[sid].reasons or ['no_fresh_signal_or_Q'])
+250:     self.opportunities.append(dict(account=a.label,day=gidday(at),sid=sid,sector=sector,rank=rank,core_Q=event[sid].q,mobile_Q=continuing[sid].q,CP1_id=cpr['receipt_id'] if cpr else None,roles=roles,held=held,barriers=why))
+251:     if why or not roles:continue
+252:     q=self.market.quote(sid,at);floor=self.facts.floor(sid,at,'I')
+253:     if q is None or floor is None:continue
+254:     for role in roles:
+255:      fline=max(floor,D(str(self.cp[sid].loc[day,'candidate']))) if role=='mobile' else floor;budget=min(a.current_nav*D('.02'),max(Z,a.current_nav*D('.1')-a.quantity(sid)*q.raw_price));i=dict(sid=sid,clock=clock,quote=q,budget=budget,cap=q.quantity.buy_floor(int(budget/q.raw_price)),weight=1.,group=0,score=sd[sid].rank.read(clock),kind='add' if role=='mobile' else 'core',role=role,floor=fline,epoch=epoch,reason='fresh_CP1_mobile' if role=='mobile' else 'I_early_core',rank=rank,CP1_id=cpr['receipt_id'] if role=='mobile' else None,CP1_trace=cpr if role=='mobile' else None)
+256:      if role=='core':LR.resize_core(i,a.current_nav,self.facts.factor(sid,at))
+
+EXCERPT Q_checks: /Users/bytedance/Documents/ChatGPT/money/TradingAlarm/desk/admission.py:185-223
+185: def eligibility(s: Security, sectors: Mapping[str, Sector], clock: Clock,
+186:                 variant: Variant) -> Eligibility:
+187:     if variant not in ('T0', 'T1', 'S0', 'S1'):
+188:         raise ValueError('Unknown strategy variant')
+189:     issuer = s.issuer_id.read(clock, for_execution=True)
+190:     sector = s.sector_id.read(clock, for_execution=True)
+191:     if issuer is not None and (not isinstance(issuer, str) or not issuer):
+192:         raise ValueError('Invalid issuer ID')
+193:     if sector is not None and (not isinstance(sector, str) or not sector):
+194:         raise ValueError('Invalid sector ID')
+195:     common = _bool_fact(s.common_ready, clock)
+196:     buy = _bool_fact(s.buy_allowed, clock, for_execution=True)
+197:     cap = s.company_cap_cny.read(clock)
+198:     if cap is not None and (isinstance(cap, bool) or not isinstance(cap, (int, float))
+199:                             or not math.isfinite(cap) or cap < 0):
+200:         raise ValueError('Invalid company market cap')
+201:     stock_up = _bool_fact(s.trend_up, clock)
+202:     checks = {'common_ready': common, 'buy_allowed': buy,
+203:               'cap_above_10bn': None if cap is None else cap > 10_000_000_000,
+204:               'stock_up': stock_up,
+205:               'issuer_known': True if issuer is not None else None,
+206:               'sector_known': True if sector is not None and sector in sectors else None}
+207:     checks['stock_rs_ready_fresh'] = True if s.rank and s.rank.read(clock) is not None else None
+208:     if variant != 'T0':
+209:         sector_object=sectors.get(sector)
+210:         trend_at=sector_object.trend_up.observed_at if sector_object else None
+211:         checks['sector_observed_today'] = True if trend_at and trend_at.date()==clock.session_date else None
+212:         if variant in ('S0','S1'):
+213:             checks['sector_rs_ready_fresh'] = True if sector_object and sector_object.rank and sector_object.rank.read(clock) is not None else None
+214:         checks['sector_up'] = (None if sector not in sectors
+215:                                else _bool_fact(sectors[sector].trend_up, clock))
+216:     unknown = tuple(k + ':unknown' for k, v in checks.items() if v is None)
+217:     failed = tuple(k + ':false' for k, v in checks.items() if v is False)
+218:     # Unknown is retained even if a separate known component is false.
+219:     q = None if unknown else not failed
+220:     return Eligibility(s.security_id, issuer, sector, q, unknown + failed)
+221: 
+222: 
+223: def _ordered(ids: Iterable[str], scores: Mapping[str, float | None], batch: str,
+
+EXCERPT common_E0_readiness: /Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/current_pool_bridge.py:336-366
+336:         def facts(series_id):
+337:             row, at, source = self._last(series_id, clock)
+338:             if at is None:
+339:                 unknown = admission.Fact(None, clock.decision_at, clock.decision_at,
+340:                                           source_id='unavailable:' + str(series_id))
+341:                 return unknown, unknown, None
+342:             ready = bool(row.ready)
+343:             kwargs = dict(known_at=at, valid_from=at, observed_at=at, source_id=source)
+344:             trend = admission.Fact(bool(row.target) if ready else None, **kwargs)
+345:             j=columns.get(series_id)
+346:             score=scores[ti,j] if ti>=0 and j is not None else np.nan
+347:             rank = admission.Rank(None if pd.isna(score) else float(score), clock.decision_at, clock.decision_at)
+348:             return admission.Fact(ready, **kwargs), trend, rank
+349:         sectors = []
+350:         sector_ready = {}
+351:         for sector_id, series_id in sorted(self.sector_series.items()):
+352:             ready, trend, rank = facts(series_id)
+353:             sector_ready[sector_id] = ready.read(clock)
+354:             sectors.append(admission.Sector(sector_id, trend, rank))
+355:         histories = []
+356:         for line in self.lines:
+357:             ready, trend, rank = facts(line.security_id)
+358:             a, b = ready.read(clock), sector_ready.get(line.sector_id)
+359:             common = None if a is None or b is None else bool(a and b)
+360:             # This is a derived historical readiness fact, never selection metadata.
+361:             common_fact = admission.Fact(common, clock.decision_at, clock.decision_at,
+362:                                           source_id='derived_common_readiness')
+363:             histories.append(HistoricalInputs(line.security_id, common_fact,
+364:                               market_buyable[line.security_id], trend, rank))
+365:         return DecisionInputs(clock, self.evidence, self.lines, tuple(histories), tuple(sectors))
+366: 
+
+EXCERPT CP1_own_conditions: /Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py:26-68
+26: def calculate(f,price_only=False):
+27:  z=features(f);out=[];phase=None;anchor=frontier=scale=None;credit=0.;segment=None
+28:  for day,row in f.iterrows():
+29:   q=z.loc[day];p=math.log(row.close);fresh=0.;receipt=False;candidate=math.nan;reason=None;disp=math.nan
+30:   if row.segment_id!=segment:
+31:    phase=None;segment=row.segment_id;reason='source_reset'
+32:   ready=math.isfinite(q.z)
+33:   if not ready or not row.e0_valid:
+34:    phase=None;anchor=frontier=scale=None;credit=0.;reason='unprepared' if not ready else 'E0_invalid'
+35:   elif phase is None or row.e0_down:
+36:    phase='SEEK';anchor=frontier=p;credit=0.;scale=float(q.z);reason='E0_down_reset' if row.e0_down else 'start'
+37:   elif phase=='SEEK' and gt(anchor,p):
+38:    anchor=frontier=p;credit=0.;scale=float(q.z);reason='lower_anchor'
+39:   else:
+40:    fresh=p-frontier if gt(p,frontier) else 0.
+41:    if fresh:
+42:     frontier=p;credit=math.fsum((credit,fresh*(1. if price_only else float(q.m))))
+43:    disp=frontier-anchor
+44:    receipt=bool(fresh and ge(disp,A*scale) and ge(credit,A*scale))
+45:    if receipt:candidate=float(row.close)*math.exp(-K*scale)
+46:   used_anchor,used_scale,used_credit=anchor,scale,credit
+47:   used_phase=phase
+48:   if receipt:
+49:    phase='UP';anchor=frontier=p;credit=0.;scale=float(q.z);reason='receipt_consumed'
+50:   out.append(dict(ready=ready,phase=used_phase,reset_reason=reason,anchor=used_anchor,frontier=frontier,scale=used_scale,credit=used_credit,delta_frontier=fresh,displacement=disp,receipt=receipt,candidate=candidate,next_anchor=anchor,next_scale=scale,next_credit=credit,next_phase=phase))
+51:  cols=['ready','phase','reset_reason','anchor','frontier','scale','credit','delta_frontier','displacement','receipt','candidate','next_anchor','next_scale','next_credit','next_phase']
+52:  result=pd.DataFrame(out,index=f.index,columns=cols)
+53:  for k in ['phase','reset_reason','next_phase']:result[k]=result[k].astype('string')
+54:  for k in ['ready','receipt']:result[k]=result[k].astype(bool)
+55:  for k in set(cols)-{'ready','receipt','phase','reset_reason','next_phase'}:result[k]=result[k].astype(float)
+56:  result=result.join(z)
+57:  result['e0_valid']=f.e0_valid;result['e0_floor']=f.i_floor if 'i_floor' in f else np.nan
+58:  return result
+59: 
+60: def project(f,z,start,initial,start_at_open=False):
+61:  """One absorbing price-only shadow, old floor checked before today's receipt."""
+62:  P=float(initial);out=[]
+63:  for day,r in f.loc[start:].iterrows():
+64:   reason='E0' if not r.e0_valid else 'protection' if ge(P,float(r.close)) else None
+65:   new=P
+66:   if not reason:
+67:    if math.isfinite(float(r.i_floor)):new=max(new,float(r.i_floor))
+68:    if (start_at_open or day>pd.Timestamp(start)) and bool(z.loc[day,'receipt']):new=max(new,float(z.loc[day,'candidate']))

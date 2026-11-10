@@ -1,0 +1,12 @@
+First isolated provider probe exited before completing any findings output.
+No HistoryRunner or SectorAccount object was instantiated; account runs = 0.
+
+While this read-only review was in progress, algorithm_audit fixed the reported
+venue-fee lookup. The first code-at-read snapshot already contains that fix,
+so the old A-only probe fixture was correctly rejected at FrozenMarket.fees:
+
+market_rules.RuleUnavailable: No rule version for this historical date
+
+The attempted fixture and assertions are preserved in probe.attempt-01.py.
+The subsequent probe checks the owner fixes with explicit venue declarations.
+This failure is not claimed as a successful reproduction of the old fee bug.

@@ -1,0 +1,17 @@
+{
+  "created_UTC": "2026-11-04T17:09:58.531665+00:00",
+  "scope": "root-approved restore-only input-index repair; new head4 and independent resume9, no direct9 replay",
+  "files": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_native_v1/trend_size_plugin.py": "67a28729c6c0019b5b46c656f7ee2a2dd0aa25493807fa14233a943b62c7a494",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_native_v1/run_trend_window.py": "ff6cd8f933b602ecf5288922b28d090b1063780285d7874dbc301a0502f1fc13",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_native_v1/frozen_capacity_inputs.py": "a0742d716cb6fd6c135d6ad812944e11bdaa4e08f175ccfac6f37660f84e1b1c",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_native_v1/FULL_PREPARATION_CARD.txt": "8c9edccd4c8850382a90d42e9aebf0830b5fdf7c267d31cde3c6230dc817f965",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_native_v1/RESTORE_EPISODE_INDEX_SOURCE_EQUIVALENCE.json": "30da1d91c987ea4bdff170a67225a05a1cb719e02c9dc46dcee9c74e90ad3e3c",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_native_v1/RESTORE_EPISODE_INDEX_ONLY.patch": "56f20d7a98b8633a6a61bb896f42f490e51770aa21f7c7f5c159504d46b9ed8a",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_native_v1/technical_process_launcher.py": "2f3f970d0b3429b3577d403fc08266dd78751b436e54c9b421a5acb51c6893eb"
+  },
+  "full_manifests": {
+    "long": "5b1ff5e1408703e15e8c9725e12050f82c53557544beb87fa6f4a0874ac9cc57",
+    "strong": "924f855a3589a5860c2ddc7011eed9defe5987439ae106c0bf154eafe686455b"
+  }
+}

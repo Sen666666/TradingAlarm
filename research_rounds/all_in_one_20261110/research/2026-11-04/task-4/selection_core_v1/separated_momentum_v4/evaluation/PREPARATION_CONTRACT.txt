@@ -1,0 +1,20 @@
+v4评价准备，未执行；等待根FROZEN与正式新state/ranking输出。此文件不自行冻结用户尚未给的细节。
+用户给定候选：P=.6*pRpast(t−60..t−5)+.4*pB；连续前5两天成熟；成熟后跌出前10连续3天移出；旧E每天前3作T观察；成熟P与T去重并集，成熟名单可>5。
+Rpast精确端点、源共同集合、初始化/暖机、unknown状态、排序tie和固定槽位同数诊断以根后续FROZEN为准，此处不猜、不启动新指标或状态计算。
+state跨2022–23/2024/2025–26H1边界不重置。报告段按行政统计边界标左右删失，不能把此删失当state重置、真实移出或新成熟；原真实state事件需保源字段。
+
+可直接复用v3冻结评价：旧97,650行业日/1085实际CSI会话的未来5/20 abs/rel final、MFE、MAE，MFE/MAE包含0。
+future20主尾=当日T已知共同C中标签known、midpercentile>=.90且>0的相对MFE；absolute MFE与relative FINAL辅诊断，保ties、空尾coverage未知、precision按已选known自身分母。不得看后改阈值或补名单。
+保pooled总命中/总尾和mean daily coverage两口径、precision、absolute/relative final<=0暴露的pooled和daily mean；自然阶段/年/月、分母/删失全列，不作IID推断。
+周末用完整CSI日历真ISO周末，symdiff/(Nold+Nnew)、Jaccard、进出数；每阶段首周unknown，行政末周未到真正周末单列右删失。每日同式辅助，名单变化不等于交易成本。
+日名单True段未知不当退出，阶段头True左删失/末True右删失；P/T换标签而union仍True不制造退出再入。
+P_ONLY/T_ONLY/BOTH只分解T时既有union成员、未来路径和主尾命中，不能双算独立确认或据归因改权/筛样本。
+
+数量公平：v4实际stateunion N(t)变动，H1/D在同日同C取同N。未获权重/资金比例，不生成账户。
+旧v3原生A5/E3保其原始每日名单、N、coverage/precision；严禁扩至v4N或在v4新池里悄悄重排成另一版。
+比较展示各自相对自己同数H1对照的增益，并列绝对名单数/覆盖/precision；不把v4名单较宽引起的coverage提升冒充质量提升。
+根预定的固定槽位同数诊断尚待定义；本准备不自行增配额、截成熟名单或另造候选模型。
+若两版本C不同，原样保源差异及可比限制，不靠未来label决定母体；共同C外unknown不当False退出。
+
+不读v4新state/排名结果，不跑账户、不重算价格标签、不产生新排名。旧v3固定源及schema已绑定，纯评价helpers可复用。
+全部仍为静态1709/当前行业桥条件研究，非PIT历史全市场；2024/2025–26仅时间外探索，非真正盲样本。

@@ -1,0 +1,16 @@
+旧算法一页索引｜2026-10-31｜只读，各原研究不构成统一排行榜
+RR=/Users/bytedance/Documents/ChatGPT/money/research_rounds；SRC=/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research。
+
+RB1｜首次floor风险股数：R=1%信号NAV；Risk(q)=买入毛额+买费−q×floor×(1−卖滑点)+卖费；整单位求最大q，原15%新单、现金/90%投入不变，开盘只能缩量。原I虽记录risk_budget但不启用。RR/tech-finite-compound-20261026/code/engine.py:57-101、CONCLUSION.md:29起：科技407、2024—2026-10-26，正常收益/DD=62.20%/34.01%，原I139.14%/41.05%，半仓37.89%/39.26%；双成本/延迟RB1优于半仓。67闭合亏损22笔超过1R、最大2.28R；尚非当前ACT两行业同口径验证。
+
+LR-1｜floor风险+离散现金：核心R=.25%NAV，新投入≤10%NAV，含费风险，最小单位超额就拒；先按理想现金/最小订单成本a/m凑整单、再增配，追加仍2%。RR/lot-risk-allocation-20261029/RULES.txt、CONCLUSION.txt:31起：L0/P0收益207.61/178.21%、DD21.72/22.24%；L1/P1收益119.08/82.21%、DD22.41/23.56%。仅科技normal、集中升高；不是只改风险公式。
+
+P0/P1、N1｜小仓、晋升、核心/机动：P0每I段2%核心/E0持有；P1新CP1+G1暖+PVR>50且高于上次买价才追加min(2%NAV,10%NAV−现仓)。N1继承F/CP1，买后新候选>含费成本才晋升，旧保护先检查，CORE桥接E0，MOBILE快保护、新证据可同段再入。RR/probe-pyramid-pilot-20261029/RULES.txt；broad-stage-reentry-20261029/code/policy.py:31-56、CONCLUSION.txt：P0/P1/N1正常收益178.21/82.21/114.91%。n1-structural-finite-20261029/FINAL_REPORT.txt：只去TRIAL/CORE额外保护normal136.27/22.85，cost2 132.67/23.03；保留取舍、候选初选扰动未实效。
+
+温控｜新增与双向金额：A累计确认10→30→60→100万元，B暖/热/扩张30/60/100，C温度100/60/30/10双向，D冷/急跌压10；新增须fresh_up、资格、价格/成本。RR/temperature-sizing-20261026/CONCLUSION.md:3-16,41-45：2015—2026当前1709池、21无限资金路径；C/D原前20赢家利润仅保留18.45/23.13%，未形成可靠风险预算。prepared含当前407/407及48/48，已核身份，早期历史已消费。
+
+旧ATR｜初始和总名义风险：ATR20，初仓stop=入场−4ATR，q≈prevNAV×risk_fraction/(4ATR/因子×FX)，再整单位及现金/暴露/容量限制。默认risk_fraction=.005、planned_risk_cap=.04；dual并列原始ATR与当前stop预算，仅限定noadd/shared/trend组合。SRC/campaign_engine.py:28-40,54-65,197-220，campaign_r_audit.py:35-53,83。代码/审计存在，未核到当前两池同I/ACT只改ATR定量结果，不把旧跨资产框架冒充当前验证。
+
+G1/M1｜尺度描述：EW5/EW21推进、S21/S63量价位移方向非21/63连续天；M1补EW63/EW126，z_h=√h μ_h/(1.4826×前63|r|中位数)，F/L为短/长tanh组合。RR/multiscale-resource-review-20261025/CONCLUSION.md:7-20、PROTOCOL.md：32图/481305事件，没有独立可交易多策略混合证明；W等待窗不是尺度，partial共用E0/ACT也非独立快慢策略。
+
+成本10/20/30、RB2、partial、ACT消融原结论保留，属于退出/恢复/账户反馈，不是首次风险定仓。以上旧参数不作本轮最优推荐，不新建经济路径。

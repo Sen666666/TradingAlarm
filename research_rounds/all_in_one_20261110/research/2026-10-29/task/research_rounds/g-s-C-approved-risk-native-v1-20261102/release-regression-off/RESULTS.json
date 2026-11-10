@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "tests": 38,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 10.700255084317178,
+  "risk_switch": false,
+  "source": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/lot-risk-allocation-20261029/code/study.py": "2e7cfbdded269ae5430c9146d0b1f5c2b2281e5a5c774fdffb088b620d72bff4",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/probe-pyramid-pilot-20261029/code/pilot.py": "38ac36ba3b9da599c66307451f4173249efc229f54dfb6a0d8469517431f94b4",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-act-comparison-20261027/execution-rules-v2.json": "e54d23fb4be1740415364e757d300231c3871a99de43a328773cbe391eadb614",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py": "48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/_shared/research_output_io.py": "3d7cae91648150fa09d17f048156c2ea7f9bc4ebeed96c87a9397942d431c2fa",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/capital-capability-design-only-20261101/G_BROAD_S_CONCENTRATED_CONTRACT_PROPOSAL.txt": "8f3233c5d8f37d076bfc0a775659b7fbb8c0b39e04c8bbce8ce1153bcb94a95c",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/capital-capability-design-only-20261101/G_BROAD_S_CONCENTRATED_CONTRACT_V2.txt": "98f4c302ba9ea6878c500db65d0248f1b10d60f282628f1d22b08d42a5184de5",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/capital-capability-design-only-20261101/G_BROAD_S_CONCENTRATED_CONTRACT_V2_MANIFEST.json": "4ea1ecf57075f08193ace98e241555b79159cdd7ae4d5d1d18297a9462679016",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-B-joint-target-v2-20261102/selector.py": "44e7345ef2b3fc494e9854216579aa5faa0e0557b4ecbc207b1027b102e401a8",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-batch20-projection-r2-20261102/batch_book.py": "f6e0b95fb84f3868e9a242772388aea8be490d6717eb47cab954436d1e8f13f3",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-batch20-projection-r2-20261102/c_batch20.py": "7b693b9d1872f7809d4fe77c60f72d5e02e16ae2e8e850463bc1545fe0fa92a8",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-industry-first-projection-v1-20261102/c_selector.py": "8a4b89cec342763f922ae65b3d138792cc6945f452595d86a263f5c0b15bc130",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-native-synthetic-v3-20261102/goal_coverage.py": "0a672623db2c9b0cf5b7d70045f297c2f5d398190819ff91382219e571d93517",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-native-synthetic-v3-20261102/native_c.py": "363d879d55b87669c6ef3d05a70756d91541c8a2a4f6316942d58945c112e8df",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-historical-native-prefix-20261101/funding_coverage.py": "2b86980b7f0cdb78ab286a10440b761a738e211fd0346b9d91ae4226b8fce341",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-historical-native-prefix-20261101/imports_native.py": "07e91eb1d3b2d00b2734cc7626a4873007b8345a23d19280ea76b49e1dd87452",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-historical-native-prefix-20261101/native_capital.py": "3dc56dd9f44abad733df7edd6181f82ef25db96b5dc1496cbd2b02e24fb12ac4",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-historical-native-prefix-20261101/native_exit_selected.py": "9442f0a37ef2068ea80d482d5dbfa2cc8df20da0f13ac752e448ad6b612c81b2",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-historical-native-prefix-20261101/policy.py": "b27d8fac3e977d30de9153d4a400d62caf9a2c69695692da1a88ecba4e24607e",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-joint-funding-projection-jf2-20261102/projector.py": "b76660a053a09a4e394b32b9ccc61f709cdc98ac6bf900a425f476700c7771cf",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lr1-cp1-add-preflight-20261031/adapter.py": "b81569bd13f22a39e973ebd38b8b382fbafe9da959536bae455ca7bed2a45185",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/v2-frozen/signal_core.py": "962275bd41b5c7bbc062a1191780a6b6a9c616f8d3097ea669b602eabbc9ac59",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-native-mixed-order-v1-20261102/native_c.py": "236b6caea999afec115a9d09caa21a49c297330f007c30b29353315e74e520dd",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-native-mixed-order-v1-20261102/dispatch_order.py": "a606e53675e254a6f2e8dc63df95ed1f663e1f42c5b73bba8c483fa0769cc1b0",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-approved-risk-native-v1-20261102/native_risk.py": "02ffea33c8144f47f9a83aad77c6e7d47dca11bfcc198c6e207c03ff62789166",
+    "C_APPROVED_RISK_SWITCH_V1": "5983664179455210edc1b056bbbe2eefb44a318ddc4f712af5de7bbf576116b3"
+  },
+  "historical_account_events": 0,
+  "reused_unchanged_test_sources": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-native-mixed-order-v1-20261102/test_native.py": "2389fd8cba265fd6123d6fd83b38ae19ddac3e35f433e4908f35efe436d1de4c",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-native-mixed-order-v1-20261102/test_coordination.py": "04385e5b3005e214ecefe0a8510e11e3532348dc8b26987daf75cc3c3520f482",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-native-mixed-order-v1-20261102/test_mixed.py": "47702f8f8c53c7a3ebc9f1939cf72fbd30a50ebb567951d6f2aeffa1b1fe6b0c"
+  }
+}

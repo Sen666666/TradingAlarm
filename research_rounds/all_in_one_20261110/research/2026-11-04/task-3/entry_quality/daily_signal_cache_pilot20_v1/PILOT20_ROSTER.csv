@@ -1,0 +1,21 @@
+sid,selection_reason
+000620.SZ,11 previously fixed algorithm cases
+300666.SZ,11 previously fixed algorithm cases
+603061.SH,11 previously fixed algorithm cases
+301611.SZ,11 previously fixed algorithm cases
+300085.SZ,11 previously fixed algorithm cases
+002583.SZ,11 previously fixed algorithm cases
+300604.SZ,11 previously fixed algorithm cases
+002371.SZ,11 previously fixed algorithm cases
+688012.SH,11 previously fixed algorithm cases
+688498.SH,11 previously fixed algorithm cases
+301308.SZ,11 previously fixed algorithm cases
+000520.SZ,7 fixed bank/broker/insurance/property/consumer/START-counterexample controls
+601601.SH,7 fixed bank/broker/insurance/property/consumer/START-counterexample controls
+600030.SH,7 fixed bank/broker/insurance/property/consumer/START-counterexample controls
+600519.SH,7 fixed bank/broker/insurance/property/consumer/START-counterexample controls
+000001.SZ,7 fixed bank/broker/insurance/property/consumer/START-counterexample controls
+000002.SZ,7 fixed bank/broker/insurance/property/consumer/START-counterexample controls
+002500.SZ,7 fixed bank/broker/insurance/property/consumer/START-counterexample controls
+920101.BJ,BJ shortest >=100 prior observations at fixed2026/1/15
+920946.BJ,BJ longest prior observations at fixed2026/1/15

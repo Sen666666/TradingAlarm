@@ -1,0 +1,5 @@
+ save(O/'SCORES_MANIFEST.json',dict(stocks=1709,fixed_stock_ids=oldm['fixed_stock_ids'],entries=score_rows,
+      formula_sha256=sha(FORMULA),windows=[['2022-01-01','2022-12-30'],['2023-01-03','2023-12-29'],[BEGIN,END]],
+      decision_calendars=cals,explicit_cells=1709*726,source_cutoff=END,old_score_manifest_sha256=sha(H/'SCORES_MANIFEST.json'),
+      old2022_2023_score_prefix_exact_cells=1709*484,physical_June28_all1709_exact=True,
+      future_poison_sample=sorted(s for s in samples if not s.startswith('URFI')),account_events=0))

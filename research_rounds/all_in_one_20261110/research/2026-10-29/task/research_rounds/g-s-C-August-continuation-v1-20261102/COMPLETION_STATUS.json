@@ -1,0 +1,167 @@
+{
+  "status": "ALL_FOUR_AUGUST_PATHS_COMPLETED_AUDIT_READY",
+  "at": "2026-11-02T21:25:48.278137+00:00",
+  "states": {
+    "C10": {
+      "checkpoint": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-August-continuation-v1-20261102/runs/C10/2025-08-29-CLOSE.pkl",
+      "sha256": "70cafe5bca475a2246dbfbba7ce14d474f602875bbfb2aeb2ad5f98b7bbab2a4",
+      "cursor": "2025-08-29 15:10:00+08:00",
+      "phase": "CLOSE",
+      "terminal_restore": {
+        "passed": true,
+        "checkpoint_sha256": "70cafe5bca475a2246dbfbba7ce14d474f602875bbfb2aeb2ad5f98b7bbab2a4",
+        "economic_sha256": "f5b9db95f48cb7b09967e5899b9885e05b7200764cc9bf7d559c0c4c66a6a86e",
+        "cursor": "2025-08-29 15:10:00+08:00",
+        "financial_events": 0
+      },
+      "last_job": {
+        "at": "2026-11-02T20:05:08.248169+00:00",
+        "supervisor_pid": 4395,
+        "child_pid": 4415,
+        "command": [
+          "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python",
+          "-B",
+          "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-August-continuation-v1-20261102/run_august.py",
+          "--cell",
+          "C10",
+          "--until",
+          "2025-08-29"
+        ],
+        "start_progress": {
+          "checkpoint": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-August-continuation-v1-20261102/runs/C10/2025-08-27-CLOSE.pkl",
+          "sha256": "e7cab3cacd7666c08ef1428800bee93674b3221a075d43f90312b8a1defbf546",
+          "cursor": "2025-08-27 15:10:00+08:00",
+          "phase": "CLOSE"
+        },
+        "scope": "owned task supervisor only, no process inventory",
+        "status": "completed",
+        "returncode": 0,
+        "ended": "2026-11-02T20:07:25.568949+00:00"
+      }
+    },
+    "C20": {
+      "checkpoint": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-August-continuation-v1-20261102/runs/C20/2025-08-29-CLOSE.pkl",
+      "sha256": "d657f8fa8977029db56e11c95241fd8e720393795f0f0e5033d21bd628b4a3f6",
+      "cursor": "2025-08-29 15:10:00+08:00",
+      "phase": "CLOSE",
+      "terminal_restore": {
+        "passed": true,
+        "checkpoint_sha256": "d657f8fa8977029db56e11c95241fd8e720393795f0f0e5033d21bd628b4a3f6",
+        "economic_sha256": "82e355cae46ed8873f8010786a18f71f6139abb9c32cc1f37c07ff84725437b0",
+        "cursor": "2025-08-29 15:10:00+08:00",
+        "financial_events": 0
+      },
+      "last_job": {
+        "at": "2026-11-02T20:57:10.483952+00:00",
+        "supervisor_pid": 18077,
+        "child_pid": 18098,
+        "command": [
+          "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python",
+          "-B",
+          "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-August-continuation-v1-20261102/run_august.py",
+          "--cell",
+          "C20",
+          "--until",
+          "2025-08-29"
+        ],
+        "start_progress": {
+          "checkpoint": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-August-continuation-v1-20261102/runs/C20/2025-08-29-OPEN.pkl",
+          "sha256": "3e60b0deb443960abaac66d4a6f12325a16fbd230203104702b7f61146c4e7e3",
+          "cursor": "2025-08-29 09:30:00+08:00",
+          "phase": "OPEN"
+        },
+        "scope": "owned task supervisor only, no process inventory",
+        "status": "completed",
+        "returncode": 0,
+        "ended": "2026-11-02T20:57:31.661432+00:00"
+      }
+    },
+    "C10_R0": {
+      "checkpoint": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-August-continuation-v1-20261102/runs/C10_R0/2025-08-29-CLOSE.pkl",
+      "sha256": "eb91850b782385670c4dd97a58b07f2a5abae4be81951531abcdfed078bf74c7",
+      "cursor": "2025-08-29 15:10:00+08:00",
+      "phase": "CLOSE",
+      "terminal_restore": {
+        "passed": true,
+        "checkpoint_sha256": "eb91850b782385670c4dd97a58b07f2a5abae4be81951531abcdfed078bf74c7",
+        "economic_sha256": "e6f2e3fcb57397ca5bc66350ee82ccfcddd3b3766edd10c9f614bf7fb52dd953",
+        "cursor": "2025-08-29 15:10:00+08:00",
+        "financial_events": 0
+      },
+      "last_job": {
+        "at": "2026-11-02T20:05:08.248187+00:00",
+        "supervisor_pid": 4394,
+        "child_pid": 4414,
+        "command": [
+          "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python",
+          "-B",
+          "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-August-continuation-v1-20261102/run_august.py",
+          "--cell",
+          "C10_R0",
+          "--until",
+          "2025-08-29"
+        ],
+        "start_progress": {
+          "checkpoint": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-August-continuation-v1-20261102/runs/C10_R0/2025-08-21-ACTION.pkl",
+          "sha256": "66c9e9a868a2f0aaab9f2a1810e1eab8fe05ab6306d25648ae4b79e47ef2e8b8",
+          "cursor": "2025-08-21 00:00:00+08:00",
+          "phase": "ACTION"
+        },
+        "scope": "owned task supervisor only, no process inventory",
+        "status": "completed",
+        "returncode": 0,
+        "ended": "2026-11-02T20:17:48.437395+00:00"
+      }
+    },
+    "C20_R0": {
+      "checkpoint": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-August-continuation-v1-20261102/runs/C20_R0/2025-08-29-CLOSE.pkl",
+      "sha256": "0ebf9e66ca6189b2a13e8e245ea162df2e421060dfd9508e6dd25dc8abe145fa",
+      "cursor": "2025-08-29 15:10:00+08:00",
+      "phase": "CLOSE",
+      "terminal_restore": {
+        "passed": true,
+        "checkpoint_sha256": "0ebf9e66ca6189b2a13e8e245ea162df2e421060dfd9508e6dd25dc8abe145fa",
+        "economic_sha256": "d0f4fb22c1fdd2271d92b13475a8b4bb12a9ffafe3e71c19ecec095a804caa1e",
+        "cursor": "2025-08-29 15:10:00+08:00",
+        "financial_events": 0
+      },
+      "last_job": {
+        "at": "2026-11-02T20:57:10.484007+00:00",
+        "supervisor_pid": 18078,
+        "child_pid": 18097,
+        "command": [
+          "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python",
+          "-B",
+          "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-August-continuation-v1-20261102/run_august.py",
+          "--cell",
+          "C20_R0",
+          "--until",
+          "2025-08-29"
+        ],
+        "start_progress": {
+          "checkpoint": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-August-continuation-v1-20261102/runs/C20_R0/2025-08-15-ACTION.pkl",
+          "sha256": "bef094077a704ff8817bc978c6217705ad393eceeb41655bc8cba20b37689a74",
+          "cursor": "2025-08-15 00:00:00+08:00",
+          "phase": "ACTION"
+        },
+        "scope": "owned task supervisor only, no process inventory",
+        "status": "completed",
+        "returncode": 0,
+        "ended": "2026-11-02T21:14:20.173870+00:00"
+      }
+    }
+  },
+  "financial_event_states": 252,
+  "cash_stock_equity_fee_contribution_bridges": "all seven differences zero in every state",
+  "source_policy_unchanged_during_finance": true,
+  "source_runtime_sha256": "2147ffce2ac02a689adabb2d501d521c6618ae892a4b2ae27f4bfb48bb641a68",
+  "no_September": true,
+  "original_July_not_rerun": true,
+  "interruption_evidence": [
+    "interruption-1/INTERRUPTION.json",
+    "interruption-2/INTERRUPTION.json"
+  ],
+  "interruption_cause": "not known; no exit code; stale records retained; verified complete checkpoint recovery only",
+  "independent_full_four_financial_audit_pending": true,
+  "manifest_sha256": "26f11536afbce5f1ba71f1b89dadda2f2b05f6bc165fd59ac8c83c0ba9815c21"
+}

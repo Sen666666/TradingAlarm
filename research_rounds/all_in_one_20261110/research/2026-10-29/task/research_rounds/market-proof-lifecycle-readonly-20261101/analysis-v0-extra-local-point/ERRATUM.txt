@@ -1,0 +1,1 @@
+Analysis-only: local2026 has no market recovery phase; remove dynamically appended May14 first-fast-off point whose original-m export was never requested. Original fixed Apr30/May7/Jun30 and all phase cases unchanged; reuse original-m cache, no account replay. Old G1 absence rendered unknown rather than numeric warm=0.

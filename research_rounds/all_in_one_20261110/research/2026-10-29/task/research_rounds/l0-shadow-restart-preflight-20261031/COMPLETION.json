@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "original_frozen_files_checked": 1873,
+  "original_frozen_files_changed": [],
+  "new_paths": 4,
+  "successful_paths_rerun": 0,
+  "independent_account_days": 2820,
+  "accounting": [
+    {
+      "period": "HIST",
+      "sector": "TECH",
+      "account": "B0_L0_base",
+      "passed": true,
+      "checks": {
+        "fills_causal_and_fee_components": 4472,
+        "daily_independent_nav_and_shares": 971,
+        "corporate_actions_replayed": 20
+      },
+      "max_absolute_nav_difference_cny": "0",
+      "campaign_pnl_reconciled": true,
+      "total_expenses": "0",
+      "max_stock_weight": 0.07711548938800702,
+      "max_sector_weight": 0.5001791259189546
+    },
+    {
+      "period": "HIST",
+      "sector": "DRUG",
+      "account": "B0_L0_base",
+      "passed": true,
+      "checks": {
+        "fills_causal_and_fee_components": 1056,
+        "daily_independent_nav_and_shares": 971,
+        "corporate_actions_replayed": 10
+      },
+      "max_absolute_nav_difference_cny": "0",
+      "campaign_pnl_reconciled": true,
+      "total_expenses": "0",
+      "max_stock_weight": 0.08177399652930432,
+      "max_sector_weight": 0.508863905516665
+    },
+    {
+      "period": "CURRENT",
+      "sector": "TECH",
+      "account": "B0_L0_base",
+      "passed": true,
+      "checks": {
+        "fills_causal_and_fee_components": 1882,
+        "daily_independent_nav_and_shares": 439,
+        "corporate_actions_replayed": 8
+      },
+      "max_absolute_nav_difference_cny": "0",
+      "campaign_pnl_reconciled": true,
+      "total_expenses": "0",
+      "max_stock_weight": 0.09742624222302729,
+      "max_sector_weight": 0.39959480072927067
+    },
+    {
+      "period": "CURRENT",
+      "sector": "DRUG",
+      "account": "B0_L0_base",
+      "passed": true,
+      "checks": {
+        "fills_causal_and_fee_components": 626,
+        "daily_independent_nav_and_shares": 439
+      },
+      "max_absolute_nav_difference_cny": "0",
+      "campaign_pnl_reconciled": true,
+      "total_expenses": "0",
+      "max_stock_weight": 0.11423724811669693,
+      "max_sector_weight": 0.6491699184678941
+    }
+  ],
+  "engineering_seconds_including_all_failed_attempts": 154.01435754075646,
+  "engineering_final_three_stages_seconds": 62.65088733425364,
+  "sensitivity_seconds_including_failed_report_and_repair": 154.7039391254075,
+  "elapsed_wall_from_protocol_file_seconds": 1006.405147,
+  "prep_wall_caveat": "protocol file timestamp is recorded anchor, excludes earlier source inspection; cannot reconstruct exact all-task prep time",
+  "production_or_live_or_external_actions": 0
+}

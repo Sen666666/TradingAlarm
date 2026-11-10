@@ -1,0 +1,198 @@
+{
+  "created_at": "2026-10-22T22:27:46.321906+08:00",
+  "plan_sha256": "b40b8bf5b240bbdd6e06026bee4192fcd2127448a96642c2cf90d6e43ff8a210",
+  "code_sha256": "5f20a386759dca9eab9d0dc8a73a538c84f50f19bc58de59da3b0c316365c4bf",
+  "credentials_used": false,
+  "requests": [
+    {
+      "sequence": 1,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQTZXX_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=2&pageHelp.beginPage=2&pageHelp.cacheSize=1&pageHelp.endPage=2&keyword=&validDate=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 39191,
+      "response": "01.body",
+      "sha256": "bcb3271caa8b84eda21063bc34f8740990a9e4d24336d887bec896b278995330",
+      "redirects": 0
+    },
+    {
+      "sequence": 2,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQTZXX_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=3&pageHelp.beginPage=3&pageHelp.cacheSize=1&pageHelp.endPage=3&keyword=&validDate=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 38991,
+      "response": "02.body",
+      "sha256": "9f3773e3d6a509ded647edf8dec1e193132b12960ea3f45af5b2eeb4b42d3726",
+      "redirects": 0
+    },
+    {
+      "sequence": 3,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQTZXX_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=4&pageHelp.beginPage=4&pageHelp.cacheSize=1&pageHelp.endPage=4&keyword=&validDate=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 40669,
+      "response": "03.body",
+      "sha256": "c5b609e9229ab7e9e0157318e8321724f2b7aac09f5afd52058a606e7b48cdea",
+      "redirects": 0
+    },
+    {
+      "sequence": 4,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQTZXX_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=5&pageHelp.beginPage=5&pageHelp.cacheSize=1&pageHelp.endPage=5&keyword=&validDate=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 41299,
+      "response": "04.body",
+      "sha256": "40d0bf87c1138c86c09b79ec7b3b48b98c12eca701c2dbfd8dae4e3e3dd882bb",
+      "redirects": 0
+    },
+    {
+      "sequence": 5,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQTZXX_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=6&pageHelp.beginPage=6&pageHelp.cacheSize=1&pageHelp.endPage=6&keyword=&validDate=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 41185,
+      "response": "05.body",
+      "sha256": "67ef235496514efc913fbbbcf1014aefbba3292a3e43c47deb2bd12ac48ae481",
+      "redirects": 0
+    },
+    {
+      "sequence": 6,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQTZXX_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=7&pageHelp.beginPage=7&pageHelp.cacheSize=1&pageHelp.endPage=7&keyword=&validDate=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 41421,
+      "response": "06.body",
+      "sha256": "cc5266d6deab900a3c6b41606e62104495b487b56b4581d44de09399446cfaf1",
+      "redirects": 0
+    },
+    {
+      "sequence": 7,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQTZXX_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=8&pageHelp.beginPage=8&pageHelp.cacheSize=1&pageHelp.endPage=8&keyword=&validDate=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 40751,
+      "response": "07.body",
+      "sha256": "b99c7c741652b699265a05448cc191a2af26d67f6a0ebca9ff5335c2ec0ec41a",
+      "redirects": 0
+    },
+    {
+      "sequence": 8,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQTZXX_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=9&pageHelp.beginPage=9&pageHelp.cacheSize=1&pageHelp.endPage=9&keyword=&validDate=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 39259,
+      "response": "08.body",
+      "sha256": "408dbc134b0c4c1888adddc3528dd4532d8a053960fb513e1545a078c9153da9",
+      "redirects": 0
+    },
+    {
+      "sequence": 9,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQTZXX_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=10&pageHelp.beginPage=10&pageHelp.cacheSize=1&pageHelp.endPage=10&keyword=&validDate=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 38914,
+      "response": "09.body",
+      "sha256": "976be37559e7ba0a72436d39043dbd5b3a4fa6323322c6c45b3a60e16b5c3aed",
+      "redirects": 0
+    },
+    {
+      "sequence": 10,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQTZXX_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=11&pageHelp.beginPage=11&pageHelp.cacheSize=1&pageHelp.endPage=11&keyword=&validDate=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 39220,
+      "response": "10.body",
+      "sha256": "ff87a460ce10017ca4f8478d3c8a7c2df9f9b0e56ab438da657ab413eb94843c",
+      "redirects": 0
+    },
+    {
+      "sequence": 11,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQTZXX_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=12&pageHelp.beginPage=12&pageHelp.cacheSize=1&pageHelp.endPage=12&keyword=&validDate=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 39620,
+      "response": "11.body",
+      "sha256": "b52924b9acb0c642a23e526d6ca3a00ffec78ab9ad8e31e08f984df216bf44a2",
+      "redirects": 0
+    },
+    {
+      "sequence": 12,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQTZXX_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=13&pageHelp.beginPage=13&pageHelp.cacheSize=1&pageHelp.endPage=13&keyword=&validDate=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 39696,
+      "response": "12.body",
+      "sha256": "627c5c2a36830f8be8bac2eef6e186fbcb41b441f36bed1629465b878fef8061",
+      "redirects": 0
+    },
+    {
+      "sequence": 13,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQTZXX_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=14&pageHelp.beginPage=14&pageHelp.cacheSize=1&pageHelp.endPage=14&keyword=&validDate=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 3222,
+      "response": "13.body",
+      "sha256": "f3cca94f69e9aa639d56d8530c7d77daf4ea61caeadb63d688191cdb497c13cc",
+      "redirects": 0
+    },
+    {
+      "sequence": 14,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQQD_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=2&pageHelp.beginPage=2&pageHelp.cacheSize=1&pageHelp.endPage=2&keyword=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 34195,
+      "response": "14.body",
+      "sha256": "3250aa804ed546c91293e6cdf204ee4dc91619ee2a2d28cb166e8bb2f6378a17",
+      "redirects": 0
+    },
+    {
+      "sequence": 15,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQQD_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=3&pageHelp.beginPage=3&pageHelp.cacheSize=1&pageHelp.endPage=3&keyword=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 33961,
+      "response": "15.body",
+      "sha256": "a8fa336dd5259b4369233ead171b269ef0400f0000de4f942916dcbd0d17e44f",
+      "redirects": 0
+    },
+    {
+      "sequence": 16,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQQD_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=4&pageHelp.beginPage=4&pageHelp.cacheSize=1&pageHelp.endPage=4&keyword=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 33953,
+      "response": "16.body",
+      "sha256": "5ccc4fd576daf5ecd24a3b6c9913e1654bc09f1af9dd06f88a1c643042272c8d",
+      "redirects": 0
+    },
+    {
+      "sequence": 17,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQQD_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=5&pageHelp.beginPage=5&pageHelp.cacheSize=1&pageHelp.endPage=5&keyword=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 33889,
+      "response": "17.body",
+      "sha256": "c39e94de15db94ecb3a93bb483cf73549aca85d8d0aa0ace6c182172e194779d",
+      "redirects": 0
+    },
+    {
+      "sequence": 18,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQQD_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=6&pageHelp.beginPage=6&pageHelp.cacheSize=1&pageHelp.endPage=6&keyword=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 33809,
+      "response": "18.body",
+      "sha256": "8174e9443225733e5994f3a0e54dec163048e177737d66caf7ee44dcb5429b91",
+      "redirects": 0
+    },
+    {
+      "sequence": 19,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQQD_L&isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=7&pageHelp.beginPage=7&pageHelp.cacheSize=1&pageHelp.endPage=7&keyword=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 33179,
+      "response": "19.body",
+      "sha256": "134f66fca6396511b79b4abf55a3706144a9b754f43f529786b2b21bef8707e2",
+      "redirects": 0
+    }
+  ]
+}

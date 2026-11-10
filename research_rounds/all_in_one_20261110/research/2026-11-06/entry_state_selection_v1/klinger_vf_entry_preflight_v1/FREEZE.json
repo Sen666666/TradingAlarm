@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-11-09T07:28:04.849754+00:00",
+  "indicator_values_not_yet_computed": true,
+  "hashes": {
+    "FIXED6_EARLY_IDENTITIES.csv": "04ff46f2c5faa3dc907e6dfa52bf3efbeef6e32b7fd30a00d39973432a8526cc",
+    "FIXED_DATE_ORIGINAL_QUEUES.csv": "d71cf8178f5e078c535d104bf189aab2e975c1b75dfa9684e92c89233651d2f1",
+    "FIXED42_IDENTITIES.csv": "1074795114f03df319609e63be38e9973a1a64f70a61827ed708d7015d115e19",
+    "PRECOMPUTE_INPUT_SHA256.json": "518f4a418c4cee01a8c984a9b0cb6653384cfb5203aca108050785d7eefd69b8",
+    "PROTOCOL.json": "08477ed7c9756be02bd631ec38139293dbb2182e2e917d6ab8548ab84f1b56b5"
+  },
+  "case_count": 48,
+  "full_queue_rows": 1568
+}

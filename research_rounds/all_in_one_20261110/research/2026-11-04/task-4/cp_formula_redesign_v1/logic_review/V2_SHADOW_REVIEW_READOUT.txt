@@ -1,0 +1,23 @@
+V2冻结公式与影子脚本：独立限定通过
+
+审核对象是root的FROZEN_FORMULA_V2.txt，不是本review目录早先提出的当日amount>=B候选。V1只有静态审，V2在新影子状态计算之前因数学冗余修订；本审查不推断系统时间戳之外的不可见历史。
+V2的D=f-anchor与V=Σ新frontier观察amount/Σ相应观察lag21背景金额没有包含关系。单观察金额各计一次，不乘δ/u。低量会阻止已有足够位移；巨额微新高也可能补齐此前量门，均已在冻结卡中披露。
+
+代码逐段对齐
+compute_shadow_formulas.py26–37从原CP1_input完整暖历史到cut读取原z/r/B，z21在相同segment的r上shift1/rolling21；没有在展示窗口重新起算。
+39–71明确分proof与trend：source/热身/I域、旧H失败、down、SEEK新低、推进、receipt依次处理；所有重锚/receipt均清两个金额和。旧H失败日无receipt，并以当日close建REPAIR锚。
+72–74在proof分支之外独立抬新trend高保护，因而down只清proof而不误跳合法H更新；未破趋势线/parent_episode不因down重启。receipt不清live趋势高点/线。
+amount_only不启用H/REPAIR/zH，原proof状态机仅把旧credit门换成D/V门；receipt_oldscale_candidate仍用该次旧sigma。combined仅额外启用冻结market_line与REPAIR。两者都没有账户/订单/NAV/收益推演。
+12个已保存前缀exact检查已读，证明同公式在截断前缀上的保存字段一致；这不是独立实现对拍，也不认证供应商PIT/公告received_at或真实OPEN成交可知性。
+
+独立少量代入
+FINITE_V2_SUBSTITUTIONS.json及check_finite_v2_substitutions.py：预先指定7日、117项，全部通过，最大绝对误差0。仅从三股原CP1_input/CP1/facts读取，math/statistics复算尺度窗口、B、D/V、oldscale候选、failure、新H与raw映射；不import/执行shadow()、原CP模型或账户。
+覆盖盈新2022-01-21/24、海能2024-09-24/25和10-18、银之杰2024-10-10/14。
+
+结果不能越过的边界
+原保存summary显示receipt数：盈新9→9，海能19→14，银之杰13→11。三股在各自展示窗中amount_only与combined的新receipt日期完全相同；只有combined输出自己的趋势线/失效与episode标签。这不能称新增可交易机会、减少多少亏损或赚到多少收益。
+银之杰10-10旧H203.48179401855842被C199.29268531910324击穿，10-14按新局部锚恢复。恢复日z21=0.245391706486850，新H=62.69152967923416，raw H=11.87816881938000；H/C=32.4806366404%。因此不下调旧有效线只适用于未破的同一episode；FAILED后新的结构可产生极宽新线，不能泛称全路径从不放宽。
+海能10-18 z21=0.140277646573351，新峰候选仍低于原live H，最终H保持38.13543684332301。盈新1-24 H同样保持3.18003089780509。近期|r|中位数在连续大涨或剧烈反转中可很大；max(z63,z21)可使线迟迟不抬、允许大回吐，而非单向提高保护质量。
+market_line不是CORE/I或每层真实合同；market failure不代表卖单已完成，REPAIR receipt不代表已经可买。原CLOSE→nextOPEN、T+1/涨跌停/跳空缺口没有被此公式消除。
+
+PASS仅限冻结V2→此脚本的静态对齐及7日保存输入代入。没有全路径独立双实现，亦无策略/账户/经济验收。0新账户、0新回测、0收益估计；本审查未运行全公式状态机。

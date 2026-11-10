@@ -1,0 +1,27 @@
+{
+  "status": "analysis_design_only",
+  "as_of": "2026-10-29T14:41:08.661663+08:00",
+  "new_backtests": 0,
+  "new_market_signal_runs": 0,
+  "implemented_strategy_changes": 0,
+  "platform_or_accounts_modified": false,
+  "parameters_adopted": false,
+  "strategy_promoted": false,
+  "next_queue_started": false,
+  "prior_no_backtest_instruction_preserved": true,
+  "old_artifact_checks": {
+    "lot-risk-allocation-20261029": 67,
+    "minimum-risk-block-diagnosis-20261029": 15
+  },
+  "local_source_sha256": {
+    "research_rounds/lot-risk-allocation-20261029/RULES.txt": "590e0e7ab905f480123c4e2fcbc165b69fce7452138da0d80a6d513e8980cf17",
+    "research_rounds/lot-risk-allocation-20261029/CONCLUSION.txt": "4874250fe71a5f15aac0b03b30ae22702dda3cc2432ffa7b0ebb08480605ffca",
+    "research_rounds/minimum-risk-block-diagnosis-20261029/REPORT.txt": "5530c7aefbd0d15215be85d0ef9ade7171fe862126d374df1af18ca99f13d3db",
+    "research_rounds/minimum-risk-block-diagnosis-20261029/data/cases.csv": "c345e38fcf01aa7f66b5be510824ddf29bb653db0b480bb87a4d31a2463fdd60",
+    "research_rounds/probe-pyramid-pilot-20261029/code/pilot.py": "38ac36ba3b9da599c66307451f4173249efc229f54dfb6a0d8469517431f94b4",
+    "research_rounds/ph1-cross-sector-20261028/CONCLUSION.txt": "8e3bf12f9b4e814f7003c69959e4794ae41788f3ddd2db78ee12e31006bbcd38",
+    "research_rounds/ph1-cross-sector-20261028/code/phase_policy.py": "f1a03e07ed44e2507f00567cf35adfc038e5158588a80a881b4e25811db7920d",
+    "research_rounds/stage-protection-design-20261028/DESIGN.txt": "f62e578229e38e550f372a3ca6026f697a3bfb721ed1652e6acd44ef87e8f25b"
+  },
+  "main_correction": "Loss amount becomes a post-entry exit trigger; E0 market state remains independent; same-epoch reentry guard must change with new risk exits."
+}

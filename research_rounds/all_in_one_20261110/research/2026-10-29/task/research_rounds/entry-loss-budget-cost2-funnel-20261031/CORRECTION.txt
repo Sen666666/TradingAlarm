@@ -1,0 +1,2 @@
+上一轮报告名称笔误更正（不改历史金融产物）：688150.SH在冻结账本/原campaigns中的名称为莱特光电；entry-loss-budget-full-account-20261031/REPORT.txt误写“沪硅688150”。原所有输入、下单、成交、行业身份、收益桥和资金使用始终为688150.SH，未使用沪硅集团688126.SH。此次纠正名称，不重跑、不改数值。300131.SZ在本轮按冻结账本名英唐智控表述。
+原cost2合同细节：Stress multiplier=2，FeeSchedule.incremental只将各费用component自身stress_rate/stress_minimum/stress_maximum标志允许的部分加压；原执行滑点由0.0005乘2。不能把费用总额简单乘2，也没有以normal交易事后扣费替代真实cost2内生路径。PROTOCOL中的“费用/滑点倍增”应按此原合同理解。

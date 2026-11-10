@@ -1,0 +1,37 @@
+现金保留线：14个剩余目标的责任分解与静态接口，未运行新分配。
+
+范围
+min-first之后仍拒绝的14个stock CP1目标跨12个OPEN。完整母体仍保留13个已选定S0、4172个原意图、1213股；2月9日控制批未删。旧reentry文件全部只读。
+
+先分清真实责任
+13个S0均位于原保护退出、结算和sync之后、首个新准入之前，此时均无qty>0的live/cancel-pending旧订单。S0已有库存是已成交股票，不能作为现金；receivable也未并入available。
+OFF原native候选前的现存预留，来自同OPEN更早实际提交到原模拟账本的新订单；本分解没有假定这些订单能撤、没有提前解除占款。ON first-pass前缀只是反事实未提交计划；即使某key在原历史中也曾提交，ON的数量/pool仍不能当作真实已提交状态或真实可撤单。
+ALL14_FUNDING_DECOMPOSITION.json逐条列全部库存/份额/mark/floor/risk、各live/cancel-pending预留、自由现金、原10%保留线、qmin含费缺口，以及probe/confirmed全部门。每个前排单同时列当时PVR/H1/rank/CP1/floor/风险/role与原同key的fill、退出、原完整路径净额参考。旧路径净额只是事后评价，不是决策输入，也没有按股数比例制作新PnL。
+
+两个不同资金数字
+原规则新增可花金额=min(available−10%×原决策NAV，budget_cash−现存订单reserve)。available本身已扣原账本的已提交订单/借记锁定等责任。第二个数字保留这些硬责任，仅将额外现金缓冲乐观设0：min(available，budget_cash−现存订单reserve)。没有卖库存、没有把应收账款当现款、没有增加资本。
+例如金海通5月11日信号→5月12日OPEN，尚无前排新预留：已有股票mark1637076.19元，可用现金177856.58元，而10%保留180974.75元，新增空间−3118.17元；100股含费需28140.49元。这里不能归因于同OPEN前排抢钱，现金保留线本身已经挡住最小手。
+江丰6月25日信号→6月26日OPEN，原前排只有1505.85元已提交预留；已有股票mark2105405.19元，available235819.52元、保留235614.50元，新增空间205.02元，100股需32694.97元。取消那1505.85元也不能按原规则买入目标，且本研究没有假定撤单。
+6月29日信号→6月30日OPEN，ON未提交前缀的可花空间已经42148.41元，江丰/珂玛各自现金足够，但行业1%风险仍挡。再减现金缓冲不能修复该风险门。
+
+必要上界，未宣称可执行新增数
+固定OFF原已提交前缀、只去额外10%缓冲，保留其它全部门时，14目标中最多12个各自最小手满足必要条件；2个仍受行业风险阻挡。固定ON未提交first-pass前缀时，对应11个，3个仍受行业风险阻挡。
+同一OPEN成对目标使用了相同前缀（已逐一核对）；共享同一现金、行业资本和行业风险后枚举最小手联合必要条件，跨OPEN的必要最大计数仍为OFF12、ON11。SHARED_FOCUS_MINIMUM_NECESSARY_BOUNDS.json保留每个子集的共同现金/风险算式，未把同一金额重复相加。
+这些界固定了其它候选的既有前缀，不等于完整4172意图重新走过后真能买到12或11个；也没有任何新成交或收益结果。
+
+可复用接口：static_upper_api.py
+load_complete_batches()：加载全部13 S0/PREVIEWS，核对已独审OFF完整输入digest，返回4172个完整原意图，不加载market/H1/CP1平台。
+compile_bundle(allocation,buffer_mode,mandatory_residual_cny,budget_check)：支持native_singlepass、confirmed_min_first；各自提供reference_cash10和optimistic_mandatory_only编译绑定。返回project_one callable，但编译不执行投影。
+现金hook同时绑定原No60 route、独立固定谓词/验证断言、confirmed补量的现金hi；request/migrate仍为No60，风险/行业/stock/原frozen cap/已有订单不改。wrapper检查所有旧订单原字段不变、旧库存qty/cost/floor不变、输入digest不变；不含任何撤单/成交API。
+mandatory_residual_cny是必要未记账支出的证据输入，不是拟合参数。当前仅准备0作为“账本available已扣硬责任后、不再另留现金”的乐观边界；没有证明真实必要未来支出为0，更没有推荐0现金策略。
+四种接口均编译通过，projection_calls=0。继续前需先验证两个allocation的reference_cash10分别复现全部13组旧OFF和旧ON，再按冻结范围/共同计算预算做端点共享对照，并独立审查。
+
+重要语义
+候选锚点上界不动已经提交的原前序订单；完整共享对照则从S0首单前开始，当时本批新订单尚未提交，重算的是提交前计划，不能称为候选时撤真实单腾钱。
+完整4172原greedy maxq在最乐观现金端点重算，只是一个共享资源对照，不能称所有reserve规则的目标数全局上界。放宽现金会使更前面的原序候选先增量，后排参与数可能不单调。不能凭cash10删除端点判断动态reserve一定有利或无利。
+ON.final_state.available_exact沿用旧State的S0锚点语义，本报告只使用ON.available或S0.available减保存first-pass前缀毛额/F(q)，未误用该字段。
+
+交付
+ALL14_FUNDING_DECOMPOSITION.json/.csv；ALL13_S0_OBLIGATIONS.json；ALL4172_MOTHER_INDEX.json；SHARED_FOCUS_MINIMUM_NECESSARY_BOUNDS.json；SUMMARY.json。
+static_upper_api.py、INTERFACE_COMPILED_SOURCES.json、INTERFACE_PREPARATION.json：可复用原源绑定与零执行准备证明。
+SOURCE_SHA256.json、SELF_AUDIT.json、ARTIFACT_SHA256.json：来源、分解身份与旧材料只读证明。

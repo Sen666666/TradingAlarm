@@ -1,0 +1,27 @@
+{
+  "rule": "earliest actual inventory split in frozen TECH L0_delay1; plus/minus five existing market sessions; no profit criterion",
+  "event": {
+    "kind": "split",
+    "at": "2024-05-08 00:00:00+08:00",
+    "sid": "300852.SZ",
+    "event_id": "split:300852.SZ:2024-05-08",
+    "ratio": "1.40",
+    "new_shares_sellable_at": "2024-05-09 09:30:00+08:00"
+  },
+  "dates": [
+    "2024-04-26",
+    "2024-04-29",
+    "2024-04-30",
+    "2024-05-06",
+    "2024-05-07",
+    "2024-05-08",
+    "2024-05-09",
+    "2024-05-10",
+    "2024-05-13",
+    "2024-05-14",
+    "2024-05-15"
+  ],
+  "checkpoint_before": "2024-04-25",
+  "restart_close": "2024-05-08",
+  "source_sha256": "09735edbd51692178b9963e800cfb6548e516b2232b989fa170503ddae3e71f0"
+}

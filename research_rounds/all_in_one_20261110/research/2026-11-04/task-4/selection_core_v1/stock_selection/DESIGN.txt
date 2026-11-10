@@ -1,0 +1,65 @@
+股票选择通道与S*定义提案 v1（PROPOSED_NOT_EXECUTED）
+根已将主分数指定为S*，本文件不保留旧初稿权重，不启动任何多方案筛选。
+
+一、可得接口和不能擅补的接口
+1709静态股票原prepared signal包含调整OHLC、原raw OHLC、amount/volume、observed/price_eligible/source_invalid/synthetic、segment等，可用共同CSI300会话计算固定窗口。industry90的原price close与CSI300 price已在本地；历史行业成员/PIT未认证。现存池的横截面不是历史全市场横截面。
+原facts有native e0_target/e0_floor、i_target/i_floor/i_buy和G1 grade/readiness/fresh等。START只用native E0_target本日与前一原状态的0→1、同段且两状态已知；不把prepared companion的pending/decline candidate字段当native当前决策，也不以I/账户epoch冒E0 episode。原event=-1确认高点不必意味着E0/I域已失效；不能据它自动撤通道。
+原CP缓存有ready/receipt/candidate/scale/frontier/credit；canonical ID有则保留，缺ID不删原旗事件，但不能造原凭据。CP receipt、fresh frontier、合法MOBILE意图是不同层，不能互换。I_target持续为1不自动新增CORE权限；i_buy布尔也不能在未查原epoch/消费合同前冒称“全新买点”。
+原role/epoch/CP凭据消费、持仓slot、实际买单状态、pool/行业风险和现金不在prepared价格表。须使用原opportunity/decision/funding/snapshot的明示字段，不凭价格重建完整合法订单。两个原角色同股并存时stock-level分数只计算一次，原角色、权限、保护和顺序记录分开保留。
+真正PVR的准入源是当期实际绑定SCORES_MANIFEST对应cache.score/PVR_ready，或冻结intent.PVR_score/rank-policy.PVR；source SHA/公式SHA/日期需一致。trade.pvr及intent.score是原H1别名。真实PVR原式：r=log close diff；63日滞后median|r|尺度；amount_ref为21日滞后金额median；b=tanh(log amount/amount_ref)；21日加权能量E映射score=50+50*tanh(2E)。首启动窗口可能尚未PVR热身，不能以H1或50补。
+
+二、先冻结候选阶段，不把排序当授权
+原合法集合L(T)应由根指明是：原信号结构门、原可计划意图，还是原已冻结待执行意图。三者不是同一分母。core_Q/mobile_Q即便true，也可能没有可用epoch、凭据、industry权限、资源或最小单位；已生成意图又可能已受到旧排序/资金切分，不能把它称全部原合法机会。
+在该阶段原记录不足的日期/股票，formal original-legal状态UNKNOWN；不导入Account/Runner重跑来补。可以单列STATIC_CONDITIONAL_SIGNAL_RESEARCH榜（只按明示信号资格），但名称必须显式条件化、不能声称是真实历史全候选榜或可成交榜。
+先作资格再分数，不让高S*洗掉流动性、原E0/I/CP、硬风险等条件。S*不改变资格、更不证明资金买得下。
+
+三、流动性与共同窗口（建议，一次冻结后方算）
+共同日期用既有CSI300日历；当前T必须是原observed=true、price_eligible=true、finite positive close/volume、non-synthetic、non-invalid，amount为finite positive且单位明示CNY。
+此前21个共同会话[t−21,t−1] amount均为上述真实有效原数、同source segment，则LIQ21=median(amount)。建议最低LIQ21>=20,000,000 CNY。缺任一会话/单位/原资格标志=UNKNOWN，非0；低于门才FAIL。输出PASS/FAIL/UNKNOWN及原数/缺口，不只输出通过集。阈值不是账户规模/买入量或冲击成本认证。
+不再同时添加额外近5日最低金额/市值等门，避免未经证据扩大参数。近期干涸由amount变化及当前有效价量直报，尚不靠第二个量门切掉。
+21会话完整要求会使新股/复牌不足窗无法入正式榜，可能漏掉早期机会；必须列入覆盖代价，不能给缺窗者伪造中性分。若根改为观察压缩/最少有效数，也必须在首算前重新明确，不能看到案例后救规则。
+
+四、S*精确算式
+共同t−20端点、同段调整close：RS20=ln(Ct/Ct−20)−ln(It/It−20)。行业缺端点时RS未知。虽然该同业内常数消去，原则上其截面排名等于股票自身20日收益排名，仍保留绝对RS值与行业/市场值审计；不能声称得到新的行业领先证据。
+H20prev=max(High_s)，s为此前20个共同会话[t−20,t−1]，同段、全部真实有效同尺度High；高点排T，避免当前high把当前结构机械回写。
+D20=min(0,ln(Ct/H20prev))；越近0越优；突破以上都0，不为过度远离高点额外加分。另保存未截断distance20便于看极端扩张，但它不参与S*或另成一个临时筛法。D20不以未来高点/终值定义。
+A21=ln(amount_t/median(amount_t−21:t−1))，与LIQ21同一原金额窗。它已在真PVR.b中单调出现，因此不是新增独立量证据。
+PVR(T)为真正ready cache.score。四输入任一缺失，S*=UNKNOWN；不补0/H1/行业均值、不把剩余权重重新归一化、不隐排末尾。
+分位参考集合C_i(T)：同日同原静态行业内，在根冻结同一原合法阶段、流动性PASS、四输入全可用的唯一SID集合。所有四项共用该集合/同一N，避免每项不同完整分母的不可比。每个x的p_x=(average rank ascending(x)−.5)/N；高值为优，ties取平均。N=1全部p=.5，仅是无同业比较信息，不是确认中等质量。N及少样本标志直报，不临时加最少N筛选。
+S*=.4*p_PVR+.3*p_RS20+.2*p_D20+.1*p_A21。
+排序：S*降序；S*相同先保留该原阶段记录的旧相对stock顺序；若该顺序无记录，则SID字典序并注明仅为确定性tie。UNKNOWN单列；研究不擅自把它们全压到后排或用原H1替分。
+本方案是价量输入的再组合：PVR与A21重复同原量输入，RS20/D20同来自近20价格路径。它不是四份独立证据；加权系数是父指定先验而非本次已证明有效。必须保留原每分量/每分位及贡献，不能只剩S*。
+不同行业内分位只衡量相对位置，不足以决定行业间资金或谁是真正主线；同业内所有股票和指数均下跌仍必有分位第一。另列绝对RS与行业vsCSI300，但不在本提案额外加门或给预算。
+
+五、两通道时钟
+START：原native e0_target(T)=1，前一原已知同段状态=0，且两状态e0_ready、日期/观察均有效；只标这次0→1当日，不把暖机默认0当已证失效。CONTINUE：当前E0=1且同段前状态也是1、双方已就绪。上一原状态缺失/暖机未就绪/段变=CHANNEL_UNKNOWN；不得跳过未知日回找更早状态而称新启动。若原native canonical entry另有直接证明，可另列原证明，不能用旧companion默认分支替代。
+两个榜分别评分/排行，不按账户是否首次持有、最近赚亏或后来是否赢家分通道。若START的E0已启动但原I/CP/role未给合法许可，保留START_WATCH_NOT_ORIGINAL_LEGAL，不能进入正式L(T)；需要新typed授权才可改变，但本次未提出该交易修改。
+CONTINUE高分不是每日新增订单；原CORE epoch/CP单次消费/风险/资金/最小单位等不变。真正CP票/CORE申请仍必须由原接口或后续另审的新typed机制产生。
+不合并两榜硬取某固定比例、不假设START与CONTINUE分数相同可直接竞争；任何跨通道配额是另一个有机会成本的问题，本次0账户不做。
+
+六、当日一价与次日不可成交
+T close后只可见T原raw OHLC/volume；raw O=H=L=C>0称T_ONE_PRICE_EXACT，不凭它认定涨停/跌停/停牌。保留候选及该标记；真实原合法阶段若已因限制拒绝则沿其原状态，不为研究重新许可。
+T+1交易session/raw open/是否一价在T未知。不能用次日整日high/low/volume决定T榜，也不能见次日买不到就事后把次名算T最优。
+次日原记录可另作描述：原open、正量、observed/eligible、exact一价；真实limit/suspend/盘口/报价时钟缺则unknown，不认证fill。若未来真实执行系统拒单，只能按其当时信息与原凭据/订单生命周期处理；本榜不自动让旧CP凭据复活、不把没买到等于无成本机会、不假设下一票成交。
+没有费用、排队、冲击、资金、最小单位、T+1卖出等账户验证前，排序/一价表不能转为收益保证。
+
+七、主动替代B（仅待证，不另运行多方案）
+资格/行业参考池/缺失/两通道与主案完全相同，避免靠换池获好结果。B若研究其不依赖PVR的版本，其覆盖池必须另明示，因为PVR暖机缺失不应被偷当B优势；共同完整池上另比同样股票。
+不用加权和让一项强数值补偿其他弱项：
+START：按p_RS5降序，再D20降序、A21降序、p_RS20降序，最后原顺序/SID。新0→1时优先已知短期强度，20日弱不成为否决快速V形的硬门。
+CONTINUE：先按(p_RS5,p_RS20)的二维Pareto层。若另一股两者都不低且至少一项更高，则被其支配；逐层剥离F1,F2...。同层按min(p_RS5,p_RS20)降序，再D20、A21、p_RS20降序，最后原顺序/SID。不让单个期限极强/另一个很弱仅靠平均压过双期限都强；amount只资格/同层tie。
+为什么更值得作为结构替代：避免预设真PVR=.4正确、重复计量当独立证据；保留短启动与持续趋势不同节奏；排序每一步可解释。它仍有先验，绝非已证优越或无参数。
+可预见失败：CONTINUE的min双期限会压低长期强但短期正常回踩的持续赢家；START的短期优先可能追假突破/强反抽；Pareto层在少量同业时区分弱、在维度相近时不稳定；D20不惩罚突破后的过度扩张；amount尖峰可能是出货；数据缺失/流动性地板会漏复牌/新股。不得在看到验证结果后改排序次序补救。
+
+八、明确反例/停止包装的边界
+行业全弱：同业第一不是绝对强，行业RS轴必须展示；不能用截面分位命名“主线已证”。
+急V：20日排名偏弱的首启动可能被S*或CONTINUE稳健min压低，须用父固定924/2022恐慌日期检查，不把它们事后移通道。
+晚强/短线顶：高PVR、高RS、近高点、大额可能同时出现，S*可能强化同一追涨倾向；不能宣称四项一致就是四次验证。
+流动性假象：单日放量不能替代过去21日可成交深度，一价正量也不认证可买。
+同股两角色：CORE/MOBILE重复不能给截面两票；true CP但原role不合法不入榜，CP=false却原CORE合法不能因此剔除。
+缺失：PVR未ready/部分同期指数缺失/原合法记录不完整时unknown，不因UNKNOWN缺少后续收益而当弱股。
+PIT：当前行业126/当前总池1709不是过去全成员；formal historical ranking仍UNKNOWN，即使同日数值可以算得很精确。
+
+九、执行状态与父指定日期
+本目录没有计算S*或B，没有跑任何账户/新CP/全量模型。当前只准备父指定三个日的旧记录证据：2024-09-24、2026-01-15、2022-01-24（rules负责旧H1/原候选链）。正式S*需根先冻结上述未决定义/合法阶段。
+父预先给定后续日，仅列为待冻研究列表：2024-09-23/24/27/30、2024-10-08/11；2022-01-20/24、03-15、04-27、10-31；2026-01-05/15、02-03、04-08、05-20、06-29。不自行加日或扩大择优窗口。

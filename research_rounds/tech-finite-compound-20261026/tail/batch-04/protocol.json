@@ -1,0 +1,756 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "symbol": "USZA002065",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA002195",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA002373",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300017",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300166",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300170",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300339",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300496",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300674",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300687",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA301236",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA301316",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA301396",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA301638",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA600131",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA600271",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA600410",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA600536",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA600718",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA600845",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA600850",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA603171",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA603629",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA603859",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA688088",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA688158",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA688327",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA688343",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA688568",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA000063",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA000070",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA001267",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA002281",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA002396",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA002491",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA002583",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA002792",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA002881",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA003031",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300308",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300353",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300394",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300502",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300548",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300570",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300620",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300627",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300628",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300638",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300913",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA301165",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA301205",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA301486",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA600105",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA600345",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA600487",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA600498",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA600522",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA600776",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA601869",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA603083",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA603118",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA603236",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA688027",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA688100",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA688143",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA688205",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA688313",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA688387",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA688635",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA688668",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USTM920045",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA000839",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA002544",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA002929",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300113",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300383",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300442",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300738",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA600050",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA600941",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA601728",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USHA603881",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    }
+  ],
+  "max_requests": 168,
+  "request_interval_seconds": 0.3,
+  "read_timeout_seconds": 15,
+  "session_preference": "snapshot"
+}

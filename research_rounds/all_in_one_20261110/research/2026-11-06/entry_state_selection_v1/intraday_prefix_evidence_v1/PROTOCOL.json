@@ -1,0 +1,11 @@
+{
+  "purpose": "Descriptive evidence audit, not a new entry gate or economic test",
+  "sample": "Exactly old 33 events / 32 entry-day raw sources; NOACT14 and PRICE19 separate; no new cases or outcome relabeling",
+  "prefix": "First four provider labels 09:35,09:40,09:45,09:50; fixed because 09:50 was earliest evaluation of both existing rules, not chosen by a new window search",
+  "facts": "Raw closes relative to initial raw open then prior close give U/D/F sign sequence; raw OHLCVA and volume fractions retained. No sign sequence is used to authorize or reject an order.",
+  "timing": "Provider labels and ordering only. Completed/publication/available_at and auction coverage UNKNOWN. No certified real-time trade eligibility.",
+  "known_development": "Prior labels and source reports were known; initial vectors had been inspected. Not preregistration, blind validation or OOS.",
+  "quality": "Exact Decimal per-bar OHLC, positive volume, nonnegative amount and L*V<=A<=H*V on prefix only. Whole-day daily aggregation mismatch retained as later audit metadata, never prefix exclusion.",
+  "controls": "33 physical-prefix and 33 future poison checks; source hashes before/after. No parameter search, new data fetch, score/ranking, economic/account run, old file change or reconstructed fill.",
+  "decision": "Determine whether observed sequence/volume evidence supports a defensible distinct candidate; do not repair ORB/VWAP by exceptions or stricter inequalities."
+}

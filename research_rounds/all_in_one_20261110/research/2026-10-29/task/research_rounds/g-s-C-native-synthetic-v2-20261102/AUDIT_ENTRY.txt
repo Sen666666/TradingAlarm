@@ -1,0 +1,35 @@
+C native v2：旧目标协调＋必要收盘/可选规划隔离（仅原生合成）
+
+结果：17/17基线回归、9/9增量合成通过；27个已存状态三桥差0。两个基线断言仅更新全局WAIT→局部目标等待/同CLOSE原计划已冻结的预期。v1 20745d94…及其52项索引文件全部核同，未覆盖。原C10/C_BATCH20经济参数、资格、排序、联合资源及独立退出不改；历史账户事件0。
+
+独立复放（分别用新的输出目录）：
+cd /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-native-synthetic-v2-20261102
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B test_native.py --out /tmp/C-v2-baseline-unique
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B test_coordination.py --out /tmp/C-v2-incremental-unique
+
+已复用R4而未复制伪账：FundingCoverage.assets、bind_order、原request_funding_cancel/ACK、原生settlments、指定lot卖出和真实FillReceipt。没有沿用其K-based preview/target重算；goal_coverage.py只记录目标/资产归属与实际回调，不写现金、持仓或NAV。
+
+旧目标最小协调：
+- 单张授权的receipt/数量/priority/deadline固定，CLOSE到期只请求原生撤单，未ACK的原买单/预留继续计入原账。真正原生cancel_buy与全成后内部cleanup明确区分，填单先记录实成，再核余量，避免把真实fill提前记成取消。
+- 每份筹资卖单沿R4订单ID绑定原目标集合；部分实卖应收继承原卖单/FillReceipt/settlement ID。一个asset只一行、一个联合所有者集合，不给集合内每个目标重复一份金额。金额与原生卖出净款核同，结算前不可花。
+- 旧目标失效/到期，原pure funding只发撤请求；mandatory不被撤。旧订单/风险锁/carry不提前释放，fresh不改名借走旧覆盖。仍有旧筹资或应收时，只让该接收行业的新扩张局部WAIT_TARGET_OWNED_NATIVE_ASSETS；其他合法目标继续按真实可用现金和独立合法供资规划，旧止损/F1/回调照常。
+- 实际ACK或结算后归属状态推进，下一原CLOSE/fresh可恢复；无新receipt不复活旧Q。未结资产不跨目标借贷、不作可花现金；这版不优化分数覆盖/跨目标应收重分配，可能保守等待。无“全局WAIT”闸门。
+
+独审H1反例修复及cursor：
+满仓无fresh，一股I失效、另一健康行业H1=None。必要阶段已完成原结算/ACT/旧保护/幸存线/F1/旧订单及覆盖生命周期；随后可选C排序失败，只回滚该可选尝试，记录OPTIONAL_C_PLANNING_BLOCKED，不填H1、不跳健康股。
+样本事件cursor=2025-07-02 15:10+08，necessary_cursor同一close，G序号2、原I退出1000股保留；optional_status=blocked_unknown_H1。最后成功budget cursor仍7/1：未成功的配置不能伪装已获新预算，原责任及新必要退出观察持续。
+close_stages保存必要状态hash、准备的原意图/clock、输入hash、失败和尝试。完整checkpoint可恢复；同输入重试或重复source event不重复F1/退出/预算。optional-only retry只允许在下一原生事件之前，且实际必要状态hash仍相同；更正输入必须显式old/new hash与原因、原as-of clock合法。测试用显式同as-of fixture更正演示恢复，不是对真实NA自动补值。成功计划之后不可换输入；进入后续OPEN后不得复活过去规划。失败状态下旧退出下一合法窗仍实际成交。
+本次隔离的可恢复错误类型是UNKNOWN industry H1；其他source/会计/未知风险或未支持原生事件仍按明确工程停止/原子拒绝处理，不包装成零仓策略成功。
+
+主要增量证据：
+01：旧买单待ACK不退款，新行业仍真实成交；原order/deadline/priority不变。
+02：旧筹资覆盖使原接收行业等待，另一个行业新Q>0、独立新D合法，旧D不重复或被移除。
+03：部分卖款未结、撤未ACK不释放；ACK不退当批budget；实际结算后fresh恢复。
+04：资金冲突同时I失败，原退出ID保留且实际卖出，F1/cursor继续。
+05：带应收所有权子进程恢复；结算幂等；篡改已结应收金额拒绝。
+06：full-fill cleanup与实际取消分清，实际退预留只一次。
+07–09：H1未知必要阶段落地、checkpoint/重复输入/可选重试、后续实卖及禁止晚复活。
+
+审计文件：VERIFICATION.json（17+9、27桥和H1 cursor摘要）、AUTHORIZATION_AND_SOURCE_FREEZE.json、两个STDERR、runs-baseline/与runs-incremental/逐案状态、checkpoint/provenance、V1_BINDING.json。v1独审FINAL_AUDIT.json只读归档在independent-v1-evidence/。failures/保留新版本接线时两类失败；pre-optional-stage-23-pass保留隔离H1前版本。
+
+仍未覆盖：一般零股指定层核销、多单S→G备用子集、较大机会性责任的部分mandatory升级；遇此类仍原子停。I/Q/CP1/H1/PVR仍为明确因果fixture接口，未接历史输入/月度账户。权益桥沿同原生mark，不是第二价格源；不认证日线代理实时可执行。完成后冻结，等待独审，不启动历史路径。

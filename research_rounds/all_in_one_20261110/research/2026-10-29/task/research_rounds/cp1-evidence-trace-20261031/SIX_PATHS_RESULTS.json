@@ -1,0 +1,322 @@
+[
+  {
+    "path": "slow_no_pullback",
+    "tail_receipts": 30,
+    "tail_positive_events": 0,
+    "tail_negative_events": 0,
+    "tail_E0_openings": 0,
+    "episodes": [
+      {
+        "episode": 1,
+        "opened": "2025-04-07",
+        "last_active": "2026-01-14",
+        "receipts": [
+          "2025-08-04",
+          "2025-08-08",
+          "2025-08-14",
+          "2025-08-20",
+          "2025-08-26",
+          "2025-09-01",
+          "2025-09-05",
+          "2025-09-11",
+          "2025-09-17",
+          "2025-09-23",
+          "2025-09-29",
+          "2025-10-03",
+          "2025-10-09",
+          "2025-10-15",
+          "2025-10-21",
+          "2025-10-27",
+          "2025-10-31",
+          "2025-11-06",
+          "2025-11-12",
+          "2025-11-18",
+          "2025-11-24",
+          "2025-11-28",
+          "2025-12-04",
+          "2025-12-10",
+          "2025-12-16",
+          "2025-12-22",
+          "2025-12-26",
+          "2026-01-01",
+          "2026-01-07",
+          "2026-01-13"
+        ],
+        "receipt_count": 30
+      }
+    ],
+    "mechanical_third_stage": [
+      {
+        "episode": 1,
+        "two_postopening_receipts_by": "2025-08-08",
+        "tail_observation": 7
+      }
+    ],
+    "old_E0_policy_exact": true
+  },
+  {
+    "path": "single_jump_flat",
+    "tail_receipts": 1,
+    "tail_positive_events": 0,
+    "tail_negative_events": 0,
+    "tail_E0_openings": 0,
+    "episodes": [
+      {
+        "episode": 1,
+        "opened": "2025-04-07",
+        "last_active": "2026-01-14",
+        "receipts": [
+          "2025-07-31"
+        ],
+        "receipt_count": 1
+      }
+    ],
+    "mechanical_third_stage": [],
+    "old_E0_policy_exact": true
+  },
+  {
+    "path": "lower_highs_lows",
+    "tail_receipts": 27,
+    "tail_positive_events": 3,
+    "tail_negative_events": 3,
+    "tail_E0_openings": 2,
+    "episodes": [
+      {
+        "episode": 1,
+        "opened": "2025-04-07",
+        "last_active": "2025-10-07",
+        "receipts": [
+          "2025-07-31",
+          "2025-08-01",
+          "2025-08-04",
+          "2025-08-05",
+          "2025-08-06",
+          "2025-08-07",
+          "2025-08-08",
+          "2025-08-11",
+          "2025-08-12",
+          "2025-08-13",
+          "2025-08-14",
+          "2025-08-15",
+          "2025-08-18",
+          "2025-08-19",
+          "2025-08-20",
+          "2025-08-21",
+          "2025-08-22",
+          "2025-08-25",
+          "2025-08-26",
+          "2025-08-27",
+          "2025-09-11",
+          "2025-09-12",
+          "2025-09-15",
+          "2025-09-19",
+          "2025-09-25"
+        ],
+        "receipt_count": 25
+      },
+      {
+        "episode": 2,
+        "opened": "2025-10-15",
+        "last_active": "2025-11-06",
+        "receipts": [
+          "2025-10-22"
+        ],
+        "receipt_count": 1
+      },
+      {
+        "episode": 3,
+        "opened": "2025-11-17",
+        "last_active": "2026-01-14",
+        "receipts": [
+          "2025-11-24"
+        ],
+        "receipt_count": 1
+      }
+    ],
+    "mechanical_third_stage": [
+      {
+        "episode": 1,
+        "two_postopening_receipts_by": "2025-08-01",
+        "tail_observation": 2
+      }
+    ],
+    "old_E0_policy_exact": true
+  },
+  {
+    "path": "normal_pullback_advance",
+    "tail_receipts": 35,
+    "tail_positive_events": 1,
+    "tail_negative_events": 1,
+    "tail_E0_openings": 0,
+    "episodes": [
+      {
+        "episode": 1,
+        "opened": "2025-04-07",
+        "last_active": "2026-01-14",
+        "receipts": [
+          "2025-07-31",
+          "2025-08-01",
+          "2025-08-04",
+          "2025-08-05",
+          "2025-08-06",
+          "2025-08-07",
+          "2025-08-08",
+          "2025-08-11",
+          "2025-08-12",
+          "2025-08-13",
+          "2025-08-14",
+          "2025-08-15",
+          "2025-08-18",
+          "2025-08-19",
+          "2025-08-20",
+          "2025-08-21",
+          "2025-08-22",
+          "2025-08-25",
+          "2025-08-26",
+          "2025-08-27",
+          "2025-09-11",
+          "2025-09-16",
+          "2025-09-22",
+          "2025-09-26",
+          "2025-10-02",
+          "2025-10-08",
+          "2025-10-14",
+          "2025-10-20",
+          "2025-10-24",
+          "2025-10-30",
+          "2025-11-05",
+          "2025-11-11",
+          "2025-11-17",
+          "2025-11-21",
+          "2025-11-27"
+        ],
+        "receipt_count": 35
+      }
+    ],
+    "mechanical_third_stage": [
+      {
+        "episode": 1,
+        "two_postopening_receipts_by": "2025-08-01",
+        "tail_observation": 2
+      }
+    ],
+    "old_E0_policy_exact": true
+  },
+  {
+    "path": "start_continuous_failure",
+    "tail_receipts": 20,
+    "tail_positive_events": 0,
+    "tail_negative_events": 1,
+    "tail_E0_openings": 0,
+    "episodes": [
+      {
+        "episode": 1,
+        "opened": "2025-04-07",
+        "last_active": "2025-10-07",
+        "receipts": [
+          "2025-07-31",
+          "2025-08-01",
+          "2025-08-04",
+          "2025-08-05",
+          "2025-08-06",
+          "2025-08-07",
+          "2025-08-08",
+          "2025-08-11",
+          "2025-08-12",
+          "2025-08-13",
+          "2025-08-14",
+          "2025-08-15",
+          "2025-08-18",
+          "2025-08-19",
+          "2025-08-20",
+          "2025-08-21",
+          "2025-08-22",
+          "2025-08-25",
+          "2025-08-26",
+          "2025-08-27"
+        ],
+        "receipt_count": 20
+      }
+    ],
+    "mechanical_third_stage": [
+      {
+        "episode": 1,
+        "two_postopening_receipts_by": "2025-08-01",
+        "tail_observation": 2
+      }
+    ],
+    "old_E0_policy_exact": true
+  },
+  {
+    "path": "failure_recovery",
+    "tail_receipts": 34,
+    "tail_positive_events": 1,
+    "tail_negative_events": 1,
+    "tail_E0_openings": 1,
+    "episodes": [
+      {
+        "episode": 1,
+        "opened": "2025-04-07",
+        "last_active": "2025-10-07",
+        "receipts": [
+          "2025-07-31",
+          "2025-08-01",
+          "2025-08-04",
+          "2025-08-05",
+          "2025-08-06",
+          "2025-08-07",
+          "2025-08-08",
+          "2025-08-11",
+          "2025-08-12",
+          "2025-08-13",
+          "2025-08-14",
+          "2025-08-15",
+          "2025-08-18",
+          "2025-08-19",
+          "2025-08-20",
+          "2025-08-21",
+          "2025-08-22",
+          "2025-08-25",
+          "2025-08-26",
+          "2025-08-27"
+        ],
+        "receipt_count": 20
+      },
+      {
+        "episode": 2,
+        "opened": "2025-10-15",
+        "last_active": "2026-01-14",
+        "receipts": [
+          "2025-10-21",
+          "2025-10-27",
+          "2025-10-31",
+          "2025-11-06",
+          "2025-11-12",
+          "2025-11-18",
+          "2025-11-24",
+          "2025-11-28",
+          "2025-12-04",
+          "2025-12-10",
+          "2025-12-16",
+          "2025-12-22",
+          "2025-12-26",
+          "2026-01-01"
+        ],
+        "receipt_count": 14
+      }
+    ],
+    "mechanical_third_stage": [
+      {
+        "episode": 1,
+        "two_postopening_receipts_by": "2025-08-01",
+        "tail_observation": 2
+      },
+      {
+        "episode": 2,
+        "two_postopening_receipts_by": "2025-10-27",
+        "tail_observation": 63
+      }
+    ],
+    "old_E0_policy_exact": true
+  }
+]

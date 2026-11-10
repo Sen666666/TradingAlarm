@@ -1,0 +1,47 @@
+B source read: pvr_pool_feasibility/current_evidence_design/DESIGN_CARD.txt,
+frozen SHA a6ff03246802c0ebced21d97092dcf9613dd3000191bbf0bce7e596fcee665ac.
+Prior63 excludes current; risk's earlier inclusive63 is not substituted.
+
+Draft correctly puts one permission on confirmed route, confirmed request
+and all migrate callers (industry, route, request, cancel_ack). Set completed
+CLOSE context before expire_day_buys, since cancel_ack can migrate; next OPEN
+uses that decision context, not its later CLOSE. Existing confirmed holdings
+are neither sold nor demoted, actual protection remains original, level and
+receipt identity persist, unknown is no new permission and not a down signal.
+
+Keeping probe code preserves eligibility but not its actual available budget:
+blocked migration leaves existing same-attempt probe lots occupying global
+10% capital/.5% risk and sector2% capital. Other early candidates share those
+budgets; max-quantity/tie-probe fallback can be smaller/zero. Core is a holding
+role, not a permanent probe pool: original core can migrate to confirmed while
+keeping I/E0 protection. Do not assume core/probe are synonymous. Conversely
+less new confirmed cash use could help another candidate, so an indirect lost
+winner is not proven merely by source dependency.
+
+Existing native book has no exact pool-migration journal/audit record. Saved
+daily layers show first observed pool after CLOSE; OPEN→CLOSE pool changes
+must be named observation intervals, not invented exact migration times.
+Actual fill pool is in original real_buy_fill. Exact pre-candidate OPEN owners
+are not saved on every historical day; CLOSE money is not that state.
+
+Fixed six exploratory original-chain cases before prior-MA labels: Guangzhi
+300489, Jiamei002969, strict-semiconductor top H1 actual wealth605358 and
+largest H1 positive actual-capital603061, cumulative2022–24 worst000620 and
+strong worst002747. This is not a new efficacy sample or real-time winner gate.
+Original full paths for Guangzhi/Jiamei/Estun already exported/viewed in
+no60_behavior_v1; 000620 full E0/CP1/trade path in absolute_loss_2022_2023;
+strict-semiconductor all original H1 entry/floor/exit paths in
+no60_behavior_v1/PVR_NO60-SEMICONDUCTOR_ACCEPTED_LIFECYCLES.json and
+pvr_no60_2025_26/STRICT_SEMICONDUCTOR_H1_STOCK_LIFECYCLES.json.
+
+Needed exact-B fields would be industry current/prior63mean/known/window
+first-last/hash at each actual decision plus non-fill migration caller dates,
+financial original level/attempt, original pool ownership and pending/cancel
+ACK responsibility. New all-fill prior63 cross is owned by pool, not recomputed
+here. It cannot alone prove blocked/no-blocked every non-fill migration date.
+
+Root now prioritized one separate entry-risk diagnostic after exact B failed
+the main-loss coverage test. Therefore no new case extractor, dailyMA series,
+migration funnel/system or economic B path is built. Existing source paths and
+these interface/capacity caveats remain available; B evidence is not rescued
+by another threshold or stock-MA condition.

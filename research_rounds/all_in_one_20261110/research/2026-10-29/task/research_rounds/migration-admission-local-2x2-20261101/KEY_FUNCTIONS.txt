@@ -1,0 +1,56 @@
+TraceState.request (selected policy)
+    def request(self,*args,**kwargs):
+        oldphase=self.phase;oldrequest=self.request_diagnostics;self.phase='request'
+        self.request_diagnostics=dict(quantity=args[3],price=args[4],floor=args[5],fee_per_share=args[8] if len(args)>8 else kwargs.get('fee_per_share',0))
+        try:return (DECOUPLED.Contract.request if self.decoupled else B.N.Contract.request)(self,*args,**kwargs)
+        finally:self.phase=oldphase;self.request_diagnostics=oldrequest
+
+
+TraceState.migrate (unchanged native transfer plus diagnostics)
+    def migrate(self,sector):
+        s=self.sectors[sector];pending=[o for o in self.orders.values() if o.sector==sector and o.attempt==s.attempt and o.pool=='probe' and o.qty>0 and o.status in ['open','cancel_pending']]
+        oldlots=[x for x in self.lots if x.sector==sector and x.attempt==s.attempt and x.pool=='probe'];needed=sum(x.qty*self.prices[x.stock] for x in oldlots)
+        cc=self.resources('confirmed')[0];fees=sum(o.qty*o.fee_per_share for o in self.orders.values() if o.status in ['open','cancel_pending']);capacity=.60*(self.nav-fees)-cc
+        reason='stage_not_authorized' if s.level==0 or not s.active else 'same_attempt_probe_pending' if pending else 'confirmed_capacity_for_whole_old_transfer' if needed>capacity+1e-9 else 'legal_transfer'
+        rq=self.request_diagnostics;newgross=rq['quantity']*rq['price'] if rq else None;newfee=rq['quantity']*rq['fee_per_share'] if rq else None
+        info=dict(primary_reason=reason,current_nav=self.nav,current_confirmed_capital=cc,current_pending_fees=fees,remaining_confirmed_capacity=capacity,old_filled_probe_transfer_required=needed,old_transfer_deficit=max(0.,needed-capacity),
+            pending_probe=[dict(oid=o.oid,stock=o.stock,role=o.role,qty=o.qty,status=o.status,gross=o.qty*o.limit,risk=o.qty*max(0.,o.limit-o.floor)) for o in pending],
+            old_probe_layers=[dict(batch=x.batch,stock=x.stock,role=x.role,capital=x.qty*self.prices[x.stock],risk=x.qty*max(0.,self.prices[x.stock]-x.floor)) for x in oldlots],
+            request_new_gross=newgross,request_new_fee=newfee,
+            request_gross_fits_pool_after_fee=(newgross<=capacity-.60*newfee+1e-9) if rq else None,
+            candidate_frozen_target=self.intent_diagnostics.get(self.context),
+            capacity_is_recomputed_now=True,local_pool_capacity_is_not_full_admission=True)
+        result=super().migrate(sector);self.migrations[-1]['diagnostic']=info
+        assert result==(reason=='legal_transfer')
+        return result
+
+
+plan logging wrapper
+def plan(state,intents,at,mode='single_pass'):
+    # Copy the private projection before attaching purely diagnostic target data.
+    s=copy.deepcopy(state)
+    s.intent_diagnostics={B.bid(i):None if i['_preview'] is None else dict(maximum_quantity=i['_preview']['maxq'],minimum_quantity=i['_preview']['minq'],maximum_gross=float(i['_preview']['maxq']*i['_preview']['price']),minimum_gross=float(i['_preview']['minq']*i['_preview']['price'])) for i in intents}
+    return PLANS[s.decoupled](s,intents,at,mode)
+
+
+old-observable identity filter
+def old_observable(result):
+    r=copy.deepcopy(result);r.pop('first_pass_migrations',None)
+    for events in [r['migrations'],r['final_state']['migrations']]:
+        for e in events:e.pop('diagnostic',None)
+    return r
+
+
+projection decoder
+def decode(view,decoupled=False):
+    v=view['state'];s=TraceState(cash=v['cash'],available_exact=v['available_exact'],receivables=v['receivables'],lots=[B.N.Lot(**x) for x in v['lots']],orders={k:B.N.Order(**x) for k,x in v['orders'].items()},sectors={k:NS(**x) for k,x in v['sectors'].items()},prices=v['prices'],consumed=v['consumed'],stock_requests=v['stock_requests'],sector_by_sid=v['sector_by_sid'],decision_nav=v['decision_nav'],pending_sells=v['pending_sells'],historical_shared_loss=v['historical_shared_loss'],decoupled=decoupled)
+    out=[]
+    for src in view['intents']:
+        i=copy.deepcopy(src);x=i.pop('preview');i['_preview_failure']=i.pop('preview_failure');i['quote']=NS(par_value=i['quote']['par_value']);i['clock']=NS(**{k:B.J.M.N.iso(t) for k,t in i['clock'].items()})
+        for k in ['floor','budget','risk_budget']:
+            if k in i:i[k]=D(i[k])
+        if x:
+            for k in ['price','floor','known_open']:x[k]=D(x[k])
+            x['rule']=B.J.LR.L.QuantityRule(**x['rule']);sd=x['schedule'];x['schedule']=B.J.LR.L.FeeSchedule(sd['schedule_id'],tuple(B.J.LR.L.FeeComponent(**r) for r in sd['components']))
+        i['_preview']=x;out.append(i)
+    return s,out

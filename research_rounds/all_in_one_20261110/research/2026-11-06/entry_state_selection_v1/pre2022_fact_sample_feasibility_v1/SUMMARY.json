@@ -1,0 +1,23 @@
+{
+  "status": "STOP_BEFORE_EXTERNAL_REQUESTS",
+  "selected_securities": 60,
+  "selected_industries": 40,
+  "missing_source_events_in_requested_frame": 1633,
+  "missing_securities": 734,
+  "selected_missing_source_events_total": 153,
+  "mature_competitive_groups": 2112,
+  "material_threshold_groups": 106,
+  "one_percentage_point_groups": 22,
+  "strongest_optimistic_incremental_groups": 63,
+  "strongest_optimistic_incremental_percentage_points": 2.9829545454545454,
+  "original_zero_action_complete_groups": 367,
+  "all_current_cache_perfect_complete_groups": 623,
+  "all_missing_facts_perfect_complete_groups": 1568,
+  "external_requests": 0,
+  "request_success_rate": null,
+  "actual_fact_admission_rate": null,
+  "actual_rates_status": "NOT_MEASURED: stopped before query",
+  "forecast_limits": "Only this frozen stratified sample, not proof that no other data recovery could help. Upper bounds forgive all economic issues on sampled securities but do not imply labels. No gains from actual lifecycle exits are estimated.",
+  "source_hashes_unchanged": true,
+  "no_outcomes_or_models_or_accounts": true
+}

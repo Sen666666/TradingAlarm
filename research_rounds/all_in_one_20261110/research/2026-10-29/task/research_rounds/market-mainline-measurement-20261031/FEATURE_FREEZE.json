@@ -1,0 +1,18 @@
+{
+  "before_future_labels": true,
+  "sha256": "4be2fe5842221099f4c0fe9fb6380bf4ec77a26cca786d0cb9ac3a25c3464598",
+  "days": 242,
+  "industry_rows": 21780,
+  "scope": [
+    "2025-07-01",
+    "2026-06-30"
+  ],
+  "labels_not_used_in_features": true,
+  "attention_condition": "industry median complete-window share ratio >1",
+  "index_amount_unit_unverified": true,
+  "amount_universe": "fixed1709 snapshot; same26-window intersection denominator",
+  "sources": {
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/h1.npz": "416ddabacb9b16105cf3e5d93c961049ac1b48da433a62995a71311be17e4615",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/selection-rotation-abcd-20261025/prepared/dual-board.npz": "261c892e3bff692669d31ca0ebd6a4b0d0bb072169f14d41625a268d61f3f792"
+  }
+}

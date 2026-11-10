@@ -1,0 +1,51 @@
+{
+  "scope": "FROZEN_EXPERIMENT_NOT_DEPLOYABLE_STRATEGY",
+  "planned_end": "2024-10-31",
+  "completed_horizon": true,
+  "certified_through": "2024-10-31",
+  "days": 37,
+  "orders": 2315,
+  "blockers": [],
+  "last": {
+    "day": "2024-10-31",
+    "cash": "540152.2229520978945",
+    "receivable": "0.0000",
+    "market_value": "859693.42",
+    "NAV": "1399845.6429520978945",
+    "net_liquidation_NAV": null,
+    "stocks": 107,
+    "shares": 66641,
+    "weight_pct": "61.41344399851222258905518080",
+    "fees_paid": "13641.2211929021055",
+    "valuation_basis": "MARKED_NAV_INCLUDES_NONTRADABLE_STALE_ASSET",
+    "stale_market_value": "2013.00",
+    "nontradable_stocks": 2,
+    "tradable_subset_net_liquidation_value": "1396371.4191743803555",
+    "whole_account_liquidation_available": false
+  },
+  "prior_prefix_replay": {
+    "result": "PASS",
+    "certified_through": "2024-10-28",
+    "economic_alpha_rule_changes": 0,
+    "exact_records": {
+      "ORDERS": 1985,
+      "CANDIDATES": 14728,
+      "CP_EVENTS": 2352,
+      "DAY_LEDGER": 34,
+      "HOLDINGS": 5342,
+      "EQUITY_EVENTS": 67,
+      "SECTOR_DAILY": 1700,
+      "ATTEMPTS": 1066,
+      "PENDING_AT_END": 8,
+      "SUSPENSION_EVENTS": 2,
+      "PREFLIGHT_CHECKS": 344
+    },
+    "byte_exact": true
+  },
+  "FALSE_sector_ADD_plans": [],
+  "FALSE_sector_actual_ADDs": [],
+  "economic_alpha_rules_unchanged": true,
+  "accounting_boundary_extension": true,
+  "stale_nontradable_not_liquidation": true,
+  "no_PIT_or_real_fill_certification": true
+}

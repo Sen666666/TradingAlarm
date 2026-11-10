@@ -1,0 +1,74 @@
+SRP-v3与HELD_I_INCREMENT：仅纸面接口有条件对齐
+
+审查范围
+只读peer designer/MINIMUM_MATH_CONTRACT.md、interface/EXECUTION_INPUTS_AND_H.md，
+对照本地upside_revision_v1/MINIMUM_CARD.txt。不读/重审7个OPEN数据，不运行任何
+模型、Account、资金/交易重演、行情或指标。不更改peer或本地最小卡。
+
+结论
+可给CONDITIONAL_INTERFACE_ALIGNMENT_PASS，不能给‘已实现、可执行或经济有效’
+的PASS。两文已明确大部分成本域和真实保护语义；以下接口条件仍须落实。
+
+已对齐的合同
+1. CP KNOWN_PRESENT走原CP；KNOWN_ABSENT才可held fresh-I；UNKNOWN不造proof。
+   I_target是存续，不是每日资金证据。真正fresh I需原core_Q、上游event/pivot/frontier
+   身份可追溯，不能用布尔行/新日期制造收据。新kind和confirmed授权仍须显式接线。
+2. 新I按原I_target/last_I_line结构持有，不用entry hard-max或额外永久entry stop。
+   旧MOBILE沿实际CP旧线先检后抬，旧层不因新proposal自动改宽；旧锁卖不撤。
+3. CLOSE只冻结source q_cap及单笔预算。OPEN用冻结I和当时factor/真实价格，不读
+   OPEN当日未来CLOSE/I/HLV。projection raw mark m与含买入滑点支出p分开，不改native账。
+4. 0新买量不把假新I线加入同股压力基准；q>0的新宽I须对整SID所有真实库存、pending
+   按唯一共同b_i重算。不能只计新层q乘常数，不能在同一市场情景给同股多个价格。
+5. κ是原始本金计划损耗，g是当前财富回吐，Φ是同步情景经济压力，Λ是加入历史退出
+   锁的授权责任。它们可分别约束，不可作为独立费用/损失相加；尤其不能g+完整Φ。
+6. 买卖费用按真实logical order分组，带paid/accrued状态，最低佣金不逐层/回调重收。
+   postfill时已付买费进L/D、slip/买费减少投影NAV，不能仍留同一pending费用再扣；
+   pending股数转live后不双计。相同费用分别出现在不同预算指标不等于真的支付两次，
+   关键是同一指标和cash/NAV桥内一次计入。
+7. Φ_market和Λ明确分开。历史req锁可以比当前经济压力大，但不能把不同请求时点的
+   锁拼成一次真实同步市场损失；pending-exit是库存子集，必须逐层替换/取最大而非双加。
+8. 原native门和新增risk provider分开。新20%/两期、总持仓容量和共享机会预算都只是
+   显式待检风险合同，不是历史合法涨跌停或原No60已有门；共同ON/OFF基线必须相同。
+
+必须保留的条件/缺口
+C1. OPEN>last actual buy尚未在peer两文件中显式列为谓词或snapshot字段。
+    两文引用本地卡，不能据此断言已删除此门；但也不足以证明完整source validator
+    已保留它。若peer只是RiskBook provider，由调用端执行并将通过证书绑定source
+    policy/version、sid、last-fill归一价、actual raw OPEN/factor及decision time；
+    若peer承担完整源校验，必须直接收这些输入并执行该谓词。它只限制新I，不扩散
+    到原CP，不能把含买slip的fill价误当actual OPEN来通过，也不保证整股已盈利。
+C2. B_k=.0025*V_origin与本地B_single=.0025*NAV_signal不同。
+    前者是同sid/source/E0-off-to-on机会、首成功reserve的历史信号NAV冻结额度；
+    后者是每单在本次signal冻结的已知线价风险cap。两道约束同时存在，不能替换或
+    都叫‘原0.25%’。建议字段固定V_origin_nav/B_opportunity/B_single_order，避免
+    文中B_origin一度指NAV的命名歧义。新positive event不是新E0 origin。
+    新预算必须作用于共享基线所有相关源，不能只压新I再与原No60直接差分归因。
+C3. q=0必须按操作类型解释。
+    ADD(q_new=0)没有新层/新h，不能降低b_i而污染旧book；但若另有真实持仓H_CHANGE，
+    即便new_buy_q=0，也要按实际待改qty和新合同投影全SID压力。不能用ADD零量规则
+    跳过H审批。当前本地最小版没有H_CHANGE，若只实现ADD可明确拒绝其它操作。
+C4. 请求时退出锁的费用需分组件，不能机械缩总额。
+    E_req/κ_req若含卖费，partial后不得先按股数缩整个历史含费额，再另加重算剩余费；
+    应把请求时价格损失锁与order-group费用状态拆开，已付卖费只进真实L一次，余量
+    按paid/accrued计算剩余增量费一次。纯split只换股/价单位，不能使人民币锁翻倍。
+    两文已有‘费用重算’原则，实际schema/实现需证明这一分区。
+C5. 版本不只book_version。
+    RiskGrant及历史req向量须绑定risk_contract/scenario_provider/liquidity_provider
+    版本、冻结Ω的稳定情景id、保护合同、qty和proof。参数/情景定义改变后，不可把
+    旧req金额与新定义直接逐情景max。book_version的原子commit也不能替代provider版本。
+C6. 初值经济代价不在本审PASS范围。
+    peer已公开G2/容量/行业分配会明显限制原暴露，并自报7个原prefix均0新增。本审
+    按指令没有核那7个数据或重算结论，不能用此报告验证可扩仓，也不能把它当完整
+    新策略回测否决。压力比例不是合法limit或最坏界，ACT空间仍是可重置episode尺度。
+
+最小组合接口
+SourceValidatedProposal={local_policy_version,proof/origin_refs,CP三态,真实held,
+  原fresh i_buy/core_Q证据,confirmed授权,last-fill OPEN guard证书,
+  q_cap,B_single,I holding_contract,signal/earliest_OPEN,dated units/fees/factor}
+RiskSnapshot={book_version,providers版本,真实qty/pending/exit与order fee状态,
+  E0 opportunity origin/B/D,当前mark/真实native投影桥,原门分母,Ω及未退责任}
+RiskGrant={上述版本与proof、真实q/H、κ/Φ/Λ占用、有效OPEN、grant/deny原因}
+只在同一真实prefix原子reserve/commit，版本或必要字段不符就不资助；原退出责任继续。
+
+本结论只确认组合接口可按这些条件对齐；不制造proof、H函数、资金批准、成交数量、
+收益、回撤或7数据结论。没有新增测试作为本次报告的前提。

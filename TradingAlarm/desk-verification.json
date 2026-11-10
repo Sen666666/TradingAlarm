@@ -1,0 +1,1686 @@
+{
+  "passed": true,
+  "facts": [
+    {
+      "symbol": "002544.SZ",
+      "rows": 3197
+    },
+    {
+      "symbol": "300383.SZ",
+      "rows": 2904
+    },
+    {
+      "symbol": "002273.SZ",
+      "rows": 3289
+    },
+    {
+      "symbol": "300088.SZ",
+      "rows": 2900
+    },
+    {
+      "symbol": "002405.SZ",
+      "rows": 3215
+    },
+    {
+      "symbol": "688548.SH",
+      "rows": 772
+    },
+    {
+      "symbol": "688702.SH",
+      "rows": 750
+    },
+    {
+      "symbol": "300077.SZ",
+      "rows": 3273
+    },
+    {
+      "symbol": "688143.SH",
+      "rows": 924
+    },
+    {
+      "symbol": "301660.SZ",
+      "rows": 10
+    },
+    {
+      "symbol": "688002.SH",
+      "rows": 1760
+    },
+    {
+      "symbol": "301716.SZ",
+      "rows": 15
+    },
+    {
+      "symbol": "300136.SZ",
+      "rows": 3306
+    },
+    {
+      "symbol": "688409.SH",
+      "rows": 981
+    },
+    {
+      "symbol": "688783.SH",
+      "rows": 241
+    },
+    {
+      "symbol": "002153.SZ",
+      "rows": 3232
+    },
+    {
+      "symbol": "600703.SH",
+      "rows": 3325
+    },
+    {
+      "symbol": "301183.SZ",
+      "rows": 1073
+    },
+    {
+      "symbol": "300302.SZ",
+      "rows": 3321
+    },
+    {
+      "symbol": "688322.SH",
+      "rows": 1042
+    },
+    {
+      "symbol": "002384.SZ",
+      "rows": 3149
+    },
+    {
+      "symbol": "688729.SH",
+      "rows": 315
+    },
+    {
+      "symbol": "002929.SZ",
+      "rows": 2099
+    },
+    {
+      "symbol": "688668.SH",
+      "rows": 1415
+    },
+    {
+      "symbol": "URFI881272",
+      "rows": 1918
+    },
+    {
+      "symbol": "000100.SZ",
+      "rows": 3158
+    },
+    {
+      "symbol": "002484.SZ",
+      "rows": 3351
+    },
+    {
+      "symbol": "688536.SH",
+      "rows": 1454
+    },
+    {
+      "symbol": "URFI881122",
+      "rows": 4672
+    },
+    {
+      "symbol": "300346.SZ",
+      "rows": 3287
+    },
+    {
+      "symbol": "301638.SZ",
+      "rows": 226
+    },
+    {
+      "symbol": "002938.SZ",
+      "rows": 1961
+    },
+    {
+      "symbol": "688545.SH",
+      "rows": 423
+    },
+    {
+      "symbol": "603986.SH",
+      "rows": 2264
+    },
+    {
+      "symbol": "000050.SZ",
+      "rows": 3157
+    },
+    {
+      "symbol": "301251.SZ",
+      "rows": 756
+    },
+    {
+      "symbol": "002281.SZ",
+      "rows": 3338
+    },
+    {
+      "symbol": "688820.SH",
+      "rows": 125
+    },
+    {
+      "symbol": "300085.SZ",
+      "rows": 3139
+    },
+    {
+      "symbol": "600131.SH",
+      "rows": 3340
+    },
+    {
+      "symbol": "301086.SZ",
+      "rows": 1216
+    },
+    {
+      "symbol": "300672.SZ",
+      "rows": 2231
+    },
+    {
+      "symbol": "688107.SH",
+      "rows": 1199
+    },
+    {
+      "symbol": "688652.SH",
+      "rows": 702
+    },
+    {
+      "symbol": "002913.SZ",
+      "rows": 2157
+    },
+    {
+      "symbol": "600498.SH",
+      "rows": 3309
+    },
+    {
+      "symbol": "300033.SZ",
+      "rows": 3350
+    },
+    {
+      "symbol": "001232.SZ",
+      "rows": 54
+    },
+    {
+      "symbol": "688318.SH",
+      "rows": 1574
+    },
+    {
+      "symbol": "300627.SZ",
+      "rows": 2330
+    },
+    {
+      "symbol": "000158.SZ",
+      "rows": 3264
+    },
+    {
+      "symbol": "001267.SZ",
+      "rows": 1192
+    },
+    {
+      "symbol": "301285.SZ",
+      "rows": 984
+    },
+    {
+      "symbol": "000977.SZ",
+      "rows": 3298
+    },
+    {
+      "symbol": "688385.SH",
+      "rows": 1264
+    },
+    {
+      "symbol": "603290.SH",
+      "rows": 1632
+    },
+    {
+      "symbol": "688825.SH",
+      "rows": 60
+    },
+    {
+      "symbol": "688183.SH",
+      "rows": 1373
+    },
+    {
+      "symbol": "URFI881123",
+      "rows": 4672
+    },
+    {
+      "symbol": "688797.SH",
+      "rows": 83
+    },
+    {
+      "symbol": "688401.SH",
+      "rows": 1013
+    },
+    {
+      "symbol": "001308.SZ",
+      "rows": 1115
+    },
+    {
+      "symbol": "301563.SZ",
+      "rows": 255
+    },
+    {
+      "symbol": "300502.SZ",
+      "rows": 2584
+    },
+    {
+      "symbol": "301236.SZ",
+      "rows": 1118
+    },
+    {
+      "symbol": "000062.SZ",
+      "rows": 3234
+    },
+    {
+      "symbol": "301536.SZ",
+      "rows": 623
+    },
+    {
+      "symbol": "001389.SZ",
+      "rows": 620
+    },
+    {
+      "symbol": "002139.SZ",
+      "rows": 3319
+    },
+    {
+      "symbol": "002373.SZ",
+      "rows": 3074
+    },
+    {
+      "symbol": "688380.SH",
+      "rows": 1021
+    },
+    {
+      "symbol": "002916.SZ",
+      "rows": 2147
+    },
+    {
+      "symbol": "300115.SZ",
+      "rows": 3324
+    },
+    {
+      "symbol": "300229.SZ",
+      "rows": 3200
+    },
+    {
+      "symbol": "300054.SZ",
+      "rows": 3220
+    },
+    {
+      "symbol": "688209.SH",
+      "rows": 1085
+    },
+    {
+      "symbol": "603039.SH",
+      "rows": 2303
+    },
+    {
+      "symbol": "688635.SH",
+      "rows": 102
+    },
+    {
+      "symbol": "300468.SZ",
+      "rows": 2740
+    },
+    {
+      "symbol": "300604.SZ",
+      "rows": 2302
+    },
+    {
+      "symbol": "603341.SH",
+      "rows": 642
+    },
+    {
+      "symbol": "300166.SZ",
+      "rows": 3129
+    },
+    {
+      "symbol": "688146.SH",
+      "rows": 846
+    },
+    {
+      "symbol": "688052.SH",
+      "rows": 1092
+    },
+    {
+      "symbol": "300666.SZ",
+      "rows": 2252
+    },
+    {
+      "symbol": "301165.SZ",
+      "rows": 951
+    },
+    {
+      "symbol": "605111.SH",
+      "rows": 1469
+    },
+    {
+      "symbol": "601231.SH",
+      "rows": 3337
+    },
+    {
+      "symbol": "002241.SZ",
+      "rows": 3337
+    },
+    {
+      "symbol": "688233.SH",
+      "rows": 1619
+    },
+    {
+      "symbol": "688327.SH",
+      "rows": 1070
+    },
+    {
+      "symbol": "301366.SZ",
+      "rows": 986
+    },
+    {
+      "symbol": "603061.SH",
+      "rows": 883
+    },
+    {
+      "symbol": "603175.SH",
+      "rows": 243
+    },
+    {
+      "symbol": "688372.SH",
+      "rows": 969
+    },
+    {
+      "symbol": "600584.SH",
+      "rows": 3128
+    },
+    {
+      "symbol": "688692.SH",
+      "rows": 575
+    },
+    {
+      "symbol": "002156.SZ",
+      "rows": 3254
+    },
+    {
+      "symbol": "300814.SZ",
+      "rows": 1258
+    },
+    {
+      "symbol": "002151.SZ",
+      "rows": 3172
+    },
+    {
+      "symbol": "688781.SH",
+      "rows": 143
+    },
+    {
+      "symbol": "301095.SZ",
+      "rows": 1021
+    },
+    {
+      "symbol": "002745.SZ",
+      "rows": 2626
+    },
+    {
+      "symbol": "688195.SH",
+      "rows": 1342
+    },
+    {
+      "symbol": "000839.SZ",
+      "rows": 3226
+    },
+    {
+      "symbol": "603881.SH",
+      "rows": 2357
+    },
+    {
+      "symbol": "300628.SZ",
+      "rows": 2332
+    },
+    {
+      "symbol": "300455.SZ",
+      "rows": 2648
+    },
+    {
+      "symbol": "688608.SH",
+      "rows": 1418
+    },
+    {
+      "symbol": "688475.SH",
+      "rows": 924
+    },
+    {
+      "symbol": "688234.SH",
+      "rows": 1157
+    },
+    {
+      "symbol": "300223.SZ",
+      "rows": 3106
+    },
+    {
+      "symbol": "688561.SH",
+      "rows": 1517
+    },
+    {
+      "symbol": "301275.SZ",
+      "rows": 395
+    },
+    {
+      "symbol": "000021.SZ",
+      "rows": 3329
+    },
+    {
+      "symbol": "688256.SH",
+      "rows": 1519
+    },
+    {
+      "symbol": "URFI881121",
+      "rows": 4672
+    },
+    {
+      "symbol": "688396.SH",
+      "rows": 1615
+    },
+    {
+      "symbol": "920186.BJ",
+      "rows": 119
+    },
+    {
+      "symbol": "688582.SH",
+      "rows": 804
+    },
+    {
+      "symbol": "301269.SZ",
+      "rows": 1016
+    },
+    {
+      "symbol": "002841.SZ",
+      "rows": 2368
+    },
+    {
+      "symbol": "688055.SH",
+      "rows": 1499
+    },
+    {
+      "symbol": "600850.SH",
+      "rows": 3196
+    },
+    {
+      "symbol": "688469.SH",
+      "rows": 839
+    },
+    {
+      "symbol": "688141.SH",
+      "rows": 927
+    },
+    {
+      "symbol": "300017.SZ",
+      "rows": 3306
+    },
+    {
+      "symbol": "688037.SH",
+      "rows": 1658
+    },
+    {
+      "symbol": "002185.SZ",
+      "rows": 3326
+    },
+    {
+      "symbol": "300661.SZ",
+      "rows": 2270
+    },
+    {
+      "symbol": "688123.SH",
+      "rows": 1656
+    },
+    {
+      "symbol": "301626.SZ",
+      "rows": 486
+    },
+    {
+      "symbol": "301611.SZ",
+      "rows": 528
+    },
+    {
+      "symbol": "688378.SH",
+      "rows": 1486
+    },
+    {
+      "symbol": "688150.SH",
+      "rows": 1115
+    },
+    {
+      "symbol": "300458.SZ",
+      "rows": 2771
+    },
+    {
+      "symbol": "300170.SZ",
+      "rows": 3284
+    },
+    {
+      "symbol": "688605.SH",
+      "rows": 451
+    },
+    {
+      "symbol": "603435.SH",
+      "rows": 105
+    },
+    {
+      "symbol": "688167.SH",
+      "rows": 1169
+    },
+    {
+      "symbol": "603516.SH",
+      "rows": 2113
+    },
+    {
+      "symbol": "688593.SH",
+      "rows": 813
+    },
+    {
+      "symbol": "600271.SH",
+      "rows": 3203
+    },
+    {
+      "symbol": "688809.SH",
+      "rows": 196
+    },
+    {
+      "symbol": "600330.SH",
+      "rows": 3228
+    },
+    {
+      "symbol": "688387.SH",
+      "rows": 986
+    },
+    {
+      "symbol": "688270.SH",
+      "rows": 1145
+    },
+    {
+      "symbol": "601869.SH",
+      "rows": 2003
+    },
+    {
+      "symbol": "688525.SH",
+      "rows": 922
+    },
+    {
+      "symbol": "300373.SZ",
+      "rows": 3053
+    },
+    {
+      "symbol": "URFI881271",
+      "rows": 4080
+    },
+    {
+      "symbol": "002583.SZ",
+      "rows": 3311
+    },
+    {
+      "symbol": "600745.SH",
+      "rows": 2866
+    },
+    {
+      "symbol": "002990.SZ",
+      "rows": 1557
+    },
+    {
+      "symbol": "603297.SH",
+      "rows": 1967
+    },
+    {
+      "symbol": "300857.SZ",
+      "rows": 1514
+    },
+    {
+      "symbol": "002063.SZ",
+      "rows": 3263
+    },
+    {
+      "symbol": "301396.SZ",
+      "rows": 957
+    },
+    {
+      "symbol": "URFI881129",
+      "rows": 4672
+    },
+    {
+      "symbol": "002371.SZ",
+      "rows": 3280
+    },
+    {
+      "symbol": "002230.SZ",
+      "rows": 3288
+    },
+    {
+      "symbol": "002552.SZ",
+      "rows": 3262
+    },
+    {
+      "symbol": "600460.SH",
+      "rows": 3266
+    },
+    {
+      "symbol": "688100.SH",
+      "rows": 1636
+    },
+    {
+      "symbol": "300408.SZ",
+      "rows": 2879
+    },
+    {
+      "symbol": "688041.SH",
+      "rows": 1006
+    },
+    {
+      "symbol": "920138.BJ",
+      "rows": 48
+    },
+    {
+      "symbol": "300308.SZ",
+      "rows": 3182
+    },
+    {
+      "symbol": "300620.SZ",
+      "rows": 2327
+    },
+    {
+      "symbol": "603118.SH",
+      "rows": 2799
+    },
+    {
+      "symbol": "301123.SZ",
+      "rows": 1148
+    },
+    {
+      "symbol": "300913.SZ",
+      "rows": 1425
+    },
+    {
+      "symbol": "002881.SZ",
+      "rows": 2268
+    },
+    {
+      "symbol": "300489.SZ",
+      "rows": 2739
+    },
+    {
+      "symbol": "600601.SH",
+      "rows": 3328
+    },
+    {
+      "symbol": "688795.SH",
+      "rows": 213
+    },
+    {
+      "symbol": "300782.SZ",
+      "rows": 1784
+    },
+    {
+      "symbol": "300852.SZ",
+      "rows": 1524
+    },
+    {
+      "symbol": "URFI881270",
+      "rows": 3108
+    },
+    {
+      "symbol": "688403.SH",
+      "rows": 1012
+    },
+    {
+      "symbol": "688361.SH",
+      "rows": 832
+    },
+    {
+      "symbol": "688008.SH",
+      "rows": 1760
+    },
+    {
+      "symbol": "300323.SZ",
+      "rows": 2999
+    },
+    {
+      "symbol": "300476.SZ",
+      "rows": 2757
+    },
+    {
+      "symbol": "688220.SH",
+      "rows": 1155
+    },
+    {
+      "symbol": "688206.SH",
+      "rows": 1157
+    },
+    {
+      "symbol": "603115.SH",
+      "rows": 1746
+    },
+    {
+      "symbol": "688158.SH",
+      "rows": 1637
+    },
+    {
+      "symbol": "688019.SH",
+      "rows": 1760
+    },
+    {
+      "symbol": "688347.SH",
+      "rows": 768
+    },
+    {
+      "symbol": "300843.SZ",
+      "rows": 1531
+    },
+    {
+      "symbol": "300687.SZ",
+      "rows": 2228
+    },
+    {
+      "symbol": "300398.SZ",
+      "rows": 2833
+    },
+    {
+      "symbol": "URFI881130",
+      "rows": 4672
+    },
+    {
+      "symbol": "002636.SZ",
+      "rows": 3230
+    },
+    {
+      "symbol": "002268.SZ",
+      "rows": 3227
+    },
+    {
+      "symbol": "688801.SH",
+      "rows": 26
+    },
+    {
+      "symbol": "600941.SH",
+      "rows": 1162
+    },
+    {
+      "symbol": "300319.SZ",
+      "rows": 3101
+    },
+    {
+      "symbol": "300131.SZ",
+      "rows": 2992
+    },
+    {
+      "symbol": "688126.SH",
+      "rows": 1569
+    },
+    {
+      "symbol": "688111.SH",
+      "rows": 1681
+    },
+    {
+      "symbol": "002180.SZ",
+      "rows": 3015
+    },
+    {
+      "symbol": "688798.SH",
+      "rows": 1256
+    },
+    {
+      "symbol": "601138.SH",
+      "rows": 2032
+    },
+    {
+      "symbol": "600718.SH",
+      "rows": 3326
+    },
+    {
+      "symbol": "600552.SH",
+      "rows": 3125
+    },
+    {
+      "symbol": "001309.SZ",
+      "rows": 1046
+    },
+    {
+      "symbol": "688362.SH",
+      "rows": 954
+    },
+    {
+      "symbol": "002491.SZ",
+      "rows": 3113
+    },
+    {
+      "symbol": "300475.SZ",
+      "rows": 2734
+    },
+    {
+      "symbol": "300442.SZ",
+      "rows": 2779
+    },
+    {
+      "symbol": "000063.SZ",
+      "rows": 3271
+    },
+    {
+      "symbol": "301389.SZ",
+      "rows": 966
+    },
+    {
+      "symbol": "600602.SH",
+      "rows": 3192
+    },
+    {
+      "symbol": "002065.SZ",
+      "rows": 3055
+    },
+    {
+      "symbol": "301489.SZ",
+      "rows": 728
+    },
+    {
+      "symbol": "300866.SZ",
+      "rows": 1494
+    },
+    {
+      "symbol": "688775.SH",
+      "rows": 334
+    },
+    {
+      "symbol": "603738.SH",
+      "rows": 2443
+    },
+    {
+      "symbol": "600183.SH",
+      "rows": 3345
+    },
+    {
+      "symbol": "600588.SH",
+      "rows": 3334
+    },
+    {
+      "symbol": "301308.SZ",
+      "rows": 1021
+    },
+    {
+      "symbol": "688661.SH",
+      "rows": 1351
+    },
+    {
+      "symbol": "688208.SH",
+      "rows": 1625
+    },
+    {
+      "symbol": "688449.SH",
+      "rows": 460
+    },
+    {
+      "symbol": "300623.SZ",
+      "rows": 2335
+    },
+    {
+      "symbol": "688603.SH",
+      "rows": 798
+    },
+    {
+      "symbol": "300469.SZ",
+      "rows": 2654
+    },
+    {
+      "symbol": "300496.SZ",
+      "rows": 2578
+    },
+    {
+      "symbol": "600522.SH",
+      "rows": 3276
+    },
+    {
+      "symbol": "002138.SZ",
+      "rows": 3346
+    },
+    {
+      "symbol": "002410.SZ",
+      "rows": 3314
+    },
+    {
+      "symbol": "603186.SH",
+      "rows": 2380
+    },
+    {
+      "symbol": "601360.SH",
+      "rows": 3224
+    },
+    {
+      "symbol": "603083.SH",
+      "rows": 2172
+    },
+    {
+      "symbol": "002463.SZ",
+      "rows": 3351
+    },
+    {
+      "symbol": "002222.SZ",
+      "rows": 3351
+    },
+    {
+      "symbol": "600345.SH",
+      "rows": 3331
+    },
+    {
+      "symbol": "600410.SH",
+      "rows": 3294
+    },
+    {
+      "symbol": "688584.SH",
+      "rows": 652
+    },
+    {
+      "symbol": "002436.SZ",
+      "rows": 3198
+    },
+    {
+      "symbol": "000823.SZ",
+      "rows": 3350
+    },
+    {
+      "symbol": "001399.SZ",
+      "rows": 81
+    },
+    {
+      "symbol": "688147.SH",
+      "rows": 927
+    },
+    {
+      "symbol": "603501.SH",
+      "rows": 2130
+    },
+    {
+      "symbol": "300378.SZ",
+      "rows": 3091
+    },
+    {
+      "symbol": "301606.SZ",
+      "rows": 543
+    },
+    {
+      "symbol": "301319.SZ",
+      "rows": 983
+    },
+    {
+      "symbol": "603236.SH",
+      "rows": 1764
+    },
+    {
+      "symbol": "688519.SH",
+      "rows": 1498
+    },
+    {
+      "symbol": "688031.SH",
+      "rows": 975
+    },
+    {
+      "symbol": "300684.SZ",
+      "rows": 2139
+    },
+    {
+      "symbol": "600707.SH",
+      "rows": 3253
+    },
+    {
+      "symbol": "600171.SH",
+      "rows": 3302
+    },
+    {
+      "symbol": "300184.SZ",
+      "rows": 3013
+    },
+    {
+      "symbol": "688802.SH",
+      "rows": 205
+    },
+    {
+      "symbol": "002987.SZ",
+      "rows": 1569
+    },
+    {
+      "symbol": "603002.SH",
+      "rows": 3325
+    },
+    {
+      "symbol": "688205.SH",
+      "rows": 1019
+    },
+    {
+      "symbol": "300570.SZ",
+      "rows": 2399
+    },
+    {
+      "symbol": "301678.SZ",
+      "rows": 327
+    },
+    {
+      "symbol": "300353.SZ",
+      "rows": 3010
+    },
+    {
+      "symbol": "688549.SH",
+      "rows": 754
+    },
+    {
+      "symbol": "002792.SZ",
+      "rows": 2569
+    },
+    {
+      "symbol": "688249.SH",
+      "rows": 842
+    },
+    {
+      "symbol": "301717.SZ",
+      "rows": 49
+    },
+    {
+      "symbol": "688120.SH",
+      "rows": 1063
+    },
+    {
+      "symbol": "300655.SZ",
+      "rows": 2281
+    },
+    {
+      "symbol": "600563.SH",
+      "rows": 3351
+    },
+    {
+      "symbol": "603920.SH",
+      "rows": 2303
+    },
+    {
+      "symbol": "300296.SZ",
+      "rows": 3173
+    },
+    {
+      "symbol": "600536.SH",
+      "rows": 3343
+    },
+    {
+      "symbol": "301362.SZ",
+      "rows": 769
+    },
+    {
+      "symbol": "300456.SZ",
+      "rows": 2631
+    },
+    {
+      "symbol": "000636.SZ",
+      "rows": 3187
+    },
+    {
+      "symbol": "688200.SH",
+      "rows": 1622
+    },
+    {
+      "symbol": "688728.SH",
+      "rows": 1254
+    },
+    {
+      "symbol": "603459.SH",
+      "rows": 134
+    },
+    {
+      "symbol": "603171.SH",
+      "rows": 1289
+    },
+    {
+      "symbol": "920045.BJ",
+      "rows": 195
+    },
+    {
+      "symbol": "002152.SZ",
+      "rows": 3289
+    },
+    {
+      "symbol": "301589.SZ",
+      "rows": 652
+    },
+    {
+      "symbol": "920808.BJ",
+      "rows": 942
+    },
+    {
+      "symbol": "688082.SH",
+      "rows": 1195
+    },
+    {
+      "symbol": "002130.SZ",
+      "rows": 3300
+    },
+    {
+      "symbol": "688807.SH",
+      "rows": 203
+    },
+    {
+      "symbol": "688498.SH",
+      "rows": 929
+    },
+    {
+      "symbol": "002643.SZ",
+      "rows": 3232
+    },
+    {
+      "symbol": "605118.SH",
+      "rows": 1511
+    },
+    {
+      "symbol": "002409.SZ",
+      "rows": 3053
+    },
+    {
+      "symbol": "300253.SZ",
+      "rows": 3283
+    },
+    {
+      "symbol": "301205.SZ",
+      "rows": 995
+    },
+    {
+      "symbol": "603160.SH",
+      "rows": 2425
+    },
+    {
+      "symbol": "688432.SH",
+      "rows": 948
+    },
+    {
+      "symbol": "688678.SH",
+      "rows": 1413
+    },
+    {
+      "symbol": "000066.SZ",
+      "rows": 3129
+    },
+    {
+      "symbol": "603893.SH",
+      "rows": 1629
+    },
+    {
+      "symbol": "688332.SH",
+      "rows": 1036
+    },
+    {
+      "symbol": "002415.SZ",
+      "rows": 3305
+    },
+    {
+      "symbol": "688484.SH",
+      "rows": 859
+    },
+    {
+      "symbol": "002236.SZ",
+      "rows": 3344
+    },
+    {
+      "symbol": "688106.SH",
+      "rows": 1541
+    },
+    {
+      "symbol": "002925.SZ",
+      "rows": 2125
+    },
+    {
+      "symbol": "603629.SH",
+      "rows": 1898
+    },
+    {
+      "symbol": "688012.SH",
+      "rows": 1751
+    },
+    {
+      "symbol": "002947.SZ",
+      "rows": 1871
+    },
+    {
+      "symbol": "688153.SH",
+      "rows": 1100
+    },
+    {
+      "symbol": "300339.SZ",
+      "rows": 3200
+    },
+    {
+      "symbol": "URFI881124",
+      "rows": 4672
+    },
+    {
+      "symbol": "301031.SZ",
+      "rows": 1278
+    },
+    {
+      "symbol": "603515.SH",
+      "rows": 2469
+    },
+    {
+      "symbol": "688047.SH",
+      "rows": 1051
+    },
+    {
+      "symbol": "688268.SH",
+      "rows": 1653
+    },
+    {
+      "symbol": "300674.SZ",
+      "rows": 1931
+    },
+    {
+      "symbol": "688568.SH",
+      "rows": 1527
+    },
+    {
+      "symbol": "000555.SZ",
+      "rows": 3011
+    },
+    {
+      "symbol": "300735.SZ",
+      "rows": 2137
+    },
+    {
+      "symbol": "600845.SH",
+      "rows": 3284
+    },
+    {
+      "symbol": "300548.SZ",
+      "rows": 2434
+    },
+    {
+      "symbol": "URFI881162",
+      "rows": 4672
+    },
+    {
+      "symbol": "URFI881172",
+      "rows": 4048
+    },
+    {
+      "symbol": "688088.SH",
+      "rows": 1760
+    },
+    {
+      "symbol": "300394.SZ",
+      "rows": 2825
+    },
+    {
+      "symbol": "301583.SZ",
+      "rows": 71
+    },
+    {
+      "symbol": "603936.SH",
+      "rows": 2543
+    },
+    {
+      "symbol": "301316.SZ",
+      "rows": 968
+    },
+    {
+      "symbol": "688521.SH",
+      "rows": 1488
+    },
+    {
+      "symbol": "000034.SZ",
+      "rows": 2905
+    },
+    {
+      "symbol": "300236.SZ",
+      "rows": 3314
+    },
+    {
+      "symbol": "603773.SH",
+      "rows": 2068
+    },
+    {
+      "symbol": "688709.SH",
+      "rows": 653
+    },
+    {
+      "symbol": "002439.SZ",
+      "rows": 3199
+    },
+    {
+      "symbol": "600100.SH",
+      "rows": 3214
+    },
+    {
+      "symbol": "000938.SZ",
+      "rows": 3150
+    },
+    {
+      "symbol": "600776.SH",
+      "rows": 3349
+    },
+    {
+      "symbol": "003031.SZ",
+      "rows": 1396
+    },
+    {
+      "symbol": "600050.SH",
+      "rows": 3256
+    },
+    {
+      "symbol": "601519.SH",
+      "rows": 3198
+    },
+    {
+      "symbol": "002600.SZ",
+      "rows": 3099
+    },
+    {
+      "symbol": "688785.SH",
+      "rows": 177
+    },
+    {
+      "symbol": "688800.SH",
+      "rows": 1273
+    },
+    {
+      "symbol": "300903.SZ",
+      "rows": 1447
+    },
+    {
+      "symbol": "002655.SZ",
+      "rows": 3134
+    },
+    {
+      "symbol": "002859.SZ",
+      "rows": 2309
+    },
+    {
+      "symbol": "000070.SZ",
+      "rows": 3199
+    },
+    {
+      "symbol": "300738.SZ",
+      "rows": 2123
+    },
+    {
+      "symbol": "603991.SH",
+      "rows": 2330
+    },
+    {
+      "symbol": "000725.SZ",
+      "rows": 3343
+    },
+    {
+      "symbol": "688313.SH",
+      "rows": 1493
+    },
+    {
+      "symbol": "688507.SH",
+      "rows": 852
+    },
+    {
+      "symbol": "688018.SH",
+      "rows": 1760
+    },
+    {
+      "symbol": "603228.SH",
+      "rows": 2377
+    },
+    {
+      "symbol": "300679.SZ",
+      "rows": 2231
+    },
+    {
+      "symbol": "300433.SZ",
+      "rows": 2796
+    },
+    {
+      "symbol": "603927.SH",
+      "rows": 1725
+    },
+    {
+      "symbol": "002456.SZ",
+      "rows": 3282
+    },
+    {
+      "symbol": "600206.SH",
+      "rows": 3271
+    },
+    {
+      "symbol": "301486.SZ",
+      "rows": 789
+    },
+    {
+      "symbol": "002217.SZ",
+      "rows": 3147
+    },
+    {
+      "symbol": "688099.SH",
+      "rows": 1747
+    },
+    {
+      "symbol": "605358.SH",
+      "rows": 1480
+    },
+    {
+      "symbol": "688172.SH",
+      "rows": 932
+    },
+    {
+      "symbol": "301666.SZ",
+      "rows": 125
+    },
+    {
+      "symbol": "603256.SH",
+      "rows": 1761
+    },
+    {
+      "symbol": "688127.SH",
+      "rows": 1474
+    },
+    {
+      "symbol": "300130.SZ",
+      "rows": 3225
+    },
+    {
+      "symbol": "688110.SH",
+      "rows": 1176
+    },
+    {
+      "symbol": "688766.SH",
+      "rows": 1241
+    },
+    {
+      "symbol": "688279.SH",
+      "rows": 1094
+    },
+    {
+      "symbol": "300454.SZ",
+      "rows": 2049
+    },
+    {
+      "symbol": "688048.SH",
+      "rows": 1105
+    },
+    {
+      "symbol": "603005.SH",
+      "rows": 3088
+    },
+    {
+      "symbol": "688343.SH",
+      "rows": 861
+    },
+    {
+      "symbol": "603626.SH",
+      "rows": 2358
+    },
+    {
+      "symbol": "688535.SH",
+      "rows": 851
+    },
+    {
+      "symbol": "688502.SH",
+      "rows": 879
+    },
+    {
+      "symbol": "600641.SH",
+      "rows": 3162
+    },
+    {
+      "symbol": "603019.SH",
+      "rows": 2881
+    },
+    {
+      "symbol": "300602.SZ",
+      "rows": 2363
+    },
+    {
+      "symbol": "688615.SH",
+      "rows": 501
+    },
+    {
+      "symbol": "002815.SZ",
+      "rows": 2438
+    },
+    {
+      "symbol": "688036.SH",
+      "rows": 1711
+    },
+    {
+      "symbol": "688368.SH",
+      "rows": 1686
+    },
+    {
+      "symbol": "300102.SZ",
+      "rows": 3264
+    },
+    {
+      "symbol": "300657.SZ",
+      "rows": 2246
+    },
+    {
+      "symbol": "601728.SH",
+      "rows": 1252
+    },
+    {
+      "symbol": "301297.SZ",
+      "rows": 912
+    },
+    {
+      "symbol": "600353.SH",
+      "rows": 3251
+    },
+    {
+      "symbol": "002261.SZ",
+      "rows": 3190
+    },
+    {
+      "symbol": "300285.SZ",
+      "rows": 3218
+    },
+    {
+      "symbol": "002475.SZ",
+      "rows": 3331
+    },
+    {
+      "symbol": "002049.SZ",
+      "rows": 3130
+    },
+    {
+      "symbol": "600570.SH",
+      "rows": 3314
+    },
+    {
+      "symbol": "603303.SH",
+      "rows": 2323
+    },
+    {
+      "symbol": "300113.SZ",
+      "rows": 3245
+    },
+    {
+      "symbol": "002195.SZ",
+      "rows": 3259
+    },
+    {
+      "symbol": "688538.SH",
+      "rows": 1311
+    },
+    {
+      "symbol": "688027.SH",
+      "rows": 1522
+    },
+    {
+      "symbol": "688981.SH",
+      "rows": 1515
+    },
+    {
+      "symbol": "300613.SZ",
+      "rows": 2341
+    },
+    {
+      "symbol": "688727.SH",
+      "rows": 226
+    },
+    {
+      "symbol": "600877.SH",
+      "rows": 3034
+    },
+    {
+      "symbol": "688072.SH",
+      "rows": 1084
+    },
+    {
+      "symbol": "603859.SH",
+      "rows": 2426
+    },
+    {
+      "symbol": "300803.SZ",
+      "rows": 1681
+    },
+    {
+      "symbol": "603296.SH",
+      "rows": 777
+    },
+    {
+      "symbol": "001287.SZ",
+      "rows": 858
+    },
+    {
+      "symbol": "600105.SH",
+      "rows": 3261
+    },
+    {
+      "symbol": "300975.SZ",
+      "rows": 1335
+    },
+    {
+      "symbol": "000997.SZ",
+      "rows": 3207
+    },
+    {
+      "symbol": "600487.SH",
+      "rows": 3239
+    },
+    {
+      "symbol": "603328.SH",
+      "rows": 2990
+    },
+    {
+      "symbol": "001339.SZ",
+      "rows": 1015
+    },
+    {
+      "symbol": "688352.SH",
+      "rows": 850
+    },
+    {
+      "symbol": "688213.SH",
+      "rows": 1075
+    },
+    {
+      "symbol": "002396.SZ",
+      "rows": 3149
+    },
+    {
+      "symbol": "300638.SZ",
+      "rows": 2308
+    }
+  ],
+  "market_rows": 3351,
+  "market_decisions_exact": true,
+  "network_requests": 0,
+  "new_backtests": 0,
+  "source_identity": {
+    "passed": true,
+    "errors": [],
+    "strategy": "ACT20_BREAK"
+  }
+}

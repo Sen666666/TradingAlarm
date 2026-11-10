@@ -1,0 +1,18 @@
+{
+  "old_failure_retained": "research/2026-11-09/sector51_924_entry_review_v1/mainline_capital_target_diagnostic_v1/append_seed_equivalent_check.py",
+  "failure_preexisting_and_documented": true,
+  "original_failure_log": "research/2026-11-09/sector51_924_entry_review_v1/mainline_capital_target_diagnostic_v1/SUPPLEMENT_TECHNICAL_FAILURES.json",
+  "original_log": [
+    {
+      "attempt": "append_seed_equivalent_check.py",
+      "stage": "parse",
+      "result": "SyntaxError: missing closing sum argument",
+      "data_outputs_written": false,
+      "remedy": "v2 fixes parenthesis only; original failed source retained",
+      "economic_change": false
+    }
+  ],
+  "already_existing_replacement": "research/2026-11-09/sector51_924_entry_review_v1/mainline_capital_target_diagnostic_v1/append_seed_equivalent_check_v2.py",
+  "replacement_ast_passed": true,
+  "historical_source_modified": false
+}

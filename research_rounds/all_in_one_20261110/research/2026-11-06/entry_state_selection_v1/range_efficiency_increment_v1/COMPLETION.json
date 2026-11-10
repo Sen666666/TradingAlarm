@@ -1,0 +1,15 @@
+{
+  "status": "ONE_FROZEN_HL_INCREMENT_DIAGNOSTIC_COMPLETE",
+  "opportunities": 53121,
+  "common_known": 52874,
+  "total_slots": 14185,
+  "matches": 5077,
+  "accounts": 0,
+  "original_models_rerun": 0,
+  "parameter_searches": 0,
+  "original_sources_unchanged": true,
+  "selection_seal_unchanged": true,
+  "label_sha256": "0afce7b7e5f17091b6fc1ff19ca254fc0f5b0d35466e70d90b769be373a24fa8",
+  "not_PIT": true,
+  "not_untouched_OOS": true
+}

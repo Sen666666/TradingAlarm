@@ -1,0 +1,23 @@
+{
+  "dates": [
+    "2024-09-19",
+    "2024-09-24",
+    "2024-10-08",
+    "2026-01-05",
+    "2026-01-15",
+    "2026-01-20"
+  ],
+  "universe": "Frozen canonical5517, all five positive finite endpoints at lags0,63,126,189,252; current E0 and G1 ready for i_buy subset. Missing inner observations not filled. Not PIT.",
+  "baseline": "H=mid-percentile of mature252 H1 raw in same complete-endpoint pool",
+  "A": "max(H, mid-percentile(log(C_t/C_t-20))) when R20>0 and R20>same-pool median(R20), otherwise H",
+  "B": "max(H,min(mid-percentile(R20),mid-percentile(Q20))) only when A return gate true, all last22 closes observed, and min(C_t,C_t-1)>max(C_t-21..C_t-2); Q20=sum(log returns last20)/sqrt(sum(log returns squared last20)), zero quadratic variation yields missing",
+  "comparison_pool": "Current cached E0ready=1,Gready=True,I_target=1,i_buy=True and complete mature252 H1. This is research i_buy, not S0/pending/fill.",
+  "tie_rule": "score descending then sid ascending",
+  "K": [
+    20,
+    100
+  ],
+  "labels": "C_t+20/C_t-1; future20 common-date closes min/max versus signal close; any missing among future20 marks label UNKNOWN, no backfill or replacement. Descriptive close labels, not attainable returns.",
+  "status": "Frozen before code reads future outcomes; dates/known stories already consumed, not independent out-of-sample validation.",
+  "parameter_search": "None"
+}

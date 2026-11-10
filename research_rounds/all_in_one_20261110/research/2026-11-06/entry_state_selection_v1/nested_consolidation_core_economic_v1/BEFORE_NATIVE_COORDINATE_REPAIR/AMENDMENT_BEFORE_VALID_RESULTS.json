@@ -1,0 +1,8 @@
+{
+  "time_utc": "2026-11-08T11:15:47.551589+00:00",
+  "initial_run": "Engineering invalid: int0 versus float0.0 compared as strings caused false E0 coordinate UNKNOWN. No completed round, realized PnL or return observed. Entry quantities/prices and UNKNOWN statuses were observed. Initial outputs retained.",
+  "fix": "Compare segment values numerically/equality rather than string repr. Ensure absent net_pnl column is explicit NaN.",
+  "UNION": "Parent requested before valid economic results to test adding independent local opportunities while preserving original PRICE. Three arms CONTROL,LOCAL,UNION. When FLAT UNION takes PRICE if PRICE true, else LOCAL if LOCAL true. Same root suppresses new probes; exits/size/fees identical. UNION-CONTROL is bounded per-stock path effect, not shared-account effect.",
+  "tuning": false,
+  "original_protocol_retained": true
+}

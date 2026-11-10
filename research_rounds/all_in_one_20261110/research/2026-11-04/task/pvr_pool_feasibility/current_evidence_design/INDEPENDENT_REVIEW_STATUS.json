@@ -1,0 +1,13 @@
+{
+  "status": "PASS_WITH_SCOPE_STOP_B",
+  "receipt": "/Users/bytedance/Documents/Codex/2026-11-04/task/independent_review/PVR_B_EXACT_FALSIFICATION_AUDIT.json",
+  "sha256": "071bbe74c169966576ef310de464b791768c6e053b2ae2beba405e5ff669860c",
+  "claim": "original money and968daily wealth bridge/237phase rows; direct and original-fixed-tail prior63 snapshots independently checked",
+  "B_decision": "closed_as_major_loss_repair",
+  "no_prototype_or_economics": true,
+  "supplement": {
+    "receipt": "/Users/bytedance/Documents/Codex/2026-11-04/task/independent_review/PVR_B_EXACT_FIXED_TAIL_AUDIT.json",
+    "sha256": "e5e14247b58c1a027ee3271268b176437ac62745cd2a0c87aee7eac33a62b8b3",
+    "scope": "168 unique original-fixed-tail snapshots independently prior63 checked; original83/94 membership same; strong B_FAIL No60 fixedtail9 includes6 still-open layers"
+  }
+}

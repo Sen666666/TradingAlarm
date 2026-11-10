@@ -1,0 +1,51 @@
+{
+  "status": "READY_FOR_INDEPENDENT_BUDGET_COMPONENT_AND_STATIC_AUDIT",
+  "completed_utc": "2026-11-02T04:45:17.491967+00:00",
+  "synthetic_tests": 20,
+  "passed": true,
+  "original_archive_files_unchanged": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-industry-first-projection-v1-20261102": 62,
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-B-joint-target-v2-20261102": 73,
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C2-step-cap-projection-v1-20261102": 42,
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-batch20-projection-v1-20261102": 33
+  },
+  "C10_recomputed": false,
+  "C10_inputs_code_results_unchanged": true,
+  "source_sha256": {
+    "selector": "7b693b9d1872f7809d4fe77c60f72d5e02e16ae2e8e850463bc1545fe0fa92a8",
+    "book": "f6e0b95fb84f3868e9a242772388aea8be490d6717eb47cab954436d1e8f13f3",
+    "frozen_B_copy": "44e7345ef2b3fc494e9854216579aa5faa0e0557b4ecbc207b1027b102e401a8",
+    "C10": "8a4b89cec342763f922ae65b3d138792cc6945f452595d86a263f5c0b15bc130",
+    "JF2": "b76660a053a09a4e394b32b9ccc61f709cdc98ac6bf900a425f476700c7771cf",
+    "contract": "32a12526cf267ba7b1c3fe480269b45cc83db9855dd0c1397b45248b95fe9472"
+  },
+  "R1_repairs_preserved": true,
+  "R1_economic_objects_exact": true,
+  "crossprocess_targets_exact": true,
+  "post_fill_cancel_budget_crossprocess_exact": true,
+  "native_callback_installed": false,
+  "scope_boundary": "Budget state component + original native resource/fee/quantity arithmetic; not native execution integration",
+  "actual_cash_released": 0,
+  "actual_risk_released": 0,
+  "financial_events": 0,
+  "new_indicators": 0,
+  "new_parameters_except_approved_20pct": false,
+  "stats": {
+    "2025_26": {
+      "C10_positive": 6,
+      "C20_positive": 4,
+      "planned_gross": "199527.00",
+      "limit": "199606.71252413333000",
+      "net_sell": "199256.9872814903500",
+      "C20_seconds": 3.5695505416952074
+    },
+    "2022": {
+      "C10_positive": 9,
+      "C20_positive": 4,
+      "planned_gross": "199528.00",
+      "limit": "199650.55658188521000",
+      "net_sell": "199166.4583194668000",
+      "C20_seconds": 2.7607797496020794
+    }
+  }
+}

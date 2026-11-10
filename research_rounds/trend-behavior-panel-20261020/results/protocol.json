@@ -1,0 +1,129 @@
+{
+  "date": "2026-10-20",
+  "created_at_utc": "2026-10-20T03:18:05.719999+00:00",
+  "purpose": "纠偏后固定开发行为面板；复用已有因果信号与真实账户，不运行新候选/回测",
+  "selection": "按6种行为各两个固定日历窗口；基于已见历史和已存数据覆盖股票/ETF及A/H。类别是待核的取样意图，不是已证实标签；不根据本轮结果替换差例。暂无A股个股，明确覆盖缺口。",
+  "cases": [
+    {
+      "id": "S1",
+      "intent": "slow advance",
+      "symbol": "USHJ518880",
+      "group": "etf17",
+      "start": "2025-01-01",
+      "end": "2026-03-31",
+      "checkpoint": "2025-09-01"
+    },
+    {
+      "id": "S2",
+      "intent": "slow advance hypothesis",
+      "symbol": "HK00002",
+      "group": "hk7",
+      "start": "2024-01-01",
+      "end": "2025-03-31",
+      "checkpoint": "2024-07-01"
+    },
+    {
+      "id": "F1",
+      "intent": "fast start",
+      "symbol": "USHJ512480",
+      "group": "etf17",
+      "start": "2024-08-01",
+      "end": "2024-12-31",
+      "checkpoint": "2024-09-30"
+    },
+    {
+      "id": "F2",
+      "intent": "fast start",
+      "symbol": "HK09618",
+      "group": "hk7",
+      "start": "2024-08-01",
+      "end": "2024-12-31",
+      "checkpoint": "2024-09-30"
+    },
+    {
+      "id": "R1",
+      "intent": "consolidation recovery hypothesis",
+      "symbol": "HK00700",
+      "group": "hk7",
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "checkpoint": "2025-05-01"
+    },
+    {
+      "id": "R2",
+      "intent": "consolidation recovery hypothesis",
+      "symbol": "USHJ518880",
+      "group": "etf17",
+      "start": "2024-01-01",
+      "end": "2024-12-31",
+      "checkpoint": "2024-06-03"
+    },
+    {
+      "id": "B1",
+      "intent": "breakdown",
+      "symbol": "USHJ512480",
+      "group": "etf17",
+      "start": "2026-04-01",
+      "end": "2026-10-16",
+      "checkpoint": "2026-07-01"
+    },
+    {
+      "id": "B2",
+      "intent": "breakdown",
+      "symbol": "HK03033",
+      "group": "etf17",
+      "start": "2022-01-01",
+      "end": "2022-12-31",
+      "checkpoint": "2022-04-01"
+    },
+    {
+      "id": "C1",
+      "intent": "range hypothesis",
+      "symbol": "USHJ510300",
+      "group": "etf17",
+      "start": "2023-01-01",
+      "end": "2023-12-31",
+      "checkpoint": "2023-07-03"
+    },
+    {
+      "id": "C2",
+      "intent": "range hypothesis",
+      "symbol": "HK00101",
+      "group": "hk7",
+      "start": "2023-01-01",
+      "end": "2023-12-31",
+      "checkpoint": "2023-07-03"
+    },
+    {
+      "id": "W1",
+      "intent": "weak market rebound",
+      "symbol": "HK03033",
+      "group": "etf17",
+      "start": "2023-01-01",
+      "end": "2023-12-31",
+      "checkpoint": "2023-07-03"
+    },
+    {
+      "id": "W2",
+      "intent": "weak market rebound",
+      "symbol": "HK03690",
+      "group": "hk7",
+      "start": "2022-03-01",
+      "end": "2022-12-31",
+      "checkpoint": "2022-07-01"
+    }
+  ],
+  "baselines": [
+    "saved competing PV",
+    "saved competing price ablation",
+    "existing SMA63 formula close > trailing63 mean"
+  ],
+  "metrics": "full-clock target.diff at window dates, target duty, actual saved PV weight, in-window signal-close return and drawdown; historical checkpoint uses only prefix; overlapping economic episodes retain full-cycle net return and are not window PNL",
+  "cautions": [
+    "all development, not unseen",
+    "checkpoint is retrospective prefix review, not blinded forecast",
+    "case duplication/overlap is not independent evidence",
+    "calendar windows not hindsight optimal bottoms/tops",
+    "no fees-free proxy returns called strategy performance"
+  ]
+}

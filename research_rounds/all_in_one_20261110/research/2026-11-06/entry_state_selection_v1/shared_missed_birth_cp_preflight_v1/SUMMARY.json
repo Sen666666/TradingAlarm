@@ -1,0 +1,28 @@
+{
+  "tickets": 217,
+  "stocks": 217,
+  "primary_probe_tickets": 215,
+  "native_verified_rows": 484083,
+  "daily_rows": 2061,
+  "post_rejection_CP": 655,
+  "stocks_with_post_rejection_CP": 217,
+  "tickets_with_persistent_valid_no_AB": 216,
+  "end_same_I": 195,
+  "end_continuous_M3": 0,
+  "factor_changed": 17,
+  "signal_permissions": 550,
+  "signal_permission_stocks": 213,
+  "close_feasible_permissions": 520,
+  "close_feasible_stocks": 209,
+  "strict_permissions": 548,
+  "strict_close_feasible": 518,
+  "strict_close_feasible_stocks": 209,
+  "original_seed_channels": {
+    "B_STOCK_BIRTH_DURING_SECTOR": 148,
+    "A_SECTOR_BIRTH": 69
+  },
+  "future_receipt_source": "Existing canonical original CP cache, exact native numeric CP receipt matching; true original I entries regenerated",
+  "source_count": 1396,
+  "no_account": true,
+  "no_outcomes": true
+}

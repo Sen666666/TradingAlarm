@@ -1,0 +1,53 @@
+最新宏观诊断定义与裁决｜2026-11-04
+
+后续继续结果入口：MA63_AXIS_FINDINGS_AND_NEXT.txt。已完成2022–23全24月MA63同轴并全量独审，正推进原当前保护线到达入场价的必要反馈见证；本文件描述的是此前synthetic M/v2宏观门及行业LOCAL20轮次，不是总研究停止。
+
+本文件取代MARKET_DEFENSE_RECOVERY_DECISION.txt中尚存的旧候选描述。最新父指令禁止按当日浮盈/亏强卖旧仓；全部旧层继续原I/CP1价格结构退出。D停新钱与ACT20硬退出严格分开。
+
+精确定义（本轮分组唯一v2，而非旧ACT/No60真实状态）
+输入直接读已冻recovery.csv的synthetic M与原广度B，未重算。M为行业内股票有效同源log收益均值、行业间等权，再exp累计；不是沪深300、ETF或可成交资产。B先按原金额相对前21日中位数对收益衰减、EW21，再统计各行业正动量比例及跨行业等权；不把B称为纯价格或全市场赚钱比例。
+所有统计位于原市场观察钟。H20_t=max(M[t-20:t])、L20_t=min(M[t-20:t])排除当日。初次具备此前64价格及20窗时只初始化D，不能同bar试探；完整warm起点2013-07-22，之后连续递推。
+σ_t=max(sqrt(sum_{j=t-63}^{t-1}(log(M_j/M_{j-1}))²/63),1e-8)，排当前日，需要此前64价格。P或合格推进时冻结该σ和当时anchor，非事后滚动门槛。
+
+状态/转移优先顺序
+1. 已在P/C且前20价格完整，先将S_eff=max(S_old,L20_t)。当前价格已知且M_t<S_eff即D，清S/anchor/σ/marker，同bar不重入。
+2. 其它所需价格/广度/窗口未知，保持既有state，但断开marker、不授新许可；未知不造D。B<=.6亦清marker，保持state，不直接卖出或转D。
+3. 处D且strict M_t>H20_t、B>.6，转P，S=L20_t，anchor=M_t，σ=σ_t，marker=True。
+4. 处P/C且strict新20高、log(M_t/anchor)>=sqrt(5)*冻结σ、B>.6：若marker=False，本次只rearm；若marker=True才转C/留C并更新anchor/σ及S。
+5. 其余继承state。因此C不表示当日一定创新高或广度仍有效；C可以在广度转弱后持续到结构支撑被破。D是结构状态标签，不等于原账户flat或原ACT off。
+
+时点与可执行边界
+DAILY.day / decision_close是原15:10:00+08:00 CLOSE，使用当时及此前数据；每一原实际budget_order精确连接自己的decisionCLOSE。next_market_planned_OPEN仅次个原市场交易日09:30日程，不是该股报价或成交证明；不按实际fill日或nearest查未来。
+v2标签未注入旧ACT未来暂停日，未输入未来收益/事后赢家。旧ACT仅historical_H_context。P/C不是本候选已获资金的状态，没有计算候选自身ACT/NAV。
+
+只读新增风险权利
+D：停新开/所有加仓，取消未成买单仅请求、待ACK；旧仓继续原结构保护，不宏观强卖。
+P：同一episode只有一份增量probe规格（10%gross/.5%NAV名义风险），不每日/每行业重发；旧仓不塞入该新增额度。精确消耗尚未实现。
+C：市场推进与真实trial结构保护推进是必要申请证据，额度和消耗未定义、仍BLOCKED；不自动满risk。
+H：候选自身ACT20是独立最高硬暂停，按原合同退出至真实flat及未完成订单结束后，须post-H新证据再提P。D可以有旧仓，不能要求其flat。旧H日期不可复制为候选H路径。
+完整表见pvr_pool_feasibility/market_new_risk_only/RIGHTS_PRIORITY_TRANSITIONS.txt。
+
+已独审的原贡献关联（元；原100万开发账，不缩放120万）
+2022Jul5-Oct31原decision进入层：D168层−2116.68；C154层−67307.76。
+post924严格303层：全部C，原含费周转买款2839637.22；原净−112457.60，内原正106763.36/原负−219220.96。
+strong原D390层：原净+314015.58，内原正677744.16/原负−363728.58；包括strictreal46639.04、openunreal262431.90和AR4944.64。
+同D盈利反例：2023Apr13曙光首次+28518.35、Apr17加仓+20835.98，Jun6同股flat重入−4625.60；strong嘉美Dec5加仓+66785.39、长飞Dec18重入+43578.79。同标签不能区别买入/重入质量。
+这是按进入时点分组后直到原各book共同cutoff的层贡献（2022–24至2024Dec31，strong至2026Jun30），不是窗口内账户财富。只有strict303与已核该阶段新层财富桥同截止相等。全部关联均非停买/删单后收益、可避损或新策略误伤金额。
+
+独审
+independent_review/market_recovery_three_state_review/MARKET_NEW_RISK_ONLY_AUDIT.json
+SHA8c54365fb2286e6eb7c0ab282891e311f2f62a895ec623e489c72ab189f0593a。
+3273标签、3436原实际买层、177原固定尾部、552分组以及12旧仓cohort/562实际sell parts核过；PASS_WITH_SCOPE_SAVED_LABELS_AND_ORIGINAL_PATH_ASSOCIATIONS，NO_FINANCIAL_ADMISSION。
+旧层自然退出例：Aug31原旧层676573.55，至Oct31只余实际786；新层却补回658576.94。仅原观察证据，不将其ACT/退出日/释放资源冻结复制为新方案。
+
+当前裁决和继续方向
+纯宏观D停新增不能同时覆盖L03、post303和保留局部赢家，停止这个版本的资金接线，不构建C反馈账。本轮0新账户/金融事件。
+经父授权继续行业/个股动态风险。唯一LOCAL20行业价格许可已冻20、同源段、各自原观察钟，90行业364796行一次纯表2.1799秒；未知不造OFF、不ffill，不修改原I/CP1/Q、不卖旧仓。全表独审SHAcde483a412e7bcf863a3c998475811c43b859c943c65dfda080f44bc51774edf；全部3436层/177固定尾部、2698精确sector+decision键、3034组关联独审SHA120f00c26df5b6ab819790c33e80b5bfb24687263859395c915025c5d5dce00b，均PASS_WITH_SCOPE，未运行新账户。
+LOCAL20关键结果：strict303中OFF2层原买6390.60、原净−820.54；ON301层买2833246.63、原净−111637.06（正106763.36/负−218400.42）。L03 C/OFF7层原净−84.53（正2296.25/负−2380.78），C/ON147层−67223.23（正29064.64/负−96287.87）；此外D/OFF50层原净反为+12879.10。Q2AI D/ON263层原正157755.32/负−164527.18，净−6771.86。
+strong D/ON274层原买5019471.50、原净+281832.61（正539594.82/负−257762.21，包括未实现217233.80）。D/OFF116层仍原净+32182.97（正138149.34/负−105966.37，包括未实现45198.10）。所以简单行业方向也未区分主要损耗与赢家；该行业门金融STOP，不调20或接例外。完整原贡献、全部role/action/phase与固定尾部保留loss_correction/sector_local_macro_association_v1，继续属于关联而非策略收益。
+并行既有初始风险量级判别也STOP，不跑cap、网格或新账；.25%是已存core all-in的数值参考，和mobile名义风险不同，非用户永久阈值。两年直接2023cutoff的1199mobile仅66层超参考，原正63802.63/负−95284.01/净−31481.39；未超1133层仍−188543.81、core358层−34547.85。post303超40层原净−25811.33、未超210层−75484.83、core53层−11161.44。strong超81层原净+282757.04（正438651.84/负−155894.80，含9未平层原贡献179725.95）。不能把缩量或删层当成可得这些净额。
+报告risk_constraints/entry_initial_risk_scale_v1/READOUT.md；独审independent_review/ENTRY_INITIAL_NOMINAL_RISK_SCALE_AUDIT.json SHA5ab1f7119bce5991da428cc6775c72bb36299c32f091402dadd486137e8450d3核3436初始risk公式与真实NAV、1557原2023cutoff全部money exact以及未知标记保留。0新q/ledger/账户。该方向同样不能解释多数主损耗，且会触及强窗赢家，不重开旧R0。
+
+并行买入质量线复用入口
+loss_correction/sector_local_macro_association_v1/BUY_QUALITY_TEAM_ENTRYPOINTS.json含C/ON行业原负额/正贡献各top5、全部layerIDs及strict303完整core/mobile/first/add/reentry。strict303：core53层−11161.44、mobile250层−101296.16；first68层−45595.78、add85层−32488.11、flat-reentry150层−34373.71。问题不只重入。该补充为全原ROWS直接聚合的事后诊断，不是行业收益排名或新信号。
+当前没有策略改进获得连续账户准入。宏观、简单行业方向及单层绝对初始风险均未区分“允许入场但后来失败”与赢家；下一主问题仍是有效行业中的原新增承诺质量及组合持续试错反馈。这里不追加第三门/阈值救当前设定，不为缺证据造系统；已有输入/账完整，未遇数据或权限阻碍。

@@ -1,0 +1,18 @@
+{
+  "scope": "Original fixed seven OPEN post-sell/pre-new-buy snapshots; prior CLOSE only for permission. Primary is all originally probe after original same-OPEN promotions. Separately report original same-OPEN CP promotions as controls. No account, reselection, added thresholds, or outcome joins.",
+  "dates": [
+    "2024-09-13",
+    "2024-09-24",
+    "2024-09-25",
+    "2024-09-26",
+    "2024-09-27",
+    "2024-09-30",
+    "2024-10-08"
+  ],
+  "formula": "An actually held original probe may be a promotion candidate only when its current effective original I floor has a genuinely new original E0 +1 confirmation identity after actual first fill, verified to raise the same I root floor above its preceding confirmed effective floor in unchanged source/factor coordinates; original I valid and industry and stock original M3 TRUE at prior CLOSE; whole same-round NET80 at that known floor after current dated whole-order sale fee and 5bp slippage is >=0; same-round CLOSE and next OPEN net liquidation strictly >0; OPEN strictly above effective I. Certified source/asset/NAV and no pending original exit are required. ADD remains only original fresh CP; no changed original floor or risk cap.",
+  "structure_identity": "Native events confirmation CLOSE date, original confirmed pivot observation date/price, source kind/path/segment, original I entered root and source SHA. A numerical floor rise alone is not identity. Genuine post-fill confirmation may remain unconsumed, but event-confirmed-today is separately disclosed. No future confirmed pivot backfill, final layer floor, or corporate-action rise.",
+  "whole_round": "Use exact signed same-round transaction cash + paid same-round NET80 dividend cash + recognized unpaid claim + remaining actual q times price*(1-0.0005) minus current dated whole-order sell fee. Fixed early interval claims must be verified; ordinary cost proxy is not a substitute.",
+  "migration": "Only eligibility evidence substitutes for fresh CP; migration and ADD are already separate in original engine. Any potential migration leaves quantities, cash, costs, lines and all-account risk unchanged but removes actual R=P+G from probe aggregation, hence admits extra risk and changes contract. Confirmed/industry/cash/stock constraints remain; no invented global cap.",
+  "unknown": "Missing confirmation identity, source discontinuity, factor/action without known transformation, current asset or claim unknown -> UNKNOWN, never zero.",
+  "stop": "If no fixed primary object satisfies real new structure and floor-cost condition, stop without account or larger sample. No claims of win rate improvement."
+}

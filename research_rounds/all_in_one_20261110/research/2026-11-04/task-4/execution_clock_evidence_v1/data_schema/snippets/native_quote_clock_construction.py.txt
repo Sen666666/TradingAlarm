@@ -1,0 +1,62 @@
+    def latest_mark(self, sid, at):
+        self.source_available(sid, at)
+        frame = self.raw.get(sid)
+        if frame is None:
+            raise RuleUnavailable('Raw mark unavailable: ' + sid)
+        record = self.bundle.series[sid].record
+        cutoff = at.astimezone(TZ).date()
+        pos = frame.index.searchsorted(pd.Timestamp(cutoff), side='right')-1
+        for i in range(pos, -1, -1):
+            date, row = frame.index[i], frame.iloc[i]
+            if not bool(row.get('observed_bar', True)):
+                continue
+            close_at = datetime.combine(date.date(), time.fromisoformat(record['close_available_time']), TZ)
+            if close_at <= at:
+                if not bool(row.valid_price):
+                    continue
+                price, known = dec(row.close), close_at
+            else:
+                opens = [x for x in self.sessions[self.lines[sid].market]
+                         if x.astimezone(TZ).date() == date.date() and x <= at]
+                # The current open is observable independently of future H/L/C.
+                if not opens or not pd.notna(row.open) or not math.isfinite(row.open) or row.open <= 0:
+                    continue
+                price, known = dec(row.open), opens[0]
+            source = record['raw']['sha256']
+            intervening = [e for e in self.actions.get(sid, ())
+                if date.date().isoformat() < e['effective_date'] <= cutoff.isoformat()]
+            if intervening:
+                if self.protocol.get('stale_action_mark_policy') != 'theoretical_ex_reference':
+                    raise RuleUnavailable('Stale pre-action price requires an explicit valuation policy: '+sid)
+                for event in sorted(intervening, key=lambda e:e['effective_date']):
+                    price = (price-dec(event.get('signal_cash_per_old_share',event['cash_per_old_share'])))/dec(event.get('signal_split_ratio',event['split_ratio']))
+                    source += ':derived_ex_reference:'+event['effective_date']+':'+event['source_id']
+                if price <= 0:
+                    raise RuleUnavailable('Nonpositive derived ex-action valuation reference: '+sid)
+                # Keep the actual raw observation time. The source explicitly
+                # records the subsequent unit transforms, never a tradable quote.
+            return Mark(price, known, self.rate(record['currency'], at), source)
+        raise RuleUnavailable('No already-observed price prefix: ' + sid)
+
+    def marks(self, at, ids):
+        return {sid: self.latest_mark(sid, at) for sid in ids}
+
+    def quotes(self, at, ids=None):
+        result = {}
+        for sid in ids if ids is not None else self.lines:
+            line = self.lines[sid]
+            if ids is None and not (line.current_stock is True and line.company_cap_cny is not None
+                    and line.company_cap_cny > 10_000_000_000
+                    and (line.market == 'A' or line.southbound_selected is True)):
+                continue
+            if line.issuer_id is None or line.sector_id is None:
+                continue
+            try:
+                mark = self.latest_mark(sid, at)
+                meta = self.rules.get('security_metadata', {}).get(sid, {})
+                result[sid] = DecisionQuote(sid, line.issuer_id, line.sector_id, self.currency(sid),
+                    mark.raw_price, mark.known_at, mark.fx, self.quantity(sid, at), self.fees(sid, at),
+                    mark.source_id, meta.get('par_value'))
+            except RuleUnavailable as exc:
+                self.notice(dict(at=at, sid=sid, reason=str(exc)))
+        return result

@@ -1,0 +1,272 @@
+{
+  "1": {
+    "events": 1084,
+    "affected": 470,
+    "unchanged": 614,
+    "unknown": 0,
+    "symbols": 354,
+    "stock_epochs": 989,
+    "promotion_dates": 364,
+    "affected_symbols": 269,
+    "affected_stock_epochs": 441,
+    "affected_dates": 223,
+    "net_delta": "330727.9450339074703859096807",
+    "A_post_pnl": "678004.9386113133706339629483",
+    "B_post_pnl": "1008732.883645220841019872629",
+    "A_fees": "10467.92134368662936603705137",
+    "B_fees": "10851.47849977915898012737076",
+    "A_slippage": "4718.751645",
+    "B_slippage": "4882.700815",
+    "initial_equity_sum": "8752566.04000",
+    "prior_gain_sum": "1155269.9942733747525",
+    "actual_exit_times_changed": 470,
+    "positive_delta_events": 188,
+    "negative_delta_events": 281,
+    "all_risk": {
+      "A": {
+        "mean_drawdown": 0.1563264017850881,
+        "median_drawdown": 0.1404115832024027,
+        "maximum_drawdown": 0.5197084233261339,
+        "worst_return_from_promotion": -0.30359627676868894
+      },
+      "B": {
+        "mean_drawdown": 0.19145361157464602,
+        "median_drawdown": 0.18434994446035233,
+        "maximum_drawdown": 0.5197084233261339,
+        "worst_return_from_promotion": -0.46439876808387426
+      }
+    },
+    "affected_risk": {
+      "A": {
+        "mean_drawdown": 0.12528892323985508,
+        "median_drawdown": 0.11739487571060214,
+        "maximum_drawdown": 0.4344919786096257,
+        "worst_return_from_promotion": -0.30359627676868894
+      },
+      "B": {
+        "mean_drawdown": 0.20630572198853755,
+        "median_drawdown": 0.19747158118344435,
+        "maximum_drawdown": 0.4726530612244898,
+        "worst_return_from_promotion": -0.46439876808387426
+      }
+    },
+    "increased_dd_events": 445,
+    "worse_minimum_events": 389,
+    "extra_holding_observations": 15858,
+    "B_terminal_stock_events": 0,
+    "A_terminal_claim": "8254.36160",
+    "B_terminal_claim": "11631.47296",
+    "top5_stock_delta": [
+      {
+        "cost": "1",
+        "group_type": "stock",
+        "group_key": "688048.SH",
+        "events": 3,
+        "branched": 1,
+        "A_pnl": "-2204.339761278290",
+        "B_pnl": "99718.695294488310",
+        "delta": "101923.035055766600"
+      },
+      {
+        "cost": "1",
+        "group_type": "stock",
+        "group_key": "301308.SZ",
+        "events": 4,
+        "branched": 2,
+        "A_pnl": "48189.1394095950000",
+        "B_pnl": "102112.8219628284500",
+        "delta": "53923.6825532334500"
+      },
+      {
+        "cost": "1",
+        "group_type": "stock",
+        "group_key": "688519.SH",
+        "events": 4,
+        "branched": 2,
+        "A_pnl": "2328.1377539296870",
+        "B_pnl": "47142.6752834628980",
+        "delta": "44814.5375295332110"
+      },
+      {
+        "cost": "1",
+        "group_type": "stock",
+        "group_key": "300903.SZ",
+        "events": 4,
+        "branched": 2,
+        "A_pnl": "1513.169352330144444444444444",
+        "B_pnl": "42737.32017826184444444444444",
+        "delta": "41224.15082593170000000000000"
+      },
+      {
+        "cost": "1",
+        "group_type": "stock",
+        "group_key": "002281.SZ",
+        "events": 6,
+        "branched": 3,
+        "A_pnl": "31596.6284627816500",
+        "B_pnl": "59327.6416193819500",
+        "delta": "27731.0131566003000"
+      }
+    ],
+    "top5_share_of_net": "0.8152211603813012343012142567",
+    "A_negative_pnl_count": 765,
+    "A_negative_pnl_amount": "559187.5537992406296828760356",
+    "B_negative_pnl_count": 666,
+    "B_negative_pnl_amount": "607665.1559101228477969663550",
+    "original_layer_30pct": {
+      "True": {
+        "count": 173,
+        "delta": "0E-24"
+      },
+      "False": {
+        "count": 911,
+        "delta": "330727.9450339074703859096807"
+      }
+    },
+    "post_either_30pct": {
+      "True": {
+        "count": 129,
+        "delta": "343371.9411123131360000000000"
+      },
+      "False": {
+        "count": 955,
+        "delta": "-12643.99607840566561409031940"
+      }
+    }
+  },
+  "2": {
+    "events": 1084,
+    "affected": 470,
+    "unchanged": 614,
+    "unknown": 0,
+    "symbols": 354,
+    "stock_epochs": 989,
+    "promotion_dates": 364,
+    "affected_symbols": 269,
+    "affected_stock_epochs": 441,
+    "affected_dates": 223,
+    "net_delta": "330497.7753942867957101880517",
+    "A_post_pnl": "671726.0614689681175719092146",
+    "B_post_pnl": "1002223.836863254913282097266",
+    "A_fees": "12028.04684103188242809078527",
+    "B_fees": "12477.82446674508671790273364",
+    "A_slippage": "9437.503290",
+    "B_slippage": "9765.401630",
+    "initial_equity_sum": "8752566.04000",
+    "prior_gain_sum": "1155269.9942733747525",
+    "actual_exit_times_changed": 470,
+    "positive_delta_events": 188,
+    "negative_delta_events": 281,
+    "all_risk": {
+      "A": {
+        "mean_drawdown": 0.15662191866713746,
+        "median_drawdown": 0.14080772674826497,
+        "maximum_drawdown": 0.5197084233261339,
+        "worst_return_from_promotion": -0.30399680985313654
+      },
+      "B": {
+        "mean_drawdown": 0.19169711023811364,
+        "median_drawdown": 0.18481094096904394,
+        "maximum_drawdown": 0.5197084233261339,
+        "worst_return_from_promotion": -0.4647019677915955
+      }
+    },
+    "affected_risk": {
+      "A": {
+        "mean_drawdown": 0.12562456560686602,
+        "median_drawdown": 0.1178938298291402,
+        "maximum_drawdown": 0.4344919786096257,
+        "worst_return_from_promotion": -0.30399680985313654
+      },
+      "B": {
+        "mean_drawdown": 0.20652139042162812,
+        "median_drawdown": 0.19769841906242186,
+        "maximum_drawdown": 0.4726530612244898,
+        "worst_return_from_promotion": -0.4647019677915955
+      }
+    },
+    "increased_dd_events": 445,
+    "worse_minimum_events": 388,
+    "extra_holding_observations": 15858,
+    "B_terminal_stock_events": 0,
+    "A_terminal_claim": "8254.36160",
+    "B_terminal_claim": "11631.47296",
+    "top5_stock_delta": [
+      {
+        "cost": "2",
+        "group_type": "stock",
+        "group_key": "688048.SH",
+        "events": 3,
+        "branched": 1,
+        "A_pnl": "-2240.765172893160",
+        "B_pnl": "99604.357890573240",
+        "delta": "101845.123063466400"
+      },
+      {
+        "cost": "2",
+        "group_type": "stock",
+        "group_key": "301308.SZ",
+        "events": 4,
+        "branched": 2,
+        "A_pnl": "48122.7165491800000",
+        "B_pnl": "102003.2132246138000",
+        "delta": "53880.4966754338000"
+      },
+      {
+        "cost": "2",
+        "group_type": "stock",
+        "group_key": "688519.SH",
+        "events": 4,
+        "branched": 2,
+        "A_pnl": "2277.7649402927480",
+        "B_pnl": "47058.0316015595920",
+        "delta": "44780.2666612668440"
+      },
+      {
+        "cost": "2",
+        "group_type": "stock",
+        "group_key": "300903.SZ",
+        "events": 4,
+        "branched": 2,
+        "A_pnl": "1489.9112269428000",
+        "B_pnl": "42680.2417380696000",
+        "delta": "41190.3305111268000"
+      },
+      {
+        "cost": "2",
+        "group_type": "stock",
+        "group_key": "002281.SZ",
+        "events": 6,
+        "branched": 3,
+        "A_pnl": "31522.4365212266000",
+        "B_pnl": "59232.3530658278000",
+        "delta": "27709.9165446012000"
+      }
+    ],
+    "top5_share_of_net": "0.8151526379700774758924509623",
+    "A_negative_pnl_count": 767,
+    "A_negative_pnl_amount": "562605.7875388958962809314569",
+    "B_negative_pnl_count": 669,
+    "B_negative_pnl_amount": "610534.2569832038545707434053",
+    "original_layer_30pct": {
+      "True": {
+        "count": 173,
+        "delta": "0E-24"
+      },
+      "False": {
+        "count": 911,
+        "delta": "330497.7753942867957101880517"
+      }
+    },
+    "post_either_30pct": {
+      "True": {
+        "count": 129,
+        "delta": "343111.8892885165440000000000"
+      },
+      "False": {
+        "count": 955,
+        "delta": "-12614.11389422974828981194838"
+      }
+    }
+  }
+}

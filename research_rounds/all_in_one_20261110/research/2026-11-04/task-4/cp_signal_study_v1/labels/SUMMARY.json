@@ -1,0 +1,28 @@
+{
+  "events": 99031,
+  "distinct_stocks": 1664,
+  "label_valid": 99031,
+  "label_status": {
+    "COMPLETE20": 99031
+  },
+  "canonical_ID_missing": 9507,
+  "nonoverlap20_count": 38598,
+  "dev_fit_eligible": 34550,
+  "coordinate_mismatch_events": 0,
+  "source_cutoff": "2026-10-22",
+  "source_reference_files": 1664,
+  "source_SHA_files_checked": 4996,
+  "next_session_source_missing_events": 70,
+  "next_session_one_price_exact_events": 555,
+  "actual_limit_or_suspension_status_saved_events": 0,
+  "label_crossyear": 4778,
+  "label_extending_after2026H1": 1953,
+  "valid_labels_with_skipped_source_rows": 7,
+  "valid_labels_with_missing_common_session_rows": 689,
+  "max_valid_calendar_span_days": 97,
+  "reference_calendar_complete_label_count": 99031,
+  "features_computed": 0,
+  "CP_models_recomputed": 0,
+  "account_runs": 0,
+  "seconds": 195.3179172920063
+}

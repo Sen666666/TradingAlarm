@@ -1,0 +1,47 @@
+{
+  "C10": {
+    "positive_requests": 6,
+    "gross_buy_with_preview_slip": "153670.797000",
+    "D_mark_gross": "124995.00",
+    "D_estimated_net": "124760.1151765282500",
+    "conditional_terminal": {
+      "nav": "1007181.8625690750510",
+      "available": "373479.3125690750510",
+      "capital": "633702.55",
+      "risk": "60354.21603853117489722896827"
+    },
+    "conditional_risk_NAV_pct": "5.99238511747841684561851826634699919867515430626070729491733",
+    "conditional_exposure_pct": "62.9183838143768295164115368171014574414760563215123543731534",
+    "actual_financial_events": 0
+  },
+  "C2": {
+    "positive_requests": 10,
+    "gross_buy_with_preview_slip": "167582.749500",
+    "D_mark_gross": "123889.00",
+    "D_estimated_net": "123655.8716766771500",
+    "conditional_terminal": {
+      "nav": "1007173.3237176372010",
+      "available": "358459.7737176372010",
+      "capital": "648713.55",
+      "risk": "60348.17426974936206394081751"
+    },
+    "conditional_risk_NAV_pct": "5.99183604734432760241704198431633117796125562676251664934601",
+    "conditional_exposure_pct": "64.4093260537813823058019511664065011227480191173289784725022",
+    "actual_financial_events": 0
+  },
+  "HANYU_DOMAIN_CORRECTION": {
+    "in_original_full_domain": true,
+    "original_held_layer_at_snapshot": false,
+    "original_max": 4900,
+    "C2_max": 900,
+    "original_Q": 0,
+    "C2_Q": 0,
+    "C2_necessary_bound": "account_risk6",
+    "not_no_signal": true,
+    "old_misstatement": "Earlier message confused nonzero Q absence with full-domain absence; corrected without source/result change"
+  },
+  "full_domain": 87,
+  "new_positive": 5,
+  "lost_positive": 1,
+  "new_target_minlot_fail_count": 2
+}

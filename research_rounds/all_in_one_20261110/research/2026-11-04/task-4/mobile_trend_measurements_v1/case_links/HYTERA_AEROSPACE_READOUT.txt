@@ -1,0 +1,33 @@
+海能达、航天发展原CP→MOBILE→下一OPEN完整连接
+
+这里只读原已完成账户和canonical receipt JSON，并复用已有43/40日表；未另算EMA、
+布林、峰谷或行情，未运行策略/资金重演/新账户。所有fill为原日线代理账本，非券商回执。
+两股全观察分别002583.SZ.csv/json(43日)、000547.SZ.csv/json(61日)，统一join键sid+date
+（day同值）。指标由主线程metrics/{sid}.csv统一提供，不能拿下一OPEN或下一CLOSE作t输入。
+
+海能达2024/9/23—11/27：canonical CP19，mobile_Q真19，MOBILE角色/意图19，
+实际fill2、OPEN拒绝17；CP有但Q不真/不生成意图均0。另CORE意图9。
+MOBILE的10/18信号→10/21买1100；10/21信号→10/22买1000。
+跨国庆9/30原CLOSE→10/8原OPEN，间隔8自然日，CORE与MOBILE均拒因
+cash_or_original_reserve,probe_risk；没有错接10/1或漏掉9/30。
+
+航天2025/10/22—2026/1/16：canonical CP18，mobile_Q真18，MOBILE角色/意图18，
+实际fill7、OPEN拒绝10、同股CORE先获资后跳过MOBILE1；另CORE意图7。
+7笔Mobile：10/29 2900股、11/19 100、11/20 1900、11/21 1900、12/2 1600、
+12/3 800、12/5 1300。11/24CLOSE同时生成CORE和MOBILE，次日CORE1800获资并买成；
+原opening按core优先，成功reserve后done阻止同股第二笔。Mobile没有funding拒绝行，
+不能把它计为被资金拒绝，也不能计为CP未生成意图。原源代码片段附绝对路径/SHA。
+
+每行保留原canonical receipt整条和ID、Q/roles/barriers、frozen intent全字段、
+当前CLOSE qty/layers/NAV/pools、下一原交易OPEN全部同股funding及Mobile fill、
+原actual卖出和下一CLOSE持层。原audit/journal附带信号日及次日两天，须读各自at；
+它们不是同一时点快照。拒因union不是第一约束排序。未保存逐单审批前即时资源证书。
+
+canonical CP19/18逐个与真实原消费的receipt source ID校同，原manifest/input_loader
+路径与SHA已绑定。海能达复用43行原价/facts，航天复用40行；航天扩展前21日只读
+原机会/意图/资金/账户连接，价格facts字段明确NOT_SAVED_IN_REUSED_CASE_TABLE，由
+主线程完整指标表按日期补原价，没有另建行情来源或补指标。
+
+HYTERA_AEROSPACE_COUNTS_AND_SCOPE.json给全部计数，*.CP_RECEIPT_ONLY.json只是
+方便查看的CP子集，完整CSV/JSON保留所有非CP日，未按买成或未来赢家筛选。
+本包只描述这两个指定窗口，不能作为全市场有效性或新机制收益证明。

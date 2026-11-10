@@ -1,0 +1,33 @@
+{
+  "status": "TWO_NEW_COHORTS_GENERATED_AND_INDEPENDENTLY_AUDITED",
+  "generated_at_utc": "2026-11-08T15:08:12.926241+00:00",
+  "economic_runs": 2,
+  "economic_retries": 0,
+  "models_fit": 0,
+  "actual_orders": 0,
+  "strict_ordinary_PRICE": 3219,
+  "settled_nonordinary_PRICE_separate": 10,
+  "per_cohort_check_count": {
+    "2023": 359071,
+    "2024JanAug": 237668
+  },
+  "final_source_verification": {
+    "input_files": 24213,
+    "code_items": 20,
+    "protected_old_files": 204,
+    "changed_inputs_or_code": [],
+    "changed_old_files": []
+  },
+  "artifacts_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/missing_price_cohort_feasibility_v1/CURRENT_STATUS.md": "baeb343199cb96ad3d5739c28dcfda06855298fc4dbf24dba49c7064632df455",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/distribution_objective_feasibility_v1/EXTENDED_CURRENT_STATUS.md": "615c6b9d3df97c53ddbb123399ac29db177638e692cc54ade2b6c4a4327b6d94",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/missing_price_cohort_feasibility_v1/execution_v1/post_audit/INDEPENDENT_CROSS_COHORT_REVIEW.json": "1d4b41ff264c862eaff650e16912bb6ded5f8bd557705a2ccd0fe0cb97233328",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/missing_price_cohort_feasibility_v1/execution_v1/post_audit/INDEPENDENT_POST_2023_FULL.json": "a58348e505afc6b2b3eddff1b563002ef556f46bef20b84a0612f28081652a4b",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/missing_price_cohort_feasibility_v1/execution_v1/post_audit/INDEPENDENT_POST_2024JanAug_FULL.json": "42859b34dc615b57cd7fb06c24add1f6994a8203b565fdcad7887ea69e2fc0b7",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/missing_price_cohort_feasibility_v1/execution_v1/post_audit/INDEPENDENT_PRICE_DEPENDENCE_AND_RIGHTS.json": "a0c86ffd80e2e0434fb4c493999be57b4c5236997416c1acfdb0ccf56532cd31",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/distribution_objective_feasibility_v1/EXTENDED_FINAL_VERIFY.json": "eb3d78a7d1540a87c81b49b1faf1fb1449761cff33b67efe46aec43bfee3603f"
+  },
+  "old_missing_label_descriptions_are_pre_extension_snapshots": true,
+  "strategy_improvement_claimed": false,
+  "delivery_artifacts_rechecked": true
+}

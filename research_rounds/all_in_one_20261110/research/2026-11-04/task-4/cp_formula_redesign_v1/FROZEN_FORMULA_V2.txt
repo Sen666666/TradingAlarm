@@ -1,0 +1,13 @@
+CP分门公式v2：在任何新影子状态计算前冻结。V1保留简化探索稿；本次修正仅因其credit<=D使双门冗余，非按案例盈亏改参。0账户/交易/资金/收益回测。
+输入p=ln(原复权C)、原amount A(CNY)、source segment、原e0_valid(实际I_target)、原e0_down。沿原有效观察钟；r=Δp，z63=max(log1p(.001),1e-8,1.4826*median前63|r|)，B=前21 A中位数，都排当日。复用原缓存r/z/B；z21同式但取前21|r|，同source重热。
+沿原A0=sqrt5、K0=sqrt21、21/63窗口，无最优或已验证经济含义。
+推进：proof anchor=a、frontier=f、冻结sigma沿原start/down/SEEK新低/receipt后使用当日z63。仅p>旧f时delta=p-f，f=p，T_amount+=A_t、T_base+=B_t，每观察金额只加一次，不乘delta或u。D=f-a，V=T_amount/T_base；receipt=delta>0且D>=sqrt5*sigma且V>=1。V为创新高观察实际累计金额/背景金额之和；没有新高时不补量出票。
+一观察至多一证，超多个阈值不拆证、不转存超额信用；出票后仅proof锚归当前p、金额和清0、下一次sigma=z63_t，不清TREND高点与H。同TREND episode多证共享parent_episode，仅advance_index不同，价格/金额/G1不能称统计独立证明。
+保护：zH=max(z63,z21)。首次receipt设M=C、H=C*exp(-sqrt21*zH)。每一后续有效收盘先以C<=H_old判失败，失败当日禁receipt与抬线。未失败且C严格创新趋势收盘高时M=C，H_new=max(H_old,M*exp(-sqrt21*zH))；非新高H不动，不凭波动收缩抬线，旧线不下调。
+双轴proof_phase=SEEK/UP，trend_state=OFF/SEEK/TREND/REPAIR。优先序：source/未热/I无效清状态→旧H失效→down仅重proof→SEEK新低→推进→receipt/抬新高保护。
+旧H于d收盘失败：保存failed_H/episode，以p_d直接建恢复锚、冻结z63_d、金额和清0、REPAIR；d不发证。随后若新低则用已知低点重锚；仅后续真实新frontier位移且D/V达门才新receipt并启动新TREND episode。无固定冷却/整波前高门，可允许d+1 V形，也会保留失败反弹。
+原e0_down且H未破：仅proof锚重设当天p、金额清0、冻结z63、proof SEEK；保持旧H/M/parent_episode，不借局部重锚放宽已生效保护。source/域重新有效首观察仅建锚，不同日出票。
+market H是CP参考线，不自动替换CORE/I/每层真实合同；原I退出优先。market failure不是成交或ACK，恢复证也不证明账户可买，不以账户盈利定义CP状态。
+固定展示：盈新000620 2022-01-04..02-08；海能002583和既有银之杰300085 2024-09-23..11-27。从原CP1_input完整暖历史起纯公式推进，窗口仅展示。原基线直接读缓存。
+纯数学两模式：amount_only保留原proof状态机/旧scale候选，只换D/V门；combined再加独立趋势线/REPAIR。无账户、订单、仓位预算或替代收益。
+固定代价：V>=1可能漏一字缩量/低量慢牛、仍接受放量顶；多个低额推进可由一日巨额微新高补齐，金额门不保证趋势质量；zH更宽可能放大回吐，连续抬线也可能早洗正常回撤。收盘公式不能消除次OPEN跳空/T+1。结果不用于选参数或认定组合改善；前缀校核只证数学因果，不认证历史数据vintage/PIT或盘口执行。

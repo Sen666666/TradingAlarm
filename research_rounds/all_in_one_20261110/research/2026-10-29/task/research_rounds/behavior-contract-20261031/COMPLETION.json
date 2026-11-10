@@ -1,0 +1,47 @@
+{
+  "status": "six_case_behavior_baseline_complete_CP1_trace_design_only",
+  "at_UTC": "2026-10-31T13:54:20.282563+00:00",
+  "roster": {
+    "market_only": true,
+    "no_trades_or_account_performance_read": true,
+    "all_industry_quarters": 270,
+    "market_blocks": 7,
+    "candidates": 9,
+    "incomplete_price_quarters": 0,
+    "baseline": "quarter/block previous close; highest/lowest closing price only",
+    "not_ground_truth_mainline": true,
+    "all_history_already_consumed": true,
+    "sha256": {
+      "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/behavior-contract-20261031/build_price_review_table.py": "53b81d556bcfe8afcec1573f28cdc4c0ae4c8bff14f2b1674eb3f4becef90ccd",
+      "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/market-mainline-measurement-20261031/FEATURE_MATRIX_90.parquet": "4be2fe5842221099f4c0fe9fb6380bf4ec77a26cca786d0cb9ac3a25c3464598"
+    },
+    "seconds": 0.3377403747290373
+  },
+  "CP1_two_synthetics_passed": true,
+  "CP1_receipt_counts": {
+    "slow_continuous_no_pullback": 31,
+    "one_jump_then_flat": 1
+  },
+  "no_new_economic_paths": true,
+  "no_new_strategy": true,
+  "remaining_decisions": [
+    "joint industry-stage evidence and shared-budget contract; not another score grid",
+    "real controller trace/exit/loss-renewal wiring after budget contract"
+  ],
+  "blockers": [],
+  "behavior_verification": {
+    "passed": true,
+    "case_count": 6,
+    "account_case_rows": 10,
+    "Q3_shared_one_account": true,
+    "no_trading_engine_called": true,
+    "market_value_bridges_exact": true,
+    "period_cashflow_identity": true,
+    "no_new_economic_paths": true,
+    "tail_label_note": "existing overlapping 63-observation +30% highest-close labels; stockdays not independent events, not executable profit; coverage before Q unknown not enough-allocation judgment",
+    "missing_reason_policy": "unknown retained, no exclusive lock inference",
+    "seconds": 0.6689958339557052
+  },
+  "shared_Q3_not_double_counted": true,
+  "case_rows": 10
+}

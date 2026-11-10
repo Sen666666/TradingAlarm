@@ -1,0 +1,16 @@
+{
+  "recorded_at": "2026-10-25T06:01:50.674026+00:00",
+  "purpose": "Validation tools only: missing-aware exact comparison and schema-preserving Parquet reload",
+  "original_freeze_sha256": "a26ecc36e603885da1fc3482e3ef799bf956343a324f2593b6492e30db104a7e",
+  "original_77_files_unchanged": true,
+  "production_changes": 0,
+  "fixture_changes": 0,
+  "account_runs": 0,
+  "sha256": {
+    "research_rounds/pv-strength-b5-20261025/code-validation-v2/serialization.py": "b00b83ac935c099880f0d7bfed9a1656810a83c2d1a3680cccebf41b526fc309",
+    "research_rounds/pv-strength-b5-20261025/code-validation-v2/test_contract.py": "e84c36e1e7ed4c28777aea3ee111f958861f5e36fe630030bef335bebb71440c",
+    "research_rounds/pv-strength-b5-20261025/code-validation-v2/verify_real.py": "2d90d3c6fbe06dc4f2f18a40c0e0f0263b9dc3c674b0193146151c972a7f8004",
+    "research_rounds/pv-strength-b5-20261025/validation/VALIDATOR_REPAIR.md": "631a415d624a4fe815fa23378cfd3b1b856de48431ac74372dba1c5251e9a54f",
+    "research_rounds/pv-strength-b5-20261025/reviews/audit/validator-v2/run-v1/receipt.json": "6bf81dc33f31434856d2936a359c5d1bd47479c68d71cdfb095dce2821ec7efc"
+  }
+}

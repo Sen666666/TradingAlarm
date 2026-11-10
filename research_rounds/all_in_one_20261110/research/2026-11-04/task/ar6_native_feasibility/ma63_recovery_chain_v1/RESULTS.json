@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "seconds": 0.49572133272886276,
+  "days": 484,
+  "true_UP": 10,
+  "true_DOWN": 11,
+  "START_ON_separate": true,
+  "episodes": 22,
+  "native_policies": 2,
+  "new_accounts": 0,
+  "new_signal_or_MA_calculations": 0,
+  "new_native_previews": 0,
+  "benchmark_execution_scope": "EXISTING_RAW_DAILY_PROXY_NOT_VENUE_EXECUTION_CERTIFIED",
+  "no_automatic_followup": true
+}

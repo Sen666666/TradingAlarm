@@ -1,0 +1,341 @@
+[
+  {
+    "account": "RAW",
+    "seed_NAV": "1272554.6347827181485",
+    "end_NAV": "1304858.5887341270285",
+    "Q4_net_return": 0.025385121446612535,
+    "Q4_NAV_contribution": "32303.9539514088800",
+    "Q4_max_drawdown": 0.08913839412081992,
+    "end_drawdown": 0.0,
+    "mean_exposure": 0.8955434393786516,
+    "mean_negative_sector_NAV_fraction": 0.35698298555988445,
+    "mean_negative_sector_inventory_fraction": 0.3997289597775442,
+    "end_negative_sector_value": "261782.04",
+    "end_negative_sector_NAV_fraction": 0.2006210038851495,
+    "end_inherited_same_cycle_negative_value": "42987.32",
+    "mean_inherited_same_cycle_negative_NAV_fraction": 0.1843117801295525,
+    "end_positions": 307,
+    "peak_positions": 395,
+    "Q4_fees": "6576.7726285911200",
+    "Q4_slippage": "1687.035020",
+    "Q4_buy_fills": 604,
+    "Q4_sell_fills": 493,
+    "carry_in_Q3_buy_fills": 0,
+    "fresh_Q4_nonpositive_buy_fills": 155,
+    "fresh_Q4_nonpositive_buy_cash": "543209.2930734124640",
+    "carry_in_nonpositive_buy_cash": "0",
+    "Q4_negative_cycle_contributions": "170023.4379436864905",
+    "closed_lifetime_tail30_Q4_contribution": "25570.7705857969695",
+    "closed_other_Q4_contribution": "-117618.0180002398515",
+    "open_Q4_marked_contribution": "124351.2013658517620",
+    "closed_tail_cycles": 27,
+    "closed_other_cycles": 466,
+    "open_cycles": 307,
+    "ACT_pauses": 0,
+    "ACT_resumes": 0,
+    "ACT_paused_closes": 0,
+    "raw_I_stock_days": 10523,
+    "rank_unknown_excluded": 0,
+    "maximum_capacity_stock_days": 5276,
+    "selected_stock_days": 5276,
+    "post_Q_counts": {
+      "Q_pass": 5099,
+      "size_or_floor_reject": 410,
+      "intent_after_sizing": 2501,
+      "already_held": 2188,
+      "Q_unknown": 32,
+      "Q_fail": 145
+    },
+    "Q_reasons": {
+      "stock_rs_ready_fresh:unknown": 32,
+      "sector_up:false": 145
+    },
+    "final_counts": {
+      "intent_core": 7675,
+      "size_minimum_unit_exceeds_risk_or_nominal_cap": 1255,
+      "buy_fills": 979,
+      "whole_order_unfunded": 5358,
+      "allocation_open_minimum_exceeds_frozen_contract": 40,
+      "sell_fills": 672,
+      "allocation_missing_open": 4
+    },
+    "unknown_price_position_days": 49,
+    "unknown_mark_cases": [
+      [
+        "300353.SZ",
+        "2025-10-21"
+      ],
+      [
+        "300353.SZ",
+        "2025-10-22"
+      ],
+      [
+        "300353.SZ",
+        "2025-10-23"
+      ],
+      [
+        "300353.SZ",
+        "2025-10-24"
+      ],
+      [
+        "300131.SZ",
+        "2025-10-27"
+      ],
+      [
+        "300353.SZ",
+        "2025-10-27"
+      ],
+      [
+        "300131.SZ",
+        "2025-10-28"
+      ],
+      [
+        "300353.SZ",
+        "2025-10-28"
+      ],
+      [
+        "300131.SZ",
+        "2025-10-29"
+      ],
+      [
+        "300353.SZ",
+        "2025-10-29"
+      ],
+      [
+        "300131.SZ",
+        "2025-10-30"
+      ],
+      [
+        "300353.SZ",
+        "2025-10-30"
+      ],
+      [
+        "300131.SZ",
+        "2025-10-31"
+      ],
+      [
+        "300353.SZ",
+        "2025-10-31"
+      ],
+      [
+        "300131.SZ",
+        "2025-11-03"
+      ],
+      [
+        "300131.SZ",
+        "2025-11-04"
+      ],
+      [
+        "300131.SZ",
+        "2025-11-05"
+      ],
+      [
+        "300131.SZ",
+        "2025-11-06"
+      ],
+      [
+        "300131.SZ",
+        "2025-11-07"
+      ],
+      [
+        "000592.SZ",
+        "2025-11-18"
+      ],
+      [
+        "000592.SZ",
+        "2025-11-19"
+      ],
+      [
+        "000592.SZ",
+        "2025-11-20"
+      ],
+      [
+        "002812.SZ",
+        "2025-12-01"
+      ],
+      [
+        "002812.SZ",
+        "2025-12-02"
+      ],
+      [
+        "002812.SZ",
+        "2025-12-03"
+      ],
+      [
+        "002812.SZ",
+        "2025-12-04"
+      ],
+      [
+        "001331.SZ",
+        "2025-12-05"
+      ],
+      [
+        "002812.SZ",
+        "2025-12-05"
+      ],
+      [
+        "001331.SZ",
+        "2025-12-08"
+      ],
+      [
+        "002812.SZ",
+        "2025-12-08"
+      ],
+      [
+        "001331.SZ",
+        "2025-12-09"
+      ],
+      [
+        "002812.SZ",
+        "2025-12-09"
+      ],
+      [
+        "001331.SZ",
+        "2025-12-10"
+      ],
+      [
+        "002812.SZ",
+        "2025-12-10"
+      ],
+      [
+        "002969.SZ",
+        "2025-12-10"
+      ],
+      [
+        "001331.SZ",
+        "2025-12-11"
+      ],
+      [
+        "002812.SZ",
+        "2025-12-11"
+      ],
+      [
+        "002969.SZ",
+        "2025-12-11"
+      ],
+      [
+        "002812.SZ",
+        "2025-12-12"
+      ],
+      [
+        "002969.SZ",
+        "2025-12-12"
+      ],
+      [
+        "002969.SZ",
+        "2025-12-15"
+      ],
+      [
+        "002969.SZ",
+        "2025-12-16"
+      ],
+      [
+        "002718.SZ",
+        "2025-12-24"
+      ],
+      [
+        "002718.SZ",
+        "2025-12-25"
+      ],
+      [
+        "002718.SZ",
+        "2025-12-26"
+      ],
+      [
+        "002718.SZ",
+        "2025-12-29"
+      ],
+      [
+        "001331.SZ",
+        "2025-12-30"
+      ],
+      [
+        "002718.SZ",
+        "2025-12-30"
+      ],
+      [
+        "001331.SZ",
+        "2025-12-31"
+      ]
+    ],
+    "mean_available_NAV_fraction": 0.10247511361782952
+  },
+  {
+    "account": "H1_TOP3",
+    "seed_NAV": "1272554.6347827181485",
+    "end_NAV": "1273326.2882789548790",
+    "Q4_net_return": 0.0006063814276771051,
+    "Q4_NAV_contribution": "771.6534962367305",
+    "Q4_max_drawdown": 0.09647231252962596,
+    "mean_exposure": 0.8273510358400128,
+    "Q4_fees": "2644.3898487632695",
+    "Q4_slippage": "1485.022255",
+    "Q4_buy_fills": 113,
+    "Q4_sell_fills": 223,
+    "end_positions": 86,
+    "peak_positions": 198,
+    "mean_available_NAV_fraction": 0.17070668070484166,
+    "end_available": "122762.8306789548790",
+    "ACT_pauses": 0,
+    "ACT_resumes": 0,
+    "ACT_paused_closes": 0,
+    "post_Q_counts": {
+      "Q_pass": 627,
+      "intent_after_sizing": 214,
+      "already_held": 363,
+      "size_or_floor_reject": 50,
+      "Q_unknown": 2
+    },
+    "Q_reasons": {
+      "stock_rs_ready_fresh:unknown": 2
+    },
+    "final_counts": {
+      "intent_core": 5028,
+      "size_minimum_unit_exceeds_risk_or_nominal_cap": 895,
+      "buy_fills": 488,
+      "whole_order_unfunded": 3607,
+      "allocation_open_minimum_exceeds_frozen_contract": 30,
+      "sell_fills": 402,
+      "allocation_missing_open": 3
+    }
+  },
+  {
+    "account": "ATT_TOP3",
+    "seed_NAV": "1272554.6347827181485",
+    "end_NAV": "1326773.7122173238920",
+    "Q4_net_return": 0.0426064830166315,
+    "Q4_NAV_contribution": "54219.0774346057435",
+    "Q4_max_drawdown": 0.0931996264918229,
+    "mean_exposure": 0.8554801397692647,
+    "Q4_fees": "3232.3611103942565",
+    "Q4_slippage": "1543.239055",
+    "Q4_buy_fills": 182,
+    "Q4_sell_fills": 257,
+    "end_positions": 121,
+    "peak_positions": 198,
+    "mean_available_NAV_fraction": 0.14243122248049014,
+    "end_available": "132336.5026173238920",
+    "ACT_pauses": 0,
+    "ACT_resumes": 0,
+    "ACT_paused_closes": 0,
+    "post_Q_counts": {
+      "Q_pass": 559,
+      "intent_after_sizing": 304,
+      "already_held": 203,
+      "Q_unknown": 2,
+      "size_or_floor_reject": 52
+    },
+    "Q_reasons": {
+      "stock_rs_ready_fresh:unknown": 2
+    },
+    "final_counts": {
+      "intent_core": 5120,
+      "size_minimum_unit_exceeds_risk_or_nominal_cap": 897,
+      "buy_fills": 557,
+      "whole_order_unfunded": 3626,
+      "allocation_open_minimum_exceeds_frozen_contract": 29,
+      "sell_fills": 436,
+      "allocation_missing_open": 3
+    }
+  }
+]

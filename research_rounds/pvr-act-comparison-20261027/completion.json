@@ -1,0 +1,18 @@
+{
+  "status": "complete_not_adopted",
+  "economic_accounts": 6,
+  "economic_reruns": 0,
+  "rule_revisions_after_results": 0,
+  "no_application_changes": true,
+  "files": {
+    "CONCLUSION.txt": "0f4ee7b5ee642543ab68a5d4d0e94a2bd9a5a0b5244bbb098fa7925c7d41ebe8",
+    "verification.json": "9f5f3a7a85d360618af759c6ddf17699f8262d71814a6721b35a443e7a4cdbd5",
+    "attribution.json": "019295191d3ef1ec83a9c2ad132b68496e09564b0606d27ca1fd3fa03b1b7994",
+    "summary.csv": "b9aabd81a5acc69e8c81053945ebead619c608a5e278452cb7778e692fcfe5bb",
+    "annual.csv": "5b9dadd5e59631307e59b5f36377e6b637dd014014e636a52ab2688d6ac3f45b",
+    "stock-attribution.csv": "e5d2eed99c5555675f6f36f11209f49b23500a3da33747d091ca2cdba5b13d87",
+    "risk-events.csv": "b6b4d3051e77880d12ff68cd5132ce8cd34f582906d2e1a5d32d9b7d9dfc045a",
+    "comparison.png": "31c865fbc3c26cb248034b927ab4d672d61c056d07e5ee4724ddf76e20d42406",
+    "code/attribution.py": "ea3405d86d8dd8f38c3a37177896f18055b172b9c5a3b9d77e211a6dc79c94f2"
+  }
+}

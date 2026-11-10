@@ -1,0 +1,10 @@
+{
+  "status": "STOPPED_BEFORE_FIT_ENDPOINT_NOT_IDENTIFIED_FOR_H120_ALL_ROLE_BINARY_TARGET",
+  "models_fit": 0,
+  "predictions": 0,
+  "account_runs": 0,
+  "parameter_searches": 0,
+  "alternative_models_fit": 0,
+  "recommended_next_step": "Do not silently switch targets; H240 would be a separately frozen, limited-validation study",
+  "source_end": "2026-05-15"
+}

@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "evidence": {
+    "checkpoint_sha256": "9e4f9f70cc651e069b54a78732b26f40074bedb3c9b76019647c20cfc4433ec8",
+    "saved_state_risk": "59259.69430901510614617723245",
+    "pre_request_ordinary_risk": "58679.56014947488178775515995",
+    "only_new_request_lock_charge_difference": "580.13415954022435842207250",
+    "actual_saved_state_unchanged": true,
+    "financial_events": 0
+  },
+  "original_full_q": {
+    "603936.SH": 4500,
+    "002487.SZ": 1300,
+    "001267.SZ": 4200,
+    "002466.SZ": 1400
+  },
+  "final_Q": {
+    "603936.SH": 1500,
+    "002487.SZ": 0,
+    "001267.SZ": 0,
+    "002466.SZ": 0
+  },
+  "new_D": [],
+  "final_state": {
+    "nav": "998019.7536987059000",
+    "available": "167433.7536987059000",
+    "capital": "830586.00",
+    "risk": "59818.00244309178187130221248"
+  },
+  "conditional": false,
+  "all_constraints_passed": true,
+  "whole_quantity_trials": 103,
+  "original_selector_exact": true,
+  "actual_saved_state_result": {
+    "Q": {
+      "603936.SH": 4500,
+      "002487.SZ": 1300,
+      "001267.SZ": 1700,
+      "002466.SZ": 0
+    },
+    "new_D": [],
+    "old_pending_requests_retained": 16,
+    "warning": "old 16 requests remain actual obligations; not retroactively removed"
+  },
+  "seconds": 0.6644030841998756,
+  "financial_events": 0
+}

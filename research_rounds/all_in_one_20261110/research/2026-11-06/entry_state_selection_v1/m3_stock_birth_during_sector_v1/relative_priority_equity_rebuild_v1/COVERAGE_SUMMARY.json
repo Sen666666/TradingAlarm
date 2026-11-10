@@ -1,0 +1,98 @@
+{
+  "2024": {
+    "scope": "Read-only old 2024 paths and existing local event evidence, not reconstructed selection or returns",
+    "old_status_by_arm": {
+      "baseline": {
+        "COMPLETE_CONDITIONAL_STOCK_ROUND": 1165,
+        "FACTOR_PATH_UNKNOWN": 151,
+        "MISSING_OPEN_PATH_UNKNOWN": 17,
+        "MINIMUM_LOT_NOT_FUNDED_NOFILL": 6,
+        "FACTOR_AT_ENTRY_UNKNOWN": 4
+      },
+      "economic": {
+        "COMPLETE_CONDITIONAL_STOCK_ROUND": 1168,
+        "FACTOR_PATH_UNKNOWN": 152,
+        "MISSING_OPEN_PATH_UNKNOWN": 16,
+        "MINIMUM_LOT_NOT_FUNDED_NOFILL": 5,
+        "FACTOR_AT_ENTRY_UNKNOWN": 2
+      }
+    },
+    "factor_round_rows": 309,
+    "unique_first_factor_events": 167,
+    "unique_pure_cash_events": 165,
+    "unique_share_events": 2,
+    "event_date_min": "2024-09-06",
+    "event_date_max": "2025-07-04",
+    "local_diagnostic_classes": {
+      "CASH_NO_LOCAL_PUBLIC_CACHE": 108,
+      "CASH_FIELD_MATCH_PENDING_INDEPENDENT_REVIEW": 51,
+      "CASH_PRECISION_CONFLICT": 5,
+      "SHARE_ACTION_UNSUPPORTED": 2,
+      "CASH_MULTIPLE_ROWS_ADJUDICATE": 1
+    },
+    "source_factor_arithmetic_pass": 167,
+    "source_factor_max_relative_residual": "2.44308463803E-16",
+    "already_approved_2024_event_keys": 0,
+    "public_cache_events": 58,
+    "public_unique_same_date_rows": 57,
+    "public_multiple_same_date_events": 1,
+    "unique_rows_pay_equals_ex": 57,
+    "unique_rows_pay_after_ex": 0,
+    "unique_rows_pay_beyond_data_end": 0,
+    "missing_open_rounds": 33,
+    "missing_open_unique_sid_day": 17,
+    "closed_local_coverage_by_arm": {
+      "baseline": {
+        "LOCAL_NONEMPTY_RIGHTS_NO_HELD_EVENT": 1157,
+        "RIGHTS_MISSING_EMPTY_OR_UNVERIFIED": 8
+      },
+      "economic": {
+        "LOCAL_NONEMPTY_RIGHTS_NO_HELD_EVENT": 1159,
+        "RIGHTS_MISSING_EMPTY_OR_UNVERIFIED": 9
+      }
+    },
+    "closed_unusable_unique_events": 9,
+    "economic_runs": 0,
+    "network_requests": 0,
+    "rights_interval_contract": "Nonempty raw records and source hash; parsed events and dated unparsed events checked only entry<date<=exit. Unknown-date unparsed prevents certification. Out-of-interval historical unparsed preserved but not treated as current held event.",
+    "interval_assessment_by_arm": {
+      "baseline": {
+        "LOCAL_NO_ACTION_IN_AUDITED_INTERVAL": 1325,
+        "NO_HOLDING_INTERVAL_TO_CERTIFY": 10,
+        "SOURCE_MISSING_EMPTY_OR_UNVERIFIED": 8
+      },
+      "economic": {
+        "LOCAL_NO_ACTION_IN_AUDITED_INTERVAL": 1327,
+        "SOURCE_MISSING_EMPTY_OR_UNVERIFIED": 9,
+        "NO_HOLDING_INTERVAL_TO_CERTIFY": 7
+      }
+    },
+    "interval_contract": "Completed: entry<event<=exit, including ex on actual exit OPEN. Held factor/missing-OPEN UNKNOWN: entry<event<status_day known prefix, terminal status_day action separate, never certified through failure. Entry UNKNOWN/NOFILL: no confirmed holding interval. Undated unparsed remains coverage unknown. Does not certify absence of undisclosed actions.",
+    "lineage_match": 167,
+    "positive_raw_open": 167,
+    "closed_only_warning": "1157/1159 apply only to completed original paths. Unknown-prefix checks do not resolve the UNKNOWN failure or create completed returns."
+  },
+  "2022_release": {
+    "fixed_repaired_permits": 436,
+    "fixed_repaired_closed": 432,
+    "closed_by_2022_end": 417,
+    "after_exit_old_unknown_receipts": 1548,
+    "stocks": 394,
+    "day_sector_queues": 690,
+    "days": 104,
+    "all_original_rows_in_affected_queues": 5025,
+    "I_PVR_pass": 1110,
+    "close_checks": {
+      "PASS": 1098,
+      "MINIMUM_LOT_OR_RISK_REJECT_AT_CLOSE": 12
+    },
+    "new_selections_computed": false,
+    "method": "Join old baseline DECISIONS.blocking_round_id to repaired FULL fixed permits round_id, require decision day>=repaired actual stock exit; recheck immutable original close feasibility only. Repeated later receipts are exposure, not FLAT assertions."
+  },
+  "artifacts": {
+    "counts_derived_from_saved_csv": true,
+    "economic_runs": 0,
+    "new_return_values_created": 0,
+    "network_requests": 0
+  }
+}

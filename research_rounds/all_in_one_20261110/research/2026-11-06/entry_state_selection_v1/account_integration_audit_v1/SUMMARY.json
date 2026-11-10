@@ -1,0 +1,121 @@
+[
+  {
+    "day": "2024-09-24",
+    "next_open": "2024-09-25",
+    "native_before_snapshot_at": "2024-09-24 15:10:00+08:00",
+    "native_after_snapshot_at": "2024-09-25 15:10:00+08:00",
+    "window": "2022_2024",
+    "native_fixed_pool": 1709,
+    "native_intent_roles": 1256,
+    "native_intent_stocks": 988,
+    "native_held_stocks": 46,
+    "native_open_layers": 66,
+    "native_layer_roles": {
+      "core": 19,
+      "mobile": 47
+    },
+    "native_cash_before": "118747.1655873442215",
+    "native_nav_before": "642205.2747873442215",
+    "native_cash_after": "64312.4999332382715",
+    "native_nav_after": "649168.4091332382715",
+    "next_buy_fills": 9,
+    "next_sell_fills": 0,
+    "next_buy_gross": "54386.179500",
+    "next_buy_fees": "48.4861541059500",
+    "next_sell_net": "0",
+    "next_funding_results": {
+      "probe_risk": 28,
+      "reserved": 9,
+      "industry_invalidated": 550,
+      "probe_risk,sector_capital": 5,
+      "probe_risk,sector_capital,sector_risk": 12,
+      "cash_or_original_reserve,probe_risk": 508,
+      "cash_or_original_reserve,probe_risk,sector_capital,sector_risk": 72,
+      "cash_or_original_reserve,probe_risk,sector_capital": 66,
+      "open_minimum_exceeds_frozen_contract": 6
+    },
+    "BASE_PVR": {
+      "selected": 20,
+      "in_fixed_pool": 4,
+      "in_native_intents": 3,
+      "already_held": 2,
+      "next_native_buy_ids": [
+        "000029.SZ",
+        "600007.SH"
+      ]
+    },
+    "STATE_5F_15V": {
+      "selected": 20,
+      "in_fixed_pool": 5,
+      "in_native_intents": 4,
+      "already_held": 3,
+      "next_native_buy_ids": [
+        "000029.SZ",
+        "600007.SH",
+        "600927.SH"
+      ]
+    }
+  },
+  {
+    "day": "2026-01-15",
+    "next_open": "2026-01-16",
+    "native_before_snapshot_at": "2026-01-15 15:10:00+08:00",
+    "native_after_snapshot_at": "2026-01-16 15:10:00+08:00",
+    "window": "strong",
+    "native_fixed_pool": 1709,
+    "native_intent_roles": 344,
+    "native_intent_stocks": 257,
+    "native_held_stocks": 81,
+    "native_open_layers": 100,
+    "native_layer_roles": {
+      "core": 50,
+      "mobile": 50
+    },
+    "native_cash_before": "154255.9496886778085",
+    "native_nav_before": "1473206.4952886778085",
+    "native_cash_after": "153722.8169882030770",
+    "native_nav_after": "1455159.9025882030770",
+    "next_buy_fills": 19,
+    "next_sell_fills": 9,
+    "next_buy_gross": "383629.168725",
+    "next_buy_fees": "127.2561355602725",
+    "next_sell_net": "383223.2921600855410",
+    "next_funding_results": {
+      "open_at_or_below_protection": 3,
+      "reserved": 20,
+      "missing_open": 1,
+      "probe_risk": 14,
+      "probe_risk,sector_capital": 13,
+      "sector_capital": 2,
+      "industry_invalidated": 17,
+      "cash_or_original_reserve,probe_risk": 152,
+      "cash_or_original_reserve,probe_risk,sector_capital": 109,
+      "cash_or_original_reserve": 8,
+      "cash_or_original_reserve,sector_capital": 1,
+      "cash_or_original_reserve,probe_risk,sector_capital,sector_risk": 1,
+      "open_minimum_exceeds_frozen_contract": 1
+    },
+    "BASE_PVR": {
+      "selected": 20,
+      "in_fixed_pool": 9,
+      "in_native_intents": 8,
+      "already_held": 1,
+      "next_native_buy_ids": [
+        "002153.SZ",
+        "601811.SH",
+        "603039.SH"
+      ]
+    },
+    "STATE_5F_15V": {
+      "selected": 20,
+      "in_fixed_pool": 9,
+      "in_native_intents": 8,
+      "already_held": 2,
+      "next_native_buy_ids": [
+        "002153.SZ",
+        "601811.SH",
+        "603039.SH"
+      ]
+    }
+  }
+]

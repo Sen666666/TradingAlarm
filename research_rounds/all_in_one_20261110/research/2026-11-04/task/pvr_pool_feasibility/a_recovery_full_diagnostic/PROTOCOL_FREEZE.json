@@ -1,0 +1,23 @@
+{
+  "before_any_new_A_numeric_computation": true,
+  "protocol_sha256": "a8874d4c4158c894022284392eff2780ee3ef60ac22349efe3dedf1650b7ef27",
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/a_recovery_full_diagnostic/PROTOCOL.txt": "a8874d4c4158c894022284392eff2780ee3ef60ac22349efe3dedf1650b7ef27",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/recovery.csv": "76599d9013946bc5fc501a57b046f36a2868ad61f147ef1a6c73c9575b35906a",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/input-preparation/prepared-v2/NATIVE1709/market.parquet": "0449822d749cd79e9632786a8a4929ae29658554f2f1ebbf9371e6e2a82e4b37",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/input-preparation/prepared-v2/INPUT_GATE.json": "5bdce4ae9111f91e75475762e516ccf28fee9ebc4b9bb79c52311465b3aabae1",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/input-preparation/prepared-v2/INPUT_PHYSICAL_PREFIX_GATE.json": "594a764b36224c03589f19a64e0f3b5d3c5203e5dd2661db310d0f61aac4dadc",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/actual-risk-recovery-20261027/code/risk_policy.py": "b0f38e5813b56d52cf15cae06fb6370cc55f2930ecff9ced4d8eefe793c1518d",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/recovery-only-20261027/CONCLUSION.md": "1c2510c430742bc6e246a37895b17a164dcbc6a4e56323e15e659f8d19f87b1c",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/recovery-only-20261027/PROTOCOL.md": "fe58c41bfb94656c5803613b7ab2c600cf656702d353481b8b3712ebc1be8bf7",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/recovery-only-20261027/results/comparison.csv": "3147fe74bc00d44680a0cc396a23bb521b0b674a23d378363e708082f20fb2ea",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/recovery-only-20261027/results/participation-epochs.csv": "21f1db3a925f7dff8e72908c3a1ec9b6067007a133cad3acb3425d3826108f72",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/cycle2024/no60/run-2024/pair/B.json.gz": "0f29f72cebb8d2ea4f1cf576c0a3fded90f747b58b5439b52564a57c31886440",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/cycle2024/no60/run-2024/pair/daily.jsonl.gz": "f185e0a768db347401bb57670d29ea30383217357fb581967ef52514eac4e8f4",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/cycle2024/no60/run-2024/pair/opportunities.jsonl.gz": "d8ce2c31603bd1e7964864fa047937583aa3d369341472f2e55d77a3fe70abaa",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/runs/2025_26/pair/B.json.gz": "932b843daa6b207d43eae4f773442b886c0fda9181c41bf34dac5f91dec76147",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/runs/2025_26/pair/daily.jsonl.gz": "31d1ec94e4d4f1e249d24441794611886f56f6add844f1b2e70b15ae42fed197",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/runs/2025_26/pair/opportunities.jsonl.gz": "ffde996be82dba41519b5b999158cd7ad8b767740ad2e8991f996a46f8a05d2f"
+  },
+  "new_accounts_or_S0": 0
+}

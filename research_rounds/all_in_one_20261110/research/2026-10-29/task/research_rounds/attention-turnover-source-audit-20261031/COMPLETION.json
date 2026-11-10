@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "at_UTC": "2026-10-31T12:54:44.898992+00:00",
+  "summary": {
+    "groups": 91,
+    "quarter_internal_groups": {
+      "2025Q4": 46,
+      "2026Q1": 44
+    },
+    "cross_quarter_groups": 1,
+    "industry_exit_events": 118,
+    "primary_counts": {
+      "opponent_single_sufficient": 5,
+      "multiple_singletons_sufficient": 19,
+      "coverage_changed": 75,
+      "joint_required": 5,
+      "numerator_single_sufficient": 9,
+      "denominator_single_sufficient": 3,
+      "qualification_single_sufficient": 2
+    },
+    "coexisting_own_qualification_lost": 10,
+    "coexisting_global_denominator_change": 75,
+    "coexisting_own_ratio_member_change": 1,
+    "self_score_not_weaker_events": 17,
+    "strong_denominator_catchup_events": 2,
+    "numerator_log_negative": 81,
+    "denominator_log_negative": 89,
+    "events_original_E0_RS_still_qualified": 108,
+    "no_future_labels_read": true,
+    "top3_exact_days": 116,
+    "reconstructed_score_exact_with_float64_tolerance": true,
+    "seconds": 1.4945933329872787,
+    "seconds_with_output": 1.5490620001219213
+  },
+  "qualification_exact_Q4_cells": 5400,
+  "total_aggregation_seconds": 2.1032550828531384,
+  "future_labels_loaded": false,
+  "economic_paths": 0,
+  "blockers": [],
+  "conclusion": "mechanism possible in two narrow-member examples; not established as dominant turnover cause; no policy changes"
+}

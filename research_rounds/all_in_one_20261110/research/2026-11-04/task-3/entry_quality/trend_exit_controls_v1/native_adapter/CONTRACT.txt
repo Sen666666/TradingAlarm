@@ -1,0 +1,56 @@
+No60 trend exit controls v1: baseline + four fixed early-protection plugins
+
+Active API: trend_exit_adapter.build_runner_class(A, provider, arm).
+A is the original loaded task/pvr_pool_feasibility/native_adapter.py module.
+One arm/class per fresh process. The factory creates a class, no Account.
+arm: BASELINE, EARLY_EMA20, EARLY_EMA60, EARLY_BOLL20_MID,
+EARLY_BOLL20_LOWER. No grace or unbounded I replacement is constructible.
+
+Original chain:
+No60 A.Runner -> native_rank.Runner -> NoAccount PreparedRunner ->
+joint_v3.Runner. Native opening, route, Account, budget, quantities, I/Q
+admission, ACT, costs, liquidity/corporate-action proxies remain original.
+
+Only one exact source insertion: after each held stock's complete original
+mobile-old-floor check and I/new-CP ratchet loop, before next held stock.
+Original ACT/I block is unchanged. Precedence therefore ACT > original I
+exit > each mobile's old floor CP > indicator. A same-day CP mobile exit
+keeps its native reason; indicator requests only remaining unlatched layers.
+Actual sell/settlement/reserve/cancel callbacks are native. CLOSE request
+does not create a same-close fill, cancel a locked sell, or promise a price.
+
+Provider: .manifest_sha256 plus .at(sid, at, indicator) returning exact dict:
+status READY/UNKNOWN, day, causal_close, line, source_segment,
+source_max_day, unknown_reason. READY must be current date, same native
+close/segment, no source day in the future. close < line requests exit;
+equality retains. UNKNOWN adds no exit: original I/ACT/CP stay effective.
+No indicator controls entry, rank, floor/size, capital, or ACT.
+
+BASELINE calls original native_rank.Runner.planning directly. Candidate
+planning uses unchanged native body plus the single hook, then the exact
+original apply_priority. New class/policy/provider identity is explicit;
+own-candidate checkpoints must match. Native source/provenance gates remain.
+Provider is immutable class input, not a second copy in checkpoint payload.
+trend-exit-policy.jsonl.gz adds decision-time input and exact new layer IDs.
+
+Root separately freezes provider/input loader/calendar/scopes and launches
+economics. This adapter has no run entrypoint, import of an old economic
+account, horizon state reset, or permission to run a financial path.
+
+Checks performed here: eleven pure branch/priority/provider/source checks,
+zero native Accounts/OPEN/CLOSE events/financial paths. Native baseline
+reproduction, account bridges and candidate run validation belong to root.
+
+Grace disposition: requested H3/5/10 once per actual lifecycle would require
+known current EMA validity AND C strictly above original last valid I floor,
+freeze that old risk reference, block all new capital until actual flat,
+and force a native request at t0+H market CLOSE even through a halt. Original
+actual-I-exit coverage supplied by execution review is zero for that
+permission (two-year673/673, post67/67, strong431/431 floor breached).
+Do not infer zero all-held Ioff coverage until its separate receipt exists.
+Six grace arms stopped; an unexecuted pre-coverage draft is only archived
+under inactive_pre_coverage_draft and is not used by active code or freeze.
+
+Existing failed fast-exit/reentry and cost-proof studies remain economic
+counterexamples; this is a limited plugin control, not proof exits were
+too early or a standalone MA/Boll strategy. No extra thresholds or sweep.

@@ -1,0 +1,212 @@
+{
+  "C10": {
+    "batches": 39,
+    "donor_stocks": 169,
+    "pairs": 681,
+    "total_actual_source_gross": "7181648.949215",
+    "relations": {
+      "NEW_DOMINATES": {
+        "pair_count": 294,
+        "batch_count": 34,
+        "donor_count": 112,
+        "donor_gross_exposure": "4869357.213445",
+        "warning": "gross counted once per donor within category; categories overlap and must not be added"
+      },
+      "OLD_DOMINATES": {
+        "pair_count": 114,
+        "batch_count": 30,
+        "donor_count": 56,
+        "donor_gross_exposure": "2623174.646555",
+        "warning": "gross counted once per donor within category; categories overlap and must not be added"
+      },
+      "CROSS": {
+        "pair_count": 271,
+        "batch_count": 36,
+        "donor_count": 109,
+        "donor_gross_exposure": "5156247.296645",
+        "warning": "gross counted once per donor within category; categories overlap and must not be added"
+      },
+      "TIE": {
+        "pair_count": 0,
+        "batch_count": 0,
+        "donor_count": 0,
+        "donor_gross_exposure": "0",
+        "warning": "gross counted once per donor within category; categories overlap and must not be added"
+      },
+      "NA": {
+        "pair_count": 2,
+        "batch_count": 1,
+        "donor_count": 1,
+        "donor_gross_exposure": "9389.303000",
+        "warning": "gross counted once per donor within category; categories overlap and must not be added"
+      }
+    },
+    "gates": {
+      "hard": {
+        "eligible_donors": 112,
+        "total_donors": 169,
+        "eligible_donor_gross": "4869357.213445",
+        "blocked_or_unknown_donor_gross": "2312291.735770",
+        "batches_any_donor_eligible": 34,
+        "batches_all_donors_eligible": 8,
+        "batches_no_donors_eligible": 5,
+        "warning": "each donor only needs one qualifying positive-Q recipient here; no quantity/cash/risk/flow matching or joint feasibility"
+      },
+      "weak": {
+        "eligible_donors": 156,
+        "total_donors": 169,
+        "eligible_donor_gross": "6865085.190275",
+        "blocked_or_unknown_donor_gross": "316563.758940",
+        "batches_any_donor_eligible": 38,
+        "batches_all_donors_eligible": 28,
+        "batches_no_donors_eligible": 1,
+        "warning": "each donor only needs one qualifying positive-Q recipient here; no quantity/cash/risk/flow matching or joint feasibility"
+      }
+    },
+    "pairs_different_H1_h": 0,
+    "raw_vs_round12_changed_pairs": 0,
+    "donors_without_fresh": 154,
+    "donors_with_unknown_fresh": 0,
+    "unique_market_day_pairs": 681
+  },
+  "C20": {
+    "batches": 41,
+    "donor_stocks": 171,
+    "pairs": 569,
+    "total_actual_source_gross": "5865743.511075",
+    "relations": {
+      "NEW_DOMINATES": {
+        "pair_count": 223,
+        "batch_count": 38,
+        "donor_count": 116,
+        "donor_gross_exposure": "4082642.827415",
+        "warning": "gross counted once per donor within category; categories overlap and must not be added"
+      },
+      "OLD_DOMINATES": {
+        "pair_count": 113,
+        "batch_count": 32,
+        "donor_count": 59,
+        "donor_gross_exposure": "1799839.590020",
+        "warning": "gross counted once per donor within category; categories overlap and must not be added"
+      },
+      "CROSS": {
+        "pair_count": 233,
+        "batch_count": 35,
+        "donor_count": 108,
+        "donor_gross_exposure": "3589748.357935",
+        "warning": "gross counted once per donor within category; categories overlap and must not be added"
+      },
+      "TIE": {
+        "pair_count": 0,
+        "batch_count": 0,
+        "donor_count": 0,
+        "donor_gross_exposure": "0",
+        "warning": "gross counted once per donor within category; categories overlap and must not be added"
+      },
+      "NA": {
+        "pair_count": 0,
+        "batch_count": 0,
+        "donor_count": 0,
+        "donor_gross_exposure": "0",
+        "warning": "gross counted once per donor within category; categories overlap and must not be added"
+      }
+    },
+    "gates": {
+      "hard": {
+        "eligible_donors": 116,
+        "total_donors": 171,
+        "eligible_donor_gross": "4082642.827415",
+        "blocked_or_unknown_donor_gross": "1783100.683660",
+        "batches_any_donor_eligible": 38,
+        "batches_all_donors_eligible": 11,
+        "batches_no_donors_eligible": 3,
+        "warning": "each donor only needs one qualifying positive-Q recipient here; no quantity/cash/risk/flow matching or joint feasibility"
+      },
+      "weak": {
+        "eligible_donors": 158,
+        "total_donors": 171,
+        "eligible_donor_gross": "5545569.678075",
+        "blocked_or_unknown_donor_gross": "320173.833000",
+        "batches_any_donor_eligible": 40,
+        "batches_all_donors_eligible": 28,
+        "batches_no_donors_eligible": 1,
+        "warning": "each donor only needs one qualifying positive-Q recipient here; no quantity/cash/risk/flow matching or joint feasibility"
+      }
+    },
+    "pairs_different_H1_h": 0,
+    "raw_vs_round12_changed_pairs": 0,
+    "donors_without_fresh": 155,
+    "donors_with_unknown_fresh": 0,
+    "unique_market_day_pairs": 569
+  },
+  "COMBINED": {
+    "batches": 80,
+    "donor_stocks": 340,
+    "pairs": 1250,
+    "total_actual_source_gross": "13047392.460290",
+    "relations": {
+      "NEW_DOMINATES": {
+        "pair_count": 517,
+        "batch_count": 72,
+        "donor_count": 228,
+        "donor_gross_exposure": "8952000.040860",
+        "warning": "gross counted once per donor within category; categories overlap and must not be added"
+      },
+      "OLD_DOMINATES": {
+        "pair_count": 227,
+        "batch_count": 62,
+        "donor_count": 115,
+        "donor_gross_exposure": "4423014.236575",
+        "warning": "gross counted once per donor within category; categories overlap and must not be added"
+      },
+      "CROSS": {
+        "pair_count": 504,
+        "batch_count": 71,
+        "donor_count": 217,
+        "donor_gross_exposure": "8745995.654580",
+        "warning": "gross counted once per donor within category; categories overlap and must not be added"
+      },
+      "TIE": {
+        "pair_count": 0,
+        "batch_count": 0,
+        "donor_count": 0,
+        "donor_gross_exposure": "0",
+        "warning": "gross counted once per donor within category; categories overlap and must not be added"
+      },
+      "NA": {
+        "pair_count": 2,
+        "batch_count": 1,
+        "donor_count": 1,
+        "donor_gross_exposure": "9389.303000",
+        "warning": "gross counted once per donor within category; categories overlap and must not be added"
+      }
+    },
+    "gates": {
+      "hard": {
+        "eligible_donors": 228,
+        "total_donors": 340,
+        "eligible_donor_gross": "8952000.040860",
+        "blocked_or_unknown_donor_gross": "4095392.419430",
+        "batches_any_donor_eligible": 72,
+        "batches_all_donors_eligible": 19,
+        "batches_no_donors_eligible": 8,
+        "warning": "each donor only needs one qualifying positive-Q recipient here; no quantity/cash/risk/flow matching or joint feasibility"
+      },
+      "weak": {
+        "eligible_donors": 314,
+        "total_donors": 340,
+        "eligible_donor_gross": "12410654.868350",
+        "blocked_or_unknown_donor_gross": "636737.591940",
+        "batches_any_donor_eligible": 78,
+        "batches_all_donors_eligible": 56,
+        "batches_no_donors_eligible": 2,
+        "warning": "each donor only needs one qualifying positive-Q recipient here; no quantity/cash/risk/flow matching or joint feasibility"
+      }
+    },
+    "pairs_different_H1_h": 0,
+    "raw_vs_round12_changed_pairs": 0,
+    "donors_without_fresh": 309,
+    "donors_with_unknown_fresh": 0,
+    "unique_market_day_pairs": 1015
+  }
+}

@@ -1,0 +1,9 @@
+NOT EXECUTED. Only after final engine/entry review + explicit root authorization; approved files do not exist.
+Working directory: /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-two-day-entry-preparation-20261102
+
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B prefix_entry.py --execute --window 2022 --mode C10 --authorization AUTH_2022_C10.approved.json --out runs/2022-C10
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B prefix_entry.py --execute --window 2022 --mode C_BATCH20 --authorization AUTH_2022_C_BATCH20.approved.json --out runs/2022-C_BATCH20
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B prefix_entry.py --execute --window 2025_26 --mode C10 --authorization AUTH_2025_26_C10.approved.json --out runs/2025_26-C10
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B prefix_entry.py --execute --window 2025_26 --mode C_BATCH20 --authorization AUTH_2025_26_C_BATCH20.approved.json --out runs/2025_26-C_BATCH20
+
+Own-checkpoint continuation adds --resume <checkpoint>; exact type/source/input/mode must match. Never import an A/SC/PVR checkpoint.

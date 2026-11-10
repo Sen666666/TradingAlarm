@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "daily_rows_each": 242,
+  "daily_money_quantity_bridges": true,
+  "fees_cash_stock_layer_contribution_bridges": true,
+  "baseline_replayed": false,
+  "new_account_runs": 0,
+  "SC_book_sha256": "de9eddb936dab5a8872c3c916cc1c02c596bfa8fcfeb6dcbca30a1b03e78c01a",
+  "SD_book_sha256": "f2490c16f0855bdd4661b3c09ff4576499c12448f3f5d0a456d2e784e7a50329"
+}

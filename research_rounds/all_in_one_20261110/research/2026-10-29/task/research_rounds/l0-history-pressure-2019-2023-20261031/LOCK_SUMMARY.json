@@ -1,0 +1,139 @@
+[
+  {
+    "sector": "TECH",
+    "account": "L0_base",
+    "all_closed_cycles": 1718,
+    "same_I_closed_core_windows": 102,
+    "same_I_flat_stock_days": 1804,
+    "new_I_ACT_on_days": 97,
+    "natural_epoch_change_actual_reentry_windows": 13,
+    "final_stock_day_status": {
+      "ACT_off": 1464,
+      "resource_exclusivity_unknown_sufficient_bound_failed": 64,
+      "no_new_native_I": 243,
+      "co_block_minimum_unit_exceeds_risk_or_nominal_cap": 27,
+      "co_block_open_minimum_exceeds_frozen_contract": 2,
+      "Q_not_true_or_unknown_in_active_reference": 4
+    },
+    "precheck_counts": {
+      "clear_already_outside_original_I_epoch": 1616,
+      "closed_core_same_I_window": 102,
+      "same_I_flat_stock_days": 1804,
+      "ACT_off": 1464,
+      "natural_epoch_change_actual_reentry": 13,
+      "Q_true_lock_candidate": 93,
+      "no_new_native_I": 243,
+      "Q_not_true_or_unknown_in_active_reference": 4,
+      "co_block_minimum_unit_exceeds_risk_or_nominal_cap": 27,
+      "resource_exclusivity_unknown_sufficient_bound_failed": 64,
+      "co_block_open_minimum_exceeds_frozen_contract": 2
+    }
+  },
+  {
+    "sector": "TECH",
+    "account": "L0_cost2",
+    "all_closed_cycles": 1733,
+    "same_I_closed_core_windows": 103,
+    "same_I_flat_stock_days": 1806,
+    "new_I_ACT_on_days": 97,
+    "natural_epoch_change_actual_reentry_windows": 13,
+    "final_stock_day_status": {
+      "ACT_off": 1466,
+      "resource_exclusivity_unknown_sufficient_bound_failed": 64,
+      "no_new_native_I": 243,
+      "co_block_minimum_unit_exceeds_risk_or_nominal_cap": 27,
+      "co_block_open_minimum_exceeds_frozen_contract": 2,
+      "Q_not_true_or_unknown_in_active_reference": 4
+    },
+    "precheck_counts": {
+      "clear_already_outside_original_I_epoch": 1630,
+      "closed_core_same_I_window": 103,
+      "same_I_flat_stock_days": 1806,
+      "ACT_off": 1466,
+      "natural_epoch_change_actual_reentry": 13,
+      "Q_true_lock_candidate": 93,
+      "no_new_native_I": 243,
+      "Q_not_true_or_unknown_in_active_reference": 4,
+      "co_block_minimum_unit_exceeds_risk_or_nominal_cap": 27,
+      "resource_exclusivity_unknown_sufficient_bound_failed": 64,
+      "co_block_open_minimum_exceeds_frozen_contract": 2
+    }
+  },
+  {
+    "sector": "TECH",
+    "account": "L0_delay1",
+    "all_closed_cycles": 1653,
+    "same_I_closed_core_windows": 136,
+    "same_I_flat_stock_days": 9336,
+    "new_I_ACT_on_days": 1474,
+    "natural_epoch_change_actual_reentry_windows": 92,
+    "final_stock_day_status": {
+      "ACT_off": 3019,
+      "resource_exclusivity_unknown_sufficient_bound_failed": 1225,
+      "no_new_native_I": 4806,
+      "I_event_unknown_no_cached_row": 37,
+      "lock_only_intent_proven_execution_requires_original_delay": 12,
+      "next_open_unknown": 3,
+      "Q_not_true_or_unknown_in_active_reference": 37,
+      "co_block_minimum_unit_exceeds_risk_or_nominal_cap": 184,
+      "co_block_next_execution_proxy": 5,
+      "co_block_open_minimum_exceeds_frozen_contract": 8
+    },
+    "precheck_counts": {
+      "clear_already_outside_original_I_epoch": 1517,
+      "closed_core_same_I_window": 136,
+      "same_I_flat_stock_days": 9336,
+      "ACT_off": 3019,
+      "Q_true_lock_candidate": 1437,
+      "no_new_native_I": 4806,
+      "natural_epoch_change_actual_reentry": 92,
+      "I_event_unknown_no_cached_row": 37,
+      "Q_not_true_or_unknown_in_active_reference": 37,
+      "co_block_minimum_unit_exceeds_risk_or_nominal_cap": 184,
+      "resource_exclusivity_unknown_sufficient_bound_failed": 1225,
+      "co_block_next_execution_proxy": 5,
+      "co_block_open_minimum_exceeds_frozen_contract": 8,
+      "lock_only_intent_proven_execution_requires_original_delay": 12,
+      "next_open_unknown": 3
+    }
+  },
+  {
+    "sector": "DRUG",
+    "account": "L0_base",
+    "all_closed_cycles": 476,
+    "same_I_closed_core_windows": 0,
+    "same_I_flat_stock_days": 0,
+    "new_I_ACT_on_days": 0,
+    "natural_epoch_change_actual_reentry_windows": 0,
+    "final_stock_day_status": {},
+    "precheck_counts": {
+      "clear_already_outside_original_I_epoch": 476
+    }
+  },
+  {
+    "sector": "DRUG",
+    "account": "L0_cost2",
+    "all_closed_cycles": 481,
+    "same_I_closed_core_windows": 0,
+    "same_I_flat_stock_days": 0,
+    "new_I_ACT_on_days": 0,
+    "natural_epoch_change_actual_reentry_windows": 0,
+    "final_stock_day_status": {},
+    "precheck_counts": {
+      "clear_already_outside_original_I_epoch": 481
+    }
+  },
+  {
+    "sector": "DRUG",
+    "account": "L0_delay1",
+    "all_closed_cycles": 331,
+    "same_I_closed_core_windows": 0,
+    "same_I_flat_stock_days": 0,
+    "new_I_ACT_on_days": 0,
+    "natural_epoch_change_actual_reentry_windows": 0,
+    "final_stock_day_status": {},
+    "precheck_counts": {
+      "clear_already_outside_original_I_epoch": 331
+    }
+  }
+]

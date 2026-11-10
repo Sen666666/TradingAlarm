@@ -1,0 +1,36 @@
+上行参与：现行授权/持有/加仓状态与旧研究排重（只读，未实现策略）
+
+结论：现行框架已经包含“获得趋势证据后持有”和“新量价进展后加仓”，但两者分属不同角色和不同许可。CORE获得后按I结构持有；MOBILE由新CP增加小层、各层仍受连续CP保护。confirmed只是资金池，不能把MOBILE当作CORE。把这些原机制改称EMA趋势持有并不构成新算法。
+
+一、有效接线与收盘→次开时钟
+有效原No60是task/pvr_pool_feasibility/native_adapter.py11–40：原J.opening、N.planning及去confirmed60的route/model。component.py17–34从no-account版本移除confirmed60三项；不恢复旧account3%或confirmed60。new_price_trend_v1/funding/entry_adapter.py113–120的OFF沿原N.planning；BB20 ON只在roles/barriers通过后且真实空仓时再加AND，原持仓ADD返回True，未改原退出。
+J.planning214–222先构造当时I/S0证据、epoch、当前NAV与ACT；225–240先处理已有仓退出/保护；241更新行业；243–257生成当日原CORE/MOBILE意图并冻结尺寸。N随后只更换原候选的PVR排序键。下一合法OPEN执行J.opening304–324：先实际卖出与结算、再按已知OPEN作保护/尺寸/原资金route、保留后才查执行proxy。不能用fill日CLOSE救前一日信号，不能把拟卖资金当已得现金。
+
+二、E0、I_target和i_buy不是同一布尔量
+E0政策policy.py99–114：当时C<=既有结构floor退出；新的确认上行price event可启动或抬高floor。source段重新初始化。当前cache.py23–34调用project(...,'G1_I')生成I状态。
+policies_g1.py6–34：G1_I为use_i=True、use_x=False。shadow=E0 target；warm=ready且grade>=2；opportunity=shadow&&warm&&(E0当日entered或G1 fresh_up)。无活跃I且当日未退出时可启动，i_buy=active&&opportunity。I一旦启动，不会因G1冷却退出：只有E0 shadow失效或C<=保留I floor才退出；未破线时I floor单调随E0抬高。
+因此“延长I以防冷G1”在此源码无动作。已有全母体935+433=1368个首次I退出均当时E0 off、未知0，不能凭EMA覆盖称仅延续旧授权。E0 on/I off则是未取得或未重新启动I的入口问题。旧原CP输入的e0_valid实际接的是stock i_target（generate.py26），所以该gap CP收据为0；不能简单要求原CP来补同一gap。
+
+三、CORE持有和新增许可
+J.planning243–245：仅event.S0.Q=True、真实not held、core_epoch未消费才提CORE；入口要求当日原i_buy，而不仅I_target持续True。CORE fill才消费epoch（pilot.py70），拒单或纯MOBILE不自动消费。epoch由原I_target状态/source段变化更新，global_watch保留原合格事件epoch（J216–219）。同I段清仓后并非任意每天可再建CORE。
+持有期间J231–234只更新last_core_line，不检查MOBILE CP线、不以G1冷却退出。预算镜像J48–50用last_core_line，不能拿初买x.floor当CORE一直在用的止损。所有层仍先受ACT/I_target全退出（225–229）。原CORE不会自动因浮盈再加一层CORE；持股已使not held=False。
+
+四、MOBILE已有“新进展→加层”规则
+canonical fresh CP收据+cpr存在+continuing S0.Q=True便可提MOBILE，不要求真实已有仓（J243–255）；所以kind='add'可能是空仓首次/再入，不能一概称存量加仓。continuing仅把当日i_buy门替换为市场买入许可，仍保留I_target、RS、行业与其他S0检查（J218；engine.py39–45；sector_stock_admission.py195–219）。
+CP本身是量价进展证据：model.py22–24用此前63日绝对log收益中位尺度和此前21日成交额中位基线；40–45仅新frontier位移累计credit，须价格位移与credit均>=sqrt(5)*冻结scale才出receipt，candidate=C*exp(-sqrt(21)*scale)。receipt后重置anchor/credit，来源/无资格重置；不是每天上涨重复一张凭据。
+每次原MOBILE名义预算=min(.02*NAV,max(0,.1*NAV-当前同股股数*当日raw_price))，cap按当日BUY规则取整；保护线为max(当时I线,当日CP candidate)。已有CORE或MOBILE都可由新CP追加MOBILE，但同一个OPEN同股只完成一次角色资助（J308–318）。这不是浮盈/EMA自动加到10%，没有新CP时不会因股价上涨自动补足目标。
+route1–28：行业active、fresh/未消费CP、原现金10%预留、probe池10%/风险.5%、行业资本2%/10%/20%、行业风险1%、单股10%及合法最小单位仍检查。只有MOBILE在行业成熟且迁移成功可选confirmed；CORE新单仍先走probe，已有层可以迁移池但role不变。
+
+五、MOBILE保护先后与可软化边界
+J225–240先ACT/I全退；对MOBILE先用进入该CLOSE前生效F判断C<=F则a.sell(CP1_add_protection)，未触线才F_new=max(F_old,I_t,当日新CP candidate)，新线只用于以后观察。不能拿今天新线或最终floor回填触发判断。
+现行CP退出是必须执行的原规则，并非已经有EMA豁免开关。若研究仅软化抬高后的局部CP，只能在J236调用a.sell之前拦截提案，另定义新政策。pilot.sell104–115把目标与原锁卖集合并；后来的EMA改善不能撤销已锁退出。原ACT、I结构失效、来源有效性/原责任和旧尾仓卡规定的初始硬线均不可被此例外覆盖。
+旧尾仓卡的硬线H=max(实际入场冻结max(I,entryCP),当前合法I)，不能偷换成较低原始I；它不是当前native已经可单独开关的soft/hard字段。保留低于旧F的股票会新增风险：C<=F时原q*max(C-F,0)=0，改用更低H后q*(C-H)>0；尚未trim成交时全部原qty仍负责任。原共享行业/池/现金/费用/dated SELL单位、FIFO、T+1、跌停/容量和权息必须保留，不能只改ExitOrder数量而不改真实风险占用。
+
+六、可插拔位置与逻辑互斥
+1. I_target=True但原i_buy过去、尚未取得CORE：可讨论仅在S0的buy_allowed原i_buy证据项上作OR式补充；位置在engine.packet44–45/J218构造event.Q前，仍要求not held/未消费epoch、其余S0和ACT/行业/资金/尺寸。放在原完整i_buy Q通过后再AND不会补出新许可。尚未实现；还须查旧补CORE/重入结果。
+2. E0=True、I_target=False：单补买事件仍被stock_up=I_target拒绝，且原CP上游为false；这需要独立的新I启动授权合同，不是延续已有I，不能偷偷改一项buy_allowed说已完整覆盖。
+3. 持仓期间的新量价加层：原已有CP路径；若新增EMA证据，只能明确是替换/补充新layer证据或新数量合同，不能称原机制没有加仓。它须保持原角色、原未消费凭据、原风险/行业/资金和真实OPEN重验，不凭未来涨幅加仓。
+4. CP提案前有限保留：只影响该次局部提案，不改entry、rank或原I/ACT退出。尾仓仍有股数会使CORE not held失败；自动改成CORE、允许有仓建CORE、重置epoch均是额外机制，不能暗含。
+5. 现行PVR只重排原合格单槽位（native_rank.py47–91），不造资格、额度或保护。改rank与改持有/加仓属于不同作用点，应分清。任何未来代码修改还须有新policy/source身份；不能关掉native wiring断言或沿旧checkpoint偷换合同。本次只指出接口，不实现或安排新账户。
+
+旧研究的覆盖和失败边界详见OLD_MECHANISM_DEDUP.txt。精确路径、行号和source SHA见CODE_AND_STATE_MAP.json、SOURCE_SHA256.json。所有数字复用现有完成结果，不是新模拟；现行数据的当前成分/行业快照及日线执行代理缺口仍保留。

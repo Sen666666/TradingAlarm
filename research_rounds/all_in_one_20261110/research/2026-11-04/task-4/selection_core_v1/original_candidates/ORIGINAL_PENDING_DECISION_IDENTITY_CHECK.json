@@ -1,0 +1,121 @@
+[
+  {
+    "date": "2022-01-20",
+    "actual_original_intents": 169,
+    "actual_original_unique_stocks": 122,
+    "rank_policy_unique_stocks": 122,
+    "sets_exact": true
+  },
+  {
+    "date": "2022-01-24",
+    "actual_original_intents": 35,
+    "actual_original_unique_stocks": 27,
+    "rank_policy_unique_stocks": 27,
+    "sets_exact": true
+  },
+  {
+    "date": "2022-03-15",
+    "actual_original_intents": 5,
+    "actual_original_unique_stocks": 5,
+    "rank_policy_unique_stocks": 5,
+    "sets_exact": true
+  },
+  {
+    "date": "2022-04-27",
+    "actual_original_intents": 0,
+    "actual_original_unique_stocks": 0,
+    "rank_policy_unique_stocks": 0,
+    "sets_exact": true
+  },
+  {
+    "date": "2022-10-31",
+    "actual_original_intents": 235,
+    "actual_original_unique_stocks": 164,
+    "rank_policy_unique_stocks": 164,
+    "sets_exact": true
+  },
+  {
+    "date": "2024-09-23",
+    "actual_original_intents": 127,
+    "actual_original_unique_stocks": 103,
+    "rank_policy_unique_stocks": 103,
+    "sets_exact": true
+  },
+  {
+    "date": "2024-09-24",
+    "actual_original_intents": 1256,
+    "actual_original_unique_stocks": 988,
+    "rank_policy_unique_stocks": 988,
+    "sets_exact": true
+  },
+  {
+    "date": "2024-09-27",
+    "actual_original_intents": 2350,
+    "actual_original_unique_stocks": 1421,
+    "rank_policy_unique_stocks": 1421,
+    "sets_exact": true
+  },
+  {
+    "date": "2024-09-30",
+    "actual_original_intents": 2840,
+    "actual_original_unique_stocks": 1538,
+    "rank_policy_unique_stocks": 1538,
+    "sets_exact": true
+  },
+  {
+    "date": "2024-10-08",
+    "actual_original_intents": 2242,
+    "actual_original_unique_stocks": 1388,
+    "rank_policy_unique_stocks": 1388,
+    "sets_exact": true
+  },
+  {
+    "date": "2024-10-11",
+    "actual_original_intents": 60,
+    "actual_original_unique_stocks": 35,
+    "rank_policy_unique_stocks": 35,
+    "sets_exact": true
+  },
+  {
+    "date": "2026-01-05",
+    "actual_original_intents": 511,
+    "actual_original_unique_stocks": 393,
+    "rank_policy_unique_stocks": 393,
+    "sets_exact": true
+  },
+  {
+    "date": "2026-01-15",
+    "actual_original_intents": 344,
+    "actual_original_unique_stocks": 257,
+    "rank_policy_unique_stocks": 257,
+    "sets_exact": true
+  },
+  {
+    "date": "2026-02-03",
+    "actual_original_intents": 298,
+    "actual_original_unique_stocks": 209,
+    "rank_policy_unique_stocks": 209,
+    "sets_exact": true
+  },
+  {
+    "date": "2026-04-08",
+    "actual_original_intents": 655,
+    "actual_original_unique_stocks": 542,
+    "rank_policy_unique_stocks": 542,
+    "sets_exact": true
+  },
+  {
+    "date": "2026-05-20",
+    "actual_original_intents": 238,
+    "actual_original_unique_stocks": 180,
+    "rank_policy_unique_stocks": 180,
+    "sets_exact": true
+  },
+  {
+    "date": "2026-06-29",
+    "actual_original_intents": 218,
+    "actual_original_unique_stocks": 165,
+    "rank_policy_unique_stocks": 165,
+    "sets_exact": true
+  }
+]

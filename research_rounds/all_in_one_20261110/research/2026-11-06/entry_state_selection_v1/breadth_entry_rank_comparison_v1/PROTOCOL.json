@@ -1,0 +1,40 @@
+{
+  "created_utc": "2026-11-07 01:08:09.007153+00:00",
+  "one_selection_and_one_evaluation_only": true,
+  "not_unseen_or_OOS": true,
+  "prior_history_seen": "Amount20 baseline and related historical results already seen; exploratory finite comparison, no promotion by selecting highest historical result.",
+  "windows": [
+    [
+      "2022",
+      "2022-01-01",
+      "2022-12-31",
+      null
+    ],
+    [
+      "2024_924",
+      "2024-09-01",
+      "2024-12-31",
+      null
+    ],
+    [
+      "2026H1_SEMI",
+      "2026-01-01",
+      "2026-06-30",
+      "URFI881121"
+    ]
+  ],
+  "arms": {
+    "PVR_DESC": "Original PVR scalar at exact t descending then sid, no H1 tie factor",
+    "H1_DESC": "Original H1 scalar at exact t descending then sid, no PVR tie factor",
+    "AMOUNT20_DESC": "Original CP1_input.amount.where(amount>0).rolling(20,min_periods=20).mean(), includes t, descending then sid; NOT same-day amount, not user-specified or proved best"
+  },
+  "common_domain": "All original28558 retained. All three arms use finite exact-t PVR and H1, known PVR state and valid observation, and amount20 known. No ffill. Unknown rank not considered weak. Common-domain eligibility refinement is separately disclosed; original5490 baseline remains reference.",
+  "amount_source": "Canonical signal.amount exactly matches CP1_input.amount for all used rows. Amount20 uses latest20 rows including t, all positive, observed, price/volume eligible, nonsynthetic and non-source-invalid; source_kind/source_path/segment_id same. Not20 positive-value skipping. No factor-constancy requirement on real unadjusted turnover lookback; forward factor changes remainUNKNOWN.",
+  "selection": "For each event and ranking scan whole common-known queue, use same prior sealed close I/price/lot/2% nominal/.25% plan risk/prior20capacity feasibility, first2PASS; freeze before forward prices. Next-open failure never backfills. No ranking threshold, blending, grid, outcome selection.",
+  "execution": "Same original clockfixed full-v2:1.2m reference NAV,2% initial nominal,one max2% profitable freshCP add,cumulative4%,.25% plan risk,next common open +/-5bp,dated lot/fees,T+1,original I exit and CP add protection. Not user risk promises. Plan loss not hard stop loss. Same capacity proxy.",
+  "unknown": "Strict original source/factor/dividend/missing price pathUNKNOWN,June30OPEN,no forced liquidation. Historical exchange orderability alwaysUNKNOWN.",
+  "reporting": "Every window/industry-definition/event-type/ranking separate; closed/open/unknown/rejected,net win rate,mean win/loss,>=30%closed descriptive tail and additions. No aggregate portfolio return; same stocks repeat and overlap. Original actual cash/resources separate necessary-condition screen only,never admission,after2026-05-15UNKNOWN.",
+  "telemetry_fixes": "Closed fees_to_date=all_fees; opening-action state refreshed before invalid-closeUNKNOWN. Conditional_liquidation fields remain dated historical mark,not closed realizedPnl.",
+  "quick_channel": "Preserved separately; full quick-channel/shared capital account not run.",
+  "no_accounts": true
+}

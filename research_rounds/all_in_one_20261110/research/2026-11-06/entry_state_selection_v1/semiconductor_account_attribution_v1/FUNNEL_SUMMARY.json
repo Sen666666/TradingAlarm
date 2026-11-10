@@ -1,0 +1,74 @@
+{
+  "112": {
+    "stocks": 112,
+    "terminal_groups": {
+      "never_pending": 26,
+      "bought": 8,
+      "pending_no_fill": 78
+    },
+    "CP_events": 739,
+    "CP_stocks": 111,
+    "CP_category_events": {
+      "close_size_or_nominal": 260,
+      "stock_eligibility": 61,
+      "open_rejected": 404,
+      "filled": 11,
+      "cutoff_pending": 3
+    },
+    "CP_category_stocks": {
+      "open_rejected": 75,
+      "cutoff_pending": 3,
+      "filled": 8,
+      "close_size_or_nominal": 45,
+      "stock_eligibility": 36
+    },
+    "CP_stage_events": {
+      "sector_authorized_and_mobile_Q": 625,
+      "sector_E0_off": 60,
+      "sector_E0_on_attempt_inactive": 53,
+      "other_native_eligibility": 1
+    },
+    "authorized_open_reject_events": 380,
+    "authorized_open_reject_stocks": 75,
+    "authorized_reject_cash_events": 379,
+    "authorized_reject_cash_stocks": 75,
+    "any_pending_top20_stocks": 37,
+    "no_fill_but_any_pending_top20_stocks": 29,
+    "actual_open_funding_events_including_prior_close": 1234
+  },
+  "51": {
+    "stocks": 51,
+    "terminal_groups": {
+      "never_pending": 16,
+      "bought": 6,
+      "pending_no_fill": 29
+    },
+    "CP_events": 398,
+    "CP_stocks": 51,
+    "CP_category_events": {
+      "close_size_or_nominal": 163,
+      "stock_eligibility": 44,
+      "open_rejected": 184,
+      "filled": 7
+    },
+    "CP_category_stocks": {
+      "stock_eligibility": 22,
+      "open_rejected": 30,
+      "filled": 6,
+      "close_size_or_nominal": 26
+    },
+    "CP_stage_events": {
+      "sector_authorized_and_mobile_Q": 326,
+      "sector_E0_off": 43,
+      "sector_E0_on_attempt_inactive": 28,
+      "other_native_eligibility": 1
+    },
+    "authorized_open_reject_events": 173,
+    "authorized_open_reject_stocks": 30,
+    "authorized_reject_cash_events": 172,
+    "authorized_reject_cash_stocks": 30,
+    "any_pending_top20_stocks": 19,
+    "no_fill_but_any_pending_top20_stocks": 13,
+    "actual_open_funding_events_including_prior_close": 516
+  }
+}

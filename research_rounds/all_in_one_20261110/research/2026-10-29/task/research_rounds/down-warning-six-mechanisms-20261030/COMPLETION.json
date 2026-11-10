@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-30T08:01:45.926784+00:00",
+  "cycles": 7,
+  "symbols": 6,
+  "new_indicators": 0,
+  "new_trade_paths": 0,
+  "new_exit_PnL": 0,
+  "source_hashes_unchanged": true,
+  "seconds": 0.4484766670502722,
+  "finalized_at": "2026-10-30T08:07:49.543863+00:00",
+  "no_T1_original_structure_end": 2,
+  "no_T1_ACT_window_truncated": 1,
+  "no_T1_data_right_censored": 0,
+  "T1_first_positive_unchanged": true,
+  "phase_separated_no_future_outcome_features": true,
+  "missing_T0_full_credit": "只有长盈通保存同日S21收据；其余未保存，不回填下一日收据；E0原生event量调制数值均未保存。"
+}

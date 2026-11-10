@@ -1,0 +1,323 @@
+{
+  "passed": true,
+  "seconds": 5.98183454060927,
+  "days": [
+    {
+      "day": "2023-01-20",
+      "baseline_orders": 36,
+      "two_pass_orders": 34,
+      "added_stocks": [
+        "000032.SZ",
+        "000630.SZ",
+        "300251.SZ",
+        "600388.SH"
+      ],
+      "lost_stocks": [
+        "002648.SZ",
+        "002739.SZ",
+        "600378.SH",
+        "600595.SH",
+        "600888.SH",
+        "603993.SH"
+      ],
+      "changes": [
+        {
+          "sid": "000032.SZ",
+          "old": null,
+          "new": {
+            "key": "B|2023-01-19T15:10:00+08:00|000032.SZ|core",
+            "sid": "000032.SZ",
+            "role": "core",
+            "pool": "probe",
+            "quantity": 100,
+            "rank": 20,
+            "price": "25.462725",
+            "floor": "2E+1",
+            "gross": "2546.272500",
+            "fee": "5.2003916457500",
+            "CP1_id": null
+          }
+        },
+        {
+          "sid": "000630.SZ",
+          "old": null,
+          "new": {
+            "key": "B|2023-01-19T15:10:00+08:00|000630.SZ|core",
+            "sid": "000630.SZ",
+            "role": "core",
+            "pool": "probe",
+            "quantity": 100,
+            "rank": 150,
+            "price": "3.511755",
+            "floor": "3.040000000000000166992142977",
+            "gross": "351.175500",
+            "fee": "5.0276375118500",
+            "CP1_id": null
+          }
+        },
+        {
+          "sid": "002648.SZ",
+          "old": {
+            "key": "B|2023-01-19T15:10:00+08:00|002648.SZ|mobile",
+            "sid": "002648.SZ",
+            "role": "mobile",
+            "pool": "confirmed",
+            "quantity": 700,
+            "rank": 359,
+            "price": "17.548770",
+            "floor": "15.20185009680238145536916810",
+            "gross": "12284.139000",
+            "fee": "5.9667617393000",
+            "CP1_id": "242a010816ce9f22814685d44e68cbd6e5ed58004dea6ac4f4d83db36d6586df"
+          },
+          "new": null
+        },
+        {
+          "sid": "002739.SZ",
+          "old": {
+            "key": "B|2023-01-19T15:10:00+08:00|002739.SZ|core",
+            "sid": "002739.SZ",
+            "role": "core",
+            "pool": "probe",
+            "quantity": 100,
+            "rank": 114,
+            "price": "15.00750",
+            "floor": "13.50999999999999914674410042",
+            "gross": "1500.75000",
+            "fee": "5.118109025000",
+            "CP1_id": null
+          },
+          "new": null
+        },
+        {
+          "sid": "003006.SZ",
+          "old": {
+            "key": "B|2023-01-19T15:10:00+08:00|003006.SZ|core",
+            "sid": "003006.SZ",
+            "role": "core",
+            "pool": "probe",
+            "quantity": 300,
+            "rank": 14,
+            "price": "17.198595",
+            "floor": "12.39999999999999961628903858",
+            "gross": "5159.578500",
+            "fee": "5.4060588279500",
+            "CP1_id": null
+          },
+          "new": {
+            "key": "B|2023-01-19T15:10:00+08:00|003006.SZ|core",
+            "sid": "003006.SZ",
+            "role": "core",
+            "pool": "probe",
+            "quantity": 100,
+            "rank": 14,
+            "price": "17.198595",
+            "floor": "12.39999999999999961628903858",
+            "gross": "1719.859500",
+            "fee": "5.1353529426500",
+            "CP1_id": null
+          }
+        },
+        {
+          "sid": "300251.SZ",
+          "old": null,
+          "new": {
+            "key": "B|2023-01-19T15:10:00+08:00|300251.SZ|mobile",
+            "sid": "300251.SZ",
+            "role": "mobile",
+            "pool": "confirmed",
+            "quantity": 1400,
+            "rank": 312,
+            "price": "9.144570",
+            "floor": "8.679999999999999647990906105",
+            "gross": "12802.398000",
+            "fee": "6.0075487226000",
+            "CP1_id": "e535cdba62d856bb49fd39eb61625bb5225bbc662f55d617e22826b7936eae03"
+          }
+        },
+        {
+          "sid": "600378.SH",
+          "old": {
+            "key": "B|2023-01-19T15:10:00+08:00|600378.SH|mobile",
+            "sid": "600378.SH",
+            "role": "mobile",
+            "pool": "confirmed",
+            "quantity": 200,
+            "rank": 350,
+            "price": "46.073025",
+            "floor": "41.93791280261481235246398030",
+            "gross": "9214.605000",
+            "fee": "5.7251894135000",
+            "CP1_id": "e27397bfdfae7bb20a951097cc3e44efb82e96d55854b7622429ad6a568d89b5"
+          },
+          "new": null
+        },
+        {
+          "sid": "600388.SH",
+          "old": null,
+          "new": {
+            "key": "B|2023-01-19T15:10:00+08:00|600388.SH|core",
+            "sid": "600388.SH",
+            "role": "core",
+            "pool": "probe",
+            "quantity": 100,
+            "rank": 22,
+            "price": "17.158575",
+            "floor": "12.84000000000000095588673811",
+            "gross": "1715.857500",
+            "fee": "5.1350379852500",
+            "CP1_id": null
+          }
+        },
+        {
+          "sid": "600595.SH",
+          "old": {
+            "key": "B|2023-01-19T15:10:00+08:00|600595.SH|mobile",
+            "sid": "600595.SH",
+            "role": "mobile",
+            "pool": "confirmed",
+            "quantity": 4200,
+            "rank": 1393,
+            "price": "3.131565",
+            "floor": "2.919999999999999657577981651",
+            "gross": "13152.573000",
+            "fee": "6.0351074951000",
+            "CP1_id": "da67359d0d1b38e7bedba7b760d70076be5388dcf98c73514e7dae84521cfaf8"
+          },
+          "new": null
+        },
+        {
+          "sid": "600873.SH",
+          "old": {
+            "key": "B|2023-01-19T15:10:00+08:00|600873.SH|mobile",
+            "sid": "600873.SH",
+            "role": "mobile",
+            "pool": "confirmed",
+            "quantity": 1200,
+            "rank": 137,
+            "price": "10.765380",
+            "floor": "9.990389988048073225369534973",
+            "gross": "12918.456000",
+            "fee": "6.0166824872000",
+            "CP1_id": "994ecb122cc85b88ec474ca6f235b3a745b91165b8d39612d292a67e20d532ad"
+          },
+          "new": {
+            "key": "B|2023-01-19T15:10:00+08:00|600873.SH|core",
+            "sid": "600873.SH",
+            "role": "core",
+            "pool": "probe",
+            "quantity": 100,
+            "rank": 137,
+            "price": "10.765380",
+            "floor": "9.829999999999999402142728865",
+            "gross": "1076.538000",
+            "fee": "5.0847235406000",
+            "CP1_id": null
+          }
+        },
+        {
+          "sid": "600888.SH",
+          "old": {
+            "key": "B|2023-01-19T15:10:00+08:00|600888.SH|mobile",
+            "sid": "600888.SH",
+            "role": "mobile",
+            "pool": "confirmed",
+            "quantity": 1400,
+            "rank": 395,
+            "price": "8.854425",
+            "floor": "8.342990789141150123503169312",
+            "gross": "12396.195000",
+            "fee": "5.9755805465000",
+            "CP1_id": "ad47934d0c071e4882fdbd952549b43f11b88976b0ff8f96c29e3595f9c44017"
+          },
+          "new": null
+        },
+        {
+          "sid": "603993.SH",
+          "old": {
+            "key": "B|2023-01-19T15:10:00+08:00|603993.SH|mobile",
+            "sid": "603993.SH",
+            "role": "mobile",
+            "pool": "confirmed",
+            "quantity": 2600,
+            "rank": 511,
+            "price": "5.052525",
+            "floor": "4.639236713167216726303384841",
+            "gross": "13136.565000",
+            "fee": "6.0338476655000",
+            "CP1_id": "c536ae7f45c3f91c45d630fe427e2a437af9e4b0d0dcdd92b44e962cc48d5f0a"
+          },
+          "new": null
+        }
+      ],
+      "baseline": {
+        "capital": 409205.40045,
+        "nominal_risk": 28791.333422049516,
+        "cash_reserve": 409417.6049150154,
+        "available": "256637.1246318405280",
+        "fees": "212.2044650154150"
+      },
+      "two_pass": {
+        "capital": 349654.63995,
+        "nominal_risk": 23372.121095024202,
+        "cash_reserve": 349852.1577701641,
+        "available": "316202.5717766918780",
+        "fees": "197.5178201640650"
+      },
+      "input_pure": true,
+      "original_named_stock_check": {
+        "300308.SZ": {
+          "baseline": null,
+          "two_pass": null
+        },
+        "300502.SZ": {
+          "baseline": null,
+          "two_pass": null
+        }
+      },
+      "migrations_baseline": 79,
+      "migrations_two_pass": 73,
+      "all_changes_local_no_followup_account": true
+    },
+    {
+      "day": "2022-06-29",
+      "baseline_orders": 0,
+      "two_pass_orders": 0,
+      "added_stocks": [],
+      "lost_stocks": [],
+      "changes": [],
+      "baseline": {
+        "capital": 533020.44,
+        "nominal_risk": 61006.19161521736,
+        "cash_reserve": 0,
+        "available": "288367.3115612368855",
+        "fees": "0"
+      },
+      "two_pass": {
+        "capital": 533020.44,
+        "nominal_risk": 61006.19161521736,
+        "cash_reserve": 0,
+        "available": "288367.3115612368855",
+        "fees": "0"
+      },
+      "input_pure": true,
+      "original_named_stock_check": {
+        "300308.SZ": {
+          "baseline": null,
+          "two_pass": null
+        },
+        "300502.SZ": {
+          "baseline": null,
+          "two_pass": null
+        }
+      },
+      "migrations_baseline": 234,
+      "migrations_two_pass": 234,
+      "all_changes_local_no_followup_account": true
+    }
+  ],
+  "no_economic_replay": true,
+  "no_account_progression": true,
+  "no_PnL": true,
+  "no_all_batch_preview": true
+}

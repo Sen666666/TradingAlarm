@@ -1,0 +1,19 @@
+{
+  "series": 19,
+  "windows": 21,
+  "primary": [
+    "AU0",
+    "USHJ518880",
+    "USHJ512480",
+    "URFI881121",
+    "600919.SH",
+    "600059.SH",
+    "600917.SH",
+    "HK00700",
+    "HK09618"
+  ],
+  "model_sha256": "85b655e08e17462131b7e62b545c311560ce00b155ab254a6e4e494268c992c9",
+  "freeze_sha256": "00bf213eb1a42377eaec5389dc8b6fb480da7c0e2a6aaec5ecc6e7c965a970d4",
+  "accounts": 0,
+  "finished_at": "2026-10-24T03:33:34.754559+00:00"
+}

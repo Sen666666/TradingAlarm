@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "read_only": true,
+  "new_accounts": 0,
+  "new_indicators": 0,
+  "new_thresholds": 0,
+  "local_relaxed_constraint_preview_run": false,
+  "core_minimum_lower_bound_is_original_rule_only": true,
+  "minimum_rule_named_stocks": "saved routes consistently show original 100-share minimum; admission quantity can be zero",
+  "funding_same_day_open_not_misattributed_to_current_close": true
+}

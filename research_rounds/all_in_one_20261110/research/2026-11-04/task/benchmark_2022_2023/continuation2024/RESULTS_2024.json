@@ -1,0 +1,84 @@
+{
+  "scope": "two frozen own-state benchmark continuations only; no new PVR path",
+  "calendar": [
+    "2024-01-02",
+    "2024-12-31"
+  ],
+  "new_days_per_account": 242,
+  "cumulative_dates": [
+    "2022-01-04",
+    "2024-12-31"
+  ],
+  "cumulative_days": 726,
+  "no_annual_reset": true,
+  "results": {
+    "BUY_HOLD": {
+      "year2024": {
+        "start": "2024-01-02",
+        "end": "2024-12-31",
+        "starting_NAV": 729632.06575,
+        "ending_NAV": 848328.06575,
+        "return_pct": 16.26792537934727,
+        "period_DD_pct": 11.880384209420313,
+        "fees_2024": 0.0,
+        "dividend_accrued_2024": 13834.499999999998,
+        "dividend_paid_2024": 13834.499999999998,
+        "worst_carried_global_DD_pct": 31.888893425,
+        "mean_exposure_pct": 94.60315082645833,
+        "new_fills": 0
+      },
+      "cumulative2022_2024": {
+        "initial": 1000000.0,
+        "terminal_NAV": 848328.06575,
+        "return_pct": -15.167193425000002,
+        "max_DD_pct": 31.88889342500001,
+        "DD_day": "2024-02-02",
+        "fees": 1497.43425,
+        "dividends_accrued": 41704.0,
+        "dividends_paid": 41704.0,
+        "mean_exposure_pct": 96.33934379709595,
+        "same_quantity_cost_before_NAV": 849825.5,
+        "same_quantity_cost_before_return_pct": -15.017449999999998
+      },
+      "execution_verified": false
+    },
+    "MA63_90": {
+      "year2024": {
+        "start": "2024-01-02",
+        "end": "2024-12-31",
+        "starting_NAV": 954870.366,
+        "ending_NAV": 1111601.641,
+        "return_pct": 16.4138798920481,
+        "period_DD_pct": 11.434837533831132,
+        "fees_2024": 6628.125,
+        "dividend_accrued_2024": 0.0,
+        "dividend_paid_2024": 0.0,
+        "worst_carried_global_DD_pct": 11.43483753383113,
+        "mean_exposure_pct": 53.258918836971816,
+        "new_fills": 5
+      },
+      "cumulative2022_2024": {
+        "initial": 1000000.0,
+        "terminal_NAV": 1111601.641,
+        "return_pct": 11.160164100000003,
+        "max_DD_pct": 11.434837533831132,
+        "DD_day": "2024-10-17",
+        "fees": 36024.759,
+        "dividends_accrued": 14393.6,
+        "dividends_paid": 14393.6,
+        "mean_exposure_pct": 35.348045341766124,
+        "same_quantity_cost_before_NAV": 1147626.4,
+        "same_quantity_cost_before_return_pct": 14.762639999999983
+      },
+      "execution_verified": false
+    }
+  },
+  "HS300_reference": {
+    "reference_only": true,
+    "year2024_return_pct": 14.683294910393418,
+    "cumulative_return_pct": -19.825466133380065,
+    "cumulative_DD_pct": 35.62968501995749,
+    "no_new_trading_simulation": true
+  },
+  "independent_audit": "pending"
+}

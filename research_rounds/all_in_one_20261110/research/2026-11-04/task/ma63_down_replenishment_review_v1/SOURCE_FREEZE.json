@@ -1,0 +1,10 @@
+{
+  "scope": "existing labels/money only; no Account/price/indicator",
+  "source_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_down_replenishment_review_v1/check_axis_only.py": "e8a1dfdfb9e2d11c8b96cad91be7b88e4e618ec0f1bda334693df2d42e968215",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/ma63_exposure_axis_v1/DAILY_ALIGNED.json": "53c47f8ce6f732271a12ce0cff5fe3cc40517960096ef3dd36f6c0edf609c5a8",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/ma63_exposure_axis_v1/GROUPS_BY_AXIS_AND_SLOPE.json": "2cc104f0b36ff71f746f0a016d1f34cd6bbee4ebe16096909956bb7e31bb026e",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/ma63_exposure_axis_v1/PROTOCOL.txt": "838fdbdec3de60165ff53452aac627742a68b3898e16efc5d646fc09684ced1f",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/independent_review/ma63_axis_review_v1/LAG_WEALTH_AND_RESOURCE_AUDIT.json": "b58110489173b7642976a63b83438d98c73f6dbb8271cc46df8272722839a3a8"
+  }
+}

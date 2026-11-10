@@ -1,0 +1,30 @@
+{
+  "raw_C_I_receipts": 825,
+  "baseline_flat_known_PVR": 797,
+  "close_check_counts": {
+    "PASS": 781,
+    "NOT_BASELINE_FLAT_KNOWN_PVR": 28,
+    "MINIMUM_LOT_OR_RISK_REJECT_AT_CLOSE": 16
+  },
+  "close_pass_residual_slot_proxy": 515,
+  "same_I_later_baseline_rounds": 260,
+  "same_I_later_baseline_usable_closed": 249,
+  "same_I_later_baseline_tail50": 5,
+  "not_C_winrate": "Later baseline outcome labels show delayed same-root participation only, not new C outcomes. No future label affects C or priority.",
+  "C_consumer_definition": "I_t=1,I_prev=0 with same-source adjacent known observations; S_prev=S_t=M_prev=M_t=1; original I qualified, known PVR, live own-arm FLAT. Original A/B first, residual industry capacity max(0,2-K_AB); C close-pass sorted original PVR then sid. Receipt one-use only; next-open failure no refill; unknown no qualification.",
+  "raw_825_and_baseline_state_proxies_not_new_dynamic_state": true,
+  "economic_runs": 0,
+  "native_close_functions_sha256": {
+    "finite": "9f9ba17ae37299ab64943e37cb287d5d7b5355e69b58e67876b0feef9abc4431",
+    "true": "b7ec650642e531cc65d35badaf4c9b3349bc7b3ef06cc7cc48fb5084f78d13bc",
+    "false": "1a012546e1465e408cd8a23e7e26e8755e5162ac5e40e1be84aecdeab89474e1",
+    "lineage": "f62dcf3d35e4ade47e716ccecd4195d6612e52b5d39c12f1ee27b8cfa0b0561a",
+    "flags": "926e3ef6564e490251ce5ee869b867310298a6d746a9beb126ea9c3505f74ac7",
+    "DayFrame": "2059cf0b0826ceb0a29e9fce1d2e378ba5cefaed305b1c56937df26ff4494d46",
+    "load": "37785508edeef47828393b32d9677a721915d9336ae98243cc151eeb38051c72",
+    "getmeta": "b33766f2f8bd46b9ed49445b5f3c46a483c2289f83adc6a87b8dfac56c110e9e",
+    "fee": "5ac81e09dbcfd6b74d027daf3e2e62a249f398800c856b1f34b910ed7c562b6d",
+    "size": "460cf0f36370aecaa0bdd5e351712df560fc7f729815aaa03bf0357654367885",
+    "checkclose": "e99d02738db7a2d2b6d921c9adc9d8374201e523adec8e5a4f1ab03067fc9c5e"
+  }
+}

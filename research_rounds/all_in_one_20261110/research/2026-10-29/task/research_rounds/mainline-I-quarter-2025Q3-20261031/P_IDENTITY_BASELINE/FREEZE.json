@@ -1,0 +1,16 @@
+{
+  "before_unique_new_economic_path": true,
+  "paths": [
+    "NO_P"
+  ],
+  "budget_seconds": 60,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-I-quarter-2025Q3-20261031/P_IDENTITY_BASELINE/PROTOCOL.txt": "15ea8d920df444578b2867698f374f037201ccde7b557bfaba03bb49ccee0bf1",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-I-quarter-2025Q3-20261031/P_IDENTITY_BASELINE/baseline.py": "0976ab3dd7a64d55153ecc3f147d1e10a4c8da7051953adee2691ae77dfe0c94",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-I-quarter-2025Q3-20261031/FREEZE.json": "3967b6e4c9ef5f73818fc91c6ffb7cf708c3fbd1bd4d3732a4239096a2613eee",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-I-quarter-2025Q3-20261031/analysis/VERIFICATION.json": "86c868998ddf15c799044af100d1a5a2d07f8d79090133c57f7556cb4ad31f12",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-I-quarter-2025Q3-20261031/results/selection.jsonl.gz": "47e6d957ab4e74dc9dfe650b514c4ea55e31e5862a8c66c6e545202725039107",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-I-quarter-2025Q3-20261031/recovery.csv": "b5f8a5ca296d4db3c4f2f3292a4aa19f11bfe19a4ab87bd3e2fc050022a68f7c",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-I-quarter-2025Q3-20261031/adapter.py": "2e9555d639c7db2a874e59c83cfa0df8889da0f41bf51e14313699292feea417"
+  }
+}

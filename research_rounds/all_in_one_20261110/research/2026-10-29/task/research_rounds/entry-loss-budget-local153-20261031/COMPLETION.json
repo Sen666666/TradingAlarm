@@ -1,0 +1,58 @@
+{
+  "completed_at": "2026-10-31T02:31:22.327013+00:00",
+  "status": "complete_all_three_no_parameter_selection_no_promotion",
+  "wall_since_protocol_seconds": 466.862233,
+  "pre_protocol_read_time_not_fully_instrumented": true,
+  "compute": {
+    "status": "complete",
+    "seconds": 4.568177958019078,
+    "synthetic_allowance": 2,
+    "budget": 120
+  },
+  "verification": {
+    "passed": true,
+    "source_cycles": 153,
+    "local_paths": 612,
+    "A_exact": 153,
+    "max_accounting_residual": "0",
+    "seconds": 4.567749415989965,
+    "no_new_buys": true,
+    "no_portfolio_paths": true,
+    "parameters": [
+      "10%",
+      "20%",
+      "30%"
+    ],
+    "no_cost2_replay": true
+  },
+  "remaining_blockers": [
+    "Five inherited unknown price observations in two source cycles; conditional results and complete-source table both delivered.",
+    "No cost2 or new portfolio/fresh-I replay; whole-account viability not established.",
+    "Daily HL execution and company-action payment/listing proxies retain original limitations."
+  ],
+  "deliverables": {
+    "SUMMARY.json": "dcd3806cf0855c6a420b960b799756494ff0cc7f327bb473d05811ac375d4c22",
+    "SUMMARY.csv": "7213354ea90861c5ed9a8e0ea9e8e111ac0b7640a4bc2d3af8753572a617d8e6",
+    "summary.log": "e6c3519aa4a9334a390c74d44139fa0fed936e6b14207009d22751e088ad0e76",
+    "run.py": "6a2cc1ef51ef924e77a72583f6f16489f62a1c2cf689899652fb6b9cdb973a80",
+    "COMPUTATION_TIME.json": "7b88e456ef93bbdca6726a9ae869f3fb1da50a7bb92474ccc6c8f880b91dbfac",
+    "MUTUALLY_EXCLUSIVE_GROUPS.csv": "b3449d6a23a8c1008c36ab0fb634ee5cfed3ce82b68dc2f448c0a492d3093e41",
+    "run.log": "7351c8e58ee21c0e0fd4d1833e2ec01d9f1d712baddf0336185d5b6a447b73af",
+    "PROTOCOL.txt": "929f4740dfbd57212b87d510182b6a3152d8dda74f59d19be8b075aeae66a617",
+    "SYNTHETIC_TESTS.json": "6fc03176ba067bdab287de3313b6523d505b458b5307d00de4a2027913190a43",
+    "CHECKPOINT.txt": "bceba7acd9568645487c9ff2d123c2ee9ea73d7b2f11708562116e1be8960030",
+    "core.py": "b5926e0241fd35e6a8d2824522389bafd85ff4c5907b43a19455d2d22f7664ef",
+    "summarize.py": "76f223ddb6a79fcb4bd1c052b38d0eaeb39ed9089128911216d3a76de91557ba",
+    "REPORT.txt": "f9d3b63cc3c80e6bd6289167e49c8b60ef63b578cf9d5b5b1fedb923cdf53a8d",
+    "test_synthetic.py": "e2aceb377d5d1f9f3f746f8b8347696d0d527e79a7f505c240e71486e4548218",
+    "COMPLETE_SOURCE_SUBSET.csv": "06f0c145c3a071089acaaaa273d60e95733aa6089544eaecead3e50faba7dd4d",
+    "synthetic.log": "61cbad24217304509c9b5f5a9b4f17a4cd2d2418ea2ec35d3c0439c3a79dd582",
+    "FREEZE.json": "8d4b963b0955fae60e85ed60db788c64c087e033873b1b6dd5342020ae036937",
+    "TRIGGERS_AND_KEY_CASES.csv": "c6eb655fbef17dbbdab0584f2aedeaa160b04a86a6b243e037a613191404bb08",
+    "full/equity.parquet": "f3e5d5b8e040c0404d4d11d49f24f22f0b608b4a14b1079d481d5ecbdca98bb2",
+    "full/audit.jsonl.gz": "90f2fd368759b8e8ee4c969c5efca0e1431e9a8e4e1d15c65041011ec59664e6",
+    "full/VERIFICATION.json": "94e28cce8bfd9f522b706bdec7b54d311ae294524e0ec6abeee45ef5acf0bec6",
+    "full/unit-ledgers.csv": "f490f529e73a60ffbeb643ba356b26b0e58348d3851210fafeca65a7e16412bc",
+    "full/A_REPRODUCTION.json": "c92684f4ce262e9c7da1e6d1a0e537a6a2a4f9d50785185489c623165839756c"
+  }
+}

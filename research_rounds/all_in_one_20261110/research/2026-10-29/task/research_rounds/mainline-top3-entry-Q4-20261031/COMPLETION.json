@@ -1,0 +1,31 @@
+{
+  "completed_at": "2026-10-31T11:25:42.531915+00:00",
+  "status": "complete_K3_entry_concentration_identified_not_promoted",
+  "new_economic_paths": 1,
+  "RAW_full_path_reused": true,
+  "economic_seconds": 29.232665167190135,
+  "economic_budget_seconds": 60,
+  "successful_prepare_and_off_seconds": 23.354886500164866,
+  "independent_accounting_seconds": 5.263471874874085,
+  "failed_first_off_prefix_filter_log_retained": true,
+  "no_product_trading_or_new_parameters": true,
+  "blockers": [],
+  "deliverables": {
+    "PROTOCOL.txt": "976e37a95a4ff7586ea34f1075765b464fe08dce6c03e5edce0f837193b637c9",
+    "top3.py": "4941716c50c26a68ee424e592d92b1bb010fc4d5499457ae00cfd4448beebc6b",
+    "analyze.py": "2107741c47f7303c249a90c8f54b962cee434058ef50cfd08ae57e8d27d6cc94",
+    "GATE.json": "980838fd4bb91b585be4bb1d4841f5d70ff4612a27c8a532fbfc9187785015c9",
+    "POST_IDENTITY.json": "a05778c5815933536d86ce3733b4b1c25a42711bba14fd73c35b71abc2c5ae84",
+    "FINAL_REPORT.txt": "0dbd99241764f6234b8383e3786c2f977ce6b5d170a07e158d6f61332301b769",
+    "analysis/SUMMARY.csv": "d1ec5343f9ce6fdc9794bc903bdc69d727b7951970c2e31bd4da404d66d00935",
+    "analysis/ORIGIN_CONTRIBUTIONS.csv": "6eb4f2cb546dd7c6860b48c9e6a488967fe4edb04b4fee33d378c70b78a16395",
+    "analysis/NEW_ENTRY_CONCENTRATION.json": "05520de049c2bee227cacca937d59686f3ff1857587a41b6a48f6f422d294797",
+    "analysis/CAPITAL_ORIGIN_DAILY.csv": "1df2b7f41b17e39fed507cf0302db4a60b18854c956ef8c584f13dc8f185d8d8",
+    "analysis/WEEKLY_TARGETS.csv": "0789b8053388c8ffd256dd7d6f094308d0020b0fcd6845ca7c0bd3d82a4e446e",
+    "analysis/WEEKLY_ENTRY_FUNDING.csv": "ea00341e4cde3f73a2639825421e14d965b83f039e585b92d254981eb92eb99f",
+    "analysis/FUNDING_FUNNEL.json": "e92e6e3aaac1fd4b48a148f5d075a2b0633916d07e7d778ba3928b0dfbdbfc3b",
+    "analysis/TARGET_GAPS.json": "d31d48b6dd2c9e0ca785a0da5e8b9dd18234ddbc5c7afb9eae5dd871711ae125",
+    "analysis/DATA_QUALITY.json": "12f93fef12facbf68d49ea7daf609acf1de884742bb7945ffbf785158189d04f",
+    "analysis/VERIFICATION.json": "383fd422e631f2b71dfd3b6b8102ac01aa26b7e6c485915e136817971b3d73af"
+  }
+}

@@ -1,0 +1,408 @@
+{
+  "2022": {
+    "unknown_finance_by_arm": {
+      "baseline": {
+        "unknown": 103,
+        "financial_uncovered": 14
+      },
+      "joint": {
+        "unknown": 445,
+        "financial_uncovered": 37
+      }
+    },
+    "common_stocks": 1245,
+    "excluded": 464,
+    "any_unknown": 447,
+    "any_uncovered": 39,
+    "unknown_uncovered_overlap": 22,
+    "uncovered_without_unknown": 17,
+    "both_never_entered": 248,
+    "common_baseline": {
+      "rounds": 2016,
+      "entered_rounds": 2015,
+      "stocks": 896,
+      "entered_stocks": 896,
+      "buy": 49517386.660388336,
+      "sell": 49236360.20009654,
+      "trade_net": -281026.4602917948,
+      "income": 131807.641264,
+      "net": -149218.8190277948,
+      "fees": 82861.31983679478
+    },
+    "common_joint_ab": {
+      "rounds": 1455,
+      "entered_rounds": 1453,
+      "stocks": 751,
+      "entered_stocks": 751,
+      "buy": 37349686.86354428,
+      "sell": 37455121.72678473,
+      "trade_net": 105434.86324044694,
+      "income": 91236.76044,
+      "net": 196671.62368044694,
+      "fees": 62146.26374455306
+    },
+    "common_joint_price": {
+      "rounds": 1780,
+      "entered_rounds": 1779,
+      "stocks": 885,
+      "entered_stocks": 885,
+      "buy": 43841744.827703014,
+      "sell": 42604415.59017686,
+      "trade_net": -1237329.2375261579,
+      "income": 49871.568392,
+      "net": -1187457.6691341577,
+      "fees": 73336.98672615779
+    },
+    "common_joint": {
+      "rounds": 3235,
+      "entered_rounds": 3232,
+      "stocks": 997,
+      "entered_stocks": 997,
+      "buy": 81191431.6912473,
+      "sell": 80059537.31696159,
+      "trade_net": -1131894.3742857107,
+      "income": 141108.328832,
+      "net": -990786.0454537108,
+      "fees": 135483.25047071086
+    },
+    "ab_change": 345890.4427082417,
+    "total_delta": -841567.2264259161,
+    "identity_residual": 0.0,
+    "retained_events_all": 1292,
+    "retained_events_common": 1104,
+    "retained_path_mismatches": 0,
+    "ab_original_labels": {
+      "SAME_EVENT_RETAINED": {
+        "events": 1104,
+        "stocks": 631,
+        "baseline_entered": 1103,
+        "joint_entered": 1103,
+        "baseline_net": 132922.4321173782,
+        "joint_net": 132922.4321173782,
+        "delta": 0.0
+      },
+      "PRICE_SAME_STOCK_BLOCKED_HELD": {
+        "events": 690,
+        "stocks": 533,
+        "baseline_entered": 690,
+        "joint_entered": 0,
+        "baseline_net": -290621.0328621784,
+        "joint_net": 0.0,
+        "delta": 290621.0328621784
+      },
+      "JOINT_ONLY_AB_STATE_CHAIN": {
+        "events": 351,
+        "stocks": 291,
+        "baseline_entered": 0,
+        "joint_entered": 350,
+        "baseline_net": 0.0,
+        "joint_net": 63749.19156306873,
+        "delta": 63749.19156306873
+      },
+      "AB_STATE_CHAIN_LOSS": {
+        "events": 119,
+        "stocks": 115,
+        "baseline_entered": 119,
+        "joint_entered": 0,
+        "baseline_net": -52885.259919993296,
+        "joint_net": 0.0,
+        "delta": 52885.259919993296
+      },
+      "PRICE_INDUSTRY_SLOT_DISPLACEMENT": {
+        "events": 102,
+        "stocks": 99,
+        "baseline_entered": 102,
+        "joint_entered": 0,
+        "baseline_net": 59862.79051438674,
+        "joint_net": 0.0,
+        "delta": -59862.79051438674
+      },
+      "AB_STATE_CHAIN_RANK_LOSS": {
+        "events": 1,
+        "stocks": 1,
+        "baseline_entered": 1,
+        "joint_entered": 0,
+        "baseline_net": 1502.251122612,
+        "joint_net": 0.0,
+        "delta": -1502.251122612
+      }
+    },
+    "stock_ab_path_groups": {
+      "REMOVED_ONLY_AB_EVENTS": {
+        "stocks": 440,
+        "ab_delta": 129529.01192832498,
+        "price_net": -179638.2804626593,
+        "total_delta": -50109.26853433434
+      },
+      "SAME_AB_EVENT_PATH": {
+        "stocks": 193,
+        "ab_delta": 0.0,
+        "price_net": -360476.773490671,
+        "total_delta": -360476.773490671
+      },
+      "REMOVED_AND_ADDED_AB_EVENTS": {
+        "stocks": 209,
+        "ab_delta": 304232.1678542488,
+        "price_net": -382924.6682844133,
+        "total_delta": -78692.50043016454
+      },
+      "BOTH_NO_AB_ROUND": {
+        "stocks": 321,
+        "ab_delta": 0.0,
+        "price_net": -125841.03563102701,
+        "total_delta": -125841.03563102701
+      },
+      "ADDED_ONLY_AB_EVENTS": {
+        "stocks": 82,
+        "ab_delta": -87870.73707433204,
+        "price_net": -138576.9112653871,
+        "total_delta": -226447.64833971916
+      }
+    },
+    "first_ab_buy_groups": {
+      "SAME_FIRST_AB_BUY_DAY": {
+        "stocks": 423,
+        "ab_delta": 7686.860085871123,
+        "price_net": -470583.5774555119,
+        "total_delta": -462896.71736964077
+      },
+      "LOST_ALL_AB_BUY": {
+        "stocks": 173,
+        "ab_delta": 56808.05553330441,
+        "price_net": -66819.02868203771,
+        "total_delta": -10010.9731487333
+      },
+      "JOINT_FIRST_AB_BUY_LATER": {
+        "stocks": 202,
+        "ab_delta": 259017.30836508557,
+        "price_net": -311548.58973969676,
+        "total_delta": -52531.281374611186
+      },
+      "JOINT_FIRST_AB_BUY_EARLIER": {
+        "stocks": 98,
+        "ab_delta": 55603.57601273138,
+        "price_net": -172145.7410855075,
+        "total_delta": -116542.16507277613
+      },
+      "BOTH_NO_AB_BUY": {
+        "stocks": 321,
+        "ab_delta": 0.0,
+        "price_net": -125841.03563102701,
+        "total_delta": -125841.03563102701
+      },
+      "NEW_AB_BUY_STOCK": {
+        "stocks": 28,
+        "ab_delta": -33225.35728875077,
+        "price_net": -40519.6965403769,
+        "total_delta": -73745.05382912766
+      }
+    },
+    "common_terminal_marks": 0,
+    "common_remaining_inventory": 0,
+    "raw_closed_cash_and_fee_checks": "PASS",
+    "source_manifests_verified": true
+  },
+  "2024": {
+    "unknown_finance_by_arm": {
+      "baseline": {
+        "unknown": 27,
+        "financial_uncovered": 7
+      },
+      "joint": {
+        "unknown": 113,
+        "financial_uncovered": 24
+      }
+    },
+    "common_stocks": 1577,
+    "excluded": 132,
+    "any_unknown": 114,
+    "any_uncovered": 24,
+    "unknown_uncovered_overlap": 6,
+    "uncovered_without_unknown": 18,
+    "both_never_entered": 188,
+    "common_baseline": {
+      "rounds": 1268,
+      "entered_rounds": 1262,
+      "stocks": 1074,
+      "entered_stocks": 1071,
+      "buy": 31092709.444111798,
+      "sell": 32498045.33649067,
+      "trade_net": 1405335.8923788692,
+      "income": 32420.850232,
+      "net": 1437756.7426108692,
+      "fees": 37076.26941613075
+    },
+    "common_joint_ab": {
+      "rounds": 699,
+      "entered_rounds": 697,
+      "stocks": 616,
+      "entered_stocks": 615,
+      "buy": 18093400.344142526,
+      "sell": 19292929.88291851,
+      "trade_net": 1199529.5387759856,
+      "income": 19400.085448,
+      "net": 1218929.6242239857,
+      "fees": 21505.761159014364
+    },
+    "common_joint_price": {
+      "rounds": 1091,
+      "entered_rounds": 1083,
+      "stocks": 950,
+      "entered_stocks": 945,
+      "buy": 22591605.13329092,
+      "sell": 24191644.75627096,
+      "trade_net": 1600039.622980038,
+      "income": 16523.11272,
+      "net": 1616562.735700038,
+      "fees": 28800.181469961957
+    },
+    "common_joint": {
+      "rounds": 1790,
+      "entered_rounds": 1780,
+      "stocks": 1380,
+      "entered_stocks": 1376,
+      "buy": 40685005.47743344,
+      "sell": 43484574.63918947,
+      "trade_net": 2799569.1617560238,
+      "income": 35923.198168,
+      "net": 2835492.3599240235,
+      "fees": 50305.94262897632
+    },
+    "ab_change": -218827.1183868836,
+    "total_delta": 1397735.6173131545,
+    "identity_residual": 0.0,
+    "retained_events_all": 488,
+    "retained_events_common": 470,
+    "retained_path_mismatches": 0,
+    "ab_original_labels": {
+      "SAME_EVENT_RETAINED": {
+        "events": 470,
+        "stocks": 416,
+        "baseline_entered": 469,
+        "joint_entered": 469,
+        "baseline_net": 926635.7233586491,
+        "joint_net": 926635.7233586491,
+        "delta": 0.0
+      },
+      "PRICE_SAME_STOCK_BLOCKED_HELD": {
+        "events": 547,
+        "stocks": 524,
+        "baseline_entered": 546,
+        "joint_entered": 0,
+        "baseline_net": 119654.03963880082,
+        "joint_net": 0.0,
+        "delta": -119654.03963880082
+      },
+      "JOINT_ONLY_AB_STATE_CHAIN": {
+        "events": 229,
+        "stocks": 226,
+        "baseline_entered": 0,
+        "joint_entered": 228,
+        "baseline_net": 0.0,
+        "joint_net": 292293.90086533653,
+        "delta": 292293.90086533653
+      },
+      "AB_STATE_CHAIN_LOSS": {
+        "events": 111,
+        "stocks": 111,
+        "baseline_entered": 111,
+        "joint_entered": 0,
+        "baseline_net": 24150.573351889918,
+        "joint_net": 0.0,
+        "delta": -24150.573351889918
+      },
+      "PRICE_INDUSTRY_SLOT_DISPLACEMENT": {
+        "events": 139,
+        "stocks": 138,
+        "baseline_entered": 135,
+        "joint_entered": 0,
+        "baseline_net": 370845.62538202485,
+        "joint_net": 0.0,
+        "delta": -370845.62538202485
+      },
+      "AB_STATE_CHAIN_RANK_LOSS": {
+        "events": 1,
+        "stocks": 1,
+        "baseline_entered": 1,
+        "joint_entered": 0,
+        "baseline_net": -3529.2191204954,
+        "joint_net": 0.0,
+        "delta": 3529.2191204954
+      }
+    },
+    "stock_ab_path_groups": {
+      "SAME_AB_EVENT_PATH": {
+        "stocks": 312,
+        "ab_delta": 0.0,
+        "price_net": -19446.976466802804,
+        "total_delta": -19446.976466802804
+      },
+      "BOTH_NO_AB_ROUND": {
+        "stocks": 437,
+        "ab_delta": 0.0,
+        "price_net": 195660.94055077757,
+        "total_delta": 195660.94055077757
+      },
+      "REMOVED_ONLY_AB_EVENTS": {
+        "stocks": 602,
+        "ab_delta": -438993.92350025073,
+        "price_net": 1467820.9897773806,
+        "total_delta": 1028827.0662771299
+      },
+      "REMOVED_AND_ADDED_AB_EVENTS": {
+        "stocks": 149,
+        "ab_delta": 254084.79836553775,
+        "price_net": -13838.664801711739,
+        "total_delta": 240246.133563826
+      },
+      "ADDED_ONLY_AB_EVENTS": {
+        "stocks": 77,
+        "ab_delta": -33917.99325217063,
+        "price_net": -13633.553359605618,
+        "total_delta": -47551.54661177625
+      }
+    },
+    "first_ab_buy_groups": {
+      "SAME_FIRST_AB_BUY_DAY": {
+        "stocks": 350,
+        "ab_delta": 23156.9495456488,
+        "price_net": -42376.98705117825,
+        "total_delta": -19220.037505529453
+      },
+      "BOTH_NO_AB_BUY": {
+        "stocks": 441,
+        "ab_delta": 0.0,
+        "price_net": 197799.1029434389,
+        "total_delta": 197799.1029434389
+      },
+      "JOINT_FIRST_AB_BUY_LATER": {
+        "stocks": 93,
+        "ab_delta": -178614.45516746715,
+        "price_net": 102161.81206182744,
+        "total_delta": -76452.64310563971
+      },
+      "LOST_ALL_AB_BUY": {
+        "stocks": 521,
+        "ab_delta": -387632.9201836971,
+        "price_net": 1383044.6258132723,
+        "total_delta": 995411.7056295752
+      },
+      "JOINT_FIRST_AB_BUY_EARLIER": {
+        "stocks": 107,
+        "ab_delta": 366400.1516310823,
+        "price_net": -9372.38887073346,
+        "total_delta": 357027.7627603488
+      },
+      "NEW_AB_BUY_STOCK": {
+        "stocks": 65,
+        "ab_delta": -42136.84421245043,
+        "price_net": -14693.429196588817,
+        "total_delta": -56830.27340903925
+      }
+    },
+    "common_terminal_marks": 0,
+    "common_remaining_inventory": 0,
+    "raw_closed_cash_and_fee_checks": "PASS",
+    "source_manifests_verified": true
+  }
+}

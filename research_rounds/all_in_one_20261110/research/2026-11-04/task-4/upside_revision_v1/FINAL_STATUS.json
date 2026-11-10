@@ -1,0 +1,55 @@
+{
+  "task": "Reverse critique and smallest explicit upside policy revision, with shared holding/entry risk interface review",
+  "status": "STATIC_MINIMUM_CONTRACT_PASS_WITH_OPEN_RISK_AND_IMPLEMENTATION_GATES",
+  "new_accounts": 0,
+  "new_backtests": 0,
+  "new_parameter_tests": 0,
+  "new_market_data_or_indicator_series": 0,
+  "new_funding_or_trade_simulation": 0,
+  "strategy_implemented": false,
+  "policy_promoted": false,
+  "withdrawn_as_recommended_hard_constraints": [
+    "20-close high then another high confirmation",
+    "EMA20/60 or20-close window as new mandatory entry/add evidence",
+    "4% then6% plugin capital targets",
+    "Two plugin fill limit",
+    "Any1R/2R waiting requirement"
+  ],
+  "recommended_minimum": {
+    "name": "HELD_I_INCREMENT",
+    "single_new_entry_point": "Known-absent canonicalCP, actual held, full original core_Q including original dated i_buy; typed confirmed-only I increment",
+    "original_CP": "PresentCP stays entirely on original path, including original quantity and protection; no I-first substitution and no dirty-state fallback",
+    "quantity": "Original CORE known-I sizing0.25% signal NAV, frozen signal cap,10% remaining stock concentration allowance; exact OPEN prefix shared risk and cash may reduce to0",
+    "holding": "New I layer uses original CORE I_target/last_core_line semantics from entry; old MOBILE and original CORE unchanged",
+    "extra_execution_guard": "Actual normalized OPEN above last actual buy, only for new I branch; I line may not lower within same source/I epoch",
+    "source_change": "Explicit new typed source and confirmed pool permission, not fake CP, relabeled CORE or original probe neutrality",
+    "not_dynamic_CP_sizing": "Dropping original heldCP2% single-order nominal budget is a distinct real sizing change, not bundled with this minimum"
+  },
+  "verified_critique_points": [
+    "Original code already updates surviving MOBILE protection and syncs before proposing new CP increments",
+    "Persistent I_target is holding/exit state; original i_buy/core_Q contains dated E0/G1 opportunity evidence",
+    "CP new price displacement and amount credit do not guarantee higher quality or independent confirmation",
+    "Raising a stop need not reduce price-to-stop exposure if price rose faster",
+    "Profit is not cash; projected stop profit is not guaranteed execution or free gap risk",
+    "New holding-wide contract must occupy the same risk ledger before allocating residual new-buy budget",
+    "Original new stock concentration gate is not an automatic profit-taking or rebalancing target"
+  ],
+  "remaining_open_gates": [
+    "Typed I proof, confirmed-only request adapter and I-increment risk mirror not implemented",
+    "Shared risk pressure/global/sector/loss-budget numerical contract not frozen in this subtask; missing grant means no new quantity",
+    "Full event coverage, new PVR slots, legal funded quantities, opportunity cost and economics unmeasured",
+    "Strict known-absentCP restriction may have low coverage; it is a controlled minimal scope, not proof that I and CP same-day expansion is bad",
+    "The OPEN-above-last-buy guard can miss V recoveries and is a separate unproven restriction",
+    "Read-only shared-peer review uses its message; its specified new-case directory not found in two obvious dated paths, so no claim to have audited its two new case ledgers"
+  ],
+  "deliverables": {
+    "readout": "READOUT.txt",
+    "minimum_contract": "MINIMUM_CARD.txt",
+    "shared_peer_interface_critique": "SHARED_RISK_INTERFACE_CRITIQUE.txt",
+    "code_sources": "code/SOURCE_EVIDENCE.json",
+    "saved_examples": "examples/FACT_VS_HYPOTHESIS.json",
+    "final_review": "logic/FINAL_REVISION_REVIEW.json"
+  },
+  "environment_or_permission_blockers": [],
+  "review_scope": "PASS for source, static contract, saved examples and shared-interface critique; no implementation, funding coverage or economics validated"
+}

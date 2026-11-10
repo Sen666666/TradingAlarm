@@ -1,0 +1,1 @@
+Third synthetic run only. Preflight used native live(), which lazily creates a layer lookup index before transaction capture. This cache leaked on callback refusal and appeared as a change in the no-position fixture. Replace preflight live() with direct read-only layer iteration. Financial algorithm/values unchanged; preserve whole pre-action native memory state on refusal.

@@ -1,0 +1,47 @@
+{
+  "scope_date": "2026-10-22",
+  "kind": "sector_only_technical_diagnostic",
+  "accounts_run": 0,
+  "algorithm_changes": 0,
+  "raw_manifest": {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/sector-data-v2/manifest.json",
+    "sha256": "62b3ac795c88943d3eef91bfad9b4685dccbd06230bd201cef551972c9189360"
+  },
+  "upstream_sha256": {
+    "numeric": "b07f92f309864ba1cfdb84f76adbf7c4d97d5eff6d90b6b25acd62577be0c2e3",
+    "participation": "7a7017c7cd43dd2bdd7cfae4cfed29bf16d1b7452e9c411fe53c968692017cf0",
+    "data_utils": "e5623d85b66ca575e9ba3066389d0a1119f757388ae68e2711e4a70852909668",
+    "sector_stock_admission": "ee991d2b9bafc0e1b1c601e59d74b9f167ff1b45f1edcbe46538b1c5bca4735b"
+  },
+  "bridge_sha256": "638193a44fbc4a1e3099168fc2ef3dd3f7f6fdc638e1c9e111248248887622c6",
+  "segmentation": "Use already declared source-break segments, independently warm up unchanged numeric and participation per segment. Unknown between segments and before ready; target=0 during warmup is never bearish evidence.",
+  "mode": "volume",
+  "ranking": "Frozen 4x63 observation RS; missing/stale rank preserved",
+  "same_six_charts": [
+    {
+      "symbol": "URFI881155",
+      "reason": "A bank: user requested existing representative"
+    },
+    {
+      "symbol": "URFI881121",
+      "reason": "A semiconductor: user requested existing representative"
+    },
+    {
+      "symbol": "URFI881101",
+      "reason": "A planting/forestry: smallest numeric current A industry ID, deterministic without selecting by returns"
+    },
+    {
+      "symbol": "UFIH871116",
+      "reason": "HK financials: explicitly requested and known gap verification"
+    },
+    {
+      "symbol": "UFIH871117",
+      "reason": "HK information technology: explicitly requested and known long gap"
+    },
+    {
+      "symbol": "UFIH871111",
+      "reason": "HK raw materials: explicitly requested; show short coverage as obtained"
+    }
+  ],
+  "not_authorized": "No accounts; no 8k stock states; no live network; no parameter changes; no full-pool production claim"
+}

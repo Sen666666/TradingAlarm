@@ -1,0 +1,55 @@
+{
+  "completed": true,
+  "completed_at": "2026-10-31T04:54:16.202249+00:00",
+  "scope_written_at": "2026-10-31T04:44:19.404124+00:00",
+  "scope_to_completion_wall_seconds": 596.798125,
+  "full_task_start_separately_recorded": false,
+  "preparation_reading_reporting_interleaved_not_individually_timed": true,
+  "inventory_scan_seconds": 10.772435333114117,
+  "floor_risk_aggregation_verification_seconds": 1.031990374904126,
+  "total_measured_aggregation_seconds": 11.804425708018243,
+  "new_economic_paths": 0,
+  "new_strategy_rules": 0,
+  "source_or_product_writes": 0,
+  "data_downloads": 0,
+  "active_processes_in_this_task": 0,
+  "data_quality_limits": [
+    "4 TECH IPO dates unlinked",
+    "survivor/current sector and cap selection",
+    "incomplete historical membership and retired actions",
+    "corporate action pay/sellability proxy",
+    "no-row halt versus missing not disambiguated",
+    "delay floor unknown: TECH37/DRUG47 account days",
+    "all market/industry Q history not re-certified in this task",
+    "no certified untouched historical holdout"
+  ],
+  "execution_or_permission_blockers": [],
+  "counts": {
+    "stocks": 455,
+    "annual_rows": 28,
+    "buy_fills": 428,
+    "account_days": 4086,
+    "holding_stock_days": 15354
+  },
+  "checks": {
+    "unique_fill_ids": true,
+    "unique_account_days": true,
+    "unique_holding_keys": true,
+    "ledger_verification_errors": 0
+  },
+  "input_identity": [
+    "INPUT_IDENTITY.json",
+    "FLOOR_RISK_INPUT_IDENTITY.json"
+  ],
+  "deliverables": [
+    "REPORT.txt",
+    "ALGORITHM_INDEX.txt",
+    "CONSUMPTION_EVIDENCE.txt",
+    "ANNUAL_COVERAGE.csv",
+    "SECURITY_COVERAGE.csv",
+    "ENTRY_FLOOR_RISK.csv",
+    "HOLDING_FLOOR_RISK.csv",
+    "DAILY_PORTFOLIO_FLOOR_RISK.csv",
+    "FLOOR_RISK_VERIFICATION.json"
+  ]
+}

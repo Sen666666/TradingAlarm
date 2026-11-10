@@ -1,0 +1,28 @@
+2022-23 common484native trading days, both original No60 and PVR own saved paths.
+No strategy/account/ledger/new price signal calculation or new sizing.
+Benchmark only frozen510300 causal total-return signal_close and original ma63
+in benchmark_2022_2023/inputs/510300_history.csv. ma63 is original inclusive63
+observed CLOSE mean, on iff signal_close>ma63. Not HS300 price MA, not syntheticM.
+
+Current CLOSE axis: above strict>, below strict<, equal separate, unknown if
+missing. Slope is requested diagnostic sign(ma63_t-ma63_previousObserved),
+up/down/flat/unknown. It is not an original benchmark trading rule. No new lookback.
+
+Snapshot actual inventory/NAV, native mark-floor nominal risk/NAV, availablecash,
+pending/reserves/settlement claims at same CLOSE. Retain current/lag state clocks.
+Day wealth and actual new buycash are attributed solely by PREVIOUS benchmark
+observed CLOSE, available before currentOPEN. First2022day uses warm prior signal
+and native fresh1m initialempty balance for lag resources. Never use same-day
+CLOSE signal as if knownOPEN. Original daily wealth includes actual cost/dividend.
+
+All24months, all consecutive below runs and all above/upcross runs in the full
+warm history intersecting484trading days, with left/rightcensor flags. For run
+money attribution select current account days whose previous benchmark CLOSE
+belongs to that run; includes upcross-day wealth when previousCLOSE was below.
+Show both sameCLOSE run snapshot and causally shifted following wealth; do not
+mislabel any signal-day return as availableOPEN. No chosen start/end or threshold.
+
+Repeated yuan-CLOSE risk/capital averages are exposure descriptors, not deployed
+unique principal, newriskorder amount or avoidable loss. Keep old holdings and
+their original exits; benchmarkbelow never assumed to imply a forced accountflat.
+No3400layer reanalysis or entryquality selection. Original ACT/H days contextonly.

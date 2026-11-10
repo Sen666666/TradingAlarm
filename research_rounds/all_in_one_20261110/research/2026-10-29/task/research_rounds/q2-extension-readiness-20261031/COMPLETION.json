@@ -1,0 +1,9 @@
+{
+  "read_only": true,
+  "new_account_paths": 0,
+  "new_cache_generation": 0,
+  "seconds": 44.81575116608292,
+  "coverage_complete": true,
+  "extension_condition": "data/schema ready if no mismatch; explicit legacy continuation wrapper and prefix checks required before authorized future run",
+  "no_OOS": true
+}

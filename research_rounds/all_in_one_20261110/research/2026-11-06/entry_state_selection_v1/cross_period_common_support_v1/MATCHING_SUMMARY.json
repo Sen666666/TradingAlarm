@@ -1,0 +1,12 @@
+{
+  "status": "MATCHES_SEALED_BEFORE_OUTCOMES",
+  "original_permits": 2417,
+  "known": 2002,
+  "anchor_edges": 36,
+  "feasible_triplets": 1,
+  "selected_triplets": 1,
+  "source_stocks": 1306,
+  "no_outcome_columns_read": true,
+  "no_strategy": true,
+  "seconds": 31.019615958910435
+}

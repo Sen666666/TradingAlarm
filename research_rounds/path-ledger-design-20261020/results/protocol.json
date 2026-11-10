@@ -1,0 +1,55 @@
+{
+  "created_utc": "2026-10-20T04:00:56.090102+00:00",
+  "purpose": "Design-level falsification of nonoverlapping displacement ledger. No new trade rule or portfolio run.",
+  "prior": "Existing cumulative CUSUM rejected; retained impact duplicates/resurrects displacement. Test exact chronological LIFO cancellation as minimal repair, not a new family.",
+  "formula": "Opposite signed movement cancels latest fragment until exhausted; surviving fragments retain original weight and time. Diagnostic63-return window; sqrt current volume / previous21median clipped .25,4. All weights positive.",
+  "expected_invariant": "Sum remaining signed fragments = endpoint displacement; stack has one sign, so positive weighting cannot change direction. Need verify before calling it a new trend mechanism.",
+  "code": {
+    "check_design.py": "da38324c5df6f9e2d95c51016df1fe18757cb288a8a202c3ca97facfbdbb98d6",
+    "path_ledger.py": "e733bc07e608fb29164310132a7dcf65239fe5f0b6b2ada68ae9e43f512df54e"
+  },
+  "inputs": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/HK09618-signals.csv": "05dba4cee72f8fc4a0b6608b6c63790be41912ad6afdcd819fa6c1ba5f2ba8f2",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/USHJ518880-signals.csv": "dc03df65fe1eaf394ebd6fef0bb60d099d7e644f9725aad5477596bbf5fd349d",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/USHJ512480-signals.csv": "a07f12b5ebdf86b4eb20b83f17317cbdb9e52c83b47a14ff269847cab4293229",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results/600919.SH-signals.csv": "8c88de8548676c9692988d6c994de2af437e234ca15f742833b6e948f9b530f9"
+  },
+  "source": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-price-region-20261020/results",
+  "cases": [
+    {
+      "id": "F2",
+      "intent": "fast start",
+      "symbol": "HK09618",
+      "group": "hk7",
+      "start": "2024-08-01",
+      "end": "2024-12-31",
+      "checkpoint": "2024-09-30"
+    },
+    {
+      "id": "R2",
+      "intent": "consolidation recovery hypothesis",
+      "symbol": "USHJ518880",
+      "group": "etf17",
+      "start": "2024-01-01",
+      "end": "2024-12-31",
+      "checkpoint": "2024-06-03"
+    },
+    {
+      "id": "B1",
+      "intent": "breakdown",
+      "symbol": "USHJ512480",
+      "group": "etf17",
+      "start": "2026-04-01",
+      "end": "2026-10-16",
+      "checkpoint": "2026-07-01"
+    },
+    {
+      "id": "S3",
+      "symbol": "600919.SH",
+      "start": "2024-01-01",
+      "end": "2024-12-31"
+    }
+  ],
+  "stopping": "If direction is merely endpoint momentum, reject as complete state estimator before account tests; preserve ledger as correct bookkeeping only. No tuning window/threshold.",
+  "history": "All inputs previously seen development data"
+}

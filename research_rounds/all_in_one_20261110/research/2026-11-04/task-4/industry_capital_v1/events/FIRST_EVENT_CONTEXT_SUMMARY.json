@@ -1,0 +1,35 @@
+{
+  "by_window": {
+    "long": {
+      "events": 5264,
+      "sector_capital_plus_other_gates": 4704,
+      "S0_no_old_inventory_with_prior_same_sector_new_orders": 621,
+      "prior_CLOSE_old_sell_lock": 100,
+      "both_sector_plus_other_gates": 440,
+      "S0_has_old_inventory_without_prior_same_sector_new_orders": 2974,
+      "sector_capital_only": 109,
+      "S0_has_old_inventory_with_prior_same_sector_new_orders": 1566,
+      "both_sector_only": 11,
+      "S0_no_old_inventory_without_prior_same_sector_new_orders": 103
+    },
+    "strong": {
+      "events": 3071,
+      "sector_capital_plus_other_gates": 2789,
+      "S0_no_old_inventory_with_prior_same_sector_new_orders": 268,
+      "prior_CLOSE_old_sell_lock": 118,
+      "both_sector_plus_other_gates": 232,
+      "both_sector_only": 6,
+      "S0_has_old_inventory_with_prior_same_sector_new_orders": 1011,
+      "S0_has_old_inventory_without_prior_same_sector_new_orders": 1770,
+      "sector_capital_only": 44,
+      "S0_no_old_inventory_without_prior_same_sector_new_orders": 22
+    }
+  },
+  "S0_empty_and_no_same_sector_prefix": {
+    "raw_events": 186,
+    "min_gross_exceeds_2pct_decision_NAV": 184,
+    "prior_S0_upper_available": 117,
+    "min_alone_exceeds_2pct_NAVupper_SAFE": 117
+  },
+  "scope": "Original native request diagnostics and commitments; min vs decision NAV is descriptive, only S0 upper test is certified necessary where present. No states/marks rebuilt."
+}

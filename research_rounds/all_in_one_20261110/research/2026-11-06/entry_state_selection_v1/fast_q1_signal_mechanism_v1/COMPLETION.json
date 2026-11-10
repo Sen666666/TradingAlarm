@@ -1,0 +1,19 @@
+{
+  "status": "DIAGNOSIS_COMPLETE_NO_NEW_ECONOMIC_RUN",
+  "initial_target_34_35_not_met_or_claimed": true,
+  "failure_only_rule": "DEFINED_BUT_SCOPE_INSUFFICIENT_FOR_ECONOMIC_ADVANCEMENT",
+  "higher_birth_anchor_hard_gate": "STOPPED_AFTER_CAUSAL_STARTUP_PREFLIGHT",
+  "source_paths": 3974,
+  "source_hash_references_verified": 6925,
+  "independent_audits": [
+    "5031 permits / 5002 conditional fills / 559 execution UNKNOWN / 54 financial unknown closed preserved",
+    "Q1 1832 usable and 176 initial winners independently reconstructed",
+    "38 stocks 190 causal physical prefix checks",
+    "90 sector full-warm original trace and Stage exactly reproduced; independent 21780 sector day / 5031 permit / 654 startup state checks",
+    "35 stock cross-root floor causal prefixes and 7 startup direct native fact verification",
+    "PIT source-publication time, static universe and actual orderability NOT verified"
+  ],
+  "economic_runs": 0,
+  "not_account": true,
+  "NET80_scenario": true
+}

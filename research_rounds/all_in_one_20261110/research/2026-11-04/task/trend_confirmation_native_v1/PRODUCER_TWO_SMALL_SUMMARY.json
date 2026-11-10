@@ -1,0 +1,147 @@
+{
+  "scope": "TWO_NINE_CLOSE_TECHNICAL_TRACES_ONLY_NO_FULL_HISTORY",
+  "weak_strict_source_failure_preserved": true,
+  "cost_guard": false,
+  "windows": {
+    "small-2022-v1": {
+      "B": {
+        "ending_NAV": "975294.7505446507045",
+        "return_pct": "-2.4705249455349295500",
+        "mean_previous_close_exposure_pct": "69.96214088529034667752779972",
+        "last_exposure_pct": "89.99270625724726718474462997",
+        "last_stocks": 61,
+        "buy_fills": 87,
+        "sell_fills": 19,
+        "actual_fees": "985.7794903492955",
+        "original_licensed_plans_observed": 0,
+        "multiplier_counts": {},
+        "below_minimum_plans": 0,
+        "known_A_false_B_true_plans": 0,
+        "unknown_A_B_plans": 0
+      },
+      "UNIFORM50": {
+        "ending_NAV": "978734.7224790454955",
+        "return_pct": "-2.1265277520954504500",
+        "mean_previous_close_exposure_pct": "69.97132073376381479538376783",
+        "last_exposure_pct": "89.95999833027796476264466248",
+        "last_stocks": 102,
+        "buy_fills": 139,
+        "sell_fills": 25,
+        "actual_fees": "1159.9774859545045",
+        "original_licensed_plans_observed": 1659,
+        "multiplier_counts": {
+          "0.5": 1659
+        },
+        "below_minimum_plans": 55,
+        "known_A_false_B_true_plans": 0,
+        "unknown_A_B_plans": 0
+      },
+      "A_ONLY": {
+        "ending_NAV": "973633.2623834061045",
+        "return_pct": "-2.6366737616593895500",
+        "mean_previous_close_exposure_pct": "69.96041801205642253903222626",
+        "last_exposure_pct": "89.98964742177986503165183924",
+        "last_stocks": 63,
+        "buy_fills": 90,
+        "sell_fills": 18,
+        "actual_fees": "1002.0926515938955",
+        "original_licensed_plans_observed": 1714,
+        "multiplier_counts": {
+          "1.0": 1180,
+          "0.5": 534
+        },
+        "below_minimum_plans": 13,
+        "known_A_false_B_true_plans": 181,
+        "unknown_A_B_plans": 0
+      },
+      "A_OR_B": {
+        "ending_NAV": "975171.6482174436545",
+        "return_pct": "-2.4828351782556345500",
+        "mean_previous_close_exposure_pct": "69.96528841839620495920604587",
+        "last_exposure_pct": "89.99586294415213625195800410",
+        "last_stocks": 67,
+        "buy_fills": 92,
+        "sell_fills": 18,
+        "actual_fees": "995.0123175563455",
+        "original_licensed_plans_observed": 1711,
+        "multiplier_counts": {
+          "1.0": 1359,
+          "0.5": 352
+        },
+        "below_minimum_plans": 12,
+        "known_A_false_B_true_plans": 180,
+        "unknown_A_B_plans": 0
+      }
+    },
+    "small-strong-v1": {
+      "B": {
+        "ending_NAV": "1030124.5896390851040",
+        "return_pct": "3.012458963908510400",
+        "mean_previous_close_exposure_pct": "70.10761638922076920168954632",
+        "last_exposure_pct": "89.81734532947749344434584877",
+        "last_stocks": 59,
+        "buy_fills": 69,
+        "sell_fills": 7,
+        "actual_fees": "509.7076509148960",
+        "original_licensed_plans_observed": 0,
+        "multiplier_counts": {},
+        "below_minimum_plans": 0,
+        "known_A_false_B_true_plans": 0,
+        "unknown_A_B_plans": 0
+      },
+      "UNIFORM50": {
+        "ending_NAV": "1007955.9592350080875",
+        "return_pct": "0.7955959235008087500",
+        "mean_previous_close_exposure_pct": "68.48188477409620568723914387",
+        "last_exposure_pct": "89.94089689077691323382892092",
+        "last_stocks": 105,
+        "buy_fills": 116,
+        "sell_fills": 6,
+        "actual_fees": "694.5053299919125",
+        "original_licensed_plans_observed": 3142,
+        "multiplier_counts": {
+          "0.5": 3142
+        },
+        "below_minimum_plans": 165,
+        "known_A_false_B_true_plans": 0,
+        "unknown_A_B_plans": 0
+      },
+      "A_ONLY": {
+        "ending_NAV": "1030079.1584000790880",
+        "return_pct": "3.007915840007908800",
+        "mean_previous_close_exposure_pct": "70.10648373786216537243334233",
+        "last_exposure_pct": "89.83539395528546119389465397",
+        "last_stocks": 63,
+        "buy_fills": 73,
+        "sell_fills": 7,
+        "actual_fees": "523.7713699209120",
+        "original_licensed_plans_observed": 3199,
+        "multiplier_counts": {
+          "1.0": 2505,
+          "0.5": 694
+        },
+        "below_minimum_plans": 22,
+        "known_A_false_B_true_plans": 269,
+        "unknown_A_B_plans": 0
+      },
+      "A_OR_B": {
+        "ending_NAV": "1028105.4968787436930",
+        "return_pct": "2.810549687874369300",
+        "mean_previous_close_exposure_pct": "70.10158450848545056613373602",
+        "last_exposure_pct": "89.84919279241513607522251874",
+        "last_stocks": 62,
+        "buy_fills": 72,
+        "sell_fills": 7,
+        "actual_fees": "524.7307012563070",
+        "original_licensed_plans_observed": 3196,
+        "multiplier_counts": {
+          "1.0": 2772,
+          "0.5": 424
+        },
+        "below_minimum_plans": 13,
+        "known_A_false_B_true_plans": 269,
+        "unknown_A_B_plans": 0
+      }
+    }
+  }
+}

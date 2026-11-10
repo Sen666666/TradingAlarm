@@ -1,0 +1,44 @@
+本轮只读旧No60真实缓存与已保存账本，0 Market/Account/Runner实例化，0账户推进，0 E0/I/CP/H1/PVR/eligibility新计算。
+根预先冻结17日期，优先3日；完整日期见FROZEN_DATES.json。已保存17×1709=29053条全静态池原状态，以及90×17行业原缓存/状态。不是历史全市场或PIT股票池。
+
+首3日母体与可读性（股票1709、行业90）：
+2024-09-24：H1非空1624，PVR非空1618；source-Q候选1010；原账户roles且无barrier的pre-size候选1005；真正生成pending的唯一股988。
+2026-01-15：H1非空1652，PVR非空1640；source-Q284；pre-size281；真实pending257。
+2022-01-24：H1非空1443，PVR非空1429；source-Q35；pre-size30；真实pending27。
+全部17日原H1全1709排序与原opportunities的rank逐位置精确相同；7537个真实pending股/日的PVR与真实冻结scores parquet逐cell精确相同。17日原book共11583个typed intents的unique-stock集合也逐日与rank-policy完全相同。PVR源文件SHA逐个核平，AUDIT_ERRORS为空。
+所有原rank字段为0-based；priority_rank不是pending ordinal，而是复用的旧H1稀疏槽位key；final_slot才是实际pending股序号。
+
+优先六条原链（未使用后来收益）：
+海能2024-09-24：H1全池101/source-Q相对33，真PVR全已知数值159/source-Q141，实际pending从原slot30到finalslot135。股票core_Q/mobile_Q真、fresh CP、有core+mobile两提案、无planning barrier；9/25 OPEN两role均industry_invalidated。通信设备行业H1=69.444，90行业序27；原市场STATE E0有效但observe/authorization_usable=False。排名变化存在，不能把当次未买首先归于H1。
+银之杰9/24：H1全池4/source-Q0，PVR全数值1/source-Q0，实际pending finalslot0。9/25 OPEN core/mobile原拒因均probe_risk。软件行业H1=38.333/序55，原STATE为probe。原行业H1数值低没有挡住该股票合法提案；不可称H1没排到。
+江丰2026-01-15：H1全池401/source-Q125，PVR全数值18/source-Q11，真实pending从原slot102升至finalslot9。原core/mobile均有资格和role；core在当CLOSE因minimum_unit_exceeds_risk_or_nominal_cap未入pending，mobile次1/16 OPEN reserved 200@127.403670，pool confirmed。
+珂玛同日：H1全池45/source-Q5，PVR全数值66/source-Q40，pending从2到34。core同CLOSE最小手风险/名义约束拒；mobile 1/16 OPEN reserved200@136.318125。
+金海通同日：H1全池153/source-Q41，PVR全数值12/source-Q8；有core资格，但原CORE最小手风险/名义约束拒，未进pending。当日无fresh CP，因此不能伪补一张mobile许可。
+盈新2022-01-24：H1全池17/source-Q1，PVR全数值1/source-Q1，实际pending finalslot1；1/25 OPEN mobile reserved4700@4.002。三日原CLOSE ACT_on均True。
+reserved是原资金预留记录，不等于以任意盘口可保证成交；本轮未把它改称实际成交或收益。CLOSE之前同日09:30的funding属于此前信号，不能倒归本日CLOSE。flat表next_OPEN_funding_verbatim_json严格仅次原日09:30；EARLY原始JSON中的同日/次日funding保存整日带原时间戳，需按真实时钟读。
+
+原H1源码与缓存：
+rs_h1_model.py的WEIGHTS=(.4,.2,.2,.2)，b_j=min(63*j,h)，raw=sum_j w_j*(C[t-b(j-1)]/C[t-b(j)]-1)，round12；同segment与有效端点，h在5..252，至少6观察。各h的历史参考集至少20，输出mid-percentile。
+三日缓存h/nref/raw/score原值见H1_THREE_DATES_ORIGINAL_CACHE_AUX.csv，未重新计算。老股与行业多为h252；年轻股票可短h，所以nref不等于全池H1-known数。如1/15 h252股票nref1622，但H1非空1652。
+实际No60先按股票H1全池排ordered，然后原资格/role/账户barrier/尺寸形成pending，再在这些pending的唯一股槽位内按PVR替换。行业H1在S0是readiness/freshness资格项，当前joint planning并未按行业H1数值做行业TopN硬门或轮询分配。不能把软件序55解读成因此被拒。
+
+7种视图严格分开：
+H1_ALL_PACKET：原全部1709 opportunity顺序。
+PVR_ALL_STATIC_NUMERIC_INVENTORY：只是原cache数值降序查看，未知不填；不是原native在全1709重跑的策略排序。
+H1_SOURCE_Q_CANDIDATES、PVR_SOURCE_Q_CANDIDATES_NUMERIC_VIEW：source-Q=原core_Q==True OR (原canonical CP1_id存在且mobile_Q==True)，不拿i_buy或后来涨幅代造。
+H1_ORIGINAL_ACCOUNT_PRE_SIZE_CANDIDATES、PVR_ORIGINAL_ACCOUNT_PRE_SIZE_NUMERIC_VIEW：原roles非空且barriers为空，仍尚未过尺寸/预算/成交。
+ACTUAL_NATIVE_PENDING_PVR：原rank-policy记载的真实pending，包含未知PVR保持原槽的真实处理。各视图_ALL、_TOP20完整输出；未知PVR的数量见CANDIDATE_SCORE_KNOWN_DENOMINATORS.csv，不默默当弱分。
+
+文件接口：
+ALL_STATIC_STOCKS_FACTS_H1_PVR.parquet/csv为全母表；original_core_Q/mobile_Q/CP1_id、original_roles_json/barriers_json均为原记录，非重算。fact_*为原facts字段，Facts.row原先就取最后<=当日的记录，facts_row_asof_source_date与fact_exact_date_present分列，不能把carry值称当日fresh。CP_*只有当日exact源行。
+I_entered没有保存；不从i_buy猜补。原intent epoch属于I-watch，不冒称canonical E0 episode。原移动资格mobile_Q真仍需fresh CP1_id，不能直接叫当日买信号。
+ORIGINAL_PENDING_INTENTS.csv保存原reason/budget/cap/floor/risk_budget/ACT_on与明确PVR_score；原intent.score属于H1，不能拿trade.pvr或intent.score充真PVR。母表真PVR来自SCORES_MANIFEST绑定的原scores parquet，已核原pending值。
+INDUSTRY_H1_E0_CP_STATE_ALL90.csv给全90行业H1与原市场授权STATE/CP input。STATE是市场逻辑授权，financial_state_owned=False，不冒充账户实际资金余额；真实拒因看原funding。
+
+母体/PIT/缺失边界：
+原2026-10-22 roster有5576条；2026-10-24现值筛出1709，3865因已知当下市值不高于100亿元，2条unknown cap未进入本冻结1709。当前行业与存活状态也固定。current_fixed_pool.SelectionFact.read明确仅issuer/sector/company_cap可旁路历史知识时钟，是原研究明示假设；不证明2022/24当时实际市值或成员。
+本地SW历史成员12780行、覆盖1678个当前池股票，但与THS881不同体系，全effective_end空、observed_at为2026-05-15，未证明无歧义历史THS881归属；不造桥或用未来当前成员自制历史指数。formal PIT H*/S*依然unknown。
+本轮17日所有原CP flag都匹配已存canonical ID，缺口0；此前全年母体2025H1 9507条canonical ID缺口不在本轮所选日期，不能借此宣布整个历史ID全齐。
+1709外的历史全市场H1/PVR/E0/I/CP、历史市值筛选与行业PIT不在这些真缓存中，无法只读凭空还原；需要另有真实历史源和事先授权的计算。本轮未启动。
+
+可审读证据：ORIGINAL_SOURCE_EXCERPTS.txt含绝对路径/行号/SHA；SOURCE_SHA256.json；ORIGINAL_H1_AND_PVR_CACHE_EXACTNESS.json；ORIGINAL_PENDING_DECISION_IDENTITY_CHECK.json；静态池及历史成员审计JSON。未计算新H*/S*分数、未拿后验收益作排名或选日。

@@ -1,0 +1,12 @@
+{
+  "requests": 42,
+  "exact_signals": 38,
+  "missing_target_bar": 4,
+  "original_E0_ready": 36,
+  "not_ready_on_present": 2,
+  "stock_I_hold_true": 33,
+  "stock_i_buy_true": 18,
+  "PVR_and_i_buy_true": 18,
+  "global_signal_qualified_ranking": false,
+  "executable_permission": false
+}

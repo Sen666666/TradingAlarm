@@ -1,0 +1,11 @@
+{
+  "cases": 24,
+  "official_implementation_pdfs": 24,
+  "code_cash_clock_checks": 24,
+  "source_factor_matches": 24,
+  "precise_cash_cannot_replace_source_factor": 24,
+  "explicit_d_ref_extracted": 12,
+  "net80_register_delta_abs_max": "0.197064000",
+  "net80_register_delta_abs_sum": "0.726800000",
+  "note": "These are point cash differences, not path-PnL bounds. Corporate facts retrieved currently, not archived PIT or actual investor tax."
+}

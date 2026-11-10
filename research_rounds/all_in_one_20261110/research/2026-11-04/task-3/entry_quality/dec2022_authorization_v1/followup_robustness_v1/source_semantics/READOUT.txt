@@ -1,0 +1,31 @@
+封版H2源语义结项：当前数据可算与全输入PIT证明分开
+
+结论：在已冻结的当前存续/当前市值/当前行业研究池上，价线比值与有效观察时钟可用，封版ready标志已独立逐数组核同；不能据此称历史全输入PIT、历史同日15:10首发数据可得或未修订vintage。未改封版、未取数、未跑账户；成本压力由另一独审负责，本审未重复。
+
+个股价格与factor：
+close=raw_close×factor。源起点factor=1；每个有效权息日按原规范化条款向以后累计，过去价格不因后来事件回改。不是最新日锚定、回改过去的前复权；方向近固定起点的后复权，但这里明确是本项目theoretical_ex_price坐标，不能替称供应商标准后复权或股东现金总收益。
+普通现金/送转：ex_reference=(previous_raw_close−cash_signal_per_old_share)/signal_split_ratio；factor_new=factor_old×previous_raw_close/ex_reference。现金由原“每十股红利”除10、送转由1+(送+转增)/10得到。函数要求前raw正价且大于cash、split正数，避免除零；只在事件effective_date生效。source_origin/share_units另按volume_split_ratio累计，volume按源起点份额归一。
+rights不认购使用TERP式signal_cash<0、signal_split>1，但真实持有人不自动扣认购现金或增加股份；targeted issuance不自动给散户权益，均是明示research proxy。普通signal现金是源条款金额；原实际A股账用net80%及unknown支付日应收规则，不能把因果价格涨跌当可再投现金TR。原15892项June30前事件均无paid_at、1709 action文件均为declared_research_proxy；不证明逐券商权益/历史公告发布时刻。
+完整引用facts4081068行close/raw_close/factor无0、负、NaN或inf，raw×factor最大绝对差1.82e−12。部分共享facts文件含June30后31503行；封版context只保留2022..2026Jun30。对齐June30前4049565有效facts后，合成/invalid source接入为0；独审未把文件尾部比到截断源上。140440个readyR窗口跨factor变化，g_adj=(1+r_adj)=g_raw×(F_t/F_anchor)，最大差1.78e−15。
+实际例000001.SZ 2022-07-22、市场锚2022-06-24：raw20日−9.9789%，因果调整−8.3732%，factor比1.01783758。混用raw与adjusted会改变相对证据，不能以其中之一按收益择优。334个合成权息行有因果价格但无真实raw quote，observed=False/price_eligible=False，未进当前H2；例000009.SZ 2014-07-09 raw_close为NaN。
+
+行业与历史成分：
+原metadata/selection的行业映射来自2026-10-22 current-stock-master及Block tree；selection.observed_at=2026-10-24T21:56:29+08:00，cap_observed_date=2026-10-24，market_timestamp_unknown=True。2026-10-24T23:20:28.307457+08:00的repair记录重连144只合格股，修的是当前分类，不是补出了过去行业有效区间。
+90条URFI行业价格来自原THS历史指数日线，unadjusted_index/factor=1，不是用当前1709股票回算的组合。但price bars、单日current映射和Block成员表没有历史成分生效区间、权重、编制修订及版本vintage；因此不能证明2022的该股应属今天这一个行业，也不能证明历史指数成分权重PIT。应说“固定当前归属、历史原指数价格”的条件开发研究，不将未知说成已知，亦不武断宣称这些历史指数一定按当前成分回算。
+行业364796条facts close/factor均正且finite，factor全1。更长raw文件14个source_invalid geometry异常已排除（如URFI881263 2016-02-04 open1886.555<low1886.626）；不能只凭close正数称整根OHLC合法。HS3005288条close、volume、amount均无非正/NaN/inf。
+
+基准时点：
+真HS300为USZI399300.csv，2005-01-04..2026-10-16共5288行，8原始页SHA与checkpoint核同。下载received_at为2026-10-18T20:30:06/07/08+08:00；checkpoint completed_at=2026-10-18T20:30:08+08:00。
+既有benchmark INPUT_FREEZE记录时间=2026-11-04T09:17:50.532158+00:00，先于其基准账户计算，但这只是2026年研究文件冻结，不是2022历史时点数据vintage。H2封版固定使用此真指数，不以ETF收益择优；分析窗末日2024-12-31及2026-06-30，relative缓存保留至2026-06-30，未使用该CSV后续到2026-10-16的数据作过去端点。
+CSV只有日期/OHLC/volume/amount/wire_extra；checkpoint只有2026抓取时间，没有每条日线的历史首次发布时间/修订轨迹。stock/industry输入的15:05 close_available_time是研究契约声明，不能证明厂商当日15:10已经提供同一个最终数值。日线按尾随日期使用可称prefix-causal；“所有历史价格当时同版本可得”缺证。原protocol还把指数launch信息标为unverified recollection，不将其当本轮已独立核实的官方事实。
+
+RS20与停牌/缺源/EMA时钟：
+RS20固定用HS300 t和t−20两端，即20市场间隔/21日期；stock/industry端点必须exact observed、finite>0且同source。个股停牌或源缺口不能改成各自最近20观察，也不能前填端点；内部缺日不改变固定两个端点的时间跨度。价格缺行本身不能区分真实停牌、源缺口和上市年龄，本审不伪造停牌原因。
+1731880 context行中ready_R1725259；6621个R未知全部缺stock市场锚端点。ready_P1727462，4418个P未知是源EMA预热；没有被补0。EMA20对原source段内有效观察递推，span20/adjustFalse/min_periods20，缺日不推进，源段改变重置，不是20市场日历SMA。普通缺volume本身不应删除有效价格，但当前匹配facts中非正/缺volume为0。
+实际例000065.SZ 2022-05-09的t−20是2022-04-06，该端点缺失：R未知而P已知。原3436实际decision有17个R未知、P全已知。原57213 held查询中232条当日观察缺失，另230条current存在而R端点未知；“缓存内部invalid_current=0”不能被误读成所有持仓日都有当前报价。
+H2 UNKNOWN定义是没有新增覆盖动作、沿原权限/硬退出继续，不是判趋势转强，不取消已锁sell。日期级current/source_max_day只说明模型观察日，不能补出历史发布时刻。当前实际分母无零除或非正问题；market原准备器以finite return约束，没有独立market价格>0断言，因此本结论针对已核正价缓存，不是任意畸形未来输入的通用验证证书。
+
+可用与不可声称：
+可用：当前固定池、固定当前行业归属、已下载/已归档的历史价量与权息proxy上，原及联合规则的可复现前缀因果比较。不可声称：历史全池PIT资格/历史行业成员权重/日线首发与未修订版本/精确券商执行或现金TR已经证明。后续真正未来观察需要保留当次实际接收时间和数据版本，不能把今天先下载了过去数据当成过去当时已知。
+两次独审实现问题已保留：attempt01是统计Series按日期自动对齐的形状错误；attempt02是完整共享facts尾部与June30截断source未对齐的独审统计误标，已改为同窗对齐。两者未改任何封版代码/数据，也未开启账户。
+最终文件：VALUE_DOMAIN_AND_CONTEXT_COUNTS、CLASSIFICATION_PIT_EVIDENCE、BENCHMARK_PROVENANCE、CORPORATE_ACTION_SCOPE、ACTUAL_QUERY_DOMAIN_COUNTS、实际反例、来源SHA及交付SHA。

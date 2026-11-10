@@ -1,0 +1,526 @@
+Internal Error ()
+citeturn64view0 [wordlim: 200] Source: open({"ref_id":"https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20230827_5725662.shtml","lineno":null}); Total lines: 1
+L0: Failed to fetch https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20230827_5725662.shtml: (400) Timeout fetching
+--------------------------------------------------------------------------------
+上交所下调股票交易经手费30% | 上海证券交易所 (https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20230818_5725378.shtml)
+citeturn64view1 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20230818_5725378.shtml","lineno":null}); Total lines: 151
+L0: 上海证券交易所服务热线：400-8888-400 【0†APP下载】 【1†微博微信】 【2†English†english.sse.com.cn】【3†繁†big5.sse.com.cn】
+L1: 
+L2: 【4†一网通办†one.sse.com.cn】【5†“三开门”专栏】
+L3: 
+L4: 【6†简中EN†english.sse.com.cn】
+L5: 
+L6: 【4†一网通办†one.sse.com.cn】 【5†“三开门”专栏】
+L7: 
+L8: 用户入口
+L9:     【7†投资者†one.sse.com.cn】
+L10:     【8†会员机构†one.sse.com.cn】
+L11:     【9†拟上市公司†one.sse.com.cn】
+L12:     【10†债券机构†one.sse.com.cn】
+L13:     【11†上市公司†one.sse.com.cn】
+L14:     【12†基金公司†one.sse.com.cn】
+L15: 高效办成一件事
+L16:     【13†股票投资一件事†one.sse.com.cn】
+L17:     【14†债券发行上市一件事†one.sse.com.cn】
+L18:     【15†期权投资一件事†one.sse.com.cn】
+L19:     【16†REITs发行上市一件事†one.sse.com.cn】
+L20:     【17†企业上市一件事†one.sse.com.cn】
+L21:     【18†服务预约一件事†one.sse.com.cn】
+L22:     【19†信息披露一件事†one.sse.com.cn】
+L23: 
+L24: 一网通办移动端
+L25: ## 上交所APP"通办"栏目
+L26: 
+L27: 【20†Image】 - 欢迎扫码安装 -
+L28: 
+L29: 【21†Image: 】
+L30: 
+L31: [Input: 代码 / 简称 / 关键词] [Input]
+L32: 
+L33: 上交所下调股票交易经手费30%
+L34: ## 上交所下调股票交易经手费30%
+L35: 
+L36: 2023-08-18
+L37: 
+L38: 　　今日，上交所发布《关于调整股票交易经手费收费标准的通知》，自2023年8月28日起，将A股、B股股票交易经手费从按成交金额的0.00487％双向收取下调为按成交金额的0.00341%双向收取，降幅达30%。
+L39: 
+L40: 　　上交所有关负责人表示，本次股票交易经手费收费标准调整是在2015年的基础上再次下调，是上交所积极贯彻落实中央政治局会议精神和国务院相关会议部署的重要举措，有利于进一步活跃资本市场，降低交易成本。近年来，上交所贯彻落实党中央、国务院有关减税降费部署要求，多次出台降费措施，不断加大降费力度，扩大受惠范围，提振市场信心。下一步，上交所将围绕资本市场改革重点领域，推动完善各类中长期资金配套制度机制，不断优化资本市场生态，提升资本市场吸引力，切实发挥好资本市场功能。
+L41: 
+L42: 
+L43: 　　【22†关于调整股票交易经手费收费标准的通知】
+L44: 
+L45: 
+L46: 
+L47: 【23†联系我们】 【24†网站地图】 【25†相关链接】 【26†法律声明】 【27†注册商标】 【28†个人信息保护告知书】
+L48: 
+L49: 【29†Image】官方微博
+L50: 
+L51: 【30†Image】官方微信
+L52: 【31†Image】APP下载
+L53: 
+L54: 党建
+L55: 
+L56:   * 【32†党建动态】
+L57:   * 【33†学习园地】
+L58:   * 【34†图文播报】
+L59: 
+L60: 发行上市
+L61: 
+L62:   * 【35†审核公告通知】
+L63:   * 【36†审核信息披露】
+L64:   * 【37†审核项目动态】
+L65:   * 【38†关于上市审核中心】
+L66:   * 【39†科创战略】
+L67: 
+L68: 披露
+L69: 
+L70:   * 【40†交易提示】
+L71:   * 【41†上交所公告】
+L72:   * 【42†上市公司信息】
+L73:   * 【43†融资融券信息】
+L74:   * 【44†基金信息】
+L75:   * 【45†公募REITs信息】
+L76:   * 【46†交易信息披露】
+L77:   * 【47†债券信息】
+L78:   * 【48†股票期权信息】
+L79: 
+L80: 监管
+L81: 
+L82:   * 【49†上市公司监管】
+L83:   * 【50†发行上市审核监管】
+L84:   * 【51†债券监管】
+L85:   * 【52†交易监管】
+L86:   * 【53†会员及其他交易参与人监管】
+L87:   * 【54†自律管理复核】
+L88:   * 【55†自律监管与市场服务事项】
+L89:   * 【56†诉求受理中心】
+L90: 
+L91: 数据
+L92:   * 【57†股票数据】
+L93:   * 【58†债券数据】
+L94:   * 【59†基金数据】
+L95:   * 【60†公募REITs数据】
+L96:   * 【61†其他数据】
+L97:   * 【62†行情信息】
+L98:   * 【63†上证系列指数】
+L99:   * 【64†中证系列指数†www.csindex.com.cn】
+L100:   * 【65†中华系列指数†www.cesc.com】
+L101: 
+L102: 产品
+L103: 
+L104:   * 【66†股票与存托凭证】
+L105:   * 【67†基金】
+L106:   * 【68†债券】
+L107:   * 【69†股票期权】
+L108:   * 【70†公募REITs】
+L109: 
+L110: 服务
+L111: 
+L112:   * 【71†企业上市服务】
+L113:   * 【72†IPO业务专栏】
+L114:   * 【73†沪港通】
+L115:   * 【74†绿色证券专栏】
+L116:   * 【75†交易服务】
+L117:   * 【76†交易技术支持专区】
+L118:   * 【77†收费及代收税费】
+L119:   * 【78†投资者服务】
+L120:   * 【79†上市公司服务】
+L121:   * 【80†路演服务†roadshow.sseinfo.com】
+L122:   * 【81†技术服务】
+L123:   * 【82†信息服务】
+L124:   * 【83†培训服务†pujiang.sse.com.cn】
+L125:   * 【84†司法服务】
+L126: 
+L127: 规则
+L128:   * 【85†法律法规】
+L129:   * 【86†部门规章】
+L130:   * 【87†本所业务规则】
+L131:   * 【88†本所业务指南与流程】
+L132:   * 【89†公开征求意见】
+L133:   * 【90†制度规则汇编】
+L134: 
+L135: 关于
+L136: 
+L137:   * 【91†本所介绍】
+L138:   * 【92†媒体中心】
+L139:   * 【93†国际交流与合作】
+L140:   * 【94†招聘信息】
+L141:   * 【23†联系我们】
+L142:   * 【95†研究】
+L143:   * 【96†社会责任】
+L144:   * 【97†公益慈善†foundation.sse.com.cn】
+L145:   * 【98†中国证券博物馆†csm.sse.com.cn】
+L146:   * 【99†刊物】
+L147: 
+L148: 400投资者服务热线： 400-8888-400
+L149: 
+L150: 上海证券交易所官网现已支持 IPV6 ©上海证券交易所版权所有 2020 【100†沪ICP备05004045号-2†beian.miit.gov.cn】 【101†沪公网安备 31011502016333号†www.beian.gov.cn】
+--------------------------------------------------------------------------------
+沪、深证券交易所和中国证券登记结算公司负责人就降低A股交易结算收费标准答记者问 | 上海证券交易所 (https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20150912_3988866.shtml)
+citeturn64view2 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20150912_3988866.shtml","lineno":null}); Total lines: 145
+L0: 上海证券交易所服务热线：400-8888-400 【0†APP下载】 【1†微博微信】 【2†English†english.sse.com.cn】【3†繁†big5.sse.com.cn】
+L1: 
+L2: 【4†一网通办†one.sse.com.cn】【5†“三开门”专栏】
+L3: 
+L4: 【6†简中EN†english.sse.com.cn】
+L5: 
+L6: 【4†一网通办†one.sse.com.cn】 【5†“三开门”专栏】
+L7: 
+L8: 用户入口
+L9:     【7†投资者†one.sse.com.cn】
+L10:     【8†会员机构†one.sse.com.cn】
+L11:     【9†拟上市公司†one.sse.com.cn】
+L12:     【10†债券机构†one.sse.com.cn】
+L13:     【11†上市公司†one.sse.com.cn】
+L14:     【12†基金公司†one.sse.com.cn】
+L15: 高效办成一件事
+L16:     【13†股票投资一件事†one.sse.com.cn】
+L17:     【14†债券发行上市一件事†one.sse.com.cn】
+L18:     【15†期权投资一件事†one.sse.com.cn】
+L19:     【16†REITs发行上市一件事†one.sse.com.cn】
+L20:     【17†企业上市一件事†one.sse.com.cn】
+L21:     【18†服务预约一件事†one.sse.com.cn】
+L22:     【19†信息披露一件事†one.sse.com.cn】
+L23: 
+L24: 一网通办移动端
+L25: ## 上交所APP"通办"栏目
+L26: 
+L27: 【20†Image】 - 欢迎扫码安装 -
+L28: 
+L29: 【21†Image: 】
+L30: 
+L31: [Input: 代码 / 简称 / 关键词] [Input]
+L32: 
+L33: 沪、深证券交易所和中国证券登记结算公司负责人就降低A股交易结算收费标准答记者问 结算收费,交易结算收费标准,交易经手费,交易过户费
+L34: ## 沪、深证券交易所和中国证券登记结算公司负责人就降低A股交易结算收费标准答记者问
+L35: 
+L36: 2015-07-01
+L37: 
+L38: 问：2012年，沪、深证券交易所和中国结算曾大幅降低A股交易经手费和交易过户费。请问近期所司有无进一步降低收费标准的考虑？
+L39: 答：为进一步降低投资者交易成本，沪、深证券交易所和中国证券登记结算公司经研究，拟调低A股交易结算相关收费标准。沪、深证券交易所收取的A股交易经手费由按成交金额0.0696‰双边收取调整为按成交金额0.0487‰双边收取，降幅为30%。在0.0487‰中，0.00974‰转交投资者保护基金,0.03896‰为交易所收费。中国证券登记结算公司收取的A股交易过户费由目前沪市按照成交面值0.3‰双向收取、深市按照成交金额0.0255‰双向收取，一律调整为按照成交金额0.02‰双向收取。按照近两年市场数据测算，降幅约为33%。沪、深证券交易所和中国证券登记结算公司将抓紧完成相关准备工作，于8月1日起正式实施。
+L40: 
+L41: 【22†联系我们】 【23†网站地图】 【24†相关链接】 【25†法律声明】 【26†注册商标】 【27†个人信息保护告知书】
+L42: 
+L43: 【28†Image】官方微博
+L44: 【29†Image】官方微信
+L45: 
+L46: 【30†Image】APP下载
+L47: 
+L48: 党建
+L49: 
+L50:   * 【31†党建动态】
+L51:   * 【32†学习园地】
+L52:   * 【33†图文播报】
+L53: 
+L54: 发行上市
+L55: 
+L56:   * 【34†审核公告通知】
+L57:   * 【35†审核信息披露】
+L58:   * 【36†审核项目动态】
+L59:   * 【37†关于上市审核中心】
+L60:   * 【38†科创战略】
+L61: 
+L62: 披露
+L63: 
+L64:   * 【39†交易提示】
+L65:   * 【40†上交所公告】
+L66:   * 【41†上市公司信息】
+L67:   * 【42†融资融券信息】
+L68:   * 【43†基金信息】
+L69:   * 【44†公募REITs信息】
+L70:   * 【45†交易信息披露】
+L71:   * 【46†债券信息】
+L72:   * 【47†股票期权信息】
+L73: 
+L74: 监管
+L75: 
+L76:   * 【48†上市公司监管】
+L77:   * 【49†发行上市审核监管】
+L78:   * 【50†债券监管】
+L79:   * 【51†交易监管】
+L80:   * 【52†会员及其他交易参与人监管】
+L81:   * 【53†自律管理复核】
+L82:   * 【54†自律监管与市场服务事项】
+L83:   * 【55†诉求受理中心】
+L84: 
+L85: 数据
+L86:   * 【56†股票数据】
+L87:   * 【57†债券数据】
+L88:   * 【58†基金数据】
+L89:   * 【59†公募REITs数据】
+L90:   * 【60†其他数据】
+L91:   * 【61†行情信息】
+L92:   * 【62†上证系列指数】
+L93:   * 【63†中证系列指数†www.csindex.com.cn】
+L94:   * 【64†中华系列指数†www.cesc.com】
+L95: 
+L96: 产品
+L97: 
+L98:   * 【65†股票与存托凭证】
+L99:   * 【66†基金】
+L100:   * 【67†债券】
+L101:   * 【68†股票期权】
+L102:   * 【69†公募REITs】
+L103: 
+L104: 服务
+L105: 
+L106:   * 【70†企业上市服务】
+L107:   * 【71†IPO业务专栏】
+L108:   * 【72†沪港通】
+L109:   * 【73†绿色证券专栏】
+L110:   * 【74†交易服务】
+L111:   * 【75†交易技术支持专区】
+L112:   * 【76†收费及代收税费】
+L113:   * 【77†投资者服务】
+L114:   * 【78†上市公司服务】
+L115:   * 【79†路演服务†roadshow.sseinfo.com】
+L116:   * 【80†技术服务】
+L117:   * 【81†信息服务】
+L118:   * 【82†培训服务†pujiang.sse.com.cn】
+L119:   * 【83†司法服务】
+L120: 
+L121: 规则
+L122:   * 【84†法律法规】
+L123:   * 【85†部门规章】
+L124:   * 【86†本所业务规则】
+L125:   * 【87†本所业务指南与流程】
+L126:   * 【88†公开征求意见】
+L127:   * 【89†制度规则汇编】
+L128: 
+L129: 关于
+L130: 
+L131:   * 【90†本所介绍】
+L132:   * 【91†媒体中心】
+L133:   * 【92†国际交流与合作】
+L134:   * 【93†招聘信息】
+L135:   * 【22†联系我们】
+L136:   * 【94†研究】
+L137:   * 【95†社会责任】
+L138:   * 【96†公益慈善†foundation.sse.com.cn】
+L139:   * 【97†中国证券博物馆†csm.sse.com.cn】
+L140:   * 【98†刊物】
+L141: 
+L142: 400投资者服务热线： 400-8888-400
+L143: 
+L144: 上海证券交易所官网现已支持 IPV6 ©上海证券交易所版权所有 2020 【99†沪ICP备05004045号-2†beian.miit.gov.cn】 【100†沪公网安备 31011502016333号†www.beian.gov.cn】
+--------------------------------------------------------------------------------
+关于调整上海证券市场证券交易监管费收费标准的通知 | 上海证券交易所 (https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20150912_3988604.shtml)
+citeturn64view3 [wordlim: 200] Crawled: 2 days ago; Content type: text/html; Source: open({"ref_id":"https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20150912_3988604.shtml","lineno":null}); Total lines: 158
+L0: 上海证券交易所服务热线：400-8888-400 【0†APP下载】 【1†微博微信】 【2†English†english.sse.com.cn】【3†繁†big5.sse.com.cn】
+L1: 
+L2: 【4†一网通办†one.sse.com.cn】【5†“三开门”专栏】
+L3: 
+L4: 【6†简中EN†english.sse.com.cn】
+L5: 
+L6: 【4†一网通办†one.sse.com.cn】 【5†“三开门”专栏】
+L7: 
+L8: 用户入口
+L9:     【7†投资者†one.sse.com.cn】
+L10:     【8†会员机构†one.sse.com.cn】
+L11:     【9†拟上市公司†one.sse.com.cn】
+L12:     【10†债券机构†one.sse.com.cn】
+L13:     【11†上市公司†one.sse.com.cn】
+L14:     【12†基金公司†one.sse.com.cn】
+L15: 高效办成一件事
+L16:     【13†股票投资一件事†one.sse.com.cn】
+L17:     【14†债券发行上市一件事†one.sse.com.cn】
+L18:     【15†期权投资一件事†one.sse.com.cn】
+L19:     【16†REITs发行上市一件事†one.sse.com.cn】
+L20:     【17†企业上市一件事†one.sse.com.cn】
+L21:     【18†服务预约一件事†one.sse.com.cn】
+L22:     【19†信息披露一件事†one.sse.com.cn】
+L23: 
+L24: 一网通办移动端
+L25: ## 上交所APP"通办"栏目
+L26: 
+L27: 【20†Image】 - 欢迎扫码安装 -
+L28: 
+L29: 【21†Image: 】
+L30: 
+L31: [Input: 代码 / 简称 / 关键词] [Input]
+L32: 
+L33: 关于调整上海证券市场证券交易监管费收费标准的通知
+L34: ## 关于调整上海证券市场证券交易监管费收费标准的通知
+L35: 
+L36: 2012-08-31
+L37: 
+L38: 关于调整上海证券市场证券交易监管费
+L39: 
+L40: 收费标准的通知
+L41: 
+L42: 各会员单位、结算参与机构：
+L43: 
+L44: 根据中国证监会《关于转发<国家发展改革委、财政部关于降低证券、期货市场监管费收费标准等问题的通知>的通知》（会计部函[2012]403号）的规定，自2012年1月1日起，上海证券市场A、B股证券交易监管费由按交易额的0.04‰收取调整为按交易额的0.02‰收取，免收基金、债券证券交易监管费，权证参照基金执行。
+L45: 
+L46: 上海证券市场交易清算相关费率参数自2012年9月1日起按上述标准调整。2012年1月1日至2012年8月31日按原标准多收的证券交易监管费清退事宜将另行通知。
+L47: 
+L48: 特此通知。
+L49: 
+L50: 上海证券交易所 中国证券登记结算有限责任公司上海分公司
+L51: 
+L52: 二○一二年八月三十日
+L53: 
+L54: 【22†联系我们】 【23†网站地图】 【24†相关链接】 【25†法律声明】 【26†注册商标】 【27†个人信息保护告知书】
+L55: 
+L56: 【28†Image】官方微博
+L57: 
+L58: 【29†Image】官方微信
+L59: 
+L60: 【30†Image】APP下载
+L61: 
+L62: 党建
+L63:   * 【31†党建动态】
+L64:   * 【32†学习园地】
+L65:   * 【33†图文播报】
+L66: 
+L67: 发行上市
+L68: 
+L69:   * 【34†审核公告通知】
+L70:   * 【35†审核信息披露】
+L71:   * 【36†审核项目动态】
+L72:   * 【37†关于上市审核中心】
+L73:   * 【38†科创战略】
+L74: 
+L75: 披露
+L76: 
+L77:   * 【39†交易提示】
+L78:   * 【40†上交所公告】
+L79:   * 【41†上市公司信息】
+L80:   * 【42†融资融券信息】
+L81:   * 【43†基金信息】
+L82:   * 【44†公募REITs信息】
+L83:   * 【45†交易信息披露】
+L84:   * 【46†债券信息】
+L85:   * 【47†股票期权信息】
+L86: 
+L87: 监管
+L88: 
+L89:   * 【48†上市公司监管】
+L90:   * 【49†发行上市审核监管】
+L91:   * 【50†债券监管】
+L92:   * 【51†交易监管】
+L93:   * 【52†会员及其他交易参与人监管】
+L94:   * 【53†自律管理复核】
+L95:   * 【54†自律监管与市场服务事项】
+L96:   * 【55†诉求受理中心】
+L97: 
+L98: 数据
+L99:   * 【56†股票数据】
+L100:   * 【57†债券数据】
+L101:   * 【58†基金数据】
+L102:   * 【59†公募REITs数据】
+L103:   * 【60†其他数据】
+L104:   * 【61†行情信息】
+L105:   * 【62†上证系列指数】
+L106:   * 【63†中证系列指数†www.csindex.com.cn】
+L107:   * 【64†中华系列指数†www.cesc.com】
+L108: 
+L109: 产品
+L110: 
+L111:   * 【65†股票与存托凭证】
+L112:   * 【66†基金】
+L113:   * 【67†债券】
+L114:   * 【68†股票期权】
+L115:   * 【69†公募REITs】
+L116: 
+L117: 服务
+L118: 
+L119:   * 【70†企业上市服务】
+L120:   * 【71†IPO业务专栏】
+L121:   * 【72†沪港通】
+L122:   * 【73†绿色证券专栏】
+L123:   * 【74†交易服务】
+L124:   * 【75†交易技术支持专区】
+L125:   * 【76†收费及代收税费】
+L126:   * 【77†投资者服务】
+L127:   * 【78†上市公司服务】
+L128:   * 【79†路演服务†roadshow.sseinfo.com】
+L129:   * 【80†技术服务】
+L130:   * 【81†信息服务】
+L131:   * 【82†培训服务†pujiang.sse.com.cn】
+L132:   * 【83†司法服务】
+L133: 
+L134: 规则
+L135:   * 【84†法律法规】
+L136:   * 【85†部门规章】
+L137:   * 【86†本所业务规则】
+L138:   * 【87†本所业务指南与流程】
+L139:   * 【88†公开征求意见】
+L140:   * 【89†制度规则汇编】
+L141: 
+L142: 关于
+L143: 
+L144:   * 【90†本所介绍】
+L145:   * 【91†媒体中心】
+L146:   * 【92†国际交流与合作】
+L147:   * 【93†招聘信息】
+L148:   * 【22†联系我们】
+L149:   * 【94†研究】
+L150:   * 【95†社会责任】
+L151:   * 【96†公益慈善†foundation.sse.com.cn】
+L152:   * 【97†中国证券博物馆†csm.sse.com.cn】
+L153:   * 【98†刊物】
+L154: 
+L155: 400投资者服务热线： 400-8888-400
+L156: 
+L157: 上海证券交易所官网现已支持 IPV6 ©上海证券交易所版权所有 2020 【99†沪ICP备05004045号-2†beian.miit.gov.cn】 【100†沪公网安备 31011502016333号†www.beian.gov.cn】
+--------------------------------------------------------------------------------
+Increase of Stamp Duty on Stock Transactions (https://www.hkex.com.hk/-/media/HKEX-Market/Services/Circulars-and-Notices/Participant-and-Members-Circulars/SEHK/2021/ce_SEHK_CT_080_2021.pdf)
+citeturn64view4 [wordlim: 200] Crawled: 2 days ago; Content type: application/pdf; Number of pages: 1; Source: open({"ref_id":"https://www.hkex.com.hk/-/media/HKEX-Market/Services/Circulars-and-Notices/Participant-and-Members-Circulars/SEHK/2021/ce_SEHK_CT_080_2021.pdf","lineno":null}); Total lines: 27
+L0@P0: 香港聯合交易所有限公司
+L1@P0: (香港交易及結算所有限公司全資附屬公司)
+L2@P0: THE STOCK EXCHANGE OF HONG KONG LIMITED
+L3@P0: (A wholly-owned subsidiary of Hong Kong Exchanges and Clearing Limited)
+L4@P0: 通告 CIRCULAR
+L5@P0: Subject: Increase of Stamp Duty on Stock Transactions
+L6@P0: Enquiry: Participant General Enquiry Hotline1 (Tel : 2840 3626 E-mail : trd@hkex.com.hk)
+L7@P0: Exchange Participants (EPs) are requested to note that the Government published in The Gazette
+L8@P0: the “Revenue (Stamp Duty) Bill 2021“ (the “Bill”) on 5 March 2021, and on 2 June 2021 second and
+L9@P0: third readings have been passed by the Legislative Council, confirming that the Bill, will come into
+L10@P0: effect on 1 August 2021. Under the Bill, along with other amendments, the rate of Stamp Duty
+L11@P0: payable on contract notes for the sale or purchase of Hong Kong stocks (not being jobbing business)
+L12@P0: will be increased from 0.1% to 0.13%, as a percentage of transaction value (“stamp duty increase”).
+L13@P0: For details, please refer to the Government Press Release and the Bill.
+L14@P0: EPs are reminded to take all necessary actions to prepare for the stamp duty increase including
+L15@P0: enhancing their Broker Supplied Systems, back office systems, relevant applications and operational
+L16@P0: facilities.
+L17@P0: Olivia Mak
+L18@P0: Senior Vice President
+L19@P0: Trading Operations
+L20@P0: Markets Division
+L21@P0: 1All calls to and from the Participant General Enquiry Hotline may be recorded. HKEX Privacy Policy
+L22@P0: Statement is available here.
+L23@P0: 編號
+L24@P0: Ref. No.: CT/080/21
+L25@P0: 日期
+L26@P0: Date: 03/06/2021
+--------------------------------------------------------------------------------
+Reduction of Stamp Duty on Stock Transactions Effective 17 November 2023 (https://www.hkex.com.hk/-/media/HKEX-Market/Services/Circulars-and-Notices/Participant-and-Members-Circulars/SEHK/2023/ce_SEHK_CT_158_2023.pdf)
+citeturn64view5 [wordlim: 200] Crawled: today; Content type: application/pdf; Number of pages: 1; Source: open({"ref_id":"https://www.hkex.com.hk/-/media/HKEX-Market/Services/Circulars-and-Notices/Participant-and-Members-Circulars/SEHK/2023/ce_SEHK_CT_158_2023.pdf","lineno":null}); Total lines: 26
+L0@P0: 香港聯合交易所有限公司
+L1@P0: (香港交易及結算所有限公司全資附屬公司)
+L2@P0: THE STOCK EXCHANGE OF HONG KONG LIMITED
+L3@P0: (A wholly-owned subsidiary of Hong Kong Exchanges and Clearing Limited)
+L4@P0: 通告 CIRCULAR
+L5@P0: Subject: Reduction of Stamp Duty on Stock Transactions Effective 17 November 2023
+L6@P0: Enquiry: Participant General Enquiry Hotline1(Tel: 2840 3626 E-mail: trd@hkex.com.hk)
+L7@P0: With reference to the Exchange Circular (Ref: CT/152/23) on 3 November 2023 and the Hong
+L8@P0: Kong Government Press Release on 15 November 2023, Exchange Participants (EPs) are
+L9@P0: requested to note that the “Stamp Duty (Amendment) (Stock Transfers) Bill 2023” (the Bill) has
+L10@P0: been passed by the Legislative Council. The Amendment Ordinance will be published in the
+L11@P0: Gazette on 16 November 2023 and come into operation on 17 November 2023. Under the Bill,
+L12@P0: the rate of stamp duty chargeable on a contract note for the sale or purchase of any Hong Kong
+L13@P0: stock (not being jobbing business) will be reduced from 0.13% to 0.1%.
+L14@P0: In view of this, EPs are advised to implement the reduced stamp duty rate from 17 November 2023.
+L15@P0: Olivia Mak
+L16@P0: Senior Vice President
+L17@P0: Trading Department
+L18@P0: Operations Division
+L19@P0: ________________________
+L20@P0: 1All calls to and from the Participant General Enquiry Hotline may be recorded. HKEX Privacy Policy
+L21@P0: Statement is available here.
+L22@P0: 編號
+L23@P0: Ref. No.: CT/158/23
+L24@P0: 日期
+L25@P0: Date: 15/11/2023
+

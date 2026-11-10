@@ -1,0 +1,36 @@
+AUDIT READY: four original continuous accounts through Jan12 / Jul9 only
+
+All financial events are complete. Do NOT rerun continue_short.py or run_month.py.
+No Jan13 or Jul10 event was executed. New grant: ../grants/002_short_window.json.
+The old grant, old event checkpoints and original root report are preserved.
+Mutable old progress/report metadata is explicitly archived in ../archives/grant001.
+
+Read-only reproduction, from the parent month-continuation directory:
+  /Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B analyze_short.py
+  /Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B report_short.py
+These restore/check existing states and regenerate analysis only. No financial events.
+
+Main report: REPORT.txt
+Exact financial/role/pool/first-add-reentry denominators: RESULTS.json
+Every filled layer, every actual sale allocation: ALL_LAYERS.json, ALL_SALE_PARTS.json
+Named medicine/601916 and deterministic best/worst controls: CAUSAL_CHAINS.json
+All-stock accounting difference, not independent causal effect: ALL_STOCK_ACCOUNTING_DIFFERENCES.json
+Daily exposure/industry/order/target/budget: DAILY.json
+Chronological native event/fill/resource/time summaries: EVENTS.json
+40 saved event states x 7 accounting checks + four complete restores: VERIFICATION.json
+Old 254 files checked byte-exact (including archived mutable records): OLD_PREFIX_VERIFICATION.json
+Input/source/grant binding: BINDINGS.json
+Reusable current endpoints: CONTINUATION_CHECKPOINTS.json
+Artifact content hashes: ARTIFACT_SHA256.json
+
+Actual sales PNL includes allocation of original buy fees and actual sell fees.
+Remaining unrealized is mark less remaining net buy cost; no assumed sale fees.
+Open-layer contribution includes already realized partial sales and dividends: not unrealized PNL.
+All dividend income/receivable/payment and fractional writeoff are zero in these four short paths.
+Journal reconstruction is independent of mirrored NAV assignment; inventory price still uses the
+same original native as-of mark. This is not an independent market-price validation.
+
+Existing limitations remain: current-snapshot universe, daily OHLC/volume execution proxy,
+unknown rights/payment/sellability dates with explicitly inherited research proxies.
+Jan13 rights_issue_no_subscription remains a later integration gate, not silently skipped.
+No risk threshold, ranking, entry, exit, 601916 role policy or medicine rule was changed.

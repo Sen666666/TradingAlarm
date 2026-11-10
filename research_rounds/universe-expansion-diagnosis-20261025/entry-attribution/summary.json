@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-10-25T14:45:48.539425+00:00",
+  "pairs": 939,
+  "median_entry_lag": 1.0,
+  "mean_entry_lag": 4.091586794462194,
+  "mean_already_risen": 0.08700541035582339,
+  "median_already_risen": 0.0,
+  "early_reference_mean_return": 0.08465910359405394,
+  "actual_time_mean_return": -0.0016972367155166919,
+  "early_win_actual_loss": 207,
+  "gap_guard_violating_campaigns": 4,
+  "gap_campaign_pnl": -2296.9182874337002,
+  "bridge_single_fill_pairs": 1786,
+  "bridge_median_abs_difference": 0.0005443104405523022,
+  "bridge_abs_difference_over_10pct": 0,
+  "mean_daily_eligible": 183.11785714285713,
+  "median_daily_eligible": 153.0,
+  "not_additive_portfolio_counterfactual": 1
+}

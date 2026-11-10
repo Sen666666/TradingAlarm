@@ -1,0 +1,19 @@
+{
+  "scope": "Evaluate whether the requested bounded60-security fact sample can materially improve mature competition-group source coverage before any external query. No strategy outcomes, fit or account.",
+  "source_hashes": {
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/pre2022_candidate_feasibility_v1/ACTION_REQUIREMENTS_WITH_MATURITY.csv": "d38162f9c1c88f7a81b43da600dcc9d27d9ebb60a73f0b3dd74a8114cf7d6f90",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/pre2022_candidate_feasibility_v1/EXTENDED_POTENTIAL_120D_SOURCE_COVERAGE.csv": "ce13c5d733eef0ee05407140dcbdb4f1d8fccbef1f454c59a4eb18be9d2e2498",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/pre2022_candidate_feasibility_v1/CANDIDATE_ACTION_OVERLAP.csv": "05116e1c7d813b35b1f22073b2e8666c353891b26fdd2331bc23f7c8a5b9472d",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/pre2022_candidate_feasibility_v1/MATURE_COMPETITION_SUPPORT.csv": "33938159443f78822225acc8482691c70d8c8ce17b57830b5c8c585a2d8c8aae",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/pvr_persistence_breadth_v1/FIXED_MEMBERSHIP.csv": "2ac0c575fdd52f8d5ccb8dace8c303aa5906f68de3baa81c2ea4d8d595722fc4"
+  },
+  "code_sha256": "365bb99b2b62607eb6498c87d0a45f61b9596bfe8c6de61d8db57b72fab56cc1",
+  "seed": "PRE2022_FACTS_60_FIXED_STRATA_V1",
+  "sample": "Exactly10 distinct securities in each ex-year2019/2020/2021 times pure-cash/share-action stratum where available; global securities without replacement. Iterate chronological year, cash before shares. In each stratum round-robin industry buckets ordered by SHA256(seed|year|type|industry); each bucket has one earliest event per sid, ordered by SHA256(seed|year|type|sid|action_id). No candidate count, ranking, payoff or coverage-gain variables used for selection.",
+  "benefit": "A source-supported competitive group requires every mature t-close-PASS candidate in the same day/industry, with>2 candidates, to have data support. This is still not an economic-label or tradability certificate.",
+  "material_gate": "Before seeing draw gains, require at least5 percentage points of all mature competitive groups (ceil(.05*N)) as optimistic incremental complete groups in either direct repair scenario or a scenario granting all existing cached action facts perfect resolution. This is an operational stop threshold, not a statistical or investment threshold. Also report1percentage-point benchmark.",
+  "optimistic": "Assume every sampled security gets perfect facts for ALL its missing historical events, including cash/share precision, pay/listed dates and factor explanations, not just its nominated event. Keep existing raw missing/source/core/CP-field gaps unresolved. No requests or parsing time assumed. Thus improvements are optimistic source-support ceilings, not expected actual gains.",
+  "existing_cache_scenario": "All current cached action matches, including duplicate rows, assumed fully resolved for free before measuring the incremental60-security benefit. This generous scenario is not actual admission.",
+  "stop": "If even optimistic incremental coverage is below the frozen threshold, stop with zero external requests. Do not change sample, threshold, expand securities or run queries just to estimate API success.",
+  "network_requests_before_gate": 0
+}

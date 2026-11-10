@@ -1,0 +1,40 @@
+{
+  "completed": {
+    "completed": true,
+    "run_seconds": 26.011021375190467,
+    "ending_NAV": {
+      "B": "975294.7505446507045",
+      "UNIFORM50": "978734.7224790454955",
+      "A_ONLY": "973633.2623834061045",
+      "A_OR_B": "975171.6482174436545"
+    }
+  },
+  "arms": {
+    "B": {
+      "buyfills": 87,
+      "sellfills": 19,
+      "trades": 106,
+      "fees_CNY_float_display_only": 985.7794903492955
+    },
+    "UNIFORM50": {
+      "buyfills": 139,
+      "sellfills": 25,
+      "trades": 164,
+      "fees_CNY_float_display_only": 1159.9774859545046
+    },
+    "A_ONLY": {
+      "buyfills": 90,
+      "sellfills": 18,
+      "trades": 108,
+      "fees_CNY_float_display_only": 1002.0926515938955
+    },
+    "A_OR_B": {
+      "buyfills": 92,
+      "sellfills": 18,
+      "trades": 110,
+      "fees_CNY_float_display_only": 995.0123175563455
+    }
+  },
+  "no_account_rerun": true,
+  "strict_source_failure_preserved": true
+}

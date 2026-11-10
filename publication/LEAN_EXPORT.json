@@ -1,0 +1,22 @@
+{
+  "kind": "LEAN_CODE_AND_RESEARCH_RECORDS",
+  "files_from_sanitized_view": 11867,
+  "bytes_from_sanitized_view": 84473784,
+  "omitted_from_github_only_files": 5628,
+  "omitted_from_github_only_bytes": 128508620,
+  "omission_categories_bytes": {
+    "old_git_ci_or_verbose_export_inventory": 9889876,
+    "bounded_research_contract_or_verdict": 71622991,
+    "application_assets_only": 12024072,
+    "other_local_material": 1026850,
+    "small_roster_or_final_result_table": 17117265,
+    "per_step_or_repeated_run_record_local_archive": 2444153,
+    "repetitive_console_dump_local_archive": 600974,
+    "third_party_notice_source_local_archive": 705773,
+    "third_party_reconstruction_tooling_local_archive": 222786,
+    "duplicate_build_or_repeated_validation_snapshot": 12853880
+  },
+  "original_research_files_deleted": 0,
+  "large_data_and_full_evidence_retained_locally": true,
+  "workflow_not_uploaded_no_workflow_scope_requested": true
+}

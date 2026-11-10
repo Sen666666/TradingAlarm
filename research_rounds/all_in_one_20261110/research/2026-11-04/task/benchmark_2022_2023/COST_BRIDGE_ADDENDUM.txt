@@ -1,0 +1,11 @@
+Frozen before account computation, observer clarification only.
+Original ETF portfolio_engine fills raw OPEN and debits15bp once (minimum5
+assumption). It has no second slipped price, stock stamp duty or fee component
+decomposition. Use that one modeled friction debit, no additional5bp.
+Same-quantity cost-before bridge = actual daily net NAV + cumulative actual
+friction paid. Freeze actual fills/quantities/dividend entitlements/cash timing;
+no hypothetical extra purchases or strategy rerun. With zero cash interest this
+is an exact cash/equity bridge for direct costs, not full feedback causality.
+Pure HS300 first-close484day price reference and8quarter returns are separately
+saved; aligned synthetic index account reference still entersJan5OPEN as in
+the original protocol. Do not silently equate these two start-price bases.

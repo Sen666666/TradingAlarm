@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "tests": 9,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 0.2972575407475233,
+  "historical_account_events": 0,
+  "scope": "mixed-role native synthetic only"
+}

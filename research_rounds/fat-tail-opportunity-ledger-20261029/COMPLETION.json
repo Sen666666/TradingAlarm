@@ -1,0 +1,40 @@
+{
+  "completed": true,
+  "status": "observational_audit_complete_next_identification_only_designed",
+  "recorded_at": "2026-10-29T14:50:49.342789+00:00",
+  "new_economic_paths": 0,
+  "raw_full_aggregation_passes": 1,
+  "all_407_stocks_retained": true,
+  "all_5349_events_retained": true,
+  "unique_fill_links": 138,
+  "unlinked_fill_rate": 0,
+  "actual_net_profit": "2984160.2756603511085",
+  "native_nav_residual": "0",
+  "sample_failures_preserved": 2,
+  "legacy_manifest_assertion_disclosed": true,
+  "next_experiment_executed": false,
+  "product_changes": 0,
+  "account_access": 0,
+  "remaining_blockers": [],
+  "remaining_identification_limits": [
+    "Full admission rejection reason not retained on640 dates",
+    "Composite Q failure subcauses not cached",
+    "No fundable replacement or foregone-profit causal estimate"
+  ],
+  "files_sha256": {
+    "FINAL_REPORT.txt": "d59a04d10e2c9fe2ee1cecec4f17654e59b6894a924f4b7cf5b1c103de0f57b2",
+    "NEXT_EXPERIMENT_CONTRACT.txt": "c316e6efeeab55adbfc6470e77cda9b4649a7daee278d5b300c94f4d83e00c0e",
+    "PROTOCOL.txt": "093d6a9179ac411fcac31204805c20d8612fb9f13157f339edf905b1693de6c1",
+    "full/RESULTS.json": "697e4a9d8df24020167f1191bd55ef2438b42d7b36037ac8397d60277c1137b8",
+    "full/VERIFICATION.json": "61166d5b9b86a690fdc57973dfe65ea928f314e4942c5dede82139fcf306d0bf",
+    "full/stock-actual-finance.csv": "6003317d84086f12c49ae3143077452a463c6f8d12cdf57b9de5453bd6d4cdfa",
+    "full/structure-opportunities.csv": "4dd021cb0b58dca970b5518f38cdc11eb3e5a880776c8555ccbcbd11a9ac67fd",
+    "full/order-event-links.csv": "787979bac57ce0947b969e47d3a27d1bb37833991cb3e22fa7661e5250815ee9",
+    "full/fill-event-links.csv": "ef911ab0055c00e4424ac360a61cf8e3c63ab83d08b4e569dc4fb9e84abd9db4",
+    "full/actual-exit-reparticipation.csv": "06893948ff0629bab43b7da3ce7b9b24e846e437c4ea89d5afd6f6099fe61402",
+    "full/all-stock-windows.csv": "cd714cdeac912130e0522c01ffbb6ea9be0633bd8680a67c9a4ea522cf78b855",
+    "full/existing-admission-supplement.csv": "c89647496e080d1a8201bc6005981751e7bb9e34a54d5fb7618c96bcf50d991c",
+    "PROVENANCE_CLARIFICATION.json": "c8d6706b5ba01e66077cc85ed0337eec75d1b33499b3213ebea14c6ced3bddf9",
+    "TECHNICAL_REPAIRS.json": "a4d878dc36905e71cdc9a79ac59f6f33cc1b83818e8c34a4e57ec912c77a45e2"
+  }
+}

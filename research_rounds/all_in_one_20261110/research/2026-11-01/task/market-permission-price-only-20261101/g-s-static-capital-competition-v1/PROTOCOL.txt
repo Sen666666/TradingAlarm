@@ -1,0 +1,60 @@
+Read-only static comparison, frozen before calculation. No accounts, restore,
+orders, strategy changes, model recalculation or downloads. Original inputs,
+checkpoints and results remain untouched. Read JSON exports, never unpickle.
+
+Dates fixed by parent: 2022-01-06 and 2025-07-03 complete original CLOSE input
+and actual inventory; optional 2026-04-30 and 2026-05-07 only if complete cached
+native1709 inputs exist. All1709/90 identities stay in denominators. Current
+survivor/current industry mapping bias remains. No future data enters ranking.
+
+A: original frozen 80%/K targets and actual recorded funding requests, unchanged.
+B: remove mature-sector guaranteed equal quota; maturity grants a concentration
+ceiling only. Still-legal existing mobile positions and current fresh executable
+mobile candidates share the original PVR_SLOT1 ordering at the same close.
+Old holding retention does not require fresh CP1 or a new entry q=True. Without
+fresh CP1 it supplies only current capital for retention, not a new top-up.
+Core is separately itemized constrained capital, not silently promoted/mobile
+or an interchangeable PVR sale candidate. Keep total90/cash10, stock10,
+mature-sector80 (otherwise original G20/T2), sector-risk5/account-risk6,
+probe/core restrictions and exact original legal units/fees. These are bounds,
+not guaranteed capital or a new strategy.
+
+The original full1709 H1 rank is (-round(H1,12),sid), unknown H1 using the
+original key1. PVR_SLOT1 retains unique-stock full-rank numeric slots and true
+NA anchors. Only PVR-ready names are rearranged by -round(PVR,12) with original
+slot tie-break. Use the original AST-isolated priority_plan, no new score. First
+verify the recorded real fresh-intent domain exactly, then use the B union.
+
+Separate independent I/CP1/source/ACT exit duties from A's new funding requests.
+For B's static ranking, an A-only funding request is an endogenous consequence
+being compared, not evidence that its holding became illegal. Its actual
+inventory/cash/risk/lock remains in the recorded resource denominator. Nothing
+is cancelled or refunded. Pairwise outranking is replacement evidence, never
+a recorded one-sale-to-one-demand transfer or an actual B trade.
+
+No reliable full joint target solver is supplied: retention, fresh-stock caps,
+discrete orders, exact sellable lots, funding fee attribution, core constraints,
+and actual sell/settle sequence are coupled. Do NOT report optimal target money,
+realized capacity or portfolio returns. Report full union order, pairwise
+relations, constrained core/current resources and nominal sector supply upper
+bounds. Minimum-unit checks are conditional CLOSE-price proxies: quote remains
+at close plus original5bp, exact original fee/quantity rules, original prior20
+positive-volume capacity ceiling, all recorded resource burdens. Future open,
+same-day HLV/limit/queue and actual settlement are unknown. Greedy minimum-unit
+packing is a conservative static witness, not final target allocation or a
+number-of-holdings policy. No hypothetical old sales release cash in this check.
+
+2026 dates have no supplied current G/S financial inventory. If full cached
+stock I/CP1/PVR/H1/F1 exist, report ALL-sector fresh opportunity competition and
+strict sector881121 semiconductor/881172 electronic chemicals; no invented
+empty cash account/NAV or incumbent comparison. Original source rules give
+legal minimum units, not certainty of next-open execution. Missing joint
+inventory/risk/core state is explicit, not replaced with old SC/PVR checkpoints.
+
+After ranking files are written/hashed, use fixed +5/+21 valid cached signal
+price observations solely for post-hoc evaluation of ALL ranked union names
+and replacement pairs; no peak/end selection. Prior1/5/21 price changes are
+descriptive, not new sort filters. Causal signal price changes are not account
+returns or evidence the old position would still be held. Preserve examples
+where the old winner resumes and the higher-ranked newcomer fails, as well as
+the opposite. PVR's buy-priority validity is not validated as sell ranking.

@@ -1,0 +1,15 @@
+{
+  "status": "review_and_design_complete",
+  "new_economic_accounts": 0,
+  "downloads": 0,
+  "recorded_at": "2026-10-26T11:26:02.714386+00:00",
+  "sha256": {
+    "review-receipt.json": "0102677ab8108a3444ec5b0345b4227b66cdd159db97cdbdad71e9124387d7fc",
+    "scope-proposal.json": "5c091120ffbc47ed73defe7250cca8f8671db3c7eef4baa2966bdaf1cc1a91dc",
+    "proposed-pool.csv": "0808a6ff5f0b49bccae89436470751d2ca80aa8a07df45b32f7f4a781179a4de",
+    "README.md": "49d9b3aa4a586ee159f5d8b2ed60c5fae5f582781ca117aa43ea9d5b48d7e0c0",
+    "DESIGN.md": "a88a9e6e0c24b63fadb355bfb2a2c7e91298753c1a54856cf039f87b376c6231",
+    "existing-account-2024-slices.csv": "681c4ccab924ab2ca8d4ff8ac0549bba03e6281c1930d56bd4cead4010808da3",
+    "code/review.py": "e96a204adaba11ebe02bd104bb5cfa03c7308fd6602c914535b0d2f26d639109"
+  }
+}

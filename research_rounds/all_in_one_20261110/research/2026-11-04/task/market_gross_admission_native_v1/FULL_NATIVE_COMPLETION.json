@@ -1,0 +1,132 @@
+{
+  "status": "FULL_PRODUCER_COMPLETE_INDEPENDENT_FINANCE_AND_ANALYSIS_PENDING",
+  "at_UTC": "2026-11-04T19:13:50.865364+00:00",
+  "records": {
+    "long": {
+      "scope": "2022-01-04..2024-12-31",
+      "days": 726,
+      "initial_CNY": "1000000",
+      "candidate_NAV": "718642.0995626711180",
+      "candidate_return_pct": "-28.135790043732888200",
+      "archived_B_NAV": "637989.6123510238600",
+      "archived_B_return_pct": "-36.20103876489761400",
+      "candidate_minus_B_CNY": "80652.4872116472580",
+      "actual_buy_fills": 1783,
+      "actual_sell_fills": 1518,
+      "actual_cumulative_fees_CNY": "33411.4954773288820",
+      "annual_native_endpoints": [
+        {
+          "year": "2022",
+          "last_close": "2022-12-30 15:10:00+08:00",
+          "NAV": "811066.8048121062185",
+          "annual_net": "-188933.1951878937815",
+          "annual_return_pct": "-18.8933195187893781500",
+          "cumulative_return_pct": "-18.8933195187893781500"
+        },
+        {
+          "year": "2023",
+          "last_close": "2023-12-29 15:10:00+08:00",
+          "NAV": "858950.8970369426975",
+          "annual_net": "47884.0922248364790",
+          "annual_return_pct": "5.90384071210132050314939213975132658593302092035740509247500",
+          "cumulative_return_pct": "-14.1049102963057302500"
+        },
+        {
+          "year": "2024",
+          "last_close": "2024-12-31 15:10:00+08:00",
+          "NAV": "718642.0995626711180",
+          "annual_net": "-140308.7974742715795",
+          "annual_return_pct": "-16.3349031892607739634124323859385624957640255332711347914712",
+          "cumulative_return_pct": "-28.135790043732888200"
+        }
+      ],
+      "timing": {
+        "completed": true,
+        "input_seconds": 117.0641846251674,
+        "total_seconds": 823.1744501669891,
+        "event_seconds": 690.5289521249942
+      },
+      "source_count": 55,
+      "source_post_exact_rechecked": true,
+      "control_rerun_economic_events": 0,
+      "artifacts_sha256": {
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1/WINDOW_RESULT.json": "2c14e8b7c3e18e1bd24100ba1d4e1b2e20c50da610ada39aad2174535f4fc821",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1/TIMING.json": "769f3d82371c7f4429e89cad5e98867b0ac74d28ace2019a5c0d7de1607e4c2b",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1/DONE.json": "d0ec64c0fc3ee4bb9a027d85a13d054800fd52a9967ccc7b48eabe24137b3b03",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1/STARTED.json": "45da047dbf94cd0c9dfa5c7dc790636e97c19094a759ff6ca65f0a39f27aa45b",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1/pair/D_GROSS10.json.gz": "25d1c4b0281ca82d3fbc4f03ee47ef921fe0b151c1f22b2eb971d47ba9ea1690",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1/pair/daily.jsonl.gz": "f2caf179bbde4611351ff48bbded94ee45e0a252f1fa94cc5729874a9fb4f516",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1/pair/balances.jsonl.gz": "cb93a85a567315c03d11e661ce92102dbf9a4b48c22f43aa042dd54b4145316d",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1/pair/gross-admission-events.jsonl.gz": "af05d8fad2a01f716244c428c6ab6daad968be1a711101affdbc9767be8155e5",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1/pair/rank-policy.jsonl.gz": "753023f1eea8c1a19de3639306f9e5b11207483874f72f6236fb121dde796ffe",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1/pair/opportunity-denominators.jsonl.gz": "d2e3fa83c59e4bd7b62a8bb1d7b8c892254fb30f9e3a8120506697109df76617"
+      }
+    },
+    "strong": {
+      "scope": "2025-07-01..2026-06-30",
+      "days": 242,
+      "initial_CNY": "1000000",
+      "candidate_NAV": "2214709.4121679261815",
+      "candidate_return_pct": "121.4709412167926181500",
+      "archived_B_NAV": "2263281.2309753297565",
+      "archived_B_return_pct": "126.3281230975329756500",
+      "candidate_minus_B_CNY": "-48571.8188074035750",
+      "actual_buy_fills": 1115,
+      "actual_sell_fills": 843,
+      "actual_cumulative_fees_CNY": "21615.7770870738185",
+      "annual_native_endpoints": [
+        {
+          "year": "2025",
+          "last_close": "2025-12-31 15:10:00+08:00",
+          "NAV": "1409216.4623292796085",
+          "annual_net": "409216.4623292796085",
+          "annual_return_pct": "40.9216462329279608500",
+          "cumulative_return_pct": "40.9216462329279608500"
+        },
+        {
+          "year": "2026",
+          "last_close": "2026-06-30 15:10:00+08:00",
+          "NAV": "2214709.4121679261815",
+          "annual_net": "805492.9498386465730",
+          "annual_return_pct": "57.1589228036163755635601406068743114319107878282742778355220",
+          "cumulative_return_pct": "121.4709412167926181500"
+        }
+      ],
+      "timing": {
+        "completed": true,
+        "input_seconds": 58.28254804108292,
+        "total_seconds": 296.39205829100683,
+        "event_seconds": 228.94931487506256
+      },
+      "source_count": 51,
+      "source_post_exact_rechecked": true,
+      "control_rerun_economic_events": 0,
+      "artifacts_sha256": {
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-strong-v1/WINDOW_RESULT.json": "4d21f5d36543e750dc5d21d39d7d075402fa61a09c96c62b911708ac00b0183e",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-strong-v1/TIMING.json": "081f7d3844eeacbbcc4d0e422b8b9f8b35fe8e49f53410590a7cdab2f6b42345",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-strong-v1/DONE.json": "f6ecec39695100ef5442200571a60c8b02b407cb00161331ca73702fbe73c525",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-strong-v1/STARTED.json": "58af62ab90a4b40a9f34a8d67e6acd86cc8bc7f88f688f2bc42d3a9e2083a30a",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-strong-v1/pair/D_GROSS10.json.gz": "9e77978407f3a55d9fa01578c231f1d6c960086a5e7a8a995e90074726a1b828",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-strong-v1/pair/daily.jsonl.gz": "d43a098ec0fca88e5625cfbe7a0cd1c03832ee3ca6d1bd543ae613a5026afe80",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-strong-v1/pair/balances.jsonl.gz": "75acc93e002760f30d8aaa56513c443d9f159deb9148644487754a3de9c277b1",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-strong-v1/pair/gross-admission-events.jsonl.gz": "df8cac258cff70cca1bba732aa28e7c2800b291bd90f38ef28128bfe34828a48",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-strong-v1/pair/rank-policy.jsonl.gz": "a4add4bc45af888e85131cd698616826741d2d38b59d14644f2f62b7cdfb5c7d",
+        "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-strong-v1/pair/opportunity-denominators.jsonl.gz": "4c1bdca62e056b49e707705e4c672a370339ddedac604b1b8036f78bc2c70fc3"
+      }
+    }
+  },
+  "executed_arms": [
+    "D_GROSS10"
+  ],
+  "archived_B_xref_only": true,
+  "source_or_parameters_changed_during_run": false,
+  "original_ACT_BREAK_algorithms_unchanged_own_state": true,
+  "windows_are_separate_do_not_multiply_or_sum_as_continuous_wealth": true,
+  "verdict": "No promotion: 2022\u201324 still loses 28.14%, even though 2022\u201323 cumulative loss and baseline-relative result improve. Full DD/fees/capital/fat-tail/924/semiconductor reviews pending.",
+  "limits": [
+    "Fixed current1709/90 A-share development universe, not PIT/OOS/HK/live-trading evidence.",
+    "Original daily-bar execution proxy retained.",
+    "No new cost/protection ledger or global sell command.",
+    "Actual partial/cancelpending coverage depends on full real keys, to be reported by independent ledger."
+  ]
+}

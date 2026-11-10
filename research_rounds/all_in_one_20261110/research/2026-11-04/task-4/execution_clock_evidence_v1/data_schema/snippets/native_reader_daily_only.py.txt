@@ -1,0 +1,38 @@
+def read_raw(path, record):
+    if path.suffix == '.parquet':
+        frame = pd.read_parquet(path)
+    elif path.suffix == '.csv':
+        frame = pd.read_csv(path, float_precision='round_trip')
+    else:
+        obj = json.loads(path.read_text())
+        frame = pd.DataFrame(obj['bars'])
+    if 'trade_date' in frame:
+        frame = frame.rename(columns={'trade_date': 'date'})
+    if 'date' in frame:
+        frame = frame.set_index('date')
+    frame.index = pd.DatetimeIndex(pd.to_datetime(frame.index), name='date')
+    if (frame.empty or frame.index.tz is not None or not frame.index.is_unique
+            or not frame.index.is_monotonic_increasing):
+        raise ValueError('Nonempty unique increasing local session dates required')
+    if (frame.index != frame.index.normalize()).any():
+        raise ValueError('Expected daily dates, not intraday timestamps')
+    if str(frame.index[0].date()) != record['source_start']:
+        raise ValueError('Explicit source origin mismatch; no silent truncation/rebase')
+    declared_volume_unit = record['volume_unit']
+    allowed_volume_units = ({'shares', 'source_index_units'} if record['kind'] == 'sector_index'
+                            else {'shares'})
+    for name, expected in [('volume_unit', declared_volume_unit), ('price_adjustment', 'raw')]:
+        if name in frame and set(frame[name].dropna()) != {expected}:
+            raise ValueError('Unexpected raw ' + name)
+    if declared_volume_unit not in allowed_volume_units or record['price_adjustment'] != 'raw':
+        raise ValueError('Raw prices and normalized share volume (or explicit index source units) required')
+    if not set(OHLC + ('volume',)).issubset(frame.columns):
+        raise ValueError('Missing raw OHLCV')
+    for col in OHLC + ('volume',):
+        frame[col] = pd.to_numeric(frame[col], errors='raise')
+    if 'is_observed_bar' in frame:
+        frame['observed_bar'] = frame.is_observed_bar
+    # Malformed price rows are retained for the declared observation mask audit.
+    if (frame.volume.dropna() < 0).any():
+        raise ValueError('Negative raw volume')
+    return frame

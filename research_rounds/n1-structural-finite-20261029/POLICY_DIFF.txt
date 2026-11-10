@@ -1,0 +1,7 @@
+唯一区别位于non-mobile advance：
+原TRIAL/CORE先close<=old_floor退出；候选由外层原ACT/I有效性检查负责退出，不再触发额外old_floor退出。
+原TRIAL floor=max(old,I,newF,newCP)，候选持有floor=I。
+原CORE floor=max(old,I)/BRIDGE，候选floor=I/CORE_TREND；阶段标签相应反映没有继承额外价格线。
+原TRIAL买后新候选>实际含费K的晋升条件不变；kind=core仍产生原追加资格。
+MOBILE直接调用原advance，完全不改。开仓V/开盘拒绝在原preview/fill_buy，未更改。
+规划、晋升后追加、再入与账户ACT均仍原实现。另有对称cost2执行适配和预先固定排序交换，不属于第二个策略候选。

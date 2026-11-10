@@ -1,0 +1,14 @@
+{
+  "no_economics": true,
+  "stocks": 1709,
+  "native_extra_days": 647,
+  "native_extra_rows": 1105723,
+  "candidate_counts": {
+    "2023": 26243,
+    "2024JanAug": 16513
+  },
+  "sample_prefix_checks": 24,
+  "resumed_input_only": true,
+  "seconds": 311.866414624732,
+  "peak_rss_mb": 1679.09375
+}

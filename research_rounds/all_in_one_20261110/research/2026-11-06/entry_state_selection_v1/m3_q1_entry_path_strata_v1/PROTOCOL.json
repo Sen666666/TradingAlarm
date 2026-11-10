@@ -1,0 +1,47 @@
+{
+  "created_utc": "2026-11-09T03:32:54.896011+00:00",
+  "stage": "FROZEN_EXPLORATORY_NATURAL_STRATA_BEFORE_NEW_FEATURES;historyalreadyseen/notOOS",
+  "mother": "Exactly4086correctedA_UNION_Bselectedpermits:2022=2732,2024Sep2-Dec31=1354. Allstatusretained;usableclosed2616/1312. NoFAST/PRICE/old2432mix.",
+  "periods": [
+    "2022_ALL",
+    "2022_Q1 Jan1-Mar31 signal dates",
+    "2022_REST Apr1-Dec31",
+    "2022_Q2",
+    "2022_Q3",
+    "2022_Q4",
+    "2024_924 Sep2-Dec31"
+  ],
+  "source_clock": "AllnewfeaturesusefullwarmhistoryendingoriginalsignalCLOSE. Allsourcewindowchecksconsecutivecommontradingdates,samesourcekind/path/segment,observedeligiblepositiveprices;amountpositive. Sourceunknownnotfalse. OriginalnativeI/CP/M3/sectorcacheunchanged;staticmembership/poolNONPIT.",
+  "root": "Reuseonlyround_id,root_known,root_day from sealedfirst_evidence_race_preflight features; no race, futureCP, DOWN, exit or recovery fields. Independently checksourceIatknownbirth=1,previouscommonI=0 and contiguoussource/Ithroughsignal. Unknownrootsretained.",
+  "natural_age_bands": "BIRTH_DAY(0),FIRST_M3_HORIZON(1-2),WITHIN_PVR_HORIZON(3-20),OLDER(>=21),UNKNOWN_ROOT. 3/21areexistingM3/PVRhorizons,notoptimized. Sector/stockM3trueepisode startsafterknownFALSE;UNKNOWN→TRUE remainsunknownoriginuntilnextknownFALSE→TRUE.",
+  "axes": [
+    "entry_type:A_SECTOR_BIRTH/B_STOCK_BIRTH_DURING_SECTOR",
+    "sector_M3_known_true_episode_age:fixedagebands",
+    "stock_M3_known_true_episode_age:fixedagebands",
+    "I_root_age:fixedagebands",
+    "CP_within_current_I_root:FRESH_TODAY/PRIOR_RECEIPT_IN_ROOT/NONE_IN_ROOT/UNKNOWN_ROOT_OR_CP",
+    "i_buy_today:TRUE/FALSE/UNKNOWN",
+    "prior21logprice_change:NEGATIVE/ZERO/POSITIVE/UNKNOWN",
+    "price_change_since_I_birth:NEGATIVE/ZERO/POSITIVE/UNKNOWN",
+    "close_vs_prior21closehigh:AT_OR_ABOVE/BELOW/UNKNOWN",
+    "I_floor_distance_units:log(C_t/I_floor_t)/(sqrt5*currentprior63RMS);LE1/GT1/UNKNOWN;originalbinary64ties. Descriptiveunitnotnewgateandnotclaimitiseventfrozenextremeunit.",
+    "volatility5_vs_prior63:rms(last5returnsincludingt)/rms(prior63returnsexcludingt);LE1/GT1/UNKNOWN",
+    "amount_vs_prior21median:LE1/GT1/UNKNOWN",
+    "currentprice_amount_quadrant:UP/DOWN/FLAT timesGT1/LE1;UNKNOWN"
+  ],
+  "interactions": [
+    "entry_type × I_root_age",
+    "CP_within_current_I_root × volatility5_vs_prior63"
+  ],
+  "continuous_summary": "Forpredefinedperiods,reportmedians/q25/q75 ofret21,ret_since_Ibirth,risk_units,volratio,amount_ratio byoldcorewin/loss/unknown fordescription;do notsearchcutoffs.",
+  "native_return_math": "Useexistingnumeric.log_ratio andRMS=max(sqrt(fsum(r[t-63:t]^2)/63),1e-8);need65consecutivevalidpricepointsendingt. Ret21requires22. Amountbaselineprevious21actualamountobservationsstrictcommonvalid. Windowsnotcrosssourcegap/segment, nofactorstablehardfilterbecausepriceisnativeadjusted;remainingcorporateactionPITlimitationsdisclosed.",
+  "labels": "Sealfeaturetablefirst,thenjoincorrectedoldlabelsbyevent_id. Perperiod/axis/valueandfixedinteractionsCORE/FULLseparately:allpermits,confirmedfill,usableclosed,wins/losses/zero,mean_net,mean_win,mean_loss,payoff,meanreturn,net/grossprofit/grossloss,finalnet>=30/50,sourcefeatureUNKNOWN,financialunknownclosed,executionUNKNOWN/NOFILL/censored. Nonusablelabelnotloss. NewgateUNKNOWNnottoexploreeconomicreturn.",
+  "case_selection": "Afterstrataonlyifmechanismjustified,freezeoneformulaandfixedcasesbeforeitscalculation;casespreviouslyusedincludingQ1weak/2022later/924/2026early. Do notrunnewaccount/scanthreshold. Stoporreportgapifknownpriorresearchsameconsumer orcounterexamplesalreadyfatal.",
+  "causal_limit": "Associationnotbehaviorcausesknownfutureloss. Selectedoldpathsandtimeindustryconfounding;outputhasallpredeclaredgroups,notonlypositiveones. Noresultconditionedperiods or32.86%staticgroupasnewstrategy.",
+  "dedup_reads": [
+    "fast_q1_signal_mechanism_v1/READOUT.md",
+    "m3_stock_birth_during_sector_v1/entry_quality_2022_v1/READOUT.md",
+    "causal_entry_start_structure_v1/READOUT.md",
+    "m3_native_leg_full_coverage_v1/READOUT.md"
+  ]
+}

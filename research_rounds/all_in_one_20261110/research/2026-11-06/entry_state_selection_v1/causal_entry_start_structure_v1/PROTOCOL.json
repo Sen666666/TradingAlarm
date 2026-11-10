@@ -1,0 +1,7 @@
+{
+  "scope": "All 2022 UP_MAJORITY first3 known days including short runs; all Sep2024 common dates; Jan5-7 2026. Previously seen development history; not blind/OOS. No account, orders, scores, grid or new economics.",
+  "sector_features": "Current E0/state/CP attempt. Last confirmed UP trough and last confirmed DOWN peak, only from event at observation then causal forward fill within segment. No sector I exists in native source; member stock I summarized separately.",
+  "member_features": "Unchanged canonical M3; stock E0/I; source-contiguous daily r; amount relative to strictly prior21 median; sector pooled sign/amount counts and positive mass concentration only descriptive; stock position within current E0 floor and prior confirmed peak descriptive.",
+  "candidate_limit": "At most one new consumer after fixed case and semantics review. Do not use realized segment duration or return as a decision variable.",
+  "unknown": "Fixed current1709 pool/sector map. Unknown members kept in denominator and bounds, known-only medians explicitly labeled. No native full-industry/PIT claim."
+}

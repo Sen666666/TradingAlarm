@@ -1,0 +1,19 @@
+正式特征已完成，按根FROZEN_DESIGN一次冻结17式；不使用旧draft的×100/额比或停牌后重seed定义。
+
+FEATURES.parquet/csv：99,031个原CP，sid/date唯一，静态1709股中1664股在固定2022—2026H1窗有CP；其余45股没有原CP事件，并非按结果删除。
+17项全知97,623行（98.5782%）；其余1,408行仍在母体，逐行保存missing_features/reasons，不插补、不因PIT unknown删除数值。
+2022：16,652/16,932；2023：18,564/18,781；2024：24,978/25,251；2025：24,558/24,971；2026H1：12,871/13,096为全17已知。
+
+17列及8/4/5分组见FEATURE_SCHEMA.json，均为父冻结的自然log单位、比例或位置；market20_log仅环境元信息，不属于17预测列。
+所有腿用同CSI300会话端点；G3五个变化需六close、对应五amount，缺日不压缩。EMA沿该股有效价按segment连续递推，两条5会话坡均须最近65个共同会话完整。
+股票高低价直接读原prepared signal同一坐标；amount使用原CNY成交额质量，未以share-volume资格替代。
+指定行业是真实原industry CP input价格；静态归属PIT全False，独立保留，不能把特征numeric_known叫历史行业已验证。
+
+核验：原CP旗母体逐股exact；全部99,031事件的prepared signal/facts/CPinput close和segment逐值exact；5个确定性股票×3日期=15物理前缀pure特征逐值exact。
+4,048,551个源暖观察；无缺行业index、无事件落在CSI交易日历外、market20_log无缺。
+0新账户、0新CP FSM、0标签读取/计算、0拟合；event-index只读取FEATURE_SCHEMA声明的7个事前/审计列，未读取其future可用性列。
+
+首遍数值完成51.8秒，覆盖json的非预测event_calendar元信息发生Series索引对齐错误；仅改为按位置赋bool后正式全批43.3秒完成。
+17数值与sid/date的全量digest两遍完全一致；见METADATA_ONLY_FIX_VERIFICATION.json。首遍问题/源码/日志保留以便审查。
+FEATURES.partial.parquet是运行中快照，正式产物只用FEATURES.parquet/csv及FEATURE_OUTPUT_SHA256，不把partial当完成母体。
+标签与固定岭评估由父其他并行任务负责，本目录不判断预测改善或改CP。

@@ -1,0 +1,30 @@
+test_adjusted_cost_basis_partial_and_full_no_phantom_cost (__main__.CompoundMechanics.test_adjusted_cost_basis_partial_and_full_no_phantom_cost) ... ok
+test_bonus_and_different_share_class_rejected (__main__.CompoundMechanics.test_bonus_and_different_share_class_rejected) ... ok
+test_closed_historical_layer_does_not_receive_shares (__main__.CompoundMechanics.test_closed_historical_layer_does_not_receive_shares) ... ok
+test_core_add_cost_and_one_time_fees_separate (__main__.CompoundMechanics.test_core_add_cost_and_one_time_fees_separate) ... ok
+test_core_and_add_owner_allocation (__main__.CompoundMechanics.test_core_and_add_owner_allocation) ... ok
+test_explicit_300_to_405_and_cost_identity (__main__.CompoundMechanics.test_explicit_300_to_405_and_cost_identity) ... ok
+test_factor_source_and_missing_open_fail_closed (__main__.CompoundMechanics.test_factor_source_and_missing_open_fail_closed) ... ok
+test_fractional_layer_no_floor (__main__.CompoundMechanics.test_fractional_layer_no_floor) ... ok
+test_idempotence (__main__.CompoundMechanics.test_idempotence) ... ok
+test_input_restriction_no_current_close_required (__main__.CompoundMechanics.test_input_restriction_no_current_close_required) ... ok
+test_later_listing_credit_and_record_rejected (__main__.CompoundMechanics.test_later_listing_credit_and_record_rejected) ... ok
+test_original_cash_functions_compatibility (__main__.CompoundMechanics.test_original_cash_functions_compatibility) ... ok
+test_original_native_full_exit_after_share_issue (__main__.CompoundMechanics.test_original_native_full_exit_after_share_issue) ... ok
+test_original_native_mark_uses_current_qty_and_actual_cash (__main__.CompoundMechanics.test_original_native_mark_uses_current_qty_and_actual_cash) ... ok
+test_original_quantity_rule_full_odd_vs_partial_odd (__main__.CompoundMechanics.test_original_quantity_rule_full_odd_vs_partial_odd) ... ok
+test_real_domain_cannot_commit (__main__.CompoundMechanics.test_real_domain_cannot_commit) ... ok
+test_registration_owner_and_state_mismatch (__main__.CompoundMechanics.test_registration_owner_and_state_mismatch) ... ok
+test_report_share_sequence_then_actual_sell (__main__.CompoundMechanics.test_report_share_sequence_then_actual_sell) ... ok
+test_saved_no_share_prefix_quantity_equivalence_and_no_mutation (__main__.CompoundMechanics.test_saved_no_share_prefix_quantity_equivalence_and_no_mutation) ... ok
+test_source_cash_official_cash_separate (__main__.CompoundMechanics.test_source_cash_official_cash_separate) ... ok
+test_stale_plan_and_tamper_atomicity (__main__.CompoundMechanics.test_stale_plan_and_tamper_atomicity) ... ok
+test_strict_known_clock_and_timezone (__main__.CompoundMechanics.test_strict_known_clock_and_timezone) ... ok
+test_tax_amount_and_integration_explicit (__main__.CompoundMechanics.test_tax_amount_and_integration_explicit) ... ok
+test_tax_pending_fails_without_mutation (__main__.CompoundMechanics.test_tax_pending_fails_without_mutation) ... ok
+test_wrong_ratio_rejected (__main__.CompoundMechanics.test_wrong_ratio_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.017s
+
+OK

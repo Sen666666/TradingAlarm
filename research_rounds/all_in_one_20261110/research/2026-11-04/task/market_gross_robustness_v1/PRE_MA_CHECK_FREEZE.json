@@ -1,0 +1,11 @@
+{
+  "before_new_rolling_or_accounts": true,
+  "at_UTC": "2026-11-04T19:52:29.385991+00:00",
+  "source_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_robustness_v1/check_ma_source.py": "3b15fe41cedfea7e8563d608111f24d5373a908293a7b7dced236033d42df167",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_robustness_v1/PROTOCOL.txt": "76a25642e955a6c97aed0e370c275152c43c7f6dd01058b215122c78763d6301",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_robustness_v1/ma_provider.py": "c4aaf37f14340468c58c59bf9a37de4f2d57e0fdc9b1af3e7e00544ffe34e185",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/continuation2024/inputs/510300_history.csv": "e7efde38b82a77f488ccbfd4436d602021e9d66ac02d2d5b7b4b568c4b111785",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_analysis_v1/benchmark_B_2025_26/inputs/510300_history.csv": "7870713bedb3f3f243b451c1c8de8ae27eddf4791b3fc6be91a2e91ea0a39959"
+  }
+}

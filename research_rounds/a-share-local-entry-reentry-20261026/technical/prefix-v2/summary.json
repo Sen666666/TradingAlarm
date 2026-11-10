@@ -1,0 +1,43 @@
+{
+  "research_basis": "current_pool_historical_development",
+  "synthetic": true,
+  "historical_account_runs": 0,
+  "technical_accounts": 14,
+  "initial_capital_cny": 1000000,
+  "accounts": [
+    "SEMI_I_base__S1_base",
+    "SEMI_LH_base__S1_base",
+    "SEMI_LER_base__S1_base",
+    "COMM_I_base__S1_base",
+    "COMM_LH_base__S1_base",
+    "COMM_LER_base__S1_base",
+    "COMM_LER_cost2__S1_cost2",
+    "COMM_LER_delay1__S1_delay1",
+    "DRUG_I_base__S1_base",
+    "DRUG_LH_base__S1_base",
+    "DRUG_LER_base__S1_base",
+    "BANK_I_base__S1_base",
+    "BANK_LH_base__S1_base",
+    "BANK_LER_base__S1_base"
+  ],
+  "daily_rows": 10178,
+  "final_nav": {
+    "SEMI_I_base__S1_base": "894893.1889877284640",
+    "SEMI_LH_base__S1_base": "769559.2233740334610",
+    "SEMI_LER_base__S1_base": "493861.9469637268720",
+    "COMM_I_base__S1_base": "1776909.9373833569985",
+    "COMM_LH_base__S1_base": "1668724.3560094884645",
+    "COMM_LER_base__S1_base": "1946566.3899596172050",
+    "COMM_LER_cost2__S1_cost2": "1894997.2185730458900",
+    "COMM_LER_delay1__S1_delay1": "1408918.4402078552675",
+    "DRUG_I_base__S1_base": "1106086.4371638617435",
+    "DRUG_LH_base__S1_base": "996752.4956238081705",
+    "DRUG_LER_base__S1_base": "1250442.7290030920480",
+    "BANK_I_base__S1_base": "819589.6543521197500",
+    "BANK_LH_base__S1_base": "875991.3447615816500",
+    "BANK_LER_base__S1_base": "935567.9902594679000"
+  },
+  "limitations": [],
+  "execution_basis": "explicit_daily_proxy_and_frozen_known_fx_settlement",
+  "final_positions_closed": false
+}

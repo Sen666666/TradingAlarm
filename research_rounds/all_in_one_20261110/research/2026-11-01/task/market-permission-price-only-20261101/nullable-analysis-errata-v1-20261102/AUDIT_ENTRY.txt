@@ -1,0 +1,16 @@
+隔离nullable分析勘误审计入口，2026-11-02。
+
+1. REPORT.txt与PROTOCOL.txt：影响边界、两日正确分母、不是账户bug、旧稿原样保留。
+2. nullable_analysis.py + test_nullable_analysis.py；TEST_STDERR.txt与SYNTHETIC_RESULTS.json为16测试。None/NaN/真实pending/缺字段，以及未知保护、因子、资格均有拒绝测试。
+3. NORMALIZED_SCOPE_STATES.json（2日×91范围）、STATE_CHANGES.json（5状态/3行业）。
+4. static/：两日完整1709处置、14/62机会原B序、90行业机会；SUMMARY只替换extra_2026，account_cases与posthoc原值保持。REPORT与AUDIT_ENTRY是另版。
+5. C-market-2026/：两日完整90行业、14/62股票C序、覆盖/输入绑定。只市场排名，不执行C/B求解器。
+6. attribution/：May7可见集合及ALL90方向表，55/62，其他电子0→1；原Jan6/Jul3归因未重跑。
+7. ALL_STOCK_RANK_CHANGES.json：每个旧/新股票B/C位次与新增标识。
+8. ORIGINAL_FILE_REPLACEMENTS.json：31项逐原文件替代/绑定/完整性勘误清单；原路径绝未覆盖。主工程需主动选择复用本新入口，旧输入绑定不会被静默替换。
+9. UNCHANGED_FINANCIAL_AND_ATTRIBUTION.json：B73/C62、28接收/15行业政策组保持；金融loader/账户/求解器0调用。
+10. 只读复现脚本rebuild_market_views.py，源码仅从原文件AST提取列明的纯rank/规则/费用片段；PURE_AST_EXTRACTION.json可查。不要运行原分析主main、金融loader或原策略脚本。
+11. SOURCE_SHA256.json + PUBLISH_SOURCE_SHA256.json绑定新读取来源；OLD_FROZEN_SNAPSHOT.json逐文件冻结旧稿；VERIFICATION.json核验；PACKAGE_SHA256.json绑定整个新包（自身除外）。
+
+原独审依据：/var/folders/sj/6vknnkzj0_q6yp4myjk4mtt00000gn/T/advance-gate-independent-8_cwo9kw/FINAL_AUDIT.json。
+原覆盖诊断PASS及54检查保持；本包补全此前仅May7的勘误。当天推进门暂不晋升，无阈值变化，无金融事件。

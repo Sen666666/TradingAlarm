@@ -1,0 +1,114 @@
+MARKET_GROSS_ADMISSION_CARD_V1：现成native接线成本审查
+裁决：技术上可薄接，CONDITIONAL_GO_FOR_LATER_SMALL_REVIEW_ONLY。
+当前0策略代码修改、0新signal、0新Account/经济重放；不自动实现，不授权full。
+
+结论先行
+无需D-origin批次账、basis observer、保护毕业、epoch、sell/split hook或新RiskBook。
+原native balance已经提供当前原价库存市值与NAV；原真实buys已有remaining gross/fee；
+旧costadapter已经证明route数量搜索、实际reserve及fill前后的atomic接点可用。
+实现对象可是一条纯gross准入谓词加薄private Account reserve/fill override。
+但只改route单个调用点不够：原route串行申请、真实reserve和实际fill都必须同谓词。
+这仍是一个经济因子，不是三种策略；原排序/预算/退出/ACT/BREAK不动。
+
+重要原合同勘误
+“原总gross90%也是原生准入合同”不精确，建议root卡删除。
+真实No60 route保留的是：
+ cap+fee <= min(a.available − .10*a.current_nav, b.cash − reserve)。
+a.current_nav是原决策NAV；这是一条现金留存/可用现金合同，不是
+ TOTAL currentmark gross <= .90*当时NAV 的硬总市值公式。
+原probe池gross10%仍保留，No60已删除confirmed60%准入及迁池上限；不是confirmed90%。
+当前No60 route也不含旧joint示例的全账户nominal3%门，须沿P.NEW_ROUTE母体，
+不能回抄joint原route把已删除的约束加回。本附加TOTAL10%不依赖旧90%的说法。
+
+只读源定位/可直接复用的量
+— joint_v3.py Account.sync/assert_budget_view：同一market.marks→原balance，
+  bal['inventory']是所有真实存量currentmark gross，bal['nav']原权益；含旧仓和赢家，
+  不按pool/role/F>=E排除。预算镜像inventory已逐次对原账校核。
+— 原budget Contract.resources(pool=None,sector=None)返回total marked lots +
+  open/cancel_pending订单qty*limit；第三项reserve含gross+fee。此函数可作原资源
+  一致性交核，不能把float镜像当成新精确NAV或额外建一个资源账。
+— 实际精确pending沿a.buys各order.remaining_budget_cny、fee_reserved_cny、
+  remaining_shares读取；J.sync已经核它们与budget.orders一一对同。只有这些真实
+  预留责任计入，不是a.pending/decisions.intents里的待获资候选。
+— J.cancel_buy / budget.cancel+cancel_ack保留原callback/竞态；请求取消不提前
+  减pending，实际ACK/原成交回调释放。不能直接改预算order.status或抹掉原buys。
+— 原LR.maximum_quantity(rule,maxq,allowed)沿合法步长向下取最大q；纯preview
+  不消耗CP1/stockrequest。原PVR排序、role/pool路由与原request消费合同全部保留。
+— costadapter.capacity_allowed/reserve_quantity/fill_buy已经有三个接点，原_fee
+  已独审为纯读取，实际累计fee只在原成交路径记账。可以复用接点/费用投影，
+  不能复用used_cost/protected_cost/basis/after_buy/after_sell/after_split语义。
+
+一个gross口径，不能把成本guard换个名字
+I = 原balance['inventory']，全部当前真实持仓市值。
+P = Σ真实买单remaining_budget_cny，包含尚未ACK取消责任；它是gross principal，
+    不含fee。原fee责任在projected NAV扣除，不能同时混为gross资本。
+首个DOWN原有库存即使I>10%仍可继续原结构持有，但占满新增headroom；不卖平。
+原旧pending在DOWN不能被grandfather，受同一实际成交守卫；旧layer不需要标签。
+旧股加仓与新股买入同样增加I/P，迁池/CA不发新许可，not-D也不重置任何身份账。
+
+准入/真实成交的最小计算路径（仅语义，不是已实现代码）
+令s为原正买入滑点，原pending费用/滑点投影沿旧已审公式：
+ D_pending = Σ[fee_reserved + remaining_gross*s/(1+s)]。
+route/实际reserve新q，采用原当前买入exec=e、known raw mark=p、原fee(q)：
+ numerator_bound = I + P + q*e；
+ N_projected = 原NAV − D_pending − fee(q) − q*max(0,e−p)。
+DOWN时才额外要求numerator_bound <= .10*N_projected，且N_projected有限且正。
+此处新q还未真实成交，q*e是新gross reservation；不是把新层按含费成本记入I。
+当前budget.request已生成但native reserve尚未发生的申请不能被P再加一次。
+其余原约束仍由原allowed/request判断，不能因本门pass而越过原拒绝。
+
+fill时P已包含当前单，不得再加一次q*e或把它既算pending又算库存。
+最薄保守复用旧costadapter.fill_buy当前订单投影：
+— qty上界原min(remaining_shares, floor(remaining_gross/exec))，费用用原累计_fee。
+— 其余pending保持原drag；当前订单保留max(old fee reserve, fullfee bound)以及
+  max(old remaininggross*s/(1+s), fullq*max(exec−mark,0))的slip buffer。
+— 以当前I+P作gross承诺的保守上界。原A股/CNY正slip scope内，实际partial把
+  q*exec的预留换成q*rawmark库存，不增加这个上界；未成部分继续P，不能低价
+  partial后丢失原pending buffer。已有独审edge证明的callback顺序可直接保留。
+— 不通过则沿原cancel/ACK取消，不修改成交量/账单；route阶段才合法向下求q。
+  这避免在fill前私改原pending数量/重建订单。若后续卡要求fill部分缩单，则先否决
+  该扩展，不为此写新的修改订单协议。
+— 原super fill完成、同步/ACK结束后，按原balance和remaining P核post状态；
+  未成交/被撤但旧库存仍超cap不触发强卖，也不把被动超限当已成交新增违规。
+
+不需要改动的路径
+fill_exit/split/dividend/T+1/AR/nativeNAV都由原引擎维护；此门只读其结果。
+旧现金/股/行业/pool/cap/freshCP1/Q/费用与退出锁原封保留；原ACT20/BREAK63
+仍最高优先级。非DOWN去掉本附加条件，其余原许可不变，不称提早恢复。
+不在CLOSE未来价提前计算OPEN，也不需要新E0/I/PVR或新金融writer。
+
+实施前仍须root/逻辑审精确锁住的少量点
+1. 真实pending在首次DOWN的取消时点：最小合同是在下一原生执行/获资点先核；
+   不可跳过有旧单但本日无新candidate的情形。若需CLOSE立即cancel，也只沿原
+   cancel/ACK，不重写取消器。无执行window时保留责任至原ACK/expiry，不假释放。
+2. gross numerator的pending明确为gross principal；fee只影响原现金和projectedNAV。
+   root卡若需含费占用就是另一个成本口径，应在GO前说明，不静默代换。
+3. projectedfeeNAV复用旧已审保守pending/slip buffer，不是新余额；数据未知或
+   NAV不合法则不授新资金。必须界定“未知D不得新授”如何送到这个gate，不能
+   把缺值当not-D。全726/242市场输入证书尚须独核，本任务0signal未验证它。
+4. 不把任何当前被动overcap断言为程序错误：gate约束新准入/实际fill，非每日
+   全库存强制状态。只有实际新增事务需要过原子检查。
+5. 新私有adapter必须按自己的type/hooks做显式wire审，none保原J.Account与route；
+   不改公共J，不让none也跑新门。原dump/checkpoint/同年score/input可读复用。
+
+最小成本估计（仅当后续另有GO）
+源码接点足够，预计薄实现/源差分约10–15分钟；复用现有两个9CLOSE技术驱动、
+NONE trace identity、route/reserve/fill原子gross+fee桥和重启的最小核查约10–15分钟，
+审计可并行。总计约20–30分钟，不含full经济运行或另线全期市场证书审计。
+无需再做basis/CA观察器/新保存格式/新loader。耗时若开始落在平台/输入重建，
+立即报阻碍停止，不为这个10%单设定扩工程。数字不是完成承诺，也不是full授权。
+
+否决/停止
+— 只route过滤、不覆盖真实reserve/fill/已有pending：技术NO GO。
+— 把原95%左右平均暴露或现金留存包装成严格gross90%、把费算两遍、当前pending
+  双计、把候选当reserve，或用新NAV填原账：NO GO，先修语义，不跑经济。
+— 需要D-origin身份/新RiskBook/保护credit/额外nominal门/行业例外/恢复变更：STOP。
+— 全窗D因果输入不能薄复用已有源：先停在输入证书，不构造loader/换synthetic源。
+— 本技术审通过也不表示经济有效：旧仓高于10%时会一律挡住新leader，Sep–Nov
+  新增赢家与旧仓占headroom代价必须保留；not-D重新进资、Dec不覆盖、June恢复
+  仍慢等反例不变。无效不扫参数、不能把少亏视为策略成功。
+
+证据状态
+ma63_down_replenishment_review_v1/SAVED_PERIOD_WEALTH_AUDIT.json
+SHA915dc0b929b5201951354939b0ad1216cebd5a82d5407b5f09e22be8cc609a2b 已PASS。
+本次仅技术/语义纸审；具体新predicate源码、全期市场证书、small与经济效果均未验证。

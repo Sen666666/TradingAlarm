@@ -1,0 +1,258 @@
+{
+  "schema_version": 2,
+  "round_id": "sector-stock-20261021",
+  "status": "design_only",
+  "design_date": "2026-10-21",
+  "economic_runs_completed": 0,
+  "executable_freeze": false,
+  "design_document": "../../docs/SECTOR_STOCK_STRATEGY_PLAN_2026_10_21.md",
+  "authority": "User correction on 2026-10-21: sector trend selection followed by stock trend selection within sectors; historical all-A and southbound eligible HK stocks; company market cap above CNY 10 billion. User decision 2026-10-22: 80% is a large-market aspiration only, never a per-round pass or continuation gate; fix primary comparisons and finite stopping.",
+  "universe": {
+    "cn_exchanges": [
+      "SSE",
+      "SZSE",
+      "BSE"
+    ],
+    "hk_eligibility": "point_in_time_union_of_Shanghai_and_Shenzhen_southbound_buy_eligible_stocks",
+    "include_historical_delistings": true,
+    "exclude_st_by_default": false,
+    "strategy_etfs": false,
+    "issuer_market_cap_cny": {
+      "operator": ">",
+      "threshold": 10000000000,
+      "apply_at": [
+        "new_buy",
+        "add_buy"
+      ],
+      "basis": "historical_total_company_market_cap_by_distinct_share_class",
+      "knowledge_time": "known_at_decision_and_effective_for_execution",
+      "unknown_policy": "no_new_buy_and_explicit_coverage_gap",
+      "below_threshold_existing_holding": "no_new_buy_keep_trend_exit_and_legal_sell_path"
+    },
+    "issuer_deduplication": "at_most_one_trading_line_per_issuer_in_holdings_pending_buys_or_latched_exits",
+    "classification": {
+      "historical_membership_required": true,
+      "index_and_members_same_taxonomy": true,
+      "current_snapshot_backfill_allowed": false,
+      "taxonomy_ids": null,
+      "levels": null,
+      "index_ids": null
+    },
+    "membership_manifest": null,
+    "security_master_manifest": null,
+    "coverage_manifest": null
+  },
+  "data_window": {
+    "target_account_start": "2015-01-01",
+    "target_account_end": "2026-10-20",
+    "target_warmup_start": "2013-01-01",
+    "actual_effective_coverage": null,
+    "history_identity": "development_or_historical_test_not_unseen",
+    "fixed_reporting_periods": [
+      [
+        "2015-01-01",
+        "2017-12-31"
+      ],
+      [
+        "2018-01-01",
+        "2020-12-31"
+      ],
+      [
+        "2021-01-01",
+        "2023-12-31"
+      ],
+      [
+        "2024-01-01",
+        "2026-10-20"
+      ]
+    ]
+  },
+  "algorithm": {
+    "source_round": "../pv-participation-response-20261020",
+    "mechanism": "event_confirmation_structure_survival_high_participation_decline_cross_day_recovery",
+    "mechanism_changes_planned": 0,
+    "apply_to": [
+      "sector",
+      "stock"
+    ],
+    "state_and_ranking_separate": true,
+    "rs_weights_recent_to_old": [
+      0.4,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "rs_segment_observations": 63,
+    "rs_required_observations": 253,
+    "rs_comparison_decimals": 12,
+    "missing_rs": "stable_id_order_for_entire_competing_batch_no_delay_of_trend_state",
+    "source_code_manifest": null,
+    "adapted_code_manifest": null
+  },
+  "s0_policy": {
+    "initial_nav_cny": 1000000,
+    "max_sector_slots": 3,
+    "max_issuer_slots_per_sector": 2,
+    "max_issuer_slots": 6,
+    "new_deployment_fraction": 0.9,
+    "initial_budget_nav_fraction_per_slot": 0.15,
+    "entry": "known_joint_eligibility_rising_edge_or_explicit_initial_carry_in",
+    "waiting_candidates": "remain_while_eligible_reprioritize_daily_before_first_fill",
+    "selection": "sector_rs_then_within_sector_stock_rs_one_per_sector_per_pass",
+    "reserved_slots_count": true,
+    "partial_fill_priority": true,
+    "budget_and_share_upper_limits": "freeze_on_admission_adjust_for_corporate_actions_only",
+    "cash_and_gross_capacity": "constrain_new_buys_include_existing_pending_commitments",
+    "holding_weight_drift": "allowed_no_forced_equal_weight_rebalance",
+    "stock_structure_failure": "latch_exit_until_complete",
+    "sector_structure_failure": "stop_new_buys_do_not_force_existing_stock_exit",
+    "ranking_drop": "do_not_exit",
+    "profit_target": null,
+    "active_additions": false,
+    "leverage": false,
+    "short_sales": false
+  },
+  "execution": {
+    "decision_clock": "after_available_A_and_H_market_close_data_with_explicit_timestamp",
+    "fill_clock": "next_eligible_trading_time_after_decision",
+    "raw_prices_for_fills": true,
+    "signal_adjustment_causal": true,
+    "participation_proxy": {
+      "lookback_valid_observations": 20,
+      "past_volume_fraction": 0.01
+    },
+    "southbound_settlement": "CNY_with_HKD_trade_prices_historical_FX_and_receivables_payables",
+    "fee_model_manifest": null,
+    "market_rule_manifest": null,
+    "fx_manifest": null,
+    "corporate_action_manifest": null,
+    "independent_cash_and_position_audit_required": true
+  },
+  "r1": {
+    "question": "Incremental selection value of sector trend gating and hierarchical sector-stock allocation.",
+    "strategy_variants": [
+      {
+        "id": "T0",
+        "stock_trend_required": true,
+        "sector_trend_required": false,
+        "priority": "global_stock_rs"
+      },
+      {
+        "id": "T1",
+        "stock_trend_required": true,
+        "sector_trend_required": true,
+        "priority": "global_stock_rs"
+      },
+      {
+        "id": "S0",
+        "stock_trend_required": true,
+        "sector_trend_required": true,
+        "priority": "sector_then_stock_round_robin"
+      }
+    ],
+    "common_universe_across_variants": true,
+    "common_sector_slot_limits": true,
+    "execution_scenarios": [
+      "base",
+      "variable_cost_x2",
+      "extra_one_eligible_time_delay"
+    ],
+    "strategy_accounts": 9,
+    "passive_accounts": [
+      {
+        "id": "B0",
+        "scenario": "base",
+        "universe": "same_point_in_time_eligible_pool",
+        "allocation": "90_percent_equal_target_amount_at_start_and_annual_review",
+        "real_lot_sizes_and_costs": true,
+        "insufficient_one_lot_budget": "retain_cash_and_report_coverage",
+        "trend_timing": false
+      }
+    ],
+    "total_accounts": 10,
+    "theoretical_equal_weight_index_is_tradable_claim": false
+  },
+  "evaluation": {
+    "max_drawdown_research_target": 0.2,
+    "tail_closed_cycle_net_return_boundary": 0.3,
+    "profit_taking_at_tail_boundary": false,
+    "large_market_diagnostic": {
+      "reference": "same_pool_theoretical_equal_weight_index",
+      "reference_return_minimum": 0.3,
+      "rolling_account_observations": [
+        252,
+        504
+      ],
+      "report_all_qualifying_windows": true,
+      "overlap_is_independent_evidence": false,
+      "label_used_in_trading": false
+    },
+    "prefix_checks": [
+      "state",
+      "dynamic_membership",
+      "ranks",
+      "candidates",
+      "orders",
+      "cash"
+    ],
+    "report": [
+      "full_account",
+      "fixed_periods",
+      "ordinary",
+      "tail",
+      "open_or_claim",
+      "candidate_funnel",
+      "cash",
+      "concentration",
+      "unfilled_orders",
+      "costs"
+    ],
+    "stop_review_after_distinct_mechanisms_without_reliable_progress": 3,
+    "account_large_market_return_aspiration": 0.8,
+    "aspiration_is_pass_or_continue_gate": false,
+    "primary_account": "S0",
+    "primary_comparator": "T0",
+    "fixed_mechanism_contrasts": [
+      "T1_minus_T0",
+      "S0_minus_T1",
+      "S0_minus_T0"
+    ],
+    "assessment_layers": [
+      "causal_mechanism",
+      "tail_and_ordinary_structure",
+      "net_economic_value_vs_fixed_controls",
+      "post_freeze_new_evidence"
+    ],
+    "first_stage_accounts_limit": 10,
+    "first_stage_disposition_required": [
+      "supported",
+      "rejected",
+      "insufficient_evidence"
+    ],
+    "followup_requires_new_common_evidence_and_separate_finite_freeze": true,
+    "subpool_or_weaker_intermediate_progress_resets_project_stop_counter": false,
+    "no_progress_three_is_latest_stop_not_minimum_rounds": true,
+    "ordinary_loss_budget_and_rationale_before_account_freeze": null
+  },
+  "collection": {
+    "first_pilot_max_security_lines": 24,
+    "expansion_batch_max_security_lines": 100,
+    "request_budget_required_before_batch": true,
+    "per_node_parallelism": 1,
+    "reuse_cached_retired_records": true,
+    "new_credential_destinations_authorized": false,
+    "overwrite_old_evidence": false
+  },
+  "freeze_requirements_remaining": [
+    "historical_universe_and_company_cap_evidence",
+    "matched_sector_index_and_historical_membership_identity",
+    "historical_southbound_buy_and_sell_status",
+    "data_coverage_and_unknown_exclusion_report",
+    "historical_execution_cost_FX_and_corporate_action_models",
+    "raw_price_volume_review_and_causal_signal_adaptation",
+    "independent_execution_and_accounting_validation",
+    "immutable_code_data_and_protocol_hashes",
+    "primary_comparison_interpretation_and_economic_ordinary_loss_budget_frozen_before_accounts"
+  ],
+  "amended_date": "2026-10-22"
+}

@@ -1,0 +1,48 @@
+{
+  "task": "Upside algorithm review and explicit paper state machine within original E0/I/PVR framework",
+  "status": "PAPER_COHERENCE_AND_FINITE_INPUT_REVIEW_PASS_WITH_OPEN_IMPLEMENTATION_GATES",
+  "strategy_implemented": false,
+  "policy_promoted": false,
+  "new_accounts": 0,
+  "new_backtests": 0,
+  "new_parameter_tests": 0,
+  "new_trade_or_funding_simulations": 0,
+  "original_strategy_or_completed_results_modified": false,
+  "deliverables": {
+    "readout": "READOUT.txt",
+    "precise_formulas_timing_state_and_grants": "PAPER_CARD.txt",
+    "source_and_dedup": "code/CODE_AND_STATE_MAP.json",
+    "physical_vs_strategy_FIFO_correction": "code/FIFO_LAYER_CORRECTION.txt",
+    "924_original_9_layers_and61_keypoints": "examples_924/READOUT.txt",
+    "semiconductor_original18_stocks25_layers_and44_keypoints": "examples_semis/READOUT.txt",
+    "logic_final_review": "logic/FINAL_PAPER_REVIEW.json",
+    "924_input_final_review": "examples_924/PAPER_INPUT_REVIEW.json"
+  },
+  "frozen_paper_hypotheses": {
+    "V": "Post-fill20-close-high breakout with price above EMA20 and EMA20 above its5-observation-ago value, then later higher close within1..20 observations; never hard AND on original first entry",
+    "A": "Original held/core_Q/E0/I plus currently confirmed industry and new post-fill proof may submit typed TREND_ADD, at most2 actual plugin increments per original I/source key;4% then6% NAV targets,2% new nominal and0.25% signal NAV known-line risk cap each; original PVR algorithm, financial gates and OPEN recheck",
+    "H": "Before CP exit breach or latch, complete original MOBILE layer may request explicit TREND protection grant while preserving initial hard line; not CORE conversion, not half-size5-day tail",
+    "common_trend_exit": "Original hard obligations, current max(entry initial hardline,I); new TREND source-segment change exit; otherwise close<=EMA60 OR2 closes below EMA20 plus current below previous10-close minimum",
+    "time_reduction": "No B for20 observations plus2 closes below EMA20 degrades; at most one request to exit latest plugin rung, original seed/CORE preserved; same-key consumed plugin fill count does not reset"
+  },
+  "key_actual_breakpoints": [
+    "LiangWei605358 2026-05-20: original core_Q true, held true, CP null, roles empty despite new20-close high and T5. This is a missing intent, not proven funding or new fill",
+    "LiangWei prior originalCP attempt2026-05-20 OPEN already failed cash/reserve and sector_capital; next OPEN actual sales free cash but original order competition and new PVR slot remain unknown",
+    "Jinhaitong2026-01-28:100 shares to shared I line need4604.99 original known risk versus3844.77 budget; cannot keep original size on wider line",
+    "Jinhaitong2026-02-11:3 earlier100-share layers initial hard lines survive, late100-share line broken; T5 true, X false. Retention requires earlier grant, not same-close rescue",
+    "Jiangfeng andKema CP exits break initial hard lines; healthy EMA does not authorize retention",
+    "924 chosen9 layer signals all satisfy old20-high/one-day EMA descriptor including6 failures;5 selected failures still T5 true/X false at original hard exits"
+  ],
+  "correction": "Physical sellable-stock FIFO differs from selected strategy-layer allocation. Original pilot.fill_exit attributes only within sell_layers targets; no inherent obligation to close healthy early logical layers before late hard logical layers. Partial mixed-target ordering and real sellability remain constraints.",
+  "remaining_design_and_validation_gates": [
+    "Current native request permits only core/mobile and stock_cp1; new typed proof adapter and protection-regime accounting are not implemented",
+    "External shared risk contract must define pressure, global loss allowance, grants and pending-exit responsibility; this card does not allocate free new budgets",
+    "Full-universe post-fill proof/H activation coverage, exact new PVR slots and constrained actual quantities remain unmeasured",
+    "No financial efficacy, trend participation gain, portfolio opportunity cost or new drawdown result",
+    "Slow-bull full chain missing; V/limit-up examples finite and not a complete adversarial sample",
+    "Whole logical layer targets do not guarantee SELL-lot or corporate-action remainder fills",
+    "Current survivor/industry snapshots and daily-bar fill proxies remain, not PIT/OOS/live evidence"
+  ],
+  "environment_or_permission_blockers": [],
+  "review_state": "PASS for paper/source/finite input only; no implementation or economics validated"
+}

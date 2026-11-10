@@ -1,0 +1,55 @@
+{
+  "completed": true,
+  "economic_paths_this_stage": {
+    "CASE": 2,
+    "universe_normal": 2
+  },
+  "all364_day_bridge_maxima": {
+    "independent_NAV_difference": 0.0,
+    "budget_NAV_difference": 2.3283064365386963e-10,
+    "spendable_difference": 0.0,
+    "reserved_difference": 0.0,
+    "capital_occupancy_difference": 5.820766091346741e-11,
+    "maximum_stock_quantity_difference": 0.0
+  },
+  "exact_cashflow_NAV_and_share_gaps_zero": true,
+  "float_authorization_view_tolerance": 1e-06,
+  "v2_frozen_deliverables_unchanged": true,
+  "source_functions_independently_reviewed": true,
+  "adapter_sha256": "fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425",
+  "launcher_sha256": "e90e1ccc0e891218c9120d58430860f468f06840dc6186c0fb8f7aec17bd60b1",
+  "driver_sha256": "dc125f77b0350b7c84af7c3b70c62df2c8669c24ee8f1acb0ea2c7ed402740ac",
+  "prefix_gate": {
+    "passed": true,
+    "physical_prefix": "2025-07-07",
+    "restart_suffix": [
+      "2025-07-08",
+      "2025-07-09"
+    ],
+    "original_event_loop_and_prepared_resume_loop_exact": true,
+    "all_trade_order_cash_budget_events_exact": true,
+    "market_input_physical_truncation": true,
+    "checkpoint_restored_without_cash_or_stage_reset": true,
+    "seconds": 3.383937374688685,
+    "adapter_sha256": "fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425",
+    "launcher_sha256": "e90e1ccc0e891218c9120d58430860f468f06840dc6186c0fb8f7aec17bd60b1",
+    "purpose": "engineering short segment, not another policy experiment",
+    "full_account_economic_paths": 0
+  },
+  "universe_timing": {
+    "preparation_seconds": 44.39280499983579,
+    "replay_plus_audit_save_wall_seconds": 165.1516716252081,
+    "total_seconds": 209.54447683272883,
+    "total_full_account_paths": 2,
+    "first_segment_was_continued": true
+  },
+  "remaining_blockers": [],
+  "technical_failed_startup_no_actions": "startup-universe.log:Parquet null identity normalized toNone, original5 JSON exact",
+  "no_account_rerun_for_analysis": "dividend accrual date read from receivable.ex_at; report-only fix",
+  "constraints": [
+    "current snapshot, not PIT",
+    "consumed history, not OOS",
+    "daily OHLCV/open execution and same-open sale cash reuse remain proxies",
+    "no real orders, production changes, new parameters or further paths"
+  ]
+}

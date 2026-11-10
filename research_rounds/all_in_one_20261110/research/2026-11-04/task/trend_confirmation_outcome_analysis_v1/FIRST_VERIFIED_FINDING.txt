@@ -1,0 +1,11 @@
+首个可核实发现｜strong 2025Jul1–2026Jun30，242个CLOSE，fresh 1m
+
+UNIFORM50把每次原许可计划cap/budget减半，并未使账户资金/市值暴露减半。原真实账户中，平均前一CLOSE市值/前一CLOSE权益为87.4450906045%，原No60 B为88.0174980653%；分母为242个执行日，首日使用初始空仓0，完整窗全部交易日均保留。
+平均收盘持股数104.92562只 vs 73.85537只；最大129 vs92只。实际买入fill1781 vs1171，实际卖出fill1257 vs887，合计实际交易3038 vs2058；实际买入股票865 vs671。费用25217.79304397元 vs22720.02657967元。原计划缩量后其他后续候选得到资金补位，资金依然接近满投，分散度和交易次数反而增加。
+这证明计划级半量不是账户半仓，也不是同风险对照；不能从市值暴露和股数推断实际损失风险或名义mark-floor风险未减半。原daily的mark-floor风险与逐笔初始名义风险将另报。
+
+UNIFORM50的确认日志存在6030条confirmation_half_below_minimum事件，其中core4135、mobile1895。这是重复原许可计划事件，不能称6030个独立漏买或独立机会，也不能据此计算可避免损失。保留时钟与role键，后续只与真实buy/layer路径关联。
+
+原始路径：trend_confirmation_native_v1/full-strong-v1/pair/daily.jsonl.gz、B.json.gz、UNIFORM50.json.gz、confirmation-size-events.jsonl.gz。
+方法：只读完整已发布DONE+WINDOW_RESULT；按account过滤原daily，lag使用各自上一真实CLOSE inventory/nav（首日0）；原positions中非0股票计持股数；实际trades按side计fill并sum fees；真实buy的security_id集合计买入股票。未运行账户/信号/估价/CA模型，未改原producer输出。
+审查：原实际交易/费用/资金和股票账已由 independent_review/trend_confirmation_full_ledger_v1/FULL_STRONG_FINANCE_AND_PVR_AUDIT.json 独审。此处新增均值、持股数和事件分组为本地只读薄聚合，尚待独立审查。数学分类仍有已知9等号边界/11m差异的strictFAIL范围，不用财务PASS覆盖。

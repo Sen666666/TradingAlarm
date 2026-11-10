@@ -1,0 +1,13 @@
+Read REPORT.txt. Original CANDIDATE.txt is unchanged; no provider/policy implemented.
+check.py reads only prior frozen risk references, CP1 event metadata and F1/H1 tables.
+WINNER_INDUSTRY_CAPACITY_BOUNDS: unused-B, no-old-occupancy, fractional-G necessary bounds
+on original5/8 independent-target prefixes, not a new allocator or actual financial path.
+UNFUNDED_MAX_EFFECT: all references vs actually funded subset (diagnosis only; not trading).
+REMOVE_MAX_REMAINING_PLAN_SENSITIVITY: remove ONLY maximum reference, recompute B from
+remaining references; remove its own original plan row too, keep all other quantities.
+No Q/D re-solve. Do not confuse this with deleting all unfilled candidates.
+ACTUAL_PROOF_TIMELINES: native live scopes/proof identity, all July dates, no signal step.
+STATIC_CHECKS: manual pure-S OPEN risk arithmetic, not a native callback integration test.
+No financial replay. Previous formula remains a failed/unfinished design sample, not bugfix.
+Source references were generated from original account views, so bounds don't claim a new
+policy's own future candidate domains or budget balances. No hypothetical50/80 dates invented.

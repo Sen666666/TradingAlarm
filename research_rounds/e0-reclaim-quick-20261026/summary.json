@@ -1,0 +1,41 @@
+{
+  "stocks": 407,
+  "verified_history_rows": 799825,
+  "independent_reclaims": 74,
+  "already_on_without_reclaim": 0,
+  "extra_state_days": 324,
+  "missing_state_days": 0,
+  "accounts": 0,
+  "21": {
+    "complete": 71,
+    "unknown": 3,
+    "positive": 45,
+    "negative": 26,
+    "median_return": 0.0492507318856101,
+    "mean_return": 0.07200327885339748,
+    "initial_floor_broken": 30,
+    "max_close_gain_30pct": 14
+  },
+  "63": {
+    "complete": 70,
+    "unknown": 4,
+    "positive": 40,
+    "negative": 29,
+    "median_return": 0.0152573723930556,
+    "mean_return": 0.1073497827074013,
+    "initial_floor_broken": 43,
+    "max_close_gain_30pct": 26
+  },
+  "delay": {
+    "known": 73,
+    "not_yet": 1,
+    "median": 5.0,
+    "within5": 40,
+    "within1": 23
+  },
+  "prior_down21": {
+    "n": 54,
+    "future_down21": 17,
+    "median": 0.05606421673146865
+  }
+}

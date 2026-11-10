@@ -1,0 +1,10 @@
+{
+  "at_UTC": "2026-11-04T19:57:57.721870+00:00",
+  "before_new_fee_checks": true,
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_robustness_v1/check_cost15.py": "da5359ec11b53b5928cf9a4b071b60198f3bf983e6e47422becfe74fa08458f3",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_robustness_v1/PROTOCOL.txt": "76a25642e955a6c97aed0e370c275152c43c7f6dd01058b215122c78763d6301",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_robustness_v1/cost15_compat.py": "68f3ec02d243748dd632ab3d34b7998282fe2868044bf873e01828f78a02a06e",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-act-comparison-20261027/execution-rules-v2.json": "e54d23fb4be1740415364e757d300231c3871a99de43a328773cbe391eadb614"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "scope": "independent simple references only; no native guard candidate",
+  "dates": [
+    "2025-07-01",
+    "2026-06-30"
+  ],
+  "days": 242,
+  "initial_cash": 1000000,
+  "no_annual_reset": true,
+  "results": {
+    "BUY_HOLD": {
+      "initial": 1000000.0,
+      "terminal_NAV": 1288331.13625,
+      "return_pct": 28.833113625000006,
+      "max_DD_pct": 7.438966227108135,
+      "DD_day": "2026-03-23",
+      "fees": 1497.36375,
+      "dividends_accrued": 30811.5,
+      "dividends_paid": 30811.5,
+      "mean_exposure_pct": 98.46012034590113,
+      "same_quantity_cost_before_NAV": 1289828.5,
+      "same_quantity_cost_before_return_pct": 28.982850000000006,
+      "fills": 1,
+      "execution_verified": false,
+      "execution_basis": "unchanged raw OPEN daily proxy; dated halt/limit/queue/auction states unverified"
+    },
+    "MA63_90": {
+      "initial": 1000000.0,
+      "terminal_NAV": 1136271.7744,
+      "return_pct": 13.627177439999993,
+      "max_DD_pct": 9.904603095275444,
+      "DD_day": "2026-04-15",
+      "fees": 31188.825600000004,
+      "dividends_accrued": 25756.2,
+      "dividends_paid": 25756.2,
+      "mean_exposure_pct": 75.09222744368698,
+      "same_quantity_cost_before_NAV": 1167460.6,
+      "same_quantity_cost_before_return_pct": 16.746060000000007,
+      "fills": 21,
+      "execution_verified": false,
+      "execution_basis": "unchanged raw OPEN daily proxy; dated halt/limit/queue/auction states unverified"
+    },
+    "CASH": {
+      "initial": 1000000.0,
+      "terminal_NAV": 1000000.0,
+      "return_pct": 0.0,
+      "max_DD_pct": 0.0,
+      "DD_day": "2025-07-01",
+      "fees": 0.0,
+      "dividends_accrued": 0,
+      "dividends_paid": 0,
+      "mean_exposure_pct": 0.0,
+      "reference_only": true
+    }
+  },
+  "independent_audit": "PENDING",
+  "seconds": 0.25382049987092614
+}

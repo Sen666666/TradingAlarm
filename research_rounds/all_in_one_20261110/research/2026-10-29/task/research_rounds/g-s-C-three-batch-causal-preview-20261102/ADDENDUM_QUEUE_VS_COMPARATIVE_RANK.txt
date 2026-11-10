@@ -1,0 +1,30 @@
+2026-11-02; local planning diagnosis only, no account progression or policy authority.
+
+The original CONTRACT.txt is immutable. Its queue-only intervention is narrower than
+the parent's question about priority: in the original selector the same key controls
+both candidate traversal AND eligibility to sell relatively weaker incumbent mobile.
+That coupling was documented before the queue-only results. Queue-only changes none
+of the three saved Q/D results; this does not establish that comparative priority is
+irrelevant, nor that a different rank would profit.
+
+This separate addendum diagnoses that second channel at the SAME three fixed dates.
+Use C10 only and the already-reproduced exact saved state. The preselected engineering
+candidate block (Jul8/Jul22) or iron-construction candidate (Jul29) receives a leading
+diagnostic rank bit 0; every other original comparable stock receives bit 1. Preserve
+all original keys after that bit, all within-block order, and every noncase stock's
+relative order. Apply that bit consistently to both new demands and incumbent lot
+comparative keys. No original H1/PVR values, eligibility, prices, floors, receipt,
+quantity, fees, capital/risk/cash ceiling, or donor inventory is changed. This is a
+rank-position intervention, not a new score or a tradable whitelist.
+
+Use original solve_B unmodified on the C-transformed inputs. Removing only the added
+rank bits must recover byte-equivalent original transformed inputs. Validate every
+hard resource condition with the unchanged joint guard. Preserve the entire same-
+batch candidate list. Retain any original incumbent that is hypothetically sold and
+any other new candidate that loses Q; do not call those holdings weak using future
+returns. Jul22 already-front candidate ordering is a required traversal control,
+but comparative incumbent relationships are checked explicitly, not assumed equal.
+
+Do not retry a technical-check-budget failure with a larger budget or approximate
+the missing result. All outputs analysis_only/submit_allowed=False. Hypothetical
+sales do not release actual risk or cash; no fills, forward returns or PnL are run.

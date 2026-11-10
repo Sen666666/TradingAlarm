@@ -1,0 +1,33 @@
+{
+  "stage": "D technical sample completed; full run awaiting independent approval",
+  "code_hashes": {
+    "campaign_engine.py": "81145cc8c94e08746fc16a2f88560478a778778479da19b3fbfeac509d280c52",
+    "run_campaigns.py": "32159c5eb95b08c5798f1c95bbdedd2b9d5c88c8c17d88d13ba32873bd7083e9",
+    "causal_invites.py": "0c1ff07a41b647fb55fa70e587b2c1a34e43e0a3e1e549f12d2757956c62ebb5",
+    "PRE_ECONOMIC_DESIGN.md": "ca666e39b98b29cedd90c29cb74672ed9ad0b1ce42a3d89454ab9da051263c73",
+    "native_role_adapter.py": "6ea4d5e3435a6fad7211e0880f298f6977033e79321989578980e3e68723ea90",
+    "native_fast_inputs.py": "93b779197ffb1193d011c72756f6fd4e5f9f8894edb3b7f9183af6e20897cf13",
+    "D_SCOPE_PENDING_REVIEW.md": "a72748e8da5dee814473ea5f2dfdd624121493c90f26b893547784f12ed7aee4",
+    "causal_ab_birth_knowledge.py": "60201262e5a93d09b8e9e410a6729b43f5716ee60fe48e0c79ece5a345152fdf",
+    "report_campaigns.py": "c967d2c8bf130826acf4859021531fa76f4170e695be6ec01b098cfb8061af88"
+  },
+  "input_seals": {
+    "CAUSAL_INVITES_SOURCE_HASHES.json": "4dc592f66fddc387dc06ade3248f94ecdb16f69b9079ce46cc410066e7d8f982",
+    "CAUSAL_INVITES_ARTIFACT_HASHES.json": "c480fa32a0f72cc048b128868c688566560c2de7800aa0efa71362112161088e",
+    "AB_BIRTH_KNOWLEDGE_SOURCE_HASHES.json": "f769d60734c299dd63d52097a2a3bdc797aa13985b1ac462fc5e2dac894d799f",
+    "AB_BIRTH_KNOWLEDGE_ARTIFACT_HASHES.json": "bd7e278eeec7d2007e4e5488296dea20bb1467da8be8b7d2fecdffc910efdec1",
+    "NATIVE_FAST_INPUT_SOURCE_HASHES.json": "3d3e03cf13f1010f1f293a2a24cb1a4f57c75ce880e3adeb1d6ff73c113c36c0",
+    "NATIVE_FAST_INPUT_OUTPUT_HASHES.json": "71cbbb6bb7801f72e28ca362427171108a71eb01ecf0976e46c9b4689773e2e3"
+  },
+  "technical_reports": {
+    "SYNTHETIC_D_QA.json": "8354dac5fb551705619bf424b5bd9dd8bc45407485784ed30bafd620d70d801d",
+    "SYNTHETIC_REMAINING_QA.json": "189176dee4d5161f1cf34fbd39755104543477caae22a39a1f488d1c027c2b9c",
+    "NATIVE_Q0_BRIDGE_QA.json": "7b8d9ec6fab2888c69073169c990a0385ee6cadef1e8ce68060413d45ca8496b",
+    "SAMPLE_COMPONENT_QA.json": "4d8831815f39a00d1889c9920677b8c39c9711a58cbea4d8aa04f3af91e1daaf",
+    "sample/QA.json": "af11d18af732430eb3e0d9fdf2226112011129c0d53ccbdea992127aef419cf0",
+    "sample_d/QA.json": "4d05da3574ecc8c1b8e51cdec10dd7191a39730f53a6e684d75c0cc58fa60a62"
+  },
+  "same_33_permit_ids": true,
+  "D_added_after_ABC_technical_sample": true,
+  "full_runs": 0
+}

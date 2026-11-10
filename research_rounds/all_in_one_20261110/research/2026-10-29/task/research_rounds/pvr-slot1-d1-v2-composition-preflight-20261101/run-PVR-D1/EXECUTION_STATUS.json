@@ -1,0 +1,14 @@
+{
+  "completed": true,
+  "scope": "ONE_PVR_SLOT1_x_D1_v2_2025July_2026June_original_1m",
+  "stopped_or_completed_at_UTC": "2026-11-01T14:24:59.812913+00:00",
+  "input_seconds": 36.525479417294264,
+  "remaining_native_replay_export_seconds": 200.78610874991864,
+  "total_seconds": 244.75591862527654,
+  "old_prefix_all_history_exact": true,
+  "technical_prefix_reexecuted": false,
+  "SC_account_events": 0,
+  "ending_NAV": "1636843.3953941586540",
+  "daily_count": 242,
+  "fills": 1729
+}

@@ -1,0 +1,39 @@
+Ready for READ-ONLY independent audit. All authorized financial diagnostics ended.
+
+Read REPORT.txt, ACTUAL_FINANCIAL_GATE.json, PARTIAL_ACTUAL_READOUT.json,
+ACTUAL_ROLE_POOL_ROWS.json, HANYU_READONLY.json, FAILURE_AND_RECOVERY.txt.
+Scope:4fixed closes ×2existing C modes ×off/on =16conditional branches, each only
+its next ACTION+OPEN. No next CLOSE, no monthly R0 path, no original modification.
+Do NOT add/sum branches into achievable portfolio PnL.
+
+Source:
+Frozen R0 core ../g-s-C-approved-risk-native-v1-20261102/native_risk.py
+b447dcb43fa72e5d25ef79f15b21de3c8e5cd41ef64eee5fa86085f2418caeb7
+Old base mixed236b6cae..., V3 363d879d... unchanged.
+replay_runtime.py = explicit old-source verifier/import + fixed-window composition.
+Actual post-fix financial driver run_prepared_fixed.py with event_comparison.py.
+Legacy run_open.py is preparation-only here; run_prepared.py retained failed report
+outlet. Their old bad helper remains frozen evidence, not the current report path.
+All actual entry/helper SHA values are in each immutable per-cell grants/*.json.
+
+Read-only commands (NO finance callbacks):
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-approved-risk-real-event-preflight-v1-20261102/verify_actual_states.py
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-approved-risk-real-event-preflight-v1-20261102/summarize_progress.py
+Hanyu script reads one original Jan12 certificate plus parent-supplied actual2022
+layer ledger. It creates NO2022financial branch and does not rescale old PnL.
+
+Parent scope record: per-cell grants. All are consumed diagnostic approvals, not
+permission to repeat the completed paths or run wider history. No auto-execution.
+Each ON required its SAME CASE actual OFF complete-state identity before starting.
+Gate logs: EXECUTION_GATE.json, RESTORE_SMOKE.json, ANALYSIS_FIX_GATE.json.
+Data freeze: REPLAY_INPUT_BINDING.json. Original checkpoints and next-OPEN controls
+verified SHA/source exact; no original class/source file overwritten.
+
+Audit focus:
+1. Reconstructed R0 from actual trusted C snapshot; cid+sid+receipt, raw factor.
+2. No retroactive C debt on old fills; original holdings/risk/locks still charged.
+3. Actual whole OPEN: old sells/settlement unchanged, batch reserves then windows,
+   stock min100/STAR200, real fees, later candidates/T paths after early shrink.
+4. Primary cases Liu/Xu/Iron; positive Pingan/Guangsheng; extra Hanyu gapdown no cut.
+5. 0fill Iron Jul23 remains reserved, not called an actual buy; all role/pool rows
+   are included. No per-qty scaling of old future contribution, no live claim.

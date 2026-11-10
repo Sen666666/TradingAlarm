@@ -1,0 +1,11 @@
+{
+  "status": "source_invariant_review_complete",
+  "new_policy_implemented": false,
+  "new_previews": 0,
+  "new_economic_paths": 0,
+  "written_resource_examples_verified": true,
+  "new_policy_tests_not_claimed": true,
+  "previous_preview_artifacts_unchanged": 43,
+  "conclusion": "migration success not required by accounting conservation; removing it changes admission/promotion priority and requires a separately frozen policy",
+  "same_stock_core_first_unchanged": true
+}

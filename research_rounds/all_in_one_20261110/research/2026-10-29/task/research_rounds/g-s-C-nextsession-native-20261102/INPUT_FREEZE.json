@@ -1,0 +1,54 @@
+{
+  "financial_events": 0,
+  "models_recomputed": 0,
+  "original_exporter_sha256": "e643b581fcd67f46ef29501b265722eadd94013eefc00b0100c58956a03a7cca",
+  "exporter_cutoff_only_sha256": "0fed8d5de9a8112bd547a61d58998c6d435985d442b8ce19599ea79fd474d27e",
+  "rows": [
+    {
+      "window": "2025_26",
+      "nextday": "2025-07-03",
+      "future_control_day": "2025-07-04",
+      "full": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-nextsession-native-20261102/inputs/2025_26/full/MANIFEST.json",
+      "full_sha256": "3a475ac24760ad2e7e2e16b8aaca0c7318a2622fbb402ba6a66a94b501e8336d",
+      "physical": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-nextsession-native-20261102/inputs/2025_26/physical/MANIFEST.json",
+      "physical_sha256": "bff9351269e583054c48d5299fd04bf4d8751860a7fad6aff5df672f58cb04a6",
+      "removed": {
+        "actions": 24,
+        "cp": 1639,
+        "f1_observations": 91,
+        "facts": 1639,
+        "h1": 1799,
+        "metadata": 1639,
+        "payments": 0,
+        "pvr": 1709,
+        "raw": 1639,
+        "receipts": 80
+      },
+      "old_prefix_base_all_exact": true,
+      "calendar_note": "Original published exchange schedule retained for next legal OPEN; not future market observations."
+    },
+    {
+      "window": "2022",
+      "nextday": "2022-01-06",
+      "future_control_day": "2022-01-07",
+      "full": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-nextsession-native-20261102/inputs/2022/full/MANIFEST.json",
+      "full_sha256": "5270ea81347e6124f88dd0f22aa0e1d5a1c5eba5d3ce55c672dcb33d3229d4e7",
+      "physical": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-nextsession-native-20261102/inputs/2022/physical/MANIFEST.json",
+      "physical_sha256": "8b054d13d51b2b2a9d28ec6bc7b1dc5e26a1d19acf4692c26292077a6c2169b1",
+      "removed": {
+        "actions": 0,
+        "cp": 1454,
+        "f1_observations": 91,
+        "facts": 1454,
+        "h1": 1799,
+        "metadata": 1454,
+        "payments": 0,
+        "pvr": 1709,
+        "raw": 1454,
+        "receipts": 66
+      },
+      "old_prefix_base_all_exact": true,
+      "calendar_note": "Original published exchange schedule retained for next legal OPEN; not future market observations."
+    }
+  ]
+}

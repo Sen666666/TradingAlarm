@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "captured_original_open_rejects": 15,
+  "close_sizing_receipts": 1,
+  "all16_receipts_saved": true,
+  "original_policy_only": true,
+  "new_strategy_paths": 0,
+  "new_account_outputs": 0,
+  "source_unchanged": true,
+  "seconds": 132.39963762508705,
+  "restoration_wallclock_budget_seconds": 360
+}

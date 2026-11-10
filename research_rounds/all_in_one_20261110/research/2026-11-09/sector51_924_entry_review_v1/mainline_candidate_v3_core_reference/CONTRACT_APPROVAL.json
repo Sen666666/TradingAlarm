@@ -1,0 +1,30 @@
+{
+  "approved": true,
+  "scope": "One combined M3 path 2024-09-02 through 2024-10-08, checkpoints 09-23/27/30; no parameter iteration. Missing required actual held/pending facts atomically stop.",
+  "engine_sha256": "690a3cde9121c50e5b994d79c45049441cc89a2ad47ddb478ab27ae7e05b0a7b",
+  "contract_sha256": "a1a32cc345ed87c13d76699477e27a56df1d6aca591213a0546fd635689dc6fe",
+  "synthetic_sha256": "1817b08b05de41936f848fbc4d983281127f562e47f28d9d115717df94e24b73",
+  "independent_synthetic_count": 62,
+  "old_M2_exact_replay_families": 19,
+  "old_M2_exact_replay_days": 19,
+  "old_M2_exact_replay_orders": 1509,
+  "static_checks": [
+    "14 inherited evidence/accounting/availability methods same function object",
+    "CLOSE and noncash AST differ only removed quantity cap",
+    "core first remaining ADD limited by original seed shares",
+    "reference all violated funding caps and structural gates",
+    "unknown freezing and no M UNKNOWN probe fallback",
+    "T stress net sale fees, receivable exclusion, no fictitious cash",
+    "dynamic CLOSE request reservations; frozen OPEN ranks and maximum q",
+    "mandatory exit priority, real net donor cash, T1 and sale-only-shrink",
+    "all new reference states/logs in atomic rollback",
+    "full common calendar: September 30 plans use October 8"
+  ],
+  "correction": "Non-M W ADD donor order restored to old bought/date order before approval; largest surplus applies only tier3 M donor.",
+  "limitations": [
+    "Combined strategy experiment, not single factor attribution",
+    "New ADD capital not funded or risk-covered by small prior profits",
+    "Raw OPEN +/-5bp is conditional cost proxy, not execution certification",
+    "Current fixed roster/classification and retrospective fact assembly are not PIT"
+  ]
+}

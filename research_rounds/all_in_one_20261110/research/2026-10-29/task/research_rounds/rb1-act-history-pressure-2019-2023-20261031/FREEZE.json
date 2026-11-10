@@ -1,0 +1,72 @@
+{
+  "frozen_at": "2026-10-31T05:31:43.370250+00:00",
+  "parameters": {
+    "candidate": "ACT_plus_original_RB1_sizing_only",
+    "risk_fraction": "0.01",
+    "initial_cash_CNY": 1000000,
+    "initial_state": "ACTIVE",
+    "new_order_NAV_cap": "0.15",
+    "new_total_investment_NAV_cap": "0.90",
+    "stock_slots": 6,
+    "industry_slots": 3,
+    "same_industry_stocks": 2,
+    "slippage_base_per_side": "0.0005",
+    "cost_multiplier": [
+      1,
+      2
+    ],
+    "delay_events": [
+      0,
+      1
+    ],
+    "cash_fixed_reserve_added": false,
+    "risk_total_portfolio_cap_added": false,
+    "additional_initial_signals": false,
+    "extra_exits": false,
+    "priority_change": false,
+    "LR1_included": false,
+    "new_risk_fraction_options_searched": 0,
+    "sample": "frozen TECH407 DRUG48 current-survivor snapshot",
+    "decision_start": "2018-12-28",
+    "end": "2023-12-29",
+    "history_status": "consumed historical conditional migration pressure not OOS",
+    "forward_validation_started": false,
+    "proposed_fixed_prefix": "2021-12-31 both sectors",
+    "economic_run_authorized_this_turn": true,
+    "first_execution": "2019-01-02"
+  },
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rb1-act-history-pressure-2019-2023-20261031/PROTOCOL.txt": "65c1ee7cd356421c44718411885fb7acacdf1be44e0bbd7fd60b358cd8b99912",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rb1-act-history-pressure-2019-2023-20261031/preflight.py": "1f508688a5572035108dc08c5a08756737232aed7262ca6669bce35e6a93b3c8",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rb1-act-history-pressure-2019-2023-20261031/adapter.py": "4fc49648b3e650150644a70c24f298e5bdb4b163b0b5f110ff0f206372ca36e4",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rb1-act-history-pressure-2019-2023-20261031/run_stage.py": "c6b312f2b3ef8fe5b040a1e57609504feb3831860a2d0d7aa121646e0d0d21db",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rb1-act-history-pressure-2019-2023-20261031/DATA_GATE.json": "1bc3a4f1c5529b70f3c0253ea59d5b069dec8f0f457d1ff3e889c0afff2e4092",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rb1-act-history-pressure-2019-2023-20261031/INPUT_IDENTITY.json": "2d6db3a2aaf7f9c92bdf02d11c762a566532302d670eae6bc2c29353fa14015c",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rb1-act-finite-20261031/adapter.py": "e2982f372d74e1fa4de8e738f01bba06fc14dd9d922ec690bc936c7ba6c7866f",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rb1-act-finite-20261031/run_stage.py": "818358575697747986c7059719bb338132c355ade1a40e2400f02ef50b2ac9dc",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rb1-act-finite-20261031/PROTOCOL.txt": "dc05b0f7ebd7fa62b8dd1ee99a1217a6e90e27b449fe36d70cc4191afbfd8874",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rb1-act-port-preflight-20261031/sizing_adapter.py": "01d6446ab820fd5afb2eef4f13f84c03bef4f3dfda707dc4291c81207a9a2fdd",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rb1-act-port-preflight-20261031/PROTOCOL.txt": "ded07311d775af5eb7902a848ca9fb9f9667827d366f6247f75df9d9010fff1c",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rb1-act-port-preflight-20261031/FREEZE.json": "f0cf61f4639d947948e200c9aa179a4724117abdebf8b9c73d3a36f04b25f754",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rb1-act-port-preflight-20261031/SYNTHETIC.json": "ee4ead00444ec1a2322b2d43ef9b64a338342f6dc36c38c1abc4961f0c942f39",
+    "research_rounds/rb1-act-port-preflight-20261031/PROTOCOL.txt": "ded07311d775af5eb7902a848ca9fb9f9667827d366f6247f75df9d9010fff1c",
+    "research_rounds/rb1-act-port-preflight-20261031/sizing_adapter.py": "01d6446ab820fd5afb2eef4f13f84c03bef4f3dfda707dc4291c81207a9a2fdd",
+    "research_rounds/rb1-act-port-preflight-20261031/test_sizing.py": "823c2e0685722fc2bc7fb3a8d1479d1490fbe37ba59cba6a3c7af504ec5b0365",
+    "research_rounds/rb1-act-port-preflight-20261031/RB1_LR1_EXACT_FACTS.txt": "c967e0ce9270ce6da4768f0cfe6db5a08dc2069689fc4eae0ae0c5d6a191dd14",
+    "research_rounds/universe-risk-inventory-20261031/INPUT_IDENTITY.json": "c259eb0965abdab65c87fa8cce172319111ae3fbf1acab6055b90a92b227a10a",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/actual-risk-recovery-20261027/code/engine.py": "781589c0a80a6713bf03ee4abb0bb3ab6ba649f7482f13179ab458809dc2e374",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/actual-risk-recovery-20261027/code/risk_policy.py": "b0f38e5813b56d52cf15cae06fb6370cc55f2930ecff9ced4d8eefe793c1518d",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/tech-finite-compound-20261026/code/run_v2.py": "1d541de7ac0350aa830c23df14174d08e431a6cb9114357ffa2773b6742786d9",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-act-comparison-20261027/code/experiment.py": "124cf2f65ad6e2befac6c0e945b4574b64ff68ed75692bff5234bf47b81509bf",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-act-comparison-20261027/execution-rules-v2.json": "e54d23fb4be1740415364e757d300231c3871a99de43a328773cbe391eadb614",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/innovative-drug-local-recovery-20261028/code/study.py": "f5ce4cac5113136bad1ed7700c0d9bcd6c43c16c8c1d82a0f502878f13de038e",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/swf-pvr-combination-20261028/code/study.py": "85bd5749f4b85f5a8fe76077c45022bcb256ee4da04abae3f2ea9f44af22f99f",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py": "48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb"
+  },
+  "economic_paths": 12,
+  "batches": {
+    "TECH": 300,
+    "DRUG": 300
+  },
+  "total_budget_seconds": 600
+}

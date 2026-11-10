@@ -1,0 +1,25 @@
+最小真实ledger接入方案（v2纯预算已通过主审，本轮未接真实ledger）
+
+更新：主审已完成新v2纯预算独立源码审查及13/13复跑。该成绩仅属于预算合同，不沿用旧31，也不等于本地ledger接线已通过；当前可按其接口继续准备，无须等候本轮缓存。本地接线必须保持原E0 episode起点与attempt起点独立。迟到旧industry凭据不能新造probe；已有效冻结的grant仍可等待后续fresh stockCP1异步消费，不强制同日。
+
+比较对象只两臂：同样probe永不扩大行业风险目标；行业stage有限授权允许扩大。两臂共1m起始、同费用/合法执行/原Q/ACT市场域、同初始状态、同stock I/CP1市场数据和同个股保护。对照也应允许probe额度内的同样CP1 mobile机会（包括无core首次），仅把行业资金目标/新授权限制在probe；若对照改为只有I core，就额外混入信号/保护变化，不能称扩张组件对照。5行业79股仅为机制fixture，不宣称策略选股收益。
+
+直接复用：
+1 原lot-risk-allocation/code/study.py:18 protection_risk、resize_core:42、preview:56、maximum_quantity/whole_orders；原core0.25%风险与股10%上限、费用/滑点/整单位逻辑。原L0每次开盘的真实卖出→结算→原合法买入、股数/费用/NAV核账沿用。更紧probe/行业/global/现金预留必须在原订单cap之前共同约束；涨价只能缩量，不能越过冻结股数/金额。
+2 原probe-pyramid-pilot/code/pilot.py:59 fill_buy、73 fill_exit、89 split、100 accrue_dividend、104 sell保持真实ledger；core按原I/E0，mobile用原旧线先查、未破才max(旧线,原I floor,新CP1 candidate)。行业线只撤未来新增资格，不卖个股。保留原ACT内生账户反馈，不另冻一个历史NAV时钟。
+3 复用全1709/90既存外部市场恢复序列，候选/交易视图只取fixture79，不用5行业重新计算市场钟；原行业Q/个股Q通过原packet/eligibility，不把stage当Q。输入缓存已足够，不能再造交易所规则。
+
+必须显式接的新接口/差异：
+A 市场IndustryStage只输出attempt/receipt/保护/目标阶段，不拥有资金。共享v2控制器接收真实positions+所有pending/reservations+现金/应收（未到账不可花）及原币种/复权，统一返回可承诺新风险和grant_id；每次意图/部分fill/撤单/到期/全退须回写实际承诺、成交、消耗与剩余。迁池/换股票不能重领行业probe，旧仓和待单超过probe不得另开2%。行业attempt结束不清结构累计损耗、真实资源或订单。
+B 原P1 planning:156—164的confirmed额外要求G1>=2、PVR>50、held后close>last_actual_buy，并只有held才能kind=add；无仓会变core且受core_epoch。这不等于v2的fresh CP1 mobile入口。不能直接调用原P1 confirmed条件。新mobile入口须由v2明确原继续资格Q+未消费stockCP1；不承接core_epoch，不复用旧receipt。内部可把新mobile映射到旧ledger的add层以复用保护/分红/成交会计，但外部role必须明确mobile（允许无core），不把kind别名冒称原策略完全未变。
+C 原LR opening按confirmed/core两个group及旧权重离散分配；这不是“统一H1排序”。需要v2在共同H1顺序上先共同核预算/风险，再交原preview/quantity/ledger。不得把H1分数当比例定仓或沿旧PVR确认优先；候选仅获得申请权，不保证最低手数能成交。
+D 暂给fixture行业2/10/20%、global probe10/confirmed60、风险0.5/行业1/总3、mobile单笔2%NAV和股合计10%，均为研究数字而非寻优结果。类别重叠如何计、grant目标与已用余额如何相减、风险损耗何时renew，必须引用主审已验v2实现/golden tests，不能本地再解释成额外70%总仓位或每个expanded自动20%。浮盈不作现金，名义floor风险不作保证；累计结构损耗持续记账。
+E 新凭据替代旧未用grant，不叠加；async合法stockCP1可消耗同一冻结余额而不每日续发。已承诺挂单仍真实占用；失效后是否另主动撤在途买单属额外动作，不能用清授权伪撤单或提前释放现金。建议首版沿原挂单期限/原撤单条件，行业失效仅禁止新提交，等待v2确认后按实际cancel/expire回收；不接ADD/risk_restore特殊delay信用。
+F 行业历史stage不在案例首日归零，但新账户不能把历史stage/历史receipt视为已发生probe或无主的现金授权。须由v2明确真实probe成交与之后新行业凭据的消费顺序；不可在启动当天凭继承expanded跳过小试。资金控制器与市场receipt消费分开。
+G 保守迁移只认当前attempt的probe持仓。旧attempt未confirmed即失效、但个股core自身I仍有效时，该旧仓继续占probe池；新attempt confirmed也不得洗掉或迁走其占用。真实case必须记录旧probe资金/风险/待单、当前attempt可迁金额、新probe申请被旧占用阻塞的具体时点；不因换attempt归零或为释放资金新增强卖。此处保持v2现行迁移口径，仅诊断是否成为试错资金瓶颈。
+
+最小验收闭环：
+先用原真实ledger做无收益状态测试：最小手数拒绝、同股票core/mobile并存与仅mobile首次、部分买/卖、行业失效但个股不强卖、pending释放、同日冲突、价涨预算缩量、分红拆股/零股、同结构反复试错累计。关新增预算/角色功能逐事件复现既有L0短段。然后原6案例的固定短段联接，不增加行业或按结果换窗口；记录行业stage/receipt→stock原资格→预算申请/拒因→真实承诺/成交→实际净买和风险→个股退出/再试，probe当日不得消费同一行业凭据直接升级。每笔资金都连接grant_id，只有真实fill才能说参与。
+阶段/旧仓继承与空账户启动分开记录；完整季末利润仅附机制诊断，不把79事后池称策略绩效。比较必须包含无个股信号、预算被旧仓占、原Q/ACT挡、最低单失败等，不强求每次行业确认都买。
+
+规模/估算：本地旧全1709单个Q4真实路径29.38秒可作保守参照；79股缓存已齐，不需再算指标。新预算接线尚无实测吞吐；预计两个账户的5—10观察固定短片段约5—20秒（估计，先1片段实测再报），首轮工程+真实接口测试预计30—45分钟，若必须重写共享ledger/执行器应停并报告。完整案例季度或收益对照需主审确认v2后另定，当前不启动。本轮无新增账户路径。

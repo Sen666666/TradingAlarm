@@ -1,0 +1,14 @@
+根指令补充，任何新经济结果产生前固定｜2026-11-04
+
+主臂现为5条：No60原无guard、G10(alpha=.10)、G20(.20)、G40(.40)、NR20(.20且关闭保护释放)。原逻辑卡和初审收据保留，本文是事前补充而不是改写旧证据。
+G10/G20/G40按当前有效保护谓词排除PROTECTED新层的remaining buy basis；NR20所有候选新live层及pending成本均占用，无论F/E/p/保护状态，除此之外与G20完全相同。
+NR20与G20是同一成本预算参数的机制消融，并非同实际市值仓位或同实际风险；NR20成本20%不等于每天持仓市值20%，赢家价格自然漂移/权益增加仍会改变实际暴露。不得将二者差额简单叫纯保护效果、不看交易路径和费用。
+初始化、跨年ownstate、全部原约束/不强卖规则与G20一致。无需新增恢复、信号、阈值或退出变更。小样本通过后是否full由root原授权门控制，不新增用户approval。
+
+ledger reviewer与producer应在实现前冻结的成本观察口径
+每一实际fill记原真实gross+actualbuyfee作为该批次买入basis；actual sell依原parts sold/preqty比例扣除该basis；split保持货币basis不变，按原真实余股承接；div不减basis。
+E单独为实际gross/fillshares执行价，沿原native split调单位，不把buyfee并入保护门。不能用累计layer.cash或初始qty当remaining成本。
+原生数量变化至0、零碎股现金补偿/成本writeoff必须沿明确政策记录和小样本验证，不能把观测basis误当真实NAV残差。成本元数据是原账准入视图，不是第二财务引擎。
+reserve使用保守Nguard时须明确它是准入分母非真实NAV；actual fill必须按原实际fee累计与已知open/exec价差检查post-fill NAV。旧pending fee和新fee各一次；partial转basis后的已成部分不可继续留在pending成本里。
+
+独立逻辑裁决：此消融逻辑闭合，可列入既定small source/账务检查。未审代码或金融结果，未自动full准入。

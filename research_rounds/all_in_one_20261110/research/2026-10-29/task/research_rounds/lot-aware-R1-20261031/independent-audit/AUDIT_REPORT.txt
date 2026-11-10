@@ -1,0 +1,41 @@
+R1 独立只读核验（2026-10-31）
+
+结论：对已知“7/7 恢复误导入 B_diag Pair、后半段变混合”的具体风险，现有源码、恢复检查与完整保存数据的交叉证据足以排除有效 run 为该混合路径。未发现影响报告 24.00828%/13.73799% 或贡献桥的账务错误。检查点生成时实际 runner module/class 并未另存字段，不能把 source_freeze 当作该身份字段；此项形式留痕不足应明确。I/O 有一个可复现的失败报告出口缺口，见最后一段。
+
+1. 引擎及恢复证据
+- run_one.py:11 的 Pair 继承 adapter_r1.Runner；首次失败栈明确在该文件 main 的物理前缀导出处；在此之前原 R1 首段已由 run_prepared 完成并存 checkpoint。
+- launch_v3.py:61-81 将 runner/account __dict__ 序列化并恢复，不序列化/替换 runner class。7/7、9/30、12/31、3/31 四个检查点均无可调用实例属性遮蔽方法，budget 均 adapter.NoAccountBudget。checkpoint.pkl SHA 与同目录 manifest 相符，source_freeze 与有效 FREEZE 的17项均一致。checkpoint 字段确实没有生成时 module/class。
+- resume_R1_explicit_harness.py:6-19 绝对路径 load 独立模块、断言 Pair 文件/继承/三个 R1 方法，并在 restore 后再断言；:27 继承原 run_prepared，:30 再核 planning。无后续替换方法/class 的路径。
+- 本次仅 __new__ 空对象+restore 已存7/7状态，未初始化输入/账户、未运行事件：14个实际 runner 方法恢复前后同一函数；account 保持 J.Account，budget 及 request 保持 B_diag canonical。
+- 7/7首段5日、8545 opportunity、1281 funding、47行业事件、5 bridges，与独立物理前缀文件逐项精确相等；账户 trades/layers/meta/journal/orders/exits/audit/decisions/cash/NAV 也精确相等。
+- 7/7、9/30、12/31、末日检查点各自五类保存日志，以及全部交易/决策，均等于最终保存文件相应前缀。R1预览累计6→226→260→415，接纳1→3→4→9，交易记录43→372→845→1219。
+- 182日全部21197张mobile意图按原行业state、Q、持股/责任、完整2%目标重查，R1注记15252张（前段414、恢复后14838），应有/实有无差。对所有实际进入开盘资金判定的注记意图，以原raw open、date/security quantity规则重算预览，得到415=前段6+后段409，与全部存R1预览集合及价格/最小股数精确相同；不是只核9个成交标签。
+- 错误输出及错误分析均有 INVALID_FOR_R1；analyze_saved_r1.py:7,13-17 只读明确 OLD/NEW 两入口，无archive glob。有效原账SHA881f58104f795767f1e79b63a4a7d06860d5d80e023f87793366007fdae7b3e8，错误账SHA871d90fca6ca2d32e1af929ae5bb805cac86f3d6f54f58e6787dde5ccaf09404，交易序列不同。有效统计来源hash对应有效账及原B_diag，未混入错误后半段。
+
+2. 政策/单位/约束
+- adapter_r1.py:10-39 只给原Q/ACT有效、全股零持仓且无实际买卖责任、行业confirmed/expanded、预算等于完整2%决策NAV的mobile注记。原preview先执行；仅原minimum failure、开盘执行代理价一手金额>完整2%且<=4%时建立恰好一个原最小单位例外。
+- :50-69 / route_r1_diag.py:8-37 仅例外分支改confirmed-only，其余原B_diag现金含费/10%现金预留、池、行业/单股、pending、CP1消费及core规则相同；没有v4 spare-space额外规则或账户3%重新改变。旧account risk缺省仍是B_diag唯一前置消融。
+- 私有环境调用现有20个原生账本合成测试（不调用写gate的__main__），全部通过，包括四普通case成交、现金、持仓、预算lot/order/consume/loss完全一致及原3% fixture、200初次/清仓重入、费用/边界/责任/串行预留。
+- 全415原开盘预览结果：250 R1_confirmed_unfunded、136 pool_capital、20 pool_capital+sector_risk、9 reserved。无重复CP1。
+- 9接纳9完整成交；5笔688股票各200股，另4笔100股；9笔真实gross=开盘代理预览gross，全部<=冻结前决策NAV×4%，未用未来成交价选择或删除超额。
+- 全704买入：127 core逐笔原含费保护风险<=0.25% frozen NAV，568普通mobile<=2%，9 R1<=4%。1219原生买卖fill手续费按原schedule/累计minimum fee逐笔重算精确一致。
+
+3. 结果/口径
+- B_diag及R1各182日，独立初始现金+逐笔买卖净现金+当时已发生股息+当日inventory 与NAV差0；显式现金/预留/冻结/应收/payable科目桥差0。重得26.14689450%/DD13.17950707%、24.00828097%/DD13.73799455%。
+- R1标签净贡献-2070.21483435155，含其分配买卖费254.34433435155。普通层差-19315.9204939921975，合计整户差-21386.1353283437475；Decimal求和尾差约2e-22元。仅描述性互斥账桥，不能称独特因果挤占或独立胜率。
+- 522不同exit_request.event_id =515不同已成交请求+7末日pending请求，集合互斥穷尽；本账每个成交请求恰好1条sell fill（515），所以本账该数相同，但请求/成交/层对象不能泛化混计。
+- 军工电子URFI881276 Q4流量+季末值-季初值：46786.122610165091→34964.132422485622；Q1分别-5678.4190006934/-3686.2396678528。原B_diag全区间41107.703609471691恰为Q4+Q1，不是Q4口径矛盾。R1全区间31277.892754632822。
+
+4. I/O 范围与未解决项
+- 原10烟测最后两项用FakeRunner（test_output_io.py:35-55），不能表述为已实际加载新R1 runner。有效研究run也在共享封装加入前完成；OUTPUT_IO_USAGE已明确未来使用，不应事后宣称该run受封装保护。
+- 本次另在/tmp以实际R1 Pair.__new__空状态，调用真实checkpoint/dump方法（无账户/行情/事件）：成功导出、导出中途异常、pickle异常三条出口均核；旧已发布文件保持、failure report保存、class/save恢复、staging清空，交易函数绑定保持。
+- 实质未解决工程问题：research_output_io.py:83 prepare_targets 在:86 try之前。以/tmp prefix-full-source为普通文件造成NotADirectoryError，即使failure目录可写，也不保存ERROR.json。异常正常向上传递、class/save尚未改变；这是失败证据保存范围缺口，不是账务错误。本次只报问题，未修代码。
+- 封装仅单文件原子，不保证_publish_tree多文件事务；本次未测发布阶段系统I/O失败，也未声称完整恢复/断电验收。
+
+实际hash：
+adapter_r1.py 9bc19e0b1f81ad6511589d996533ca786c2b9f0d050709c803acf9490a60b32a
+run_one.py b1e538e9d8ebee47f1b5d7982c0dfc979c274fb26c5f408a8e005c7ffc5a1392
+resume_R1_explicit_harness.py dbb8deb651706e3855d56a5ceef028e8fb112a1bceb32647483fcfc30cd94ea0
+research_output_io.py 4718d1d9d4a185a1a0071477189901f084e1c1593f7cf6b50fc5103946293773
+
+本次历史/经济事件路径0；原交易代码/账/研究结果写入0；17项冻结源及原账审查前后SHA不变。详细逐项证据EVIDENCE.json、IO_AND_SYNTHETIC.json、FINAL_CHECKS.json；全部仅在本/tmp目录。

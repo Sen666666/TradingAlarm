@@ -1,0 +1,21 @@
+{
+  "status": "bounded_allocation_preview_complete",
+  "synthetic_tests": 10,
+  "hard_limit_tests": 8,
+  "original_order_identity_passed": true,
+  "original_floor_identity_passed": true,
+  "native_open_prices_checked": 1167,
+  "only_fixed_dates": [
+    "2023-01-20",
+    "2022-06-29"
+  ],
+  "new_financial_paths": 0,
+  "real_submissions": 0,
+  "real_fills": 0,
+  "no_after_open_account_progression": true,
+  "no_all_batch": true,
+  "no_PnL": true,
+  "full_account_object_restore_not_claimed": true,
+  "current_unused_sector_status_explicitly_unknown": true,
+  "readset_and_invariance_test_passed": true
+}

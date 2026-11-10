@@ -1,0 +1,25 @@
+{
+  "selected": 6,
+  "with_bars": 6,
+  "rows": 18920,
+  "start_status_counts": {
+    "reaches_start": 5,
+    "later_first_bar_unconfirmed": 1
+  },
+  "tail_status_counts": {
+    "end_reached": 6
+  },
+  "rights_status_counts": {
+    "received_current": 6
+  },
+  "unparsed_rights_records": 19,
+  "conflict_cells": 0,
+  "rejected_new_sources": 0,
+  "unresolved_securities": 1,
+  "network_requests": 0,
+  "account_runs": 0,
+  "data_collection_complete": false,
+  "exact_pay_date_ledger_complete": false,
+  "account_ready": false,
+  "caveat": "Current 2026-10-22 survivor pool historical data, not historical investability; terminal source boundaries are documented separately from observed bars."
+}

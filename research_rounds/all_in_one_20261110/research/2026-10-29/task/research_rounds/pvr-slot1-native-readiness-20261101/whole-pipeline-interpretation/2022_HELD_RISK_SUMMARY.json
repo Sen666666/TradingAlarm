@@ -1,0 +1,42 @@
+{
+  "SC": {
+    "unit": "sum of daily close lot risk amounts; correlated lot-days, not independent observations",
+    "mean_principal": "17381.71498975797975545152274",
+    "mean_profit_giveback": "18657.98303581604721366712155",
+    "principal_share_of_risk_days_lower_bound": "0.4809426944049588691361761770",
+    "unknown_risk_share": "0.002800961575196667775243875166",
+    "source_unknown_lot_days": 34,
+    "mean_unknown_marked_capital": "1010.644628099173553719008264",
+    "mean_capital_by_state": {
+      "exit_pending": "30154.22644628099173553719008",
+      "I_valid_G1_below_warm": "181636.1622314049586776859504",
+      "I_valid_G1_warm_or_not_ready": "213164.2809090909090909090909"
+    },
+    "risk_by_state": {
+      "exit_pending": "0.007916500663164526636856335407",
+      "I_valid_G1_below_warm": "0.3187917782588342370537847586",
+      "I_valid_G1_warm_or_not_ready": "0.6704907595028046301513029342"
+    },
+    "source_clock": "close AFTER original planning; not reconstructed exact pre-open resource state"
+  },
+  "PVR_SLOT1": {
+    "unit": "sum of daily close lot risk amounts; correlated lot-days, not independent observations",
+    "mean_principal": "15870.11966481221787740272963",
+    "mean_profit_giveback": "13695.92764004930881637334705",
+    "principal_share_of_risk_days_lower_bound": "0.5298096794256170777520538478",
+    "unknown_risk_share": "0.01296408752336510740246218685",
+    "source_unknown_lot_days": 48,
+    "mean_unknown_marked_capital": "2167.950413223140495867768595",
+    "mean_capital_by_state": {
+      "exit_pending": "31407.29632231404958677685950",
+      "I_valid_G1_below_warm": "179901.4103305785123966942149",
+      "I_valid_G1_warm_or_not_ready": "213250.5778099173553719008264"
+    },
+    "risk_by_state": {
+      "exit_pending": "0.003997076385032991339114802544",
+      "I_valid_G1_below_warm": "0.3325311811807657342828056091",
+      "I_valid_G1_warm_or_not_ready": "0.6505076549108362103490038563"
+    },
+    "source_clock": "close AFTER original planning; not reconstructed exact pre-open resource state"
+  }
+}

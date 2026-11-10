@@ -1,0 +1,15 @@
+{
+  "first_field": "account.rejections",
+  "first_path": "[1].route.alternatives[0].schedule.components[1]",
+  "actual_type": "sector_account.FeeComponent",
+  "cause": "temporary dataclass dict id reuse creates false memo alias",
+  "no_ACTION_certificate_replay_205_fields_equal": true,
+  "disposable_rights_financial_semantics_equal": true,
+  "disposable_post_certificate_fields_equal": true,
+  "disposable_pickle_restore_stable_fields_equal": true,
+  "original_failed_run_exact_mismatch_not_reproduced": true,
+  "formal_trusted_Jan13_outputs": 0,
+  "formal_retry": false,
+  "source_checks_passed": true,
+  "synthetic_tests_passed": true
+}

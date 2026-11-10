@@ -1,0 +1,81 @@
+{
+  "name": "pvr_sector_breadth_complete_round_interaction_v1",
+  "status": "FROZEN_AFTER_SUPPORT_ONLY_AUDIT_BEFORE_MODEL_FIT",
+  "hypothesis": "A high PVR may indicate continuation when the sector broadly participates but local exhaustion when participation is narrow. Learn only one PVR-by-contemporaneous-sector-breadth interaction, with both main effects. No sign constraints or feature/state/parameter search.",
+  "domain": "Original PVR actually filled first MOBILE rounds only (1814). Do not combine CORE/E31, extrapolate scores to rejected candidates, or claim account results.",
+  "features": {
+    "P": "Original PVR_decision, not canonical-cache replacement.",
+    "B": "Existing industry_breadth20 at signal close: fraction of original fixed sector roster with valid same-segment20-observation mean and close above it. Same-time feature, no future return or annual state. Original roster is static future-known and NOT PIT-certified.",
+    "scaling": "Training-only mean/std for P and B, clipped at +/-5 as in existing protocol. Interaction = zP*zB, centered/scaled on the same training rows; absent scale => common UNKNOWN.",
+    "formulas": {
+      "constant": "logit(pW)=alpha",
+      "pvr": "alpha+betaP*zP",
+      "additive": "alpha+betaP*zP+betaB*zB",
+      "interaction": "alpha+betaP*zP+betaB*zB+theta*zInteraction"
+    },
+    "economic_slope": "At a fixed breadth value the PVR effect may change sign; only one interaction, not a tree."
+  },
+  "clock": {
+    "H": 120,
+    "window": 504,
+    "predict_start": "2023-01",
+    "source_end": "2026-05-15",
+    "training": "Monthly first common trading session cut. signal_t>=cut-504 and entry_t<=cut-120. Labels W/L only from actual complete0-to0 net PnL closed by entry_t+119. If any mature training U remains, stop binary fit rather than silently drop it. All controls share train/test masks.",
+    "evaluation": "2023-2025 signal years with common120 potential observations primary. 2026 partial only with censoring and no final-win extrapolation. 2022 always UNKNOWN.",
+    "purge": "Every training label endpoint entry_t+119 is strictly before monthly cut, so no training outcome interval overlaps prediction month."
+  },
+  "support": {
+    "total_rounds": 300,
+    "total_wins": 50,
+    "total_losses": 50,
+    "signal_dates": 60,
+    "each_natural_breadth_side": "B>=0.5 and B<0.5 each >=20 wins,20 losses,30 unique signal dates. No separate fits by side. Count check only, not sufficient evidence of stable effect.",
+    "unknown": "Any support failure makes all four controls UNKNOWN that month. Any missing P or B makes that event UNKNOWN. No min constituent gate or imputation."
+  },
+  "estimation": {
+    "loss": "Event-weighted Bernoulli NLL sum +0.5*(4*betaP^2+4*betaB^2+16*theta^2), intercept unpenalized; absent terms omitted. Original event sampling preserved; dependence controlled in evaluation, not treated as independent evidence.",
+    "solver": "NumPy damped Newton; gradient max<1e-6, max100 steps; numerical failure => UNKNOWN all arms, no penalty change.",
+    "searches": 0
+  },
+  "evaluation": {
+    "models": [
+      "constant",
+      "pvr",
+      "additive",
+      "interaction"
+    ],
+    "primary_comparisons": [
+      "interaction-additive",
+      "interaction-pvr"
+    ],
+    "metrics": [
+      "Brier/logloss, calibration with fixed probability bins",
+      "AUC and within-same-day AUC with all support counts",
+      "same-day-sector AUC",
+      "per-year and natural breadth-side results",
+      "causal training quintiles with every group reported",
+      "payoff ratio, mean winner/loss, net return upper/lower tails",
+      "fixed same-day top-half ranking diagnostic within old selected samples only, including rawPVR baseline and right-tail retention",
+      "2024-09-19..2024-10-08 and2026-01-01..2026-03-31, mature/unknown separately"
+    ],
+    "dependence": "20-common-day blocks and stock clusters; paired mean-loss influence with conservative max(block,stock,two-way) normal95 CI; AUC delete-block/delete-stock jackknife; annual intervals exploratory.",
+    "ranking": "Top ceil(n/2) among the identical known original selected rows per day, no decision threshold. Constant ties resolved originalPVR then sid. Not a new policy or estimates for unbought names.",
+    "right_tail": "Report actual return>=20% retained and existing complete60 big60 retained relative to rawPVR/additive; original path quantities, not counterfactual gains.",
+    "probability_bins": [
+      0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      1
+    ]
+  },
+  "falsification": "No promotion unless paired main proper-score improvement survives dependence, annual same-day sorting is not reversed, and original right-tail retention is not worse. Regardless of result no account run and no35percent claim from selected bins.",
+  "reused_pair_scope": "151 existing cash-boundary pairs may be audited for input/rank reach only; no new model prediction on rejected stocks and no imputed complete-round labels.",
+  "limitations": [
+    "Support thresholds fixed after viewing support counts but before new model results; historical data has already been repeatedly studied, not untouched OOS.",
+    "Static future roster/industry, original execution proxy, selected-only sample and final source cutoff remain limitations."
+  ],
+  "accounts": 0
+}

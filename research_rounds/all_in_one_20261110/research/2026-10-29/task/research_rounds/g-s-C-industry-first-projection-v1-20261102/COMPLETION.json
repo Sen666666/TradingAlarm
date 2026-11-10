@@ -1,0 +1,35 @@
+{
+  "status": "READY_FOR_INDEPENDENT_STATIC_AUDIT",
+  "completed_utc": "2026-11-02T02:52:17.502718+00:00",
+  "synthetic_tests": 17,
+  "passed": true,
+  "original_B_files_unchanged": 73,
+  "frozen_sources_reverified": true,
+  "rank_only_field_transform": true,
+  "projections": [
+    "2025-07-03",
+    "2022-01-06"
+  ],
+  "crossprocess_exact": [
+    "2025_26",
+    "2022"
+  ],
+  "original_B_or_A_recomputed": false,
+  "actual_cash_released": 0,
+  "actual_risk_released": 0,
+  "financial_events": 0,
+  "new_indicators": 0,
+  "market_2026": "rank/count only; capacity fixture not executed",
+  "failure_history": [
+    "failure-fixture-identity-v1: corrected synthetic identity only; guard unchanged",
+    "failure-report-import-v1: corrected report import only; no projection rerun"
+  ],
+  "source_sha256": {
+    "C": "8a4b89cec342763f922ae65b3d138792cc6945f452595d86a263f5c0b15bc130",
+    "B": "44e7345ef2b3fc494e9854216579aa5faa0e0557b4ecbc207b1027b102e401a8",
+    "JF2": "b76660a053a09a4e394b32b9ccc61f709cdc98ac6bf900a425f476700c7771cf",
+    "contract": "dafcf956c6ec888b3399bef04557e857a6fa54750014c9701a58847b66897802"
+  },
+  "no_economic_replay": true,
+  "no_live_actions": true
+}

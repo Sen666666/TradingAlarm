@@ -1,0 +1,7 @@
+{
+  "script_sha256": "f166508927193688ba4016900157628d44c5ccd1a33394dde8849e9b00628d23",
+  "frozen_before_real_new_signals": true,
+  "must_run_after_signal_seal": true,
+  "scope": "Only original B0 close-feasible rejected/unknown strict-S tickets; report next same-I and any-I original A/B legal market tickets, both rank-free and top2. No replayed stale order, new economic or fee return. Same-root continuity ends at first I-off/root-change/unknown; remaining end explicitly right-censored. Prices only descriptive signal-CLOSE ratios, no assumed fills.",
+  "pre_run_empty_schema_guard": "If no B0 feasible rejected tickets, preserve empty result schema and explicit zero report. Changed before any new real signal, no numerical/eligibility change."
+}

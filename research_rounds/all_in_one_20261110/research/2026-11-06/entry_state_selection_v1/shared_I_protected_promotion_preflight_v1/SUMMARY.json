@@ -1,0 +1,16 @@
+{
+  "primary_observations": 24,
+  "primary_stocks": 6,
+  "controls": 10,
+  "native_rows": 22588,
+  "primary_genuine_new_I_structure": 5,
+  "primary_protected_I_line": 0,
+  "primary_positive_CLOSE_OPEN": 8,
+  "eligible": 0,
+  "factor_or_source_unknown": 0,
+  "changed_source_files": 0,
+  "new_accounts": 0,
+  "new_promotions": 0,
+  "new_ADD": 0,
+  "stop": true
+}

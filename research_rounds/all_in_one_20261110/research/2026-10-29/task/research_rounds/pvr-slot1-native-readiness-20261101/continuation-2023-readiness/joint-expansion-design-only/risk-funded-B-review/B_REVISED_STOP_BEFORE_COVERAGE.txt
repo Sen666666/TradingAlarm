@@ -1,0 +1,125 @@
+B clarified, but STOP under unchanged core protection, before coverage
+2026-11-01. Source/design only: no new indicators, coverage, policy or accounts.
+
+A is predictive permission: positive pre-add protected PnL can permit an order
+that consumes more than that surplus. With pre-add1000 and new downside/fees
+4000 it may leave-3000. B is the DIFFERENT risk-financing question: FULL
+campaign floor-valued net PnL must stay>=0 AFTER every expansion and all
+live/pending/new costs. B is clearer for financing, not a high-win-rate claim.
+But actual E0/core code makes universal B fail a mandatory continuous-winner
+case. We recommend STOP/HOLD before whole coverage, not a long backtest.
+No coverage result informed this change; earlier A/B drafts remain archived.
+
+Clarified B lifecycle (needed to assess the claim, NOT approved to implement)
+1 Initial trial is ONE original first-order authorization, capped at2% frozen
+  decision NAV and original risk/lot/cash/industry/pool limits. It is NOT a
+  daily mark-weight refill. First confirmed mobile remains possible in a
+  strong industry already>2%, if the original confirmed route/capacity permits.
+  Probe still checks ALL industry commitments<=2%; no new pool is created.
+2 A campaign starts only on actual first fill, not zero-fill reservation.
+  Partial fills can complete ONLY that original first order's remaining
+  quantity/gross/fee authorization and original deadline. Unused or cancelled
+  allowance cannot be revived. EVERY subsequent fresh order is expansion
+  and must pass full B, even while stock weight remains below2%.
+3 Actual full flat and no active buy/sell/cancel responsibilities ends it.
+  Unpaid receivables do not keep a campaign open forever. A new original legal
+  fresh signal can start a new trial without recovering all historical stock
+  loss; original portfolio/campaign loss/fee history never resets.
+4 Only current-campaign CASH-CONFIRMED income enters proof: actual settled
+  net sale receipts and cash-paid attributed dividends. Filled buy costs/fees
+  and obligations count immediately. Unsettled sale/dividend receivables stay
+  separate portfolio assets, excluded from B. Later OLD-campaign payments do
+  not become NEW-campaign credit, though actual global cash may fund trials.
+5 All live and closed partial layers belong to their same still-open campaign;
+  retain realized partial losses and actual fees. No mark-profit credit.
+
+V(q) = current-campaign settled NET SALE RECEIPTS (actual sell fees deducted)
+       + cash-paid current-campaign net dividends
+       - cumulative filled BUY gross/fees and other known unpaid costs once
+       - remaining pending-buy principal and separately reserved buy fees
+       - new q*modeled buy price and one native aggregate new buy fee
+       + projected exits of ALL live/pending/new quantities at their REAL lines
+       - projected remaining sell fees of ALL those quantities.
+Use original dated fee/minimum/rounding functions. Same-role exact-line exit
+references share a projected fee; different references are conservatively
+separate. Past paid fees are already in cash flows and cannot be charged twice.
+Partial buys replace only their pending remainder once; cancel release waits
+for ack. Actual pending exit blocks new buys, not a manufactured credit.
+All original capital, cash/reserve, risk, ACT, Q, role and route rules ALSO
+apply. Reference Bdiag/PVR does not regain a hidden account3% risk ceiling.
+
+Every post-initial order needs V(q)>=0 for the FULL campaign, not merely the
+excess above2% and not positive V(0). Choose the largest ORIGINAL legal
+minimum+k*step within frozen target/share/gross caps and original hard limits
+that passes V(q)>=0. q=0 means no order. No R0, roundup, revived unused trial
+or mark-drop refill; no greater authorization after a cheaper opening.
+Reservations enter V before another request; fresh canonical CP1 remains
+single-use and original core-first/one-stock-order/route tie rules remain.
+
+Clock unchanged: old-line check first, then original accepted signal-close
+update, proof usable NEXT observation/open only. No retroactive bar stop or
+buy-day closing G1 at that earlier OPEN. At open, unknown price/factor/pending
+exit or gap through ANY held line withdraws new-buy permission, not old exit
+duty. Projected sale value uses original floor minus original sell slippage,
+capped by known open with that adjustment; no market.window/HLCV lookahead.
+This is nominal projected financing, not guaranteed stop liquidity, future
+taxes, realized capital preservation or a hard DD ceiling.
+
+Manual quantity examples only, not executed policy tests
+If ALL-IN marginal risk is R(q)=10q+10 and original target400, min100/step100:
+credit1000 buys0,2010 buys200 exactly,2009 buys100. Min200/step1, target350:
+credit2050 buys204,2000 buys0. R is illustrative arithmetic, not a replacement
+for native fees. These examples apply even if weight is still below2%, because
+they are subsequent orders. Only original first-order partial completion is
+exempt. Gap-up may make one minimum unaffordable; gap-through-old-line cannot
+create zero-risk credit. False breakouts still receive one trial and can lose;
+new truly-flat campaigns can repeat losses while original loss history persists.
+
+STRUCTURAL COUNTEREXAMPLE: B cannot expand a continuous CORE winner
+Actual source conditions, not a model execution:
+(a) While E0 direction=UP, a new high sets extreme=t; t>extreme is then false.
+  A monotone rise creates no new swing event. Insufficient reversals also do
+  not switch the event direction. A fresh positive swing requires a down leg.
+(b) Active E0 floor increases only on a positive event's confirmed pivot.
+  I entry-only projection follows/maxes that base floor, with no cold exit.
+(c) Native core copies facts.floor(I) into last_core_line then CONTINUES,
+  skipping CP1 ratchets. The budget sync uses that actual core line. Fresh
+  higher CP1 candidates do NOT protect core. Core has no regular profit trim.
+
+Choose a permitted no-dividend core campaign: q0>0, actual cost p0, support
+f0<p0 remains fixed, no partial sale, price persistently above support, ACT on.
+V(0)<=q0*(f0-p0)-paid/projected fees<0 regardless of market price growth.
+Any legal NEW mobile lot starts with entry>its OWN floor by original preview,
+so it adds negative floor-valued PnL after costs. Thus V(q)<V(0)<0 for ALL q>0,
+even if the new CP1 floor is much higher than the old core entry price.
+Unused initial authorization cannot refill, and the campaign never went flat.
+No expansion is possible. Passive weight growth is not active risk escalation.
+
+A feasible illustrative core100 at100, floor80 has roughly2000 downside and
+can fit original .25% of1m core-risk sizing including fees. At price200 with
+floor80 it has reached roughly2% passive weight (NAV also rises), but still cannot
+finance a single add.
+Original cash/industry/global space can all be ample. No shortage is needed.
+Its frequency is unknown; we cannot label it a rare accepted user tradeoff.
+It fails the stated capability to scale continuous winners without waiting
+for a reversal. No whole historical coverage is needed to establish possibility.
+
+INITIAL MOBILE DIFFERS
+Mobile actually ratchets max(old line,I floor,fresh CP1 candidate) after old
+line checks. CP1 new-frontier credit can emit receipts during continuous UP
+without an E0 down/up pair. With bounded scale, candidates can rise above
+cost, so a mobile trial can eventually finance a legal add. Slow floor, minlot,
+fees and gaps can still delay beyond the main move; participation is not assured.
+The current core-first reservation can choose the role that cannot earn such
+credit. That is an algorithm/protection/allocation interaction, not a formula
+implementation detail or permission to assign CP1 protection to old core.
+
+Verdict and only next boundary
+Do NOT freeze universal B with unchanged core for coverage or a long backtest.
+If the financing concept is pursued, root must first authorize an EXPLICIT
+joint review of ACTUAL protection/role responsibility plus expansion. Crediting
+a CP1 line to core would require genuinely changing its exit duty, with normal
+pullback/false-exit/fat-tail/reentry costs; a shadow near line is invalid.
+No new handoff amount, protection algorithm or second candidate is selected
+here. This stops the current contract, not low-win-rate/high-payoff philosophy,
+E0/CP1 generally, or every possible protection-funded architecture.

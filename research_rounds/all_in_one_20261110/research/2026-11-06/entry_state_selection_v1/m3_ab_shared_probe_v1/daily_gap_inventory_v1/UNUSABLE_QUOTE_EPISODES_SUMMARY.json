@@ -1,0 +1,10 @@
+{
+  "episode_count": 321,
+  "sid_count": 216,
+  "unusable_quote_stock_days": 1676,
+  "absent_row_stock_days": 1671,
+  "explicit_synthetic_no_quote_stock_days": 5,
+  "I_exit_priority_episodes": 54,
+  "actual_held_episodes": 2,
+  "note": "Adjacent absent rows are merged across the five existing synthetic no-quote rows. 325 missing-only runs become 321 unusable-quote episodes. This changes packaging only, never recognizes a halt, synthesizes a price or alters source data. The actual new shared account has no inventory on the five synthetic rows."
+}

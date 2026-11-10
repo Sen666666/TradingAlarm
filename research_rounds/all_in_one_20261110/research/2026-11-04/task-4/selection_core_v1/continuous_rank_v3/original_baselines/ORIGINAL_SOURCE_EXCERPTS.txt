@@ -1,0 +1,122 @@
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/market-mainline-measurement-20261031/PROTOCOL.txt SHA256 3a98544b40445b1f595c741cb6636ea68dc0112aa67618ee1a720d2448e14dfc
+L1: 行业主线阶段一测量；本轮股票/组合经济回测0。
+L2: 固定2025-07-01..2026-06-30四个自然季度；既有完整历史暖机。完整90行业，不按科技/药选择；H1原score仅长尺度参照，不能用dual-board筛后rank。
+L3: 价格基线P=(行业R21>0)&(R21−全90同期R21算术等权平均>0)，两项分别存。等权参考是期初等额持有各行业的同期收益平均，不是全市场指数/日再平衡指数。完整R21排序，同分行业ID；无Top1门。R5/63及H1只诊断，不扫描组合。
+L4: 指数amount单位未认证，改用固定1709 snapshot股票池的CNY金额；非全A、非净流入。原始每日可得金额行业份额/覆盖/成分变化另列。
+L5: 关注扩散：每个当时26市场日窗口，采用其中金额/观察字段均有效的同一股票交集作可比分母，防缺失导致假流入。s_i,d=A_i,d/Σ交集A_j,d；ratio_i=median(s[t-4:t])/median(s[t-25:t-5])。每行业median(ratio_i)>1为观察接受，<=1为拒绝；无可比成员/分母未知为unknown，不填0。不设最少5成员硬门，分母交集变化和原每日可得口径都保留，这是数据归一化而非改股票池/交易策略。
+L6: 原B21/B63/n21/n63直接取已有dual-board。同期行业成交前三占比，以及正R21最高三股占本行业正R21合计份额仅集中度描述；不是利润贡献，成员<=3时机械为1须注明。
+
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/market-mainline-measurement-20261031/study.py SHA256 b442e1035c53d82fac3f0317793c14dac1d268f0079d7da40e8e29d50a414574
+L8: def attention(a,groups,ng):
+L9:  # Complete-window membership, fixed over both non-overlapping samples.
+L10:  valid=np.isfinite(a).all(axis=0)&(a>=0).all(axis=0);den=a[:,valid].sum(axis=1);rat=np.full(a.shape[1],np.nan);out=np.full(ng,np.nan);n=np.zeros(ng,int)
+L11:  if valid.any() and np.all(den>0):
+L12:   shares=a[:,valid]/den[:,None];prior=np.median(shares[:21],axis=0);recent=np.median(shares[21:],axis=0);good=prior>0;ids=np.flatnonzero(valid);rat[ids[good]]=recent[good]/prior[good]
+L13:   for g in range(ng):
+L14:    z=rat[groups==g];z=z[np.isfinite(z)];n[g]=len(z)
+L15:    if len(z):out[g]=np.median(z)
+L16:  return out,n,rat,int(valid.sum()),int((np.isfinite(a).sum(axis=0)>0).sum())
+
+L39:  z=np.load(P/'h1.npz');dates=pd.DatetimeIndex(z['dates']);symbols=[str(s) for s in z['symbols']];stock=np.array([not s.startswith('URFI') for s in symbols]);sc=np.flatnonzero(stock);gc=np.flatnonzero(~stock);sids=[symbols[j] for j in sc];gids=[symbols[j] for j in gc];assert len(sids)==1709 and len(gids)==90;meta=read(R/'a-share-selection-e0-20261024/inputs-v2/metadata.json');groups=np.array([gids.index(meta[s]['sector_id']) for s in sids]);counts=np.bincount(groups,minlength=90)
+L40:  ix=np.flatnonzero((dates>=START)&(dates<=END));T=len(ix);b=np.load(R/'selection-rotation-abcd-20261025/prepared/dual-board.npz');bd=pd.DatetimeIndex(b['dates']);bi=bd.get_indexer(dates[ix]);bc={str(s):j for j,s in enumerate(b['symbols'])};gcol=[bc[s] for s in gids];r21=b['r21'][bi][:,gcol];r5=b['r5'][bi][:,gcol];r63=b['r63'][bi][:,gcol];B21=b['breadth21'][bi][:,gcol];B63=b['breadth63'][bi][:,gcol];N21=b['n21'][bi][:,gcol];N63=b['n63'][bi][:,gcol];h1=z['score'][ix][:,gc]
+L41:  absok=r21>0;benchmark=r21.mean(axis=1);rel=r21-benchmark[:,None];qual=absok&(rel>0);rank=pd.DataFrame(r21).rank(axis=1,ascending=False,method='first').to_numpy();price=z['close'];segment=z['segment'];warmix=np.arange(ix[0]-25,ix[-1]+1);wd=dates[warmix];amount=np.full((len(warmix),1709),np.nan);first=[];last=[];quality=[];records={r['series_id']:r for r in read(P/'manifest.json')['series']};io=time.monotonic()
+L42:  for j,sid in enumerate(sids):
+L43:   f=pd.read_parquet(records[sid]['raw']['path']);f=f.set_index('trade_date');f.index=pd.to_datetime(f.index);first.append(f.index.min());last.append(f.index.max());q=f.reindex(wd);units=set(f.amount_unit.dropna());assert units=={'CNY'},(sid,units)
+L44:   good=q.observed_bar.fillna(False).astype(bool)&q.price_eligible.fillna(False).astype(bool)&~q.synthetic_event_bar.fillna(True).astype(bool)&np.isfinite(q.amount)&q.amount.ge(0);amount[good,j]=q.loc[good,'amount'];quality.append(int(q.observed_bar.eq(True).sum()))
+L45:   if j==63:
+L46:    elapsed=time.monotonic()-io;estimate=elapsed/64*1709;save(O/'THROUGHPUT.json',dict(first64_seconds=elapsed,estimated_all_amount_read_seconds=estimate,budget=120));print('IO64',elapsed,'estimated1709',estimate,flush=True)
+L47:   if (j+1)%400==0:print('IO',j+1,round(time.monotonic()-start,2),flush=True)
+L48:  np.savez_compressed(O/'AMOUNT_INPUT.npz',dates=wd.to_numpy(),symbols=np.array(sids),amount=amount)
+L49:  ratios=np.full((T,90),np.nan);att_n=np.zeros((T,90),int);rawshare=np.full((T,90),np.nan);top3=np.full((T,90),np.nan);leader3=np.full((T,90),np.nan);complete_n=[];denomdrift=[];raw_n=[];stockR21=np.where(segment[ix][:,sc]==segment[ix-21][:,sc],price[ix][:,sc]/price[ix-21][:,sc]-1,np.nan)
+L50:  for t in range(T):
+L51:   a=amount[t:t+26];ratios[t],att_n[t],_,n,_=attention(a,groups,90);complete_n.append(n);valid=np.isfinite(a);denomdrift.append(int(np.any(valid!=valid[-1],axis=0).sum()));raw_n.append(int(valid[-1].sum()));current=a[-1];den=np.nansum(current)
+L52:   for g in range(90):
+L53:    q=current[groups==g];q=q[np.isfinite(q)];total=q.sum();rawshare[t,g]=total/den if den>0 and len(q) else np.nan;top3[t,g]=np.sort(q)[-3:].sum()/total if total>0 else np.nan;p=stockR21[t,groups==g];p=p[np.isfinite(p)&(p>0)];leader3[t,g]=np.sort(p)[-3:].sum()/p.sum() if len(p) else np.nan
+L54:  known=np.isfinite(ratios);attentionok=known&(ratios>1);both=qual&attentionok;rejected=qual&known&~attentionok;unknown=qual&~known
+
+L59:  for t,day in enumerate(dates[ix]):frames.append(pd.DataFrame(dict(day=str(day.date()),quarter=quarters[t],sector=gids,member_count=counts,R5=r5[t],R21=r21[t],R63=r63[t],equal90_R21=benchmark[t],relative_R21=rel[t],absolute_positive=absok[t],relative_positive=rel[t]>0,price_qualified=qual[t],R21_rank=rank[t],H1_original=h1[t],attention_ratio=ratios[t],attention_members=att_n[t],attention_accept=attentionok[t],attention_known=known[t],price_and_attention=both[t],B21=B21[t],B63=B63[t],B21_members=N21[t],B63_members=N63[t],snapshot_amount_share=rawshare[t],amount_top3=top3[t],positive_R21_top3=leader3[t],denominator_complete_window_members=complete_n[t],denominator_members_changed=denomdrift[t],raw_amount_members=raw_n[t])))
+L60:  matrix=pd.concat(frames,ignore_index=True);matrix.to_parquet(O/'FEATURE_MATRIX_90.parquet',index=False);save(O/'FEATURE_FREEZE.json',dict(before_future_labels=True,sha256=sha(O/'FEATURE_MATRIX_90.parquet'),days=T,industry_rows=len(matrix),scope=[START,END],labels_not_used_in_features=True,attention_condition='industry median complete-window share ratio >1',index_amount_unit_unverified=True,amount_universe='fixed1709 snapshot; same26-window intersection denominator',sources={str(P/'h1.npz'):sha(P/'h1.npz'),str(R/'selection-rotation-abcd-20261025/prepared/dual-board.npz'):sha(R/'selection-rotation-abcd-20261025/prepared/dual-board.npz')}));print('FEATURES_FROZEN',round(time.monotonic()-start,2),flush=True)
+
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/market-mainline-measurement-20261031/rank_compare.py SHA256 0120fd9592b11ff4807fea518d55be0cffdfcf3a8f83d65170fc227076e638e7
+L10:  def field(k):return m.pivot(index='day',columns='sector',values=k).loc[days,sectors].to_numpy()
+L11:  P=field('price_qualified').astype(bool);scores={'R21':field('relative_R21'),'H1':field('H1_original'),'attention':field('attention_ratio')};common=P.copy()
+L12:  for s in scores.values():common&=np.isfinite(s)
+L13:  excluded=int((n*(P&~common)).sum());assert excluded==0,'Unexpected unequal score availability; report before comparing'
+
+L28:  for method,score in scores.items():
+L29:   after=np.full((T,G),np.inf);before=after.copy()
+L30:   for t in range(T):
+L31:    gs=np.flatnonzero(common[t]&n[t].astype(bool));gs=gs[np.lexsort((gs,-score[t,gs]))];cum=np.cumsum(n[t,gs]);after[t,gs]=cum;before[t,gs]=cum-n[t,gs]
+L32:   costs[method]=(after,before)
+
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-I-quarter-2025Q3-20261031/adapter.py SHA256 2e9555d639c7db2a874e59c83cfa0df8889da0f41bf51e14313699292feea417
+L57: 
+L58: def context(cut=None,ids=None):
+L59:  b=BP.C.load_bundle(BP.C.OLD/'inputs-v2/input-manifest.json');allids=read(IC/'FREEZE.json')['stocks'];keep=set(ids or allids);b.lines=tuple(l for l in b.lines if l.security_id in keep);assert {l.security_id for l in b.lines}==keep
+L60:  sectors={l.sector_id for l in b.lines};b.series={s:v for s,v in b.series.items() if s in keep|sectors};b.sector_series={s:v for s,v in b.sector_series.items() if s in sectors};records={r['series_id']:r for r in read(P/'manifest.json')['series']};frames={}
+L61:  for sid,item in b.series.items():
+L62:   item.record=records[sid];path=(O/'industry-facts' if sid.startswith('URFI') else IC/'facts')/f'{sid}.parquet';f=pd.read_parquet(path).loc[:cut or END];frames[sid]=f
+L63:   item.states=f[['e0_ready','e0_target','segment_id']].rename(columns={'e0_ready':'ready','e0_target':'target'})
+L64:  h=np.load(P/'h1.npz');dates=pd.DatetimeIndex(h['dates']);mask=dates<=pd.Timestamp(cut or END);b._h1_cache=(dates[mask],{str(s):j for j,s in enumerate(h['symbols'])},h['score'][mask].copy())
+L65:  rules=read(RR/'pvr-act-comparison-20261027/execution-rules-v2.json');m=E.FastMarket(b,rules,[],read(BP.C.OLD/'inputs-v2/economic-protocol.json'))
+
+L91:   day=str(at.date());g=self.matrix_days[day];raw=[];price=[];unknown=[]
+L92:   for sid in self.market.lines:
+L93:    f=self.facts.f[sid];today=pd.Timestamp(day)
+L94:    if today not in f.index:continue
+L95:    r=f.loc[today]
+L96:    if not bool(r.i_buy) or not bool(r.i_target):continue
+L97:    raw.append(sid);q=g.loc[self.line_sector[sid]]
+L98:    if not bool(q.price_qualified):continue
+L99:    if not np.isfinite(q.H1_original) or not np.isfinite(q.attention_ratio):unknown.append(sid);continue
+L100:    price.append(sid)
+L101:   b=(len(price)+1)//2;self.shortlists={}
+L102:   for key,column in [('H1','H1_original'),('ATT','attention_ratio')]:
+L103:    ordered=sorted(price,key=lambda s:(-float(g.loc[self.line_sector[s],column]),self.line_sector[s],self.line_order[s],s));chosen=ordered[:b];assert len(chosen)==b and len(set(chosen))==b
+L104:    self.shortlists[key]=set(chosen)
+L105:    self.selection_rows.append(dict(day=day,policy=key,raw_I_count=len(raw),P_score_known_count=len(price),P_rank_unknown_count=len(unknown),B=b,candidates=price,selected=chosen,unknown=unknown,attention_at_or_below1_selected=sum(float(g.loc[self.line_sector[s],'attention_ratio'])<=1 for s in chosen)))
+
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/rs_h1_model.py SHA256 cb28e8fafd0fe1c45612175be7a42695e34ba5061aa700aa653bcfc1324df9d0
+L1: """RS-H1 pure ranking prototype. No E0, execution, portfolio or network imports."""
+L2: import numpy as np
+L3: 
+L4: WEIGHTS=(.4,.2,.2,.2)
+L5: MIN_OBSERVATIONS=6
+L6: MIN_REFERENCE=20
+L7: 
+L8: def raw_momentum(prices,segments,observations,t,h):
+L9:     """All columns use exactly h intervals of the same market-date clock."""
+L10:     n=prices.shape[1]
+L11:     if h<5 or h>252 or t<h:return np.full(n,np.nan)
+L12:     b=np.minimum(np.arange(5)*63,h)
+L13:     result=np.zeros(n);valid=np.isfinite(prices[t])&(prices[t]>0)&(observations[t]>=MIN_OBSERVATIONS)
+L14:     for j,w in enumerate(WEIGHTS,1):
+L15:         near,far=int(b[j-1]),int(b[j])
+L16:         if near==far:continue
+L17:         p,q=prices[t-near],prices[t-far]
+L18:         valid&=np.isfinite(p)&np.isfinite(q)&(p>0)&(q>0)&(segments[t-near]==segments[t])&(segments[t-far]==segments[t])
+L19:         with np.errstate(divide='ignore',invalid='ignore'):
+L20:             result+=w*(p/q-1)
+L21:     return np.where(valid,np.round(result,12),np.nan)
+L22: 
+L23: def mid_percentile(values,value):
+L24:     ref=values[np.isfinite(values)]
+L25:     if len(ref)<MIN_REFERENCE or not np.isfinite(value):return np.nan,len(ref)
+L26:     return 100*(np.count_nonzero(ref<value)+.5*np.count_nonzero(ref==value))/len(ref),len(ref)
+L27: 
+L28: def rank_known(rows):
+L29:     """Unknown candidates are separate; securities with scores keep score priority."""
+L30:     known=[r for r in rows if r['score'] is not None and np.isfinite(r['score'])]
+L31:     return sorted(known,key=lambda r:(-r['score'],r['symbol'])),[r for r in rows if r not in known]
+
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/selection-rotation-abcd-20261025/PROTOCOL.md SHA256 baf563af3ae50d0b01e4b28f4a7a9ed2af49e509ab921c9167da46a8c684349e
+L9: 所有新买仍需原IX当日新买事件、当前可买/市值/源就绪等原事实、行业E0上行；不再要求任何恰好相邻温度变化。旧量价事件使用原成交量机制，新排序是价格相对排序，不能声称新建了量价趋势模型。
+L10: 
+L11: R_h=C_t/C_{t-h}-1，h=5/21/63/126，以原A市场交易日钟、同源段端点计算；缺端点或断段未知，不填价格。21/63各在同日全股票参照/90行业参照内按100*(L+0.5E)/N得百分位，参照至少20。短分=(P21+P63)/2；长分保留原RS-H1，包含已有新股历史长度匹配。不将两个通道武断压成温度或收益概率。
+L12: 
+L13: 股票短通道：R5>0、短分可算。股票长通道：R63>0、R126>0、长分可算。短历史缺126不进入长通道，但可以进入短通道，原IX的65观察准备仍不变。
+L14: 
+L15: 行业扩散度B_h是该行业当前合格池成员中、具有同日同窗可比收益的股票R_h>0比例；仅当前分类开发代理，不称完整历史成分广度。缺分母未知，不额外设置成员数量过滤，但披露N。行业短通道：R5>0、R21>0、B21>0.5、短分可算；长通道：R63>0、R126>0、B63>0.5、长分可算。没有合格通道可留现金。
+L16: 
+L17: 行业候选优先序：长期队列与短期队列逐项交替，从长期开始；个股在行业内从短期开始，与长期队列交替。每次取下一尚未选过的证券/行业、同分稳定ID。这个序列用于原S0逐行业轮次接纳，容量/现金/最小单位失败仍可同收盘跳过再竞，不强制每一通道一席或凑满。多通道名单重合不重复买。未具备新通道资格者不给新买，持仓仍先服从自身退出；B不额外主动卖。
+

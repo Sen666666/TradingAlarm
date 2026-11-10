@@ -1,0 +1,36 @@
+纯接口裁决：可用最小可逆OPEN预览钩子承接卡中的mobile整单名义风险守恒；不需要新ledger或风险预算平台。当前仅源码审查，0 Account/Runner构造、0静态求量、0经济、0实现，不能据此称运行/恢复验收已过。是否继续原S0静态由root另定。
+
+已读唯一候选 loss_correction/entry_risk_commitment_review/CANDIDATE_CARD.txt，政策 MOBILE_OPEN_PLAN_NOMINAL_RISK_CONSERVATION。它新增mobile约束，并非修复原bug。
+精确定义：真实原decision CLOSE的原cap=c、p_ref=原raw_close×1.0005、F=该intent原冻结adjusted floor / decision已知factor，冻结货币R=c×max(0,p_ref−F)。同source、同factor前提下，下一原合法OPEN的p=raw_open×1.0005，额外要求实际整单累计nominal风险<=R。只减新买q，不抬/缩floor、不扩原cap/budget、不改core/排序/资格/持有退出。
+
+1 最小hook与原函数
+实际源 lot-risk-allocation-20261029/code/study.py 的函数名是 maximum_quantity(rule,cap,allowed)，不是 maximum_quantity_by_risk。本次在原LR/code及当前研究Python中未找到后者定义；不凭名称假定已有API。
+LR.preview先构造原p、floor=i.floor/factor，保原open<=floor否决；原allowed要求gross<=budget，且只有kind==core才要求protection_risk<=i.risk_budget。preview.maxq已受原合法cap、budget、交易所minimum/step约束。
+可选最小接点是 joint_v3.Runner.opening 原LR.preview成功之后、原route之前：仅把返回x.maxq收紧为原合法整单集合与nominal谓词的交集，再交原route全部cash/reserve/stock/sector/probe/role约束，原reserve_quantity/fill_buy继续原样。原i.cap/budget/floor必须保留作审计原合同，不能覆盖为“候选原cap”，也不能修改quote/排序。x.cost/fees仍由原closure计算；0合法minimum则记录新原因并不新买，不设小单例外。
+这要求未来新隔离Runner明确绑定自己的opening/策略身份；现N.assert_native_wiring要求原J.Runner.opening，不能全局monkeypatch旧J/LR或静默绕断言。只是新小adapter边界，不需重写原账户/路由。
+
+2 必需冻结字段与部分成交
+最少策略元数据可放原intent字典并自然进入pending及order_meta：独立mobile_plan_nominal_risk、原plan_cap、decision reference price/factor/source_segment、冻结floor/原decision_at、政策版本。字段名仅接口建议，不是实现。不得复用core的risk_budget，也不得用原获资q或每个fill层重建R。
+同factor/source、无股数变换下，existing BuyOrder.local_notional=同单已成交毛额G0、filled_shares=n0，故再成交q的累计nominal风险可由 max(0,G0+q*p−(n0+q)*F) 与原R比较，无需第二个已成交风险账本。每个partial不得重置R。延续余单必须用原fill_step而不是重新施buy_minimum；LR.maximum_quantity只适用于新整单，不能不加区别套到所有partial余量。
+当前J.opening先完成全部卖/结算和获资，再对每个新funded order只调用一次原fill_buy，并assert真实execution_price==preview.price；原ledger保证实际q<=预留q，单窗口event去重，CLOSE expire_day_buys取消余单、已买部分留仓。因此只在此已冻日线S0单窗口语义内，初次预览限制总预留q就约束该次部分成交，不能据此宣称异价多窗口/异步重试也已验。
+若未来要让同单多次实际fill，必须在每次fill前沿同单累计检查；不能直接改remaining_shares而忘J.budget.orders/remaining_budget/fees/reserve桥。既有J.Account.fill_buy/cancel_buy有deferred取消ack与partial预算同步，任何数量调整都要保持这些原有钩子。此处未实现或检验新wrapper。
+
+3 费用必须保留原合同
+LR.protection_risk(q,p,F,schedule)是 q*(p−F*(1−SLIP)) + 买费 + 预计卖费，含预计卖滑点，和本卡nominal R不同。不能把R塞i.risk_budget/调resize_core/把0.25%套到mobile，也不能借它改变R定义。
+原fees经当前C.activate设置S0 cost_multiplier=1、SLIP=.0005；preview cost含原买费，route保现金和费用预留，fill用window.fees及order.fees_local/fee_accrued_local累计最低佣金，费用只落一次。新nominal限制不折费、不另扣利润、不把预计卖费当真实已发生费用。其他压力不能由S0无证外推。
+
+4 公司行动/未知边界
+同factor不等于没有公司行动；因子变化检测不能认证rights、无价变更、源分类或股数映射全部覆盖。实际market.actions来自原prepared manifest的每sid.adjustment.actions引用：
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/manifest.json
+对应prepared/actions/{sid}.json的events含effective_date、cash_per_old_share、split_ratio、classification、source_id，部分类型有额外字段。应按原decision_date<effective_date<=fill_date查原事件，不能拿ENTRY_ACTIONS首次/追加标签表当公司行动。
+原J.split只桥已有真实pending订单整数股数/现金预留，order_meta adjusted floor保持不变；这不自动证明新freeze的plan_cap、货币R、累计n0/G0跨变换同义。候选卡同factor/source主域之外应明确UNKNOWN_NO_NEW_MOBILE；已买持仓/原卖单/应收保持原合同，不能变成新增强卖，也不能退回无约束新mobile。因子不变但存在行动的覆盖仍由loss agent只读审；未审不冒称已支持全部CA。禁止取fill日close补参考价或用后来实际q反造计划。
+
+5 checkpoint/quarter恢复
+PreparedRunner.checkpoint完整序列化account.__dict__（只排market/facts）及非纯输入runner字段，所以pending/order_meta/BuyOrder现有累计字段和新增普通intent元数据会一并保存；不必改BuyOrder dataclass或新增cash/fee状态。季度CP本质是同一完整CP复制，不重置现金/预算/ACT。
+原restore要求source_freeze exact，atomic provenance还要求真实engine_identity exact。新候选新增opening/metadata/政策版本，必须单独freeze及身份绑定；旧quarterCP不能直接冒名恢复成已运行新政策。只读S0快照可以作为静态输入，但不是候选连续历史，也不可事后给旧已成交单补R再称该时点曾受约束。
+未来若经济获准，必须在新前缀及独立进程恢复中检查R/原cap/source/factor/pending已成交流水和完整经济state；本轮没有执行这些检查，也不迁移旧CP或改旧源。
+
+6 旧研究排重
+旧LR-1只给core含费0.25%NAV风险，mobile/ADD保原2%nominal追加，不是本卡基于原CLOSE整单cap的名义风险守恒。旧LR1+CP1 ADD十二格整体失败是追加架构/资金竞争的反证，不能直接充作本候选等价试验。I-RB1是固定1%风险缩量，R1是最小手、risk_boundary_v2是持仓退出，也都不等价。没有重命名旧成功为新机制，也没有把接口可行当经济值得跑。
+
+交付 SOURCE_AND_FUNCTION_SHA256.json记录本次读过的协议/卡及原LR/ledger/J/恢复源码hash，具体函数AST片段hash另列。未执行任何原代码模块。规模与赢家代价由loss/risk独审，root自行决定仅静态或关闭。

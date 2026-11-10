@@ -1,0 +1,15 @@
+{
+  "scope": "LEAN_CODE_AND_RESEARCH_RECORDS",
+  "checkout_bytes_before_this_summary": 102379166,
+  "tests_passed": 22,
+  "metadata_members_preserved": 4819,
+  "metadata_sha256_verified": true,
+  "current_frozen_input_sha256_matches": 9108,
+  "archive_entries_checked": 686178,
+  "local_duplicate_copies_coalesced": 1766,
+  "byte_identical_duplicate_payload_bytes": 15278200802,
+  "unique_research_information_deleted": 0,
+  "original_private_git_history_uploaded": false,
+  "runtime_and_account_databases_uploaded": false,
+  "workflow_uploaded": false
+}

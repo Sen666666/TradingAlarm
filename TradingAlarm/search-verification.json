@@ -1,0 +1,31 @@
+{
+  "query": "贵州茅台",
+  "endpoint": "8.134.69.102:9605",
+  "results": [
+    {
+      "symbol": "USHA600519",
+      "code": "600519",
+      "name": "贵州茅台",
+      "market": "USHA",
+      "aliases": "",
+      "price": null,
+      "previousClose": null,
+      "hasBars": false,
+      "hasIntraday": false,
+      "discoveredOnline": true
+    }
+  ],
+  "browserVerified": {
+    "queryCases": [
+      "建设银行",
+      "jsyh",
+      "601939",
+      "ZZZZZZXYZ"
+    ],
+    "newStock": "USHA601939",
+    "newStockAbsentFromOriginalCatalog": true,
+    "quote": 11.45,
+    "dailyChartRange": "2026-06-04 to 2026-10-16 (90 visible bars)",
+    "unsupportedMarkets": "search results visible, live quotes explicitly unsupported"
+  }
+}

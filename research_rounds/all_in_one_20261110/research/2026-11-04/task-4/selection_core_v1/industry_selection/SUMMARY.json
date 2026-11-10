@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "dates": [
+    "2024-09-24",
+    "2026-01-15",
+    "2022-01-24"
+  ],
+  "static_stocks": 1709,
+  "stockdate_rows": 5127,
+  "industry_rows": 270,
+  "closures": [
+    {
+      "date": "2024-09-24",
+      "U_t": 1532,
+      "N25valid": 1621,
+      "pool_recent5_CNY": 2006158547647.0,
+      "pool_prior20_CNY": 6889162769674.0,
+      "max_daily_industrysum_pool_gap": 0.0
+    },
+    {
+      "date": "2026-01-15",
+      "U_t": 1641,
+      "N25valid": 1644,
+      "pool_recent5_CNY": 11439083143626.0,
+      "pool_prior20_CNY": 27607023449194.0,
+      "max_daily_industrysum_pool_gap": 0.0
+    },
+    {
+      "date": "2022-01-24",
+      "U_t": 1425,
+      "N25valid": 1437,
+      "pool_recent5_CNY": 2987272345438.0,
+      "pool_prior20_CNY": 12695881480789.0,
+      "max_daily_industrysum_pool_gap": 0.0
+    }
+  ],
+  "source_coordinate_checks": 4743,
+  "source_coordinate_missing": [],
+  "physical_stock_prefix_checks": [
+    {
+      "sid": "000001.SZ",
+      "date": "2024-09-24",
+      "exact": true
+    },
+    {
+      "sid": "000001.SZ",
+      "date": "2026-01-15",
+      "exact": true
+    },
+    {
+      "sid": "000001.SZ",
+      "date": "2022-01-24",
+      "exact": true
+    },
+    {
+      "sid": "002745.SZ",
+      "date": "2024-09-24",
+      "exact": true
+    },
+    {
+      "sid": "002745.SZ",
+      "date": "2026-01-15",
+      "exact": true
+    },
+    {
+      "sid": "002745.SZ",
+      "date": "2022-01-24",
+      "exact": true
+    },
+    {
+      "sid": "600166.SH",
+      "date": "2024-09-24",
+      "exact": true
+    },
+    {
+      "sid": "600166.SH",
+      "date": "2026-01-15",
+      "exact": true
+    },
+    {
+      "sid": "600166.SH",
+      "date": "2022-01-24",
+      "exact": true
+    },
+    {
+      "sid": "601958.SH",
+      "date": "2024-09-24",
+      "exact": true
+    },
+    {
+      "sid": "601958.SH",
+      "date": "2026-01-15",
+      "exact": true
+    },
+    {
+      "sid": "601958.SH",
+      "date": "2022-01-24",
+      "exact": true
+    },
+    {
+      "sid": "920982.BJ",
+      "date": "2024-09-24",
+      "exact": true
+    },
+    {
+      "sid": "920982.BJ",
+      "date": "2026-01-15",
+      "exact": true
+    },
+    {
+      "sid": "920982.BJ",
+      "date": "2022-01-24",
+      "exact": true
+    }
+  ],
+  "raw_amount_source": "Only same U_t original stock CNY amount sums. No URFI amount or CSI300 amount used.",
+  "Nobserved_definition": "Current observed, priceeligible, nonsynthetic, noninvalid positive internally consistent OHLC; independent of volume/amount.",
+  "N25valid_definition": "All25 common sessions positive OHLC/volume/CNYamount and observed/eligible/nonsynthetic/noninvalid, single known segment.",
+  "Nliquid_definition": "N25valid and prior21median>=20m and prior5mean>=10m; both exclude T.",
+  "shared_percentile": "Same four-raw-known industry set each day; p=(average_rank-.5)/N; unknown unranked; Hstar=.25sum p.",
+  "full_formal_PIT_unknown": true,
+  "new_accounts": 0,
+  "new_CP_FSM": 0,
+  "new_backtests": 0,
+  "seconds": 10.01315899984911
+}

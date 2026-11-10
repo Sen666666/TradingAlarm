@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-30T16:23:57.910253+00:00",
+  "status": "approved_two_delay_paths_repaired_revalidated_complete",
+  "candidate_promoted": false,
+  "remaining_execution_blocker": null,
+  "remaining_economic_limit": "No common dominance across sectors/stresses; original snapshot/missing-data execution assumptions remain",
+  "old_two_cells_preserved": true,
+  "additional_experiments_started": false,
+  "product_modified": false
+}

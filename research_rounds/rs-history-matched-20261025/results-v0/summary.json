@@ -1,0 +1,439 @@
+{
+  "recorded_at": "2026-10-25T01:40:01.072329+08:00",
+  "model": "RS-H1",
+  "date": "2026-10-22",
+  "reference_pool": 1709,
+  "rated": 1702,
+  "old_rated": 1648,
+  "newly_rated": 60,
+  "newly_rated_symbols": [
+    "001232.SZ",
+    "001233.SZ",
+    "001246.SZ",
+    "001248.SZ",
+    "001257.SZ",
+    "001280.SZ",
+    "001365.SZ",
+    "001369.SZ",
+    "001386.SZ",
+    "001399.SZ",
+    "301569.SZ",
+    "301583.SZ",
+    "301599.SZ",
+    "301638.SZ",
+    "301660.SZ",
+    "301666.SZ",
+    "301669.SZ",
+    "301682.SZ",
+    "301689.SZ",
+    "301696.SZ",
+    "301699.SZ",
+    "301707.SZ",
+    "301716.SZ",
+    "301717.SZ",
+    "601091.SH",
+    "601112.SH",
+    "601123.SH",
+    "603092.SH",
+    "603175.SH",
+    "603407.SH",
+    "603435.SH",
+    "603459.SH",
+    "688635.SH",
+    "688712.SH",
+    "688727.SH",
+    "688765.SH",
+    "688781.SH",
+    "688783.SH",
+    "688785.SH",
+    "688795.SH",
+    "688796.SH",
+    "688797.SH",
+    "688801.SH",
+    "688802.SH",
+    "688806.SH",
+    "688807.SH",
+    "688808.SH",
+    "688809.SH",
+    "688813.SH",
+    "688818.SH",
+    "688820.SH",
+    "688825.SH",
+    "688826.SH",
+    "688828.SH",
+    "688835.SH",
+    "688836.SH",
+    "688837.SH",
+    "920045.BJ",
+    "920138.BJ",
+    "920186.BJ"
+  ],
+  "statuses": {
+    "rated": 1702,
+    "missing_anchor_or_source_segment_boundary": 6,
+    "no_fresh_actual_close": 1
+  },
+  "examples": [
+    {
+      "symbol": "920045.BJ",
+      "name": "蘅东光",
+      "industry": "通信设备",
+      "date": "2026-10-22",
+      "observations": 193,
+      "h": 192,
+      "score": 97.19541616405307,
+      "reference_n": 1658,
+      "raw_momentum": 0.226733503874,
+      "horizon_return": 0.9184268404428453,
+      "old_rs": null,
+      "old_percentile": null,
+      "old_reference_n": 1648,
+      "e0_ready": true,
+      "e0_up": true,
+      "status": "rated",
+      "blocks": [
+        {
+          "near": 0,
+          "far": 63,
+          "weight": 0.4,
+          "return": 0.38325703073904527
+        },
+        {
+          "near": 63,
+          "far": 126,
+          "weight": 0.2,
+          "return": -0.0286732900573472
+        },
+        {
+          "near": 126,
+          "far": 189,
+          "weight": 0.2,
+          "return": 0.28255813953488373
+        },
+        {
+          "near": 189,
+          "far": 192,
+          "weight": 0.2,
+          "return": 0.11326860841423958
+        }
+      ],
+      "artificial_history_cut": false
+    },
+    {
+      "symbol": "920138.BJ",
+      "name": "杰理科技",
+      "industry": "半导体",
+      "date": "2026-10-22",
+      "observations": 46,
+      "h": 45,
+      "score": 1.0914454277286136,
+      "reference_n": 1695,
+      "raw_momentum": -0.171836274878,
+      "horizon_return": -0.429590687194893,
+      "old_rs": null,
+      "old_percentile": null,
+      "old_reference_n": 1648,
+      "e0_ready": false,
+      "e0_up": false,
+      "status": "rated",
+      "blocks": [
+        {
+          "near": 0,
+          "far": 45,
+          "weight": 0.4,
+          "return": -0.429590687194893
+        }
+      ],
+      "artificial_history_cut": false
+    },
+    {
+      "symbol": "920186.BJ",
+      "name": "中科仪",
+      "industry": "半导体",
+      "date": "2026-10-22",
+      "observations": 117,
+      "h": 116,
+      "score": 40.51878354203936,
+      "reference_n": 1677,
+      "raw_momentum": -0.052529973866,
+      "horizon_return": -0.09297693073837798,
+      "old_rs": null,
+      "old_percentile": null,
+      "old_reference_n": 1648,
+      "e0_ready": true,
+      "e0_up": true,
+      "status": "rated",
+      "blocks": [
+        {
+          "near": 0,
+          "far": 63,
+          "weight": 0.4,
+          "return": -0.19398122808084495
+        },
+        {
+          "near": 63,
+          "far": 116,
+          "weight": 0.2,
+          "return": 0.12531258682967494
+        }
+      ],
+      "artificial_history_cut": false
+    },
+    {
+      "symbol": "001309.SZ",
+      "name": "德明利",
+      "industry": "半导体",
+      "date": "2026-10-22",
+      "observations": 1044,
+      "h": 252,
+      "score": 87.97198538367844,
+      "reference_n": 1642,
+      "raw_momentum": 0.11474884912,
+      "horizon_return": 0.6727464590188481,
+      "old_rs": 0.11474884911969044,
+      "old_percentile": 87.65169902912622,
+      "old_reference_n": 1648,
+      "e0_ready": true,
+      "e0_up": true,
+      "status": "rated",
+      "blocks": [
+        {
+          "near": 0,
+          "far": 63,
+          "weight": 0.4,
+          "return": -0.3625188200631603
+        },
+        {
+          "near": 63,
+          "far": 126,
+          "weight": 0.2,
+          "return": 0.0705107741420592
+        },
+        {
+          "near": 126,
+          "far": 189,
+          "weight": 0.2,
+          "return": 1.0069119831445876
+        },
+        {
+          "near": 189,
+          "far": 252,
+          "weight": 0.2,
+          "return": 0.22135912843812577
+        }
+      ],
+      "artificial_history_cut": false
+    },
+    {
+      "symbol": "688981.SH",
+      "name": "中芯国际",
+      "industry": "半导体",
+      "date": "2026-10-22",
+      "observations": 1513,
+      "h": 252,
+      "score": 12.819732034104751,
+      "reference_n": 1642,
+      "raw_momentum": -0.099150664569,
+      "horizon_return": -0.2857346749446942,
+      "old_rs": -0.09915066456852156,
+      "old_percentile": 12.773058252427184,
+      "old_reference_n": 1648,
+      "e0_ready": true,
+      "e0_up": false,
+      "status": "rated",
+      "blocks": [
+        {
+          "near": 0,
+          "far": 63,
+          "weight": 0.4,
+          "return": -0.28445810694881324
+        },
+        {
+          "near": 63,
+          "far": 126,
+          "weight": 0.2,
+          "return": 0.346164950437879
+        },
+        {
+          "near": 126,
+          "far": 189,
+          "weight": 0.2,
+          "return": -0.20056931835667025
+        },
+        {
+          "near": 189,
+          "far": 252,
+          "weight": 0.2,
+          "return": -0.07243274102619002
+        }
+      ],
+      "artificial_history_cut": false
+    },
+    {
+      "symbol": "300750.SZ",
+      "name": "宁德时代",
+      "industry": "电池",
+      "date": "2026-10-22",
+      "observations": 2029,
+      "h": 252,
+      "score": 1.4920828258221681,
+      "reference_n": 1642,
+      "raw_momentum": -0.167594616441,
+      "horizon_return": -0.4410275657218593,
+      "old_rs": -0.16759461644119106,
+      "old_percentile": 1.4259708737864079,
+      "old_reference_n": 1648,
+      "e0_ready": true,
+      "e0_up": false,
+      "status": "rated",
+      "blocks": [
+        {
+          "near": 0,
+          "far": 63,
+          "weight": 0.4,
+          "return": -0.385515771002356
+        },
+        {
+          "near": 63,
+          "far": 126,
+          "weight": 0.2,
+          "return": -0.15154574284775035
+        },
+        {
+          "near": 126,
+          "far": 189,
+          "weight": 0.2,
+          "return": 0.161693754885313
+        },
+        {
+          "near": 189,
+          "far": 252,
+          "weight": 0.2,
+          "return": -0.07708955223880587
+        }
+      ],
+      "artificial_history_cut": false
+    },
+    {
+      "symbol": "600519.SH",
+      "name": "贵州茅台",
+      "industry": "白酒",
+      "date": "2026-10-22",
+      "observations": 3349,
+      "h": 252,
+      "score": 59.28745432399513,
+      "reference_n": 1642,
+      "raw_momentum": 0.002416377017,
+      "horizon_return": -0.04938674739170956,
+      "old_rs": 0.002416377016827621,
+      "old_percentile": 59.25364077669903,
+      "old_reference_n": 1648,
+      "e0_ready": true,
+      "e0_up": true,
+      "status": "rated",
+      "blocks": [
+        {
+          "near": 0,
+          "far": 63,
+          "weight": 0.4,
+          "return": 0.052266560255386896
+        },
+        {
+          "near": 63,
+          "far": 126,
+          "weight": 0.2,
+          "return": -0.12595879488265627
+        },
+        {
+          "near": 126,
+          "far": 189,
+          "weight": 0.2,
+          "return": 0.031011128597122184
+        },
+        {
+          "near": 189,
+          "far": 252,
+          "weight": 0.2,
+          "return": 0.0024964308588983908
+        }
+      ],
+      "artificial_history_cut": false
+    },
+    {
+      "symbol": "600036.SH",
+      "name": "招商银行",
+      "industry": "银行",
+      "date": "2026-10-22",
+      "observations": 3338,
+      "h": 252,
+      "score": 73.41656516443362,
+      "reference_n": 1642,
+      "raw_momentum": 0.038626539076,
+      "horizon_return": 0.09084391619117049,
+      "old_rs": 0.03862653907631313,
+      "old_percentile": 73.27063106796116,
+      "old_reference_n": 1648,
+      "e0_ready": true,
+      "e0_up": true,
+      "status": "rated",
+      "blocks": [
+        {
+          "near": 0,
+          "far": 63,
+          "weight": 0.4,
+          "return": 0.09994739610731207
+        },
+        {
+          "near": 63,
+          "far": 126,
+          "weight": 0.2,
+          "return": -0.02096678750533265
+        },
+        {
+          "near": 126,
+          "far": 189,
+          "weight": 0.2,
+          "return": -0.028853958177020633
+        },
+        {
+          "near": 189,
+          "far": 252,
+          "weight": 0.2,
+          "return": 0.04305864884929478
+        }
+      ],
+      "artificial_history_cut": false
+    },
+    {
+      "symbol": "601326.SH",
+      "name": "秦港股份",
+      "industry": "港口航运",
+      "date": "2026-10-22",
+      "observations": 2225,
+      "h": 252,
+      "score": null,
+      "reference_n": 0,
+      "raw_momentum": null,
+      "horizon_return": null,
+      "old_rs": null,
+      "old_percentile": null,
+      "old_reference_n": 1648,
+      "e0_ready": null,
+      "e0_up": null,
+      "status": "no_fresh_actual_close",
+      "blocks": [],
+      "artificial_history_cut": false
+    }
+  ],
+  "algorithm_core_changes": 0,
+  "ranking_candidate_count": 1,
+  "formula_revisions_after_outputs": 0,
+  "accounts_run": 0,
+  "source_matrix_sha256": "00a00c31b0fc8c19d75acce80762e2b110a0ab4542f06b06607258ff7cb38643",
+  "protocol_sha256": "b85f16922dbc99ec215862735c3e7a4681ee54a48d2114d75f0f5d53895f9688",
+  "code_sha256": {
+    "code/calculate.py": "616c86ed71cecf26737a30e67535dae0179c61d58d5c415301b646d2b74e3086",
+    "code/model.py": "cb28e8fafd0fe1c45612175be7a42695e34ba5061aa700aa653bcfc1324df9d0",
+    "code/prepare.py": "d78f3ab2689d032f33638bbff3daddd3b0522d5e16bc27329e87e6ea97d8a642"
+  }
+}

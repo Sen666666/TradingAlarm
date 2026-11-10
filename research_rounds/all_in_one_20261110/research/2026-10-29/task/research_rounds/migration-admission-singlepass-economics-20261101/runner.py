@@ -1,0 +1,75 @@
+"""Approved SD only; frozen native economics plus observational logs/exports."""
+from pathlib import Path
+from types import SimpleNamespace
+import sys,shutil,json
+O=Path(__file__).resolve().parent;W=O.parent
+sys.path.insert(0,str(W/'migration-admission-native-readiness-20261101'))
+import native_adapter as N
+J,L,IO=N.J,N.BASE.L,N.IO
+EXPECTED='879579695da6b8b28fb9d411400836eea6f375dc1698b51b0502621ffd714b30'
+assert L.sha(N.__file__)==EXPECTED
+
+def migration_view(a,sector):
+    """Read actual resources only. No migration/admission/preview is performed."""
+    b=a.budget;s=b.sectors.get(sector)
+    if s is None:return dict(active=False,level=None,attempt=None,reason='no_industry_state',old_probe=[])
+    old=[x for x in b.lots if x.sector==sector and x.attempt==s.attempt and x.pool=='probe']
+    pending=[]
+    for real in a.buys.values():
+        o=b.orders[a.order_bridge[real.order_id]]
+        if o.sector==sector and o.attempt==s.attempt and o.pool=='probe' and o.qty>0 and o.status in ('open','cancel_pending'):
+            pending.append(dict(oid=o.oid,stock=o.stock,qty=o.qty,status=o.status,capital=o.qty*o.limit))
+    info=dict(active=s.active,level=s.level,attempt=s.attempt,
+              old_probe=[dict(layer=int(x.batch),sid=x.stock,role=x.role,capital=x.qty*b.prices[x.stock]) for x in old],
+              pending_probe=pending)
+    if not s.active or s.level==0:info['reason']='stage_not_authorized';return info
+    if not old and not pending:info['reason']='nothing_waiting';return info
+    fees=sum(float(real.fee_reserved_cny) for real in a.buys.values())
+    confirmed=b.resources('confirmed')[0];remaining=.60*(b.nav-fees)-confirmed
+    required=sum(x.qty*b.prices[x.stock] for x in old)
+    info.update(confirmed_capital=confirmed,remaining_confirmed_capacity=remaining,
+                old_transfer_required=required,old_transfer_deficit=max(0.,required-remaining))
+    info['reason']='same_attempt_probe_pending' if pending else 'whole_old_transfer_cannot_fit' if required>remaining+1e-9 else 'legal_transfer_available'
+    return info
+
+class Runner(N.DecoupledRunner):
+    """Only diagnostic wrappers; actual planning/opening/route body unchanged."""
+    def __init__(self,*args,**kw):
+        super().__init__(*args,**kw);self.sd_route_log=[];self.sd_migration_closes=[]
+    def route(self,a,i,x,at):
+        before=migration_view(a,self.sector_by_sid[i['sid']]) if i['role']=='mobile' else None
+        answer,why=N.decoupled_route(self,a,i,x,at)
+        if i['role']=='mobile' or why:
+            resource=None
+            if why and any(k in why for k in ('probe_risk','pool_capital')):
+                resource=dict(probe=a.budget.resources('probe'),confirmed=a.budget.resources('confirmed'),
+                              available=str(a.available),budget_NAV=a.budget.nav,decision_NAV=str(a.current_nav))
+            self.sd_route_log.append(dict(at=str(at),signal_day=str(i['clock'].decision_at.date()),sid=i['sid'],
+                role=i['role'],rank=i['rank'],receipt=i.get('CP1_id'),sector=self.sector_by_sid[i['sid']],
+                original_target_maxq=x['maxq'],minimum_quantity=x['rule'].buy_minimum,price=str(x['price']),
+                before_migration=before,result=why or 'reserved',quantity=answer[0] if answer else 0,
+                pool=answer[1] if answer else None,new_permission_used=bool(answer and answer[1]=='confirmed' and before and before['reason'] in ('same_attempt_probe_pending','whole_old_transfer_cannot_fit')),
+                resource_when_probe_or_pool_blocked=resource))
+        return answer,why
+    def daily_bridge(self,a,at,bal):
+        J.Runner.daily_bridge(self,a,at,bal)
+        sectors={x.sector for x in a.budget.lots if x.pool=='probe'}
+        for sector in sorted(sectors):
+            v=migration_view(a,sector)
+            if v['old_probe'] or v.get('pending_probe'):
+                self.sd_migration_closes.append(dict(day=str(at.date()),sector=sector,**v))
+    def checkpoint(self,out,last_event):
+        super().checkpoint(out,last_event);out=Path(out);day=str(last_event.date())
+        if day in {'2022-03-31','2022-06-30','2022-09-30','2022-12-30','2025-09-30','2025-12-31','2026-03-31','2026-06-30'}:
+            for suffix in ('pkl','json'):shutil.copyfile(out/('checkpoint.'+suffix),out/('checkpoint-'+day+'.'+suffix))
+    def dump_joint(self,path):
+        super().dump_joint(path);path=Path(path)
+        IO.write_gzip_jsonl(path/'SD-route.jsonl.gz',self.sd_route_log,encoder=J.C.encoded)
+        IO.write_gzip_jsonl(path/'SD-migration-closes.jsonl.gz',self.sd_migration_closes,encoder=J.C.encoded)
+
+def initialize(factory,root,stage):
+    try:return factory()
+    except BaseException as e:
+        IO.write_json(Path(root)/'failure/INITIALIZATION_ERROR.json',dict(action=stage,type=type(e).__name__,reason=str(e)));raise
+
+if __name__=='__main__':raise SystemExit('Runner only. Use explicitly authorized two-window run.py.')

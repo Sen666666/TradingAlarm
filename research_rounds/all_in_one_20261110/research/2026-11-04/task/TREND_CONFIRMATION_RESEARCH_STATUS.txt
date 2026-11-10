@@ -1,0 +1,3 @@
+最新状态已更新：本数量确认实现停止晋升，两完整窗口/独立财务结束，严格数学边界FAIL保留。详见 TREND_CONFIRMATION_DECISION.txt。
+新阶段为 ma63_down_replenishment_v1 的0账户薄核，不是新策略回测。
+更新UTC 2026-11-04T17:54:48.780759+00:00

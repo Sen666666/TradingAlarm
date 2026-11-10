@@ -1,0 +1,19 @@
+只读行业同日推进门覆盖诊断入口，2026-11-02。
+
+先读REPORT.txt的一张结论表和分母/因果说明，再读PROTOCOL.txt与FREEZE.json。
+原1709/90与固定窗口：SOURCE_COVERAGE.json、ALL_1709_ROSTER_COVERAGE.json、ALL_NODES_COVERAGE.json。
+完整收据与分母：STOCK_CANONICAL_EVENTS.parquet，40,003行，每个原收盘canonical唯一。
+行业状态与当天事件：INDUSTRY_DAILY_CONTEXTS.parquet，47,160行，524观察×90行业，含零机会/UNKNOWN。
+当日覆盖：DAILY_COVERAGE.parquet、COVERAGE_SUMMARY.json、CONCLUSION_TABLE.json。
+正式等待入口：STOCK_CONTEXT_WAIT_ASOF.parquet；只用截至各固定窗终点的失败元数据。
+STOCK_CONTEXT_WAIT.parquet为初版完整来源元数据，含窗口外的历史失败日期，仅留作审计；不可用它的窗口外日期解释终点censor。
+WAIT_METADATA_ASOF_AUDIT.json证明1,517行窗口外失败日期已从正式视图隐去，等待分类与数值未变。
+RAW等待仅描述收据，44个首条未满足股票Q的RAW组不能解释为有效风险机会；所有STOCK/OLD_Q/F1首机会已核股票条件。
+重点：FIXED_FOCUS_COVERAGE.json、FOCUS_EVENTS.parquet；FOCUS_WAITS.parquet是初版来源视图，正式等待从ASOF按sid/sector过滤。
+旧May7少1条：MAY7_CHECKPOINT_RECONCILIATION.json，旧61/54与完整62/55；不改旧输出。
+原收益标签：EXISTING_LABEL_JOIN.parquet、EXISTING_LABEL_SUMMARY.json、EXISTING_LABEL_SECTOR_VIEWS.json。只旧Q覆盖，不补2023标签，不把F1独有NA填收益。
+核验：VERIFICATION.json，54项；verify_outputs.py只读重核；analyze_coverage.py与publish_views.py为来源join/发布脚本，不运行账户或F1内核。
+PROTOCOL/FREEZE、source hash和所有产物hash见PACKAGE_SHA256.json。原始source hash另见SOURCE_SHA256.json与ADDITIONAL_SOURCE_SHA256.json。
+
+本轮执行：analyze_coverage.py一次，81.32秒；publish_views.py一次。原机制重算/账户/订单/下载均0。
+验证脚本两次未通过后仅修正核验：一次为parquet空值NaN与None的等价比较；一次揭示旧May7分母61/54漏1条，逐值核查后以完整62/55与旧快照对账。门、分母资格逻辑、F1、阈值或收益数据未为验收而改动。第三次54项通过。

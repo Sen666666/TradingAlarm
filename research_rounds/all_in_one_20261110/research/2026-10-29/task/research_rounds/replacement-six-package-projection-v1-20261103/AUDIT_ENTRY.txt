@@ -1,0 +1,35 @@
+Scope: six frozen original CLOSE packages; OFF / HARD / WEAK pure resource projection.
+No account event, new indicator, new forward label, live/production action or policy PnL.
+
+Commands (use an isolated copy if preserving exact output bytes):
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B preflight.py
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B project.py
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B verify.py
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B summarize.py
+
+project.py skips completed source-bound outputs. preflight.py rechecks original
+plan arithmetic / full guard sequence / persistent C20 budget, not original
+selector enumeration. The already-audited original selector result is bound
+by its certificate digest and trusted pre-planning snapshot. Inputs do not
+contain forward labels or new-layer realized outcomes. summarize.py joins
+historical outcomes only AFTER all twelve projected plans are frozen.
+
+Matching: separate exact rational capacity flow for every original checked
+resource stage. FREE is immutable original slack; donor surplus never
+re-enters FREE. Negative fee/NAV contributions debit resource first.
+The BASE_DEFICIT sink repairs existing overhang, not a new receiver or free
+capacity. Each final plan is also checked by the original strict Decimal
+resource validator. No admission tolerance is introduced.
+
+All six D-layer counts equal D-stock counts; the broader 80-batch study's
+multi-layer donors are not additional integration coverage here.
+The repair search reuses original priority/weakest-first incremental loop,
+within original positive Q and original D layer/quantity bounds. It is not
+an optimizer over all possible Q/D combinations or a proof of global minimum
+turnover. Native-check ceiling 250000 is technical only; observed maximum
+pure evaluation count is recorded in results. No approximate result exists.
+
+Failures/01 and 02 preserve off-gate integration mistakes fixed before any
+HARD/WEAK solve. ERROR_HISTORY_STATUS identifies historical errors as closed.
+Final gate: PREFLIGHT.json. Final eighteen-plan verification: VERIFICATION.json.
+All outputs are analysis-only and not admissible order certificates.

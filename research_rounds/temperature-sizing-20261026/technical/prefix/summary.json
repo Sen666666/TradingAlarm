@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "accounts": [
+    "F100__S0_base",
+    "F10__S0_base",
+    "F30__S0_base",
+    "A__S0_base",
+    "B__S0_base",
+    "C__S0_base",
+    "D__S0_base"
+  ],
+  "days": 975,
+  "daily_rows": 6825,
+  "technical": true
+}

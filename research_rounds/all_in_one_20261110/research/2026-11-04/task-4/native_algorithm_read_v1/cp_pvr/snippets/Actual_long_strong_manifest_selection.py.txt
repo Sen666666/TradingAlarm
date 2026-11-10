@@ -1,0 +1,6 @@
+GEN24 = Path('/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full')
+WINDOWS = {'long': ('2022-01-01','2024-12-31'), 'strong': ('2025-07-01','2026-06-30')}
+RECEIPT_MANIFESTS = [W/'2022-normal-reference-20261031/inputs/MANIFEST.json',
+                    W/'recovery-2023-readiness-20261101/inputs/MANIFEST.json', GEN24/'inputs/MANIFEST.json']
+SCORES = {'long':GEN24/'SCORES_MANIFEST.json', 'strong':N.O/'SCORES_MANIFEST.json'}
+BASELINES = {'long':GEN24/'cycle2024/no60/run-2024/pair', 'strong':E.POOL/'runs/2025_26/pair'}

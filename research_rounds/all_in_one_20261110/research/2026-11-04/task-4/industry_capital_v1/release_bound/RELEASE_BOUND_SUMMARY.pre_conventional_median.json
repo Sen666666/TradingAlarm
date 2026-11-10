@@ -1,0 +1,233 @@
+{
+  "complete": true,
+  "events": 33569,
+  "mother_events": 33569,
+  "snapshots": 7634,
+  "unique_stock_OPEN_marks": 18703,
+  "mark_status_counts": {
+    "SAME_OPEN_RAW": 18656,
+    "STALE_OR_NONOPEN_REFERENCE": 47
+  },
+  "existing_NAVupper_OPENs": 962,
+  "groups": {
+    "ALL_RAW": {
+      "events": 33569,
+      "known_bounds": 33168,
+      "unknown_reasons": {
+        "STALE_OR_UNKNOWN_OLD_PRICE": 209,
+        "NO_NAV_UPPER_IN_EXISTING_CONTEXT": 192
+      },
+      "no_old_inventory": 1155,
+      "minimum_itself_above_sector_allowance": 423,
+      "required_relief_exceeds_all_old_gross": 5082,
+      "required_relief_exceeds_nonlocked_old_upper": 5082,
+      "positive_relief": 33164,
+      "relief_amount": {
+        "n": 33168,
+        "min": "0",
+        "median": "25019.061339441103030",
+        "p90": "101493.732779422363610",
+        "max": "537775.552856750117890"
+      },
+      "positive_relief_amount": {
+        "n": 33164,
+        "min": "0.144576032834280",
+        "median": "25034.869823068510110",
+        "p90": "101493.732779422363610",
+        "max": "537775.552856750117890"
+      },
+      "relief_to_new_minimum_gross": {
+        "n": 33168,
+        "min": "0E+6",
+        "median": "9.861940306539699988007094750",
+        "p90": "76.60153699173198776264041892",
+        "max": "1454.290788762341011321750292"
+      },
+      "amounts_not_summed": true,
+      "unblocked_is_not_admission_or_trade": true
+    },
+    "ALL_FIRST": {
+      "events": 8335,
+      "known_bounds": 8306,
+      "unknown_reasons": {
+        "STALE_OR_UNKNOWN_OLD_PRICE": 17,
+        "NO_NAV_UPPER_IN_EXISTING_CONTEXT": 12
+      },
+      "no_old_inventory": 1014,
+      "minimum_itself_above_sector_allowance": 254,
+      "required_relief_exceeds_all_old_gross": 2647,
+      "required_relief_exceeds_nonlocked_old_upper": 2647,
+      "positive_relief": 8305,
+      "relief_amount": {
+        "n": 8306,
+        "min": "0",
+        "median": "14561.440307801373910",
+        "p90": "74292.444324325917610",
+        "max": "466783.364576061610890"
+      },
+      "positive_relief_amount": {
+        "n": 8305,
+        "min": "2.409262934063310",
+        "median": "14561.440307801373910",
+        "p90": "74292.444324325917610",
+        "max": "466783.364576061610890"
+      },
+      "relief_to_new_minimum_gross": {
+        "n": 8306,
+        "min": "0E+6",
+        "median": "5.159635966810909632516550537",
+        "p90": "62.12120331032438136689231142",
+        "max": "682.1253199757611883560981940"
+      },
+      "amounts_not_summed": true,
+      "unblocked_is_not_admission_or_trade": true
+    },
+    "LONG_RAW": {
+      "events": 18703,
+      "known_bounds": 18413,
+      "unknown_reasons": {
+        "STALE_OR_UNKNOWN_OLD_PRICE": 98,
+        "NO_NAV_UPPER_IN_EXISTING_CONTEXT": 192
+      },
+      "no_old_inventory": 800,
+      "minimum_itself_above_sector_allowance": 305,
+      "required_relief_exceeds_all_old_gross": 3098,
+      "required_relief_exceeds_nonlocked_old_upper": 3098,
+      "positive_relief": 18411,
+      "relief_amount": {
+        "n": 18413,
+        "min": "0",
+        "median": "20922.709989529329560",
+        "p90": "72792.593157970507690",
+        "max": "176010.253779376462910"
+      },
+      "positive_relief_amount": {
+        "n": 18411,
+        "min": "0.185259288755990",
+        "median": "20923.450653794121910",
+        "p90": "72792.593157970507690",
+        "max": "176010.253779376462910"
+      },
+      "relief_to_new_minimum_gross": {
+        "n": 18413,
+        "min": "0E+6",
+        "median": "9.850304964047472187094858368",
+        "p90": "78.40319274844306607775110518",
+        "max": "674.8660670062675698191513380"
+      },
+      "amounts_not_summed": true,
+      "unblocked_is_not_admission_or_trade": true
+    },
+    "STRONG_RAW": {
+      "events": 14866,
+      "known_bounds": 14755,
+      "unknown_reasons": {
+        "STALE_OR_UNKNOWN_OLD_PRICE": 111
+      },
+      "no_old_inventory": 355,
+      "minimum_itself_above_sector_allowance": 118,
+      "required_relief_exceeds_all_old_gross": 1984,
+      "required_relief_exceeds_nonlocked_old_upper": 1984,
+      "positive_relief": 14753,
+      "relief_amount": {
+        "n": 14755,
+        "min": "0",
+        "median": "33990.442563764170240",
+        "p90": "133079.097995369717110",
+        "max": "537775.552856750117890"
+      },
+      "positive_relief_amount": {
+        "n": 14753,
+        "min": "0.144576032834280",
+        "median": "33994.550018918933890",
+        "p90": "133079.097995369717110",
+        "max": "537775.552856750117890"
+      },
+      "relief_to_new_minimum_gross": {
+        "n": 14755,
+        "min": "0E+6",
+        "median": "9.865565491575328973071201120",
+        "p90": "74.73426011699328653854890736",
+        "max": "1454.290788762341011321750292"
+      },
+      "amounts_not_summed": true,
+      "unblocked_is_not_admission_or_trade": true
+    },
+    "H1_2026_SEMICONDUCTOR_RAW": {
+      "events": 592,
+      "known_bounds": 585,
+      "unknown_reasons": {
+        "STALE_OR_UNKNOWN_OLD_PRICE": 7
+      },
+      "no_old_inventory": 3,
+      "minimum_itself_above_sector_allowance": 16,
+      "required_relief_exceeds_all_old_gross": 188,
+      "required_relief_exceeds_nonlocked_old_upper": 188,
+      "positive_relief": 585,
+      "relief_amount": {
+        "n": 585,
+        "min": "204.677004806489690",
+        "median": "95001.320017388633460",
+        "p90": "162809.319201985986960",
+        "max": "194804.306640298386280"
+      },
+      "positive_relief_amount": {
+        "n": 585,
+        "min": "204.677004806489690",
+        "median": "95001.320017388633460",
+        "p90": "162809.319201985986960",
+        "max": "194804.306640298386280"
+      },
+      "relief_to_new_minimum_gross": {
+        "n": 585,
+        "min": "0.01236399839524754061987500146",
+        "median": "10.03397819178213642949041360",
+        "p90": "39.60826032833622101012985571",
+        "max": "107.6372396072235518646926537"
+      },
+      "amounts_not_summed": true,
+      "unblocked_is_not_admission_or_trade": true
+    },
+    "H1_2026_SEMICONDUCTOR_FIRST": {
+      "events": 167,
+      "known_bounds": 167,
+      "unknown_reasons": {},
+      "no_old_inventory": 3,
+      "minimum_itself_above_sector_allowance": 10,
+      "required_relief_exceeds_all_old_gross": 60,
+      "required_relief_exceeds_nonlocked_old_upper": 60,
+      "positive_relief": 167,
+      "relief_amount": {
+        "n": 167,
+        "min": "204.677004806489690",
+        "median": "29119.715609798872900",
+        "p90": "141862.936975300712780",
+        "max": "194737.805001203796210"
+      },
+      "positive_relief_amount": {
+        "n": 167,
+        "min": "204.677004806489690",
+        "median": "29119.715609798872900",
+        "p90": "141862.936975300712780",
+        "max": "194737.805001203796210"
+      },
+      "relief_to_new_minimum_gross": {
+        "n": 167,
+        "min": "0.01236399839524754061987500146",
+        "median": "3.665637660993039110167837995",
+        "p90": "22.82793632254886895866051143",
+        "max": "75.14351210351364998295554210"
+      },
+      "amounts_not_summed": true,
+      "unblocked_is_not_admission_or_trade": true
+    }
+  },
+  "seconds": 73.49889566609636,
+  "limit_seconds": 100,
+  "new_accounts": 0,
+  "new_RiskBooks": 0,
+  "new_full_market_preparations": 0,
+  "formula": "max(0, old_SC_gross+actual_prior_same_sector_reserved_gross+qmin_gross-.02*(existing_NAVupper+1e-6))",
+  "numerical_safety": "Additional 1e-6 currency deducted from bound; comparisons add 1e-6 to inventory upper. No economic parameter change.",
+  "claim": "Necessary original-path capital relief lower bound only. Ignores sell fees/NAV loss and does not permit cancelling committed front orders or selling T+1/locked assets. No return/shortfall totals."
+}

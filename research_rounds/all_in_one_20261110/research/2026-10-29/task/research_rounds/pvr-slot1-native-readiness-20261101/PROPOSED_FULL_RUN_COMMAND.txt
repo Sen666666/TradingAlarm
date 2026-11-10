@@ -1,0 +1,4 @@
+PROPOSAL ONLY; do not execute until independent native audit and root full-path authorization.
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/run_trial.py --execute --windows both --authorization-file /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/FULL_RUN_AUTHORIZATION.json --seconds-per-window 600
+
+One invocation: exactly2022 then2025_26, original SC/Bdiag baseline not rerun. Existing technical strong prefix checkpoint will resume; no full policy window currently started. Authorization file intentionally ABSENT.

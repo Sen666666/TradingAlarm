@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "rows": 1178,
+  "windows": 2,
+  "new_accounts": 0,
+  "new_indicators": 0,
+  "seconds": 15.96085433382541,
+  "current_state_exact_to_original_IX_grade": true,
+  "fresh_I_implies_warm_all_rows": true
+}

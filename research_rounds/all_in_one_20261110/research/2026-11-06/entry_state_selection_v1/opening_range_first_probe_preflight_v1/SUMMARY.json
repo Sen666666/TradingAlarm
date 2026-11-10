@@ -1,0 +1,13 @@
+{
+  "events": 33,
+  "unique_stock_days": 32,
+  "bars": 1536,
+  "all_grid_exact": true,
+  "all_ohlcv_legal": true,
+  "minute_daily_ohlc_maxdiff": 0.14000000000001478,
+  "native_raw_ohlc_maxdiff": 0.14000000000001478,
+  "source_price_mismatch_days": 14,
+  "all_trade_status_1": true,
+  "statuses": "{('NOACT_ORIGINAL_MOBILE', 'NO_SIGNAL'): 9, ('NOACT_ORIGINAL_MOBILE', 'SIGNAL'): 5, ('PRICE_FIXED_INPUT', 'NO_SIGNAL'): 9, ('PRICE_FIXED_INPUT', 'SIGNAL'): 10}",
+  "economic_runs": 0
+}

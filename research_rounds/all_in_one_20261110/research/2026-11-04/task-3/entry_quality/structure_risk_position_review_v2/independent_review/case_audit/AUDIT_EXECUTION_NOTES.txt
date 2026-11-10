@@ -1,0 +1,9 @@
+执行只读，无金融/模型导入或新账户。
+audit_saved_semis_scope.py 使用系统python，159项PASS。
+audit_original_daily_cases.py 需既有pandas/pyarrow环境：
+/Users/bytedance/.cache/uv/archive-v0/BCk79KzaN8dGdkNqEjF-9/bin/python
+
+前置执行修正均未产生审计通过收据或更改源：系统python无pandas；路径parents初次错一级；最初误要求所有源必须等于native日历当天。
+最后一项经源证据修正为真实asof≤时钟：中船Jun23–25原源只到Jun22，原native继续记库存，CP为空。没有为通过检查制造新日线。
+最终用作者刷新后的两JSON/CSV/源manifest/READOUT与KEY_DATES绑定，4180项PASS。
+pyarrow打印sysctl CPU cache探测受沙箱限制提示，但进程正常完成、源数据可读；无权限升级或源变更。

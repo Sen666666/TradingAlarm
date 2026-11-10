@@ -1,0 +1,219 @@
+{
+  "status": "DESIGN_ONLY_NOT_IMPLEMENTED",
+  "revision": "minimal_A_original_greedy_projection",
+  "precedence": "This addendum supersedes active donor capping, joint optimization, guaranteed fills and actual-no_fill-prefix selection in DESIGN.md. It specifies a not-yet-implemented split between OPEN-known conditional projection and unchanged final execution.",
+  "global_snapshot": {
+    "book_id": "hash of exact CLOSE snapshot, original sorted request list, native source hashes, frozen next-open rules and phase-separation contract",
+    "close_day": "observed close",
+    "next_open_day": "original calendar successor",
+    "account_snapshot": [
+      "cash",
+      "receivable",
+      "NAV_close",
+      "active_rounds_and_lots",
+      "role_locked_on_acquisition",
+      "I_CP_state_and_ids",
+      "ticket_state",
+      "event_state_and_spent",
+      "source_lineage_and_factor",
+      "admitted_corporate_actions"
+    ],
+    "original_request_identity": [
+      "request_id",
+      "sid",
+      "kind",
+      "signal_day",
+      "plan_day",
+      "round_id_for_ADD",
+      "cp_id_and_cp_date_for_ADD",
+      "ticket_id_if_any",
+      "allocation_phase",
+      "event_id"
+    ],
+    "deletion_sequence": "lowest original ranked new MATURE SEED first; stable identity tie-break from original order",
+    "shadow_id": "branch with no new MATURE SEED",
+    "inherited_boundary": "Whole-day OHLC no_fill, including in forced exit_open, is unavailable to OPEN selection. Conditional prefix assumes known OPEN executable submission. Full original execution and all matching gates occur only after selection."
+  },
+  "branch_record": {
+    "branch_id": "hash of exact retained N identities and full native CLOSE planning outputs",
+    "N_retained_ids": "subset along the fixed deletion chain; no arbitrary subset optimization",
+    "close_comparison_status": [
+      "PASS",
+      "FAIL_HEALTHY_DONOR_INCREASE",
+      "FAIL_ADD_EVENT_SUBMISSION_REDUCTION",
+      "ORIGINAL_BLOCK_OR_UNKNOWN"
+    ],
+    "open_selectable": "CLOSE PASS only, starting at selected first-passing branch and its passing suffix; shadow included",
+    "reference_full_native_snapshot": [
+      "W",
+      "D",
+      "K",
+      "U",
+      "X",
+      "T",
+      "T_residual",
+      "envelope",
+      "fixed",
+      "core",
+      "event_by_sector",
+      "reserve",
+      "stress",
+      "budget",
+      "sector_floor",
+      "receiver_sector_exclusions",
+      "donor_sector_exclusions",
+      "frozen_lot_qty"
+    ],
+    "receivers": {
+      "key": "stable request_id",
+      "origin": "same original request, never synthesized at OPEN",
+      "close_native_fields": [
+        "original_eligibility_status_and_reason",
+        "planned_q",
+        "capacity",
+        "_ref_q",
+        "economic_q_for_SEED",
+        "dated_quantity_rules",
+        "attempt_budget",
+        "stock_cap",
+        "event_cap",
+        "reference_cap",
+        "reference_rank",
+        "origin",
+        "factor",
+        "I_floor",
+        "CP_id",
+        "event_id"
+      ],
+      "bar_q_close": "branch-specific original legal/planned/reference ceiling; zero when absent/removed/illegal/reference-zero; never union maximum",
+      "q_hat_close": "native greedy reservation quantity under CLOSE-known projection, separately stored; not filled quantity or permission cap",
+      "open_bound": "q_hat_open <= this branch bar_q_close using native known OPEN resizing; may exceed q_hat_close",
+      "side_effects": "Scratch changes none. Final true lifecycle runs once: original EVENT priority_attempted may be consumed on actual attempt even without fill; event spent on actual fills; CP consumed on actual ADD fills."
+    },
+    "donors": {
+      "key": "sid+round_id+lot_id",
+      "frozen_identity": [
+        "capital_role",
+        "close_quantity",
+        "bought",
+        "T1",
+        "mobile_qty",
+        "frozen_qty",
+        "I_CP_protection",
+        "source_origin",
+        "factor_bridge",
+        "health_CLOSE_and_evidence"
+      ],
+      "close_native_fields": [
+        "rank",
+        "reason",
+        "max_q",
+        "frozen_lot_qty",
+        "close_sector_floor",
+        "expected_net",
+        "dated_sell_rules",
+        "reference_snapshot_id"
+      ],
+      "y_hat_close": "native greedy projected sale quantity; compare to same-lot shadow, do not confuse with planned max_q",
+      "open_bound": "native projection must obey this branch max_q; if current healthy and y_hat_open > shadow y_hat_open, reject branch, do not clip donor",
+      "forbidden": "cross-branch max/min field mixing, caps assembled from different references, extra OPEN donor identities"
+    },
+    "informational_unions": {
+      "receiver_ids": "only helps enumerate conditional CLOSE-authorized requests; supplies no quantity cap",
+      "donor_ids": "only helps enumerate conditional CLOSE-authorized lot candidates; supplies no quantity cap",
+      "execution_rule": "choose exactly one branch_id; use every execution field from it; never execute the union"
+    }
+  },
+  "quantity_names": {
+    "bar_q_C": "CLOSE conditional authorization ceiling from native branch plan",
+    "q_hat_C": "CLOSE-known native reservation projection",
+    "q_hat_O": "OPEN-known conditional native reservation/submittable projection, before any full-day no_fill, including forced-exit no_fill",
+    "fill_q": "eventual original matching result, may differ from q_hat_O and must not feed selection",
+    "y_hat_O": "OPEN-known conditional voluntary funding sale projection, not guaranteed realized sales after original matching"
+  },
+  "acceptance": {
+    "demand_anchor_set": "kind ADD OR phase EVENT; excludes RESIDUAL from lower bound",
+    "checks": [
+      "for each current healthy lot: y_hat_candidate <= y_hat_shadow",
+      "for each ADD/EVENT identity: q_hat_candidate >= q_hat_shadow"
+    ],
+    "failed_branch": "remove next lowest-priority N and consider next already frozen allowed branch; no active capping or reordering",
+    "terminal": "empty N is exactly unmodified native shadow; no special exemption",
+    "original_residual": "desired-versus-integer-reservation funding residue retained; new N may consume pre-existing shadow residue without additional healthy sales"
+  },
+  "forbidden_future_inputs": [
+    "current-day raw_high/raw_low/raw_close for OPEN choice",
+    "current-day CLOSE M/E/F",
+    "future CP receipt",
+    "future return or winner label",
+    "post-selection no_fill feedback",
+    "original exit_open actual simulation output already influenced by whole-day OHLC no_fill"
+  ],
+  "implementation_state": {
+    "candidate_created": false,
+    "history_run": false,
+    "synthetic_run": false,
+    "network_used": false
+  },
+  "common_health_snapshot": {
+    "close_anchor": "After original CLOSE I/CP/protection/equity/cash/event/ticket updates, before any candidate voluntary transfer or buy projection",
+    "open_anchor": "Read-only OPEN-known conditional prefix: original bridge/protection decisions; predict forced exits at known OPEN price/slippage/fees without full-day no_fill; predict cash/inventory/info_open/H before candidate voluntary trades. Never use original exit_open output after its OHLC no_fill.",
+    "shared_fields": [
+      "health_snapshot_id",
+      "sid+round_id+lot_id",
+      "pre-prefix_actual_cashflow",
+      "dividend_entitlement",
+      "conditional_prefix_predicted_exit_cashflow",
+      "conditional_remaining_inventory",
+      "current_OPEN_quote_factor_lineage",
+      "dated_liquidation_fees_and_slippage",
+      "conditional_round_net_liquidation",
+      "post-SEED_CP_information_proof",
+      "current_I_CP_protection",
+      "exit_lock",
+      "unknown_reasons",
+      "original_donor_eligibility",
+      "H_and_component_reasons"
+    ],
+    "invariant": "Every P0/PN uses exactly the same conditional prefix and H map. Neither branch-local trades nor later actual no_fill/forced-exit outcomes can recalculate selection health.",
+    "allowed_update": "Recompute once at next decision anchor; post-trade actual health is diagnostic only and cannot feed current comparison.",
+    "actual_execution": "After selection, run unchanged original actual prefix and selected-branch execution with no_fill at its original locations. Log deviations in actual H/cash/q/y; never feed them back to selection."
+  },
+  "waiting_interface": {
+    "status": "DESIGN_ONLY; not implemented",
+    "reason": "FUNDING_NONDISPLACEMENT_WAIT, a distinct explicit reason; never forged REFERENCE_CAP or structural false",
+    "preserved_fields": [
+      "request_id",
+      "ticket_id",
+      "sid",
+      "original_signal_day",
+      "birth_type",
+      "original_attempt_or_round_association",
+      "nav0",
+      "original_attempt_budget",
+      "origin_lineage",
+      "ifloor",
+      "factor",
+      "current_factor",
+      "last_verified_day",
+      "allocation_phase_snapshot",
+      "event_id",
+      "original_minimum_q",
+      "economic_q",
+      "capacity",
+      "planned_q",
+      "pre-existing_ticket_status"
+    ],
+    "decision_fields": [
+      "decision_day",
+      "failed_branch_id",
+      "failed_comparison",
+      "original_rank"
+    ],
+    "no_delete": "Remove N only from scratch planner working set. Preserve true pending and ticket for original lifecycle; no new round or budget reset.",
+    "real_open": "Run original structural/source checks even while waiting: known false cancels, unknown pauses/blocks, valid but displaced waits.",
+    "phase": "Keep original phase snapshot; only original later lifecycle may reclassify. No MATURE-to-EVENT/RESIDUAL rewrite to bypass.",
+    "preflight": "Preserve all original preflight targets before filtering N; keep original Q0/source/bridge/action guards, atomic rollback and restored-target scan. Conditional unions do not shrink original coverage.",
+    "side_effects": "Withdrawal itself consumes no EVENT/CP. Real EVENT priority_attempted may be consumed by attempt even no fill; retain original rules."
+  }
+}

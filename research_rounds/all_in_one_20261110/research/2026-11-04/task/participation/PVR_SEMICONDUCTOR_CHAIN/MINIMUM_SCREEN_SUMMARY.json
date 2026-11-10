@@ -1,0 +1,31 @@
+{
+  "unit": "original rejected planned canonical stock/signal-day, repeated shares not independent orders",
+  "screen_clock": "signal CLOSE prices/slip/actual holdings; no actual OPEN or serial route projection",
+  "all_rejected": 537,
+  "original_close_numeric_fail_combinations": {
+    "confirmed60": 513,
+    "none": 23,
+    "confirmed60,sector_risk1": 1
+  },
+  "after_omit_confirmed60_numeric_fail_combinations": {
+    "none": 536,
+    "sector_risk1": 1
+  },
+  "passes_other_close_numeric_checks": 536,
+  "passes_other_close_numeric_unique_stocks": 85,
+  "fails_only_confirmed60_in_this_close_screen": 513,
+  "fails_only_confirmed60_unique_stocks": 85,
+  "passes_others_by_month": {
+    "2026-01": 198,
+    "2026-02": 57,
+    "2026-03": 1,
+    "2026-04": 11,
+    "2026-05": 206,
+    "2026-06": 63
+  },
+  "optimistic_screen_not_actual_unblocked_orders": true,
+  "does_not_remove_migration_pending_dependency": true,
+  "no_new_cap90": true,
+  "financial_events": 0,
+  "new_price_labels": 0
+}

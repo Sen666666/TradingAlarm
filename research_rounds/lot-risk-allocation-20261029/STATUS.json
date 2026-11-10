@@ -1,0 +1,23 @@
+{
+  "status": "complete",
+  "as_of": "2026-10-29T13:29:29.967571+08:00",
+  "new_normal_paths": 2,
+  "old_full_controls": 2,
+  "new_economic_replays": 0,
+  "parameter_changes_after_results": 0,
+  "full_matrix": false,
+  "physical_prefix_paths": 1,
+  "independent_daily_rows": 2724,
+  "daily_max_nav_error": "0",
+  "old_control_fills_exact": 7050,
+  "new_core_actual_risk_checks": 3131,
+  "prefix_rows": 486,
+  "prefix_fills": 2811,
+  "test_methods_passed": 12,
+  "old_nested_boundary_tests": 10,
+  "candidate_promoted": false,
+  "continuity_universally_improved": false,
+  "next_queue_started": false,
+  "platform_or_real_paper_accounts_changed": false,
+  "new_downloads": 0
+}

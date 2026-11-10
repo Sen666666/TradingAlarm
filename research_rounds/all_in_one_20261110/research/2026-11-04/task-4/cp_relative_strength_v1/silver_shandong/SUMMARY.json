@@ -1,0 +1,78 @@
+{
+  "300085.SZ": {
+    "name": "银之杰",
+    "window": [
+      "2024-09-01",
+      "2024-11-30"
+    ],
+    "stock_CLOSEs": 58,
+    "original_CP_receipts": 16,
+    "designated_industry": "软件开发",
+    "designated_industry_id": "URFI881272",
+    "PIT_membership_known": false,
+    "windows": {
+      "5": {
+        "stock_industry_numeric_known": 58,
+        "industry_market_numeric_known": 58,
+        "CP_stock_designated_industry_RS_positive": 15,
+        "CP_industry_market_RS_positive": 14,
+        "CP_both_RS_positive": 14,
+        "stock_factor_change_windows": 0
+      },
+      "20": {
+        "stock_industry_numeric_known": 58,
+        "industry_market_numeric_known": 58,
+        "CP_stock_designated_industry_RS_positive": 16,
+        "CP_industry_market_RS_positive": 16,
+        "CP_both_RS_positive": 16,
+        "stock_factor_change_windows": 0
+      },
+      "60": {
+        "stock_industry_numeric_known": 58,
+        "industry_market_numeric_known": 58,
+        "CP_stock_designated_industry_RS_positive": 16,
+        "CP_industry_market_RS_positive": 16,
+        "CP_both_RS_positive": 16,
+        "stock_factor_change_windows": 0
+      }
+    }
+  },
+  "601019.SH": {
+    "name": "山东出版",
+    "window": [
+      "2023-01-01",
+      "2023-12-31"
+    ],
+    "stock_CLOSEs": 242,
+    "original_CP_receipts": 24,
+    "designated_industry": "文化传媒",
+    "designated_industry_id": "URFI881164",
+    "PIT_membership_known": false,
+    "windows": {
+      "5": {
+        "stock_industry_numeric_known": 242,
+        "industry_market_numeric_known": 242,
+        "CP_stock_designated_industry_RS_positive": 15,
+        "CP_industry_market_RS_positive": 21,
+        "CP_both_RS_positive": 12,
+        "stock_factor_change_windows": 5
+      },
+      "20": {
+        "stock_industry_numeric_known": 242,
+        "industry_market_numeric_known": 242,
+        "CP_stock_designated_industry_RS_positive": 15,
+        "CP_industry_market_RS_positive": 23,
+        "CP_both_RS_positive": 15,
+        "stock_factor_change_windows": 20
+      },
+      "60": {
+        "stock_industry_numeric_known": 242,
+        "industry_market_numeric_known": 242,
+        "CP_stock_designated_industry_RS_positive": 11,
+        "CP_industry_market_RS_positive": 23,
+        "CP_both_RS_positive": 10,
+        "stock_factor_change_windows": 60
+      }
+    }
+  }
+}

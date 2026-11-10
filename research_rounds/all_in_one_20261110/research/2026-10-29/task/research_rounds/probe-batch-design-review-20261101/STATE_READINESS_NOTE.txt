@@ -1,0 +1,23 @@
+只读状态恢复可行性补记；未修改合同／实现分配器／运行新预览。
+
+不是两个目标开盘都有现成checkpoint可直接restore。
+2023/1/20：现有最近早期完整快照为2022/12/30及2023/1/3日终，随后季度快照是3/31。已从1/19日终和原已发生流水复算该日全部named-stock路由前资源，并与保存的capacity-checks逐项核同；当日开盘前无旧库存，故比较简单。但这证明资金分配视图，不等于已把任意完整Python account/runner字段恢复到1/20开盘。
+2022/6/29：现有之前季度快照3/31，之后6/30；没有6/28日终或6/29开盘的完整状态pkl。已用6/28原decision取得全部691个pending角色意图，并核原6/29无任何新预留。此前只读minimum检查不是完整开盘状态恢复；6/28的probe风险6085只是日终数，不当开盘数。
+
+可不重跑经济账户而做什么
+可沿既有checkpoint及原journal/audit做“只应用实际已发生记录”的bookkeeping fold：实际split/分数尾差归层、实际sell及settlement、权益/应收、实际buy/reserve/cancel、行业pool迁移；用原mark和上一已知保护重建预览所需开盘资源。不得重新决定买卖、调用ACT/route产生替代交易或按预览结果改变后面历史。
+原previous-close decision已经保存完整pending目标/role/rank/CP1 ID，故allocation-only预览不必重新运行I/Q/H1筛选或完整planning，也不必重算global_watch/core_epoch等来生成第二套候选。canonical payload、原行业state、权息与dated数量/费用规则可从现有缓存取。
+但“完整任意account/strategy对象逐字段恢复”尚未有专用无决策恢复器及全字段核验，不能提前声称已就绪。Jun29尤其要核旧订单余量/费用、现金与权益、T+1可卖lot、industry attempt/pool迁移；日终表只有部分聚合和pending_sells，并不是完整native订单/现金科目快照。
+
+覆盖全批次的既有Bdiag文件（不拿B3仪表数据替代Bdiag）
+2022：2022-normal-reference-20261031/runs/B_diag/pair/
+  B.json.gz：242个完整decision及pending意图，864条real_reserve、859条real_buy_fill、735条real_sell_fill、5条cancel_ack、5条split；完整native audit、终态budget/orders/exits。
+  daily.jsonl.gz：242日；opportunities：413578=242×1709；funding：40628；industry事件：6008。
+2025/7–2026/6：q2-normal-continuation-20261031/runs/B_diag/pair/
+  该目录保留承接的完整历史，不是只有Q2。242个decision，926条real_reserve、902条real_buy_fill、673条real_sell_fill、24条cancel_ack、5条split；242日daily、413578机会行、79557 funding行、5753 industry事件。
+  原3/31状态及之前9/30、12/31快照仍在account-risk-ablation-20261031/run；6/30完整快照在上述Q2目录。
+2023：recovery-2023-readiness-20261101/runs/Bdiag/pair/另有全2023 actual capacity-checks，能核每个真正到route的资源总量；2022及强窗两目录没有同类逐route资源快照。funding/actual reserves不能代替完整候选批次：同股core预留后跳过的mobile等仍应从原decision/pending保留。
+
+所以：全批allocation-only预览仍需原账务重建，不能只读最终订单再换顺序；无需重新计算指标，也无需推进修改账户。当前证据可支持先做极轻的“原probe预留多少已是dated minimum”描述统计，再决定是否值得建立全批恢复视图。959.72元只是固定Jan20原四笔缩量上界，没有证明新增参与。
+
+源码依据：case-stage-ledger-20261031/v3/launch_v3.py:PreparedRunner.checkpoint保存全部非market/facts账户字段；joint_v3.py:Runner.planning保存pending意图/daily、opening先实卖与settlement再funding；dump_joint只导部分对象与流水；recovery-2023-readiness-20261101/continuation_2023.py:import_verified已证明年末完整checkpoint与原账/五流水核同，instrument_route才补上2023资源日志。已有named-2023诊断164/166分层资源核同，2条split归层unknown仍保留，不能据此宣称全批恢复已全部通过。

@@ -1,0 +1,95 @@
+{
+  "scope": "Saved actual fill quantities x initial floor distance. Comparator .25% is existing CORE budget, not fitted/new threshold. This price-distance risk is only a lower bound to native fee/sell-slip contract and not actual execution loss. No proposed quantities or orders generated.",
+  "years": {
+    "2022": {
+      "groups": [
+        {
+          "kind": "core",
+          "all": {
+            "layers": 244,
+            "annual_wealth_change": "-59640.88828262202444164235883",
+            "negative_layer_sum": "-83406.03624720463580016687525",
+            "positive_layer_sum": "23765.14796458261135852451643",
+            "max_initial_price_distance_risk_pct_NAV": "0.2458098518423507072864458491"
+          },
+          "price_distance_lower_bound_above_original_CORE_budget": {
+            "layers": 0,
+            "annual_wealth_change": "0",
+            "negative_layer_sum": "0",
+            "positive_layer_sum": "0",
+            "max_initial_price_distance_risk_pct_NAV": null
+          }
+        },
+        {
+          "kind": "add",
+          "all": {
+            "layers": 735,
+            "annual_wealth_change": "-235871.2647075010750583576410",
+            "negative_layer_sum": "-486165.3089982055271345095593",
+            "positive_layer_sum": "250294.0442907044520761519182",
+            "max_initial_price_distance_risk_pct_NAV": "0.4153552838698741343902931451"
+          },
+          "price_distance_lower_bound_above_original_CORE_budget": {
+            "layers": 50,
+            "annual_wealth_change": "-32407.88794929120988888888889",
+            "negative_layer_sum": "-71632.13204301507538888888889",
+            "positive_layer_sum": "39224.2440937238655",
+            "max_initial_price_distance_risk_pct_NAV": "0.4153552838698741343902931451"
+          }
+        }
+      ],
+      "all_entry_floor_present_and_below_fill": true,
+      "fills": 979,
+      "fees": "19458.2129251230995",
+      "explicit_buy_proxy_slip_amount": "5025.662475",
+      "explicit_sell_proxy_slip_amount": "4575.467590"
+    },
+    "2023": {
+      "groups": [
+        {
+          "kind": "core",
+          "all": {
+            "layers": 114,
+            "annual_wealth_change": "21872.37620074648997282425416",
+            "negative_layer_sum": "-18540.99599142823270487483531",
+            "positive_layer_sum": "40413.37219217472267769908946",
+            "max_initial_price_distance_risk_pct_NAV": "0.2466067874407182671417517286"
+          },
+          "price_distance_lower_bound_above_original_CORE_budget": {
+            "layers": 0,
+            "annual_wealth_change": "0",
+            "negative_layer_sum": "0",
+            "positive_layer_sum": "0",
+            "max_initial_price_distance_risk_pct_NAV": null
+          }
+        },
+        {
+          "kind": "add",
+          "all": {
+            "layers": 464,
+            "annual_wealth_change": "15834.07828839116145208417073",
+            "negative_layer_sum": "-253673.4139944584740754363567",
+            "positive_layer_sum": "269507.4922828496355275205274",
+            "max_initial_price_distance_risk_pct_NAV": "0.3526813432730949940147718847"
+          },
+          "price_distance_lower_bound_above_original_CORE_budget": {
+            "layers": 16,
+            "annual_wealth_change": "2553.20491692160028671328672",
+            "negative_layer_sum": "-22148.10509381585607692307692",
+            "positive_layer_sum": "24701.31001073745636363636364",
+            "max_initial_price_distance_risk_pct_NAV": "0.3526813432730949940147718847"
+          }
+        }
+      ],
+      "all_entry_floor_present_and_below_fill": true,
+      "fills": 578,
+      "fees": "12578.8705517868470",
+      "explicit_buy_proxy_slip_amount": "2679.790320",
+      "explicit_sell_proxy_slip_amount": "3022.987760"
+    }
+  },
+  "new_accounts": 0,
+  "new_backtests": 0,
+  "native_modules_imported": false,
+  "future_outcomes_not_used_as_signal": true
+}

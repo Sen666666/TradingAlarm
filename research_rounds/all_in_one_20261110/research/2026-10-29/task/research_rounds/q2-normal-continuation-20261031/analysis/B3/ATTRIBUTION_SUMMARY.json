@@ -1,0 +1,30 @@
+{
+  "reference": "B3",
+  "Q2_strict_NAV_difference": "126319.6039890874465",
+  "sum_stock_contributions": "126319.6039890874465",
+  "stock_bridge_residual": "0E-13",
+  "cohort_contributions": {
+    "inherited_winner_stock_layers": "69674.00571966175000000000000",
+    "inherited_nonpositive_stock_layers": "33445.59605171849650000000000",
+    "Q2_new_evidence_layer": "23200.0022177072000"
+  },
+  "cohort_residual": "0E-22",
+  "new_probe_origin_closed_negative_layer_loss": "2074.5292858372000",
+  "new_probe_origin_loss_groups": {
+    "positive_then_closed_loss": "831.1384003323500",
+    "never_positive_at_saved_closes": "1243.3908855048500"
+  },
+  "intraday_unobserved_positive_unknown": true,
+  "record_only_negative_realization_plus_fee_increase": "16145.250825912550967",
+  "Q2_actual_flat_reentries": 2,
+  "exit_first_fill_source_session_latency": {
+    "0": 31
+  },
+  "Q2_exit_orders_with_fills": 31,
+  "pending_sell_orders": 0,
+  "actual_company_actions": {
+    "dividend_accrual": 7,
+    "split": 1
+  },
+  "no_single_mechanism_causal_attribution": true
+}

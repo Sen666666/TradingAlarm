@@ -1,0 +1,28 @@
+{
+  "created_at": "2026-10-22T23:04:56.619462+08:00",
+  "plan_sha256": "6ff2443f7cc4df6fa57b5f598052a8ff0bd4d4b7090fbb5337dceea16d544b52",
+  "code_sha256": "5f20a386759dca9eab9d0dc8a73a538c84f50f19bc58de59da3b0c316365c4bf",
+  "credentials_used": false,
+  "requests": [
+    {
+      "sequence": 1,
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/global/hkexsc/c/10795123/files/2ad73fe12ffa4910b352ebceda89a23d.docx",
+      "status": 200,
+      "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "bytes": 65360,
+      "response": "01.body",
+      "sha256": "ef88727f17828c6697995b1478f964e0c77dea0591e1056dbb8467fead14dcf2",
+      "redirects": 0
+    },
+    {
+      "sequence": 2,
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/global/hkexsc/c/10795123/files/92b31f4920bc4579820a72c6c4b2843e.docx",
+      "status": 200,
+      "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "bytes": 11985,
+      "response": "02.body",
+      "sha256": "09e87627db0435ff2ecda0bdc76b386c491de8b4180ce51b47e9968545c9a726",
+      "redirects": 0
+    }
+  ]
+}

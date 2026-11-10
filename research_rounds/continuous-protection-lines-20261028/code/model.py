@@ -1,0 +1,72 @@
+"""CP1 market-only receipt calculation. No account/trade engine imports."""
+import math
+import numpy as np
+import pandas as pd
+A=math.sqrt(5);K=math.sqrt(21);S_MIN=math.log1p(.001)
+EPS=4*2**-53/(1-4*2**-53)
+def ge(a,b):return a>=b or abs(a-b)<=EPS*max(abs(a),abs(b),1e-300)
+def gt(a,b):return a>b and not abs(a-b)<=EPS*max(abs(a),abs(b),1e-300)
+def features(f):
+ if not isinstance(f.index,pd.DatetimeIndex) or f.index.hasnans or not f.index.is_unique or not f.index.is_monotonic_increasing:raise ValueError('ordered unique daily index required')
+ if not f.index.normalize().is_unique:raise ValueError('daily only')
+ if not {'close','amount','segment_id','e0_valid','e0_down'}<=set(f):raise ValueError('required facts absent')
+ for k in ['close','amount']:
+  if not (np.isfinite(f[k]).all() and f[k].gt(0).all()):raise ValueError('no missing/nonpositive price or amount')
+ for k in ['e0_valid','e0_down']:
+  if not pd.api.types.is_bool_dtype(f[k]) or f[k].isna().any():raise ValueError('explicit Boolean facts required')
+ if f.segment_id.isna().any():raise ValueError('source identity required')
+ blocks=f.segment_id[f.segment_id.ne(f.segment_id.shift())]
+ if blocks.duplicated().any():raise ValueError('noncontiguous source')
+ out=pd.DataFrame(index=f.index,columns=['r','s','z','B','u','v','m'],dtype=float)
+ for _,g in f.groupby('segment_id',sort=False):
+  r=np.log(g.close).diff();s=r.abs().shift().rolling(63,min_periods=63).median().mul(1.4826).clip(lower=1e-8)
+  B=g.amount.shift().rolling(21,min_periods=21).median();u=np.tanh(r/s);v=np.tanh(np.log(g.amount/B))
+  out.loc[g.index]=pd.DataFrame(dict(r=r,s=s,z=s.clip(lower=S_MIN),B=B,u=u,v=v,m=1+.5*u.abs()*v),index=g.index)
+ return out
+def calculate(f,price_only=False):
+ z=features(f);out=[];phase=None;anchor=frontier=scale=None;credit=0.;segment=None
+ for day,row in f.iterrows():
+  q=z.loc[day];p=math.log(row.close);fresh=0.;receipt=False;candidate=math.nan;reason=None;disp=math.nan
+  if row.segment_id!=segment:
+   phase=None;segment=row.segment_id;reason='source_reset'
+  ready=math.isfinite(q.z)
+  if not ready or not row.e0_valid:
+   phase=None;anchor=frontier=scale=None;credit=0.;reason='unprepared' if not ready else 'E0_invalid'
+  elif phase is None or row.e0_down:
+   phase='SEEK';anchor=frontier=p;credit=0.;scale=float(q.z);reason='E0_down_reset' if row.e0_down else 'start'
+  elif phase=='SEEK' and gt(anchor,p):
+   anchor=frontier=p;credit=0.;scale=float(q.z);reason='lower_anchor'
+  else:
+   fresh=p-frontier if gt(p,frontier) else 0.
+   if fresh:
+    frontier=p;credit=math.fsum((credit,fresh*(1. if price_only else float(q.m))))
+   disp=frontier-anchor
+   receipt=bool(fresh and ge(disp,A*scale) and ge(credit,A*scale))
+   if receipt:candidate=float(row.close)*math.exp(-K*scale)
+  used_anchor,used_scale,used_credit=anchor,scale,credit
+  used_phase=phase
+  if receipt:
+   phase='UP';anchor=frontier=p;credit=0.;scale=float(q.z);reason='receipt_consumed'
+  out.append(dict(ready=ready,phase=used_phase,reset_reason=reason,anchor=used_anchor,frontier=frontier,scale=used_scale,credit=used_credit,delta_frontier=fresh,displacement=disp,receipt=receipt,candidate=candidate,next_anchor=anchor,next_scale=scale,next_credit=credit,next_phase=phase))
+ cols=['ready','phase','reset_reason','anchor','frontier','scale','credit','delta_frontier','displacement','receipt','candidate','next_anchor','next_scale','next_credit','next_phase']
+ result=pd.DataFrame(out,index=f.index,columns=cols)
+ for k in ['phase','reset_reason','next_phase']:result[k]=result[k].astype('string')
+ for k in ['ready','receipt']:result[k]=result[k].astype(bool)
+ for k in set(cols)-{'ready','receipt','phase','reset_reason','next_phase'}:result[k]=result[k].astype(float)
+ result=result.join(z)
+ result['e0_valid']=f.e0_valid;result['e0_floor']=f.i_floor if 'i_floor' in f else np.nan
+ return result
+
+def project(f,z,start,initial,start_at_open=False):
+ """One absorbing price-only shadow, old floor checked before today's receipt."""
+ P=float(initial);out=[]
+ for day,r in f.loc[start:].iterrows():
+  reason='E0' if not r.e0_valid else 'protection' if ge(P,float(r.close)) else None
+  new=P
+  if not reason:
+   if math.isfinite(float(r.i_floor)):new=max(new,float(r.i_floor))
+   if (start_at_open or day>pd.Timestamp(start)) and bool(z.loc[day,'receipt']):new=max(new,float(z.loc[day,'candidate']))
+  out.append(dict(date=str(day.date()),close=float(r.close),P_before=P,P_after=new,exit=reason is not None,reason=reason,receipt=bool(z.loc[day,'receipt']),candidate=None if not math.isfinite(float(z.loc[day,'candidate'])) else float(z.loc[day,'candidate'])))
+  P=new
+  if reason:break
+ return out

@@ -1,0 +1,8 @@
+{
+  "protocol_sha256": "db5ce345859ae3ddb6b18bfe75479348a38333e1150e8ce57a9db68773fd5e04",
+  "code_files": 20,
+  "input_files": 24213,
+  "all_inputs_current_hash_exact": true,
+  "old_files_unchanged": 204,
+  "no_economic_loop_started": true
+}

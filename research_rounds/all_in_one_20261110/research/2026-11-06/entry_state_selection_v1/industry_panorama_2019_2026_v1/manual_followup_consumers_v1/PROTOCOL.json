@@ -1,0 +1,13 @@
+{
+  "scope": "Only the assigned 20 previously unreviewed consumer/service industries; all 140 auxiliary records reviewed. 2019-01-01 to 2026-10-22, retain 2018 origins where relevant.",
+  "human_review": "All 20 continuous daily plots, monthly close paths and yearly daily extrema inspected. Decision recipe is explicit review_decisions.json, not a new optimized threshold extractor.",
+  "manual_boundaries": "Preserve multi-year ascent across higher basing/recovery and renewed highs. Reset after lower structural bases or failed range recovery. Not every >20% drawdown is a new independent long cycle. Moderate range rebounds remain separate where sustained trend is absent. Boundary choice is retrospective and debatable, not known ex ante.",
+  "white_goods": "2018-2026 long parent cycle chosen; 5 auxiliary phases retained in ledger, not counted independently or summed.",
+  "grades": "重点候选 is a retrospective priority for further study, not a statistical fat-tail certificate or a trading recommendation. 普通或可错过 includes broad but modest recoveries and index/member divergences. K<=3 is always 证据不足. Small coverage and concentration disclosed, not extrapolated to historical universe.",
+  "price_filter": "Original observed_bar & price_eligible & !source_invalid & !synthetic_event_bar & close>0 & finite adjusted close, identical for industry and stocks; no forwardfill. All sources SHA256 verified.",
+  "member_basis": "Current 2026 static surviving 1709 approximately >=10bn CNY research pool, current repaired industry mapping, NON-PIT. n=positive endpoint count; K=known exact endpoints; P=research pool members; F=current all mapped members; full_path_members reported separately.",
+  "concentration": "Top3 share=sum of top3 max(member return,0)/sum all max(member return,0), equal initial notional, not index-weight contribution. With 1-3 samples top3=100% is mechanically uninformative.",
+  "calculation": "Every final row recomputed from raw daily sources and exact common endpoints, including all merges. No multiplication or sum of auxiliary returns. MDD uses full retained daily close path.",
+  "nonclaims": "No economic backtest, no account simulation, no fresh external data, no historical full-member or PIT claim. Endpoints and postpeak drawdowns are retrospective observations, not actionable exit labels.",
+  "coverage_limits": "Only the supplied >20% candidates exhaustively reviewed; sub20% opportunities are not claimed exhaustive. Monthly/annual extrema and full daily plots were checked for missing long cycles, but this is human review, not proof of unique segmentation."
+}

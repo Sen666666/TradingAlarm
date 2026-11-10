@@ -1,0 +1,26 @@
+{
+  "status": "STOP_NO_PROMOTION_NO_ACCOUNT_NO_RESCAN",
+  "formula": "e*=e+[tanh(r/s)/(r/s)/s]*(m_prev-m)*log(O/Cprev), continuous r=0; original21/.9 aggregation",
+  "daily_formula_changes_after_results": 0,
+  "account_runs": 0,
+  "fits": 0,
+  "parameter_scans": 0,
+  "candidate_rows": 53121,
+  "known": 53069,
+  "picks_per_arm": 14185,
+  "changed_picks": 637,
+  "day_mean_difference_percentage_points": {
+    "5": 0.0058,
+    "20": -0.0703,
+    "60": -0.0693
+  },
+  "right_tail": {
+    "original": 715,
+    "candidate": 711,
+    "lost": 23,
+    "added": 19
+  },
+  "structural_risk": "Real601880 2021-07-28 contribution -183989.445253 with r=0,s=1e-8; not in2022 study windows; no clipping",
+  "round_label_caution": "Original complete rounds association only; new account return/winrate unknown",
+  "report": "READOUT.md"
+}

@@ -1,0 +1,87 @@
+[
+  {
+    "arm": "EXPLORATORY_0125",
+    "reserved_names": 6,
+    "sectors": 5,
+    "cash": "30658.5988323461265",
+    "buy_fees": "31.9631673461265",
+    "nominal_risk": "5995.075665000001738189683898",
+    "minimum_lot_count": 2,
+    "mean_buy_fee_pct": "0.8940595877210363296337266238",
+    "maximum_buy_fee_pct": "3.763929736372415296111342825",
+    "conditional_names": [
+      {
+        "sid": "603626.SH",
+        "name": "科森科技",
+        "reserved_q": 300
+      },
+      {
+        "sid": "688819.SH",
+        "name": "天能股份",
+        "reserved_q": 327
+      },
+      {
+        "sid": "601222.SH",
+        "name": "林洋能源",
+        "reserved_q": 1400
+      },
+      {
+        "sid": "002468.SZ",
+        "name": "申通快递",
+        "reserved_q": 900
+      },
+      {
+        "sid": "300209.SZ",
+        "name": "行云科技",
+        "reserved_q": 100
+      },
+      {
+        "sid": "002024.SZ",
+        "name": "ST易购",
+        "reserved_q": 100
+      }
+    ],
+    "no_fills": true,
+    "no_future_path": true
+  },
+  {
+    "arm": "ORIGINAL_025",
+    "reserved_names": 5,
+    "sectors": 5,
+    "cash": "23783.3052647553655",
+    "buy_fees": "26.5228097553655",
+    "nominal_risk": "5999.662455000001012334823100",
+    "minimum_lot_count": 3,
+    "mean_buy_fee_pct": "0.8704790479730844552212983094",
+    "maximum_buy_fee_pct": "2.767460414019509582225461855",
+    "conditional_names": [
+      {
+        "sid": "603626.SH",
+        "name": "科森科技",
+        "reserved_q": 600
+      },
+      {
+        "sid": "688819.SH",
+        "name": "天能股份",
+        "reserved_q": 629
+      },
+      {
+        "sid": "601222.SH",
+        "name": "林洋能源",
+        "reserved_q": 100
+      },
+      {
+        "sid": "002636.SZ",
+        "name": "金安国纪",
+        "reserved_q": 100
+      },
+      {
+        "sid": "300185.SZ",
+        "name": "通裕重工",
+        "reserved_q": 100
+      }
+    ],
+    "no_fills": true,
+    "no_future_path": true
+  }
+]

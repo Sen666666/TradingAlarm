@@ -1,0 +1,26 @@
+POLICY = 'PVR_SLOT1_original_singlepass_coupled'
+SCORES = None
+
+def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+
+class FrozenScores:
+    def __init__(self, path):
+        self.path = str(Path(path).resolve()); self.manifest_sha256 = sha(path)
+        m = json.loads(Path(path).read_text())
+        assert m['stocks'] == len(set(m['fixed_stock_ids'])) == 1709
+        self.values = {}
+        for r in m['entries']:
+            p = Path(path).parent/'scores'/f"{r['symbol']}.parquet"
+            assert sha(p) == r['output_sha256']
+            f = pd.read_parquet(p)
+            assert f.index.is_unique
+            self.values[r['symbol']] = MappingProxyType({str(t.date()): float(v) for t, v in f.score.items()})
+        self.values = MappingProxyType(self.values)
+    def at(self, sid, day):
+        v = self.values.get(sid, {}).get(day)
+        return v if v is not None and math.isfinite(v) else None
+
+def configure_scores(path=None):
+    global SCORES
+    SCORES = FrozenScores(path or O/'SCORES_MANIFEST.json')
+    return SCORES

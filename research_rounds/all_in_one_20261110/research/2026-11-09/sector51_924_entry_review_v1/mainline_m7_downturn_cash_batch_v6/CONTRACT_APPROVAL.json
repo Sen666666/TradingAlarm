@@ -1,0 +1,18 @@
+{
+  "approved": true,
+  "engine_sha256": "b81f78fc04dec3709191258230c2e2fa7580f8658315c78e9b25bf3fea318c2e",
+  "contract_sha256": "d1ff73f2436c5d41a89585b03eba595681876ae31200ab3a81f415f1c2252dcc",
+  "manifest_sha256": "235d1b1dcc83fd7eebf8298ae3edbac08cef0ed7bdb73d79cd5564d46a0851e9",
+  "scope": "One frozen M7 extension through 2024-10-31 using exact26-event manifest only. No further cash events, alpha changes, suspension rules or live trades. Require prior four economic prefixes before later trading; stop atomically on next genuine blocker.",
+  "author_tests_independently_repeated": 56,
+  "independent_checks": 236,
+  "held688516": "Actual2024-10-14 record200 shares; gross0.86 gives NET80 accrual/payment137.60, even if sold ex-date. No old614share snapshot use.",
+  "audit_files": {
+    "independent_batch_admission.py": "4dd79ae145ee277117666a1ff083f53023d9759558a2f148b5ddc5d56da96308",
+    "INDEPENDENT_QA.json": "4c4b1ecf08ba7571808b0c603d7c9c4190c6e2ee933333d61ce4a563251dbd8d",
+    "synthetic_batch.py": "b33a00694e1b16308ba5ce851d456fa8504447ee4c1c089efa4d9a36bd45c7ac",
+    "SYNTHETIC_QA.json": "38bf5bd6f1c471552e074c14bfe4033df12c6879187716d358746b70e6568b74",
+    "REVIEWED_BATCH_MANIFEST.json": "235d1b1dcc83fd7eebf8298ae3edbac08cef0ed7bdb73d79cd5564d46a0851e9"
+  },
+  "timestamp_utc": "2026-11-09T21:28:27.397158+00:00"
+}

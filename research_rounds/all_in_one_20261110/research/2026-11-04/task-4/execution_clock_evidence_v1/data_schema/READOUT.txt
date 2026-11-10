@@ -1,0 +1,33 @@
+所查原No60 long/strong实际消费的是日线OHLCV代理；未见消费post-open逐笔/分钟报价。
+此结论只限实际输入接线及所查6份Parquet，不声称整个项目没有分钟数据。
+
+ACTUAL_MANIFEST_BINDINGS.json：原context把bundle的record换成
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/manifest.json
+之后才构造FastMarket。样本银之杰300085（2024-10-10）、江丰300666（2026-01-16）
+各检查实际execution raw、原numeric signal、full facts，共6文件，均唯一午夜日Date。
+timestamp[ns]是类型精度，不表示分钟频率。raw有OHLC/volume/amount；未见bid/ask、
+trade_time、minute、orderbook列。signal有复权/原OHLC、factor；facts仍是日Date。
+
+raw与signal有字符串observed_at；所选历史成交行均为空。整列不是全空：两raw非空
+113/10行，登记值示例如2026-10-23T00:20:57+08:00。非空字段的事件含义本轮未逐条
+认证，不能自动当逐笔报价时间。read_raw/quote/window没有用该列建立报价known_at。
+observed_bar/is_observed_bar布尔值是bar标记，也不是实际成交timestamp。
+
+真正时钟来源：manifest声明close_available_time='15:05:00'；历史build_inputs.py49
+直接写这个常量。native multi_runner.latest_mark194/205用Date+该时间作为收盘known_at，
+或用规则session首个OPEN（如09:30）给日open赋known_at。FastMarket.quote41-44
+仅转发native.quotes；不是查询9:31、9:35的独立市场报价。
+current_pool_bridge._last308/343的Fact.observed_at同样是Date+声明close_time拼成，
+不能反过来当供应商实测发布时间。selection.observed_at是名单/市值snapshot时钟，
+不是每根历史bar或post-open报价时间。
+
+FastMarket.window45-67取当天日open乘滑点，用同日high/low/volume作事后执行代理，
+并用过去20正成交量及当日总量约束容量；FillWindow.at是传入session事件时钟。
+execution_basis明确为explicit_daily_bar_proxy_past20_capacity_same_day_hlv_postcheck。
+DecisionQuote/FillWindow是研究数据结构，含known_at/at并不证明原行情有分钟报价。
+现有输入不能证明“9:30后再看一笔新报价，仍按日open成交”可实现，也不能据此认证
+开盘排队、买卖价差或逐笔时间；未做任何分钟数据搜索/新执行仿真。
+
+直接读ACTUAL_INPUT_SCHEMA_AND_SAMPLES.json看schema与原值；SOURCE_SNIPPET_INDEX
+有13段有效源码绝对路径/行号/SHA。声明时钟与协议见DECLARED_CLOCK_AND_EXECUTION_PROTOCOL。
+新增Market/账户/模型/指标/回测/行情抓取均0。整个仓库的其它数据源未穷尽检查。

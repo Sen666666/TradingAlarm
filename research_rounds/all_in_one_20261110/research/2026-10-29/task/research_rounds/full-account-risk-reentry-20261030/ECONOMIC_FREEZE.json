@@ -1,0 +1,20 @@
+{
+  "before_new_economic": true,
+  "at": "2026-10-30T14:07:16.312089+00:00",
+  "core_unchanged": true,
+  "six_off_passed": true,
+  "sha256": {
+    "research_rounds/full-account-risk-reentry-20261030/synthetic.py": "866323765ba401e277efdf6c4f2526542efaeb9bd30c8c5d2a73177bdb7926b8",
+    "research_rounds/full-account-risk-reentry-20261030/run_stage.py": "8b03786232766d72172039bb11d92deb46f15b11998c5bf1de2738fb6875c852",
+    "research_rounds/full-account-risk-reentry-20261030/wire.py": "da4cc2162a7c7fcb62ef696fb3b085f873c5b4a6d9a6494ff45cce2c1222855f",
+    "research_rounds/full-account-risk-reentry-20261030/PROTOCOL.txt": "dc073eb9a7b88a38c2b89c53063a6c103716d71001464dd87155b73d88c3d04c",
+    "research_rounds/full-account-risk-reentry-20261030/SYNTHETIC.json": "dc775f139c5d53f385a779b13fd7a1a724b213bf661300bfe2ba0caea135ce07",
+    "research_rounds/full-account-risk-reentry-20261030/INPUT_FREEZE.json": "b635fc78db81bf7edb772b6c78869821807079976aa2dc823d59e6ee5cc27d06"
+  },
+  "throughput": {
+    "TECH_3_off_seconds": 51.887,
+    "DRUG_3_off_seconds": 8.584,
+    "used_seconds": 72.659,
+    "planned_remaining": "TECH+DRUG 6 on with audits, then 2 base physical prefixes; expected 130-190s, stop at cumulative300"
+  }
+}

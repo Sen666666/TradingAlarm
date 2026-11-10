@@ -1,0 +1,12 @@
+{
+  "completed": true,
+  "scope": "ONE_SC_Bdiag_D1_v2_Q2_continuation_after_April1",
+  "input_seconds": 39.83560154074803,
+  "remaining_path_and_export_seconds": 56.067998042330146,
+  "total_seconds": 106.98237208276987,
+  "old183_days_append_only": true,
+  "original_initial_cash_not_repeated": true,
+  "Apr1_prefix_reexecuted": false,
+  "ending_NAV": "1510396.4054562225250",
+  "daily_count": 242
+}

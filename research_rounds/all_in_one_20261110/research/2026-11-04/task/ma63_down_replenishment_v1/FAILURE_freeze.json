@@ -1,0 +1,4 @@
+{
+  "type": "ModuleNotFoundError",
+  "reason": "No module named 'pandas'"
+}

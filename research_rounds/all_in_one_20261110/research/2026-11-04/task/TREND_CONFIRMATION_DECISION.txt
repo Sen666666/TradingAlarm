@@ -1,0 +1,43 @@
+现有E0计划量趋势确认v1：停止当前冻结实现，不晋升
+更新UTC：2026-11-04T17:54:48.780759+00:00
+
+结论
+两完整窗口和独立财务/PVR/执行时钟审查已完成；两确认插件未改善2022—2023绝对大亏，三年收益与回撤都更差。停止本实现，不调MA/EMA/BB周期/阈值/.5、不叠成本guard或快速强卖救当前结果。不是认定所有MA/EMA/BB工具无效；严格数学边界修正策略未回测，不能冒称本轮已检验它。
+
+实际范围与改动
+1709当前快照A股/90行业，原每窗1m开发账户，long2022Jan4—2024Dec31自身连续726CLOSE；strong2025Jul1—2026Jun30另起1m242CLOSE，不拼成连续2022—26，不冒称自然2025全年度。
+A=C>=inclusiveMA60且MA60>五观察槽前；B=BB20,2(ddof0)鲜上穿且EMA10>三槽前。只在原E0/I/PVR及硬风控已许可的计划单上，确认则原cap/budget，不确认二者各乘.5一次、合法数量向下。已完成CLOSE决策、次合法OPEN，保持原排序/退出/ACT20/BREAK63。四臂NONE、UNIFORM50、A_ONLY、A_OR_B，无成本额度叠加。
+
+净收益% / 收盘最大回撤%
+             long2022—24           strong2025Jul—2026Jun
+NONE         −36.2010 /38.0881      +126.3281 /11.6595
+UNIFORM50    −36.4056 /40.7770       +86.6047 / 8.4384
+A_ONLY       −42.9339 /44.7655      +117.9474 /10.1072
+A_OR_B       −40.0291 /41.6326      +112.9649 /10.7207
+
+到2023年末自身累计：NONE−25.4573%、UNIFORM50−28.2876%、A_ONLY−33.0797%、A_OR_B−29.1922%。2023自身年度净元/回报：NONE+40939.11/+5.8112%；UNIFORM50−15574.85/−2.1257%；A_ONLY−11725.99/−1.7221%；A_OR_B+7284.09/+1.0394%。不是年度重置，不把累计亏损当年度回报。
+long真实费用：NONE42241.17、UNIFORM5052707.18、A_ONLY44308.29、A_OR_B42188.30元。
+35%为可接受边界，不是成功标准；本轮三年4臂DD均超35%。不能凭强窗仍盈利或某段相对改善晋升。
+
+重大失效点归因（全月/年度/924桥/原B覆盖及strong再分配均获独审，见520cb768…eff24）
+统一半量并非账户半仓。strong平均lag市值暴露UNIFORM5087.4451%、NONE88.0175%，完整242执行日、首日空仓0；平均收盘持股104.93 vs73.86只，buyfills1781 vs1171，总交易3038 vs2058，费用25217.79 vs22720.03。后候选补位，资金依然接近满投。不能仅由gross暴露推断真实损失风险/mark-floor风险；实际名义风险须另报。
+现有原B层与其他arm同sid/date价格日志薄join，非新全特征计算：原2022—23实际1557层中1180层A_TRUE，原2023截止贡献−220484.04元。其余组/12未匹配保留，不将未匹配当FALSE。
+严格post924原303新fill中292层A_TRUE，含费买款2713574.18、原贡献−114881.90；Afalse/Bfalse8层+1416.18，B-only2层+422.01，1未匹配+586.11，合桥−112457.60。该确认条件几乎没有筛到主亏，原层贡献不是删单后的可实现收益。
+固定Oct8至年底自身回报：NONE−20.7510%，A_ONLY−20.7187%，A_OR_B−20.8386%；新层分别303/320/345，原期间财富约−112457.60/−106121.87/−117589.79。相近阶段损耗尚未改善；必须使用各自起点权益，不能元利润或层数直接归因质量。
+Dec2022仍高暴露：NONE lag87.24%、A_ONLY85.79%、A_OR_B86.90%；月自身回报约−11.86/−12.51/−11.73%。Apr2023正反例保留：NONE+19.33%、A_ONLY+11.59%、A_OR_B+13.94%，均约89%lag资金暴露。不是只少做坏月，也削弱了重要恢复收益。
+
+独立审核分列，禁止笼统写全PASS
+independent_review/trend_confirmation_full_ledger_v1/FULL_TWO_WINDOWS_FINANCE_PVR_CA_AUDIT.json (SHA3303322b…52ddf)：3872日现金/数量/真实费用/AR/rawmark桥；535353原beforemodifier PVR值、696483 surviving intent slot值、65真实CA单位核同。两个NONE整本book含orders/exits/claims及daily/trades与旧gold exact，source48/44末SHA exact。CA2真实零股floor按原proxy核，未认证发行人真实零股现金待遇。
+independent_review/trend_actual_consumption_v1/FINAL_ACTUAL_CONSUMPTION_REVIEW_INDEX.json (SHAdd6ab21d…5b60f)：137713真实sid/date、538292倍率事件的合法计划/上限/次OPEN/期限/CP1时钟PASS。
+严格数学分类FAIL保留：两窗20边界键、37条m不同（long11/26，strong9/11），由pandas rolling/std有限精度与精确有理数等号分类差引起。独立物理决策日前缀20/20复现冻结pandas实现，未发现未来数据/压缩缺口；3笔既有真实fill在差异覆盖内。没有修正后的反事实整账，不能声称修正不影响财富，也不能说它已被证实造成差业绩。当前经济结果只描述实际冻结pandas实现，精确数学策略仍未验证。停止不良原型，不为数值边界展开参数/修复后全网格研究。
+BB-only后验回带不是亏损信号。long181实际B-only买单中，5槽回带173/181，但73单五槽虽回带，第五槽价格仍高于信号价；不据此增设强卖。
+
+交付与耗时
+trend_confirmation_native_v1/FULL_EXECUTION_HANDOFF.json、FULL_PRODUCER_SAVED_WINDOW_SUMMARY.json、full-long-v1/pair与full-strong-v1/pair。long约1641.10秒(27.35分钟)；strong539.79秒(9.00分钟)。无full runtime/source失败，已完成部分不重跑。
+trend_confirmation_outcome_analysis_v1/{full_long_v1,full_strong_v1}含全36/12月、年度及固定phase财富桥；FIRST_VERIFIED_FINDING.txt、ORIGINAL_B_BUY_CONFIRMATION_COVERAGE.json；派生全36/12月、年度、924旧新层桥、原B1557/strict303覆盖及strong平均仓位/持股/交易/minlot计数均获DERIVED_PERIODS_924_AND_COVERAGE_AUDIT.json独审（SHA520cb768…eff24），不混同指标数学PASS。后补NATIVE_REPLACEMENT/nominalrisk/尾部案例补充未全独审，分列范围。
+现有输入不是PIT/OOS/H股，未验证120万元离散账户、2015等其他行情或实盘执行。股票交易仍用原日线proxy，无实盘/发布/外部通信。
+
+继续工作，未暂停总研究
+成本guard五臂双窗已按CAPACITY_COST_GUARD_DECISION.txt停止。本轮数量确认也停止当前实现。新方向先只读审查组合再投入：DOWN高暴露来自期初旧仓，还是旧仓退出后新资本/候补反复补回？两个独立纸面审查均仅准一次薄核、不准native资本门。
+新目录ma63_down_replenishment_v1：唯一现成ETF因果TR背景，使用原DAILY_ALIGNED的prior_CLOSE below_down，全2022—23 298执行日按原交易日邻接成全部连续spell；复用已审fixed_phase层边界财富方法并沿savedfinance原账核桥，拆旧层与段内actual新fill期间wealth，全正反/零仓保留。0新信号/Account/额度参数/恢复路径/新现金引擎；若需新basis接线即停止该实现。独立边界/钱桥审查在ma63_down_replenishment_review_v1。
+此薄核只决定覆盖规模，不把−257408.38原期内损耗或−234092.47原入场cohort贡献称可省，不把synthetic旧D与MA_DOWN混同。旧MA63 incremental-rights/循环试错/恢复债务都已排重，尚未冻结新资本许可合同，保原ACT/BREAK、旧持仓按原结构退出，不按浮盈浮亏卖。

@@ -1,0 +1,116 @@
+{
+  "status": "BOUNDED_SOURCE_FEASIBILITY_COMPLETE_NOT_READY_TO_UNFREEZE_ACCOUNT",
+  "universe": {
+    "all_candidate_sids": 1458,
+    "all_candidate_events": 12917,
+    "candidate_stock_days": 1518894,
+    "missing_sids": 216,
+    "missing_row_runs": 325,
+    "missing_row_stock_days": 1671,
+    "row_present_invalid_price_stock_days": 5,
+    "total_problem_stock_days": 1676,
+    "internal_missing_runs": 323,
+    "trailing_censored_runs": 2,
+    "listing_before_start_runs_observed": 0,
+    "delisting_inferred_from_gaps": false
+  },
+  "missing_run_start_year_counts": {
+    "2022": 95,
+    "2023": 51,
+    "2024": 63,
+    "2025": 80,
+    "2026": 36
+  },
+  "missing_run_exchange_counts": {
+    "SH": 161,
+    "SZ": 164
+  },
+  "missing_run_start_exchange_month_count": {
+    "SH": 50,
+    "SZ": 48
+  },
+  "duration_run_buckets": {
+    "1": 121,
+    "6-10": 117,
+    "11+": 6,
+    "2-5": 81
+  },
+  "source_status_counts": {
+    "OFFICIAL_PLUS_PREOPEN_NEWS_SUMMARY_PENDING_UNIFIED_POLICY": 1,
+    "UNCHECKED_NO_MATCHED_OFFICIAL_RUN_EVIDENCE": 318,
+    "OFFICIAL_RETROSPECTIVE_START_ONLY_NO_PUBLIC_CLOCK": 3,
+    "OFFICIAL_RETROSPECTIVE_FULL_INTERVAL_NO_PUBLIC_CLOCK": 2,
+    "EXISTING_REGISTERED_OFFICIAL_PREOPEN_FULL_NOTICE": 1
+  },
+  "ownership_counts": {
+    "actual_shared_held_runs": 2,
+    "actual_shared_held_missing_sessions": 2,
+    "actual_shared_pending_missing_sessions": 0,
+    "potential_only_runs": 323,
+    "original_no_shared_reference_held_runs": 53
+  },
+  "sample": {
+    "official_month": "2022-04",
+    "parsed_rows": 42,
+    "missing_row_runs_matching_start": 5,
+    "associated_missing_stock_days_not_coverage": 28,
+    "runs_with_complete_effective_halt_resume_boundary": 2,
+    "complete_effective_interval_stock_days": 2,
+    "start_only_runs": 3,
+    "extra_row_present_invalid_start_anchor_sessions": 1,
+    "new_preopen_admissible_sessions": 0
+  },
+  "clock_categories": {
+    "existing_registered_full_notice_preopen": 1,
+    "news_summary_preopen_pending_policy": 1,
+    "official_retrospective_no_public_clock_run": 5,
+    "official_same_day_date_only_individually_inspected_in_remaining_runs": 0,
+    "proven_publication_late_individually_inspected_in_remaining_runs": 0,
+    "secondary_only_individually_inspected_in_remaining_runs": 0,
+    "not_individually_inspected_or_no_matched_run_evidence": 318,
+    "zero_counts_do_not_assert_absence": true
+  },
+  "cost": {
+    "completed_public_raw_files": 6,
+    "completed_official_month_sample_pages": 1,
+    "external_requests_for_local_full_queue_join": 0,
+    "hypothetical_szse_month_pages_for_all_start_months": 48,
+    "szse_start_months_already_sampled": 1,
+    "additional_szse_start_month_pages_upper_bound": 47,
+    "limitations": "Monthly archive access/completeness and cross-month continuity unverified; even full descriptive coverage does not provide publication known_at.",
+    "strict_pairing_remaining_runs_excluding_existing_and_policy_candidate": 323,
+    "naive_minimum_document_or_clock_checks_at_two_per_run": 646,
+    "minimum_is_not_a_guarantee_or_upper_bound": true,
+    "recommended_next_batch_max_new_runs": 12,
+    "recommended_next_batch_max_search_queries": 24,
+    "recommended_next_batch_max_document_reads": 48,
+    "recommended_stop": "Stop at 12 selected first-gap targets or 24 searches or 48 document reads, whichever first; retain unresolved UNKNOWN and report yield. Start only after causal first-I-exit envelope and unified clock rule are reviewed."
+  },
+  "not_done": [
+    "No new formal registry write",
+    "No economic replay or trading/account execution",
+    "No token read, credential transmission or new data subscription",
+    "No all-market or all-325 unbounded official-announcement crawl",
+    "No inferred resume from future bar",
+    "No minute/quote data",
+    "No source price/flag/factor rewrite"
+  ],
+  "input_sources": [
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/daily_gap_inventory_v1/OFFICIAL_SEARCH_QUEUE_V2.csv",
+      "sha256": "0639f6fd19e03cf57728dbdd18a759c103ceb686351abd19fbee0433e9b77beb"
+    },
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/daily_gap_inventory_v1/RESULT_V2.json",
+      "sha256": "7a4bb5c29e7a334a3cb45ec5ff4c3ff99eef59e54ac13c4f0c31def2541d84b4"
+    },
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/daily_gap_inventory_v1/DAILY_ISSUES_V2.csv",
+      "sha256": "76f88f394b0fd3951cf22bb9708ef3375597f020a96d7db445e1290ea6eb44fa"
+    },
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/daily_gap_inventory_v1/EXCHANGE_YEAR_COVERAGE_V2.json",
+      "sha256": "095f1a20f2196506d844543463763c0f6b93a7d41ab174dde942623026343e74"
+    }
+  ]
+}

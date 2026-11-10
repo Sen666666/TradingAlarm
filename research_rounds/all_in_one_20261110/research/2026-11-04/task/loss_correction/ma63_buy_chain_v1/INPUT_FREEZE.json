@@ -1,0 +1,15 @@
+{
+  "before_join": true,
+  "time_UTC": "2026-11-04T13:42:06.046495+00:00",
+  "source_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/no60_continuation2023_finance/analysis/2022_2023/PVR_NO_CONFIRMED60/LAYERS.json": "12e79d8c47dbd639b068ad98edb8f5823ee951fd8da7c379e9a7a8bff3cf8446",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/entry_risk_commitment_review/2022_2024_ENTRIES.json": "08bc29ba8aa5cceee274918ceda7a549eb048ddfbf50542931ab5161b3ca620d",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/market_phase_2022_2023/ALL_PERIODS.json": "d40033c64fa7f0db48895ea458eb06bc48009eb166dfee4d43c150d800d52418",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/ma63_recovery_chain_v1/DAILY.json": "0ff188d9ede2ccd3b1b94197ad1ae57a89f4ff909273fc7425a335d1aabcc3d9",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/ma63_recovery_chain_v1/ALL_EPISODES.json": "ab44f8949e23ff11fc0a2a7f2881f8e5104aa1239e24468364c9628af51c9c88",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/ma63_buy_chain_v1/PROTOCOL.txt": "55f0b10003ebc9df7c60c0b215c83453f1fdbe66e71b8038dc7b4d6d1d6cf58f",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/ma63_buy_chain_v1/join_saved.py": "7673006d72c7895836428993789622daa131a677f4577050c8b4561147cef45e"
+  },
+  "common_cutoff": "2023-12-29",
+  "no_new_MA_price_or_account": true
+}

@@ -1,0 +1,48 @@
+{
+  "created_utc": "2026-11-09T10:00:51.432864+00:00",
+  "universe": "Original frozen 2022 A_SECTOR_BIRTH and B_STOCK_BIRTH_DURING_SECTOR only, no holding pruning",
+  "birth_rows": 12917,
+  "sids": 1458,
+  "local_action_files": 1458,
+  "missing_local_actions": [],
+  "scan_start": "2022-06-23",
+  "scan_end": "2022-12-30",
+  "all_events": 552,
+  "complex_events": 47,
+  "complex_type_counts": {
+    "CASH_PLUS_CAPITALIZATION": 29,
+    "CASH_PLUS_BONUS": 6,
+    "CAPITALIZATION_OR_SPLIT_ONLY": 7,
+    "RIGHTS_SUBSCRIPTION_REQUIRED": 3,
+    "TARGETED_NON_PRO_RATA": 2
+  },
+  "complex_original_437_permitted": 0,
+  "complex_existing_official50_evidence": 21,
+  "all_events_original_437_permitted": 228,
+  "current_held_sids": 32,
+  "held_future_events": 7,
+  "held_future_complex_events": 1,
+  "selected_max5": [
+    "000987.SZ",
+    "600850.SH",
+    "300762.SZ",
+    "600056.SH",
+    "000625.SZ"
+  ],
+  "reused_original_official_pdf_sids": [
+    "000987.SZ",
+    "300762.SZ",
+    "000625.SZ"
+  ],
+  "new_official_acquisition_candidates": [
+    "600850.SH",
+    "600056.SH"
+  ],
+  "acquisition_limit": "At most five compound events including reused sources; missing two may each use one official index query and one PDF download; no retries after access denial, no registration; 20 second request timeout.",
+  "offline_scan_elapsed_seconds": 2.7728248750790954,
+  "no_account_import_or_run": true,
+  "no_old_input_write": true,
+  "no_event_dates_fed_to_strategy": true,
+  "source_limit": "Local actions are declared research proxy, not exhaustive official corporate-action history. Only original action-list coverage is inventoried.",
+  "future_note": "Current holdings are triage only, not prediction of ownership at future record date. Unknown future announcement dates remain unknown."
+}

@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-30T06:13:35.343985+00:00",
+  "before_CR_D_economic_returns": true,
+  "sample_ids": [
+    "600845.SH|2024-01-02",
+    "601138.SH|2024-01-19",
+    "605118.SH|2024-01-02",
+    "301486.SZ|2024-03-27",
+    "688143.SH|2026-06-03"
+  ],
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/old-warning-unified-uses-20261030/PROTOCOL.txt": "b658dd43e3561ba8116e33b725a540a9df88d062bf5af58c4d01dbe144ea300f",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/old-warning-unified-uses-20261030/FROZEN_SELECTIONS.csv": "07eb2439e119d5e70292e2b9b6281e88bc151fbaf4bbbfdbd859a2d30b82fb54",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/old-warning-unified-uses-20261030/resource-checks.csv": "c0ce7d1cd7f1c88a73933c2a7b9ddcedee8f53fec65247fc758af17369a3115e"
+  }
+}

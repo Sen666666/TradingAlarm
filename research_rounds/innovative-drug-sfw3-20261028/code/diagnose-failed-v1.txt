@@ -1,0 +1,21 @@
+from finish import *
+def main():
+ s=pd.read_csv(O/'summary.csv');cs=pd.read_csv(O/'S0/analysis/campaigns.csv');pairs=[];concentration=[]
+ for scenario in ['base','cost2','delay1']:
+  a=cs[cs.account=='SW3F__S0_'+scenario].groupby('symbol').net_pnl.sum()
+  for mode in ['ACT','S','F','SF','I','BH']:
+   b=cs[cs.account==mode+'__S0_'+scenario].groupby('symbol').net_pnl.sum();d=a.subtract(b,fill_value=0);ss=s[(s.cohort=='S0')&(s.scenario==scenario)].set_index('policy');assert abs(d.sum()-(ss.loc['SW3F','net_profit']-ss.loc[mode,'net_profit']))<.01
+   for sid,v in d.items():pairs.append(dict(scenario=scenario,reference=mode,symbol=sid,delta=v,new_net=a.get(sid,0),ref_net=b.get(sid,0)))
+ for aid,g in cs.groupby('account'):
+  z=g.groupby('symbol').net_pnl.sum().sort_values(ascending=False);positive=z[z>0].sum();concentration.append(dict(account=aid,top_symbol=z.index[0] if len(z) else '',top_net=z.iloc[0] if len(z) else 0,top_positive_share=z.iloc[0]/positive if positive else 0,top3_positive_share=z.head(3).clip(lower=0).sum()/positive if positive else 0))
+ pd.DataFrame(pairs).to_csv(O/'paired-stock-differences.csv',index=False);pd.DataFrame(concentration).to_csv(O/'concentration.csv',index=False);save(O/'attribution-verification.json',{'passed':True,'paired_account_sums':18})
+ # Actual account paths: biggest positive/negative contributions are descriptive.
+ raw=[]
+ for mode in ['ACT','SW3F']:
+  a=read(O/'S0/accounts-v2'/f'{mode}__S0_base.json')
+  for r in a['audit_log']:
+   if r['kind'] in ['risk_checkpoint','fast_support_exit','waiting_support_inherited']:
+    if r['kind']=='risk_checkpoint' and not r['event']:continue
+    raw.append(dict(policy=mode,**r))
+ save(O/'path-events.json',raw)
+if __name__=='__main__':main()

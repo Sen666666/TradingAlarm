@@ -1,0 +1,15 @@
+ for c in small.columns:np.testing.assert_allclose(small[c].astype(float),z.loc[small.index,c].astype(float),rtol=0,atol=0,equal_nan=True)
+ save(O/'PREPARED.json',dict(passed=True,seconds=time.monotonic()-t,stocks=ids,industries=gids,absent_market_history=absent,market_domain='fixed1709 stocks, 90 mutually-exclusive industries; actual formula uses industry-grouped stock inputs',market_formula=str(ROOT/'TradingAlarm/desk/refresh.py')+':compute_recovery',unchanged_min_stock_breadth=5,unchanged_min_sector_breadth=8,physical_market_prefix=pre,market_rows=len(z),market_breakouts_Q3=int(z.loc[START:END,'breakout'].sum()),industry_policy='original e0_policy with decline_candidate=False',no_accounts=True))
+ print('PREP_COMPLETE',round(time.monotonic()-t,3),flush=True)
+
+def context(cut=None,ids=None):
+ b=BP.C.load_bundle(BP.C.OLD/'inputs-v2/input-manifest.json');allids=read(IC/'FREEZE.json')['stocks'];keep=set(ids or allids);b.lines=tuple(l for l in b.lines if l.security_id in keep);assert {l.security_id for l in b.lines}==keep
+ sectors={l.sector_id for l in b.lines};b.series={s:v for s,v in b.series.items() if s in keep|sectors};b.sector_series={s:v for s,v in b.sector_series.items() if s in sectors};records={r['series_id']:r for r in read(P/'manifest.json')['series']};frames={}
+ for sid,item in b.series.items():
+  item.record=records[sid];path=(O/'industry-facts' if sid.startswith('URFI') else IC/'facts')/f'{sid}.parquet';f=pd.read_parquet(path).loc[:cut or END];frames[sid]=f
+  item.states=f[['e0_ready','e0_target','segment_id']].rename(columns={'e0_ready':'ready','e0_target':'target'})
+ h=np.load(P/'h1.npz');dates=pd.DatetimeIndex(h['dates']);mask=dates<=pd.Timestamp(cut or END);b._h1_cache=(dates[mask],{str(s):j for j,s in enumerate(h['symbols'])},h['score'][mask].copy())
+ rules=read(RR/'pvr-act-comparison-20261027/execution-rules-v2.json');m=E.FastMarket(b,rules,[],read(BP.C.OLD/'inputs-v2/economic-protocol.json'))
+ if cut:
+  for sid,f in m.raw.items():
+   m.raw[sid]=f.loc[:cut].copy();n=len(m.raw[sid]);a=m.arr[sid];m.arr[sid]={k:(v[v<n] if k in ['good','positive'] else v[:n] if isinstance(v,np.ndarray) else v) for k,v in a.items()}

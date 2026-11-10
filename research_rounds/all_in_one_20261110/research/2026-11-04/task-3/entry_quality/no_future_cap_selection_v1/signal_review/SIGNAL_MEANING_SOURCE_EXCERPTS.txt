@@ -1,0 +1,147 @@
+/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/selection_qualification_closeout_v1/eligibility_source/stock_signal.py
+SHA256 d64c985413f027f213dd2e6b36734b88a63eeded34639056b0b7761aa7c3e438
+
+   18 def calculate(frame):
+   19     """frame is already full-available-prefix-clipped OHLCV single-source data.
+   20 
+   21     Exactly mirrors cache.py:23-34, generating its numeric events, participation
+   22     ready/effort fields and G1 grade rather than borrowing old cached values.
+   23     Not S0: no sector/cap/issuer/listing/trading eligibility is manufactured.
+   24     """
+   25     assert frame.index.is_unique and frame.index.is_monotonic_increasing
+   26     f=eligible_prices(frame).copy()
+   27     if f.empty:return pd.DataFrame(index=f.index)
+   28     assert f.segment_id.nunique()==1
+   29     events=event_frame_numeric(f.close,f.volume,joint=True,event_exit=False)
+   30     state,_=participation_frame(f,events,mode='volume')
+   31     e=f[['segment_id','open','high','low','close','volume']].copy()
+   32     e['valid_price_observation']=True
+   33     e['price_observation']=e.groupby('segment_id',sort=False).cumcount()
+   34     e['event']=events.event;e['confirmed_pivot_price']=events.confirmed_pivot_price
+   35     e['ready']=state.ready;e['previous_close']=e.groupby('segment_id',sort=False).close.shift()
+   36     v=e.volume.where(np.isfinite(e.volume)&e.volume.gt(0))
+   37     e['volume_baseline']=v.groupby(e.segment_id,sort=False).transform(lambda q:q.shift().rolling(21,min_periods=21).median())
+   38     for field in ['volume_ratio','high_effort','declined']:e[field]=state[field]
+   39     e['decline_candidate']=False;e['candidate_lower']=np.nan;e['candidate_reclaim']=np.nan
+   40     base,_=e0_policy(e);assert not base.pending.fillna(0).any()
+   41     inputs=f[['open','high','low','close','volume','segment_id']].copy()
+   42     inputs['valid_price_observation']=True
+   43     inputs['valid_strength_observation']=np.isfinite(inputs.volume)&inputs.volume.gt(0)
+   44     evidence,_=build_evidence(inputs)
+   45     g,_=classify(evidence)
+   46     projected=project(e,base,g,'G1_I')
+   47     out=pd.DataFrame(index=f.index)
+   48     for n in ['ready','target','floor','entered','exited']:out['e0_'+n]=base[n]
+   49     for n in ['target','floor','entered','exited','buy_event','exit_reason']:out['i_'+n]=projected[n]
+   50     out=out.rename(columns={'i_buy_event':'i_buy'})
+   51     for n in ['grade','ready','fresh_up','acute_down','up_reasons']:out['g_'+n]=g[n]
+   52     out['numeric_event']=events.event
+   53     out['numeric_leg_direction']=events.leg_direction
+   54     out['close']=f.close
+   55     return out
+
+/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/selection_qualification_closeout_v1/eligibility_source/fixed35/run_fixed35.py
+SHA256 ba3051deb31ebcf3fa1928c0c80c2bd01b21fcb76195d21c41ce4398deb7adc6
+
+   35 def save(n,z):(HERE/n).write_text(json.dumps(clean(z),ensure_ascii=False,indent=2,allow_nan=False)+'\n')
+   36 
+   37 
+   38 def work(sid):
+   39     started=time.monotonic()
+   40     columns=['trade_date','open','high','low','close','volume','amount','source','adjustment_factor','raw_adjustment_factor','reference_adjustment_factor','reference_trade_date']
+   41     g=ds.dataset(SOURCE).to_table(columns=columns,filter=(ds.field('symbol')==sid)&(ds.field('trade_date')<=pd.Timestamp(DAY))).to_pandas().sort_values('trade_date')
+   42     assert len(g)and g.source.nunique(dropna=False)==1 and g.source.notna().all()
+   43     frame=g.set_index('trade_date')[['open','high','low','close','volume']].copy();frame['segment_id']=0
+   44     output=pure.calculate(frame)
+   45     assert pd.Timestamp(DAY)in output.index,(sid,'fixed list target missing/rejected')
+   46     r=dict(sid=sid,day=DAY,input_prefix_rows=len(g),eligible_price_observations=len(output),
+   47            source_first_day=str(g.trade_date.iloc[0].date()),source_last_prefix_day=str(g.trade_date.iloc[-1].date()),
+   48            signal_status='EXACT_TARGET_STOCK_SIGNAL',target_source_row_present=True)
+   49     r.update(output.loc[pd.Timestamp(DAY)].to_dict());r['stock_hold_signal']=bool(r['i_target'])if bool(r['e0_ready'])else None
+   50     r['stock_fresh_core_signal']=bool(r['i_target']and r['i_buy'])if bool(r['e0_ready'])else None
+   51     current=g.iloc[-1]
+   52     for key in ['amount','adjustment_factor','raw_adjustment_factor','reference_adjustment_factor','reference_trade_date']:r[key]=current[key]
+   53     r['S0_eligibility_q']=None;r['S0_status']='NOT_EVALUATED_STOCK_ONLY_NO_CAP_SECTOR_OR_MARKET_GATE'
+   54     r['compute_seconds']=time.monotonic()-started;r['reused_stopped_partial']=False
+   55     return clean(r)
+   56 
+   57 
+   58 def main():
+   59     assert not(HERE/'FIXED35_2024_09_24.parquet').exists()
+   60     started=time.monotonic();original=json.loads((PARENT/'FULL_SIGNAL_RUN_STARTED.json').read_text())
+   61     assert sha(SOURCE)==original['source_sha256'][str(SOURCE)]
+   62     for path,h in original['source_sha256'].items():
+   63         if path.endswith('.py'):assert sha(path)==h,('source/code differs, no partial reuse',path)
+   64     lists=pd.read_csv(LISTS);lists=lists.loc[lists.day.eq(DAY)&lists.queue.eq('PVR')&lists.scope.isin(['FULL_LOCAL','OLD1709_EXACT_SUBPOOL'])]
+   65     assert lists.scope.value_counts().to_dict()=={'FULL_LOCAL':20,'OLD1709_EXACT_SUBPOOL':20}
+   66     symbols=sorted(set(lists.sid));assert len(symbols)==35 and not lists.duplicated(['scope','sid']).any()
+   67     partial={}
+   68     for path in sorted(PARENT.glob('SHARD_*_STOCK_SIGNAL.jsonl')):
+   69         for line in path.open():
+   70             r=json.loads(line)
+   71             if r['sid']in symbols:
+   72                 assert r['day']==DAY and r['signal_status']=='EXACT_TARGET_STOCK_SIGNAL'
+   73                 r['reused_stopped_partial']=True;partial[r['sid']]=r
+
+/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/selection_qualification_closeout_v1/eligibility_source/pilot.py
+SHA256 899276f2c58b1089d371b218b0f1960a64ca922b16a15bf282c443387f5e7d0b
+
+   10 
+   11 HERE=Path(__file__).resolve().parent
+   12 SOURCE=Path('/Users/bytedance/repos/my-quant/data/processed/adjusted_daily_bars/adjusted_daily_bars.parquet')
+   13 DAY='2024-09-24'
+   14 
+   15 
+   16 def main():
+   17     assert not(HERE/'PILOT.json').exists()
+   18     started=time.monotonic();rows=[]
+   19     def stopped(*_):raise TimeoutError('60 second pure-signal pilot budget reached; never start all-stock scan')
+   20     os_signal.signal(os_signal.SIGALRM,stopped);os_signal.setitimer(os_signal.ITIMER_REAL,60)
+   21     try:
+   22         for sid in ['000620.SZ','000004.SZ','002583.SZ']:
+   23             at=time.monotonic()
+   24             frame=ds.dataset(SOURCE).to_table(columns=['trade_date','open','high','low','close','volume'],filter=(ds.field('symbol')==sid)&(ds.field('trade_date')<=pd.Timestamp(DAY))).to_pandas().sort_values('trade_date').set_index('trade_date')
+   25             frame['segment_id']=0
+   26             compute_start=time.monotonic();out=pure.calculate(frame)
+   27             row=dict(sid=sid,input_rows=len(frame),output_rows=len(out),compute_seconds=time.monotonic()-compute_start,total_seconds=time.monotonic()-at,
+   28                      has_exact_target=pd.Timestamp(DAY)in out.index,stock_only_not_S0=True)
+   29             if row['has_exact_target']:
+   30                 selected=out.loc[pd.Timestamp(DAY)].replace({float('nan'):None}).to_dict()
+   31                 row['target']=selected
+   32             rows.append(row)
+   33             (HERE/'PILOT_PROGRESS.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2,default=str)+'\n')
+   34             print(json.dumps(row,ensure_ascii=False,default=str),flush=True)
+   35         status='COMPLETE_THREE_PURE_SIGNAL_EXAMPLES'
+
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/policies_g1.py
+SHA256 079a70ac83aa98a3824aeaecc46186081d83f5148e9630a3ad0435cb01b05af1
+
+    6 def project(e,base,g,kind):
+    7     if kind not in ['G1_I','G1_X','G1_IX']:raise ValueError(kind)
+    8     use_i=kind in ['G1_I','G1_IX'];use_x=kind in ['G1_X','G1_IX']
+    9     active=False;floor=math.nan;segment=None;rows=[]
+   10     for dt,r in e.iterrows():
+   11         b=base.loc[dt];a=g.loc[dt]
+   12         if r.segment_id!=segment:active=False;floor=math.nan;segment=r.segment_id
+   13         valid=bool(r.valid_price_observation)
+   14         if not valid:
+   15             rows.append(dict(date=dt,target=np.nan,entered=0,exited=0,floor=np.nan,exit_line=np.nan,buy_event=False,entry_kind='',exit_reason='',grade=a.grade));continue
+   16         shadow=bool(b.target);ready=bool(a.ready);entered=exited=0;reason='';entry_kind=''
+   17         fresh=bool(a.fresh_up) if ready else False
+   18         warm=ready and a.grade>=2
+   19         cold=ready and (a.grade<=-2 or bool(a.acute_down))
+   20         if active:
+   21             if not shadow or float(r.close)<=floor:reason='E0_structure_boundary'
+   22             elif use_x and cold:reason='G1_cold_or_acute'
+   23             if reason:active=False;exited=1
+   24             elif np.isfinite(b.floor):floor=max(floor,float(b.floor))
+   25         # Entry-only is a new-evidence gate and restoration channel, while
+   26         # exit-only preserves E0's new-cycle entry stream. An exit-only entry
+   27         # is first checked by the extra exit rule on the next observation,
+   28         # matching the original sensitive-policy ordering.
+   29         opportunity=shadow and warm and (bool(b.entered) or fresh) if use_i else bool(b.entered)
+   30         if not active and not exited and opportunity:
+   31             active=True;entered=1;floor=float(b.floor)
+   32             entry_kind='G1_fresh_warm_evidence' if use_i else str(b.entry_kind)
+   33         buy=bool(active and opportunity) if use_i else bool(active)
+   34         rows.append(dict(date=dt,target=int(active),entered=entered,exited=exited,floor=floor if active or exited else np.nan,exit_line=floor if active or exited else np.nan,buy_event=buy,entry_kind=entry_kind,exit_reason=reason,grade=a.grade))

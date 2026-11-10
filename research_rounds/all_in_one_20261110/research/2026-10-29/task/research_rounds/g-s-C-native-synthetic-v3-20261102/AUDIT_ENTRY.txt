@@ -1,0 +1,22 @@
+C native V3：所有可选尝试异常完整回滚，原必要阶段保留
+
+结果：17基线＋12增量=29项通过（原26项＋新增3项）；VERIFICATION.json列逐状态桥。V2原件及全部索引文件核同，未覆盖。没有历史账户事件。
+
+最小变更：
+1. _attempt_optional在设置临时industry_evidence前备份；无论何种异常先恢复完整可选尝试，再把UNKNOWN H1记录为可恢复阻塞，或重新抛出其他异常。
+2. retry_optional再包一层完整事务，连输入更正绑定、期限、必要状态核验及成功后处理一起保护。任何向调用者抛出的异常恢复到调用前状态，budget/source/必要退出/输入/映射/内部缓存不漂移。
+3. 首次CLOSE可选异常仍保留已经完成的必要阶段，标failed_exception、记录完成cursor/原事件身份、清除新配置意图并抛错；完整必要checkpoint可恢复。重复原source event不再重做必要阶段；显式optional retry不能跨过后来原生事件复活旧许可。
+
+新增实测：
+10 同日已绑定更正输入但H1为畸形字符串：报错后公开状态、budget、source binding及完整实例属性/可变引用图哈希一致；跨进程恢复后仍可合法重试。
+11 错old/new hash、缺原因、未来known_at均拒绝且不改变原状态。
+12 首次可选畸形异常保留原I退出和F1 seq，记录失败阶段；原事件重复不增退出/证据；之后同as-of正确输入可单独恢复。
+
+完整状态哈希说明：state_hash.py仅用于测试，遍历全部实例字段（含私有字段）和可变引用关系，未知类型报错不省略。原始pickle字节会因不可变对象memoization改变；failures/01_pickle_byte_identity_diagnostic/保留原失败和全图逐值/引用无差的诊断。未声称重序列化checkpoint字节恒等，也未删掉出问题的budget/source字段。
+
+复放（新输出目录）：
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B test_native.py --out /tmp/C-v3-baseline-unique
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B test_coordination.py --out /tmp/C-v3-incremental-unique
+工作目录本包。跨进程入口restore_check.py，逐案状态、checkpoint/provenance和两份STDERR均保留。旧目标协调及不支持事件边界同V2；未启用任何新指标、资本参数或历史路径。
+
+另一个独立目录g-s-C-two-day-entry-preparation-20261102只准备真实输入入口：当前绑定本V3源码但标PENDING_INDEPENDENT_REVIEW，无金融授权文件，不调用账户工厂。不得把其只读准备等同原生历史接线通过。完成后停止，等待独审。

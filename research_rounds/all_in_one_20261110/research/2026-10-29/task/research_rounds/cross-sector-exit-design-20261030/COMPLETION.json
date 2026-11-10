@@ -1,0 +1,23 @@
+{
+  "status": "design_complete_wait_parent_review_no_economic_run",
+  "at": "2026-10-30T12:59:21.697259+00:00",
+  "recommended_experiment": "DRUG84_same_v2_local_exit_A_B_normal_cost2",
+  "mother_cycles": 84,
+  "closed": 80,
+  "open": 4,
+  "inventory_seconds": 1.4978125831112266,
+  "new_economic_paths": 0,
+  "new_indicators": 0,
+  "new_signal_scans": 0,
+  "product_changes": 0,
+  "hard_drawdown_gate": false,
+  "unknowns": [
+    "five_missing_stock_days_two_in_held_Tianshili",
+    "declared_research_proxy_company_action_pay_and_bonus_sellable_dates",
+    "no_complete_historical_members_or_delisted_universe",
+    "v2_not_integrated_into_full_account_reentry",
+    "true_unseen_validation_not_available_in_past_data"
+  ],
+  "execution_blockers": [],
+  "contract_pending_approval": true
+}

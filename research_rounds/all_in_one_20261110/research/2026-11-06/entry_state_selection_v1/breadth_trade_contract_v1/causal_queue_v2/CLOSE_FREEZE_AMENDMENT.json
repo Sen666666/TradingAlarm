@@ -1,0 +1,78 @@
+{
+  "created_utc": "2026-11-07 00:36:40.186433+00:00",
+  "supersedes_preflight_selection_wording": true,
+  "reason": "Parent clarification: freeze at most2 legal candidates using t-close information; if next-open fails do not replace at same open. Earlier two diagnostic target dates happened to select the same4 stocks, but prior prose permitted an invalid open re-selection.",
+  "selection_function_uses_only": [
+    "event_id",
+    "day",
+    "sid",
+    "name",
+    "queue_rank",
+    "I_valid",
+    "rank_known",
+    "close_check",
+    "close_quantity"
+  ],
+  "all_future_columns_poison_did_not_change_selection": true,
+  "rows": [
+    {
+      "event": "2026H1_SEMI|M3|2026-04-09|URFI881121",
+      "right3": 44,
+      "I_valid": 31,
+      "close_feasible": 14,
+      "all_next_proxy_feasible_descriptive_only": 13,
+      "frozen_at_close": [
+        {
+          "sid": "688981.SH",
+          "name": "中芯国际",
+          "queue_rank": 8,
+          "close_quantity": 240.0,
+          "next_quantity": 237.0,
+          "next_raw_open": 101.0,
+          "next_check": "PASS_CONDITIONAL_PROXY"
+        },
+        {
+          "sid": "300456.SZ",
+          "name": "赛微电子",
+          "queue_rank": 10,
+          "close_quantity": 200.0,
+          "next_quantity": 200.0,
+          "next_raw_open": 53.8,
+          "next_check": "PASS_CONDITIONAL_PROXY"
+        }
+      ],
+      "frozen_next_pass": 2,
+      "replacement_after_open_allowed": false
+    },
+    {
+      "event": "2026H1_SEMI|M3|2026-06-11|URFI881121",
+      "right3": 42,
+      "I_valid": 37,
+      "close_feasible": 18,
+      "all_next_proxy_feasible_descriptive_only": 15,
+      "frozen_at_close": [
+        {
+          "sid": "688126.SH",
+          "name": "沪硅产业",
+          "queue_rank": 7,
+          "close_quantity": 381.0,
+          "next_quantity": 302.0,
+          "next_raw_open": 34.55,
+          "next_check": "PASS_CONDITIONAL_PROXY"
+        },
+        {
+          "sid": "605358.SH",
+          "name": "立昂微",
+          "queue_rank": 8,
+          "close_quantity": 100.0,
+          "next_quantity": 100.0,
+          "next_raw_open": 73.91,
+          "next_check": "PASS_CONDITIONAL_PROXY"
+        }
+      ],
+      "frozen_next_pass": 2,
+      "replacement_after_open_allowed": false
+    }
+  ],
+  "fee_and_capacity_and_orderability_remain_proxy": true
+}

@@ -1,0 +1,39 @@
+{
+  "target_layers": 25,
+  "target_stocks": 18,
+  "fixed_11": 11,
+  "by_actual_branch": {
+    "new_CORE_OPEN_rejected": 6,
+    "new_CORE_reserved_and_filled": 7,
+    "new_CORE_size_or_missing_intent": 9,
+    "held_without_same_I_CORE_blocks_new_CORE": 2,
+    "earlier_same_I_CORE_present_at_signal": 1
+  },
+  "fixed11_branches": {
+    "new_CORE_reserved_and_filled": 5,
+    "new_CORE_OPEN_rejected": 5,
+    "new_CORE_size_or_missing_intent": 1
+  },
+  "fixed9_branches": {
+    "new_CORE_reserved_and_filled": 4,
+    "new_CORE_OPEN_rejected": 4,
+    "new_CORE_size_or_missing_intent": 1
+  },
+  "fixed2_sector_risk_branches": {
+    "new_CORE_reserved_and_filled": 1,
+    "new_CORE_OPEN_rejected": 1
+  },
+  "semiconductor126": 126,
+  "new_H1_ever_held_stocks": 13,
+  "new_H1_ever_CORE_stocks": 8,
+  "new_H1_bought_stocks": 13,
+  "new_H1_buy_fills": 18,
+  "earlier_CORE_not_called_failed_repair": true,
+  "closed_native_run": "/Users/bytedance/Documents/Codex/2026-11-04/task-4/core_confirmed_v1/funding/runs/strong_ON",
+  "seconds": 1.532697041053325,
+  "new_Account": 0,
+  "new_Market": 0,
+  "new_RiskBook": 0,
+  "new_marks": 0,
+  "new_trades": 0
+}

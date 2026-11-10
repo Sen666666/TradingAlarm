@@ -1,0 +1,26 @@
+七个独立原前缀的v3纸算：局部有正cap，原OPEN最终grant全部为0。
+
+这是待检初值的一次纸面授信核查，不是替代账户、连续路径或收益预测。原v2两案例封版未改；没有新loader/模型/账户/参数搜索。每行重新站在该原真实prefix，不把不同q拼成交易历史。
+
+信号→OPEN | 来源 | 固定B / 已损D | CLOSE-risk / 原sourcecap / frozen | OPEN-risk / 最终localcap | 原OPEN A / G2必要下界(native) | 最终grant / 先触发原因
+688146.SH 2026-04-21→2026-04-22 | CP_SEED | 4,126.47 / 0.00 | 495 / 476 / 476 | 495 / 476 | 271,396.91 / 513,611.82 | 0 / ORIGINAL_OPEN_EXISTING_G2_NECESSARY_LOWER_EXCEEDS_A
+688146.SH 2026-04-30→2026-05-06 | CP_ADD | 4,126.47 / 6.42 | 433 / 422 / 422 | 369 / 369 | 319,010.99 / 525,544.15 | 0 / ORIGINAL_OPEN_EXISTING_G2_NECESSARY_LOWER_EXCEEDS_A
+000620.SZ 2022-01-10→2022-01-11 | CORE_SEED | 2,489.22 / 0.00 | 3200 / 3200 / 3200 | 2300 / 2300 | 195,436.66 / 316,302.26 | 0 / ORIGINAL_OPEN_EXISTING_G2_NECESSARY_LOWER_EXCEEDS_A
+000620.SZ 2022-01-21→2022-01-24 | CP_ADD | 2,489.22 / 7,118.72 | 0 / 5200 / 0 | 0 / 0 | 153,715.32 / 266,670.32 | 0 / D_ALREADY_EXCEEDS_SHARED_B
+000620.SZ 2022-01-24→2022-01-25 | CP_ADD | 2,489.22 / 7,125.41 | 0 / 4800 / 0 | 0 / 0 | 160,171.10 / 298,568.61 | 0 / D_ALREADY_EXCEEDS_SHARED_B
+688146.SH 2026-04-22→2026-04-23 | HELD_I_INCREMENT | 4,126.47 / 6.42 | 0 / 新typed臂无原intent / 0 | 0 / 0 | 299,368.94 / 543,011.24 | 0 / LOCAL_NO_LEGAL_MINIMUM_UNIT
+000620.SZ 2022-01-14→2022-01-17 | HELD_I_INCREMENT | 2,489.22 / 24.89 | 0 / 新typed臂无原intent / 0 | 0 / 0 | 175,153.90 / 297,175.01 | 0 / LOCAL_NO_LEGAL_MINIMUM_UNIT
+
+局部q的精确含义：中船495只是B/D/κ风险上界，原CLOSE sourcecap476后是476；4/30 CLOSE risk433/source422，5/6 OPEN变价后risk369，所以local369。盈新seed原intent signal_price2.74/reference2.741370、cap3200，OPEN风险收为2300，没有开盘增q。旧firstthree risk-only及sameguard fee-group版本保留并显式superseded；正式同sid一prospective组可有不同计划线，按合计notional只收一次最低佣金再按shares分摊。
+
+盈新1/20不是新E0开启：原states.entered=0、IX e0_entered=0，持续原1/6 canonical E0段；B仍沿1/10首成功reserve对应signalNAV995688.148105514冻结2489.220370264，1/21和1/24已损D分别7118.724008357与7125.407666165，均大于B，可直接拒0，不需要等待Ω。已付买/卖费一次进D，未实现浮盈不抵D，旧层负成本缺口不抵新风险。
+
+两个HELD_I_INCREMENT是额外选定的“真实持仓后首个CP已知False+i_buyTrue且无退出观察”：中船4/22→23、盈新1/14→17。原core_Q均True，现有原层均confirmed；i_buy/up_reasons为原真实事件字段，身份/typed proof未实现，不伪造真实订单。I线而非紧CP线定量：中船最小200股D+κ+费8731.03>B4126.47；盈新最小100股3477.55>B2489.22，local均0。无须为凑最小手加钱。
+
+原OPEN桥由open_prefix owner只读原audit、settlement、持股和原报价重建，在原实际退出/结算后、首个新reserve之前取存量。其native原mark域与真实rawOPEN估值域两种下界都已超过各自A；表不是用signal CLOSE暴露替OPEN拒绝。因为plan_exit<=mark，忽略费/线外缺口时G2仍>=.36×存量市值；真正同sid最低计划线、费用、待退锁、容量只会更紧。现有库存已违反必要条件即可拒新增，完整Φ/T/全组合新引擎无需搭建。
+
+本例最终0不意味着新策略从空仓开始永不买，也不证明能获利或不伤赢家；它表明在这七个已高度投资的原真实prefix上，这组候选压力初值不允许新增。中船局部能申请但全户已占用过高；盈新多笔还先被共享预算/最小手拒绝。不能由这些单次结果拼新账户收益，不能因看见赢家就调压力折扣救单。
+
+原退出锁另外保留：盈新1/27 CP锁mobile113/122，2/7 Ioff把CORE并入，2/8才真实卖。mark风险夹0时实物/退出责任仍在，不能释放现金或新B；没有虚构当时不存在的买事件。
+
+源索引：FINAL_SEVEN_PAPER_DECISIONS.json含完整local、B origin、D逐笔、fee/units、原quote及OPEN必要条件；OPPORTUNITY_KEY_ORIGIN_PROOF.json钉真E0根；EXACT_ORIGINAL_OPEN_CASH_BRIDGE.json重建968个CLOSE可用现金完全闭合，并列五个原reserve槽位前可用现金（两个新I无原槽位不造）；原OPEN组合桥见../open_prefix/SEVEN_ORIGINAL_OPEN_PREFIX_BRIDGES.json。卡版本更正见CONTRACT_VERSION_RECONCILIATION.json：局部只消费P/κ/B/sourcecap，Ω更正未被旧版本数值冒充。

@@ -1,0 +1,10 @@
+{
+  "at_UTC": "2026-11-04T09:23:08.484502+00:00",
+  "before_account_computation": true,
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/run_benchmarks.py": "fd0eaaff22336d8d6b0408c89c4862cc187dad99c69960fa8ce024d9c22e0e64",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/INPUT_FREEZE.json": "f61be5667fcde7d695662d44f64546b7e006f5369470aee9712af9cdf98fb825",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/PROTOCOL.txt": "98459bae26cbe7e03eebf2a75c6762949c50b7416bc048d2e33c56cd632d73de",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/COST_BRIDGE_ADDENDUM.txt": "9d32efd063233c66fb45c035590cc45aba0b0852ddf7b367244d86ce8f05ba45"
+  }
+}

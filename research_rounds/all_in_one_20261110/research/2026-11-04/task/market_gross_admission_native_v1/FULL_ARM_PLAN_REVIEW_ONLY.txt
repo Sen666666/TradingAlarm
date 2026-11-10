@@ -1,0 +1,56 @@
+full方案原稿：仅执行candidate，固定归档No60 B控制（NO FULL GO）
+
+裁决：可直接这样做，未见需要新优化系统或重复完整B的理由。
+仍经原Runner初始化B母体/预算/行业warm，深拷贝成D_GROSS10；初始化完成后仅从
+self.accounts移除B，再进入原事件循环。只执行D_GROSS10，归档B只读作比较。
+不是在执行中跳过某些B日期，也不从B路径重置candidate金融状态。
+
+源等价依据
+joint_v3.py::planning先按公共原facts构造global_watch/epoch/资格/排序，再循环
+accounts；每个a先activate(a)，其NAV/risk/H/pending/持仓保护/industry预算均自身。
+N.planning在原planning后逐账户apply_priority，不依赖其它account结果。
+PreparedRunner.run_prepared逐账户settle/payment/opening，common _actions仅对各自
+真实账户数量调用同一公司行动，不在账户之间转资金或持仓。
+原FrozenMarket.window按sid/at/side/原价格与成交量确定；FastMarket.window只缓存
+该确定性FillWindow，没有跨账户扣减共享成交容量。少运行B只少一次相同只读查询/
+notice/核验缓存，不能改变D所拿价格、费用和capacity。共享facts不是共享钱包。
+J.daily_bridge只验证传入a自身账，PVR/private budget/退出锁/fee状态均在a。
+故删B只少执行独立分支；D仍原顺序内唯一自身分支，one-factor金融逻辑不变。
+本轮两个正常small的B整本/每日gold exact；strong ND两臂同行只作额外局部证据，
+不冒称已做candidate-only完整账户重跑。
+
+固定两窗口与控制
+long：2022Jan4–2024Dec31，726CLOSE、fresh1m且连续own-state、不年reset；
+ control=capacity_cost_guard_v1/runs/long-v1/arms/B/pair 的既有完整No60金本。
+strong：2025Jul1–2026Jun30，242CLOSE、独立fresh1m；
+ control=capacity_cost_guard_v1/runs/strong-v1/arms/B/pair 的既有完整No60金本。
+其NONE全日/trade/layer/终值已独审核原No60 exact；路径与当下文件SHA另附
+ARCHIVED_B_CONTROL_BINDING.json。归档controls不覆写、不重估、不执行第三次。
+分析时按相同日期对归档B与candidate实际账逐日/全年比较；两window不可相加为
+多年连续财富。费用、风险、试错、old winner、新leader及全部DOWN正反例仍要审。
+
+拟full入口/源（尚未实现/未运行）
+1. 保留已冻v1小账文件；新full adapter v2只借v1同一gross经济函数，接入
+   market_info_v2，补完整原budget type/request/migrate、rank manifest/wire identity。
+2. constructor完整初始化后self.accounts仅D_GROSS10；archive B路径只进manifest/
+   analysis references，不进native loop。原输出格式一臂，不创建第二金融writer。
+3. 独立expected CLOSE日历从原native market.cutoffs（完整范围+必要warm）得到，
+   不从截断ETF行自推；source绑定原inputs/calendar/历史CSV。固定window full_end
+   与provider可用范围，未知阻新增；不改X/MA/严格比较，不重算rolling/TR。
+4. 直接借trend_size_plugin.py::Runner.restore已审episode_starts修复：构造时留
+   expected_episode_starts，super.restore后逐已有key核值相同，再保留完整构造索引。
+   provider也核source/full_end/expected-calendar合同再绑定构造器可用域；金融
+   accounts/pending/cash/H/fees全部来自真实checkpoint，不能用新初始化覆盖。
+   完整run的月checkpoint同一固定full范围，无小窗向未知域偷扩。
+5. 显式固定end；full必须独立root grant绑定exact full schema/source SHA，resume
+   仍原IO.atomic provenance gate。prepare只写source manifest/proposal，不跑账户。
+6. 实际private COMBINED_SCORE_BINDING JSON在configure之后写入freeze，三年度原
+   SCORE_PATHS和source loader SHA继续保留。原函数体复用，不新输入cache/loader。
+7. 空roles诊断压缩仅借已审原片段（见LOGGING_COMPACT_ASSESSMENT）；原N.planning
+   完成后过滤self.opportunities日志，非空roles全保留+每日报母体/role计数，不碰
+   pending/rank/route。不要再为日志重跑已正确small资金。
+
+停止界限
+若读源发现非账户私有的金融状态或跨账户成交容量消费，candidate-only应放弃，
+回双arm，不为节省B写新并行/交易引擎；目前未发现这种源依赖。
+full仍无授权；先等ledger+logic总gate，再冻结v2 full源/输入合同，root另给grant。

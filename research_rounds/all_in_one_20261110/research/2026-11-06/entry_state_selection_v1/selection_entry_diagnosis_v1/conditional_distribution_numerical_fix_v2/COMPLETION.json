@@ -1,0 +1,10 @@
+{
+  "status": "ONE_FROZEN_FORWARD_OPPORTUNITY_EXPERIMENT_NOT_ACCOUNT",
+  "predictions": 43736,
+  "rows": 53121,
+  "accounts": 0,
+  "parameter_searches": 0,
+  "feature_specs": 1,
+  "all_same_K_sector": true,
+  "source_unchanged": true
+}

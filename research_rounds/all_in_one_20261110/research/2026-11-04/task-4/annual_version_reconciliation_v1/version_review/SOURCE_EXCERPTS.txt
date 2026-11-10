@@ -1,0 +1,502 @@
+
+FILE /Users/bytedance/Documents/Codex/2026-11-04/task-4/new_price_trend_v1/funding/entry_adapter.py SHA256 5b07f2eef495219adc799d7f3773153f2200e9c48437831762dfc4bedeb1574c
+62: class Runner(A.Runner):
+63:     def __init__(self, *args, entry_mode='OFF', **kwargs):
+64:         assert entry_mode in ('OFF', 'BB20') and FEATURES is not None
+65:         self.entry_mode = entry_mode
+66:         self.entry_features_sha256 = FEATURES.manifest_sha256
+67:         self.entry_gate = []
+68:         self._entry_bootstrap = True
+69:         super().__init__(*args, **kwargs)
+70:         self._entry_bootstrap = False
+71:         self.integration_policy = A.POLICY + ':' + self.rank_mode + ':' + POLICY + ':' + entry_mode
+72:         self.assert_native_wiring()
+73: 
+74:     def assert_native_wiring(self):
+75:         cap_bootstrap = getattr(self, '_cap_bootstrap', False)
+76:         entry_bootstrap = getattr(self, '_entry_bootstrap', False)
+77:         expected = (N.POLICY if cap_bootstrap else A.POLICY) + ':' + self.rank_mode
+78:         if not entry_bootstrap: expected += ':' + POLICY + ':' + self.entry_mode
+79:         assert self.integration_policy == expected
+80:         assert self.rank_scores_manifest_sha256 == N.SCORES.manifest_sha256
+81:         assert self.entry_features_sha256 == FEATURES.manifest_sha256
+82:         assert self.opening.__func__ is J.Runner.opening
+83:         assert self.planning.__func__ is Runner.planning
+84:         assert self.route.__func__ is A.P.ROUTES[True]
+85:         for a in self.accounts.values():
+86:             assert type(a) is J.Account
+87:             assert type(a.budget) is (N.BASE.NoAccountBudget if cap_bootstrap else A.NoConfirmed60Budget)
+88:             if not cap_bootstrap:
+89:                 assert a.budget.request.__func__ is A.P.MOD.Contract.request
+90:                 assert a.budget.migrate.__func__ is A.NoConfirmed60Budget.migrate
+113:     def planning(self, at):
+114:         if self.entry_mode == 'OFF':
+115:             return N.Runner.planning(self, at)
+116:         GATED_PLANNING(self, at)
+117:         if self.rank_mode == 'H1': return
+118:         for a in self.accounts.values():
+119:             log = N.apply_priority(a, N.SCORES.at, str(at.date()))
+120:             self.rank_log.extend(dict(account=a.label, **r) for r in log)
+
+FILE /Users/bytedance/Documents/Codex/2026-11-04/task-4/new_price_trend_v1/funding/input_loader.py SHA256 55deb37196a602296394a9ee1f018156c21d7a69c4c68026dc2b5073ea7d484d
+13: WINDOWS = {'long': ('2022-01-01','2024-12-31'), 'strong': ('2025-07-01','2026-06-30')}
+14: RECEIPT_MANIFESTS = [W/'2022-normal-reference-20261031/inputs/MANIFEST.json',
+15:                     W/'recovery-2023-readiness-20261101/inputs/MANIFEST.json', GEN24/'inputs/MANIFEST.json']
+16: SCORES = {'long':GEN24/'SCORES_MANIFEST.json', 'strong':N.O/'SCORES_MANIFEST.json'}
+17: BASELINES = {'long':GEN24/'cycle2024/no60/run-2024/pair', 'strong':E.POOL/'runs/2025_26/pair'}
+45:         f=pd.read_parquet(r['refs']['facts']).loc[:end]
+46:         q=pd.read_parquet(r['refs']['CP1_input']).loc[:end]
+47:         z=pd.read_parquet(r['refs']['CP1']).loc[:end]
+48:         assert f.index.equals(q.index) and q.index.equals(z.index)
+49:         for k in ('close','segment_id','i_target','i_floor'):
+50:             pd.testing.assert_series_equal(f[k],q[k],check_exact=True,check_dtype=False,check_freq=False)
+51:         rr=receipt_rows(r,sid); assert len(rr)==int(z.loc[start:end].receipt.eq(True).sum()),('receipt count',sid)
+52:         full[sid],cp[sid],receipts[sid]=f,z,{x['confirmed_day']:x for x in rr}
+53:         counts[sid]={'rows':len(f.loc[start:end]),'receipts':len(rr)}
+54:     shared=J.M.context(end,ids=fixed); bundle,market,facts=shared
+55:     assert set(market.lines)==set(fixed)=={x.security_id for x in bundle.lines}
+56:     for sid,f in full.items():
+57:         facts.f[sid]=f
+58:         bundle.series[sid].states=f[['e0_ready','e0_target','segment_id']].rename(columns={'e0_ready':'ready','e0_target':'target'})
+59:     states={}; ir={}
+60:     for r in im:
+61:         sid=r['series']
+62:         for p,h in r['output_sha256'].items(): check(p,h)
+63:         s=pd.read_parquet(r['refs']['state']); states[sid]=J.T.norm(s[s.day<=end].to_dict('records'))
+64:         for x in receipt_rows(r,sid): ir[sid+'|'+x['confirmed_day']]=x
+65:         assert facts.f[sid].index.max()<=pd.Timestamp(end)
+66:     recovery=J.M.O/'recovery.csv'; check(str(recovery),read(J.BASE/'PAIR_FREEZE.json')['sha256'][str(recovery)])
+67:     identity=dict(window=[start,end],fixed_ids=fixed,sectors=[r['series']for r in im],cash_each=1000000,
+68:         stock_manifest_sha256=E.sha(L.U/'STOCK_MANIFEST.json'),industry_manifest_sha256=E.sha(L.U/'INDUSTRY_MANIFEST.json'),
+69:         canonical_manifest_sha256={str(p):E.sha(p)for p in RECEIPT_MANIFESTS}if canonical else None,
+70:         ACT_external_sha256=E.sha(recovery),H1_sha256=E.sha(J.M.P/'h1.npz'),scores_manifest_sha256=E.sha(SCORES[window]),
+71:         checked_source_sha256=checked,stock_counts=counts,numeric_models_recomputed=0,prior_account_imports=0,
+72:         seconds=time.monotonic()-begun)
+
+FILE /Users/bytedance/Documents/Codex/2026-11-04/task-4/new_price_trend_v1/funding/run_entry.py SHA256 e985820542feaf256d4a80d360466ed91d8bfc28720520c8dbaa0fb74355f109
+85: def construct(value,mode,original=False):
+86:     shared,receipts,cp,states,ir,_=value
+87:     kw=E.S.kwargs(cp,states,ir)
+88:     r=E.A.Runner(shared,receipts,**kw)if original else E.Runner(shared,receipts,entry_mode=mode,**kw)
+89:     r.source_freeze=dict(read(O/'SOURCE_FREEZE.json')['sources'])
+90:     a=r.accounts['B']
+91:     assert a.available==a.current_nav==a.initial_cash==J.D(1000000)
+92:     assert not(a.positions or a.layers or a.trades or a.buys or a.exits or a.core_epoch or a.budget.orders or a.budget.lots or a.budget.losses)
+93:     return r
+94: 
+95: def run(r,out,end,budget):
+96:     out.mkdir(parents=True,exist_ok=False)
+97:     with IO.atomic_runner_outputs(r,L,out,canonicalize=J.W.canon):
+98:         done=budget.run(lambda left:r.run_prepared(out,left,end=end))
+99:     if not done:raise RuntimeError('native run saved timeout checkpoint/partial; no automatic replay')
+100:     return out/'pair'
+150:         N.configure_scores(D.SCORES[window]);t=time.monotonic();value=D.inputs(window)
+151:         save(root/(window+'_INPUT_IDENTITY.json'),value[-1])
+152:         print('INPUT_READY',window,'seconds',time.monotonic()-t,flush=True)
+153:         for mode in ('OFF','BB20'):
+154:             r=construct(value,mode);out=root/(window+'_'+mode)
+155:             save(root/(window+'_'+mode+'_FRESH.json'),dict(cash=1000000,positions=0,orders=0,account_imports=0))
+156:             pair=run(r,out,end,budget)
+157:             if mode=='OFF':
+158:                 proof=compare_pairs(D.BASELINES[window],pair)
+159:                 save(out/'ORIGINAL_IDENTITY.json',proof)
+160:                 assert proof['passed'],'full OFF differs from original No60; candidate stopped'
+161:             assert freeze()==read(O/'SOURCE_FREEZE.json')['sources']
+162:             print('FULL_SAVED',window,mode,'compute_used',round(budget.used,3),flush=True)
+163:             del r;gc.collect()
+164:         del value;gc.collect()
+165:     save(root/'COMPLETE.json',dict(passed=True,compute_seconds=budget.used,paths=4,source_freeze_sha256=E.sha(O/'SOURCE_FREEZE.json')))
+
+FILE /Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/native_adapter.py SHA256 7f451011b97bccbae863fa098e5520e7af4b6107fb9ed96b4d105eaa84d8a208
+9: POLICY='PVR_SLOT1_NO_CONFIRMED60_ONLY'
+10: 
+11: class NoConfirmed60Budget(N.BASE.NoAccountBudget):
+12:     request=P.MOD.Contract.request
+13:     def migrate(self,sector):
+14:         return P.MOD.Contract.migrate(self,sector) if self.expand else False
+15: 
+16: class Runner(N.Runner):
+17:     route=P.ROUTES[True]
+18:     def __init__(self,*args,**kwargs):
+19:         self._cap_bootstrap=True
+20:         super().__init__(*args,**kwargs)
+21:         self.remove_confirmed60=True
+22:         for a in self.accounts.values():a.budget.__class__=NoConfirmed60Budget
+23:         self.integration_policy=POLICY+':'+self.rank_mode
+24:         self._cap_bootstrap=False
+25:         self.assert_native_wiring()
+26: 
+27:     def assert_native_wiring(self):
+28:         bootstrap=getattr(self,'_cap_bootstrap',False)
+29:         assert self.integration_policy==(N.POLICY if bootstrap else POLICY)+':'+self.rank_mode
+30:         assert self.rank_scores_manifest_sha256==N.SCORES.manifest_sha256
+31:         assert self.opening.__func__ is J.Runner.opening
+32:         assert self.planning.__func__ is N.Runner.planning
+33:         assert self.route.__func__ is P.ROUTES[True]
+34:         for a in self.accounts.values():
+35:             assert type(a)is J.Account and type(a.budget)is (N.BASE.NoAccountBudget if bootstrap else NoConfirmed60Budget)
+36:             if not bootstrap:
+37:                 assert a.budget.request.__func__ is P.MOD.Contract.request
+38:                 assert a.budget.migrate.__func__ is NoConfirmed60Budget.migrate
+39:             for name in ('reserve_quantity','fill_buy','fill_exit','cancel_buy','split','sync','assert_budget_view','expire_day_buys'):
+40:                 assert getattr(a,name).__func__ is getattr(J.Account,name)
+
+FILE /Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/component.py SHA256 604a89c2d4205d20c2799d6408b47b19a64b1f3beb6396da8807cd023e105361
+17: MODEL=(W/'account-risk-ablation-20261031/model_without_account_check.py').read_text()
+18: ROUTE=(W/'account-risk-ablation-20261031/route_without_account_check.py').read_text()
+19: assert inspect.getsource(N.Contract.migrate)==inspect.getsource(J.V.Contract.migrate)
+20: MG="        if self.resources('confirmed')[0] + moved > .60*(self.nav-pending_fees) + 1e-9:\n            s.status = 'confirmed_unfunded'\n            return False\n"
+21: PG="        if pc+cap > (0.10 if pool == 'probe' else 0.60)*budget_nav + 1e-9: failures.append('pool_capital')"
+22: PN="        if pool == 'probe' and pc+cap > 0.10*budget_nav + 1e-9: failures.append('pool_capital')"
+23: RG="    if pc+cap>(.10 if pool=='probe' else .60)*nav+1e-9:fails.append('pool_capital')"
+24: RN="    if pool=='probe' and pc+cap>.10*nav+1e-9:fails.append('pool_capital')"
+25: assert MODEL.count(MG)==MODEL.count(PG)==ROUTE.count(RG)==1
+26: NEW_MODEL=MODEL.replace(MG,'').replace(PG,PN)
+27: NEW_ROUTE=ROUTE.replace(RG,RN)
+28: assert NEW_MODEL.replace(PN,PG).replace('        before = (self.cash, self.nav, self.resources(), self.shared_loss)',MG+'        before = (self.cash, self.nav, self.resources(), self.shared_loss)')==MODEL
+29: assert NEW_ROUTE.replace(RN,RG)==ROUTE
+30: MOD=ModuleType('pvr_private_no_confirmed60_model');sys.modules[MOD.__name__]=MOD
+31: exec(compile(NEW_MODEL,str(O/'derived_model_no_confirmed60.py'),'exec'),MOD.__dict__)
+32: ROUTES={}
+33: for flag,source in [(False,ROUTE),(True,NEW_ROUTE)]:
+34:     env=dict(J.__dict__);exec(compile(source,str(O/('derived_route_on.py' if flag else 'derived_route_off.py')),'exec'),env);ROUTES[flag]=env['route']
+
+FILE /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/native_rank.py SHA256 5ec91c2323b2d3b8fa5c99df504139e2ac7af9b5b84359222c3d6353d0cd697c
+94: class Runner(BASE.Runner):
+95:     def __init__(self, *args, rank_mode='PVR_SLOT1', **kw):
+96:         assert rank_mode in ('H1', 'PVR_SLOT1') and SCORES is not None
+97:         super().__init__(*args, **kw)
+98:         self.rank_mode = rank_mode
+99:         self.integration_policy = POLICY+':'+rank_mode
+100:         self.rank_scores_manifest_sha256 = SCORES.manifest_sha256
+101:         self.rank_log = []
+102:         self.assert_native_wiring()
+103: 
+104:     def assert_native_wiring(self):
+105:         assert self.integration_policy == POLICY+':'+self.rank_mode
+106:         assert SCORES is not None and self.rank_scores_manifest_sha256 == SCORES.manifest_sha256
+107:         assert self.opening.__func__ is J.Runner.opening
+108:         assert self.route.__func__ is BASE.Runner.route
+109:         assert self.planning.__func__ is Runner.planning
+110:         for a in self.accounts.values():
+111:             assert type(a) is J.Account and type(a.budget) is BASE.NoAccountBudget
+112:             for name in ('reserve_quantity', 'fill_buy', 'fill_exit', 'cancel_buy', 'split', 'sync', 'assert_budget_view'):
+113:                 assert getattr(a, name).__func__ is getattr(J.Account, name)
+114: 
+115:     def planning(self, at):
+116:         J.Runner.planning(self, at)
+117:         if self.rank_mode == 'H1': return
+118:         for a in self.accounts.values():
+119:             log = apply_priority(a, SCORES.at, str(at.date()))
+120:             self.rank_log.extend(dict(account=a.label, **r) for r in log)
+
+FILE /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/launch_v3.py SHA256 e90e1ccc0e891218c9120d58430860f468f06840dc6186c0fb8f7aec17bd60b1
+82:  def run_prepared(self,out,max_seconds,resume_after=None,end=None):
+83:   # Original M.Pilot.run event construction/order. The only clock difference
+84:   # is a strict skip of already completed checkpoint events on explicit resume.
+85:   from datetime import datetime,time as dt
+86:   end=end or J.END
+87:   start=J.M.N.iso(J.START+'T15:10:00+08:00');finish=J.M.N.iso(end+'T15:10:00+08:00')
+88:   cutoffs={x for x in self.market.cutoffs if start<=x<=finish};opens={x for x in self.market.sessions['A'] if start<=x<=finish}
+89:   acts={datetime.combine(datetime.fromisoformat(d).date(),dt.min,J.M.N.TZ) for d in self.actions_by_date}
+90:   events=sorted(cutoffs|opens|{x for x in acts if start<=x<=finish});assert finish in cutoffs
+91:   J.M.E.risk_policy.RECOVERY=pd.read_csv(J.M.O/'recovery.csv',index_col=0,parse_dates=True).loc[:end]
+92:   t=time.monotonic();last=resume_after
+93:   for at in events:
+94:    if resume_after is not None and at<=resume_after:continue
+95:    if time.monotonic()-t>max_seconds:
+96:     if last is not None:self.checkpoint(out,last)
+97:     self.dump_joint(Path(out)/'partial');return False
+98:    for a in self.accounts.values():a.settle_due(at)
+99:    self._actions(at)
+100:    for a in self.accounts.values():self._payments(a,at)
+101:    if at in opens:
+102:     for a in self.accounts.values():self.opening(a,at)
+103:    if at in cutoffs:self.planning(at)
+104:    last=at
+105:    # Monthly data checkpoint, never a cash/position/ACT reset.
+106:    if at in cutoffs and (pd.Timestamp(at.date())+pd.offsets.BDay()).month!=at.month:self.checkpoint(out,last)
+107:   self.run_seconds=time.monotonic()-t;self.checkpoint(out,last);self.dump_joint(Path(out)/'pair')
+108:   save(Path(out)/'DONE.json',dict(completed=True,run_seconds=self.run_seconds,ending_NAV={k:str(a.current_nav) for k,a in self.accounts.items()}))
+109:   return True
+
+FILE /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/route_without_account_check.py SHA256 7bc31864d1d3944e800bb3f51297f01c417ecf8ac8487b857aa897bde22d66a1
+1: def route(self,a,i,x,at):
+2:   b=a.budget;sid=i['sid'];sector=self.sector_by_sid[sid];s=b.sectors.get(sector);bar=ordinal(i['clock'].decision_at.date());role=i['role'];p=float(x['price']);floor=float(x['floor']);rule=x['rule'];maxq=x['maxq'];rid=i.get('CP1_id');token=None
+3:   if not s or not s.active:return None,'industry_invalidated'
+4:   if role=='mobile':
+5:    cp=i['CP1_trace'];token=V.Evidence(rid,sector,'stock_cp1','21',ordinal(cp['formation_start_exclusive']),bar,bar,s.episode,sid,s.attempt)
+6:    if not b.valid(token,'stock_cp1',bar) or rid in b.consumed:return None,'no_fresh_stock_CP1'
+7:   assert not getattr(a,'_budget_sync_pending',False),'cannot admit during unacknowledged ledger callback'
+8:   routes=['probe']
+9:   if role=='mobile' and b.expand and s.level>0:
+10:    if b.migrate(sector):a.pools_from_model();routes.append('confirmed')
+11:   results=[];reasons={}
+12:   for pool in routes:
+13:    pc,pr,_=b.resources(pool);sc,sr,_=b.resources(sector=sector);_,ar,reserve=b.resources();pending_fees=sum(o.qty*o.fee_per_share for o in b.orders.values() if o.status in ['open','cancel_pending']);frac=.02 if pool=='probe' else (.02,.1,.2)[s.level]
+14:    def allowed(q,detail=False):
+15:     fee=float(LR.fees(q,x['price'],x['schedule'],'buy',i['quote'].par_value));nav=b.nav-pending_fees-fee;cap=q*p;risk=q*max(0.,p-floor);fails=[]
+16:     if cap+fee>min(float(a.available-a.current_nav*D('.1')),b.cash-reserve)+1e-9:fails.append('cash_or_original_reserve')
+17:     if pc+cap>(.10 if pool=='probe' else .60)*nav+1e-9:fails.append('pool_capital')
+18:     if pool=='probe' and pr+risk>.005*nav+1e-9:fails.append('probe_risk')
+19:     if sc+cap>frac*nav+1e-9:fails.append('sector_capital')
+20:     if sr+risk>.01*nav+1e-9:fails.append('sector_risk')
+21:     known_open=x.get('known_open',x['price']/(D(1)+LR.SLIP));held_at_open=float(a.quantity(sid))*float(known_open)
+22:     if held_at_open+cap>.10*float(a.current_nav)+1e-9:fails.append('stock_capital')
+23:     return fails if detail else not fails
+24:    q=LR.maximum_quantity(rule,maxq,allowed);results.append((q,pool));reasons[pool]=allowed(rule.buy_minimum,True)
+25:   # Maximum legal quantity, probe wins a tie. No split order or speculative consume.
+26:   q,pool=max(results,key=lambda z:(z[0],z[1]=='probe'))
+27:   if not q:return None,','.join(sorted(set(sum(reasons.values(),[])))) or 'minimum_unit_not_funded'
+28:   bid=f"{a.label}|{i['clock'].decision_at.isoformat()}|{sid}|{role}";fee=LR.fees(q,x['price'],x['schedule'],'buy',i['quote'].par_value);result=b.request(bid,sid,sector,q,p,floor,token,bar,float(fee/D(q)),probe_request=pool=='probe',role=role,order_expiry_bar=ordinal(at.date()),core_epoch_locked=role=='core' and a.core_epoch.get(sid)==i['epoch']);assert result=='reserved',(bid,result,reasons)
+29:   i.update(budget_order=bid,pool=pool);return(q,pool),None
+
+FILE /Users/bytedance/Documents/ChatGPT/money/research_rounds/ix-a-share-entry-20261025/code/multi_runner.py SHA256 8272c400fcee074a3902db9430dcf22d7ea3f0e0b3abb3caed3dc1e2a344d285
+182:     def latest_mark(self, sid, at):
+183:         self.source_available(sid, at)
+184:         frame = self.raw.get(sid)
+185:         if frame is None:
+186:             raise RuleUnavailable('Raw mark unavailable: ' + sid)
+187:         record = self.bundle.series[sid].record
+188:         cutoff = at.astimezone(TZ).date()
+189:         pos = frame.index.searchsorted(pd.Timestamp(cutoff), side='right')-1
+190:         for i in range(pos, -1, -1):
+191:             date, row = frame.index[i], frame.iloc[i]
+192:             if not bool(row.get('observed_bar', True)):
+193:                 continue
+194:             close_at = datetime.combine(date.date(), time.fromisoformat(record['close_available_time']), TZ)
+195:             if close_at <= at:
+196:                 if not bool(row.valid_price):
+197:                     continue
+198:                 price, known = dec(row.close), close_at
+199:             else:
+200:                 opens = [x for x in self.sessions[self.lines[sid].market]
+201:                          if x.astimezone(TZ).date() == date.date() and x <= at]
+202:                 # The current open is observable independently of future H/L/C.
+203:                 if not opens or not pd.notna(row.open) or not math.isfinite(row.open) or row.open <= 0:
+204:                     continue
+205:                 price, known = dec(row.open), opens[0]
+206:             source = record['raw']['sha256']
+207:             intervening = [e for e in self.actions.get(sid, ())
+208:                 if date.date().isoformat() < e['effective_date'] <= cutoff.isoformat()]
+209:             if intervening:
+210:                 if self.protocol.get('stale_action_mark_policy') != 'theoretical_ex_reference':
+211:                     raise RuleUnavailable('Stale pre-action price requires an explicit valuation policy: '+sid)
+212:                 for event in sorted(intervening, key=lambda e:e['effective_date']):
+213:                     price = (price-dec(event.get('signal_cash_per_old_share',event['cash_per_old_share'])))/dec(event.get('signal_split_ratio',event['split_ratio']))
+214:                     source += ':derived_ex_reference:'+event['effective_date']+':'+event['source_id']
+215:                 if price <= 0:
+216:                     raise RuleUnavailable('Nonpositive derived ex-action valuation reference: '+sid)
+217:                 # Keep the actual raw observation time. The source explicitly
+218:                 # records the subsequent unit transforms, never a tradable quote.
+219:             return Mark(price, known, self.rate(record['currency'], at), source)
+220:         raise RuleUnavailable('No already-observed price prefix: ' + sid)
+221: 
+222:     def marks(self, at, ids):
+223:         return {sid: self.latest_mark(sid, at) for sid in ids}
+224: 
+225:     def quotes(self, at, ids=None):
+226:         result = {}
+227:         for sid in ids if ids is not None else self.lines:
+228:             line = self.lines[sid]
+229:             if ids is None and not (line.current_stock is True and line.company_cap_cny is not None
+230:                     and line.company_cap_cny > 10_000_000_000
+231:                     and (line.market == 'A' or line.southbound_selected is True)):
+232:                 continue
+233:             if line.issuer_id is None or line.sector_id is None:
+234:                 continue
+235:             try:
+236:                 mark = self.latest_mark(sid, at)
+237:                 meta = self.rules.get('security_metadata', {}).get(sid, {})
+238:                 result[sid] = DecisionQuote(sid, line.issuer_id, line.sector_id, self.currency(sid),
+239:                     mark.raw_price, mark.known_at, mark.fx, self.quantity(sid, at), self.fees(sid, at),
+240:                     mark.source_id, meta.get('par_value'))
+354:     def _actions(self, at):
+355:         for sid, n, event in self.actions_by_date.get(at.astimezone(TZ).date().isoformat(), ()):
+356:                 day = event['effective_date']
+357:                 key = sid, n
+358:                 if day != at.astimezone(TZ).date().isoformat() or key in self.applied_actions:
+359:                     continue
+360:                 cash, ratio = dec(event['cash_per_old_share']), dec(event['split_ratio'])
+361:                 for account_id, account in self.accounts.items():
+362:                     old = account.quantity(sid)
+363:                     if old and event.get('classification') in ('rights_issue_no_subscription','targeted_non_pro_rata_issuance'):
+364:                         account.audit_log.append(dict(kind=event['classification'],at=at,sid=sid,
+365:                             source_id=event['source_id'],holder_shares_unchanged=old,
+366:                             no_cash_or_extra_shares_invented=True,terms=event))
+367:                     if old and cash:
+368:                         currency = self.market.currency(sid)
+369:                         # Required, named protocol proxy; not silently gross==net.
+370:                         factor = dec(self.market.protocol['dividend_net_factor'][self.market.lines[sid].market])
+371:                         paid = iso(event['paid_at']) if event.get('paid_at') else None
+372:                         account.accrue_dividend(event_id=f'dividend:{sid}:{day}', sid=sid, currency=currency,
+373:                             net_local=old*cash*factor, ex_at=at, paid_at=paid, source_id=event['source_id'],
+374:                             entitlement_basis='protocol_previous_close_inventory_and_explicit_net_factor')
+375:                     if ratio != 1 and (old or sid in account.buys or sid in account.exits):
+376:                         sellable = (iso(event['new_shares_sellable_at']) if event.get('new_shares_sellable_at')
+377:                             else self.market.lag(self.market.lines[sid].market, at,
+378:                                 self.market.protocol['bonus_sellable_lag_sessions'][self.market.lines[sid].market]))
+379:                         account.split(event_id=f'split:{sid}:{day}', sid=sid, ratio=ratio,
+380:                                       at=at, new_shares_sellable_at=sellable)
+381:                 if ratio != 1:
+382:                     self.b0.apply_split(sid, ratio,fractional_policy=self.market.protocol.get('fractional_split_policy','reject'))
+383:                 self.applied_actions.add(key)
+384: 
+385:     def _payments(self, account, at):
+386:         for event_id, entitlement in list(account.dividends.items()):
+387:             if entitlement.paid_at is not None and entitlement.paid_at <= at:
+388:                 account.pay_dividend(event_id, at=at, fx=self.market.rate(entitlement.currency, at),
+389:                     payment_evidence_id=entitlement.source_id+':declared-payment-field',
+390:                     payment_known_at=entitlement.paid_at)
+
+FILE /Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py SHA256 48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb
+435:     def balance(self, at, marks: Mapping[str, Mark], currency_fx: Mapping[str, FXQuote] | None = None):
+436:         self._time(at)
+437:         for sid, pos in self.positions.items():
+438:             if pos.currency == 'CNY' and marks[sid].fx.read(at) != ONE:
+439:                 raise ValueError('CNY inventory valuation FX must equal one')
+440:         stock = sum((p.shares * marks[sid].cny_price(at) for sid, p in self.positions.items()), ZERO)
+441:         reserved = sum((o.remaining_budget_cny+o.fee_reserved_cny for o in self.buys.values()), ZERO)
+442:         locked = sum((s.cny_amount for s in self.settlements.values() if s.debit), ZERO)
+443:         receivable = sum((s.cny_amount for s in self.settlements.values() if not s.debit), ZERO)
+444:         dividend = ZERO
+445:         for d in self.dividends.values():
+446:             if d.currency == 'CNY':
+447:                 rate = ONE
+448:             else:
+449:                 if currency_fx is None or d.currency not in currency_fx:
+450:                     raise ValueError('Outstanding foreign dividend needs a known valuation FX')
+451:                 rate = currency_fx[d.currency].read(at)
+452:             dividend += d.net_local * rate
+453:         nav = self.available + reserved + locked + receivable - locked + stock + dividend
+454:         result = dict(available=self.available, order_reserved=reserved, settlement_locked=locked,
+455:                       payable=locked, sale_receivable=receivable, dividend_receivable=dividend,
+456:                       inventory=stock, nav=nav, fees_cny=self.fees_cny)
+457:         if min(self.available, reserved, locked, receivable, dividend, stock) < 0:
+458:             raise AssertionError('Negative ledger component')
+811:     def accrue_dividend(self, *, event_id, sid, currency, net_local, ex_at,
+812:                         paid_at: datetime | None, source_id, entitlement_basis):
+813:         self._time(ex_at)
+814:         if event_id in self.action_events:
+815:             raise ValueError('Duplicate corporate action event')
+816:         if (not event_id or not source_id or not entitlement_basis
+817:                 or currency not in ('CNY', 'HKD') or dec(net_local) < 0):
+818:             raise ValueError('Identified net cash entitlement required')
+819:         if paid_at is not None:
+820:             aware(paid_at)
+821:             if paid_at < ex_at:
+822:                 raise ValueError('Dividend payment cannot precede accrual')
+823:         self.action_events.add(event_id)
+824:         self.dividends[event_id] = DividendReceivable(event_id, sid, currency, dec(net_local), ex_at,
+825:                                                      paid_at, source_id, entitlement_basis)
+826:         self.audit_log.append(dict(kind='dividend_accrual', receivable=self.dividends[event_id]))
+827: 
+828:     def pay_dividend(self, event_id, *, at, fx: FXQuote, payment_evidence_id, payment_known_at):
+829:         self._time(at)
+830:         aware(payment_known_at)
+831:         if event_id in self.paid_dividends:
+832:             raise ValueError('Dividend already paid')
+833:         d = self.dividends[event_id]
+834:         if (not payment_evidence_id or payment_known_at > at
+835:                 or (d.paid_at is not None and at < d.paid_at)):
+836:             raise ValueError('Payment evidence and effective payment time required')
+837:         rate = fx.read(at)
+838:         if d.currency == 'CNY' and rate != ONE:
+839:             raise ValueError('CNY dividend FX must equal one')
+840:         self.available += d.net_local*rate
+841:         del self.dividends[event_id]; self.paid_dividends.add(event_id)
+842:         self.audit_log.append(dict(kind='dividend_payment', at=at, entitlement=d,
+843:                                   payment_evidence_id=payment_evidence_id, fx_rate=rate,
+844:                                   fx_source=fx.source_id))
+
+FILE /Users/bytedance/Documents/ChatGPT/money/research_rounds/probe-pyramid-pilot-20261029/code/pilot.py SHA256 38ac36ba3b9da599c66307451f4173249efc229f54dfb6a0d8469517431f94b4
+90:  def split(self,**kw):
+91:   sid=kw['sid'];layers=self.live(sid);old=sum(z['qty'] for z in layers);super().split(**kw)
+92:   if old:
+93:    target=self.quantity(sid);parts=[int(D(z['qty'])*kw['ratio']) for z in layers];remain=target-sum(parts)
+94:    # Fractional entitlement writeoff belongs to the original aggregate ledger.
+95:    for i in range(remain):parts[i%len(parts)]+=1
+96:    for z,q in zip(layers,parts):z['qty']=q
+97:    if sid in self.exits and self.exits[sid].remaining_target is not None:
+98:     self.exits[sid].remaining_target=sum(z['qty'] for z in self.live(sid) if z['id'] in self.sell_layers[sid]);self.exits[sid].submitted_remaining=min(self.exits[sid].submitted_remaining,self.exits[sid].remaining_target)
+99:   self.check()
+100:  def accrue_dividend(self,**kw):
+101:   super().accrue_dividend(**kw);layers=self.live(kw['sid']);qty=sum(z['qty'] for z in layers)
+102:   assert qty
+103:   for z in layers:z['dividend']+=kw['net_local']*D(z['qty'])/qty
+
+FILE /Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/code/current_pool_bridge.py SHA256 f5d228529662dfe364d2465a8f6f2adad86ba521ca5bff05bb41d67da5de4cf4
+145: def prepare_signal(raw, record, events, cutoff=None):
+146:     """Prefix-causal signal coordinates, not shareholder total-return accounting.
+147: 
+148:     Theoretical ex-price uses prior raw close; total-return uses the event's
+149:     close, matching the existing two declared signal conventions. Factor changes
+150:     only on a supported action. Shares use source-origin units for volume.
+151:     """
+152:     method = record['adjustment']['method']
+153:     source = raw if cutoff is None else raw.loc[:pd.Timestamp(cutoff)]
+154:     if source.empty:
+155:         raise ValueError('Empty source prefix')
+156:     start, end = source.index[0], source.index[-1]
+157:     active = {}
+158:     for event in events:
+159:         date = pd.Timestamp(event['effective_date'])
+160:         if date == start and (decimal(event['cash_per_old_share']) != 0
+161:                               or decimal(event['split_ratio']) != 1):
+162:             raise ValueError('Origin-date action requires an explicit prior price/state')
+163:         if start < date <= end:
+164:             active[date] = event
+165:     full = source.reindex(source.index.union(pd.DatetimeIndex(active))).sort_index()
+166:     full.index.name = 'date'
+167:     observed = set(source.index)
+168:     # Input observation flags survive. Merely appearing in a source is not proof
+169:     # of a real traded bar, and ordinary missing volume is not a price exclusion.
+170:     declared_observed = boolean_column(source, 'observed_bar', True)
+171:     full['observed_bar'] = declared_observed.reindex(full.index).fillna(False).astype(bool)
+172:     full['synthetic_event_bar'] = ~full.index.isin(observed)
+173:     full['raw_volume'] = full.volume
+174:     for col in OHLC:
+175:         full['raw_' + col] = full[col]
+176:     output = {x: [] for x in OHLC + ('volume', 'adjustment_factor', 'volume_factor')}
+177:     with localcontext() as context:
+178:         context.prec, context.rounding = 40, ROUND_HALF_EVEN
+179:         factor, share_units, previous = Decimal(1), Decimal(1), None
+180:         for date, row in full.iterrows():
+181:             event = active.get(date)
+182:             cash = decimal(event.get('signal_cash_per_old_share', event['cash_per_old_share'])) if event else Decimal(0)
+183:             split = decimal(event.get('signal_split_ratio', event['split_ratio'])) if event else Decimal(1)
+184:             volume_split = decimal(event.get('volume_split_ratio',event['split_ratio'])) if event else Decimal(1)
+185:             is_observed = date in observed
+186:             prices = ({k: decimal(row[k]) if pd.notna(row[k]) and np.isfinite(float(row[k])) else None
+187:                        for k in OHLC} if is_observed else None)
+188:             if event:
+189:                 if method == 'unadjusted_index':
+190:                     raise ValueError('Index cannot receive stock distribution terms')
+191:                 if method == 'theoretical_ex_price':
+192:                     if previous is None or previous <= cash:
+193:                         raise ValueError('Invalid prior raw price for theoretical ex-price')
+194:                     ex_price = (previous - cash) / split
+195:                     factor *= previous / ex_price
+196:                     if not is_observed:
+197:                         prices = {k: ex_price for k in OHLC}
+198:                 elif method == 'total_return':
+199:                     if not is_observed:
+200:                         raise ValueError('Total-return event requires observed close or reviewed prepared source')
+201:                     if prices['close'] is None or prices['close'] <= 0:
+202:                         raise ValueError('Total-return event needs a positive finite close')
+203:                     if cash != 0 and split != 1:
+204:                         raise ValueError('Combined cash/split outside frozen total-return preparation convention')
+205:                     factor *= split + cash / prices['close']
+206:                 share_units *= volume_split
+207:             if prices is None:
+208:                 raise ValueError('Synthetic price requires supported explicit event')
+209:             for k in OHLC:
+210:                 output[k].append(float(prices[k] * factor) if prices[k] is not None else np.nan)
+211:             v = (decimal(row.volume) if is_observed and pd.notna(row.volume)
+212:                  and np.isfinite(float(row.volume)) else None)
+213:             output['volume'].append(float(v / share_units) if v is not None else np.nan)
+214:             output['adjustment_factor'].append(float(factor))
+215:             output['volume_factor'].append(float(1 / share_units))
+216:             if prices['close'] is not None and prices['close'] > 0:
+217:                 previous = prices['close']
+218:     for key, values in output.items():

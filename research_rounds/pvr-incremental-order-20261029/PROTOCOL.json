@@ -1,0 +1,27 @@
+{
+  "version": "v1",
+  "frozen_at": "2026-10-29T11:37:02.545180+00:00",
+  "question": "Incremental PVR score reordering against original H1 within same-date/same-sector comparable legal I opportunities. Not PVR>50 gate, amount-only increment, CP1 or global portfolio.",
+  "universe": "All32899 original legal I candidate snapshots; not economic-risk subsets filtered PVR>50 or unconfirmed CP1, not chosen among seen193 outcomes. Reuse raw/cache fields only; known development history.",
+  "features": "Same experiment-two continuous I source epoch, first original Q anchor, age in actual observed valid-price bars after anchor, cumulative causal log price runup; re-created for ALL original I legal candidates. Current causal E0 visible epoch unique. No future end/confirmation date in ID.",
+  "calipers": {
+    "exact": [
+      "date",
+      "sector"
+    ],
+    "H1_percentile_gap_max": 1,
+    "observed_age_gap_max": 5,
+    "runup_gap_over_max_known_scale_max": 1
+  },
+  "matching": "Within chronological day/sector create all admissible unordered pairs. Sort H1 distance, age difference, normalized runup difference, hash of then-known fields. Greedily consume each E0 event at most once across roles/dates. PVR values and future returns never select pairs. Missing PVR/scale not imputed.",
+  "classification": "After pairing reveal strict PVR rank rounded12. Agreement means same stock/no change. Exact PVR tie gives no rank contrast and retain H1. Conflict compares higher PVR against original H1 choice, whose ties use original symbol ID. H1 ties separately reported.",
+  "weights": "Equal frozen conflict pairs primary, same set across costs/fill/closure. Report mean incremental effect across ALL comparable matched pairs as sum conflict deltas/total matched (agreement/tie policy difference0). Unmatched never get zero return or enter this denominator.",
+  "execution": "Each alternative fresh1m at same decision close, native next-open/daylease/raw gap guard/whole lots/T+1/actual fees; original I/E0 exit, no F/CP/ACT/add/reentry or compounding. Hold cash after exit until commonOct27 2026.",
+  "terminal": "No-fill/open shares/pending rights all retained. Marks separate from execution, liquidation estimate only memo.",
+  "tail": "Pair-tail either actual post-decision net_return>=.30, terminal versus realized separate; continuous contribution curve. All failures and fees. Win rate not a pass gate.",
+  "coverage_gate": "Publish comparable/conflict/tie/agreement/unmatched coverage and H1/age/runup/scale/PVR balance before outcomes. No conflict or insufficient comparable support means unidentified/inconclusive, never relax calipers or pick other dates.",
+  "verdict": "Positive relative and absolute contribution with cost stability and tail preservation supports only local reordering. Mixed effects tradeoff. Cost reversal/poor coverage/residual imbalance inconclusive. No causal or general score monotonicity claim.",
+  "checks": "Causal IDs, E0 uniqueness, PVR-neutral pair-selection invariant, three temporal matching prefixes, six chronological conflict-pair samples and native cash/fees/shares/terminal, physical economic prefix, sample/full exact.",
+  "budget_seconds": 300,
+  "additional_arms": false
+}

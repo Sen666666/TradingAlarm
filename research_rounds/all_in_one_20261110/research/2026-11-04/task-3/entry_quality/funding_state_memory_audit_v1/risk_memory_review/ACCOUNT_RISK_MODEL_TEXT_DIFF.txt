@@ -1,0 +1,10 @@
+--- /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/budget_v3/model.py
++++ /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/model_without_account_check.py
+@@ -251,7 +251,6 @@
+         sector_fraction = .02 if probe_request else (0.02, 0.10, 0.20)[s.level]
+         if sc+cap > sector_fraction*budget_nav + 1e-9: failures.append('sector_capital')
+         if sr+risk > .01*budget_nav + 1e-9: failures.append('sector_risk')
+-        if ar+risk > .03*budget_nav + 1e-9: failures.append('account_risk')
+         if failures:
+             if pool == 'confirmed': s.status = 'confirmed_unfunded'
+             return ','.join(failures)

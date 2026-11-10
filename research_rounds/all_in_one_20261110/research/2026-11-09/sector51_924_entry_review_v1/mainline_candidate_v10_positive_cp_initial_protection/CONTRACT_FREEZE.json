@@ -1,0 +1,10 @@
+{
+  "frozen_utc": "2026-11-09T22:29:24.243280+00:00",
+  "history_run": false,
+  "contract_sha256": "19934a5711f17c32208f772a6315107c9a2a0b6ddfc8cf9476b318d72737a86b",
+  "engine_sha256": "9baffff7e98013df8d6b2673c61476d102baa9ee5b7bf55600da635e52886f94",
+  "test_sha256": "3fa761e925f811c18a65db6b3788e7b0e99b039ed6c4afd877a31b5da04b0de5",
+  "revision": "Pre-history QA fixes only: preserve baseline per-lot exit alongside M10 lock; enforce prior-day adoption at OPEN; no hypothesis change",
+  "prior_freeze_file": "CONTRACT_FREEZE_PRE_QA_V1.json",
+  "synthetic_suite_finalized_utc": "2026-11-09T22:29:59.029557+00:00"
+}

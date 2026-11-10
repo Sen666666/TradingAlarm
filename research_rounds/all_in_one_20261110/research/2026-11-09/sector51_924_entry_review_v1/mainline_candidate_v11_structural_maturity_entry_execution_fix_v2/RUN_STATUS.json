@@ -1,0 +1,23 @@
+{
+  "result": "COMPLETED",
+  "days": 93,
+  "orders": 2906,
+  "last": {
+    "day": "2025-01-20",
+    "cash": "310591.8971357609705",
+    "receivable": "0.00000",
+    "market_value": "987238.06",
+    "NAV": "1297829.9571357609705",
+    "net_liquidation_NAV": "1296243.0655296541135",
+    "stocks": 105,
+    "shares": 71168,
+    "weight_pct": "76.06836739835932498639972288",
+    "fees_paid": "23626.8747342390295"
+  },
+  "blockers": [],
+  "atomic_block": null,
+  "runtime_error": null,
+  "output": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v11_structural_maturity_entry_execution_fix_v2/once_20250120",
+  "source_hashes_verified": true,
+  "finished_at": "2026-11-10 00:17:57.469684+00:00"
+}

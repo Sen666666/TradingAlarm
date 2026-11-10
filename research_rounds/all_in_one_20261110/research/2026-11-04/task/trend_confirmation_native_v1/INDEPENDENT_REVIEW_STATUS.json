@@ -1,0 +1,12 @@
+{
+  "time_UTC": "2026-11-04T16:38:43.889229+00:00",
+  "technical_small_gate_passed": true,
+  "audit_path": "/Users/bytedance/Documents/Codex/2026-11-04/task/independent_review/trend_confirmation_native_v1/TECHNICAL_REVIEW_GATE.json",
+  "audit_SHA256": "abfc3668da9c94d007b51df41c2c2c76023bbfd83d8117ba728435e18a3a56b7",
+  "weak_strict_whole_file_source_post_passed": false,
+  "weak_failed_artifact_preserved": true,
+  "weak_financial_replay": false,
+  "strong_source_post_exact": true,
+  "full_authorized": false,
+  "actual_partial_paid_dividend_fraction_cash_not_covered": true
+}

@@ -1,0 +1,21 @@
+# Independent one-price execution audit, facts v5
+
+Result: PASS for the certified 21-day period 2024-09-02 through 2024-10-09. This is an accounting/execution-scenario audit, not an investment recommendation or certification of exchange fills. The 2024-10-10 day is absent from every certified log because the required 000001.SZ equity fact was not yet admitted in this facts version. Later fact versions require separate extension checks.
+
+## Independent evidence
+- Account replay: 64346 checks, zero errors. Rebuilt cash, receivables, fees, quantities, lot ownership and T+1, final attempt cashflows, all 50 industry buckets, record-date NET80 rights, daily gross and liquidation NAV without importing or running the strategy engine.
+- 968 actual orders, 635 buy reservations, 3,513 frozen intent rows and two SEED no-fills were independently checked. The original hypothetical full batch and the actual post-sell reservation chain were recalculated from prior actual inventory. A no-fill reservation is retained through the whole OPEN batch and is released only after all allocation decisions. An original rejected order cannot be revived.
+- Signal/CP/source audit: 43641 checks, zero errors. Fresh A/B tickets, next common OPEN, 34 ADDs, post-seed CP creation and one actual-fill consumption each, dated protections, exact raw source hashes and output hashes passed. There are no actual one-price-bar trades. 42 slipped accounting proxies lie outside the day's observed high-low range; these are not assertions of executable exchange prices.
+- Integrity/difference audit: 29243 checks, zero errors. Independently compared the 12-family 9/26 stress prefix, and the full nine baseline families through 10/9 with the gate disabled. Only three extra candidate annotation fields were removed for gate-disabled equality. Economic ASTs are unchanged between fact versions apart from the run/checkpoint wrapper.
+- Independent synthetic test suite: 47 cases passed. It was written separately from the implementation's synthetic suite. It includes 32 failed-sell/buy-gate/cash combinations, original-rejection preservation, a failed-sale ADD shrink from 2,300 to 200 shares, CP no-fill preservation and later consumption, seed expiry, partial-lot persistent exit lock after a price rebound, T+1, invalid gate data, gate-disabled parity, and a real mid-batch missing-price failure after an executed SELL and ADD. The last case restores shared archive/active identities, CP, cash, lots and all pressure logs.
+
+## Verified result and path difference
+- 10/9 scenario NAV: CNY 1,428,312.04291786. Cash: 148,863.04291786. Market value: 1,279,449.00. Receivable: zero. Net liquidation NAV: 1,425,602.63638925045. 266 stocks / 100,500 shares.
+- Matched baseline NAV: 1,428,117.4396969177. Scenario minus baseline: +194.6032209423. Cash accounts for +23.6032209423, market value +171.00, receivable zero. Paid fees are 16.0032209423 lower.
+- Direct barred symbols' entire path difference: -69.99455290605. Other symbols' funding and execution-path differences: +264.59777384835. Nine trade-path changes exist, not merely two missing seeds.
+- No-fills: 603883.SH on 9/6 and 002583.SZ on 9/24, both 100-share SEEDs. Neither creates an actual attempt. Both corresponding baseline attempts have zero descendant ADDs through this certificate only. Do not project this finding beyond 10/9.
+
+## Interpretation and coverage limits
+The gate tests full positive finite raw O=H=L=C only after the original OPEN decisions and reservations. It is not a tradable alpha, historical ST or venue-limit reconstruction, auction/queue certification, or a return lower bound. The stress path can outperform or underperform through subsequent funding and re-entry. The rapid broad rise after 9/24 could not be known at entry.
+
+No historical SELL/ADD no-fill occurs in this certified prefix; those semantics have synthetic coverage, not historical-example coverage. Current fixed membership (1,692 stocks) and current industry mapping are not PIT. OPEN cash-reserve constraints do not imply the close cash ratio remains above 10%; mark-to-market appreciation can lower that ratio. No economic parameters or original books were modified, and the audit runs no historical strategy rerun.

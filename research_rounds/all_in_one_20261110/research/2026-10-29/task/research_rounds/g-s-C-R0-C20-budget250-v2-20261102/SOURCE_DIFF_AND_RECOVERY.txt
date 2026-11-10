@@ -1,0 +1,41 @@
+C20 only; no C10 rerun, no new account or economic predicate.
+
+Exact solver differential:
+  frozen BC.solve_C20(s,ds,e,book=book)
+  -> same frozen BC.solve_C20(s,ds,e,book=book,max_native_checks=250000)
+All private evaluator files, enumeration order, targets, fees, min/step, H1/PVR,
+ACT, pool/stock/sector/account risk and cash predicates remain byte-identical.
+15 previously completed entire projection bodies were recomputed and matched.
+The failed actual input was regenerated from the committed necessary state,
+matched its archived whole-input hash and solved under250k:190889 checks.
+Encoded entire projection exactly equals the archived1m pure result. This new
+250k native result was generated and registered through original plan()/native
+verification; the old1m output was not imported as a certificate. The existing
+immutable pure-projection memo avoids repeating the same250k calculation.
+
+Source transition:
+- Original failed f11f6656...e4dcb24 checkpoint is immutable.
+- Actual account class, cash, layers, orders, R0 book, receipt/clock and F1/ACT
+  state are preserved. Import full economic/strategy digest remains689e1b65...
+- Imported legacy certificate IDs/bodies remain unchanged. A narrow accessor
+  dispatch delegates exact imported IDs to the ORIGINAL runner source view;
+  all original CID/trusted/source/receipt checks still execute. Current/new
+  IDs use strict current-source validation. No guard is globally disabled.
+- New certificates/checkpoints bind budget250.py, recover_c20.py and explicit
+  SOURCE_TRANSITION_AUTHORIZATION.json. Actual engine/class provenance remains.
+- Original necessary phase/event/failure record is retained. Retry calls only
+  original native plan on stored prepared intents under a new technical
+  generation, appends its attempt, and appends the missing CLOSE bridge once.
+  No market step, settlement, action, payment, ACT/F1 update or old-line
+  processing is replayed. No fill/trade/cash/NAV changed in optional recovery.
+
+Preserved analysis/出口 failures:
+- v1 compared a native Decimal projection dictionary directly to saved JSON.
+  It stopped before any optional recovery. v1 source/import/error preserved.
+- v2 passes full encoded-body equality. Frozen restore child then rejected a
+  single diagnostic memo hit (155->156, misses32 unchanged) from verify_native.
+  Correct recovered Jul22 CLOSE checkpoint was retained. complete_restore_gate.py
+  verifies every other complete observable field and retry idempotence, records
+  this sole metadata delta and invokes the frozen continue_month() function.
+  It does not rerun optional planning or any completed account event. Its SHA is
+  retained in restore gate and persistent technical_recovery binding.

@@ -1,0 +1,8 @@
+PVR_SLOT1隔离原生接线就绪，等待独审；完整金融路径0。
+这是另行批准的受限探索政策，不是原严格信息门通过或策略晋升。原STOP/结果/score/SC账保持。
+只在原单遍SC/Bdiag planning结束后，按唯一股票H1候选列表保留NA槽，PVR-ready按原PVR降序/原H1-code稳定填余位。每股core/mobile一槽；原H1 rank/score与新priority_rank分别持久，rank是新优先键的原执行器兼容别名。原opening/route/sizing/budget/exit/ledger函数未覆盖。
+1709×484全市场决策日=827156格，缺行/未上市/未就绪保留NA，不回填。原公式完整暖机数值导出34.75秒，显式日历包装12.70秒未重算公式。原1659文件字节不变，29938点全部8字段exact。4个真实股票的物理前缀及未来价格/金额扰动对过去输出exact。
+新受影响16测试通过：allready/allNA/mixedNA/ties、单股多角色、原目标/receipt/score不变、688 min200/step1、过小目标仍拒、真实native opening核心预留零fill仍压mobile、失败core仍可尝试mobile、checkpoint/错误模式/来源/route守卫。旧native16及25个冻结依赖未变，复用不冒称重跑。
+原H1/off两日与旧SC全流exact：2daily/419funding/3418opportunities/28industry/2balance/38trades/78journal/198audit/2decisions。PVR两日完整输入与物理截断输入+past-only score reader全native状态和rank log exact；pending/decision原H1键及冻结新优先键恢复exact。预检133.42秒，含两窗原输入读取。
+PVR技术前缀仅2025-07-01..07-02，已保存强窗prefix checkpoint以便未来授权后续接，不发布两日收益作策略结果。2022只读inputs，无账户推进。
+唯一未来命令见PROPOSED_FULL_RUN_COMMAND.txt，需尚未创建的FULL_RUN_AUTHORIZATION.json。只两固定窗各新1m、原baseline不重跑、不SD/C1/two-pass/R1。global pipeline参与/旧赢家拥挤/损耗/closed-open/费用/NAV-DD及现金/风险取舍预声明，不新增硬金融表现门。当前不执行该命令。

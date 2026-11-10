@@ -1,0 +1,97 @@
+D1 proposed execution-pressure contract. Review/synthetic only; NOT activated.
+
+Scope: all new authorized core and independent mobile first/add/reentry orders
+in both B3 and B_diag. Signals, ranking, sizing and all risk/capital constraints
+remain unchanged. This is a new bounded pressure execution policy, not a claim
+that the old daily-credit delay1 contract already covered these roles.
+
+Calendar and lease
+1. Market day means the next session in the existing frozen market.sessions['A']
+   source calendar (currently the union90 industry daily-date proxy), not a civil
+   day and not independently certified exchange-calendar coverage.
+2. Admit/fund an original order at its original opening, with the original
+   canonical receipt consumed once. No increase of quantity, cash target or
+   priority is granted by D1. It starts with the original one-session lease.
+3. t is the day of the first distinct native FillWindow which would actually
+   permit a positive fill after market/quantity/fees/cash and original resource
+   tests. Deliberately skip this fill once, retain the SAME order, token, pool,
+   structure/attempt and real reservations. Set earliest retry to session t+1
+   and hard buy expiry to its close. A second event on t cannot bypass the wait.
+4. No such eligible first window before original day-end => original expiry;
+   no lease extension and no delay credit. No t+1 session in the frozen known
+   calendar => unresolved at data boundary, not a fabricated next day/fill.
+5. At t+1 use only the original execution window(s). Halt/no eligible window,
+   missing data, no legal quantity or partial remainder => cancel at that
+   close. Never roll a buy into t+2. This is at most one trading-day extension,
+   not indefinite waiting for some later eligible window/GTC.
+
+Validity and competing signals
+6. At t close, and before retry using the last completed decision information,
+   retain only when ACT permits added risk, original industry E0 episode AND
+   attempt are still active, original stock I/E0 structure remains valid, its
+   original protection has not failed, and no sell/order-identity conflict is
+   present. Unknown required input cancels with an explicit unknown reason.
+   Do NOT require another fresh CP1: this executes the existing authorization.
+7. Pending protection is the original admitted line, adjusted only by already
+   supported corporate-action unit transformations. Current code has no daily
+   pending-line ratchet. Do not copy a later CP1/floor into it as new permission.
+8. Keep original explicit cancel rules: original sell/ACT cancellation, industry
+   invalidation, and the existing probe-order cancellation on stage upgrade
+   take priority. The last is a valid same-attempt cancellation, not a failure
+   of D1 or permission to migrate a still-open order invisibly. Log its reason.
+9. Same-stock new signals while the order is pending cannot create another
+   order, top up or reset t/deadline. They are observed, not consumed for this
+   pending order and not replayed later. Cancellation does not refund the old
+   receipt or award a credit. A later genuinely fresh signal can start a new
+   order, which has its own one-window delay. Core epoch locks remain original.
+
+Retry quantity, price and resources
+10. At t+1 recompute legal quantity at that known opening price/fees/date, with
+    original authorized remaining shares and remaining gross budget as upper
+    bounds. Recheck actual cash/reserve, pool/sector/stock and nominal-risk
+    constraints (including account3% for B3 only). Exclude this order's own
+    reservation once when testing its replacement occupancy; include all other
+    pending/old-attempt holdings. No expected sale proceeds may be spent.
+11. Quantity may only shrink, never increase; corporate-action share transforms
+    preserve economic bounds. Preserve the order ID, consumed receipt, partial
+    fee accrual/minimum and original signal time. Amend the real native order
+    and budget representation in one callback; release only the explicitly
+    canceled remainder/fee reservation. Native cancellation is synchronous in
+    this simulator. Do not create a second synthetic fill or second reservation.
+12. The native ledger supports affordability/minimum/partial logic but the
+    v3 callback asserts execution price <= old admitted mirror unit price.
+    Therefore carry-and-call-fill unchanged is NOT implementable for an up-gap.
+    A bounded reprice/readmission amendment is required before fill, retaining
+    original quantity/gross limits and all caps. No such adapter is activated.
+    Lack of a legal amended quantity cancels; do not silently bypass the check.
+13. Existing reservations remain real occupancy while waiting. Revalidate/
+    amend retained orders before funding new H1-ranked intents; execute them
+    in the normal buy phase without another ranking/token admission. Any
+    released remainder becomes available only after the actual amendment/
+    cancel callback. Preserve original sale-first daily-proxy execution order.
+14. A t+1 partial fill has already spent the wait. Matching granularity and
+    per-order accumulated fees remain native; no repeated delay/minimum on
+    each slice. Cancel the remaining buy at t+1 close; keep actual holdings.
+
+Sell obligations
+15. Sell orders also skip their first eligible positive window on t and cannot
+    execute before t+1. Unlike buys, their original exit obligation remains
+    latched after t+1 until legally completed; unavailable t+1 does not erase
+    the exit. New/repeated exit reasons or price recovery do not reset delay or
+    cancel the obligation. Partial remainder has no second wait. Real inventory
+    and risk remain until fills; money only after native actual settlement.
+
+Minimal implementation boundaries still requiring integration review
+- Replace day-expiry/credit behavior for D1 orders only; disable core/old-ADD
+  credit generation/consumption for these orders, with no changes to normal.
+- Add explicit carried-order retry phase; present opening handles only new
+  intents whose earliest_execution_at equals that opening.
+- Add order-bound t/t+1/deadline, last-known validity and amendment audit fields
+  to both native order metadata and budget mirror; serialize them with engine
+  provenance. No field can be inferred retroactively from a later fresh signal.
+- Do not weaken v3 stock/core/mobile/fee/NAV checks to make carried orders fill.
+
+The accompanying state tests are a pure lifecycle specification, plus small
+native-ledger fixtures/counterexamples. They do not mean a historical D1 runner
+has passed or that any D1 performance was measured. Existing OHLCV/opening
+liquidity and same-opening sell-cash-reuse limitations remain unchanged.

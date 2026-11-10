@@ -1,0 +1,53 @@
+{
+  "2022": {
+    "confirmation_clock": {
+      "AFTER_PREVIOUS_EXIT": 1183,
+      "UNCONFIRMED_AT_ENTRY": 225,
+      "SAME_DAY_CLOSE_AFTER_OPEN": 3
+    },
+    "receipt_type": {
+      "STRICT_NEW_FRONTIER_AFTER_BIRTH": 237,
+      "ROOT_BIRTH": 1174
+    },
+    "I_epoch_by_immediate_transition": {
+      "PRICE->PRICE": {
+        "DIFFERENT": 857,
+        "SAME": 4
+      },
+      "AB->PRICE": {
+        "DIFFERENT": 550
+      },
+      "PRICE->AB": {
+        "DIFFERENT": 617,
+        "SAME": 4
+      },
+      "AB->AB": {
+        "DIFFERENT": 614
+      }
+    }
+  },
+  "2024": {
+    "confirmation_clock": {
+      "AFTER_PREVIOUS_EXIT": 164,
+      "UNCONFIRMED_AT_ENTRY": 51
+    },
+    "receipt_type": {
+      "STRICT_NEW_FRONTIER_AFTER_BIRTH": 22,
+      "ROOT_BIRTH": 193
+    },
+    "I_epoch_by_immediate_transition": {
+      "PRICE->PRICE": {
+        "DIFFERENT": 141
+      },
+      "AB->PRICE": {
+        "DIFFERENT": 74
+      },
+      "PRICE->AB": {
+        "DIFFERENT": 131
+      },
+      "AB->AB": {
+        "DIFFERENT": 84
+      }
+    }
+  }
+}

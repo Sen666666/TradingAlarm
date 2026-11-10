@@ -1,0 +1,19 @@
+{
+  "approved": true,
+  "engine_sha256": "41ca15962d5ee207a194df0664e1e6cf87807aa6b43008a563a45b57e5bf40c7",
+  "contract_sha256": "fcfb13250a9aa491aeb5c86c5510be7243f3f33f8d4f8954e90006e4ffd72768",
+  "scope": "One frozen contract-correction historical research run only, 2024-09-02 through 2024-10-08. No live orders, no parameter search, no strategy extension. All existing missing-fact and atomic rollback boundaries retained.",
+  "independently_repeated_author_tests": 108,
+  "independent_actual_method_cases": 218,
+  "change": "Freeze industry state UNKNOWN lots from voluntary donation and budget credit, including SEED and W ADD. Known states preserve previous classification exactly apart from added sector_state diagnostic.",
+  "M3_replay": "Existing 23 families rechecked; 22 exact ordered, AVAILABILITY_EVENTS full-record multiset only. No identical history rerun.",
+  "execution_caveat": "OPEN +/-5bp remains conditional cost proxy, not matching certification.",
+  "audit_files": {
+    "INDEPENDENT_FIX_BOUNDARY_AUDIT.py": "25e6894abbaf130bde1d2d0896a305073ffa4b3f5d227793249b7730a1460d46",
+    "INDEPENDENT_FIX_BOUNDARY_QA.json": "307d74ffd543fb8cb98b533a2abb8b797be9e437298bbc7e411760cf6f12f23b",
+    "SYNTHETIC_QA.json": "6d77138989b372974518ceee9c861f06b4f4f2948948fb13b9f8b68c74060b97",
+    "M3_EXACT_REPLAY_QA.json": "c528ff24aa1bb3738158d000655d143e9d8a7bc54e6ab9b2967b4195a6a519ea",
+    "GENERATED_ALLOCATOR.py": "9647d5bd0857684f6ab340a8ce1e36ec87efee4706c8ef0450aa5e3e73145a0a"
+  },
+  "time_utc": "2026-11-09T20:22:31.708058+00:00"
+}

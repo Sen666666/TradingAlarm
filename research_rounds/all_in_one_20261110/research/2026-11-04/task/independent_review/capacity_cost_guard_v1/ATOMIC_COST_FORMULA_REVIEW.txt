@@ -1,0 +1,88 @@
+Capacity cost guard: independent source and atomic-cost review (pre-implementation)
+
+Status: CONDITIONAL SMALL-SAMPLE GO. This is not a producer implementation audit,
+financial backtest approval, or validation of candidate returns.
+Frozen arms requested by root: NONE, G10(.10), G20(.20), G40(.40), NR20(.20).
+NR20 uses the identical cost accounting but does not release protected layers.
+All E0/I_target/PVR signals, original ACT20/BREAK63 recovery and exits remain.
+
+1. Remaining economic acquisition cost
+The authoritative native live-layer dictionaries do not contain remaining basis.
+They contain current qty and cumulative trading cash. Cumulative x.cash must not
+be reused as remaining acquisition cost; x.initial_qty is not split-adjusted.
+Minimal admission observer, driven only by actual native callbacks:
+  actual fill: B_i = actual gross_cny + actual buy fees_cny.
+  actual sale part: B_after = B_before * (q_before - q_sold) / q_before.
+  stock split/bonus: monetary B is retained in a surviving original layer;
+    qty/entry units follow the authoritative native callback, not a new CA model.
+  layer made zero solely by native fractional-floor conversion: B goes zero and
+    its disposal is recorded as nontrade admission-basis writeoff, never a sale.
+This last surviving-layer treatment is a conservative admission-cost convention,
+not a claim that the original native ledger had a tax-basis/fraction cost engine.
+It must be frozen before outcomes and tested on integer and fractional cases.
+Cash dividends do not reduce B. All native cash/quantity/NAV stay authoritative.
+
+E_i is separately the actual gross execution price per share, excluding buy fees.
+It follows native unit_cost split adjustment. It is not B_i/q_i after costs or
+fractional writeoffs. F>=E therefore is not a fee-inclusive breakeven guarantee.
+
+2. Eligibility for release of only this extra admission occupancy
+At the same original clock and same known current units:
+  protected_i = known AND F_i >= E_i AND native_mark_i > F_i
+                AND no original exit responsibility AND protection still valid.
+Core uses last decision-known last_core_line; mobile uses current live floor;
+the original facts.factor converts the adjusted line into current raw units.
+OPEN must not load today's later CLOSE protection. First hit is not permanent.
+Unknown, breached line, or exit responsibility remains charged its actual B_i.
+All original pool/stock/sector/cash/complete mark-floor constraints stay in force.
+
+3. Numerator and pending transformations
+  U = sum B_i over unprotected live new layers;
+  P = sum(remaining_budget_cny + fee_reserved_cny) over open/cancel-pending buys.
+Every unfilled share is charged; no protection inference is allowed pre-fill.
+Pending-to-fill transformation charges actual gross+actual fee to the new layer
+and removes precisely that gross+fee from the remaining order reservation. A
+partial fill must not retain both the old full reservation and the new basis.
+Cancellation request alone does not release P; actual native ACK does.
+NR20 uses all live-layer B rather than only unprotected B.
+
+4. Equity and atomic preview
+Actual native equity is N, including its existing AR/payables and raw marks.
+Reservation itself transfers available cash and does not expense a fee.
+However a cap checked only against pre-fee N can reject its own fill at the edge.
+For original CNY pricing exec=raw*(1+s), where s is the existing native slip:
+  actual full-fill equity drag = fee + q*(exec - raw).
+For an existing reserved order, full known fee+protocol-slip buffer is bounded
+by fee_reserved + remaining_gross*s/(1+s), subject to the native price<=limit
+contract. This is a conservative admission forecast, never a booked NAV debit.
+A consistent reservation preview may use:
+  N_guard = N - sum(existing pending fee+slip buffers)
+              - new fee(q) - q*(new exec - new raw mark),
+  U + P + new gross(q) + new fee(q) <= alpha * N_guard.
+The new fee appears once; existing pending fees appear once. The native minimum
+commission and its per-order cumulative state determine the fee, not q scaling.
+For actual fill the producer must re-evaluate exact native fee/order state and
+actual window.raw_open/execution_price before mutation and check projected
+post-fill U+P and actual post-fill N. Same guarantee should hold in a post-check.
+Market moves or floor/status regressions can make old U/N exceed alpha without
+a trade: do not force sell; forbid additional buy, preserve exit/cancel contracts.
+Known fee/slip projection is not protection against future gaps or market moves.
+
+5. Minimum independent checks before economic paths
+Required: cap-edge fee/slip, multiple orders, partial-fill minimum commission,
+pending ACK, actual cost basis after partial exit, exact split and rounding-to-zero,
+F>=E but mark<=F, protection lost/unknown, and OPEN last-CLOSE line only.
+The native NONE arm needs unchanged financial trace versus saved No60 control.
+Prefix and separate-process restart must retain the additional cost observations.
+Small producer traces will be independently rebuilt from actual fills/parts/actions;
+their own capacity predicate is not sufficient evidence of cost-account correctness.
+
+Source interfaces checked (read-only):
+  probe-pyramid-pilot-20261029/code/pilot.py::Account.fill_buy/fill_exit/split
+  lot-risk-allocation-20261029/code/study.py::reserve_quantity/maximum_quantity
+  lr1-cp1-add-preflight-20261031/adapter.py::Account.reserve_quantity/fill_buy
+  case-stage-ledger-20261031/v3/joint_v3.py::Account.sync/fill_buy/fill_exit/split
+  rs-h1-execution-20261025/code/sector_account.py::fill_buy/_fee/_remember_fees
+  risk_constraints/analyze_absolute_loss.py (existing independent cost reader)
+
+No strategy implementation, dataset refresh, trade or new account run by reviewer.

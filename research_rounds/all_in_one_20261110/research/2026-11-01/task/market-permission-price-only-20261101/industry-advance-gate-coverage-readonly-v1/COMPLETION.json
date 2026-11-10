@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "all_original_sectors": true,
+  "all_canonical_fresh": true,
+  "observations": 524,
+  "industry_rows": 47160,
+  "canonical_rows": 40003,
+  "new_indicators": 0,
+  "F1_runs": 0,
+  "account_creates": 0,
+  "account_restores": 0,
+  "financial_events": 0,
+  "orders": 0,
+  "downloads": 0,
+  "source_mutations": 0,
+  "original_sources_unchanged": true,
+  "prelabel_stock_output_unchanged": true,
+  "seconds": 81.32138225017115
+}

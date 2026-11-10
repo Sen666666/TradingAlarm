@@ -1,0 +1,17 @@
+PVR_SLOT1自身2022末→固定2023连续验证｜当前仅readiness，无账户运行授权
+
+范围：只新增一条PVR_SLOT1连续路径，2023-01-03至12-29共242市场日；对照已审SC/Bdiag2023现账，不重跑SC，不补回1m。PVR承接NAV715009.335442663389、cash251181.295442663389、60只/70层、ACT on/phase峰823220.344963253139/episode1、201core锁、20588消费receipt、原损耗/持仓/挂单/79跨界意图/全部历史。SC2023承接667323.841546855943且当时暂停/已空，两初态不同，2023区间差是完整政策接续差，不能叫纯当年排序alpha。
+规则：沿原PVR_SLOT1同H1候选域、NA槽、PVR/原H1-code tie、core-first、原数量/费用/股行业pool风险/退出/ACT/旧迁池耦合。不SD/C1/R1/two-pass/新stage、不参数或年份选择、不新IPO填造。snapshot非PIT、日线OHLCV及未知权益时点代理保持。
+第一事件：12/30冻结79条意图的earliest_execution_at全为1/3 09:30；必须先按原顺序处理当日原midnight actions/payments与开盘，再到收盘。不能用“新year START15:10”漏掉它们，也不能当作新2023fresh receipt或重领额度。未成交orders按原日末取消，旧receipt不复活。
+
+预注册全流程度量：
+1 分清全市场证据资格(原core I/fresh CP1、原Q与industry attempt)、本账户role资格(原持股/core锁/买卖pending)、ACT状态、独立目标可达原合法单位、开盘原route准入、原生预留、actual fill。core/mobile分列；PVR NA不删资格。每级缺失/未ready单列，账户暂停不能从市场分母静默删去。
+2 所有合格机会均入漏斗，不只选成交或未来赢家。receipt层结果按原signal日+SID+canonical ID去重；stock×行业attempt首个可见资格→首次actual参与另列session延迟，never funded保留右删失。后来fresh receipt获资不是补成交原旧receipt，不能说追回原价格机会。core按原I/source/epoch标识和日期，不把每天当独立策略样本。
+3 初始60只持股为carry，不把2023窗口首张冒称真实首次；79跨界意图单列过渡。真实全清边界沿2022以来实际股数，first/add/reentry不从CP1重复次数猜。继承左删失/年末右删失与unknown保留。
+4 中际300308/新易300502是固定后视镜样例，不设必须买入/盈利/持有多久的硬否决，更不白名单。并列全市场实际top贡献/确定性最坏闭合股及全部新/失参与，原赢家被挤和普通失败不能漏。
+5 真实主动新买、资本峰及发生时间、持有主涨窗口、原保护request→first sell/full exit、再入失败和累计损耗按行业episode/attempt保留。被动涨价不叫主动升级，资金约束共存不伪装独占因果。
+6 真正已实现交易现金净损益、已确认分红(已付/应收)、未实现净价差分列，不拿“open layer”分类替代；如出现partial open需记录合法成本分摊依据，不猜。原旧层2023财富变化与新层2023贡献严格分界。
+7 同时报告归一各自2023初始NAV的return/DD，以及从2022原1m连续财富/DD；季度不重置NAV/ACT/锁/损耗。平均/峰值曝险、cash、confirmed/probe占用、资金恢复/迁池/新机会阻挡、ACT暂停恢复均列。10%/60%是旧固定fixture，不新增cap或H。
+
+必要技术门（未执行新账户事件）：原2022checkpoint/provenance、完整账与真实源hash已核同；2022评分413578格与旧exact；2023全1709×242评分与原canonical数据已就绪。未来须显式horizon import：新score manifest及新source identity合法更换，保留旧文件/provenance不回填；新行业episode_starts查表5906含原5425全部exact，不能恢复旧lookup后丢481个2023条目。全部经济/订单/ACT/消费状态保持，原2022全流指纹不变，1/3开盘+收盘物理prefix/restart先通过后才可连续。不得全局关restore守卫。
+本轮0账户事件。待主审明确go后才实现最小import和技术首日门，再按授权范围执行；不自动开2024/latest/cost/D1。

@@ -1,0 +1,8 @@
+{
+  "status": "EXPLORATORY_AFTER_PRIMARY_OUTCOMES_ALREADY_OBSERVED",
+  "purpose": "Separate four algebraic amount sources; diagnose symmetric kappa removal of recovered negative evidence; no new out-of-sample claim",
+  "candidate": "E_positive_retained=E-sum(max(d_j,0)*(1-kappa_jt)); preserve all original negative evidence, remove only current-close surrendered positive evidence",
+  "four_quadrants": "signed .5*w*u*abs(u)*b split by sign(u),sign(b); sum equals delta_amt",
+  "no_parameter_search": true,
+  "code_sha256": "c3862bcf60a9f8c80135b2c3c028aab1c50a43be74cdb3d70891ddbeedf11ce2"
+}

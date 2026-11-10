@@ -1,0 +1,27 @@
+{
+  "status": "design_complete_wait_parent_review",
+  "at": "2026-10-30T13:48:18.430532+00:00",
+  "actual_same_structure_reentry_confirmed": true,
+  "lock_change_required": false,
+  "existing_examples": [
+    "300469.SZ|E0start2025-01-16|2025-04-10_and_2025-06-30",
+    "300085.SZ|E0start2025-04-10|2025-05-30_and_2025-09-02"
+  ],
+  "new_economic_runs": 0,
+  "new_synthetic_runs": 0,
+  "new_policy_implementations": 0,
+  "product_changes": 0,
+  "execution_blockers": [],
+  "not_yet_verified": [
+    "new wrapper not implemented",
+    "wrapper-off full identity not executed",
+    "new full-account throughput not measured",
+    "broker asynchronous execution not covered by offline ledger"
+  ],
+  "output_sha256": {
+    "CONTRACT_DRAFT.txt": "606c0f872547af8ceea36cd8edc3bcf42025b9727349fff485de0589ea0df272",
+    "SOURCE_FACTS_AND_FUTURE_ROUTE.txt": "6b3c0c799728c9066ce122c8ca1f2f3e9f4281a632e8966f8f2b868ad05e6597",
+    "BASELINE_MANIFEST.json": "d3f9e1c491438d6081e65c4e8ed21c8d84e9fc301e48ea8964169bf1feef2caf",
+    "REPORT.txt": "5e369086195844477b67d5fc7838faebaf4804ac6934bb94bf0a61df321f855e"
+  }
+}

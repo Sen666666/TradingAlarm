@@ -1,0 +1,10 @@
+{
+  "status": "FIXED_SEMANTIC_FEASIBILITY_DIAGNOSTIC_NO_ADMISSION_MODEL",
+  "purpose": "Test whether S21/S63 progress and formation-order variables offer distinct pre-entry information beyond existing FAST/CP before inventing any new gate.",
+  "scope": "Same22 fixed stock-date cases/19stocks, same preceding63 and following21 eligible observations as e0_frontier_confirmation_preflight_v1. Historical/development cases already consumed. No new candidate, threshold, ranking, account, economic or supervised fit.",
+  "features": "Original B4 frame and journal only. Current S21/S63; current up/down candidates F,Q,x,threshold,anchor,date; latest consumed UP receipt and confirmation date (tagged current-state versus historical); effective short-up evidence=current activeupcandidate or consumed UP receipt only when currentS21=+1. Compare anchordate/price/frozen scale/volume_ref with activeS63 upcandidate, never fabricate nonexistent S21 progress. Track prior completed S21 up/down confirmations strictly after currentS63 upanchor and at/before t.",
+  "identity": "Same direction/anchor/price/scale/volume reference implies identical pre-confirmation F/Q path and P21=sqrt3*P63. Verify only where both UP candidates currently active; absent candidate is NOT zero or automatically complete. Consumed receipt retained from journal for lineage only, not ongoing progress.",
+  "baseline": "Original B4 output matches original G classification used in canonical facts at fixed dates; old new_i frontier study and E0/G/I/CP fixed artifacts serve context only. Source hashes fixed. eligible_prices exact original local mask, not ad hoc boolean inversion.",
+  "comparison": "Output all points and unique daily windows before attaching original15closedPRICE labels. No outcome-selected score/cutoff. Record UNKNOWN/unprepared and no-current-candidate separately. Any new consumer requires separate explicit formula freeze before evaluation.",
+  "limits": "No claim two independent signals, no automatic waiting63days, no valid confidence score, no direct lane/holding actions, no newstrategy winrate or earnings, source/universe NON-PIT."
+}

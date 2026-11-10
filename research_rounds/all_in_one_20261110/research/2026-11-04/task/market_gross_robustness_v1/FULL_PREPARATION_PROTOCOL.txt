@@ -1,0 +1,33 @@
+PREPARATION ONLY. No full events without a separate exact root authorization.
+The fixed six-row robustness matrix and original cost/market/protection/exit rules remain
+PROTOCOL.txt. These are the same already-seen development windows, not OOS or promotion.
+
+Exactly four jobs, at most two simultaneous native processes, both long jobs first:
+cost1-long: MA63_G05, MA63_G20, MA62_G10, MA64_G10, 726 CLOSEs each.
+cost1-strong: MA62_G10, MA64_G10, 242 CLOSEs each.
+cost15-long: NO60_C15, MA63_G10_C15, 726 CLOSEs each.
+cost15-strong: NO60_C15, MA63_G10_C15, 242 CLOSEs each.
+Strong MA63_G05 and MA63_G20 are retained matrix rows with the independently audited
+211b022e archived same-financial-path induction proof referencing original D10. They are
+not newly replayed accounts. Original cost1 No60 and MA63_G10 are archive references only.
+Do not fabricate a new B book or merged finance stream. Each actually executed arm keeps
+its original native book/daily/fees/order journal and original own H state. No year reset.
+
+Full adapter only selects labels and existing small-reviewed Runner/CostRunner; no new
+financial method or loader/cache. The actual original gross inputs_reuse.py is explicitly
+loaded under a unique private module name, with both its path and underlying SOURCE bound.
+Its same frozen original year-dispatch score binding is configured before data loading.
+All three provider windows use the same stored causal X and original independent venue
+calendar, actual OPEN uses last completed CLOSE, UNKNOWN grants no new admission.
+Each job binds exact native clock start, fixed end, initial1m, arms, parent source chain,
+rules, score helper AST, same-window archives, full provider clocks and final small gates.
+Private original stress cost1.5 fee flags/window/opening and original cumulative fees are
+unchanged from small. Cost profiles remain isolated in independent processes.
+
+The existing small-reviewed fixed_end, constructor provider/domain rebinding, original
+episode-input-index restore correction and post-planning empty-role diagnostic compaction
+are reused by method identity. No new historical restart/partial/broker fixture is added.
+execute without an approved exact root grant fails before score configuration, original
+input loading, or Account initialization. Missing/stale small gates or source hashes fail
+before loading. Bounded checkpoints use the original runner; no automatic replay/resume.
+All source failures and completed historical outputs are retained, never overwritten.

@@ -1,0 +1,57 @@
+{
+  "task": "No60 direct algorithm and saved-account audit, 2024-924 and 2022 drawdown",
+  "status": "EVIDENCE_AND_FINAL_REVIEW_PASS",
+  "strategy_implementation": "UNCHANGED",
+  "new_backtests": 0,
+  "new_accounts": 0,
+  "new_parameter_tests": 0,
+  "saved_account_replay": 0,
+  "permitted_work": "Read effective source wiring and saved bookkeeping; reconstruct money and inventory attribution without simulating new trades",
+  "economic_facts": {
+    "2024_begin_NAV": "745426.9583780900535",
+    "2024_Sep23_NAV": "625724.2344019789215",
+    "2024_Oct8_NAV": "805043.9291332382715",
+    "2024_Oct31_NAV": "775930.9592330663030",
+    "2024_end_NAV": "637989.6123510238600",
+    "2024_return_pct": "-14.41286028",
+    "post_Oct8_NAV_change": "-167054.3167822144115",
+    "post_Oct8_existing_layer_change": "-54596.71621278579",
+    "post_Oct8_new_303_layer_change": "-112457.6005694286215",
+    "Nov_Dec_change": "-137941.3468820424430",
+    "Nov_Dec_Oct8_existing_layer_change_approx": "-1276.31",
+    "Nov_Dec_post_Oct8_layer_change_approx": "-136665.04"
+  },
+  "verified_contract_findings": [
+    "CORE alone uses 0.25% initial known-line risk sizing and explicit preview risk_budget; MOBILE has distinct nominal and CP-line rules",
+    "Effective No60 removes original 3% whole-account new-risk gate and confirmed 60% capital gate; other cash, industry, probe, stock and ACT gates remain",
+    "Known-line risk is not execution loss: CLOSE trigger then next OPEN with T+1, gap and availability constraints",
+    "Shared 20000 loss_budget is record_only, not a cumulative stop gate",
+    "ACT20 resume resets episode peak; it is not an unreset account 20% loss ceiling",
+    "2022 account reached 29.9736% loss from initial capital while resumed episode drawdown was only 18.0813%"
+  ],
+  "proposals": {
+    "status": "LOGIC_CONTRACT_DRAFT_ONLY_NOT_IMPLEMENTED_OR_TESTED",
+    "items": [
+      "Unified initial risk admission across CORE, MOBILE and increments, preserving original role and nominal caps, with OPEN recheck",
+      "Whole-account admission ledger uses per-held-layer max(current risk, unreleased exit responsibility), plus unfilled buy-order remainder and proposed risk without double counting; old 3% gate is prior research, not a new finding",
+      "Separate unreset account high-water and consumed loss allowance from resettable market episodes; distinguish freezing new risk from forced liquidation"
+    ],
+    "remaining_design_work": [
+      "Define ex ante T+1 and gap stress charge without using future realized gaps",
+      "Define pending-exit responsibility reservation amount",
+      "Define loss allowance period, recovery evidence and whether gains refill it",
+      "Check impact on actual positive trades and major trend participation before any implementation is proposed"
+    ]
+  },
+  "limits": [
+    "No claim that deleting all post-Oct8 buys would save 112457.60: that is attribution, not a dynamic counterfactual",
+    "No statistical correlation matrix estimated; reported correlated concentration uses actual exposure and next-day co-movement",
+    "Saved daily-bar fill proxy cannot establish actual limit-queue executions",
+    "Dividend receivables are included in NAV but are not available cash; actual pay dates remain unknown where absent"
+  ],
+  "blockers": [],
+  "main_readout": "READOUT.txt",
+  "independent_saved_book_review": "review/ROOT_COHORT_SAVED_REVIEW.json",
+  "independent_algorithm_review": "review/SMALL_PROBE_VS_PORTFOLIO_DD_REVIEW.json",
+  "final_prose_review": "review/FINAL_READOUT_REVIEW.json"
+}

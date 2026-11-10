@@ -1,0 +1,60 @@
+首个市场信号：最小单位与成交额上下文（2026-11-04）
+
+已保留全部13584个evaluation-window first信号：2022弱窗5847、2024恢复
+1629、strong6108。没有按账户获资、容量或后来五收盘收益删母体/返回。
+当前有限母体的primary有效报价、signal raw_close、dated quantity rule、
+baseline决策NAV均已知，未知0；脚本仍显式保留各类未知及其原因。
+
+最小单位只比较一个必要资金条件：
+  参考mobile gross目标 = 原实际账户决策CLOSE NAV×2%
+  最小买入gross = signal原raw_close×(1+原NORMAL滑点0.0005)×dated buy_minimum
+
+日期用signalCLOSE，原quantity版本区间为from<=day<to；null to开放。
+原规则是已存explicit research proxy，不认证真实公告/交易所时点。
+最小gross不含佣金/其他费，不是完整数量求解。所有core_only/mobile等
+根类型都保留，2%仅是共同mobile参考，不称每个信号实际有mobile资格。
+
+窗口          first数  最小gross>2%NAV目标  占比    未知
+2022弱窗        5847                   322   5.51%       0
+2024恢复        1629                    54   3.31%       0
+strong          6108                   140   2.29%       0
+
+其余不是“可成交”或可获资认证。该比较没检查下一OPEN价格、跳空、涨跌
+停、停牌/竞价、盘口深度、可用现金/结算、已有持股/风险线、行业上限、
+同批竞争或真实执行成本。真实CORE试探/成熟mobile规则不同，也未求新q。
+
+成交额分布（按每原始first事件一个观察；币种为原A股CNY；不是独立试验）
+
+窗口          signal amount p10/median/p90（百万元）   prior20 amount median p10/median/p90（百万元）
+2022弱窗          56.60 / 262.45 / 1294.97                 34.11 / 139.26 / 683.78
+2024恢复          63.59 / 241.71 / 1154.66                 31.44 / 116.46 / 556.13
+strong           167.07 / 656.53 / 2890.71                 91.20 / 311.63 / 1401.44
+
+原signal amount / 原2%NAV参考目标（倍）：
+窗口             p10        median        p90
+2022弱窗       3591.17      16047.67      78956.28
+2024恢复       4923.43      18001.59      83295.14
+strong         5566.70      22260.14      96502.24
+
+prior20有效amount中位数 / 同一目标（倍）：
+2022弱窗       2136.16       8563.52      41713.13
+2024恢复       2407.90       8723.58      40158.04
+strong         3071.33      10573.47      45601.13
+
+全分位0/p10/p25/p50/p75/p90/最大值及已知/未知数见SUMMARY。这里是原
+EVENTS的signal amount和既有prior20median的量级，不重算20窗或引入
+人为流动性阈值；全天成交额不是可供本账户在开盘成交的深度或保证。
+没有以高成交额股票子集重算价格响应或“消除”低成交额原事件。
+
+源与核验
+• 原EVENTS每个signal_id、final_status、原return5原样保留。
+• exact signal.parquet只另读raw_close，逐文件核原EVENT quote SHA及主
+  SOURCE_MANIFEST，不以实际未买入解释为价格missing。
+• NAV纯join已审account_context542日，时间戳为原决策CLOSE；不将原独立
+  strong与2022→2024账拼成连续资本，不在窗口重新设定本金。
+• dated quantity_versions直接读原execution-rules-v2，未知不推断/填补。
+• 新下单0、新账户0、新门0；没有行情刷新或发布。
+
+主文件：三个*_ROWS.json、ALL_FIRST_SIGNALS.csv、SUMMARY.json；
+PROTOCOL、VALIDATION、SOURCE_SHA256及describe.py记录口径。
+这份补充只说明必要最小资金与相对成交额，不说明容量已通过。

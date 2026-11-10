@@ -1,0 +1,30 @@
+{
+  "completed_at": "2026-10-31T10:14:10.979004+00:00",
+  "status": "complete_two_normal_quarter_paths_no_promotion",
+  "new_economic_paths": 2,
+  "normal_only": true,
+  "quarter": "2025Q3",
+  "economic_budget_seconds": 120,
+  "seconds": {
+    "market_and_industry_preparation": 25.06668816599995,
+    "correctness_gates_including_short_replays": 84.68760204222053,
+    "two_economic_paths": 38.30148850008845,
+    "independent_accounting": 6.8572109579108655
+  },
+  "no_product_or_trading_changes": true,
+  "blockers": [],
+  "next_decision": "ranking return/DD tradeoff, no automatic new window, pressure or factor experiment",
+  "deliverables": {
+    "PROTOCOL.txt": "653696cc70fbdb80f5952b3152acdec981a18786b3000375f0968f186b97909a",
+    "adapter.py": "2e9555d639c7db2a874e59c83cfa0df8889da0f41bf51e14313699292feea417",
+    "run.py": "97fbbefdd7a0d15ef33370a014558532b60a20c2afdfe1ef08650c0e84f8e9b8",
+    "analyze.py": "6e0ef495323b3c68f8dee2e4cfb9954a8b39b97f3358f961d73d2a5909745301",
+    "GATE.json": "0b6b72e805ffa382d7d7d8f5c4992dba2bc028dd17c2d5f8283f791c1e94afa6",
+    "POST_IDENTITY.json": "52375d3820f511fbb89d9ac2d9b2e5a6c08499b99d5ec269e49bc1025a9a81c8",
+    "FINAL_REPORT.txt": "d9dece93de535fcded2491fb3130728f03a924d5a30acb6de5772e23358a633e",
+    "SUMMARY.csv": "0f3d5f075df9faf9a1e33da27c28ef1697e5db04bedb6a7c22c50a84769dacf8",
+    "STOCK_BRIDGE.csv": "db8d09c192fdc39c8d05cb553384e499094bd23b922400aa6be6a054876770e3",
+    "VERIFICATION.json": "86c868998ddf15c799044af100d1a5a2d07f8d79090133c57f7556cb4ad31f12",
+    "MONEY_BRIDGE.json": "ee890739dd34a3f751830b72278924e0d8f52ccafce83cd6fcec1cb9a11a21cc"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "frozen_utc": "2026-10-20T09:49:33.089105+00:00",
+  "status": "unchanged_research_baseline_not_promoted",
+  "phase": "T1-T4 complete; stop this finite study",
+  "mechanism_revision_count": 0,
+  "maximum_authorized_revisions": 1,
+  "account_runs": 0,
+  "baseline_code": "code/baseline_event_structure.py",
+  "baseline_sha256": "b61e889e684305cbb45223e0e2dd8da324e8e8d0a2d201794e2749eb9441540e",
+  "protocol_sha256": "94bf039a822e69ee757b0401cbf384fca262be9e23aadbec68b31edf696ca50b",
+  "signal_identity": "27 series, 45534 rows exactly reproduced within CSV roundtrip tolerance; see validation/baseline-identity.json",
+  "decision": "Main ordinary losing cost precedes floor promotion; proposed floor relaxation/reentry reset/cooldown not justified as one general repair. Preserve winners, failures and uncertainty.",
+  "simple_mapping": {
+    "entry": "Market state 0->1 on confirmed up event; floor set to confirmed low. Account initialization can inherit active state; not retrospectively called a new event.",
+    "hold": "Down leg confirmation alone does not close market state. Higher confirmed lows can raise floor.",
+    "exit": "Current valid signal close <= existing structure floor invalidates first; no same-observation reentry.",
+    "reentry": "After exit, next up confirmation only; existing directional-extreme memory unchanged.",
+    "execution": "Close signal, next tradable execution; original initial equal allocation 0.9/N, no daily equal-weight rebalance. Existing engine assumptions/claims rules unchanged; no execution here.",
+    "volume": "Anchored clipped activity multiplier unchanged; no demonstrated economic advantage.",
+    "invalid_rows": "No event; target forward-filled as original implementation."
+  },
+  "next_boundary": "No identical account rerun. Initial and repeated attempt risk policy must be separately specified before any future strategy comparison; no such policy implemented or economically validated here.",
+  "evidence_sha256": {
+    "attribution/summary.json": "3812458fbdfe1ac5525bc38a80e5ad15408259df98a4a649b9d0774f4901cfd0",
+    "attribution/review.md": "6895b1724d9bcdaad78972eea2dc4db83f44066837c5f8c72b338300b1c7fc5b",
+    "validation/mechanism-audit-summary.json": "262db299735d5dcdd31898c06a9677d0a14381a6483b93fbce50f58bd0c34777",
+    "validation/mechanism-audit.md": "aec6ead900f0350023e1dc339cecba49ebac62e7471db7ddfb7a43070f222808",
+    "validation/baseline-identity.json": "62f7aa96c60a4a91cd35428baab36f2ac9dd4f1869e27cacc7621378dfbadee8",
+    "reviews/independent-visual.md": "7b3c9226b3b17db3efcf369af6fefe5d08455e407a4e777e4dc8ae70c96fd2e2",
+    "reviews/root-campaign-review.md": "ec0ed8e32de1848fce82c51de15df1737e9a30364e30536a657a22328a866433",
+    "validation/ordinary-large-excursions.json": "db2de51c39f5e3535f98b9031b6cb6417e62834522bbd653bb2755de9cb27c16"
+  },
+  "documentation_revision": 2,
+  "user_clarification_utc": "2026-10-20T09:52:17.390986+00:00",
+  "user_clarification": "Profit giveback is a normal cost of right-side trend holding, not a defect or optimization objective; no profit-lock or tighter exit is introduced."
+}

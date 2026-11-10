@@ -1,0 +1,134 @@
+[
+  {
+    "period": "all",
+    "status": "ALL",
+    "n": 1677,
+    "net": "75326.0427500672225",
+    "gross_losses": "472825.0094578727645",
+    "gross_gains": "548151.0522079399870",
+    "closed": 1547,
+    "open": 130,
+    "seed_cost": "14042952.0091065964250"
+  },
+  {
+    "period": "all",
+    "status": "BLOCK",
+    "n": 682,
+    "net": "17352.2294650261050",
+    "gross_losses": "194051.9569435626290",
+    "gross_gains": "211404.1864085887340",
+    "closed": 576,
+    "open": 106,
+    "seed_cost": "5777963.9692289639410"
+  },
+  {
+    "period": "all",
+    "status": "PASS",
+    "n": 995,
+    "net": "57973.8132850411175",
+    "gross_losses": "278773.0525143101355",
+    "gross_gains": "336746.8657993512530",
+    "closed": 971,
+    "open": 24,
+    "seed_cost": "8264988.0398776324840"
+  },
+  {
+    "period": "all",
+    "status": "UNKNOWN",
+    "n": 0,
+    "net": "0",
+    "gross_losses": "0",
+    "gross_gains": "0",
+    "closed": 0,
+    "open": 0,
+    "seed_cost": "0"
+  },
+  {
+    "period": "new_since_1106",
+    "status": "ALL",
+    "n": 954,
+    "net": "-183704.0578492558175",
+    "gross_losses": "282067.6465222089560",
+    "gross_gains": "98363.5886729531385",
+    "closed": 824,
+    "open": 130,
+    "seed_cost": "8089804.7296237239845"
+  },
+  {
+    "period": "new_since_1106",
+    "status": "BLOCK",
+    "n": 385,
+    "net": "-93635.6425687227170",
+    "gross_losses": "124186.5031229533795",
+    "gross_gains": "30550.8605542306625",
+    "closed": 279,
+    "open": 106,
+    "seed_cost": "3336142.8335889042490"
+  },
+  {
+    "period": "new_since_1106",
+    "status": "PASS",
+    "n": 569,
+    "net": "-90068.4152805331005",
+    "gross_losses": "157881.1433992555765",
+    "gross_gains": "67812.7281187224760",
+    "closed": 545,
+    "open": 24,
+    "seed_cost": "4753661.8960348197355"
+  },
+  {
+    "period": "new_since_1106",
+    "status": "UNKNOWN",
+    "n": 0,
+    "net": "0",
+    "gross_losses": "0",
+    "gross_gains": "0",
+    "closed": 0,
+    "open": 0,
+    "seed_cost": "0"
+  },
+  {
+    "period": "startup_actual_open_0923_0930",
+    "status": "ALL",
+    "n": 222,
+    "net": "234471.4823327814480",
+    "gross_losses": "35921.1139574782630",
+    "gross_gains": "270392.5962902597110",
+    "closed": 222,
+    "open": 0,
+    "seed_cost": "1825866.1430316726060"
+  },
+  {
+    "period": "startup_actual_open_0923_0930",
+    "status": "BLOCK",
+    "n": 106,
+    "net": "82145.1767760246790",
+    "gross_losses": "11549.3984261756000",
+    "gross_gains": "93694.5752022002790",
+    "closed": 106,
+    "open": 0,
+    "seed_cost": "881938.6905457552670"
+  },
+  {
+    "period": "startup_actual_open_0923_0930",
+    "status": "PASS",
+    "n": 116,
+    "net": "152326.3055567567690",
+    "gross_losses": "24371.7155313026630",
+    "gross_gains": "176698.0210880594320",
+    "closed": 116,
+    "open": 0,
+    "seed_cost": "943927.4524859173390"
+  },
+  {
+    "period": "startup_actual_open_0923_0930",
+    "status": "UNKNOWN",
+    "n": 0,
+    "net": "0",
+    "gross_losses": "0",
+    "gross_gains": "0",
+    "closed": 0,
+    "open": 0,
+    "seed_cost": "0"
+  }
+]

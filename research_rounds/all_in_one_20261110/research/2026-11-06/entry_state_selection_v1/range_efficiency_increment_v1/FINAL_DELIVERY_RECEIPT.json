@@ -1,0 +1,19 @@
+{
+  "status": "COMPLETE_WITH_DISCLOSED_CONTRACT_DEFECTS_NOT_PROMOTED",
+  "frozen_rankings_and_code_unchanged": true,
+  "new_accounts": 0,
+  "new_original_signal_runs": 0,
+  "parameter_searches": 0,
+  "score_or_selection_reruns": 0,
+  "report_sha256": "c65ad652155944e91b83f63f2f871a939c0c6552e47df786f8f6b1d9442312f1",
+  "defects": [
+    "common_known_omitted_finite_original_PVR",
+    "descriptive_original_closed_association_mixed_CORE_and_MOBILE"
+  ],
+  "remedies": [
+    "retained_frozen_rankings_and_excluded_35_affected_dates_descriptively",
+    "retained_old_mixed_table_and_added_MOBILE_ONLY_association"
+  ],
+  "first_final_hash_snapshot": "FINAL_DELIVERY_HASHES.json predates appended MOBILE-only audit addendum; use this receipt and FINAL_DELIVERY_HASHES_v2.json for current report",
+  "independent_review": "No further blocker; 60 source windows and all preserved feature-UNKNOWN slots/matches checked; two disclosed contract/population defects remain."
+}

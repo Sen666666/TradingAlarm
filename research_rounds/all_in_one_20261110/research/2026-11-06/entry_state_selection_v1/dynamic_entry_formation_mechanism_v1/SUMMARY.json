@@ -1,0 +1,36 @@
+{
+  "baseline": {
+    "admitted": 2732,
+    "conditional_closed": 2627,
+    "execution_unknown": 103,
+    "nofill": 2,
+    "closed_coverage_unknown": 11,
+    "evidence_closed": 2616,
+    "wins": 834,
+    "losses": 1782,
+    "win_rate": 0.31880733944954126,
+    "net_sum_cny": -520189.69826300733,
+    "mean_net_cny": -198.84927303631778,
+    "mean_return": -0.009278685456229603,
+    "tail30": 127,
+    "tail50": 44,
+    "conditional_win_rate": 0.31861438903692424
+  },
+  "clock_probe": {
+    "raw_stock_receipts": 825,
+    "stocks": 635,
+    "baseline_flat_knownPVR": 797,
+    "fits_residual_slot_before_quantity": 524,
+    "unknown_baseline_state": 24,
+    "not_executed_or_quantity_checked": true
+  },
+  "qa": {
+    "original_2732_identical_ids": true,
+    "I_root_unknown_in_admitted": 13,
+    "event_fact_exact_checks": 12917,
+    "first_vs_reentry_only_since2022": true,
+    "no_new_strategy_or_account": true,
+    "cached_signal_state_not_upstream_PIT_proof": true,
+    "seconds": 24.383150815963745
+  }
+}

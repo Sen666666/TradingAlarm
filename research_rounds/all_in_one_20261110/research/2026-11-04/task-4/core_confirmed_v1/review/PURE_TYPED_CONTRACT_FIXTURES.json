@@ -1,0 +1,329 @@
+{
+  "passed": true,
+  "scope": "Independent synthetic budget/request and bare Runner.__new__ route fixtures only; no native __init__, Account, Market, financial fills, price marks or PnL.",
+  "fixture_count": 53,
+  "cases": [
+    {
+      "name": "confirmed_success_probe_risk_L1_STAR200step1",
+      "passed": true,
+      "qty": 756,
+      "preview_maxq": 756,
+      "CORE_epoch_unconsumed_at_reserve": true
+    },
+    {
+      "name": "confirmed_success_probe_risk_L1_MAIN100step100",
+      "passed": true,
+      "qty": 700,
+      "preview_maxq": 700,
+      "CORE_epoch_unconsumed_at_reserve": true
+    },
+    {
+      "name": "confirmed_success_probe_risk_L2_STAR200step1",
+      "passed": true,
+      "qty": 756,
+      "preview_maxq": 756,
+      "CORE_epoch_unconsumed_at_reserve": true
+    },
+    {
+      "name": "confirmed_success_probe_risk_L2_MAIN100step100",
+      "passed": true,
+      "qty": 700,
+      "preview_maxq": 700,
+      "CORE_epoch_unconsumed_at_reserve": true
+    },
+    {
+      "name": "confirmed_success_sector_capital_L1_STAR200step1",
+      "passed": true,
+      "qty": 756,
+      "preview_maxq": 756,
+      "CORE_epoch_unconsumed_at_reserve": true
+    },
+    {
+      "name": "confirmed_success_sector_capital_L1_MAIN100step100",
+      "passed": true,
+      "qty": 700,
+      "preview_maxq": 700,
+      "CORE_epoch_unconsumed_at_reserve": true
+    },
+    {
+      "name": "confirmed_success_sector_capital_L2_STAR200step1",
+      "passed": true,
+      "qty": 756,
+      "preview_maxq": 756,
+      "CORE_epoch_unconsumed_at_reserve": true
+    },
+    {
+      "name": "confirmed_success_sector_capital_L2_MAIN100step100",
+      "passed": true,
+      "qty": 700,
+      "preview_maxq": 700,
+      "CORE_epoch_unconsumed_at_reserve": true
+    },
+    {
+      "name": "successful_small_probe_never_expanded_or_consumes_CP",
+      "passed": true,
+      "qty": 295,
+      "confirmed_possible_preview_cap": 756
+    },
+    {
+      "name": "no_CP",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "no_frozen_signal_CP"
+    },
+    {
+      "name": "corrupt_proof_hash",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "frozen_CP_hash_mismatch"
+    },
+    {
+      "name": "wrong_signal_day",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "frozen_CORE_clock_or_epoch_mismatch"
+    },
+    {
+      "name": "wrong_CORE_source",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "CORE_source_epoch_mismatch"
+    },
+    {
+      "name": "original_I_off",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "original_CORE_qualification_not_frozen"
+    },
+    {
+      "name": "original_I_buy_off",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "original_CORE_qualification_not_frozen"
+    },
+    {
+      "name": "not_G1_warm",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "original_CORE_qualification_not_frozen"
+    },
+    {
+      "name": "ACT_off",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "original_CORE_qualification_not_frozen"
+    },
+    {
+      "name": "wrong_frozen_sector",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "frozen_industry_episode_or_attempt_mismatch"
+    },
+    {
+      "name": "wrong_CP_stock",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "canonical_CP_identity_or_unknown"
+    },
+    {
+      "name": "stale_CP_day",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "canonical_CP_identity_or_unknown"
+    },
+    {
+      "name": "unknown_CP",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "canonical_CP_identity_or_unknown"
+    },
+    {
+      "name": "cross_source_CP",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "CP_source_or_scale_mismatch"
+    },
+    {
+      "name": "wrong_CP_scale",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "CP_source_or_scale_mismatch"
+    },
+    {
+      "name": "future_CP_formation",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "CP_formation_after_signal"
+    },
+    {
+      "name": "cross_industry_attempt_after_freeze",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "frozen_industry_episode_or_attempt_mismatch"
+    },
+    {
+      "name": "cross_industry_episode_after_freeze",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "frozen_industry_episode_or_attempt_mismatch"
+    },
+    {
+      "name": "already_consumed_CP",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "CP_invalid_or_consumed"
+    },
+    {
+      "name": "CORE_epoch_locked_across_pools",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "core_epoch_locked"
+    },
+    {
+      "name": "industry_level0",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "industry_not_confirmed"
+    },
+    {
+      "name": "industry_expand_disabled",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "industry_not_confirmed"
+    },
+    {
+      "name": "same_attempt_open_blocks_migration",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "same_attempt_probe_order_blocks_migration"
+    },
+    {
+      "name": "same_attempt_cancel_pending_blocks_migration",
+      "passed": true,
+      "original_reason": "probe_risk",
+      "fallback_reason": "same_attempt_probe_order_blocks_migration"
+    },
+    {
+      "name": "cash10_reserve_not_released",
+      "passed": true,
+      "original_reason": "cash_or_original_reserve,probe_risk",
+      "fallback_reason": null
+    },
+    {
+      "name": "probe_pool10_veto_is_not_rescued",
+      "passed": true,
+      "original_reason": "pool_capital",
+      "fallback_reason": null
+    },
+    {
+      "name": "all_pool_sector1_risk_not_relaxed",
+      "passed": true,
+      "original_reason": "probe_risk,sector_capital,sector_risk",
+      "fallback_reason": null
+    },
+    {
+      "name": "stock10_or_flat_not_relaxed",
+      "passed": true,
+      "original_reason": "probe_risk,sector_capital,stock_capital",
+      "fallback_reason": null
+    },
+    {
+      "name": "typed_request_failed_atomic_epoch",
+      "passed": true,
+      "result": "core_epoch_locked"
+    },
+    {
+      "name": "typed_request_failed_atomic_token_used",
+      "passed": true,
+      "result": "no_fresh_stock_signal"
+    },
+    {
+      "name": "typed_request_failed_atomic_token_wrong_attempt",
+      "passed": true,
+      "result": "no_fresh_stock_signal"
+    },
+    {
+      "name": "typed_request_failed_atomic_token_wrong_episode",
+      "passed": true,
+      "result": "no_fresh_stock_signal"
+    },
+    {
+      "name": "typed_request_failed_atomic_token_wrong_stock",
+      "passed": true,
+      "result": "no_fresh_stock_signal"
+    },
+    {
+      "name": "typed_request_failed_atomic_token_future",
+      "passed": true,
+      "result": "no_fresh_stock_signal"
+    },
+    {
+      "name": "typed_request_failed_atomic_not_typed_core",
+      "passed": true,
+      "result": "typed_core_confirmed_role_required"
+    },
+    {
+      "name": "typed_request_failed_atomic_cash",
+      "passed": true,
+      "result": "cash,sector_capital,sector_risk"
+    },
+    {
+      "name": "typed_request_failed_atomic_sector_capital",
+      "passed": true,
+      "result": "sector_capital"
+    },
+    {
+      "name": "typed_request_failed_atomic_sector_risk",
+      "passed": true,
+      "result": "sector_risk"
+    },
+    {
+      "name": "failed_CORE_preserves_original_Mobile_fallback",
+      "passed": true,
+      "pool": "confirmed",
+      "qty": 1900
+    },
+    {
+      "name": "reserved_CORE_blocks_cross_role_same_CP_without_reuse",
+      "passed": true
+    },
+    {
+      "name": "original_Mobile_route_exact_probe_risk",
+      "passed": true
+    },
+    {
+      "name": "original_Mobile_route_exact_sector_capital",
+      "passed": true
+    },
+    {
+      "name": "original_Mobile_route_exact_small_probe",
+      "passed": true
+    },
+    {
+      "name": "original_Mobile_route_exact_none",
+      "passed": true
+    },
+    {
+      "name": "No60_no_confirmed60_or_account3_gate",
+      "passed": true,
+      "prior_confirmed_capital": 700000,
+      "prior_global_nominal_risk": 40900
+    }
+  ],
+  "synthetic_budget_objects": 53,
+  "native_Account_or_Runner_init_or_Market_constructions": 0,
+  "native_fill_paths": 0,
+  "prefix_or_portfolio_run_admitted": false,
+  "not_covered_by_pure_fixtures": [
+    "Actual fill epoch/T+1/FIFO/CA remains original inherited engine; native prefix and saved-batch audits required.",
+    "Full account ACT and resource feedback/economic value untested."
+  ],
+  "adapter_sha256": "66ac96d10722ae49c0910c08a11e22cdd567159cf1e2b63c6b6142fbf5f025bd",
+  "source_freeze_sha256": "9dc83b4288cdd2f1968fba79be547765c67d2a9f8cd0946b7fa25df87ef8fa55",
+  "fixture_source_sha256": "b5e16b4a827f4070e99d01e1f96c58268247c6eb0bed47a1140ffac0f55afaf8",
+  "saved_rules_and_CP_reuse_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/core_confirmed_v1/saved_batches/PREVIEWS_2026-06-30.json": "7d49ee5e4d7c96d5ef93ec8d9fe6d12f36c49b12f52d8de318c40209085c629b",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/core_confirmed_v1/saved_batches/CORE_CP_LOOKUP_2026-06-30.json": "99a9ca9bb90ec4b4fb2036e0705381ac96b1f10ee32010d17044b19d42b9b754"
+  },
+  "seconds_including_import": 1.0668270830065012
+}

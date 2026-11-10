@@ -1,0 +1,137 @@
+HELD_I_INCREMENT：原证据复用及最小新合同的代码反向审查
+
+裁决
+core_Q=True的确包含当日原i_buy与完整S0，不是I_target的持续carry。现行No60在真实held
+时不会提CORE；若没有新CP则也没有MOBILE。新增“有仓、当日原I事件、另买新股数并按I
+持有”是一个明确的新入口/资金角色，不能伪装成原CORE/MOBILE自然可接。本次只审合同。
+
+一、I与CP各自提供什么
+I_target是E0结构shadow与G1初始暖/新证据门启动后的连续状态。G1_I的use_x=False，
+故持有中的G1变冷不自行关I；E0 shadow失效或C<=保留结构线才退出。
+当日i_buy=active AND shadow AND warm AND (当日E0 entered OR G1 fresh_up)。
+其中warm要求G1 ready且grade>=2。grade.py24–29的fresh_up来源为原E0新up事件、
+S21/S63新确认或已确认up结构中的running frontier实际抬高；B4 model.py195–198每个
+观察先清confirmed_direction=0，只有新confirm才232–242置方向，非把持续up当新确认。
+Facts.packet先将原市场buy_allowed AND exact-day
+i_buy绑定到Security，再过完整S0：common、market、cap、I_target、issuer/sector、
+stock/sector fresh RS与当日行业状态。J218的event.q即机会日志core_Q，不包含not-held；
+not-held和core_epoch是J244在生成CORE角色时另判。因此core_Q并非每天I有效就True。
+
+新stock CP不是I的同义词：它是同source、既有I许可下，突破先前frontier后新log位移
+及量额credit均达到原冻结尺度的receipt；出receipt会重置anchor/credit。它已表达其
+原定义的“新市场推进”，不用再加第二次新高/两次证明才能称新推进。但这不证明预测
+优势，不保证旧仓有个人浮盈，更不保证candidate价实际可卖或新单可成交。
+stock CP输入e0_valid实际为i_target；I有效是其上游前提，E0有效而I尚未启动的缺口
+并不能靠原CP补齐。stock receipt也不能冒充industry receipt，不能自行提高行业预算。
+
+四用途严格分开：
+入场：原空仓CORE需要当日i_buy+S0+not-held/epoch；原MOBILE可在新CP+continuing S0
+时首次/再入。持续持有：CORE看I，MOBILE看I/ACT和旧CP保护线，不要求每天再有新收据。
+新增层：原只有新CP MOBILE；本卡拟补当日原I事件的held新股数，源不同而非转旧层。
+保护线：CORE更新I；MOBILE先检旧F，再max(oldF,I,newCP)。同一receipt可更新多个
+存量MOBILE保护线，同时支持一次同股新层请求；不是每个旧层各兑换一份新资金预算。
+
+二、“先更新已有保护，再算CP单次增量”已经是原顺序
+J.planning225–229先ACT/I退出；236先检各MOBILE进入本CLOSE前生效旧F；未触线才
+238–240更新F_new=max(F_old,I_t,candidate_t)。241 sync所有真实旧仓和新线，再更新
+行业，243–257生成当次新CP层，下一OPEN再次sync/route。CORE231–234只更新I后continue，
+不会随CP收紧。故“先护后加”本身是baseline，不是新增优化。
+若candidate<=F_old且I也未提高，旧线完全不变；即使提高，减少的只是当前mark-to-line
+责任，不是已兑现利润、现金或保证的止损执行。NEXT OPEN按实际已知OPEN/CA及真实qty
+重算，不能把CLOSE计算出的释放额视为已锁定的免费风险，更不能重复授给多个候选。
+
+三、与旧N1的有界查重
+broad-stage-reentry/code/study.py114–117：held时先要求同股已有CORE，再要求confirmed
+CP和C>last_buy，新增kind=mobile；它不是仅当日I事件即可新增I结构股数。空仓event/F/CP
+入口则生成trial。n1-structural-finite/code/policy.py5保留Mobile原动作，14将已有trial
+改为core，仅改变已有层保护/角色，不增加股数。旧1084晋升局部配对和1917等待三臂也
+固定原入口/股数，没有这种held-I新买合同。现行J244只在not-held提CORE、245靠CP提Mobile。
+所以本卡与这一N1家族不是精确重复；本次是对已定位源码的有界查重，不声称全库绝无。
+它仍复用旧I结构持有思想；不能称首次发现“按I持有”，也没有旧收益可直接背书新增量。
+
+四、最小新合同：只增加一个typed held-I入口，旧CP和旧层不变
+Signal CLOSE t，先完成原已有仓ACT/I/CP处理及old-F-first更新、sync、industry原更新。
+仅真实held>0、event.core_Q=True、ACT on、无buy/exit pending，且原行业/来源/价格/
+原风险输入已知，并且当日canonical fresh CP已知不存在时，可提HELD_I_INCREMENT。
+若当日CP存在，完全走原CP路径，数量/保护/执行不变；即使CP资金或执行失败也不回退
+I增量，不在已受CP处理影响的prefix另试新源。CP状态未知不当作“无CP”放行。
+这里“当日”指信号CLOSE t：须有冻结CP输出/trace足以确认该日无canonical fresh CP；
+不能把trace查不到或CP未知当False，也不能在下一OPEN偷看执行日尚未知的CP收盘结果。
+它不新造E0/I，不放松原首入CORE not-held
+或消费/重置其core_epoch；不改旧层role、旧CP、保护或退出；不加EMA、新高或额外
+多次确认门，仅保留下述OPEN大于最后实际买价的本卡比较。
+原CORE逻辑和原CP路径都保留。新增类型按原I结构持有，不能把kind假写core然后触发
+原CORE fill的epoch消费，也不能假写stock_cp1绕过MOBILE来源验证。
+
+证据identity要冻结原事实引用而不是猜canonical收据：至少policy/source版本、sid、
+source_segment、原I epoch、decision_at、earliest_execution_at、原exact-day i_buy、
+G1 ready/grade/fresh_up、E0/I状态、I_floor、完整原S0输入及True结果、事实/行业/quote
+原来源SHA和输入摘要，以及CP已知缺席依据。若原保存了E0 entered或G1 up_reasons，
+则引用原字段/原源；不能伪造未导出的canonical id/entered字段来补证。原cache已保存
+i_buy，其生成源码与来源hash可以约束语义，无需另造市场事件。
+可据确定性序列化生成typed authorization_ref，明确引用原I事件，不称CP canonical_id。
+同一(sid,source_segment,I_epoch,decision_at,typed_role)幂等，只对原下一合法OPEN有效。
+没有新I日事件就不能每日拿carry重放。I事件可能连续数日均fresh，应按各自实际事件审，
+不人为添加“两次后停”上限；同一个事件只资助一次，新typed消费簿不消费/重置原
+CORE epoch，也不能在新role中借该epoch未消费来无限重放同一个日事件。
+
+尺寸：按当时I_t/factor_t定量，R_signal=.0025*NAV_signal，原LR.protection_risk含原
+买卖费及约定不利滑点。信号名义上限不得超过max(0,.10*NAV_signal-同股现有市值-
+同股不可撤买单责任)，再求满足含费R_signal的最大原合法BUY数量，冻结cap和预算。
+不得裸用resize_core的空仓10% grosscap忽略现有股数；新typed I层使用10%余额是本卡
+明确新增的CORE式尺寸合同，不是扩大原MOBILE2%。原MOBILE仍原2%/10%余量/CP保护。
+不把尺寸结果当实亏上限；I线较宽可能直接最小手失败，不能用CP紧线买多再按I持有。
+
+下一合法OPEN：先执行原已锁退出、结算及公司行为，原sync用当下OPEN已知mark重建
+真实旧仓；保留signal I线/冻结risk_budget，不读该日未来I/CP/CLOSE。重验held仍为正、
+source/epoch、ACT授权、原pending责任、actual OPEN>I保护且大于最后真实买入归一价、
+原dated BUY数量/费用、
+cap/冻结预算、含费风险只可减量、现金与风险资金grant。收盘新I若已无效早已阻断；
+原策略并不在OPEN读取当天尚未知的收盘i_target来提前退出或授权。这里比较的是
+actual raw OPEN*当时factor与原last_buy的实际成交价*入场factor，保持同源单位；
+不是把加入本次滑点后的新fill价冒充OPEN推进，也不要求额外EMA/20日高。
+
+同股/同批：保持原PVR股票排序算法，无当日canonical fresh CP的held-I分支每股只提
+一个新typed意图，不设置与原CP竞争的同股优先/备选。若CP存在则该股完全原CP路径，
+即使CP被拒也不在同一prefix补试I。新候选加入集合会改变真实排序/竞争，不能伪造
+baseline已有slot，不能给赢家另开全局优先队列。I分支legal q=0或grant拒绝就是0新增。
+reserved后同股done锁一次；若执行proxy随后没有window，不作CP回退或后排资金重分，
+仍沿原取消/确认/余款责任。实际partial依同一intent一次消费，不能按callback重复申请，
+未成交余额仍承担原有效期和取消确认责任。
+
+五、新role/池接口是实质未决项，不可绕过
+当前Budget.request断言role in(core,mobile)，confirmed又要求role=mobile；mobile强制
+stock_cp1、scale21、当前行业episode/attempt/事件时间与未消费receipt。原函数不能直接
+接I源；把I伪成CP、伪成CORE或关断言均不合法。
+需单独typed request_held_i_increment：核原I事件引用及当时core_Q、当前真实held、
+一次消费、当日canonical CP已知缺席、原行业active且financial level1或2、合法
+episode/attempt匹配、实际qty/I保护、pool与risk allocator的
+明确grant。按root最小合同，仅当风险方允许该新role使用confirmed资金且原migrate/
+行业资本/风险/池/现金门均通过才预留；行业不成熟或该源不获confirmed资金则拒I分支，
+不能借core名义转probe、借CP名义转confirmed或扩行业额度。
+它是新增I源在confirmed池的明确新准入，不称“原probe合同未变”即可自然获得该池。
+CP存在的日期完全不产生此分支，故没有CP失败后I回退，也没有I失败后的同日CP备选。
+这里是新增来源的金融准入，不是“信号True已可交易”。压力/全账责任grant未闭合就
+只能报告纸面资格，不能报可买数量或账户价值。
+
+新增层保护需显式protection_mode=I_STRUCTURE和原I引用：初始为信号I，后续仅随
+同一个原I epoch合法I更新；I线不降低是G1_I同段active结构本身的max不变式，不是
+另造EMA/CP/H0更高门。epoch/source变更使旧proof失效，不能把新段较低线接到旧许可。
+该层服从原ACT/I结构退出，不由CP收紧，也不把已有Mobile转过去。现行sync对
+core取last_core_line、其他取x.floor，故新role必须明文把其实际I线映射进风险镜像；
+现行保护循环也只识别core/add，必须增加显式分支，不能依靠“不被任何分支处理”来
+获得永久持有。身份和会计字段需相同policy/source绑定；本次未实现这些接口。
+
+六、上限是新增集中风险门，不是卖出赢家指令
+原No60单股10%、行业资本/行业1%风险、probe限制、现金10%预留约束新增预留。
+已有仓自然涨过某一资本比例，不由该门自动卖回；J持仓退出中没有“涨到10%就卖”
+分支。允许原持仓继续上涨也不授新单突破集中上限；新单可以为0，不默认卖健康赢家。
+不恢复已移除account3%/confirmed60，不把record_only两万元改硬停，不虚构相关簇预算。
+特别保留原分母：a.current_nav在CLOSE更新，原OPEN的现金10%及单股10%仍用最近CLOSE
+值；b.nav在OPEN sync后按当下mark并扣待费用，行业/池按该预算NAV。新卡若改成另一
+分母就是额外资金规则，不能冒称原门完全未变。
+
+范围与更正
+物理库存FIFO和sell_layers逻辑目标分摊必须分开，见本目录README引用的已有更正。
+本轮只读源码/原协议与旧报告；无策略实现、无账户/指标/回测/参数测试。新role、资金
+源准入及完整风险allocator尚未实现/批准，其收益、防守和主要行情覆盖均未知。

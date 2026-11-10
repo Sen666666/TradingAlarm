@@ -1,0 +1,11 @@
+{
+ "scope": "Signal-only reconstruction; original 8 technology opportunities plus previously fixed 42 AB cases; no account replay, no changed ranks/threshold search, no forward-profit transfer.",
+ "history_seen": "Old eight old outcomes and present decision-day M3/I facts have already been inspected. This is a post-hoc mechanism hypothesis, not preregistered unseen validation.",
+ "C_raw": "S[t]=S[t-1]=1 and M[t]=M[t-1]=1 and original I_qualified[t] and original i_buy[t] and finite original PVR[t]. A/B are disjoint by construction. UNKNOWN fails closed.",
+ "consumer": "When flat with no pending/unknown exit, a new original I evidence receipt at this close can request one small INIT for next observed executable OPEN. Receipt keyed by sid/day; no carried ticket or fixed cooldown. Failed/rejected receipt is consumed; a later genuine i_buy can request again. Post-exit receipt must be later than completed exit OPEN. Never re-use old receipts, never require sector or M to turn off first.",
+ "unchanged": "Union A+B+C before same industry top2 PVR queue, same global PVR order. Original INIT2% and full-round fee-risk0.25% NAV, probe risk0.5%, all account caps and cash fees, original CP plus positive round-net promotion/add, T+1 and source/factor validity. No separate free C pool, no auto promotion, no full-size start.",
+ "bounded_preflight": "Three original decision dates 2024-09-27,11-19,11-26, plus weak fixed dates 2022-01-07,01-10,01-11,01-12 for complete same-day signal queues. Trace original eight from ten sessions before to ten after each decision; trace previously fixed actual weak January entries through 20 common sessions after actual exit. Weak/strong existing42 controls remain intact.",
+ "queue_status": "A+B+C close-feasibility and industry top2 on original account state is a local shadow request comparison, not a new account or achievable PnL. No OPEN allocation counterfactual.",
+ "risk": "Current mark-to-protection nominal risk cannot be replaced by only principal risk. Profitable no-fresh-CP remains probe. New C tickets cannot unlock a full pool.",
+ "stop": "After bounded preflight, report losses/extra requests/right-tail signal recovery and whether enough evidence exists to justify a separate paired study. No parameter sweep, no broad economics."
+}

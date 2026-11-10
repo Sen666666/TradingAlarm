@@ -1,0 +1,15 @@
+Root-authorized single geometry check,10min hard scope,0Account/Runner/state.
+Preserve prior20 P trigger and frozen L20 support from completed paper tables.
+ONLY confirmation unit changes: E0 prior63 logreturn RMS (64 prior closes,
+exclude trigger day's return), sqrt5; freeze sigma at P. Original E0 numeric
+floor1e-8 preserved, raw/effective both reported. This is NOT original B4/CP1
+scale: those use1.4826 median absolute return; CP1z also has economic floor.
+Use unchanged E0 arithmetic.log_ratio/compare, math.fsum square/63 then sqrt.
+Threshold MP*exp(sqrt5*sigmaP). Require day>P, same original new20high+B>.6,
+and original gamma4 compare(log(M/MP),sqrt5*sigmaP)>=0. No new credit ledger.
+All prior original pause/context firstP rows retained incl noP/rightcensor;
+Feb26'24 remains same old Jul23pause subcontext, not newly simulated recovery.
+Keep each original end date; separately mark geometric threshold after frozen
+S breach as INVALID_FOR_SAME_P, not confirmation of that failed support.
+No lambda/ATR/21 scan, median alternative, risklevels, cash, strategy PnL or M
+cold recalculation. No source changes. New output only within this directory.

@@ -1,0 +1,18 @@
+{
+  "planned_start": "2024-09-02",
+  "planned_end": "2024-10-31",
+  "completed_horizon": false,
+  "certified_through": "2024-09-13",
+  "complete_days": 10,
+  "orders": 650,
+  "blockers": [
+    "2024-09-18 300170.SZ UNADMITTED_EQUITY_EVENT"
+  ],
+  "checkpoint_20240923_created": false,
+  "classification_total": 1709,
+  "eligible": 1692,
+  "excluded": 17,
+  "populated_named_sectors": 50,
+  "unadmitted_inventory": 148,
+  "warning": "Inventory is not exposure. Do not skip unsupported events or infer no economic effect. Original frozen run preserved."
+}

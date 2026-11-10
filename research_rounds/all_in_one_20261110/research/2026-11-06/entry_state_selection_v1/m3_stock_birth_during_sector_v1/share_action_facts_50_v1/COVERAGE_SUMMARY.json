@@ -1,0 +1,46 @@
+{
+  "scope": "50 fixed 2022 first share-action interruptions, facts only",
+  "target_count": 50,
+  "api_target_matches": 50,
+  "official_notice_pdfs": 50,
+  "record_dates_documented": 50,
+  "ex_dates_documented": 50,
+  "cash_events": 49,
+  "cash_pay_dates_documented": 49,
+  "no_cash_pay_date_not_applicable": 1,
+  "new_unrestricted_listing_dates_documented": 49,
+  "listing_same_ex": 21,
+  "listing_after_ex": 28,
+  "listing_unknown": [
+    "002460.SZ"
+  ],
+  "explicit_premium_and_transfer_exemption": 14,
+  "transfer_events": 46,
+  "bonus_events": 5,
+  "explicit_bonus_face_value": 2,
+  "aggregate_integer_initial_quantities": 47,
+  "core_add_each_integer_initial_quantities": 47,
+  "fractional_allocation_unknown": [
+    "300655.SZ",
+    "688378.SH",
+    "688017.SH"
+  ],
+  "record_previous_common_day": 50,
+  "register_reconstructed_matches_old_qty": 50,
+  "fractional_rule_in_notice_count": 21,
+  "official_reference_parameter_pairs": 5,
+  "source_precision_conflicts": [
+    "300655.SZ",
+    "688378.SH"
+  ],
+  "first_pilot_candidates": [
+    "002738.SZ"
+  ],
+  "qualified_original_add_cases": [],
+  "source_hashes_unchanged": true,
+  "calendar_sha256": "fc1d2321b02def9c9c00de0b287c0b6719582ab7dd51a3692771d55f7c6b498d",
+  "strategy_runs": 0,
+  "old_status_changes": 0,
+  "candidate_does_not_authorize_execution": true,
+  "warning": "Absence of explicit capital-premium/exemption proof is evidence insufficiency, not proof of taxation. These quantities are initial eligibility only; every strategy arm must independently satisfy the causal contract."
+}

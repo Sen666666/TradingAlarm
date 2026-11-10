@@ -1,0 +1,23 @@
+{
+  "days": 93,
+  "orders": 3596,
+  "blockers": [
+    "2025-01-21 000728.SZ UNADMITTED_EQUITY_EVENT"
+  ],
+  "last": {
+    "day": "2025-01-20",
+    "cash": "128986.4827500672225",
+    "receivable": "0.00000",
+    "market_value": "1146339.56",
+    "NAV": "1275326.0427500672225",
+    "net_liquidation_NAV": "1273454.7100703441205",
+    "stocks": 130,
+    "shares": 75265,
+    "weight_pct": "89.88599946787525729635679139",
+    "fees_paid": "28881.8165199327775"
+  },
+  "prefix_1106_pass": true,
+  "prefix_1107_pass": true,
+  "planned_end": "2026-06-30",
+  "completed_horizon": false
+}

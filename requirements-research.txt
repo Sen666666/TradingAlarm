@@ -1,0 +1,6 @@
+# Versions observed in the working research environment. Python 3.13 recommended.
+numpy==2.4.3
+pandas==3.0.1
+pyarrow==26.0.0
+matplotlib==3.11.2
+requests==2.32.5

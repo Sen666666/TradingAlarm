@@ -1,0 +1,38 @@
+{
+  "protocol_sha256": "bd13c0329426d643199dd95198e27eef15b4112bbefdf21a11e1430cf1c44ed4",
+  "script_sha256": "9bb948fa730f3e8e186f7bec5209aaa1bd8eab9f124d4631aa8d5a50820f4eb3",
+  "before_stock_coverage": true,
+  "cases": {
+    "2022": [
+      "2022-01-04",
+      "2022-12-30"
+    ],
+    "2023": [
+      "2023-01-03",
+      "2023-12-29"
+    ],
+    "2026": [
+      "2026-04-30",
+      "2026-06-30"
+    ]
+  },
+  "observations": {
+    "2022": 242,
+    "2023": 242,
+    "2026": 40
+  },
+  "stocks": 1709,
+  "sectors": 90,
+  "kernel_sha256": "962275bd41b5c7bbc062a1191780a6b6a9c616f8d3097ea669b602eabbc9ac59",
+  "contract_sha256": "c3914aed1896563253961ea40d6065614a115cef21e13a93e1e74ad71779c54a",
+  "cohorts": [
+    "RAW",
+    "STOCK",
+    "OLD_Q",
+    "F1_PERMIT",
+    "F1_MATURE"
+  ],
+  "label_source": "existing PRICE_LABELS only, no 2023 same-contract labels",
+  "no_new_indicators": true,
+  "no_accounts": true
+}

@@ -1,0 +1,37 @@
+PH1设计的来源与适用边界，核对日期2026-10-28
+
+外部一手资料
+1. Kaminski, K. M.; Lo, A. W. (2014), When Do Stop-Loss Rules Stop Losses?, Journal of Financial Markets 18, 234–254.
+MIT作者稿登记与摘要：https://dspace.mit.edu/entities/publication/bb69ca4b-0cdc-487f-831d-63b2e84fafee
+期刊摘要：https://www.sciencedirect.com/science/article/abs/pii/S138641811300030X
+已核对作者库/期刊检索摘要；本轮下载全文受到429/403限制，不宣称全文逐式复核。结论：止损价值依赖收益过程，某些规则与观察频率下能够改善期望收益/波动，不能普遍保证更快更好。研究对象与本A股个股机制不同；没有给PH1的1%、F0.5或交接条件最优性证明。
+
+2. de Lataillade, Deremble, Potters, Bouchaud (2012), Optimal Trading with Linear Costs.
+作者原文：https://arxiv.org/abs/1203.5957
+核对正文第2、3与6节：https://arxiv.org/html/1203.5957v1
+结论：在线性交易成本、特定预测过程及仓位约束模型下，切换阈值与不交易带有理论依据。成本会使反复追随微小信号不一定值得。本设计借鉴“考虑切换成本”的原则；该模型并不是中国股票长期只做多策略，不证明只切一次、原E0事件或保留L*为最优。
+
+3. Gârleanu, N.; Pedersen, L. H. (2013), Dynamic Trading with Predictable Returns and Transaction Costs, Journal of Finance 68(6), 2309–2340.
+作者所在机构论文摘要：https://research.cbs.dk/en/publications/dynamic-trading-with-predictable-returns-and-transaction-costs-2/
+作者论文链接：https://docs.lhpedersen.com/DynamicTrading.pdf
+已核对机构摘要；作者PDF超时、NBER正文403，本轮不宣称全文复核。结论：在其模型中信号持续性、成本与未来预期共同影响交易速度。PH1从中得到的设计动机是区分细尺度响应与持久结构，并非沿用其最优控制解，也不能据此引入任意分批仓位。
+
+4. 上海证券交易所交易规则（2026年修订），2026-07-06施行。
+官方发布及附件：https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/exchange/c/c_20260424_10816482.shtml
+核对现行发布状态；普通A股交收前不得卖出及撮合约束意味着不能承诺按保护价即时成交。仅是当前设计执行边界，未来历史检验仍须沿各历史日期适用的规则表，不能把2026修订全文回填2024。
+
+5. 深圳证券交易所交易规则（2026年修订）。
+官方正文：https://docs.static.szse.cn/www/lawrules/rule/trade/current/W020260424690713155663.pdf
+核对3.1.4/3.1.5：交收前不得卖出，普通A股不在当日回转品种清单。核对市价申报与竞价章节：提交订单不保证按某个保护价成交。策略采用收盘触发、下一可执行开盘，是自己的执行约定；不能说法规要求所有旧仓都多等一次收盘。
+
+本项目直接证据（均只读，不重跑）
+research_rounds/s-amount-cross-sector-20261028/CONCLUSION.txt：S-AMT1独立替换的跨板块结果与资源/ACT路径。
+research_rounds/strict-entry-fast-support-20261027/CONCLUSION.txt：旧S+全程F三起点取舍、全部试错及源杰持有空档。
+research_rounds/intent-support-20261027/RULES.txt：原F的事件核、持仓后低点、前日保护与次日开盘。
+research_rounds/trend-reentry-20261027/RULES.txt、CONCLUSION.txt：旧局部保护/E0交接，实际经济交接0，不能包装成已经验证的新成果。
+research_rounds/tech-finite-compound-20261026/PROTOCOL.md、code/engine.py：RB1风险定仓、开盘削减、累计费用与部分成交约束。
+docs/ALGORITHM_E0_NR1.md：E0-NR1的实际支持来自确认收盘极点，独立收复关闭。
+docs/ALGORITHM_S_AMT1.txt、research_rounds/s-amount-confirmation-20261028/code/s_amount.py：金额前沿确认和入场资格职责。
+
+研究判断
+这些材料支持提出“风险金额、早期保护、结构持有分工”的可检验假说，不能证明该组合有收益优势。PH1状态、M条件与优先级均是本轮研究设计，1%沿旧研究约定；均需独立评价，不以文献引用代替本策略证据。

@@ -1,0 +1,29 @@
+{
+  "passed": false,
+  "tests": 15,
+  "failures": 2,
+  "errors": 0,
+  "seconds": 6.963930708356202,
+  "started_at": "2026-11-02T15:02:17.083635+00:00",
+  "completed_at": "2026-11-02T15:02:24.058125+00:00",
+  "historical_account_events": 0,
+  "records": [
+    "01_off_identity",
+    "02_no_gap_False",
+    "02_no_gap_True",
+    "04_partial_no_refund",
+    "06_STAR_new200_rejected",
+    "06_STAR_same_partial50",
+    "07_split_same_currency",
+    "08_T_False",
+    "08_T_True",
+    "08_core_zero_fill",
+    "09_downstream_False",
+    "09_downstream_True",
+    "10_D_not_cancelled",
+    "11_restart",
+    "12_atomic_unsupported",
+    "13_floor_raise_not_refund",
+    "14_gap_no_zero_risk"
+  ]
+}

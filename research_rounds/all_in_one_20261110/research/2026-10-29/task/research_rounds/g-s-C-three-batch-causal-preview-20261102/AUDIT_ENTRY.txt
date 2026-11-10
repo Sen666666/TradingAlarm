@@ -1,0 +1,44 @@
+Scope: three fixed original C CLOSE planning snapshots only. No account events or PnL.
+Read REPORT.txt, CONTRACT.txt, ADDENDUM_QUEUE_VS_COMPARATIVE_RANK.txt, then
+FINAL_READONLY_VERIFICATION.json and COMPACT_NUMERICAL_EVIDENCE.json.
+Original core first-block audit: /tmp/C-engineering-independent-0plqn1q0/FINAL_AUDIT.json
+Errata: ../g-s-C-engineering-causal-readonly-20261102/errata/
+
+Evidence classes:
+INPUT-* is the actual saved trusted snapshot/demands/evidence/budget_before and certificate.
+BASELINE-* retains ALL candidates/prefixes and exact complete original result digest.
+QUEUE_ONLY-* changes traversal only, keeping relative donor-comparison keys.
+COMPARATIVE_RANK-* changes the fixed case block's position consistently in both roles
+of priority; finances, identity, floors, receipt, limits, quantities and fees unchanged.
+FIXED_PREFIX_UNITS-* holds exact residuals for each minimum unit and the one next unit,
+enumerating only the ORIGINAL deterministic admissible donor path. Not global optimality.
+ASOF_CASE_EVIDENCE includes original loader's diagnostic stock slots as well as actual
+C_demand / C_stock_priority. Use actual BASELINE/INPUT solver keys for comparison: the
+loader's caller-supplied fixture-domain slots are explicitly NOT native intent ranks.
+Original PVR numeric score remains a causal source field; do not conflate the domains.
+
+Original pure calculation took 103.985s; comparative-rank three solves 34.012s approx.
+These are NOT economic replays. Existing original account outputs/checkpoints unchanged.
+
+Optional independent pure reproduction, directing output to a new /tmp directory:
+Python /Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B
+Snippet (run from any directory; no account construction/progression):
+  import pathlib, sys, tempfile, shutil
+  root = pathlib.Path('/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-three-batch-causal-preview-20261102')
+  sys.path.insert(0, str(root))
+  import run
+  out = pathlib.Path(tempfile.mkdtemp(prefix='three-batch-pure-independent-'))
+  for n in ('CONTRACT.txt', 'ADDENDUM_QUEUE_VS_COMPARATIVE_RANK.txt'):
+      shutil.copyfile(root/n, out/n)
+  run.HERE = out
+  run.main()
+  import comparative_rank
+  comparative_rank.HERE = out
+  comparative_rank.main()
+  print(out)
+Audit result/identity digests and Q/D rather than elapsed seconds. This snippet is
+provided, not executed as an extra run by the worker. Original source guard stays on.
+
+Pre-existing original data/financial bridges are reused; do not infer all 1709×23
+opportunities are independent or that a local replacement can be added to another.
+No current policy recommendation/promoted strategy, new limits, or future return labels.

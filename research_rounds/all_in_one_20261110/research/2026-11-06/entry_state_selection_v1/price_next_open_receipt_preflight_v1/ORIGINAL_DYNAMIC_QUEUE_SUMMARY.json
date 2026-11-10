@@ -1,0 +1,30 @@
+[
+  {
+    "window": "2022",
+    "all_rows": 1779,
+    "no_PRICE_competition_rows": 1377,
+    "old_W": 331,
+    "old_L": 1046,
+    "old_loss_amount": 2144472.014787164,
+    "old_loss_amount_fraction": 0.787099578403327,
+    "affected_old_W": 57,
+    "affected_old_L": 210,
+    "affected_old_loss_amount": 448771.9663449327,
+    "affected_old_loss_amount_fraction": 0.2092692109061972,
+    "affected_old_mfe_lt5_L": 136
+  },
+  {
+    "window": "2024_924",
+    "all_rows": 1083,
+    "no_PRICE_competition_rows": 617,
+    "old_W": 266,
+    "old_L": 351,
+    "old_loss_amount": 670724.495348638,
+    "old_loss_amount_fraction": 0.657423791001381,
+    "affected_old_W": 24,
+    "affected_old_L": 54,
+    "affected_old_loss_amount": 103659.17512575784,
+    "affected_old_loss_amount_fraction": 0.15454806831212645,
+    "affected_old_mfe_lt5_L": 31
+  }
+]

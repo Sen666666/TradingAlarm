@@ -1,0 +1,14 @@
+{
+  "status": "SAVED_ORIGINAL_SLICE_APPENDED_TO_SEPARATE_FILE",
+  "old14_file_sha256_before_and_after": "4c35e10105ead824891c64b916718f230ef1aa28d411d0043e358c4bad7193cb",
+  "old14_rows_unchanged": true,
+  "added_rows": 26,
+  "full_rows": 40,
+  "missing": [],
+  "requested_append": [
+    "2025-12-08",
+    "2026-01-14"
+  ],
+  "new_models_indicators_strategies_accounts_backtests": 0,
+  "account_earnings_note": "Closed layer lifecycle gain51001.61 includes2025December price advance; this append does not relabel it as2026calendar-year gain or calculate annual attribution."
+}

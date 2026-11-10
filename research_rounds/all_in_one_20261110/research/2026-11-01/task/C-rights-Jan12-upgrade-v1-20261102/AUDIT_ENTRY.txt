@@ -1,0 +1,14 @@
+先读REPORT.txt与CONTRACT.txt。此包只升级2022两Jan12 checkpoint，没有新历史事件，没有2025账户payload访问。
+
+1 ORIGINAL_SELECTION/ORIGINAL_BASELINE：原路径、checkpoint/provenance、原真实类/输入/source与前缀。原M.MonthRunner.restore先完成全部验真。
+2 IDENTITY/SOURCE_FREEZE：只含2022 arms；新身份冻结原源、已审rights模块、此版代码/合同。没有旧证书重签或新历史事件权限。
+3 upgrade_runtime.py：保留独立旧MonthInputs；所有旧C证书（7/arm，含4/arm不在month_old）必须经真实原MonthRunner.verify_native及原层级重算，检查trusted/source/projection。新类记录来源，前缀严格不变。
+4 UPGRADE_RESULTS.json：whole和逐字段before/after、14证书projection hash、原现金/股数/义务/预算保持。原test05零New/Carry与独审正预算合成在REPORT中明确分开。
+5 UPGRADED_CHECKPOINTS.json：两个新pkl/provenance路径和hash，均在本目录upgraded/。原文件未覆盖。
+6 NEGATIVE_TESTS.json：22项拒绝；2022-*-RESTORE.json为各独立进程恢复+重复升级不变。
+7 只读重核本包新checkpoint：python -B restore_upgrade.py <UPGRADED_CHECKPOINTS中路径>。会重算全部原证书但不推进任何事件。不要运行原run_month/driver或build覆盖本目录。
+8 jan13_action.py仅为未来另授权入口。DRAFT grant未批准；当前不得执行。源码保留原数据/来源/映射与旧grant守卫，只有新批准ACTION权限可补充。step/event和普通ACTION仍拒绝。
+9 ACTION后的checkpoint注册/恢复及后续OPEN/CLOSE不在本次无事件验收内；需要实际结果后独审。已有NSR1的mixed batch、due settlement、subscription等边界仍拒绝。
+10 verify_delivery.py只读取已存证据/算hash，不加载账户或运行事件。VERIFICATION.json、PACKAGE_SHA256.json与FINAL_DELIVERY.json封存交付。
+
+原NSR1独审证据：/tmp/rights-independent-n69vj0m0/FINAL_AUDIT.json；原包C-rights-no-subscription-wiring-v1-20261102原样保留。

@@ -1,0 +1,35 @@
+{
+  "status": "ORIGINAL_SOURCE_EXTRACTION_COMPLETE",
+  "main_readout": "READOUT.txt",
+  "alias_three_original_excerpts": "ALIAS_THREE_VERBATIM.txt",
+  "variables_and_alignment": "FORMULA_VARIABLE_TABLE.json",
+  "verbatim_source_index": "SNIPPET_INDEX.json",
+  "verbatim_source_excerpt_count": 25,
+  "formula_provenance": "TEXT_PROVENANCE_CHECK.json",
+  "actual_CP_model_binding": "CP_MODEL_MANIFEST_BINDING.json",
+  "actual_long_and_strong_PVR_cache_binding": "ACTUAL_SCORE_MANIFEST_BINDINGS.json",
+  "minimal_four_old_loss_score_excerpt": "LEGACY_ALIAS_924_FOUR_SAVED_INTENTS.json",
+  "new_models_or_indicators_executed": 0,
+  "new_builds": 0,
+  "new_backtests_or_accounts": 0,
+  "new_risk_or_upside_design": 0,
+  "source_functions_imported_compiled_or_executed": 0,
+  "AST_use": "Parse and exact source-text extraction only, no compile/exec/import",
+  "original_source_or_cache_mutation": false,
+  "important_findings": [
+    "Trade field pvr is original H1 compatibility score; true PVR is frozen PVR_score/rank-policy.PVR/bound score-cache score",
+    "Actual PVR has r/scale/amount_ref/u/b/e/E/score fields, not separate P/V/R scores; amount rather than share volume",
+    "PVR formula/source-cache equality is bound to frozen manifests, with actual2024 extension selected for long window",
+    "Original E0/I/CP eligibility and sizing happen before PVR substitutes only rank keys among existing unique-stock slots",
+    "Stock CP input e0_valid actually maps I_target; industry CP input uses industry E0 target",
+    "CP receipt needs a new price frontier plus displacement and accumulated amount-modulated credit over frozen scale; candidate uses old frozen scale before next reset"
+  ],
+  "known_missing_fields_or_scope_limits": [
+    "No independent source-defined P/V/R three-component names or a separate relative-strength R term",
+    "Provider original native eventID and live-publication time remain unknown; trace identity is derived and day-based",
+    "Fixed universe/industry snapshot not PIT, although numeric functions are past-only by construction and prior stored prefix evidence",
+    "Only selected4-stock cache/source byte hashes were checked in both actual score manifests; not all1709 cache files reverified this turn",
+    "Historical FORMULA.json missing-score/tie text differs from actual native SLOT1 implementation; effective native source controls"
+  ],
+  "blockers_for_source_delivery": []
+}

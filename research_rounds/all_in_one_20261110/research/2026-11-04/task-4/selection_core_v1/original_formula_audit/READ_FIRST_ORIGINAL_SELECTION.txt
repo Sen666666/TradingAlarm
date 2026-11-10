@@ -1,0 +1,62 @@
+真实选股核心：原样公式、实际候选链与新H*/S*反审（静态源码，不重跑）
+
+最重要的纠偏
+当前No60不是调用旧sector_stock_admission._priority按行业H1队列轮询。该旧函数230–247确实先行业、再个股、轮流第1/第2；但J.planning213–220自行ordered=stock.rank降序。行业H1在当前S0中是当日可读的就绪条件，不按其数值top门筛行业，也不参与此ordered值。
+原PVR_SLOT1随后只重排已产生pending的股票原H1槽位，既不创造E0/I/CP机会，也不放开风险/资金/实际成交。因此任何‘当前原策略先按行业H1强度选主线、再stock PVR’描述都需改成真实接线。
+
+一、母体不是历史全市场
+current_fixed_pool.py18–22主动标current surviving/cap/industry，不PIT。89–101的SelectionFact只对issuer/sector/company_cap选择常量直接返回，不应用历史knowledge clock；不是历史每日市值/成分。
+原静态1709股、90行业与2026-10-22观察的cap/行业桥限定了历史研究覆盖，百亿门为company_cap_cny>10_000_000_000（100亿元）。未来才上市的固定成员仍需当日可用价格/预热等，不等于历史已能买，但未来存活/资本/行业信息已参与母体选择。
+因此可以核‘此固定母体内当天eligible’，不能称覆盖当年全部A股、历史退市/小市值/当年所有龙头。未在本轮量化遗漏规模/方向，不用后验涨幅反推当时应该在池。
+
+二、行业/个股H1准确尺度与截面
+rs_h1_model.py4–21：w=(.4,.2,.2,.2)，min_observations6，h∈[5,252]；b_j=min(63j,h)。raw=Σ非零分段w_j*(C_(t-b_(j-1))/C_(t-b_j)-1)，按12位round；端点正有限且同source segment。
+成熟h252为.4(C/C63-1)+.2(C63/C126-1)+.2(C126/C189-1)+.2(C189/C252-1)。这里是简单比例回报，不是log、不除波动sigma，也不是stock-industry差。
+年轻h按共同市场会话从首观察origin计age封顶252；h<63只剩.4当前/起点回报，权重不重归一。不能把旧rs_score的固定253有效观察函数直接当所有实际cache行。
+prepare_h1.py36–46分别处理stock组和industry组。对每个目标age=h，在该大组所有能用同h算出的finite raw中mid-percentile，reference不只同龄目标；Nref>=20才给score。percentile=100*(#<v+.5#=v)/Nref。
+runtime refresh.extend_h1通过同raw_momentum和参考百分位延长已有h1.npz。actual mainline adapter58–64读runtime update-20261030.../prepared/h1.npz，wire.physical只截日期；bundle.at_decision335取精确本session行，不以旧日期ffill rank；347以当日decision clock包装。
+原series close/预热在当前CLOSE可知才有当日rank；历史缓存来自固定样本及冻结行情，不能因此认证供应商历史vintage/PIT。此审查核源码与缓存读取链，不重造旧cache逐值。
+
+三、PVR准确原式与时钟
+original_score_function.py：r_t=ΔlnC；s_t=max(1e-8,1.4826*median前63|r|)；amount_ref=前21amount中位。
+u=tanh(r/s)，b=tanh(ln(amount/amount_ref))，e=u*(1+.5*|u|*b)。
+E_t=Σ(k=0..20).9^k*e_(t-k) /Σ.9^k；score=50+50*tanh(2E)。当前权重最大，21个e含当前收盘/金额。s/B排当前观察；scale是绝对log收益中位，不是去趋势sigma标准差。
+正且有限close/amount及已有有效/observed标记必须成立；invalid或source切换重启完整预热。缺PVR不填0不删股票。
+本股价格方向/活动标准化和金额乘数与CP m共享数据，能对近期参与形态排序，不是新外生证据。静态公式可核不证明其选股优势。
+
+四、真正当日集合与先后层次
+A 固定母体→packet。engine.packet31–47消费原I row：stock trend替为i_target，stock buy_allowed合当日i_buy；sector仍是原行业E0状态。I机会原式=E0_target且G1warm且(E0_entered或G1fresh_up)，I_target可继续有效而i_buy当日False。
+B S0 eligibility185–220要求：common_ready、buy_allowed、固定cap>100亿、stock_up、issuer/sector已知、stock H1当日finite；industry当日observed、行业H1当日finite、sector_up。unknown保unknown不当false或买资格；没有行业H1数值top阈值。
+C J218计算event(Q包含当日I_buy)及continuing（buy_allowed换为market_buyable，允许I持续时CP机会）。J220先stock H1降序，sid平手；尚不是订单。
+D 旧仓保护/ACT/I/CP处理后J.industry按行业E0/CP阶段更新预算；不是按行业H1分数排序。
+E J243–258：CORE须eventQ true、未持有、原core epoch未消费；MOBILE须当日canonical stockCP receipt+continuingQ true，不论已持/未持。ACT暂停、exit_pending、buy_pending阻断。quote/I floor/保护候选/原size合同需合法才能入pending。
+F native_rank47–91按唯一股票整理pending；同股core/mobile同slot。PVRready股票以round(score,12)降序、平手原位，只在ready原槽中互换；missing PVR保自己原slot。intent target/role/floor/receipt不变，不是全1709股票无条件按PVR买。
+G nextOPEN先处理卖出/结算，再按已冻priority/同股CORE优先预览、真实原route、reserve；正量同股done，全部reserve之后才买窗。未资助、无合法整手、无成交不能反称选股排序已买中。No60有效route为其派生绑定，不回引J旧account3%/confirmed60。
+这几个集合须分别列：S0状态合格、可产生角色、pending、资助、实际代理fill；不能把其中一个称唯一‘全部可买股票’。本轮未重新输出任何集合数值。
+
+五、PVR已实现不等于已验证选股有效
+源SHA、cache导出、原账跑过、slot身份相等只能证明接线和可复核；不能证明PVR优于H1、发现重大行业或减少漏龙头。本轮近期4ridge研究也不是这套PVR选股替换的账户验收，不混用其结果。
+已知未来龙头仅用于回查当时pool/原资格/排序/资金/执行各层原因，不能把后验上涨变成实时门。
+
+六、父拟H*/S*的必要反例与尺度（不另选权重）
+H*等权行业RS20/RS5/广度/行业5日金额份额变化：先冻结这4项怎样同尺度、方向、缺失与母体。log return、比例广度、份额变化不能仅因各占1/4就称影响等权；若再标准化，历史参考只用当时/开发已知数据，不能用未来全段分位。
+S*=.4同业PVR分位+.3同业RS20分位+.2非正回撤分位+.1金额变化分位，只记录父先验，未优化。各项窗口/分位母体/ties/缺项必须先定，不能看效果再改。
+同业同端点减相同industry/market基准常数不改变横截面名次：rank[log(S_t/S_t-20)-constant]=rank[log(S_t/S_t-20)]。所以同业RS20分位本质是同业20期动量分位，不是一份另加的benchmark证据。与PVR21及回撤/金额项共有当前价格/成交活动；强势高潮/假突破可各项都高，真实慢牛/回撤龙头可低。
+非正回撤若定义log(C/known_peak)<=0，越接近0越高分；若实际列用正回撤log(peak/C)，方向必须反转。含当前峰时多只新高股回撤0并列，不能假装该分位具有精细区分。
+同业各分位用同一完整截面、mid-percentile时，若归一0..1则组内均值各为.5（若0..100则50），权重和1使S*行业均值同样相等；它适合提出行业内次序，不天然完成行业主线选择。样本小/缺项/母体不同会改变此性质并造成覆盖偏差，需披露。
+广度若来自1709静态成员，历史行业归属和幸存者缺陷保留；该股自己进入行业广度/金额份额，又进入自己的PVR/RS/amount，会机械相关。不同几何视角不能乘为多份独立成功概率。
+sector-data-v2/manifest.json明确THS行业index turnover单位未统一，只准源内比率、不支持跨行业volume ranking。行业金额份额若直接Σ不同URFI amount缺同CNY证据；若用股票真实CNY成交额按静态成员汇总，必须称固定池内份额而非全市场/真实全行业份额，且股票需去重、行业映射需记录。
+未给新通道完整公式/尺度前，不判定它已与旧PVR不同或已有效。可把旧r/s/amount_ref/e/E逐项展开排重；改权重/窗口是新版本假设，不因此产生独立证据。
+
+七、limit与可知性
+当日CLOSE后的完整日H/L/V可作当日已知描述；次日涨停/次日完整HLV不是当日可知。不能用nextday flat/volume事后结果提前筛今日候选或在09:30以日末资料决定容量。
+原market_buyable165–179是按availability_versions及来源规则读取显式代理事实，不是实时官方限价/停牌证明。FastMarket.window45–63在名义OPEN读当天最终HLV、flat proxy及容量，这是已知执行时钟缺口；super相等/原账identity不证明其在OPEN可知。
+如新分数使用‘涨停家数’，须冻结历史场所/板块/ST/上市阶段、除权参考价、tick/规则或真实as-of状态；缺官方证据则LIMIT_UNKNOWN，不以raw涨10%或flat day伪造涨停、停牌或可成交。
+下一OPEN可观察到open后重验价格/数量，不等于可用该日后续HLV来做当时决定。选股公式研究与真实执行认证两件事；本轮未运行账户或修执行引擎。
+
+范围
+只读原源与已存材料，给精确行号/原样片段；0重算H1/PVR/候选、0新score试参、0账户/回测。CORE_SOURCE_EXCERPTS.txt与SOURCE_INDEX.json可直接读原码，无需等待新工程。
+
+原admission导入桥补记：pilot.py11–14→pvr-act experiment.py8–11→tech-finite common.py7–15（ACT/code无common.py），C.admission从rs-h1代码路径导入；LR12传同BP.A，J218调用BP.A.eligibility。此为静态import链核对，未重新import任何模型。
+
+目录覆盖对照补记：另有2026-10-22 current_all_A_constituent目录5576行（SH2318/SZ2906/BJ352、均A_stock），本次仅重读CSV行/来源元数据核同；原H1/CP prepared历史母体仍1709+90行业。目录存在不证明5576历史行情/PIT/退市覆盖已备，未扩池运行。来源见CURRENT_DIRECTORY_VS_PREPARED_POOL.json。

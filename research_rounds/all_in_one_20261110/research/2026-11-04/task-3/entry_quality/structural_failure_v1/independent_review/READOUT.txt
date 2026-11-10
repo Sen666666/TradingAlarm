@@ -1,0 +1,33 @@
+结构失效轮独立反方审查｜零新账户、零金融事件
+
+当前结论：尚没有通过资格审的新机制。最大会计损失并不自动等于最大可事前识别的算法失效；原真实新价格推进、行业成熟许可、高仓位和较宽保护同时存在于亏损和强窗赢家中。应保留这一未解决问题，不把大作用域、低仓位或旧机制换位置当成新信息。
+
+1. ACT年龄归因不成立。
+本审用原纯advance函数核全部726+242个保存checkpoint，公式与实际当日external fast/BREAK逐值相等。当前ACT20_BREAK不读股票E0年龄；暂停后要求实际flat且当日合成market破prior63高、上涨、广度>.6。三年两次恢复分别2022Jun17、2024May6；方向组又确认恢复当日56/42笔实买决定均来自已有I结构。不能以“非得新E0才能恢复”作为待修bug。
+仅在非flat日出现短暂BREAK、等flat时已消失的确有理论时钟反例，但原968个观察中为0，不具当前主要损耗覆盖。放宽BREAK的旧REC21/EMA已有完整相反恢复代价。不可把少数早恢复后的market涨幅当账户所得。
+
+2. PVR是持续授权，不是凭据重复消费bug。
+原canonical stock CP reserve/fill审：三年1803/1767、strong887/867个，重复同canonical ID对应不同实际订单为0。新CP往往是同个旧I/S21内新的running frontier，是真新推进，但不是独立经济alpha。行业成熟level可以持续；退出释放风险/资本后可为新的receipt再融资，shared_loss为record_only。此为原契约，不是同一token可重复花费。
+按每一新单必须同时有新行业凭据、先有CORE实仓、每次失败后清成熟级别等提案，均需额外的结构/金融责任定义和强窗控制，不能从“没有CORE或没有当日行业CP的弱期组亏损大”直接推出。无CORE及扩张组在strong也有主要利润贡献。
+
+3. −event新增mobile门已经被事实否决优先级。
+原−event→下一+event只冻结后续newmobile，不卖旧仓、不动CORE，该精确候选post303仅触9层，原负1568.08/全负219220.96=.715%，原正7506.70。三年净−503.32、strong净+242.55。低赢家触及来自作用域小，不能称主要失败识别；不延到flat、不换旧高、不加high-effort救结果。
+原参与pending记忆仅inactive且decline_candidate时建立，当前native derive还关闭decline_candidate；active负event并无可直接复用的原reclaim状态。负event的sqrt5价格/量确认也不等于high-effort量比>=2。
+
+4. 把I持有缩为正leg，是另一个较短尺度退出/重入策略，尚未批准。
+原I持有依E0 shadow/旧I floor，不依每次sqrt5负摆动。当前保守pre-original-request覆盖strong929层，原净+1322282.47；固定67匹配赢家中60层原贡献+1135717.04。覆盖原亏损不等于在更早合法OPEN卖出就获利，必须包含中船/唯特偶/嘉美及正常回吐后持续趋势。
+旧risk_boundary_v2负event后新增边界完整账户与旧首次负event早退局部研究已有显著赢家/再入代价；它们与当前No60分层或恢复并非逐域等价，但足以反对无新结构理由的重新接线。
+如直接覆写facts.i_target，原joint planning的(last i_target,segment) epoch也会变，可能给同结构重新CORE资格，不能冒称仅退出。任何独立许可必须说明raw I/epoch、CORE锁、fresh CP、已pending退出和partial责任是否保持；不能用合成新epoch伪装原fresh入场。
+
+5. C1和新g不数学相同，但泛回撤缩量没有当前新信息依据。
+详见C1_DEDUP_AND_RECOVERY_REVIEW.json。旧C1调confirmed存量cap，global H不随ACT重置，保留10%底座及原probe；2022终值+129285.43，strong−71164.50且DD略高；真实承接2023的年度财富差−23117.97，上半年和尾部参与明显下降。它是有取舍的风险菜单，不能说整类数学无效，也不能称默认算法已改善。
+新g=max(0,1−D/.20)若乘所有新CORE风险及mobile目标，是flow裁剪，覆盖不同pool且基线No60。若同样使用global H，NAV<=.8H时g=0，实际flat且无外部增资/收益重估的现金状态成为吸收态；原ACT恢复并不会重置global H。三种纯Decimal反例已验证。若改ACT phase H/reset或非零底座，就是新的恢复契约，必须事前明确，不能作为事后救参。
+新执行位置并不构成经济信息分离；No60弱期高仓损耗与strong高仓利润、旧C1恢复取舍，均反对只凭弱期金额大再开同族工程。本轮不推荐重开泛g候选。
+
+6. 归因与下一资格门。
+真实wealth/realized/unrealized/AR/fee和互斥cohort/stage可闭合相加；“起点、规模、退出、恢复、集中”是重叠机制视图，不能把原层净损失重复归给各轴后称因果贡献。CORE参考floor不是额外hardstop；paid-basis到线与盈利giveback分开；阶段起点已有仓只计之后wealth变化，不能混全生命周期。
+局部反事实须以当日可见trigger、原实际shares、次合法OPEN、T+1/停牌/原pending/容量/费用/公司行动为界；无法执行/混合pending未解决应为UNKNOWN，不是0。禁止把同一exit的多层计多次独立失败，禁止把早已完成的亏损与未成熟赢家简单比较，禁止把释放现金认作已经资助随后赢家。
+进入下一账户前须有一个不同于旧门的信息状态、可核的主亏覆盖和真赢家成本、冻结的动作/恢复/资金公式、prefix与非未来测试。没有这三项时，正确产出是有明确金额边界的否决和未解决点，而不是再造账户。
+
+范围：本审独立核ACT/CP实际身份及C1公式反例；其余大范围数值引用已读取、绑定的各专业只读输出，不声称重新逐源审其全部数据。没有重算指标、改变原账户/封版、生成新策略或对外分享。
+证据：NATIVE_ACT_PVR_CONTRACT_REVIEW.json；C1_DEDUP_AND_RECOVERY_REVIEW.json；本轮state_semantics/READOUT.txt与scale_concentration/results_v3/SUMMARY.json；旧C1 CONTRACT/RESULTS及recovery-2023 RUN_RESULTS；RB1_NATIVE_READINESS、R0_NEAR_NEIGHBOR_REVIEW。源身份与本审脚本范围分别在JSON中保留。

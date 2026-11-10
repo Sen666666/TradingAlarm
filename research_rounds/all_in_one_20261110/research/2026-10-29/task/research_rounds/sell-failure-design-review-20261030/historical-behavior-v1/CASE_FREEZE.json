@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-30T10:33:36.715725+00:00",
+  "before_sigma_or_behavior_calculation": true,
+  "reserve_selection": "sort cycle_id after excluding six stocks; first six; parent overrides prior unfixed hash proposal",
+  "cases": [
+    "605118.SH|2024-01-02",
+    "301486.SZ|2024-03-27",
+    "688143.SH|2026-06-03",
+    "601138.SH|2024-01-19",
+    "002130.SZ|2024-09-30",
+    "688498.SH|2025-10-21",
+    "301486.SZ|2026-02-04",
+    "000062.SZ|2025-11-19",
+    "001308.SZ|2024-04-18",
+    "001339.SZ|2024-01-08",
+    "002065.SZ|2025-06-30",
+    "002544.SZ|2025-01-21",
+    "002745.SZ|2024-04-18"
+  ],
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/old-side-exit-all69-20261030/FROZEN_69_CYCLES.csv": "08b33a8b8f08d717af11b93b800615c94db8f4b48e45818cde44c645dbad161a",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/sell-failure-design-review-20261030/historical-behavior-v1/FROZEN_CASES.csv": "b92a3b2f90a3a8873bd18250f7266fe2d9f95b2bbd901d33e7789233c21d1d10",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/sell-failure-design-review-20261030/historical-behavior-v1/CONTRACT.txt": "71cac4246e49eb24fe02117e90288049612049f927d64be241ce8866b6b8f01b",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/sell-failure-design-review-20261030/minimal_boundary.py": "de8287b60387f4fef52d2974833b11788abef7ad47f3d43b4eced9c0b89c00a5",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/sell-failure-design-review-20261030/SYNTHETIC_RESULTS.json": "65c856eb5b43f3729c08b59084b75528c5badc6994d5ea4b5e5b7e8f58068fe3"
+  }
+}

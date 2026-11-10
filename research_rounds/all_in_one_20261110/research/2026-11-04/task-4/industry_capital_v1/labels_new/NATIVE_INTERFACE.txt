@@ -1,0 +1,51 @@
+Native single-asset net labels: planned interface, not a rotation portfolio
+
+Use the unchanged LR.Account (BP.Account + SectorAccount), original
+LR.preview/reserve_quantity/fill_buy/sell/fill_exit and native HistoryRunner
+_actions/_payments. This creates isolated single-asset ledger objects and
+hypothetical fills, counted explicitly. It creates no strategy Runner, RiskBook,
+cash/industry sharing, actual order or portfolio-policy account.
+
+Frozen primary quantity is the dated legal minimum from the real rejected
+OPEN's original LR.preview. The preview max is request scale only. A partial
+entry is counted at actual hypothetical shares; unfilled shares expire at the
+same entry-day CLOSE. Nonfills have no profit label. The q_min shadow is not
+proof that the actual industry/cash/risk gates can fund it.
+
+Retain original signal quote/clock, original I floor/factor and fee contract.
+Entry budget is the known OPEN gross plus original fee for q_min. The isolated
+ledger's seed cash equals that cost; it does not borrow or import portfolio
+money. Technical calibration may instead seed the original actual fill qty.
+
+No new CA formula: call original _actions/_payments through a thin harness with
+one account and an empty original B0 controller. Dates include native 00:00
+effective events. Entry-day action precedes the hypothetical entry; a new buyer
+does not receive the prior-holder entitlement. Original split/fraction policy,
+bonus sellability, dividends, unknown payment dates and settlement remain native.
+
+CORE exit proposal is the first original I invalid, original source invalid or
+frozen original-account ACT off CLOSE. It stays latched regardless of rebound.
+Original native sell windows/T+1/FIFO/capacity control actual hypothetical exit.
+A declared source discontinuity cannot acquire a reliable numeric return by
+silently joining prices; retain unknown economic label even if an exit can be
+requested using a last-known identified quote.
+
+Sparse event schedule may omit no-op holds: entry OPEN/CLOSE, CA effective
+times, first exit-proposal CLOSE, native OPENs while a sell is pending, and the
+common terminal CLOSE. At each processed time, settle_due and original payments
+process all already-due cash. No interest or reinvestment exists, so deferring
+pure cash settlement/payment until the next event cannot alter a later trade or
+terminal NAV. Technical comparisons must verify this versus actual original
+single-CORE paths before full labels.
+
+Common endpoint is the fully completed exit OPEN's same-day CLOSE; proceeds
+stay cash until it. If not exited by the original window's final CLOSE, preserve
+censoring, gross native NAV and a separately estimated net liquidation value.
+That estimate is not an executed trade. Unreliable source/unsupported interfaces
+stay unknown, never removed from the mother.
+
+First technical stage only: 3-5 actual closed CORE paths with no other same-sid
+buy layer during the holding interval. Include native CA if an eligible path
+exists. Compare entry/exit fills, prices, fees, CA entitlement/stock units and
+terminal wealth. Technical selection does not filter the later rejected-event
+mother. Do not run all labels until root + independent review.

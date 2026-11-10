@@ -1,0 +1,25 @@
+DAY 2024-09-02 orders=0 tickets=0 NAV=1200000
+DAY 2024-09-03 orders=107 tickets=0 NAV=1204330.8092908925500
+DAY 2024-09-04 orders=143 tickets=2 NAV=1204132.9091253515000
+DAY 2024-09-05 orders=170 tickets=0 NAV=1201005.1213247400000
+DAY 2024-09-06 orders=333 tickets=0 NAV=1189857.4252692336500
+DAY 2024-09-09 orders=497 tickets=0 NAV=1187567.5309433980000
+DAY 2024-09-10 orders=549 tickets=0 NAV=1188175.9608095418000
+DAY 2024-09-11 orders=580 tickets=0 NAV=1191453.2550464080000
+DAY 2024-09-12 orders=614 tickets=0 NAV=1194034.6225086807500
+DAY 2024-09-13 orders=640 tickets=0 NAV=1194619.7355629284500
+DAY 2024-09-18 orders=662 tickets=0 NAV=1199273.2259687575000
+DAY 2024-09-19 orders=684 tickets=0 NAV=1203051.3046708775000
+DAY 2024-09-20 orders=701 tickets=0 NAV=1205527.5209287343500
+DAY 2024-09-23 orders=767 tickets=0 NAV=1209746.4174105710500
+DAY 2024-09-24 orders=944 tickets=0 NAV=1225248.3217468846500
+DAY 2024-09-25 orders=1051 tickets=25 NAV=1221187.6630576878500
+DAY 2024-09-26 orders=1093 tickets=111 NAV=1282045.8308883340500
+DAY 2024-09-27 orders=1167 tickets=669 NAV=1341865.5298362343000
+DAY 2024-09-30 orders=1296 tickets=612 NAV=1458977.7776132686500
+DAY 2024-10-08 orders=1351 tickets=660 NAV=1543879.5546299456500
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v4_event_representatives/engine.py", line 282, in <module>
+    aa=read(O/'m3_replay_20241008'/(n+'.json'));bb=read(V3/'once_20241008'/(n+'.json'));assert aa==bb,('M3_REPLAY_MISMATCH',n);counts[n]=len(aa)
+                                                                                               ^^^^^^
+AssertionError: ('M3_REPLAY_MISMATCH', 'AVAILABILITY_EVENTS')

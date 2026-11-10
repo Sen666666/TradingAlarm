@@ -1,0 +1,37 @@
+{
+  "status": "technical_only_no_accounts",
+  "scope_freeze": "implementation-scope.json",
+  "scope_freeze_sha256": "0abfcdd034b218bdea9f35b841fa9fff7d4763d93e8f2e41fc5561881c1cfb37",
+  "implementation": "../../code/sector_stock_admission.py",
+  "tests": "../../code/test_sector_stock_admission.py",
+  "independent_review": "independent-review.md",
+  "source_checks": [
+    {
+      "path": "/Users/bytedance/repos/TradingAlarm/TradingAlarm/docs/SECTOR_STOCK_STRATEGY_PLAN_2026_10_21.md",
+      "frozen_sha256": "b22bdd1e3c827a7485d56b678d7105bed399798c74461725acf352cf0ffe22bf",
+      "current_sha256": "b22bdd1e3c827a7485d56b678d7105bed399798c74461725acf352cf0ffe22bf",
+      "matches": true
+    },
+    {
+      "path": "/Users/bytedance/repos/TradingAlarm/TradingAlarm/research_rounds/sector-stock-20261021/protocol.proposed.json",
+      "frozen_sha256": "fc140f6e4c08b8352ac65457af08bfc1c28897e477f5405f265bb37d39a7e4f1",
+      "current_sha256": "fc140f6e4c08b8352ac65457af08bfc1c28897e477f5405f265bb37d39a7e4f1",
+      "matches": true
+    },
+    {
+      "path": "/Users/bytedance/repos/TradingAlarm/TradingAlarm/research_rounds/pv-strategy-20261020/code/execution.py",
+      "frozen_sha256": "b989911a0891bb2ed3010b6c3253cc29732220247e8a3994586a04a3bc8eb9e0",
+      "current_sha256": "b989911a0891bb2ed3010b6c3253cc29732220247e8a3994586a04a3bc8eb9e0",
+      "matches": true
+    },
+    {
+      "path": "/Users/bytedance/repos/TradingAlarm/TradingAlarm/research_rounds/pv-participation-response-20261020/code/ranking.py",
+      "frozen_sha256": "2f5d1ce4e297667a72386f47b99a4ee7f3ace8b75fc41990be06117fae36e04d",
+      "current_sha256": "2f5d1ce4e297667a72386f47b99a4ee7f3ace8b75fc41990be06117fae36e04d",
+      "matches": true
+    }
+  ],
+  "account_runs": 0,
+  "trend_mechanism_changes": 0,
+  "real_historical_prefix_pass_claim": false
+}

@@ -1,0 +1,55 @@
+{
+  "formula": "q_t=r_t/s_t; m_t=1+0.5*abs(tanh(q_t))*b_t; Q_t=E_t+w0*m_t*(min(q_t,0)-min(tanh(q_t),0)); w0=1/sum(0.9**k,k=0..20).",
+  "scope": "One current negative observation only; prior20 e and positive current e unchanged. Not a new recursive PVR. Re-evaluate from original E each date.",
+  "clock": "All features after t close; original next-common-open contract unchanged. Current and immediately preceding common day source/factor/validity checked; original past scale inherits exact original PVR calculation.",
+  "scale": "Original s=max(1e-8,1.4826*median(abs(r) over prior63 original valid observations)); units log return; q dimensionless. No new clipping, epsilon or coefficient. q and Q mathematically unbounded when s tiny. Scope diagnostic must disclose observed extremes; do not promote merely because cases work.",
+  "ranking": "Same event, known slots reordered Q desc then PVR desc sid; unknown retains exact original PVR numeric slot. Same K, initial trial, adds and exit; no hard gate or waiting. Original nonnegative next current return removes extra current penalty, no permanent damage memory.",
+  "stage": "Freeze feature/rank computation; initially inspect units, denominator and score/selection changes on cases before deciding whether any full outcome comparison is warranted.",
+  "history": "All baseline outcomes and selected fixed paired cases already inspected. Development history, not unseen OOS.",
+  "cases": [
+    [
+      "2022-03-30",
+      "300972.SZ",
+      "600415.SH"
+    ],
+    [
+      "2024-12-12",
+      "600521.SH",
+      "600664.SH"
+    ],
+    [
+      "2024-12-12",
+      "688484.SH",
+      "301536.SZ"
+    ],
+    [
+      "2022-11-21",
+      "300442.SZ",
+      "600050.SH"
+    ],
+    [
+      "2024-10-22",
+      "600456.SH",
+      "002428.SZ"
+    ],
+    [
+      "2022-07-28",
+      "000997.SZ",
+      "603516.SH"
+    ]
+  ],
+  "known_counterexamples": [
+    [
+      "2022-07-05",
+      "002458.SZ"
+    ],
+    [
+      "2024-09-23",
+      "600536.SH"
+    ],
+    [
+      "2024-11-21",
+      "003021.SZ"
+    ]
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "script": "3e0e39d42d8110d39e8ec31efbd39545cd9d496af3c5dfd14dc5c0244675a62f",
+  "definition": "C_t > mean(previous63 industry close slots), exclude current; industry only; actual decision CLOSE",
+  "pre_numeric_execution": true,
+  "result_exists": false
+}

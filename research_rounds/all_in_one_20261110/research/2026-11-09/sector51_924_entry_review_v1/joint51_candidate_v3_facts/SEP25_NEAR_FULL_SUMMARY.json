@@ -1,0 +1,203 @@
+{
+  "day": "2024-09-25",
+  "scope": "FROZEN_EXPERIMENT_NOT_DEPLOYABLE_STRATEGY",
+  "NAV": "1214631.2179351827500",
+  "market_value": "1092575.00",
+  "cash": "122056.2179351827500",
+  "position_pct": "89.95117068185743561045096065",
+  "held_sector_count": 23,
+  "held_stocks": 268,
+  "lot_totals": {
+    "SEED": {
+      "market_value": "477987.00",
+      "NAV_pct": "39.35243824973936807553954953",
+      "invested_pct": "43.74866713955563691279774844"
+    },
+    "ADD": {
+      "market_value": "614588.00",
+      "NAV_pct": "50.59873243211806753491141112",
+      "invested_pct": "56.25133286044436308720225156"
+    }
+  },
+  "attempt_totals": {
+    "mature_historical_ADD": {
+      "market_value": "663562.00",
+      "NAV_pct": "54.63073813696513620441805858",
+      "stocks": 31
+    },
+    "unconfirmed_no_actual_ADD": {
+      "market_value": "429013.00",
+      "NAV_pct": "35.32043254489229940603290207",
+      "stocks": 237
+    }
+  },
+  "order_priority": "All exits first; 95 ADD requests ordered by CP date then symbol; then 29 SEED requests by signal day then symbol",
+  "OPEN_request_counts": {
+    "ADD": 95,
+    "SEED": 29
+  },
+  "OPEN_decisions": {
+    "CP_INVALID_OR_REPLACED": 1,
+    "PASS": 19,
+    "ADD_NO_LEGAL_Q:sector_cap": 34,
+    "ADD_NO_LEGAL_Q:cash_reserve": 41,
+    "MIN_LOT_CAPITAL_REJECT:cash_reserve": 28,
+    "MIN_LOT_CAPITAL_REJECT:sector_cap": 1
+  },
+  "actual_fills": [
+    {
+      "allocation_rank": 2,
+      "sid": "600690.SH",
+      "sector51": "家电家居",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-23",
+      "actual_all_in_cost": "22649.7674365556000"
+    },
+    {
+      "allocation_rank": 3,
+      "sid": "000001.SZ",
+      "sector51": "银行",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "23162.0562721652000"
+    },
+    {
+      "allocation_rank": 4,
+      "sid": "000630.SZ",
+      "sector51": "金属钢铁",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "23538.2683858160000"
+    },
+    {
+      "allocation_rank": 8,
+      "sid": "000799.SZ",
+      "sector51": "白酒",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "19941.2403310962500"
+    },
+    {
+      "allocation_rank": 9,
+      "sid": "000825.SZ",
+      "sector51": "金属钢铁",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "23590.2977206826000"
+    },
+    {
+      "allocation_rank": 10,
+      "sid": "000839.SZ",
+      "sector51": "通信运营服务",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "23082.0111416012000"
+    },
+    {
+      "allocation_rank": 11,
+      "sid": "000878.SZ",
+      "sector51": "金属钢铁",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "22950.9372403026500"
+    },
+    {
+      "allocation_rank": 12,
+      "sid": "000933.SZ",
+      "sector51": "金属钢铁",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "8234.6399861112500"
+    },
+    {
+      "allocation_rank": 13,
+      "sid": "000959.SZ",
+      "sector51": "金属钢铁",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "866.4857176950500"
+    },
+    {
+      "allocation_rank": 14,
+      "sid": "000983.SZ",
+      "sector51": "煤炭",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "23033.9840632628000"
+    },
+    {
+      "allocation_rank": 15,
+      "sid": "002051.SZ",
+      "sector51": "基建工程",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "23481.2362302891500"
+    },
+    {
+      "allocation_rank": 16,
+      "sid": "002060.SZ",
+      "sector51": "基建工程",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "23538.2683858160000"
+    },
+    {
+      "allocation_rank": 17,
+      "sid": "002091.SZ",
+      "sector51": "商贸零售",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "23478.234537893000"
+    },
+    {
+      "allocation_rank": 18,
+      "sid": "002128.SZ",
+      "sector51": "煤炭",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "22936.9293424539500"
+    },
+    {
+      "allocation_rank": 19,
+      "sid": "002142.SZ",
+      "sector51": "银行",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "23492.2424357417000"
+    },
+    {
+      "allocation_rank": 22,
+      "sid": "002244.SZ",
+      "sector51": "房地产开发",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "22923.9220087373000"
+    },
+    {
+      "allocation_rank": 23,
+      "sid": "002410.SZ",
+      "sector51": "软件与IT服务",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "23294.1307375958000"
+    },
+    {
+      "allocation_rank": 24,
+      "sid": "002439.SZ",
+      "sector51": "软件与IT服务",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "8289.671013374000"
+    },
+    {
+      "allocation_rank": 40,
+      "sid": "600039.SH",
+      "sector51": "基建工程",
+      "event": "ADD",
+      "cp_receipt_date": "2024-09-24",
+      "actual_all_in_cost": "602.3367868338500"
+    }
+  ],
+  "day_exit_cash": "0",
+  "economic_rules_unchanged": true
+}

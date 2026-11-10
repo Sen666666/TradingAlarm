@@ -1,0 +1,21 @@
+{
+  "files": {
+    "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/allocation_ablation_v1/facts_revision_2/synthetic_joint.py": "2e292e42fb7c3aba856986ead8671a3094038e167530751a36f32a74b9d721de",
+    "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/allocation_ablation_v1/facts_revision_2/FROZEN_CONTRACT.md": "2ebee4570d1d819c2161afedb43952429d6977f7f6eaf9037f492a46ca8d20c2",
+    "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/allocation_ablation_v1/facts_revision_2/CLASSIFICATION_ALL1709.csv": "9e195b809f9364c998571b967c0652bd8e5789777cdb92bb997d59027336b1cc",
+    "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/allocation_ablation_v1/facts_revision_2/ADDITIONAL_REVIEWED_EVENTS.json": "cbf42611edec53b3dc1d1a13d5547863e8538bf2a1f0cf43a0bb97a31694c2a8",
+    "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/allocation_ablation_v1/facts_revision_2/engine.py": "5cb0ef22e5bfa5535829efcea003bd3af77976b7d1aa6b7186292d15257fe196",
+    "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/allocation_ablation_v1/facts_revision_2/SYNTHETIC_QA.json": "460ce2da218bc76c1976e6d99f6edcb269f5dc7cf0b9f8a6e014cf1e6493dda5",
+    "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/allocation_ablation_v1/facts_revision_2/MAPPING_SOURCE_HASHES.json": "35e853638344f3374912eae228ac3d35ecde2c1a40a6f357d23884ca9aa9bfbc",
+    "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/allocation_ablation_v1/facts_revision_2/FACT_REVISION.json": "30f1d2e363416d873378d24b541711363457fc12de81f436e2d1640ae9c26d3e"
+  },
+  "runner_sha": "a8ca0592189aaf9be53a180cf2ff7c62bcadf69234d39b7129f8b214f4e0abdf",
+  "unchanged_implementation_hashes": {
+    "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/allocation_ablation_v1/ablation_engine.py": "2176cd9df3680f88b6038aaa0a9847aba963aaf3def4edb9dc6fd4c440408492",
+    "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/allocation_ablation_v1/allocation_rules.py": "e1642adf026b11272310c8efac7081a6895cdd3c678a342e4906e21268e2be36",
+    "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/allocation_ablation_v1/synthetic_integrated.py": "0c9310ba4133b28bd770487ce56de9d8ecc13140767fec3ea76a1941219204a9",
+    "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/allocation_ablation_v1/FROZEN_CONTRACT.md": "18b02c7431fa0187670dd90f2fecd29a8694280242f842c40536f85598741469",
+    "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/allocation_ablation_v1/SYNTHETIC_INTEGRATION_QA.json": "001ebb4fbf24bde26a95193ef7485e784afb1a46d35964dec533636937918d7a"
+  },
+  "event_sha": "30bee171a5055cfabd8785cad3d62615ea2680aceab5eb0893124e54751cccb8"
+}

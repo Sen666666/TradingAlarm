@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-30T15:02:34.852013+00:00",
+  "before_first_synthetic_execution": true,
+  "budget_choice": "additional15 remains undecided prototype, no economics",
+  "sha256": {
+    "research_rounds/partial-action-wiring-20261030/restore_reservation_kernel.py": "19344ec7e1aaaab8ecba1dec8ac48dab2cb69cf668a8e65d4445c50be71f4543",
+    "research_rounds/partial-action-wiring-20261030/test_wiring.py": "3be1954cdd0b92a315caed492070896e2a34e1ef93c86b98c1a6a2fddb586d5d",
+    "research_rounds/partial-action-wiring-20261030/role_adapter.py": "520f68b69ed1218617177a4f7757cb119754bdc2ebf41d7d05539eedcead337a",
+    "research_rounds/partial-action-wiring-20261030/PROTOCOL.txt": "24defa062af0bdd986340cf8a9c38db2274a9642471f1945158f53e43cc4628f"
+  }
+}

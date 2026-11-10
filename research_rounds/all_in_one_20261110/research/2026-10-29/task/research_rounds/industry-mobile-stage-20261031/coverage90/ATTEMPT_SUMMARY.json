@@ -1,0 +1,33 @@
+{
+  "attempts_intersecting_window": 467,
+  "opened_in_window": 388,
+  "carried_in": 79,
+  "right_censored": 15,
+  "completed_fully_observed": {
+    "n": 373,
+    "min": 2.0,
+    "p25": 12.0,
+    "median": 22.0,
+    "p75": 34.0,
+    "p90": 47.60000000000002,
+    "max": 91.0,
+    "mean": 24.801608579088473
+  },
+  "all_attempt_observed_durations_truncated": {
+    "n": 467,
+    "min": 1.0,
+    "p25": 14.0,
+    "median": 24.0,
+    "p75": 44.5,
+    "p90": 59.0,
+    "max": 161.0,
+    "mean": 29.674518201284798
+  },
+  "per_quarter_new_attempts": {
+    "2025Q3": 59,
+    "2025Q4": 131,
+    "2026Q1": 104,
+    "2026Q2": 94
+  },
+  "not_independent_market_samples": true
+}

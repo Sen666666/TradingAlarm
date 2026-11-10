@@ -1,0 +1,4 @@
+Current frozen synthetic package: /Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/v2-frozen
+Contract SHA256: c3914aed1896563253961ea40d6065614a115cef21e13a93e1e74ad71779c54a
+Core source SHA256: 962275bd41b5c7bbc062a1191780a6b6a9c616f8d3097ea669b602eabbc9ac59
+Historical FSM outputs: 0; independent review pending.

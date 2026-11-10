@@ -1,0 +1,152 @@
+{
+  "scope": "strict raw account_risk-only rejected canonical mobile receipts; instantaneous original state",
+  "summaries": {
+    "all_strict_account_only": {
+      "strict_receipts": 14088,
+      "minimum_cny": {
+        "n": 14088,
+        "minimum": 0.10398828876350308,
+        "p25": 2082.448050636077,
+        "median": 7013.9251587831,
+        "p75": 14382.83379430847,
+        "maximum": 27701.780279740306
+      },
+      "minimum_pct_decision_NAV": {
+        "n": 14088,
+        "minimum": 9.228202879035088e-06,
+        "p25": 0.19145257091808707,
+        "median": 0.6281486404533916,
+        "p75": 1.3232707403087582,
+        "maximum": 2.3847375193968214
+      },
+      "original_target_legal_other_constraints": 13298,
+      "target_cny": {
+        "n": 13298,
+        "minimum": 51.35302538027463,
+        "p25": 3467.7870562121225,
+        "median": 8591.573180313175,
+        "p75": 15612.53041928753,
+        "maximum": 29639.769264585513
+      },
+      "target_pct_decision_NAV": {
+        "n": 13298,
+        "minimum": 0.004532315112637391,
+        "p25": 0.3237159062861006,
+        "median": 0.7792620035921747,
+        "p75": 1.4275897818529422,
+        "maximum": 2.5515713834181217
+      }
+    },
+    "energy_Q3": {
+      "strict_receipts": 56,
+      "minimum_cny": {
+        "n": 56,
+        "minimum": 78.07123491848324,
+        "p25": 1025.3992917510495,
+        "median": 3071.236532515626,
+        "p75": 7444.31382329647,
+        "maximum": 21640.53830761294
+      },
+      "minimum_pct_decision_NAV": {
+        "n": 56,
+        "minimum": 0.007597258239268787,
+        "p25": 0.10021708342909197,
+        "median": 0.2841589325549517,
+        "p75": 0.7166827201779821,
+        "maximum": 2.0253956737822194
+      },
+      "original_target_legal_other_constraints": 56,
+      "target_cny": {
+        "n": 56,
+        "minimum": 649.6317851101594,
+        "p25": 1995.4815208386271,
+        "median": 4323.276555897139,
+        "p75": 8887.884914739057,
+        "maximum": 22374.4743464345
+      },
+      "target_pct_decision_NAV": {
+        "n": 56,
+        "minimum": 0.06321688695038939,
+        "p25": 0.1929612405332795,
+        "median": 0.41459774442624725,
+        "p75": 0.85566139944345,
+        "maximum": 2.094086704325536
+      }
+    },
+    "military_Q4": {
+      "strict_receipts": 37,
+      "minimum_cny": {
+        "n": 37,
+        "minimum": 235.26086872007,
+        "p25": 2561.780083157195,
+        "median": 5911.743007104305,
+        "p75": 11976.036232170401,
+        "maximum": 18964.130145072246
+      },
+      "minimum_pct_decision_NAV": {
+        "n": 37,
+        "minimum": 0.021110330040723435,
+        "p25": 0.2302498175148656,
+        "median": 0.5300114240298248,
+        "p75": 1.0646269794008631,
+        "maximum": 1.6704640924172383
+      },
+      "original_target_legal_other_constraints": 36,
+      "target_cny": {
+        "n": 36,
+        "minimum": 941.014437454658,
+        "p25": 3840.2417934339846,
+        "median": 8398.436127506233,
+        "p75": 14222.37764208041,
+        "maximum": 22089.290954152806
+      },
+      "target_pct_decision_NAV": {
+        "n": 36,
+        "minimum": 0.08443871458874218,
+        "p25": 0.3459452858161719,
+        "median": 0.7543390316160821,
+        "p75": 1.2597653299047944,
+        "maximum": 1.945745314105922
+      }
+    },
+    "oil_Q1": {
+      "strict_receipts": 63,
+      "minimum_cny": {
+        "n": 63,
+        "minimum": 12.343336489764624,
+        "p25": 5357.29223467291,
+        "median": 10797.045747215954,
+        "p75": 14751.123133643687,
+        "maximum": 23095.331360882257
+      },
+      "minimum_pct_decision_NAV": {
+        "n": 63,
+        "minimum": 0.0010895858388219374,
+        "p25": 0.4682830566708891,
+        "median": 0.9486803398580851,
+        "p75": 1.2794799959085852,
+        "maximum": 2.0055902462893296
+      },
+      "original_target_legal_other_constraints": 63,
+      "target_cny": {
+        "n": 63,
+        "minimum": 683.2752403712293,
+        "p25": 8056.464669199806,
+        "median": 11751.408458235346,
+        "p75": 16096.918516033962,
+        "maximum": 24121.065552939173
+      },
+      "target_pct_decision_NAV": {
+        "n": 63,
+        "minimum": 0.06031489350901942,
+        "p25": 0.7042224130462859,
+        "median": 1.033887038794994,
+        "p75": 1.4058160523950076,
+        "maximum": 2.0946646336072448
+      }
+    }
+  },
+  "target_other_constraints_exclusion": 790,
+  "not_a_recommended_threshold": true,
+  "not_simultaneously_additive": true
+}

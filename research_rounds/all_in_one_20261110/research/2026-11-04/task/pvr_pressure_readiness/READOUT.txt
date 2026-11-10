@@ -1,0 +1,63 @@
+LATEST: the one root-granted No60 strong D1 full path completed, exit0.
+Original1m NAV2104124.0750195029105, raw return110.41240750%; same-pressure
+oldPVR_D1 NAV1636843.3953941586540, raw wealth delta467280.67962534.
+242daily/1809fills total, including49 inherited Jul3 prefix fills;1760 new
+continuation fills. Input44.47s, remaining run/export196.02s, total244.79s.
+No failure/resume/replay. All original source/external/own parent SHA rechecked;
+28 output artifact hashes saved. Finance/loss/reviewer parallel audits pending;
+DD/attribution unknown here, raw return is not strategy promotion.
+See FULL_D1_COMPLETION.json and run-D1-strong/EXECUTION_STATUS.json.
+
+Earlier readiness record (before this single-path root grant):
+2026-11-04 PVR pressure readiness completed; no new full economic path yet.
+
+Independent technical audit PASS_WITH_SCOPE:
+../independent_review/PVR_PRESSURE_TECHNICAL_AUDIT.json.
+Original PVR strong D1v2 control exists, read-only: +63.68433954%, DD8.81857754%.
+No PVR cost2 or2022 PVR D1 full control located within documented search scope;
+absence is not claimed for every possible historical archive. Never use SC as
+the PVR single-factor control. See BASELINE_INVENTORY.json.
+
+pressure_adapter.py reuses exact native PVR priority/Account for cost2 and real
+audited D1v2 delayed MRO. Only No60 normal three predicates and D1 amendment's
+fourth confirmed60 predicate change. No pending/receipt/core/ACT/cash/floor/
+quantity/fee policy change. Source initial audit and final independent audit
+both passed. Cost2 native fee/slip/reserve/buy/sell cash checks passed.
+
+Jul1-Jul3 technical prefix: cost1 control reproduces old normal six streams and
+native trade/journal/audit/decisions; D1 control reproduces old D1 equivalents.
+No60 cost2 and D1 full/physical/same-process/fresh-process resumed six exports
+and complete book match. Wrong-policy/cost/source/horizon/D1-mode reject.
+Affected confirmed>60 OFF rejects/ON passes; probe10 and original floor reject.
+Actual historical technical branches total20OPEN/29CLOSE/541new fills, not zero
+accounts; no full economic comparison. Details ACTUAL_TECHNICAL_SCOPE.json.
+2022 four pressure classes only loaded/constructed fresh1m and empty financial
+state with original warm industry state;0account events, D1 final calendar can
+retry Dec30 at Jan3'23. No2022 stress performance tested.
+
+Failures preserved: fixture short import binding, synthetic helper clock, and
+saved full-window dividend_accrual timestamp comparison. Last is observer-only:
+original completed cost1 prefix restored under original source+engine, then
+controller metadata added with0events; no economic rerun or trading change.
+
+Root now prioritizes exactly ONE next full path, not the seven-cell backlog:
+No60 PVR x D1v2 strong2025Jul1-Jun30'26, own fresh1m origin and inherited own
+Jul3 full-input technical checkpoint. Old PVR D1 strong is immutable control.
+run_D1_strong.py dry prepare passed, no events. The one-case card/proposal are
+ready for root grant; no --execute issued. Parent source_freeze and original
+composition_binding.horizon remain byte-equivalent, new controller/card/grant/
+audit bound externally. No normal or oldPVR financial state import.
+
+D1_STRONG_EXECUTION_PROPOSAL.json SHA:
+29632262212fdd4eafec1b9dd9540b9756aaba8efb9f49cfb217efec80875931
+run_D1_strong.py SHA:
+78e8b16502418c5c711fb6f737879f2d8dc095c4c72d31a85e40a39366f8d97c
+own D1_ON Jul3 checkpoint SHA:
+3988459811f96af4883bb84c5a86963e1ee9b98c68d2682ac2fe1b79aa1bdf72
+independent audit SHA:
+1d5194cabd786ce688990c9ee3eed57a3f3eb940676fea6fc0cb48cf9bb4a003
+
+Unknown: all new full stress returns/risk/capital paths and cross-cycle merits.
+This is technical admissibility only; not strategy promotion, PIT/OOS or live
+execution proof. Await root's explicit single-path grant; no technical blocker
+identified in tested scope. Other cost2/2022D1 paths remain ungranted.

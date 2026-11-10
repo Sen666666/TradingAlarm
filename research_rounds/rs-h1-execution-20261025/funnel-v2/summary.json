@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-10-25T02:35:04.964618+08:00",
+  "accounts": 12,
+  "decision_rows": 34392,
+  "groups": [
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/funnel-v2-G0/summary.json",
+      "sha256": "63e640a13e4db88c7209443d1ccae5eadf38d5903f0b9d8cbe3244fcc3336a39"
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/funnel-v2-G1/summary.json",
+      "sha256": "5ed50b834bb3e28b81a1a7fe9cf4fd497a6a7ba701f425c3f5bc2f0f1628fd88"
+    }
+  ],
+  "main_source": {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/accounts-v2/provenance.json",
+    "sha256": "9f26813ead305f81f307c1bfbe7fd523afb006d65e2f5174b2b2005309054c3c"
+  },
+  "duplicate_candidate_days": 0,
+  "counting_unit": "candidate/day, not fills or unique trades"
+}

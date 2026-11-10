@@ -1,0 +1,17 @@
+{
+  "completed": true,
+  "new_economic_paths": 0,
+  "compute_seconds": 4.897083166055381,
+  "state_tests": 18,
+  "full_history_rows": 21418,
+  "five_physical_prefixes_passed": true,
+  "unknown_rows": 0,
+  "financial_controller_connected": false,
+  "sha256": {
+    "stage.py": "91b21d664eadb5864a7ff97bc288392325c0101d164b3c873d9fa7d492d7268d",
+    "PROTOCOL.txt": "97bac01bd66f03d9d0381f6f8783dc985a4f164c0fddcacd46622d26b40bbba6",
+    "RESULTS.txt": "c5593add30f88b594788c0856a0daca87a472691459402a32cbe0a3f9033da29",
+    "SYNTHETIC_SUMMARY.json": "0f29737165e7c26cbd783e9d78210966fa772f6645fd5a12e603e02f944688ff",
+    "REAL_CASE_SUMMARY.json": "6a60ffc03f12c46a2cd686a4401f0657c85e0ae49d8c1e933e644dcac0f25c52"
+  }
+}

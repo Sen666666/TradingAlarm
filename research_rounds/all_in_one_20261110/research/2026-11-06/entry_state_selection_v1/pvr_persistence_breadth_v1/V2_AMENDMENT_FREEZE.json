@@ -1,0 +1,10 @@
+{
+  "reason": "Parent explicitly clarified minimum3 applies to both branches after v1 calculation completed; only global row/event counts and semiconductor daily paths read; full-pool price labels not yet inspected. Preserve v1 and report sensitivity.",
+  "rule": "n>=3 AND ((share>=1/3 AND paired_delta_n>0 on same known t/t-3 members) OR share>=1/2)",
+  "observed": "share=n/K",
+  "coverage": "candidate=-1 if replacing all unknowns with0 vs1 changes decision using fixed N; observed_candidate is separate n/K descriptive rule",
+  "no_fitting": true,
+  "no_accounts": true,
+  "script_sha256": "9c3ef762219be2fb7222d4e305160793f8aadd9075f4508daa5c17d2c4ed50b9",
+  "v1_daily_sha256": "f1d1973ed9e9efd8ccadb0f3f00937fcd77b7f57318232a60c33c0280c50f7f0"
+}

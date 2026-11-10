@@ -1,0 +1,222 @@
+{
+  "formula": "Q=C/max(C_u for t-12 calendar months < u <= t); e*=Q max(e,0)+min(e,0); original21/.9 aggregation and score transform",
+  "one_formula_only": true,
+  "price_field": "causal same-source adjusted CLOSE, not intraday high; explicit daily adaptation, not exact CRSP replication",
+  "calendar": "past12 actual calendar months including t, not last252 observed bars; require full year source history and every common market date valid; missing/suspension not filled",
+  "unknown": "preserve old score and slot if ever used; no actual rank run here",
+  "cases": [
+    {
+      "sid": "000620.SZ",
+      "day": "2022-01-11",
+      "selection": "annual_worst",
+      "entry_year": 2022,
+      "original_round_pnl": -14893.91531164755,
+      "original_role": "core",
+      "entry_day": "2022-01-12"
+    },
+    {
+      "sid": "600056.SH",
+      "day": "2022-03-03",
+      "selection": "annual_best",
+      "entry_year": 2022,
+      "original_round_pnl": 43223.14463941285,
+      "original_role": "core",
+      "entry_day": "2022-03-04"
+    },
+    {
+      "sid": "601326.SH",
+      "day": "2023-05-05",
+      "selection": "annual_worst",
+      "entry_year": 2023,
+      "original_round_pnl": -9726.6126146091,
+      "original_role": "add",
+      "entry_day": "2023-05-08"
+    },
+    {
+      "sid": "601595.SH",
+      "day": "2023-03-10",
+      "selection": "annual_best",
+      "entry_year": 2023,
+      "original_round_pnl": 59920.57798067215,
+      "original_role": "core",
+      "entry_day": "2023-03-13"
+    },
+    {
+      "sid": "002181.SZ",
+      "day": "2024-12-18",
+      "selection": "annual_worst",
+      "entry_year": 2024,
+      "original_round_pnl": -5933.75732055015,
+      "original_role": "add",
+      "entry_day": "2024-12-19"
+    },
+    {
+      "sid": "002583.SZ",
+      "day": "2024-10-15",
+      "selection": "annual_best",
+      "entry_year": 2024,
+      "original_round_pnl": 21374.88335395325,
+      "original_role": "core",
+      "entry_day": "2024-10-16"
+    },
+    {
+      "sid": "000547.SZ",
+      "day": "2025-11-18",
+      "selection": "annual_worst",
+      "entry_year": 2025,
+      "original_round_pnl": -6288.7675113407995,
+      "original_role": "core",
+      "entry_day": "2025-11-19"
+    },
+    {
+      "sid": "688585.SH",
+      "day": "2025-07-15",
+      "selection": "annual_best",
+      "entry_year": 2025,
+      "original_round_pnl": 63664.13845540243,
+      "original_role": "add",
+      "entry_day": "2025-07-16"
+    },
+    {
+      "sid": "601212.SH",
+      "day": "2026-01-26",
+      "selection": "annual_worst",
+      "entry_year": 2026,
+      "original_round_pnl": -5136.7346918961,
+      "original_role": "add",
+      "entry_day": "2026-01-27"
+    },
+    {
+      "sid": "000711.SZ",
+      "day": "2026-01-29",
+      "selection": "annual_best",
+      "entry_year": 2026,
+      "original_round_pnl": 58562.8315163092,
+      "original_role": "core",
+      "entry_day": "2026-01-30"
+    },
+    {
+      "sid": "600056.SH",
+      "day": "2022-03-30",
+      "selection": "fixed_prior_counterexample",
+      "entry_year": 2022,
+      "original_round_pnl": -3633.7206097052,
+      "original_role": "add",
+      "entry_day": "2022-03-31"
+    },
+    {
+      "sid": "002317.SZ",
+      "day": "2022-10-14",
+      "selection": "fixed_prior_counterexample",
+      "entry_year": 2022,
+      "original_round_pnl": 35216.94916186365,
+      "original_role": "add",
+      "entry_day": "2022-10-17"
+    },
+    {
+      "sid": "300182.SZ",
+      "day": "2022-01-04",
+      "selection": "fixed_prior_counterexample",
+      "entry_year": 2022,
+      "original_round_pnl": -2396.831333779,
+      "original_role": "add",
+      "entry_day": "2022-01-05"
+    },
+    {
+      "sid": "002385.SZ",
+      "day": "2022-03-04",
+      "selection": "fixed_prior_counterexample",
+      "entry_year": 2022,
+      "original_round_pnl": -2455.05983144,
+      "original_role": "add",
+      "entry_day": "2022-03-07"
+    },
+    {
+      "sid": "600606.SH",
+      "day": "2022-03-22",
+      "selection": "fixed_prior_counterexample",
+      "entry_year": 2022,
+      "original_round_pnl": 5584.0339655775,
+      "original_role": "add",
+      "entry_day": "2022-03-23"
+    },
+    {
+      "sid": "688582.SH",
+      "day": "2024-07-29",
+      "selection": "fixed_prior_counterexample",
+      "entry_year": 2024,
+      "original_round_pnl": 7688.512907733062,
+      "original_role": "add",
+      "entry_day": "2024-07-30"
+    },
+    {
+      "sid": "300085.SZ",
+      "day": "2024-09-19",
+      "selection": "fixed_signal_path_not_original_fill",
+      "entry_year": 2024,
+      "original_round_pnl": null,
+      "original_role": null,
+      "entry_day": null
+    },
+    {
+      "sid": "300085.SZ",
+      "day": "2024-10-09",
+      "selection": "fixed_signal_path_not_original_fill",
+      "entry_year": 2024,
+      "original_round_pnl": null,
+      "original_role": null,
+      "entry_day": null
+    },
+    {
+      "sid": "002583.SZ",
+      "day": "2024-09-19",
+      "selection": "fixed_signal_path_not_original_fill",
+      "entry_year": 2024,
+      "original_round_pnl": null,
+      "original_role": null,
+      "entry_day": null
+    },
+    {
+      "sid": "601607.SH",
+      "day": "2022-03-24",
+      "selection": "previous_named_case"
+    },
+    {
+      "sid": "300085.SZ",
+      "day": "2024-09-24",
+      "selection": "previous_named_case"
+    },
+    {
+      "sid": "002583.SZ",
+      "day": "2024-09-24",
+      "selection": "previous_named_case"
+    },
+    {
+      "sid": "300666.SZ",
+      "day": "2026-01-15",
+      "selection": "previous_named_case"
+    },
+    {
+      "sid": "603061.SH",
+      "day": "2026-01-15",
+      "selection": "previous_named_case"
+    },
+    {
+      "sid": "301611.SZ",
+      "day": "2026-01-15",
+      "selection": "previous_named_case"
+    }
+  ],
+  "focus_windows": [
+    "2024-09-01..2024-10-31",
+    "2025-12-01..2026-01-30"
+  ],
+  "other_windows": "each named day -40 calendar days .. +40 calendar days",
+  "scope": "fixed known case diagnostic, not OOS; no future return labels, accounts, parameters or trades",
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/pvr_information_v1/feature_design/features.py": "cbb46aaa6c93a0760e570cb482151112da430f3047c3cc8ec2b7ad0bd1ca69a6",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/h1.npz": "416ddabacb9b16105cf3e5d93c961049ac1b48da433a62995a71311be17e4615",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/gh52_pvr_mechanism_v1/diagnose.py": "007be7b48abc68df852f6af8aae278df9010b780310f39e9bbc83fdc63b47d8a"
+  }
+}

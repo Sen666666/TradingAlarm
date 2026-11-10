@@ -1,0 +1,42 @@
+{
+  "status": "FROZEN_BEFORE_NEW_FEATURES_AND_SUPPORT_NOT_BEFORE_ALL_HISTORICAL_OUTCOMES",
+  "domain": "All 2693 actual first PVR-account rounds: 1814 MOBILE/add,879 CORE. No rejected candidates/account replays.",
+  "hypothesis": "PVR strength interacts with high/low directional migration and volume-weighted within-bar closing position. Not prior fixed PVR multipliers, old trend/CP mixture or sector breadth interaction.",
+  "formula": "logit(p)=alpha+delta*is_MOBILE+betaP*zP+betaD*zD+betaC*zC+gammaPD*zPD+gammaPC*zPC",
+  "features": {
+    "P": "Original PVR_decision only; require finite and matching native reconstruction <=1e-8. No cache replacement.",
+    "D": "Wilder competitive DM14, first14 differences SMA then RMA14, D=(RMAplus-RMAminus)/(sum). Strict zero denominator UNKNOWN. Source/native full prefix; H=L invalidates state. No E0/I/CP reset.",
+    "C": "Existing strict CMF21: sum(CLV*raw shares)/sum(raw shares); CLV=(2C-H-L)/(H-L). Native and raw coordinate consistency, source/path stable21, positive shares, same adjustment and volume factors; H=L and factor/source changes UNKNOWN.",
+    "D_extra_guard": "Native prices match raw*factor, observed/eligible/non-synthetic, H>L; source_kind/path, segment, adjustment_factor,volume_factor change resets RMA; full14 new changes required. Share-factor/source unknown not imputed.",
+    "scaling": "Training-only median and IQR/1.349 for P,D,C; clip z to +/-5. zPD,zPC from product of clipped main z, then training median/IQR1.349 and clip5. Zero robust scale UNKNOWN. Role binary unscaled."
+  },
+  "models": [
+    "constant historical mean",
+    "PVR+same first_kind effect",
+    "PVR+D+C+same first_kind effect",
+    "PVR+D+C+P*D+P*C+same first_kind effect",
+    "raw original priority ranking"
+  ],
+  "regularization": "Summed Bernoulli NLL +0.5*(4*sum(main and role coefficient squared)+16*sum(interaction squared)); unpenalized intercept. Fixed Gaussian prior sd0.5 main/role and0.25 interaction. No class weights/tuning.",
+  "clock": {
+    "H": 120,
+    "window": 504,
+    "fit": "First common session monthly, information through preceding close. signal_t>=cut-504 and entry_t+119<cut. Every birth requires full120 potential follow-up, even early exit.2022 no prediction. Source ends2026-05-15.",
+    "U": "H=120 not fully0-to0 closed is U even if later exit known. Cannot silently drop U, impute loss or treat pW as ultimate win. If any feature-complete mature U in a month, binary final-win model UNKNOWN for that month. If this prevents coherent all-role test, stop rather than change endpoint/model after inspection."
+  },
+  "minimum": {
+    "n": 300,
+    "wins": 50,
+    "losses": 50,
+    "unique_signal_dates": 60,
+    "unique_stocks": 100,
+    "unique_I_roots": 200,
+    "each_role_n": 50,
+    "each_role_wins": 10,
+    "each_role_losses": 20,
+    "each_role_dates": 20
+  },
+  "numerics": "full design rank7 and condition<1e6; nonfinite, zero robust scale, support failure or optimizer gradient>1e-6 => all controls UNKNOWN. No rescue retune.",
+  "evaluation_if_feasible": "Same known rows and every fixed year. Date20-session blocks, stocks and stock/I-root clusters; same-day and same-day-role AUC. Fixed same-day ceil(n/2) among originally filled only, tie original priority and sid. Exact original round return mean/winner/loss/payoff. Original return>=20% and original complete60 big label retention; 924 Sep19-Oct8 and2026Q1 separately. Fixed probability bins0/.1/.2/.3/.4/.5/1. No time/threshold search.",
+  "restrictions": "No account runs, parameter grids, new trading or original strategy edits. Historical/selected-only, non-PIT static universe/industry/source versions and original next-open proxy limits. Not new strategy35%."
+}

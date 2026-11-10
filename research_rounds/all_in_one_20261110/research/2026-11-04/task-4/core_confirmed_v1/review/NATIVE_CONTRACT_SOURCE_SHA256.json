@@ -1,0 +1,11 @@
+{
+  "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/native_adapter.py": "7f451011b97bccbae863fa098e5520e7af4b6107fb9ed96b4d105eaa84d8a208",
+  "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/component.py": "604a89c2d4205d20c2799d6408b47b19a64b1f3beb6396da8807cd023e105361",
+  "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/model_without_account_check.py": "2fb801bcadfe3aa0fe0ecac97a9730861079bc16d908a3674a404b255729c2c3",
+  "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/route_without_account_check.py": "7bc31864d1d3944e800bb3f51297f01c417ecf8ac8487b857aa897bde22d66a1",
+  "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/adapter.py": "a998b45d6ab7c243f6161ddfe53721203f0f746e58edbee0d56138737d5d427f",
+  "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py": "fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425",
+  "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/INTEGRATION_CONTRACT.txt": "c783e831cb64fae906996477b4a3487f2ab9330a1f5992a78570d165678ce589",
+  "/Users/bytedance/Documents/ChatGPT/money/research_rounds/lot-risk-allocation-20261029/code/study.py": "2e7cfbdded269ae5430c9146d0b1f5c2b2281e5a5c774fdffb088b620d72bff4",
+  "/Users/bytedance/Documents/ChatGPT/money/research_rounds/probe-pyramid-pilot-20261029/code/pilot.py": "38ac36ba3b9da599c66307451f4173249efc229f54dfb6a0d8469517431f94b4"
+}

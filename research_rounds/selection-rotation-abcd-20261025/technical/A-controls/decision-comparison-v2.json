@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "full_funded_decisions_exact": 8598,
+  "only_cap_unknown_event_trace_differences": true,
+  "never_admissible_excluded_symbols": [
+    "000016.SZ",
+    "002731.SZ"
+  ],
+  "omitted_unknown_only_event_trace_rows": 1956,
+  "unknown_only_false_gate_reason_relabels": 1956,
+  "full_financial_json_exact": true,
+  "financial_or_ranking_changes": 0,
+  "recorded_at": "2026-10-25T13:26:15.987780+00:00"
+}

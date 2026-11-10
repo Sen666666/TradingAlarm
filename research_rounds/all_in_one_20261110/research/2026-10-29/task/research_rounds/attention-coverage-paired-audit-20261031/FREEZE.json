@@ -1,0 +1,11 @@
+{
+  "no_future_labels": true,
+  "old_identities_unchanged": true,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/attention-coverage-paired-audit-20261031/PROTOCOL.txt": "172382612a72eaf6d03c46a0b049c4137b845076d8e7a333e5ade3cee38863ef",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/attention-coverage-paired-audit-20261031/audit.py": "59e9a2dc0adcb628c68cc3e3a57135deeb89b2f291076bd1dededca58fe10328",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/attention-turnover-source-audit-20261031/EXIT_EVENTS.json": "241d079dbc5cdb19f3e88be74b1c98818a8e4fb53f756912c7590d9dbbf173bf",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/market-mainline-measurement-20261031/AMOUNT_INPUT.npz": "5cdb56e4d42363b295f1ab052debeed2458e00481e05b6351ad47acc2f4943e9",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/market-mainline-measurement-20261031/FEATURE_MATRIX_90.parquet": "4be2fe5842221099f4c0fe9fb6380bf4ec77a26cca786d0cb9ac3a25c3464598"
+  }
+}

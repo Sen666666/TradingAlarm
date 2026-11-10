@@ -1,0 +1,176 @@
+{
+  "cohorts": [
+    {
+      "cohort": "COMMON_BASELINE",
+      "permits": 428,
+      "confirmed_fill": 426,
+      "execution_unknown": 14,
+      "nofill": 0,
+      "financial_unknown_closed": 1,
+      "usable_closed": 413,
+      "wins": 120,
+      "win_rate": 0.29055690072639223,
+      "mean_net": -330.80791183528504,
+      "net_sum": -136623.6675879727,
+      "winners_sum": 399635.6240557339,
+      "losers_sum": -536259.2916437066,
+      "tail50": 5
+    },
+    {
+      "cohort": "COMMON_NEW",
+      "permits": 428,
+      "confirmed_fill": 426,
+      "execution_unknown": 14,
+      "nofill": 0,
+      "financial_unknown_closed": 1,
+      "usable_closed": 413,
+      "wins": 120,
+      "win_rate": 0.29055690072639223,
+      "mean_net": -330.80791183528504,
+      "net_sum": -136623.6675879727,
+      "winners_sum": 399635.6240557339,
+      "losers_sum": -536259.2916437066,
+      "tail50": 5
+    },
+    {
+      "cohort": "BASELINE_ONLY",
+      "permits": 2304,
+      "confirmed_fill": 2299,
+      "execution_unknown": 89,
+      "nofill": 2,
+      "financial_unknown_closed": 10,
+      "usable_closed": 2203,
+      "wins": 714,
+      "win_rate": 0.32410349523377213,
+      "mean_net": -174.1107719814047,
+      "net_sum": -383566.03067503456,
+      "winners_sum": 2124900.3282751464,
+      "losers_sum": -2508466.358950181,
+      "tail50": 39
+    },
+    {
+      "cohort": "NEW_ONLY",
+      "permits": 4603,
+      "confirmed_fill": 4576,
+      "execution_unknown": 545,
+      "nofill": 7,
+      "financial_unknown_closed": 53,
+      "usable_closed": 3998,
+      "wins": 1106,
+      "win_rate": 0.2766383191595798,
+      "mean_net": -373.82454173072193,
+      "net_sum": -1494550.5178394262,
+      "winners_sum": 3805513.0412260443,
+      "losers_sum": -5300063.5590654705,
+      "tail50": 70
+    },
+    {
+      "cohort": "NEW_WITH_AB_MARKET_EVENT",
+      "permits": 774,
+      "confirmed_fill": 769,
+      "execution_unknown": 50,
+      "nofill": 2,
+      "financial_unknown_closed": 5,
+      "usable_closed": 717,
+      "wins": 215,
+      "win_rate": 0.299860529986053,
+      "mean_net": -243.25722554998765,
+      "net_sum": -174415.43071934115,
+      "winners_sum": 708030.6855434349,
+      "losers_sum": -882446.1162627761,
+      "tail50": 8
+    },
+    {
+      "cohort": "NEW_NO_AB_MARKET_EVENT",
+      "permits": 4257,
+      "confirmed_fill": 4233,
+      "execution_unknown": 509,
+      "nofill": 5,
+      "financial_unknown_closed": 49,
+      "usable_closed": 3694,
+      "wins": 1011,
+      "win_rate": 0.27368706009745536,
+      "mean_net": -394.3580819458738,
+      "net_sum": -1456758.7547080577,
+      "winners_sum": 3497117.9797383435,
+      "losers_sum": -4953876.734446401,
+      "tail50": 67
+    }
+  ],
+  "displaced_same_close": 116,
+  "displaced_with_non_AB_selected": 116,
+  "unknown_blocked_AB": 539,
+  "unknown_blocking_causes": {
+    "FACTOR_PATH_UNKNOWN": 470,
+    "FACTOR_AT_ENTRY_UNKNOWN": 28,
+    "MISSING_OPEN_PATH_UNKNOWN": 27,
+    "REGISTER_OR_ENTITLEMENT_UNKNOWN": 9,
+    "MISSING_NEXT_OPEN_UNKNOWN": 5
+  },
+  "tail_no_overlap": [
+    {
+      "sid": "300718.SZ",
+      "name": "长盛轴承",
+      "baseline_initial_return": 0.5744786016206442,
+      "disposition": "BLOCKED_HELD"
+    },
+    {
+      "sid": "002011.SZ",
+      "name": "盾安环境",
+      "baseline_initial_return": 0.640208124903093,
+      "disposition": "BLOCKED_UNKNOWN"
+    },
+    {
+      "sid": "002518.SZ",
+      "name": "科士达",
+      "baseline_initial_return": 0.7592575456799089,
+      "disposition": "BLOCKED_UNKNOWN"
+    },
+    {
+      "sid": "003021.SZ",
+      "name": "兆威机电",
+      "baseline_initial_return": 0.5327541052018637,
+      "disposition": "BLOCKED_UNKNOWN"
+    },
+    {
+      "sid": "300990.SZ",
+      "name": "同飞股份",
+      "baseline_initial_return": 0.6675995955608167,
+      "disposition": "BLOCKED_UNKNOWN"
+    },
+    {
+      "sid": "002262.SZ",
+      "name": "恩华药业",
+      "baseline_initial_return": 0.5786904907530496,
+      "disposition": "BLOCKED_UNKNOWN"
+    },
+    {
+      "sid": "688036.SH",
+      "name": "传音控股",
+      "baseline_initial_return": 0.6184230840523485,
+      "disposition": "BLOCKED_UNKNOWN"
+    }
+  ],
+  "confirmed_fill_label_bounds": [
+    {
+      "arm": "AB_FAST_SMALL",
+      "confirmed_fills": 5002,
+      "evidence_closed": 4411,
+      "wins": 1226,
+      "unresolved_filled": 591,
+      "all_unresolved_lose": 0.24510195921631348,
+      "all_unresolved_win": 0.3632546981207517,
+      "no_causal_or_economic_bound": true
+    },
+    {
+      "arm": "A_UNION_B",
+      "confirmed_fills": 2725,
+      "evidence_closed": 2616,
+      "wins": 834,
+      "unresolved_filled": 109,
+      "all_unresolved_lose": 0.30605504587155963,
+      "all_unresolved_win": 0.3460550458715596,
+      "no_causal_or_economic_bound": true
+    }
+  ]
+}

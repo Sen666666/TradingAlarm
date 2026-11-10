@@ -1,0 +1,10 @@
+{
+  "scope": "All original90 sectors, 2024-09-02 to2024-10-31 daily review of924 wave; no industry reselection, no account execution.",
+  "anchor": "2024-09-24. Relevant identification = TRUE run covering anchor if alreadyTRUE, else first subsequentTRUE byreviewcutoff. All earlier andlater runs included separately.",
+  "price_outcomes": "Fixed5/20 subsequent COMMON-session close endpoint/min/max changes from detection, only if horizon whollywithinOct31; otherwise right-censored. Not fills, net returns, wins or failedstrategy labels. Nonpositive20 =未推进 not permanent falsepositive.",
+  "calendar": "Original daily panel and90 sector rawprice indices; noforwardfills.",
+  "context": "Original final520cycle mapping matched onlyif a unique originally frozenascendingcycle coversSep24; retain independent dates, not realtimepermission.",
+  "actual_account": "Only original all1709 sharedM3AB秋季birthcohort. Use existing verified37day sector positions, zero for sectorswith noinventory. Prior holdingscarriedfromSep2initial; newB1/R1 notpresent.",
+  "limits": "currentfixedmembershipNONPIT, K jointlyknownM3/PVR3, unknownisnotfalse. Sourcevaliddailyprice isn't proof ofexecution. Historicaldataalreadyseen.",
+  "actions": "No new signals, parameters or economics. Onlyreconcileoriginalindustrydetectionwithindustrypriceandactualsectorparticipation."
+}

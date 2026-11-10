@@ -1,0 +1,54 @@
+市场DOWN时TOTAL gross10%新增准入：仅小技术账完成
+三case共48账户CLOSE，未跑full；本页producer，独立ledger/logic回执另附。
+
+真实范围/Noop
+legacy9：2022Jan4–14，B与旧long-unified-small-v2整本book+每日exact。
+ B NAV975294.7505446507045，87买19卖；D NAV969643.4222644471545，57买18卖。
+ D在首次DOWN前已有较大库存，DOWN正reserve为0；Jan14仍持inventory590110.14，
+ NAV969643.4222644471545，证明允许旧库存被动overcap，没有强卖到10%。
+ 此9日D更差，只是短技术路径，不是经济晋升或拒绝的完整证据。
+fresh_DOWN_technical6：2022Jan7–14，全新1m且独立native own-state，仅技术初始化。
+ B NAV990241.4683090609935，68买8卖；D NAV997671.0988422706500，13买1卖。
+ 13次真实DOWN正reserve/fill，26个reserve/fill post快照全部过新增gross门；
+ max (I+P)/(NAV−pendingdrag)=0.0999983520468119808649…。
+ 不与原Jan4 gold误比，不把fresh收益差当可投资策略回报。
+strong9：2025Jul1–11，B整本book+每日与旧strong-small-v1 exact。
+ 两臂NAV1030124.5896390851040，均69买7卖。此段无DOWN正准入，两臂相同，
+ 不能拿它证明弱市gross门的经济作用。
+
+同一经济谓词在route/realreserve/fill使用；pending只真实gross，fee只投影NAV；
+fill保留current余单+other+未ACK责任，不以整张currentR删除来假通过。
+原ACT20/BREAK63算法保留，各自账户自身状态；少亏可能避免自身H，不等于改恢复。
+没有按旧账户暂停日历强制candidate，未import/初始化cost/F-E/basis。
+全部v1 frozen源末SHA exact；source/control identity和currentR钱桥交独审。
+
+provider v2：0账户修复，未重跑已正确小账
+v1在完整info域内实际case正确，但人为prefix后查未来CLOSE会沿用旧状态，负例
+PROVIDER_V1_DOMAIN_FAILURE.json保留。v2用caller supplied原native完整交易CLOSE
+日历+已审warm时点核expected row，缺行/超适用域UNKNOWN，原X/MA/严格D公式不变。
+5473个实际callback行与48个三case全部预定OPEN/CLOSE，v1/v2/provider-pickle/
+逐日物理prefix状态及源/数字/clock全部exact。Jan10OPEN可读Jan7；Jan10CLOSE
+及Jan11OPEN缺Jan10明确UNKNOWN。PROVIDER_V2_CHECKS.json已完成producer PASS。
+这不是新native历史重启；老金融重启基础设施本轮不重复。检查器曾把nativeISO T
+与pandas str空格当不同，已只修时间序列化，原失败/source保留，金融未重跑。
+
+partial/ACK实际覆盖限制
+本轮新gross hook没有新的真实partial或延迟cancelpending集成case，不冒称已测。
+直接只读复用旧已审native_edge_fixture_v1真实两partial：currentgross余6741.369
+后5617.8075，其他pending全保留；原ACK释放只实际未成余量。
+REUSED_NATIVE_PARTIAL_PENDING_EVIDENCE.json明示这是旧技术fixture/钱桥，不是本策略
+经济路径，也不是把旧cost元数据导入新Account。原费用/partial buffer片段已审复用。
+
+时间/工程范围
+long输入一次333.83s，原逐年loader108.71+106.49+112.60s；最后2024原superset，
+未新增cache/loader，两个弱case复用同次数值输入。legacy事件36.32s，fresh20.94s；
+long进程计时420.42s（N.configure_scores在该计时前，sourcefreeze已先写）。
+strong原输入108.51s，事件42.06s，该进程163.95s；两进程可并行。
+零新NAV/财务模型/资源账，只有原生账户/quote/fee、一个新增准入门及只读provider。
+完整经济效果、2022–24损失/恢复、strong fat-tail/新leader代价均未验证。
+未来full仍需root独立grant、provider v2和完整市场日历/combinedscore绑定冻结。
+
+入口
+SMALL_COMPLETION.json；small-long-v1/{legacy9,fresh_DOWN_technical6}/SMALL_RESULT.json；
+small-strong-v1/strong9/SMALL_RESULT.json；各pair原book/daily/balances/
+gross-admission-events.jsonl.gz；PROVIDER_V2_CHECKS.json；原sourcefreeze和协议保留。

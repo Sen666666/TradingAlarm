@@ -1,0 +1,19 @@
+{
+  "completed": true,
+  "stocks": 1709,
+  "industries": 90,
+  "seconds": 709.662580832839,
+  "resumed": 0,
+  "stock_status": {
+    "complete": 1687,
+    "not_applicable_no_local_observation_by_end": 22
+  },
+  "industry_status": {
+    "complete": 90
+  },
+  "CP1_reused": 478,
+  "facts_reused": 478,
+  "original407_exact": 399,
+  "new_account_paths": 0,
+  "budget_independent": true
+}

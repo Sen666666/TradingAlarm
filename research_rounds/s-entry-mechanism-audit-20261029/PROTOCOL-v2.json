@@ -1,0 +1,32 @@
+{
+  "version": "v2",
+  "frozen_before_results": true,
+  "created_at": "2026-10-29T09:02:28.117924+00:00",
+  "scope": "407 frozen technology stocks; 2023-12-29 close decisions through 2026-10-27 close; first execution 2024-01-02",
+  "philosophy": "Low win rate accepted; tail contribution and payoff/cumulative trial cost are primary. No optimization of win rate.",
+  "common_events": "One stock/source/E0 contiguous active epoch intersecting the study, including carry-in, zero-fill and right-censored epochs. Universe and equal event weights frozen before economic calculation.",
+  "primary_weights": "Equal initial shadow cash per common event; sum all paired outcomes. Stock-equal/event-equal-within-stock is a robustness appendix with frozen denominators. No changing weights by fills or closure.",
+  "arms": {
+    "I": "First executable original I daily event satisfying shared nonportfolio eligibility, at most one entry per E0 epoch.",
+    "S": "First executable original I daily event AND frozen strict_target, allowing later entry in same epoch. strict_target alone creates no order.",
+    "D": "Diagnostic only: copy I if strict_target true at its first actual-fill decision, otherwise cash for epoch. Not actual S policy."
+  },
+  "initial_shadow_cash_cny": "1000000",
+  "no_shared_cash_or_compounding": true,
+  "eligibility": "Reuse original stock/sector/source/availability/readiness eligibility; no ACT, ranking competition, slots, 2% sizing, 10% cash buffer or 0.25% risk gate. Rank readiness retained as inherited data contract.",
+  "execution": "Reuse frozen native Decimal ledger, FillWindow, quantity and fee contracts; signal-close gross/share cap; next eligible A-market open only. Buy order expires at that intended execution session close including suspended/no-bar days. Zero fill may apply again only on a new original I event; partial fill counts as the one entry and remainder expires. Exit intents latch until legally filled.",
+  "costs": [
+    "base",
+    "original cost2, with frozen component-specific exceptions and stressed slippage"
+  ],
+  "prices_actions": "Frozen raw OHLC for execution/valuation; frozen causal factor for support; corporate actions, original fractional split policy, dividend net proxy, settlement and T+1 preserved. No trading account access.",
+  "exit": "Original I/E0 invalidity or original stored support violation, common to both arms; no fast protection, add, reentry after actual entry or ACT. At E0 source boundary exit only when observable, never retroactively.",
+  "terminal": "All common events enter primary outcomes, including terminal held inventory and pending entitlements. Actual cashflows and unrealized raw-close marks separated; marks are not fills. Estimated liquidation fee separately disclosed, not charged as actual. Closed-only results supplementary.",
+  "tail": "Existing net_pnl/(buy_gross+buy_fees)>=0.30, separate realized closed tails and terminal mark-based tails. Fixed I reference tail set plus each-arm tails; continuous contribution distribution and all top-I contribution event retention/delay/difference diagnostic. Labels never enter decisions.",
+  "effects": "saved_negative_loss=L_I-L_S; foregone_positive=G_I-G_S; total_delta=saved_negative_loss-foregone_positive. Fixed-I-tail delta plus complementary ordinary delta equals total. Static deletion=D-I; delayed participation=S-D; exact total decomposition.",
+  "verdict": "Pareto ordinary/tail improvement is sufficient, not necessary, support. Ordinary cost increase outweighed by tail benefit is a disclosed positive tradeoff, not failure. Dominated outcomes support rejection of this S policy. Mixed signs, cost reversal, weak coverage or main/robustness reversal are inconclusive; never choose favorable basis. No p-value or win-rate target.",
+  "correctness": "Native fee/rounding contract exact; independent fill/fee/action/cash/share/NAV reconciliation with precision-explained Decimal residue, not arbitrary 1e-8 engineering gate. Event identity and causal timestamps exact. Always-allow gate reproduces I. Physical-prefix checks on representative data.",
+  "budget": "Representative sample verification before full economics. Full calculation wall budget 300s, development excluded. If exceeded retain checkpoint/timing and optimize cache/scan, never launch long portfolio matrix.",
+  "limits": "First participation per E0 epoch only; not actual portfolio I reattempts following ACT/forced exits or reallocation. Already-seen current-survivor/classification/cap snapshot, daily HLV execution proxy, not out-of-sample or executable pooled performance.",
+  "stop": "One frozen rule set and two cost contracts. No parameter search, new indicators, products, live/paper accounts, downloads or interference with other tasks."
+}

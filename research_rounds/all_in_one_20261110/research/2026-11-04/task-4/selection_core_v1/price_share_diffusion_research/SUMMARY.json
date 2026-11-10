@@ -1,0 +1,13 @@
+{
+  "rows": 6840,
+  "dates": 76,
+  "stocks": 1709,
+  "source_valid_qualified_stock_dates": 118381,
+  "positive_Q_rows": 2971,
+  "positive_L_rows": 3068,
+  "time_seconds": 10.390222709160298,
+  "no_accounts": true,
+  "no_future_return_reads": true,
+  "no_parameter_search": true,
+  "membership_PIT_verified": false
+}

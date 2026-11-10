@@ -1,0 +1,21 @@
+{
+  "status": "route_and_diagnostic_completed_contract_pending_parent_review",
+  "economic_paths": 0,
+  "new_policy_runs": 0,
+  "product_changes": 0,
+  "accounts": 0,
+  "blockers": [],
+  "known_field_gap": "G1 reason/phase cache ends2026-10-22;121 rawI/24 firstQ at latest3 sessions unknown, full E0/I diagnostics included",
+  "inputs_unchanged": 1231,
+  "first_Q_low_neff": 1425,
+  "first_Q_total": 4059,
+  "core_diagnostic_seconds": 13.82728537498042,
+  "sample_seconds": 0.6265592500567436,
+  "aggregate_seconds": 3.1760840420611203,
+  "implementation_stage_wall_seconds": 964.630673,
+  "development_plan_minutes": 15,
+  "earlier_reading_not_timed": true,
+  "roadmap": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/time-evidence-audit-20261029/ROADMAP.txt",
+  "report": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/time-evidence-audit-20261029/DIAGNOSTIC_REPORT.txt",
+  "contract": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/time-evidence-audit-20261029/TIME_CONTRACT_DRAFT.txt"
+}

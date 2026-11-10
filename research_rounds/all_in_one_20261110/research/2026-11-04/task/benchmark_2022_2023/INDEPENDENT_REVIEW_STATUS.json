@@ -1,0 +1,9 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "audit_path": "/Users/bytedance/Documents/Codex/2026-11-04/task/independent_review/BENCHMARK_2022_2023_INDEPENDENT_AUDIT.json",
+  "audit_sha256": "6bdc26c66ee161ee3de24e5188509feca5bd988e8cf024bb87ddccb86566b203",
+  "recorded_at_UTC": "2026-11-04T09:37:51.162812+00:00",
+  "primary_results_preserved": true,
+  "execution_verified": false,
+  "scope": "two fixed diagnostic ETF proxies and index/cash references; no new No60 candidate path"
+}

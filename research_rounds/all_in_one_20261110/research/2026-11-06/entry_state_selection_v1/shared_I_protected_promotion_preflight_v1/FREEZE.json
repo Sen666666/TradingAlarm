@@ -1,0 +1,11 @@
+{
+  "primary_rows": 24,
+  "control_rows": 10,
+  "files": {
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/cohort_2024_924/EXACT_TRADE_JOURNAL.json": "033e5107d03187f885524763c0bff8277de83fcb667e7c06a2cb4b043d87ae07",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/cohort_2024_924/AUDIT.json": "dbb0bc3feb313d7d2b902ee464c86ddbc8177018cd659db98f5eae4101ad9a81",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/cohort_2024_924/ARCHIVES.json": "713d66ca51d17b26aa7647571baf9d69b430d7ac4956f00db1ec5d9e549cbae5",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/shared_I_protected_promotion_preflight_v1/PROTOCOL.json": "802ea41e708732c1b8aed0d5eb75a8b1700a63553c6cdb2a6f1733d0a7d9470b",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/shared_I_protected_promotion_preflight_v1/FIXED_HOLDING_IDENTITIES.json": "e1e52aee60033feebc55132edf62a3b279fd51857db6597e6955298b43863b81"
+  }
+}

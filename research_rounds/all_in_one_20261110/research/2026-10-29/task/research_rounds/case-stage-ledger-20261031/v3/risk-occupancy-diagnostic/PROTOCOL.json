@@ -1,0 +1,13 @@
+{
+  "no_policy_change": true,
+  "scope": "same frozen full-universe B only",
+  "budget_load_replay_seconds": 300,
+  "estimate_seconds": [
+    210,
+    240
+  ],
+  "revision": "authorized repaired instrumentation replay; old failed180s evidence retained",
+  "counterfactual": "remove account_risk check only, independent read-only instantaneous requests; never submit or sum quantity",
+  "actual_source": "run-universe/pair B; exact every-close daily and trade-prefix assertions",
+  "snapshot_selection": "each case earliest raw exclusively account_risk route refusal; first confirmed/expanded market observation and old price-peak close"
+}

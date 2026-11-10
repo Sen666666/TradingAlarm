@@ -1,0 +1,39 @@
+{
+  "close_available_time_by_sample": {
+    "300085.SZ": "15:05:00",
+    "300666.SZ": "15:05:00"
+  },
+  "rules_path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-act-comparison-20261027/execution-rules-v2.json",
+  "rules_sha256": "e54d23fb4be1740415364e757d300231c3871a99de43a328773cbe391eadb614",
+  "calendar_basis": "union of all90 A industry source dates; explicit research calendar proxy, not full historical suspension recovery",
+  "calendar_first": {
+    "A": [
+      "2015-01-05T09:30:00+08:00",
+      "2015-01-06T09:30:00+08:00"
+    ]
+  },
+  "decision_cutoff_first": [
+    "2015-01-05T15:10:00+08:00",
+    "2015-01-06T15:10:00+08:00"
+  ],
+  "protocol_path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/inputs-v2/economic-protocol.json",
+  "protocol_sha256": "fc0d87436cae4c18019da7049979057903419682916afd287e9757dd46d8d339",
+  "selected_protocol_fields": {
+    "daily_execution": {
+      "A": {
+        "price_limit_policy": "conservative_hl_proxy",
+        "reject_flat_day": true,
+        "slippage_bps": "5",
+        "stress_slippage": true
+      }
+    },
+    "participation_rate": ".01",
+    "sellable_lag_sessions": {
+      "A": 1
+    },
+    "settlement_lag_sessions": {
+      "A": 0
+    }
+  },
+  "interpretation": "These are explicit research clock/execution declarations. Known_at from Date+15:05 and event.at from supplied09:30 session are not provider trade/quote timestamps."
+}

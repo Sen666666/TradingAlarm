@@ -1,0 +1,14 @@
+{
+  "task": "Original M3 A growth-toggle causal diagnostic only",
+  "frozen_before_new_classification": true,
+  "history_already_seen": true,
+  "not_OOS": true,
+  "no_new_economics": true,
+  "scope": "4086 corrected A_UNION_B permits, same 2022 and 2024 Sep-Dec histories; no minute data",
+  "formula": "L=1 if n>=3 and 3n>=N; L=0 if n+U<3 or 3(n+U)<N; else UNKNOWN. Track contiguous L==1 spans. On original selected A only, stale repeat requires a preceding same-stock I-and-PVR-known A in the same observed L span, stock M3 continuously known true since that invite, and independently verified same I root covering the prior invite. B and new stock M3/I evidence remain. UNKNOWN never deemed stale.",
+  "economic_rationale": "An S growth-term pause/restart is not automatically new stock evidence; diagnostic tests whether this repeat invitation is material or already neutralized by native lifecycle. This is neither a bug claim nor a blanket ban on reentry.",
+  "controls": "Original source, qualification, PVR, cash/risk, lifecycle and labels unchanged. Rejected old trades are not new strategy profits. Report CORE/FULL old stats, tails, all UNKNOWN and all seven periods. No tuning.",
+  "comparison": "Different from stopped same-industry-E0 once-per-fill rule: L span not E0; qualified invitation not fill; known stock M3 or I rearming preserved. Nevertheless substantial conceptual overlap and could penalize initially unselected opportunities; stop if not incrementally useful.",
+  "fixed_cases": "Already-fixed ten Q1 all-core-tail/same-day same-industry cases; all stale classification cases unfiltered. If nonexistent or immaterial do not widen threshold/rule.",
+  "limits": "fixed current universe and industry membership NON-PIT; sector cache begins 2022-01-04, invitation windows restrict full prior known history; unknown origin retained; no transaction guarantee."
+}

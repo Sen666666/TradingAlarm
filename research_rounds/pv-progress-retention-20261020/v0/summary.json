@@ -1,0 +1,205 @@
+[
+  {
+    "symbol": "600059.SH",
+    "rows": 750,
+    "valid": 750,
+    "primary_flips": 20,
+    "max_parent_age": 240.0
+  },
+  {
+    "symbol": "600917.SH",
+    "rows": 750,
+    "valid": 750,
+    "primary_flips": 18,
+    "max_parent_age": 272.0
+  },
+  {
+    "symbol": "600919.SH",
+    "rows": 750,
+    "valid": 750,
+    "primary_flips": 18,
+    "max_parent_age": 247.0
+  },
+  {
+    "symbol": "HK00002",
+    "rows": 1674,
+    "valid": 1671,
+    "primary_flips": 47,
+    "max_parent_age": 308.0
+  },
+  {
+    "symbol": "HK00005",
+    "rows": 1674,
+    "valid": 1671,
+    "primary_flips": 44,
+    "max_parent_age": 163.0
+  },
+  {
+    "symbol": "HK00101",
+    "rows": 1674,
+    "valid": 1671,
+    "primary_flips": 45,
+    "max_parent_age": 294.0
+  },
+  {
+    "symbol": "HK00700",
+    "rows": 1674,
+    "valid": 1671,
+    "primary_flips": 43,
+    "max_parent_age": 386.0
+  },
+  {
+    "symbol": "HK00883",
+    "rows": 1674,
+    "valid": 1671,
+    "primary_flips": 44,
+    "max_parent_age": 322.0
+  },
+  {
+    "symbol": "HK02800",
+    "rows": 2000,
+    "valid": 1997,
+    "primary_flips": 59,
+    "max_parent_age": 391.0
+  },
+  {
+    "symbol": "HK02820",
+    "rows": 1784,
+    "valid": 1780,
+    "primary_flips": 53,
+    "max_parent_age": 248.0
+  },
+  {
+    "symbol": "HK02845",
+    "rows": 1663,
+    "valid": 1660,
+    "primary_flips": 31,
+    "max_parent_age": 229.0
+  },
+  {
+    "symbol": "HK03033",
+    "rows": 1511,
+    "valid": 1508,
+    "primary_flips": 35,
+    "max_parent_age": 467.0
+  },
+  {
+    "symbol": "HK03110",
+    "rows": 2000,
+    "valid": 1986,
+    "primary_flips": 55,
+    "max_parent_age": 244.0
+  },
+  {
+    "symbol": "HK03690",
+    "rows": 1596,
+    "valid": 1593,
+    "primary_flips": 32,
+    "max_parent_age": 380.0
+  },
+  {
+    "symbol": "HK09618",
+    "rows": 1560,
+    "valid": 1557,
+    "primary_flips": 43,
+    "max_parent_age": 493.0
+  },
+  {
+    "symbol": "USHJ510300",
+    "rows": 2000,
+    "valid": 2000,
+    "primary_flips": 54,
+    "max_parent_age": 263.0
+  },
+  {
+    "symbol": "USHJ511010",
+    "rows": 2000,
+    "valid": 2000,
+    "primary_flips": 54,
+    "max_parent_age": 179.0
+  },
+  {
+    "symbol": "USHJ512010",
+    "rows": 2000,
+    "valid": 2000,
+    "primary_flips": 57,
+    "max_parent_age": 218.0
+  },
+  {
+    "symbol": "USHJ512400",
+    "rows": 2000,
+    "valid": 2000,
+    "primary_flips": 60,
+    "max_parent_age": 270.0
+  },
+  {
+    "symbol": "USHJ512480",
+    "rows": 1781,
+    "valid": 1781,
+    "primary_flips": 50,
+    "max_parent_age": 230.0
+  },
+  {
+    "symbol": "USHJ512660",
+    "rows": 2000,
+    "valid": 2000,
+    "primary_flips": 60,
+    "max_parent_age": 417.0
+  },
+  {
+    "symbol": "USHJ512690",
+    "rows": 1807,
+    "valid": 1807,
+    "primary_flips": 53,
+    "max_parent_age": 349.0
+  },
+  {
+    "symbol": "USHJ512800",
+    "rows": 2000,
+    "valid": 2000,
+    "primary_flips": 61,
+    "max_parent_age": 345.0
+  },
+  {
+    "symbol": "USHJ512980",
+    "rows": 2000,
+    "valid": 2000,
+    "primary_flips": 49,
+    "max_parent_age": 565.0
+  },
+  {
+    "symbol": "USHJ515030",
+    "rows": 1605,
+    "valid": 1605,
+    "primary_flips": 37,
+    "max_parent_age": 406.0
+  },
+  {
+    "symbol": "USHJ515220",
+    "rows": 1607,
+    "valid": 1607,
+    "primary_flips": 50,
+    "max_parent_age": 164.0
+  },
+  {
+    "symbol": "USHJ518880",
+    "rows": 2000,
+    "valid": 2000,
+    "primary_flips": 56,
+    "max_parent_age": 658.0
+  },
+  {
+    "symbol": "URFI881129",
+    "rows": 4666,
+    "valid": 4666,
+    "primary_flips": 139,
+    "max_parent_age": 2460.0
+  },
+  {
+    "symbol": "UZZI000994",
+    "rows": 5288,
+    "valid": 5288,
+    "primary_flips": 146,
+    "max_parent_age": 805.0
+  }
+]

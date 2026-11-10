@@ -1,0 +1,43 @@
+{
+  "scope": "FROZEN_EXPERIMENT_NOT_DEPLOYABLE_STRATEGY",
+  "planned_end": "2024-10-31",
+  "completed_horizon": false,
+  "certified_through": "2024-10-25",
+  "days": 33,
+  "orders": 1852,
+  "blockers": [
+    "2024-10-28 300277.SZ OPEN_MISSING"
+  ],
+  "last": {
+    "day": "2024-10-25",
+    "cash": "137301.3904640587445",
+    "receivable": "0.0000",
+    "market_value": "1256244.35",
+    "NAV": "1393545.7404640587445",
+    "net_liquidation_NAV": "1390585.8960428776620",
+    "stocks": 321,
+    "shares": 65741,
+    "weight_pct": "90.14733521281213259718461874",
+    "fees_paid": "10765.6626809412555"
+  },
+  "prior_prefix_replay": {
+    "result": "PASS",
+    "certified_through": "2024-10-24",
+    "economic_rule_changes": 0,
+    "exact_records": {
+      "ORDERS": 1763,
+      "CANDIDATES": 13727,
+      "CP_EVENTS": 2221,
+      "DAY_LEDGER": 32,
+      "HOLDINGS": 4725,
+      "EQUITY_EVENTS": 60,
+      "SECTOR_DAILY": 1600,
+      "ATTEMPTS": 1044,
+      "PENDING_AT_END": 137
+    }
+  },
+  "FALSE_sector_ADD_plans": [],
+  "FALSE_sector_actual_ADDs": [],
+  "economic_rules_unchanged": true,
+  "no_PIT_or_real_fill_certification": true
+}

@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-30T05:19:09.733152+00:00",
+  "before_joining_AB_labels_and_loss_timing": true,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/old-warning-recovery-timing-20261030/PROTOCOL.txt": "c4cf846af0e08d0280e9b902645896cc49cb64916070ca3344c5713065dcdd72",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/old-warning-recovery-timing-20261030/recovery-timing-before-economic-labels.csv": "e8a4dae0b400f9f509b9fac87b52f6632878a22e20cd12d7f1778b6b8cb4916e",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/old-warning-recovery-timing-20261030/first-confirmation-facts.csv": "d1ac7db99983dc287a83b1d3012a616af818378dd5faba71c8c69cc37cd2b298"
+  },
+  "C_economic_paths": 0
+}

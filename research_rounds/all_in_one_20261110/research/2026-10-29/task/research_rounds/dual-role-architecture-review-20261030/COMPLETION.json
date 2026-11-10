@@ -1,0 +1,15 @@
+{
+  "status": "design_review_complete_not_implemented",
+  "preferred_candidate": "fixed structural-core plus RB2-risk roles; alpha1/2 single reference with legal quantity rounding",
+  "market_switcher": "principle only, no second formula or candidate",
+  "next_gate": "real-controller/ledger/admission role integration without economic backtest",
+  "new_economic_runs": 0,
+  "no_product_change": true,
+  "execution_blockers": [],
+  "necessary_future_interfaces": [
+    "risk_trim target upgrade under E0/ACT",
+    "risk_restore on existing stock with shared competition",
+    "actual role/physical shares and company-action reconciliation"
+  ],
+  "report": "REVIEW.txt"
+}

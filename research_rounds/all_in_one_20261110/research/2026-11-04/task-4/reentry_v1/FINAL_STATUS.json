@@ -1,0 +1,12 @@
+{
+  "phase": "two mechanisms event-checked with independent reviews",
+  "local_high_gate": "STOP",
+  "confirmed_min_first": "valid allocation component; economics unverified",
+  "new_continuous_accounts": 0,
+  "technical_or_permission_blockers": [],
+  "primary_report": "REENTRY_FINDINGS.txt",
+  "focus_16_readable": "FOCUS16_EXPLAINED.txt",
+  "fixed_target_private_new_reservations": 1,
+  "fixed_target_original_rejects": 15,
+  "scope_warning": "Private independent OPEN states and reused price labels are not fills or new portfolio returns."
+}

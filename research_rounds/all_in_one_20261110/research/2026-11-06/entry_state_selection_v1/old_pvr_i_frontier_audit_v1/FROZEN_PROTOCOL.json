@@ -1,0 +1,12 @@
+{
+  "audit": "READ_ONLY_EXISTING_PVR_CONTINUOUS_LEDGER_NOT_AB_NOT_NEW_CONSUMER",
+  "management_end": "2026-05-15",
+  "entry_windows": {"2022_full": ["2022-01-01", "2022-12-31"], "2024_full": ["2024-01-01", "2024-12-31"], "2024_Sep_Dec": ["2024-09-01", "2024-12-31"]},
+  "round_contract": "Actual filled stock inventory 0 to positive to 0, sell-mobile while core remains is not a new round; original layers and trade allocations are authoritative. All calendar windows use identical management end. Open rounds remain open, never zero-filled.",
+  "i_contract": "Original STOCK_MANIFEST.refs.facts, entire available prehistory. I begins on observed target 0->1 within same source segment. Left-censored positive segment starts remain unknown. i_buy market ordinal counts every original i_buy inside I, irrespective of actual consumption. Non-i_buy entry signal day is a separate category.",
+  "cp_contract": "Original STOCK_MANIFEST.refs.CP1 receipt Boolean over entire available history, counted within the same I. Today's first receipt, later receipt, and no receipt are independent categories. Existing original receipt union is read to verify canonical ID/trace for 2022 onward; no receipt regeneration.",
+  "actual_contract": "Actual round sequence within I is independent of market i_buy/CP ordinal. First actual means first observed account round since account inception 2022-01-01, not first possible market trade. Normal exit followed by a different I is a separate reentry class.",
+  "groups": ["ALL", "market_i_buy_class", "market_cp_class", "actual_round_in_i_class", "reentry_class", "first_kind", "first_reason", "market_i_buy_class x first_kind", "market_cp_class x first_kind", "actual_round_in_i_class x market_i_buy_class", "actual_round_in_i_class x market_cp_class", "market_i_buy_class x market_cp_class"],
+  "financial_contract": "Old proxy realized net = buy/sell net cash plus accrued layer dividends under original action model. Validate Decimal trade cash, allocations, layer quantities, splits and dividend allocations. Does not certify NET80 independent equity legality, paid-at cash, true tradability or PIT universe. Unknown provenance/observations are reported separately, not assigned zero.",
+  "forbidden": ["new consumer run", "new trades", "counterfactual account", "money-based group choice", "money-based threshold selection", "money-based example sorting", "canonical-source substitution", "source file modification"]
+}

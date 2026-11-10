@@ -1,0 +1,16 @@
+{
+  "layers": 18,
+  "stocks": 13,
+  "roles": {
+    "core": 8,
+    "mobile": 10
+  },
+  "closed_layers": 15,
+  "open_layers": 3,
+  "cross_account_layer_ID_matching": false,
+  "seconds": 0.34241674980148673,
+  "new_Account": 0,
+  "new_Market": 0,
+  "new_RiskBook": 0,
+  "new_marks": 0
+}

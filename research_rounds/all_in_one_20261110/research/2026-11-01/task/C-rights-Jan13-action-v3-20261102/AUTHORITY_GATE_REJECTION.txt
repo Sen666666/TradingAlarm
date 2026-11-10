@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v3-20261102/prepare_authority.py", line 56, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v3-20261102/prepare_authority.py", line 16, in main
+    assert args.independent_audit and args.trusted_audit_sha and args.reviewed_code_sha==sha(O/'CODE_FREEZE.json'),'independent PASS bound to exact prepared code required'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: independent PASS bound to exact prepared code required

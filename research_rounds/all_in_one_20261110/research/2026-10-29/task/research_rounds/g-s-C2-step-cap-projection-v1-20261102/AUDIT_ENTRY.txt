@@ -1,0 +1,8 @@
+先读REPORT.txt与DESIGN_DIFF（路径在step_cap.DESIGN）、AUTHORIZATION_AND_FREEZE、COMPLETION。
+C2只复制改变每fresh mobile max_q=min(C10max,原2%毛量合法floor)，snapshot/资格/原排序/receipt/保护/费用/供资/硬限不变。原C10仅读取，62份归档SHA全部不变；B73份也不变。
+12个尺寸相关合成通过；原C17项/JF2/native守卫复用，未重建全套。test_step_cap.py可在本目录用原venv python -B运行。
+inputs两份字节等原C10输入，29/94母域全部保留，包括新增minlot失败。results/*/C2.json保存完整逐阶段资源残差，RESTORED.json是独立进程同输入复算，未推进账户。
+复算命令：python -B step_cap.py inputs/<k>.json <AUTHORIZATION.inputs[k]的可信SHA> results/<k>/C2.json <新的审计输出路径>；k仅2022/2025_26。run.py拒绝重复已有冻结；不要用它覆盖归档。
+report/FULL_FRESH_SIZE_COMPARISON给资格/原上界/2%上界/最终Q/D/minlot/原始约束计数；ALL_MOBILE_TARGETS给全部保留减持，C2_DONOR_LAYERS给指定层原line/费用资本风险；INDUSTRY_WEIGHTS给全部行业，不限赢家。
+Jan6同曝险下名义risk变高，中药集中减少；Jul3新买款几乎相同而股票名额更多。不能以较低换手称更优。两新增minlot失败股原C10也未获资，不代表整手问题普遍无害。
+Jan6创维原待卖冲突仍有，本包submit_allowed=False，现实可花现金/释放risk均未改变。无金融事件/收益/行情更新。2026旧分析器NaN勘误见独立边界说明，本次未使用旧名单。

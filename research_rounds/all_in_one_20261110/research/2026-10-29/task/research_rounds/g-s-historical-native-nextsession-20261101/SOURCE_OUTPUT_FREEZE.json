@@ -1,0 +1,23 @@
+{
+  "unchanged_contract": "a26b1959379ed6c7e8d82e35f9d3fca9dd050caa5e824850a0d75543005bcc50",
+  "unchanged_original_R4": "1649a09c73dde15134148cade02da8f27d7102d38f8a1370609934204a669665",
+  "execution_sources": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-historical-native-nextsession-20261101/prepare_inputs.py": "e643b581fcd67f46ef29501b265722eadd94013eefc00b0100c58956a03a7cca",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-historical-native-nextsession-20261101/gs_next_session.py": "b2d200d361e5eb67721247e9cc3b5a8b44af65f96ae4d0ecb343e6cccb01a475",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-historical-native-nextsession-20261101/coverage_gate.py": "6112509ba5ed714190ca3642e6c2875d2ee88c032b79f98548e891360f6c3932",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-historical-native-nextsession-20261101/common_next.py": "19794ffe708bec0f757581fe6f538872c287132ad9852a17e34f1f5029945024",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-historical-native-nextsession-20261101/run/driver.py": "045c4c3da89e13ddcd68f96182e8051b4e04cec733c5e0d6709aea6c3e6b5101"
+  },
+  "actual_historical_source_manifest_sha256": "3aa264e111a80683693e3fd9a826e4e1db80dd115c0b97170e90062c862437ac",
+  "input_manifest_sha256": {
+    "2025_26": "173874a1b754cd0ffa86f7c4fddbfe1eb645b07613f3512bd0c63dc8d9ef20db",
+    "2022": "e720173e7e4d48ce83d5dcde16c96dbea92635770deb75b41817b073966b52c3"
+  },
+  "analysis_sources": {
+    "run/audit_saved.py": "634b6ef2861031aa8e60513aa6135b577bfc218745fe8b2819fcb28f589b66bc",
+    "run/packet.py": "eb356db751770d161ab7acef635edad2f403b48b499eff428cc292200c7756c2",
+    "run/driver.py": "045c4c3da89e13ddcd68f96182e8051b4e04cec733c5e0d6709aea6c3e6b5101",
+    "run/report.py": "1f340e56c04e7eb4252103d99273efc79c5e38e69e7f9ba36bf9e19fe2040806"
+  },
+  "scope": "source backed only Jul3 2025 and Jan6 2022 continuation; no earlier financial event replay"
+}

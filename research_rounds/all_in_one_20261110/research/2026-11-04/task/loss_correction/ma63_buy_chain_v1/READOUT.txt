@@ -1,0 +1,32 @@
+结论：原总回报MA63同轴显示主要试错损耗与“低于MA且MA下降”显著关联，但该格也有完整赢家。父追加的“当日行业strict新20高”仍同时放入大量失败，并漏掉部分局部赢家；不能直接据此准入C信用/资金反馈账户。本轮只给原买入链证据，不定gate、预算、阈值或新策略收益。
+
+范围/时钟：原No60 2022–23全部1557层，逐层切回2023Dec29共同cutoff LAYERS；与现成风险ENTRY的sid/cost/net/value/qty/closed逐值同，全部余股0。原budget_order decision CLOSE精确连接ar6共享原510300 causal reinvested totalreturn signal、原含今日inclusive63均值；斜率只比较两条原已存MA，未重算价格/MA。1557信号与初始risk均known，NA0。原signal_at/fill日/core-mobile/first-add-reentry/probe-confirmed保全。
+完整24月和22个ON/OFF episode均保留（真UP_CROSS10、DOWN11；Jan4继承warm ON的START_ON不冒充真up）。末期无原新买的episode/月照样保存。现成月actual buy/sell cash/fees/fillcounts只作交易链context，不重算月NAV/存量或phase财富。
+
+全1557原含费买款15427691.65、原net−254573.04=交易已实现−261335.88+AR6762.84；累计初始nominal risk1330579.06。nominal risk直接原actual_initial_nominal_risk（实填q×初始价到初始rawfloor距离，含原买滑点不含费）；求和是历次新承诺的累计量，绝非同时存量风险或可省损失，不用0.25%筛选。
+
+原MA格全母体（层/含费买款/累计初始risk/原2023cutoff net，元）
+ABOVE/up    416 /4087928.72 /403030.20 /−14209.98
+ABOVE/down  113 /1068099.55 /92512.20 /−44748.20
+BELOW/up    162 /1462065.47 /125455.60 /+38477.61
+BELOW/down  866 /8809597.93 /709581.06 /−234092.47
+EQUAL/flat/unknown等其它格均0且完整保存。这里DOWN严格指BELOW/down，等于MA不算BELOW。
+
+DOWN866格：原正242层+256856.79、原负624层−490949.27；不是禁止后能省23.41万。
+first422层/4211362.33/net−116100.68；add222/2642832.83/−62398.92；reentry222/1955402.77/−55592.87。
+core176/726814.51/net−21599.01、mobile690/8082783.42/−212493.46；probe235/net−18547.79、confirmed631/net−215544.69。所有分组同时给正负、fee/real/AR与risk。全部242个原正层保存在BELOW_DOWN_ALL_ORIGINAL_POSITIVE_ROWS.json，不只挑个别反例。
+
+父唯一追加：DOWN×当日行业strict C_t>H20_prior（直接已审LOCAL20 current/H20/known/event；不是persistent ON、无新参数/导出）
+TRUE268层/215股：含费买款2715158.59，累计初始risk213371.39，原正75层+73532.11、负193层−132713.62、净−59181.51。
+FALSE598层/415股：含费买款6094439.34，累计初始risk496209.67，原正167层+183324.68、负431层−358235.65、净−174910.97。
+UNKNOWN0。TRUE与FALSE全角色/动作/池/MA格及正负原成员均保留。新高格仍放193个原负层；非新高格仍有167个原正层。不能把该事件当新承诺质量证明或按未来赢家补豁免。
+TRUE原赢家包括上海电影2023Mar20 +12811.76、中大力德May22 +6173.56；FALSE仍有众生2022Oct14 +15505.48、中国出版2023Apr21 +7144.95、昊志Jun26 +4381.58。完整TRUE正/负层及所有FALSE原结果均可逐行复核，未把这些结果输入信号。
+
+固定原tail83全保：43个成员在2022–23轴内，另40个2024成员明确MA_UNKNOWN_OUTSIDE_AXIS（行业事件仍按原同clock存；其原2024标签钱不混1557/2023cutoff）。43个轴内成员又与原PVR2023截止钱账逐字段核同。
+其中DOWN/新高5尾层，原贡献+34634.63（中国医药2、众生、供销、上海电影）；DOWN/非新高13尾层，原贡献+46521.79（含曙光、中国出版、昊志等），无事件未知。这是固定原赢家标签覆盖，不是新政策必失/必得金额，未缩成No60同单或重挑名单。
+
+24月完整：DOWN新层主要集中2022Jan75/Mar132/Apr62/Sep69/Oct91及2023May140/Jun67等；所有0新单月份保留。逐月表的entry原cutoff net不称当月PnL；原actual交易月链与decision月、fill月分开，不能让月末下一OPEN错位。
+
+April2023重要正反例/存量边界：原No60全账户当月wealth+142183.41，MA63基准−11519.68，月gap+153703.09，三者已分列绑定pressure正式MONTHLY_WIDE。原Apr实际新fill99层、含费买款1017241.65，其到2023cutoff贡献+68955.42。Mar31期初原持有91层身份/原库存估值与Apr28期末身份已保存。没有现成April逐层periodwealth桥，因此新99层当月财富、期初91层当月财富均NOT_COMPUTED；绝不把142183.41−68955.42叫旧仓利润。该边界见APRIL2023_NEW_VS_CARRIED_BOUNDARY.json，未新增financial writer。
+
+交付：ALL_1557_ROWS、SUMMARY、ALL_24_MONTHS、ALL_EPISODES、全DOWN正层；追加MA_X_INDUSTRY_EVENT_ROWS/SUMMARY、FIXED_ORIGINAL_83_MA_X_EVENT、April边界、各输入SHA冻结。0新账户、0price/MA计算、0资金反馈系统，无强窗MA数据则不外推强窗。全部原cutoff贡献和事后赢家标签只作解释关联，未跑删单NAV或可实现节省；源与财务检查/独审另绑定。

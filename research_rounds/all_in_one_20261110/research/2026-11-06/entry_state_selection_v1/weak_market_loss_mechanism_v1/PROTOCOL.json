@@ -1,0 +1,10 @@
+{
+  "scope": "Read-only existing A_UNION_B path decomposition, no order/account/strategy change",
+  "core_formula": "K=q*entry_price+entry_fee; U_d=q*raw_close*.9995-dated_sell_fee(q,raw_close*.9995)-K",
+  "held_clock": "entry_day through original exit_day minus one common day inclusive; entry day is diagnostic only due to T+1",
+  "unknown": "entry through last_known_mark_day only; no terminal classification",
+  "bins": "max U<=0; 0<maxU/K<10%; 10%<=maxU/K<20%; >=20%. Descriptive, not entry filters.",
+  "timing": "Archived after interactive read-only analysis. No ex-ante/preregistration claim.",
+  "candidate": "No new candidate strategy executed. E0 last-UP permit was discovered already tested by parallel worker and not rerun here.",
+  "source_warning": "Fixed NON-PIT universe; conditionally tradable proxies; factor breaks remain unknown."
+}

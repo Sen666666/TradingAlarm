@@ -1,0 +1,106 @@
+"""Explain frozen F/E0 traces only. No new signals, trading or returns."""
+from pathlib import Path
+import json, hashlib
+import pandas as pd
+import numpy as np
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+
+ROOT=Path(__file__).resolve().parents[3]
+OUT=Path(__file__).resolve().parents[1]
+PH=ROOT/'research_rounds/ph1-cross-sector-20261028'
+PREP=ROOT/'TradingAlarm/runtime/market/update-20261027-153013-2ffe04/prepared'
+plt.rcParams.update({'font.sans-serif':['Arial Unicode MS'],'axes.unicode_minus':False,'font.size':12})
+COL={'price':'#263844','F':'#d37517','E0':'#087f8c'}
+def read(p):return json.loads(p.read_text())
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def save(p,x):
+ with p.open('x') as f:json.dump(x,f,ensure_ascii=False,indent=2,allow_nan=False)
+FROZEN=read(PH/'completion-sha256.json')['sha256']
+INPUTS={}
+def checked(p):
+ h=sha(p);assert h==FROZEN[str(p)],p;INPUTS[str(p)]=h
+ return p
+SUMMARY=read(checked(PH/'shadow/summary.json'))
+CASES=[
+ dict(sid='688498.SH',start='2025-10-15',end='2026-02-27',file='yuanjie',subtitle='F提前退出，随后上涨继续',F_raise='2025-11-19',E_raise='2025-12-08'),
+ dict(sid='002987.SZ',start='2025-06-26',end='2025-11-14',file='jingbeifang',subtitle='F提前退出，少经历后面的持续回落',F_raise='2025-08-21',E_raise=None),
+]
+def callout(ax,xy,text,pos,color):
+ ax.annotate(text,xy=xy,xytext=pos,textcoords='axes fraction',fontsize=12,
+  ha='left',va='top',linespacing=1.45,color=color,
+  bbox=dict(boxstyle='round,pad=.5',fc='white',ec=color,alpha=.96,lw=1),
+  arrowprops=dict(arrowstyle='->',lw=1.5,color=color,connectionstyle='arc3,rad=.06'))
+
+def draw(c):
+ sid=c['sid'];meta=next(x for x in SUMMARY['cases'] if x['symbol']==sid)
+ rawpath=PREP/'signals'/f'{sid}.parquet'
+ # Previous admission froze the actual source market files, not just the trace.
+ h=sha(rawpath);expected=SUMMARY['input_sha256'][str(rawpath)];assert h==expected
+ INPUTS[str(rawpath)]=h
+ facts=PREP/'facts'/f'{sid}.parquet';assert sha(facts)==SUMMARY['input_sha256'][str(facts)];INPUTS[str(facts)]=sha(facts)
+ bars=pd.read_parquet(rawpath).reindex(pd.read_parquet(facts).index).loc[c['start']:c['end']]
+ rr=read(checked(PH/f'shadow/TECH-{sid}-trace.json'))
+ traces={p:[r for r in rr if r['policy']==p and c['start']<=r['date']<=c['end']] for p in ['E0','F']}
+ anchor=float(meta['opening_price']);norm=lambda x:float(x)/anchor*100
+ entry=pd.Timestamp(meta['entry_at'][:10]);name=meta['name']
+ fig=plt.figure(figsize=(14.4,8.9),facecolor='white')
+ gs=fig.add_gridspec(3,1,height_ratios=[5.4,1.1,.75],hspace=.09)
+ ax=fig.add_subplot(gs[0]);av=fig.add_subplot(gs[1],sharex=ax);ah=fig.add_subplot(gs[2],sharex=ax)
+ ax.plot(bars.index,bars.close/anchor*100,c=COL['price'],lw=1.9,label='实际收盘走势（共同入场开盘=100）',zorder=3)
+ ax.fill_between(bars.index,bars.low/anchor*100,bars.high/anchor*100,color='#c5ced4',alpha=.25,label='日内高低范围',zorder=1)
+ events={}
+ for p in ['E0','F']:
+  rs=traces[p];ts=pd.to_datetime([r['date'] for r in rs]);before=[norm(r['P_before']) for r in rs]
+  ax.step(ts,before,where='post',c=COL[p],ls='--' if p=='F' else '-',lw=2.2,label=f'{p} 当日生效保护',zorder=4)
+  assert all(r['P_after']>=r['P_before'] for r in rs)
+  xs=[r for r in rs if r['exit_required']]
+  end=pd.Timestamp(xs[0]['date']) if xs else pd.Timestamp(c['end'])
+  if xs:
+   r=xs[0];ax.scatter(end,norm(r['obs']['close']),marker='X',s=115,c=COL[p],edgecolor='white',lw=.8,zorder=9)
+  ah.plot([entry,end],[1 if p=='F' else 0]*2,color=COL[p],lw=9,solid_capstyle='butt')
+  ah.scatter(end,1 if p=='F' else 0,marker='X' if xs else '>',s=60,c=COL[p],zorder=5)
+  events[p]=dict(exit=xs[0] if xs else None,raises=[r for r in rs if r['P_after']>r['P_before']])
+ ax.axvline(entry,c='#526575',lw=1,ls=':');ax.scatter(entry,100,marker='D',s=64,c='#526575',edgecolor='white',zorder=8)
+ frow=next(r for r in traces['F'] if r['date']==c['F_raise'])
+ assert frow['F_applied'] and frow['P_after']>frow['P_before']
+ pivot=pd.Timestamp(frow['obs']['F_pivot_at'][:10]);py=norm(frow['obs']['F_pivot'])
+ ax.scatter(pivot,py,s=100,facecolor='white',edgecolor=COL['F'],lw=2,zorder=8)
+ ax.scatter(pd.Timestamp(frow['date']),norm(frow['P_after']),marker='^',s=80,c=COL['F'],zorder=9)
+ ax.plot([pivot,pd.Timestamp(frow['date'])],[py,py],c=COL['F'],ls=':',lw=1.5,zorder=5)
+ fe=events['F']['exit'];fd=pd.Timestamp(fe['date']);fy=norm(fe['obs']['close'])
+ ee=events['E0']['exit'];ed=pd.Timestamp(ee['date']) if ee else pd.Timestamp(c['end'])
+ ax.axvspan(fd,ed,color=COL['E0'],alpha=.045,zorder=0)
+ if c['file']=='yuanjie':
+  callout(ax,(pd.Timestamp(frow['date']),py),f"① 11/17低点出现，11/19收盘才确认\nF保护 {norm(frow['P_before']):.1f} → {py:.1f}，下一观察生效",(.035,.96),COL['F'])
+  callout(ax,(fd,fy),f"② 11/24：收盘 {fy:.2f} ≤ F保护 {norm(fe['P_before']):.2f}\n触发F退出；E0当时保护仍为 {norm(traces['E0'][0]['P_before']):.1f}",(.035,.58),COL['F'])
+  er=next(r for r in traces['E0'] if r['date']==c['E_raise']);assert er['P_after']>er['P_before']
+  callout(ax,(pd.Timestamp(er['date']),norm(er['P_after'])),f"③ E0等到12/08才抬保护\n确认的是11/24那个更低的新低点\nE0继续持有至图窗末，未触发退出",(.58,.47),COL['E0'])
+  ax.text(.98,.92,'F退出后，价格随后继续上涨',ha='right',transform=ax.transAxes,color=COL['price'],fontsize=13)
+ else:
+  callout(ax,(pd.Timestamp(frow['date']),py),f"① 8/21：F额外确认8/20低点\nF保护 {norm(frow['P_before']):.1f} → {py:.1f}\nE0没有确认这次较小摆动",(.035,.96),COL['F'])
+  callout(ax,(fd,fy),f"② 9/02：收盘 {fy:.2f} ≤ F保护 {norm(fe['P_before']):.2f}\n触发F退出，E0仍继续持有",(.57,.96),COL['F'])
+  callout(ax,(pd.Timestamp(ee['date']),norm(ee['obs']['close'])),f"③ 11/11：E0才触发退出\n收盘 {norm(ee['obs']['close']):.2f} ≤ 保护 {norm(ee['P_before']):.2f}",(.61,.33),COL['E0'])
+ ax.set_ylabel('归一化价格（共同起点=100）');ax.set_ylim(bottom=min(bars.low.min()/anchor*100,norm(meta['E_entry']))*.94)
+ ax.margins(y=.12);ax.legend(loc='lower left',fontsize=10,ncol=2,framealpha=.96)
+ av.bar(bars.index,bars.amount/1e8,width=1.4,color=np.where(bars.close.diff().ge(0),'#c97772','#5c9994'),alpha=.85)
+ av.set_ylabel('成交额\n亿元',fontsize=10);av.tick_params(axis='y',labelsize=9)
+ ah.set_yticks([0,1],['E0 观察期','F 观察期']);ah.set_ylim(-.55,1.55);ah.spines[['top','right','left']].set_visible(False);ah.grid(axis='x',alpha=.15)
+ ah.xaxis.set_major_locator(mdates.MonthLocator());ah.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))
+ for a in [ax,av]:a.grid(alpha=.14);a.tick_params(axis='x',labelbottom=False)
+ for a in [ax,av,ah]:a.set_xlim(bars.index[0],bars.index[-1]+pd.Timedelta(days=1))
+ fig.suptitle(f'{name} {sid}  |  {c["subtitle"]}',fontsize=19,y=.985)
+ fig.text(.5,.938,f'同一观察起点：{entry:%Y-%m-%d}；只比较一笔持仓的E0/F保护，暂停、名额及再次买入均不参与此图',ha='center',fontsize=11,color='#526575')
+ fig.text(.5,.018,'空心圈=低点发生；三角=之后才确认；X=收盘退出判定，下一可成交开盘执行。下方色带截至退出判定，非卖出成交。\n保护线为当日判断使用的旧保护；确认日抬升的新保护从下一观察使用。成交金额仅展示，F公式仍用成交股数。',ha='center',fontsize=10,color='#526575',linespacing=1.6)
+ fig.subplots_adjust(top=.905,bottom=.10,left=.075,right=.985)
+ path=OUT/f'{c["file"]}.png';fig.savefig(path,dpi=150);plt.close(fig)
+ return dict(symbol=sid,name=name,entry_at=meta['entry_at'],anchor_kind=meta['anchor_kind'],normalization_anchor=anchor,E_entry=meta['E_entry'],image=str(path),F_raise=frow,F_exit=fe,E0_exit=ee,E0_raises=events['E0']['raises'])
+
+def main():
+ assert not (OUT/'explanation.json').exists()
+ data=[draw(c) for c in CASES]
+ save(OUT/'explanation.json',dict(cases=data,input_sha256=INPUTS,code_sha256=sha(Path(__file__)),new_signal_computations=0,new_accounts=0,new_returns=0,ACT_always_on=True,reentry=False,note='Common old-account entry anchors, single-position counterfactual comparison; not two portfolio paths or actual F fills'))
+ print('two charts and verified frozen traces saved')
+if __name__=='__main__':main()

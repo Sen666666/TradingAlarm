@@ -1,0 +1,12 @@
+{
+  "scope": "8335 first window/sid/source-I-epoch original sector-rejected CORE; q_min isolated native labels only",
+  "single_pass_limit_seconds": 120.0,
+  "new_portfolio_policy_accounts": 0,
+  "source_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/labels_new/run_first_reject_labels.py": "ba9c847cdca31866a2a86721cb3e8b174eea414a9b5772573fb985511f165554",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/labels_new/native_single_asset.py": "26ce54fa7226452022303f0178d0d539b05abf138739c17061b68ddc524f1a33",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/labels_new/TECHNICAL_CALIBRATION_RESULT.json": "46caaa4ed3b71b449f97a5f0f650680f9facfc4f8d5f6fba32f0bd4b0455be71",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/MATCHED_PROTOCOL.txt": "a52827c0f9b45c5e3b880d4edc0dd4ef87f36a86c1732a2cabb1d7104d327b01",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/events/CORE_SECTOR_REJECT_EVENTS_WITH_PREFIX.jsonl.gz": "9f5a379e79ea0ddb0dafd72584befd7eff0daae65d69499b0dcb4d68756311fe"
+  }
+}

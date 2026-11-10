@@ -1,0 +1,23 @@
+{
+  "version": "PRICE-PERMISSION-2-FROZEN-PENDING-FAILURE",
+  "frozen_for": "main review and independent review in another task",
+  "historical_FSM_outputs": 0,
+  "account_runs": 0,
+  "data_downloads": 0,
+  "orders": 0,
+  "unknown_transition_boundaries_unresolved": [],
+  "latest_ruling": "explicit immutable pending_price_failure, no waiting credit; first complete future observation only forward-classifies; <= old line counts as failure",
+  "file_sha256": {
+    "audit_inputs.py": "3c96157ea15d83538b2c40b648965e5d251398c29f1530cd9272081955229aea",
+    "signal_core.py": "962275bd41b5c7bbc062a1191780a6b6a9c616f8d3097ea669b602eabbc9ac59",
+    "synthetic_runner.py": "e62f28f0bc9633f50268809eef5d8254c81b84087b7defb8fb1b7a4773ccc5ee",
+    "test_signal_core.py": "a4337336103abe9e0b0ee8d8790c385e069dc667ce5e43478dcceff6a65951f4",
+    "verify.py": "06caa23c10c026366dc8b88b2ec457cd6929f8afd04c478434bd9648c94627c3",
+    "CONTRACT.md": "c3914aed1896563253961ea40d6065614a115cef21e13a93e1e74ad71779c54a",
+    "REPORT.md": "7becda6c584635f6965ba9826ad32924564574fb91012490bea2bd47bb508660",
+    "TEST_LOG.txt": "59c6ed2aa8f1d49077c43e8c729b116093f3e08361e92b6133f80a12035a25eb",
+    "VERIFICATION.json": "e955e7f103f6adfd038853c193554fecd940ecfeb46b95c5f6fe11a6cba6bce7",
+    "INPUT_SHA256.json": "2dd7eaa4b3edbcac36c01dcafce7aca84192af97d8442696eadff5317695e56e",
+    "HISTORICAL_INPUT_READINESS.json": "5f5dfd19fd2fcda0b5bd0f5ba5ffad95c5c2284eb54ad804513457b5f0b49b4d"
+  }
+}

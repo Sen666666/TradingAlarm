@@ -1,0 +1,27 @@
+{
+  "case_n": 22,
+  "stock_n": 19,
+  "strict_known_n": 18,
+  "strict_unknown_n": 4,
+  "original_mechanical_score_known_n": 22,
+  "max_saved_score_error": 0.0,
+  "AST_exact_original_pair": true,
+  "raw_rows": 1870,
+  "daily_contribution_rows": 462,
+  "prefix_exact_n": 22,
+  "future_poison_exact_n": 22,
+  "max_unit_error": 3.502975687297294e-12,
+  "no_new_formula_applied": true,
+  "account_runs": 0,
+  "consumer_runs": 0,
+  "parameter_searches": 0,
+  "context_counts": {
+    "EXISTING_COMPLETE_FEE_NET_PROFIT": 8,
+    "EXISTING_COMPLETE_FEE_NET_LOSS": 7,
+    "NO_EXACT_ORIGINAL_PRICE_ROUND": 4,
+    "Q0_NOT_TRADE_NOT_WINNER": 3
+  },
+  "old_positive_masks_recent1_negative_n": 0,
+  "old_positive_masks_recent3_negative_n": 0,
+  "old_positive_masks_recent5_negative_n": 0
+}

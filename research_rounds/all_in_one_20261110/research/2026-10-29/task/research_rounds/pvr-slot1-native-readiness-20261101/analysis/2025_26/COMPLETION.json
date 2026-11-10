@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "new_account_runs": 0,
+  "SC_book_sha256": "de9eddb936dab5a8872c3c916cc1c02c596bfa8fcfeb6dcbca30a1b03e78c01a",
+  "PVR_SLOT1_book_sha256": "bd3c46b681adc95dec2c025118b299974f200f0107033f5e73f87dd81ef0ac0a",
+  "temporal_wait_math_sha256": "59d9817272e51891617ae08e8795b53f2aea705c4526b4e3428d00b838446e2f",
+  "audited_cashflow_math_sha256": "7d933987a56ff32ffc9de11c3b0384d79dc2a13a6f12eba4ac5ab454c7791e50",
+  "analysis_sha256": "173beb3d67c210f2cc91b408c89c29704f00c8f14b81b8d9af0a7717047f4a34",
+  "layer_stock_cashflow_contribution_and_inventory_bridges": true
+}

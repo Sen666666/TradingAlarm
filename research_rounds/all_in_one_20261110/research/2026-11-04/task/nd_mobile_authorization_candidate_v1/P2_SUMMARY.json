@@ -1,0 +1,268 @@
+{
+  "scope": "original reserve association, not policy or original duplicate-consumption bug",
+  "results": {
+    "long": {
+      "reservations": 1137,
+      "reservation_classes": {
+        "UNKNOWN_INHERITED_OR_NO_FILLED_METADATA": 25,
+        "FIRST_ORIGINAL_RESERVE": 529,
+        "REUSED_AFTER_ORIGINAL_RESERVE": 583
+      },
+      "groups": {
+        "all_mobile": {
+          "FIRST_ORIGINAL_RESERVE": {
+            "layers": 514,
+            "cost": "6994933.0892625975650",
+            "original_net": "-78050.99705583281315106790187",
+            "positive": "311520.5592719108412828889377",
+            "negative": "-389571.5563277436544339568396"
+          },
+          "ORIGINAL_PROBE_NO_CONFIRMED_GRANT_REQUIRED": {
+            "layers": 112,
+            "cost": "519959.4492762763040",
+            "original_net": "-30678.86397864236915947842892",
+            "positive": "9841.595167431598306904830764",
+            "negative": "-40520.45914607396746638325969"
+          },
+          "REUSED_AFTER_ORIGINAL_RESERVE": {
+            "layers": 576,
+            "cost": "7628301.4469160156090",
+            "original_net": "-87600.14888769308069520636047",
+            "positive": "308466.1237164556888146056841",
+            "negative": "-396066.2726041487695098120449"
+          },
+          "UNKNOWN_INHERITED_OR_NO_FILLED_METADATA": {
+            "layers": 23,
+            "cost": "391344.1284108935455",
+            "original_net": "-25876.7536775045805",
+            "positive": "1520.3853317515000",
+            "negative": "-27397.1390092560805"
+          }
+        },
+        "June22_ND": {
+          "FIRST_ORIGINAL_RESERVE": {
+            "layers": 40,
+            "cost": "623501.1402495073970",
+            "original_net": "-809.683169172203798245614038",
+            "positive": "38093.02727946153570175438597",
+            "negative": "-38902.7104486337395"
+          },
+          "ORIGINAL_PROBE_NO_CONFIRMED_GRANT_REQUIRED": {
+            "layers": 3,
+            "cost": "14033.108138293500",
+            "original_net": "-1336.1875413520800",
+            "positive": "0",
+            "negative": "-1336.1875413520800"
+          },
+          "REUSED_AFTER_ORIGINAL_RESERVE": {
+            "layers": 23,
+            "cost": "350845.2039649088290",
+            "original_net": "4928.82441397360866666666667",
+            "positive": "23094.80121328700066666666667",
+            "negative": "-18165.9767993133920"
+          }
+        },
+        "MarApr23_ND": {
+          "FIRST_ORIGINAL_RESERVE": {
+            "layers": 32,
+            "cost": "470267.6868277652695",
+            "original_net": "25561.11501700206351010101011",
+            "positive": "47217.45360417437695454545455",
+            "negative": "-21656.33858717231344444444444"
+          },
+          "ORIGINAL_PROBE_NO_CONFIRMED_GRANT_REQUIRED": {
+            "layers": 10,
+            "cost": "83498.1067691917040",
+            "original_net": "-3583.744763355236377622377625",
+            "positive": "656.959907050140545454545455",
+            "negative": "-4240.70467040537692307692308"
+          },
+          "REUSED_AFTER_ORIGINAL_RESERVE": {
+            "layers": 49,
+            "cost": "658865.1645975049805",
+            "original_net": "65743.80948894328894444444444",
+            "positive": "98286.30404041422777777777777",
+            "negative": "-32542.49455147093883333333333"
+          }
+        },
+        "Feb24_ND": {
+          "FIRST_ORIGINAL_RESERVE": {
+            "layers": 20,
+            "cost": "267885.1810298961100",
+            "original_net": "37539.66118010040973913043478",
+            "positive": "39951.1645916680380",
+            "negative": "-2411.50341156762826086956522"
+          },
+          "ORIGINAL_PROBE_NO_CONFIRMED_GRANT_REQUIRED": {
+            "layers": 2,
+            "cost": "2036.1423674012500",
+            "original_net": "-3.3178751090000",
+            "positive": "37.9118716025000",
+            "negative": "-41.2297467115000"
+          },
+          "REUSED_AFTER_ORIGINAL_RESERVE": {
+            "layers": 34,
+            "cost": "440196.0928646849000",
+            "original_net": "10556.42280368368351648351649",
+            "positive": "21322.14262637959761904761905",
+            "negative": "-10765.71982269591410256410256"
+          }
+        },
+        "Sep24_resume": {
+          "FIRST_ORIGINAL_RESERVE": {
+            "layers": 27,
+            "cost": "408477.4691945812920",
+            "original_net": "15464.38591801006282608695652",
+            "positive": "24287.6956103203650",
+            "negative": "-8823.309692310302173913043483"
+          },
+          "ORIGINAL_PROBE_NO_CONFIRMED_GRANT_REQUIRED": {
+            "layers": 4,
+            "cost": "14405.1105264828500",
+            "original_net": "-2716.5795366748000",
+            "positive": "4.5666624128000",
+            "negative": "-2721.1461990876000"
+          },
+          "REUSED_AFTER_ORIGINAL_RESERVE": {
+            "layers": 19,
+            "cost": "274379.6455188665000",
+            "original_net": "5163.32383406948076923076923",
+            "positive": "10454.11671951053076923076923",
+            "negative": "-5290.7928854410500"
+          }
+        },
+        "post924_new": {
+          "FIRST_ORIGINAL_RESERVE": {
+            "layers": 90,
+            "cost": "1170487.0332416790675",
+            "original_net": "-42717.70870406804527053140095",
+            "positive": "50412.83852126203346692523164",
+            "negative": "-93130.54722533007873745663259"
+          },
+          "ORIGINAL_PROBE_NO_CONFIRMED_GRANT_REQUIRED": {
+            "layers": 19,
+            "cost": "93673.3607884554800",
+            "original_net": "-7921.311733457405097308488614",
+            "positive": "2092.798566798128571428571428",
+            "negative": "-10014.11030025553366873706004"
+          },
+          "REUSED_AFTER_ORIGINAL_RESERVE": {
+            "layers": 118,
+            "cost": "1420936.9614796691075",
+            "original_net": "-56706.16840535704037382414143",
+            "positive": "48565.05362403314946608946608",
+            "negative": "-105271.2220293901898399136075"
+          }
+        }
+      }
+    },
+    "strong": {
+      "reservations": 766,
+      "reservation_classes": {
+        "UNKNOWN_INHERITED_OR_NO_FILLED_METADATA": 52,
+        "FIRST_ORIGINAL_RESERVE": 324,
+        "REUSED_AFTER_ORIGINAL_RESERVE": 390
+      },
+      "groups": {
+        "all_mobile": {
+          "FIRST_ORIGINAL_RESERVE": {
+            "layers": 319,
+            "cost": "6722958.5286071604530",
+            "original_net": "435553.1727174067592540160056",
+            "positive": "836812.0381906355463235294118",
+            "negative": "-401258.8654732287870695134061"
+          },
+          "ORIGINAL_PROBE_NO_CONFIRMED_GRANT_REQUIRED": {
+            "layers": 82,
+            "cost": "724794.3307475918965",
+            "original_net": "32779.18293365079738573999101",
+            "positive": "81591.37861398417570448849395",
+            "negative": "-48812.19568033337831874850296"
+          },
+          "REUSED_AFTER_ORIGINAL_RESERVE": {
+            "layers": 379,
+            "cost": "7625315.3627388561390",
+            "original_net": "472007.3375420762776455312496",
+            "positive": "840927.0357022282013337032926",
+            "negative": "-368919.6981601519236881720430"
+          },
+          "UNKNOWN_INHERITED_OR_NO_FILLED_METADATA": {
+            "layers": 49,
+            "cost": "818628.5761048612280",
+            "original_net": "168561.5295945443930",
+            "positive": "183129.4263248693130",
+            "negative": "-14567.8967303249200"
+          }
+        },
+        "fixed_688146.SH": {
+          "FIRST_ORIGINAL_RESERVE": {
+            "layers": 1,
+            "cost": "31486.244421603510",
+            "original_net": "127480.402778396490",
+            "positive": "127480.402778396490",
+            "negative": "0"
+          },
+          "REUSED_AFTER_ORIGINAL_RESERVE": {
+            "layers": 2,
+            "cost": "46375.0381659087710",
+            "original_net": "105959.2595031648530",
+            "positive": "105959.2595031648530",
+            "negative": "0"
+          }
+        },
+        "fixed_301319.SZ": {
+          "FIRST_ORIGINAL_RESERVE": {
+            "layers": 2,
+            "cost": "36941.3344687655000",
+            "original_net": "68678.1060564596000",
+            "positive": "69642.3469354866000",
+            "negative": "-964.2408790270000"
+          },
+          "REUSED_AFTER_ORIGINAL_RESERVE": {
+            "layers": 1,
+            "cost": "23619.3140805120500",
+            "original_net": "49289.2359194879500",
+            "positive": "49289.2359194879500",
+            "negative": "0"
+          }
+        },
+        "fixed_300489.SZ": {
+          "FIRST_ORIGINAL_RESERVE": {
+            "layers": 1,
+            "cost": "23814.4240862618000",
+            "original_net": "69770.5759137382000",
+            "positive": "69770.5759137382000",
+            "negative": "0"
+          },
+          "REUSED_AFTER_ORIGINAL_RESERVE": {
+            "layers": 2,
+            "cost": "28820.2436182477000",
+            "original_net": "64764.7563817523000",
+            "positive": "64764.7563817523000",
+            "negative": "0"
+          }
+        },
+        "fixed_601869.SH": {
+          "FIRST_ORIGINAL_RESERVE": {
+            "layers": 2,
+            "cost": "29526.641895475000",
+            "original_net": "45220.8860030222000",
+            "positive": "45220.8860030222000",
+            "negative": "0"
+          }
+        }
+      }
+    }
+  },
+  "seconds": 1.1127733341418207,
+  "source_SHA256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/nd_mobile_authorization_candidate_v1/ROWS.json": "b3fdf654b09b69a29cf13c5cb25dd9ce65295965d937e86c544453aa32c8d2ce",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1/pair/D_GROSS10.json.gz": "25d1c4b0281ca82d3fbc4f03ee47ef921fe0b151c1f22b2eb971d47ba9ea1690",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1/pair/industry.jsonl.gz": "1c1f40597c6fd3b668e81112a7d6ea427e42921a49bcf3bbced259fb5d852288",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1/pair/funding.jsonl.gz": "a039e8a0887737ce72de30485d025ecd8fdbb8f1bb663746b44a406e0a3d44b5",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-strong-v1/pair/D_GROSS10.json.gz": "9e77978407f3a55d9fa01578c231f1d6c960086a5e7a8a995e90074726a1b828",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-strong-v1/pair/industry.jsonl.gz": "47016da4569f148ba5016c861f53f3e8df5d66a10e56a67c2556ec0c186b6fb9",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-strong-v1/pair/funding.jsonl.gz": "b85cc3e99a4c1738dd27a2142ed95efc91c114dcf853fc7f04d93d7acd55dc6d"
+  },
+  "no_account_or_indicators": true
+}

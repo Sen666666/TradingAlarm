@@ -1,0 +1,112 @@
+{
+  "2022": {
+    "all_registered": 4127,
+    "all_actual_proxy_buy": 4102,
+    "all_actual_sell_all": 3677,
+    "actual_buy_lanes": {
+      "AB": 1707,
+      "PRICE": 2395
+    },
+    "actual_transitions": {
+      "FIRST_WINDOW_BUY": 1456,
+      "AB->PRICE": 550,
+      "PRICE->AB": 621,
+      "PRICE->PRICE": 861,
+      "AB->AB": 614
+    },
+    "PRICE_actual_buy": 2395,
+    "PRICE_reentries_after_any_lane": 1411,
+    "PRICE_reentry_root_birth_relation": {
+      "AFTER": 1408,
+      "SAME_DAY": 3
+    },
+    "PRICE_repeat_any_previous_PRICE": 1102,
+    "PRICE_repeat_I_epoch_relation": {
+      "DIFFERENT": 1098,
+      "SAME": 4
+    },
+    "PRICE_reentry_I_epoch_previous_any_relation": {
+      "DIFFERENT": 1407,
+      "SAME": 4
+    },
+    "PRICE_reentry_phase": {
+      "CONFIRMED": 1186,
+      "PROBE": 219,
+      "PROBE_AMOUNT_UNKNOWN": 6
+    },
+    "PRICE_reentry_signal_vs_exit": {
+      "AFTER": 1408,
+      "SAME_DAY": 3
+    },
+    "PRICE_first_window_root_before_start": 286,
+    "PRICE_first_window_count": 984,
+    "root_duplicates": {},
+    "receipt_duplicates": {},
+    "probe_parent_duplicates": {},
+    "selected_signal_duplicates": {},
+    "unknown_all": 445,
+    "unknown_PRICE": 353,
+    "unknown_after_positive_buy": 425,
+    "PRICE_unknown_after_positive_buy": 340,
+    "q0_no_submit": 3,
+    "q0_later_same_root_first_buy": 1,
+    "legal_AB_suppression": 309,
+    "legal_AB_suppressed_then_selected_no_buy": 3,
+    "sell_add_not_flat": 233,
+    "actual_broker_fills_provided": 0,
+    "negative_assertions": []
+  },
+  "2024": {
+    "all_registered": 1950,
+    "all_actual_proxy_buy": 1934,
+    "all_actual_sell_all": 1826,
+    "actual_buy_lanes": {
+      "PRICE": 1198,
+      "AB": 736
+    },
+    "actual_transitions": {
+      "FIRST_WINDOW_BUY": 1504,
+      "PRICE->AB": 131,
+      "AB->PRICE": 74,
+      "PRICE->PRICE": 141,
+      "AB->AB": 84
+    },
+    "PRICE_actual_buy": 1198,
+    "PRICE_reentries_after_any_lane": 215,
+    "PRICE_reentry_root_birth_relation": {
+      "AFTER": 215
+    },
+    "PRICE_repeat_any_previous_PRICE": 150,
+    "PRICE_repeat_I_epoch_relation": {
+      "DIFFERENT": 150
+    },
+    "PRICE_reentry_I_epoch_previous_any_relation": {
+      "DIFFERENT": 215
+    },
+    "PRICE_reentry_phase": {
+      "CONFIRMED": 164,
+      "PROBE": 50,
+      "PROBE_AMOUNT_UNKNOWN": 1
+    },
+    "PRICE_reentry_signal_vs_exit": {
+      "AFTER": 215
+    },
+    "PRICE_first_window_root_before_start": 162,
+    "PRICE_first_window_count": 983,
+    "root_duplicates": {},
+    "receipt_duplicates": {},
+    "probe_parent_duplicates": {},
+    "selected_signal_duplicates": {},
+    "unknown_all": 113,
+    "unknown_PRICE": 86,
+    "unknown_after_positive_buy": 108,
+    "PRICE_unknown_after_positive_buy": 83,
+    "q0_no_submit": 9,
+    "q0_later_same_root_first_buy": 3,
+    "legal_AB_suppression": 408,
+    "legal_AB_suppressed_then_selected_no_buy": 1,
+    "sell_add_not_flat": 159,
+    "actual_broker_fills_provided": 0,
+    "negative_assertions": []
+  }
+}

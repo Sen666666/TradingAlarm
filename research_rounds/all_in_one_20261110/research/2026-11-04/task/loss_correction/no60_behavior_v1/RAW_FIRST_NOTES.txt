@@ -1,0 +1,45 @@
+Stage-one notes after viewing SIX_RAW_OHLCV.png, before making state/trade
+overlay. Selection was already result-based; this is consumed development.
+
+Estun: several short up moves fail to escape the 20-26 raw-price range through
+April; the strong up move occurs in May-June, with ordinary pullbacks during
+that move. Initial explanation: capital committed during range failures can
+be lost before a later real trend. Alternative: losses may come from genuine
+earlier expansion then normal reversal, not a lack of progress; need entry
+and protection dates. Never infer a fixed wait time from the plot.
+
+Youpon: price rises in steps, particularly around year-end, then drops and
+recovers, ending far above the initial quote. A negative account case within
+this chart can be timing/role/exit and retry sequencing, not a bad stock.
+Alternative: resource-induced late admissions may be exposed to a valid
+but mature move; a tighter universal exit would also cut later winners.
+
+Puran: repeated upward legs with consolidations, not an unbroken line. An
+entirely unheld account must first be checked for missing market eligibility,
+minimum-size/resource blockage, not blamed on protection. The nominal price
+becomes high enough that STAR initial 200 shares could consume a meaningful
+2pct trial. Alternative: no fresh CP1 during an affordable period or genuine
+industry-stage/quality failure, so removing a capital gate may be irrelevant.
+
+Pioneer: long range and failed upward legs before a late sharp rise. An actual
+failed attempt can be one such failed leg, or normal temporary retreat before
+the later rise. Chart alone cannot distinguish these in real time. Any exit
+change needs a reentry accounting and must keep this later rise as a missed
+opportunity counterexample, not call the old exit an obvious mistake.
+
+Jiamei: prolonged quiet base, a very sharp discontinuous expansion around
+year-end, then large pullbacks and a persistent decline. Tail gain may be
+from pre-expansion admission/size rather than a better exit. Alternative:
+an added layer late in the move can lose while an earlier layer still wins;
+full-stock return and one loss layer must not be conflated.
+
+LightPath: long flat range then rising stages from March with several local
+pullbacks, accelerating late in the window. Removing normal retreat would
+risk the ongoing tail. Alternative: extra profit could be larger amount or
+more additions rather than more holding time. Terminal value is marked,
+not realized, and the six-month tail has no evidence beyond June30.
+
+Across the raw plots, both designated losing stocks eventually trend strongly.
+The useful diagnostic unit must be actual capital attempt plus contemporaneous
+structure/role; a terminal winner label cannot justify different rules on the
+earlier range. No candidate policy or threshold was selected in this stage.

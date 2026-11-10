@@ -1,0 +1,44 @@
+All prior attempts retained. No financial historical event or baseline rerun.
+
+ATTEMPT01: 13/15 new tests passed, 2 test expectations failed:
+- Saved display name '柳    工' was compared to '柳工'; reader now strips spaces.
+- Actual window price differed from the original native cash preview: amendment
+  cap336 but native affordability filled305. Correct test is fill<=amended cap,
+  plus both obey R0. Original cash/fee affordability was intentionally retained.
+Original test file retained failures/attempt01; complete logs and state outputs
+under ATTEMPT01* / attempt01. Adapter did not need a policy fix for these.
+
+ATTEMPT02: 15/15 passed. Source at that stage retained in failures/attempt02-source.
+Then added runtime immutable-input hash checks instead of repeated full C solves
+inside each observer, retaining full solving on register/restore.
+
+ATTEMPT03: 15/16 passed; synthetic 1.4 split fixture assumed1020 shares at price98,
+but original 10% gross cap allows1019. Changed fixture to99.4 (1005 shares) so all
+supported lot/partial counts are exactly divisible for the1.4 action. No native
+rounding, lot or cap rule changed. Old test file in failures/attempt03.
+
+Initial regression reuse: 38/38 assertions each on/off passed, then report export
+failed because inherited BASE name referred to V3 rather than mixed-source test
+root. Fixed the adapter's exported path constant. Logs REGRESSION_* remain.
+First post-path-fix test helper import loaded the frozen mixed file a second time
+and replaced Python's pickle class registry (37/38 and15/16 import-related errors).
+Test harness now explicitly reuses the already loaded frozen module object;
+no native trading source altered. Old harness files and complete traces preserved
+in failures/duplicate-test-import, FINAL_V1_* and their directories.
+
+Verified phase: 16 new +38off+38on all passed under a9c0ae... adapter. A further
+adversarial check found its permanent shrink remainder was guarded indirectly
+by native qty but not replayed for a never-reserved rejected authorization.
+Added an explicit quantity/fill journal invariant and resurrection regression.
+Old source retained pre-shrink-journal-guard. Final release adds independent new
+fresh-receipt test. The release-* directories are the intermediate02ffea adapter evidence. No failed financial path was hidden or restarted.
+
+Parent factual audit clarification:88/87 are stock authorization entries inside
+23distinct certificates per mode. Added same-certificate cross-stock no-borrow
+regression; key is certificate_id|sid with immutable canonical receipt binding.
+19/19 passed on02ffea. A final completeness check added equality between native
+C authority orders/fills and risk-book mappings, so missing risk records cannot
+silently fall through to an unguarded path. Added missing-order/missing-fill
+regression.02ffea source preserved in pre-coverage-guard. Final audit-* directories
+are the only final b447dcb4... adapter validation. Original financial data/source
+remains untouched throughout; all executions are generated-price synthetics.

@@ -1,0 +1,124 @@
+{
+  "contract": "a26b1959379ed6c7e8d82e35f9d3fca9dd050caa5e824850a0d75543005bcc50",
+  "parent": {
+    "parent_adapter": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-broad-s-concentrated-native-r3-20261101/native_capital.py",
+    "parent_sha256": "9b2f8f238ae60cc46564493c01c05320b418161e252036a5917b9d603be6c58e",
+    "contract": "a26b1959379ed6c7e8d82e35f9d3fca9dd050caa5e824850a0d75543005bcc50",
+    "scope": "R4 outstanding funding coverage persistence, cancel/ACK separation and bounded synthetic regressions; no historical financial events"
+  },
+  "binding": {
+    "contract": "a26b1959379ed6c7e8d82e35f9d3fca9dd050caa5e824850a0d75543005bcc50",
+    "sources": {
+      "/Users/bytedance/Documents/ChatGPT/money/research_rounds/lot-risk-allocation-20261029/code/study.py": "2e7cfbdded269ae5430c9146d0b1f5c2b2281e5a5c774fdffb088b620d72bff4",
+      "/Users/bytedance/Documents/ChatGPT/money/research_rounds/probe-pyramid-pilot-20261029/code/pilot.py": "38ac36ba3b9da599c66307451f4173249efc229f54dfb6a0d8469517431f94b4",
+      "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-act-comparison-20261027/execution-rules-v2.json": "e54d23fb4be1740415364e757d300231c3871a99de43a328773cbe391eadb614",
+      "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py": "48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb",
+      "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/_shared/research_output_io.py": "3d7cae91648150fa09d17f048156c2ea7f9bc4ebeed96c87a9397942d431c2fa",
+      "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/capital-capability-design-only-20261101/G_BROAD_S_CONCENTRATED_CONTRACT_PROPOSAL.txt": "8f3233c5d8f37d076bfc0a775659b7fbb8c0b39e04c8bbce8ce1153bcb94a95c",
+      "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/capital-capability-design-only-20261101/G_BROAD_S_CONCENTRATED_CONTRACT_V2.txt": "98f4c302ba9ea6878c500db65d0248f1b10d60f282628f1d22b08d42a5184de5",
+      "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/capital-capability-design-only-20261101/G_BROAD_S_CONCENTRATED_CONTRACT_V2_MANIFEST.json": "4ea1ecf57075f08193ace98e241555b79159cdd7ae4d5d1d18297a9462679016",
+      "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-broad-s-concentrated-native-r4-20261101/funding_coverage.py": "942bb5cccd7a895018ec5053eb2ba9d60743a0fff23cb093e1365b71b152561b",
+      "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-broad-s-concentrated-native-r4-20261101/imports_native.py": "07e91eb1d3b2d00b2734cc7626a4873007b8345a23d19280ea76b49e1dd87452",
+      "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-broad-s-concentrated-native-r4-20261101/native_capital.py": "1649a09c73dde15134148cade02da8f27d7102d38f8a1370609934204a669665",
+      "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-broad-s-concentrated-native-r4-20261101/native_exit_selected.py": "9442f0a37ef2068ea80d482d5dbfa2cc8df20da0f13ac752e448ad6b612c81b2",
+      "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-broad-s-concentrated-native-r4-20261101/policy.py": "b27d8fac3e977d30de9153d4a400d62caf9a2c69695692da1a88ecba4e24607e",
+      "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lr1-cp1-add-preflight-20261031/adapter.py": "b81569bd13f22a39e973ebd38b8b382fbafe9da959536bae455ca7bed2a45185",
+      "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/v2-frozen/signal_core.py": "962275bd41b5c7bbc062a1191780a6b6a9c616f8d3097ea669b602eabbc9ac59"
+    },
+    "engine": {
+      "runtime_class": {
+        "module": "native_capital",
+        "class_name": "SyntheticRunner",
+        "module_path": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-broad-s-concentrated-native-r4-20261101/native_capital.py",
+        "module_sha256": "1649a09c73dde15134148cade02da8f27d7102d38f8a1370609934204a669665"
+      },
+      "trading_class": {
+        "module": "native_capital",
+        "class_name": "SyntheticRunner",
+        "module_path": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-broad-s-concentrated-native-r4-20261101/native_capital.py",
+        "module_sha256": "1649a09c73dde15134148cade02da8f27d7102d38f8a1370609934204a669665"
+      },
+      "functions": {
+        "planning": {
+          "qualified_name": "SyntheticRunner.planning",
+          "declared_module": "native_capital",
+          "code_filename": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-broad-s-concentrated-native-r4-20261101/native_capital.py",
+          "code_first_line": 534,
+          "code_sha256": "3cbc6a5a4bccda6819e2446fe798da07de5442a110515c8639a5abcf86543c1b",
+          "defining_class": {
+            "module": "native_capital",
+            "class_name": "SyntheticRunner",
+            "module_path": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-broad-s-concentrated-native-r4-20261101/native_capital.py",
+            "module_sha256": "1649a09c73dde15134148cade02da8f27d7102d38f8a1370609934204a669665"
+          }
+        },
+        "opening": {
+          "qualified_name": "SyntheticRunner.opening",
+          "declared_module": "native_capital",
+          "code_filename": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-broad-s-concentrated-native-r4-20261101/native_capital.py",
+          "code_first_line": 609,
+          "code_sha256": "f873c25ff60e52fe8daebed464c18da9221494ef54989dc00b36b4c72d6c2f12",
+          "defining_class": {
+            "module": "native_capital",
+            "class_name": "SyntheticRunner",
+            "module_path": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-broad-s-concentrated-native-r4-20261101/native_capital.py",
+            "module_sha256": "1649a09c73dde15134148cade02da8f27d7102d38f8a1370609934204a669665"
+          }
+        },
+        "route": {
+          "qualified_name": "SyntheticRunner.route",
+          "declared_module": "native_capital",
+          "code_filename": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-broad-s-concentrated-native-r4-20261101/native_capital.py",
+          "code_first_line": 608,
+          "code_sha256": "a459ee61ac838c54957e4f638732b4852a5be5c7bd3ee3c9deb225d49bc4ede6",
+          "defining_class": {
+            "module": "native_capital",
+            "class_name": "SyntheticRunner",
+            "module_path": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-broad-s-concentrated-native-r4-20261101/native_capital.py",
+            "module_sha256": "1649a09c73dde15134148cade02da8f27d7102d38f8a1370609934204a669665"
+          }
+        }
+      },
+      "python_version": "3.13.7 (v3.13.7:bcee1c32211, Aug 14 2025, 19:10:51) [Clang 16.0.0 (clang-1600.0.26.6)]",
+      "code_identity_format": "canonical-code-fields-v1"
+    },
+    "native_callback_code": {
+      "submit": "a512ba8cbdf5ccdd2019a920fbeb6bcde63129beb6c36dc08f804bf2bd9360e8",
+      "route": "50bcdf31fe99baa5c11e6389d4d56eac5fdfee72f9c6860b7d95db4213c90c91",
+      "fill_buy": "2c1e9c61ab17bbfbdc462cf346c526d54f2856d409e216eb1494a4c886342f32",
+      "fill_exit": "9c267a57ac48707ee8b7b4a81acaf67b1a1ba7e15b3e048f2305b7181d63d93f",
+      "split": "50abb059262e21a77e6aa3e5ecc52593e2ee20a237af9cc45ef3c2781c360f03",
+      "trim": "35392fee5275af71dbde3873bcf243e8121b085a02e7bf605d5ad90229d14777",
+      "revalidate": "0dcc34e08f91cfb286d036bc9cf6e9aa8c705dedb1f33f147c36bcfd922b6707",
+      "resources": "e6015bf800036a34139e0f6ebc686f44538cbb152dae7bae3914e476fe9f31a5",
+      "migrate": "ba08631bbd7b2d313b6c84ca5027bf221f689e13b1d9eaad91f4a73c0d8519aa",
+      "funding_reductions": "62931d0365cbfc7fb861ca71b5e754590f58c99bd433974547fa3b78fc5b53bb",
+      "withdraw_to_remaining_support": "12066423e5ad7bdc497b2a6338eba74afe14ee63cda62de4026fd5ae8cb64ae6"
+    },
+    "mode": "synthetic_generated_prices_only",
+    "history_paths": 0
+  },
+  "sources": {
+    "freeze_packet.py": "7af9a267d861fd1c1830204ec22781b8f33c45a25241fa59d21aad1b6f2e9586",
+    "funding_coverage.py": "942bb5cccd7a895018ec5053eb2ba9d60743a0fff23cb093e1365b71b152561b",
+    "imports_native.py": "07e91eb1d3b2d00b2734cc7626a4873007b8345a23d19280ea76b49e1dd87452",
+    "native_capital.py": "1649a09c73dde15134148cade02da8f27d7102d38f8a1370609934204a669665",
+    "native_exit_selected.py": "9442f0a37ef2068ea80d482d5dbfa2cc8df20da0f13ac752e448ad6b612c81b2",
+    "policy.py": "b27d8fac3e977d30de9153d4a400d62caf9a2c69695692da1a88ecba4e24607e",
+    "restore_check.py": "c09fd8297bd248edb3d245e7932a06719d8f8bf6225567fe07895b76c23e9b65",
+    "restore_revision.py": "59ac25b23b76c309332244a2a4d0df76f6269006f10fcdb59235a5f12635703a",
+    "test_funding.py": "8f15ea2e0de31e104222e8a831b2856868eb6d6100254c1aba41536ec1d56fd7",
+    "test_k_change.py": "7613587fd4ee6a6bc5f1b576771d93b50fdd894b36cba9668088a14e46c07984",
+    "test_native.py": "5fdbd55d261f33fe6f08dd5a042087b5d79130fbff6f28dc3b1a7bae42ab3966",
+    "test_revision.py": "50c1b5bafa56001587513b589e7ee5d8ce21dc2c17ba1b1a6b70ad1afb8e6dd1"
+  },
+  "test_result": {
+    "contract": "a26b1959379ed6c7e8d82e35f9d3fca9dd050caa5e824850a0d75543005bcc50",
+    "adapter_sha256": "1649a09c73dde15134148cade02da8f27d7102d38f8a1370609934204a669665",
+    "tests": 42,
+    "passed": true,
+    "failures": [],
+    "historical_paths": 0
+  },
+  "independent_review": "pending"
+}

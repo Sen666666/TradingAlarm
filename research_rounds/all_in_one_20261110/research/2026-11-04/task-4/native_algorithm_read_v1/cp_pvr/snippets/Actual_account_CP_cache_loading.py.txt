@@ -1,0 +1,26 @@
+    checked={}; counts={}; full={}; cp={}; receipts={}
+    def check(path, digest):
+        if path not in checked:
+            assert E.sha(path)==digest,('source changed',path)
+            checked[str(path)]=digest
+    def receipt_rows(r,sid):
+        if canonical is None:
+            return [x for x in read(r['refs']['receipts']) if start<=x['confirmed_day']<=end]
+        rows=[]
+        for mapping in canonical:
+            z=mapping[sid]; assert z['original_output_sha256']==r['output_sha256']
+            check(z['output_path'],z['output_sha256'])
+            rows.extend(x for x in read(z['output_path']) if start<=x['confirmed_day']<=end)
+        days=[x['confirmed_day'] for x in rows]; assert len(days)==len(set(days)),('duplicate receipt day',sid)
+        return rows
+    for r in sm:
+        sid=r['symbol']
+        for p,h in r['output_sha256'].items(): check(p,h)
+        f=pd.read_parquet(r['refs']['facts']).loc[:end]
+        q=pd.read_parquet(r['refs']['CP1_input']).loc[:end]
+        z=pd.read_parquet(r['refs']['CP1']).loc[:end]
+        assert f.index.equals(q.index) and q.index.equals(z.index)
+        for k in ('close','segment_id','i_target','i_floor'):
+            pd.testing.assert_series_equal(f[k],q[k],check_exact=True,check_dtype=False,check_freq=False)
+        rr=receipt_rows(r,sid); assert len(rr)==int(z.loc[start:end].receipt.eq(True).sum()),('receipt count',sid)
+        full[sid],cp[sid],receipts[sid]=f,z,{x['confirmed_day']:x for x in rr}

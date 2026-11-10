@@ -1,0 +1,34 @@
+{
+  "status": "FROZEN_BEFORE_NEW_FEATURES_MODEL_AND_OUTCOMES",
+  "paper": "2019 public author draft Eqs1-7; nine-scale robustness of 2024, NOT 2024 main specification",
+  "scale": [
+    3,
+    5,
+    10,
+    20,
+    50,
+    100,
+    200,
+    300,
+    400
+  ],
+  "features": "18 ratios trailing inclusive arithmetic MA(close,L)/close_today and MA(CNY amount,L)/amount_today",
+  "data": "All1709 original manifest stocks, fixed future-selected universe, adjusted stored source close verified against native facts; no second adjustment. Already-consumed historical development data, not untouched OOS.",
+  "missing": "Common exchange calendar. Require all400 sessions positive finite observed original price/amount, same source segment. No fill-forward, skipped dates or last-month signal imputation. Entire model feature block unknown if incomplete. This is stricter than paper and creates continuous-trading selection; report coverage and keep UNKNOWN original opportunity slots.",
+  "training": "Each complete month t, cross-section month-t simple adjusted close return vs month-(t-1)-end features. Require positive finite close/source-present full return month, same segment. Min100 stocks, all18 features complete. P9 and PA18 use identical rows.",
+  "regularization": "Fixed ridge mean squared error +0.01*sum(gamma_standardized^2), intercept unpenalized; monthly predictor mean/std then coefficients converted to raw ratio units before EMA. No winsorization, y cap, hyperparameter scan or result-based revision. Raw coordinate coefficient EMA remains comparable across months. Expose collinearity and right-tail influence.",
+  "ema": "alpha0.02; first usable beta initializes; require38 completed monthly regressions before prediction. Skipped unsupported months leave beta frozen and do not count warmup.",
+  "daily_mapping": "At any signal close in month m, use beta EMA only through complete month m-1. Monthly adaptation to daily opportunities, not exact paper replication.",
+  "comparators": [
+    "PVR",
+    "H1",
+    "P9",
+    "PA18"
+  ],
+  "opportunities": "Original PVR 53121 legal empty MOBILE account-conditional opportunities; E0/I/CP/source account states unchanged; original global topK=min20,N fixes each sector K. Alternatives only reorder common feature-known slots inside sector. UNKNOWN positions fixed. H1 is existing original_H1, no refit.",
+  "evaluation": "Seal scores and picks before separately reading fixed native future price labels. 5/20/60 horizons; primary60. Same-date union-complete selected rows all arms; raw, minus40bp and100bp proxies, positive proportions not actual net wins; prior21/63 and acceleration groups, periods2022..26,924 and2026Q1; righttail/root early coverage, fixed60-session block bootstrap.",
+  "no_accounts": true,
+  "no_parameter_search": true,
+  "no_original_indicator_rerun": true,
+  "limits": "No PIT universe/industry/action publications, source OHLC proxies, no order execution/limit/suspension correction claimed; no strategy net winrate claim. Eventual35% net win target not tested."
+}

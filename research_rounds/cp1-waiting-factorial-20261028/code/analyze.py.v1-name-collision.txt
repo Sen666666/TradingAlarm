@@ -1,0 +1,91 @@
+"""Descriptive factor comparisons; never imports or starts an account runner."""
+from fw_common import *
+from collections import Counter
+from functools import lru_cache
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+ALL=MODES+['ACT','SF','SW3F','SW10F']
+PAIRS=[('ACP','A3CP'),('ACP','A10CP'),('A3CP','A10CP'),('SCP','WCP'),('SCP','S10CP'),('WCP','S10CP')]+[('ACT',m) for m in MODES]+[('SF','SCP'),('SW3F','WCP'),('SW10F','S10CP')]
+@lru_cache(None)
+def table(path):return pd.read_csv(path)
+@lru_cache(None)
+def daily(path):
+ out={}
+ for r in rows(path):out.setdefault(r['account'],[]).append(r)
+ return out
+def directories(sector,mode):
+ return (O/sector/'analysis',O/sector/'accounts-v2') if mode in run_modes(sector,'economic') else (baseline_analysis(sector,mode),baseline_accounts(sector,mode))
+def main():
+ out=O/'comparison';out.mkdir(exist_ok=False);summary=[];stocks=[];curves=[];campaigns=[];pairs=[];watch_rows=[];events=[];capacity=[];winner_rows=[];contributions=[];sources=[]
+ bank={}
+ for sector in ['TECH','DRUG']:
+  roster=pool(sector).set_index('symbol');sec_of=roster.sector_id.to_dict()
+  for mode in ALL:
+   analysis,accounts=directories(sector,mode)
+   for stress in SCENARIOS:
+    aid=f'{mode}__S0_{stress}';s=table(analysis/'summary.csv');s=s[s.account.eq(aid)].iloc[0].to_dict();s.update(sector=sector,label=LABELS[mode]);obj=read(accounts/f'{aid}.json');ds=daily(accounts/'daily.jsonl.gz')[aid]
+    c=table(analysis/'campaigns.csv');c=c[c.account.eq(aid)].copy();st=table(analysis/'stocks.csv');st=st[st.account.eq(aid)].copy();cv=table(analysis/'curves.csv');cv=cv[cv.account.eq(aid)].copy()
+    log=obj['audit_log'];watch={};classes={r['order_id']:r for r in log if r['kind']=='intent_entry_class'};first_classes={}
+    for r in log:
+     if r['kind']=='intent_create':watch[r['sid']]=dict(r)
+     elif r['kind']=='intent_end':watch.pop(r['sid'],None)
+     elif r['kind']=='waiting_support_raise' and r['sid'] in watch:watch[r['sid']]['floor']=r['floor']
+     elif r['kind']=='fill' and r['receipt']['side']=='buy':first_classes[(r['receipt']['security_id'],r['receipt']['at'])]=classes[r['order_id']]
+     if r['kind']=='risk_checkpoint' and r.get('event'):events.append(dict(sector=sector,account=aid,**r))
+    extension=[]
+    for _,cycle in c.iterrows():
+     cl=first_classes[(cycle.symbol,cycle.entry_at)];extended=not cl['original'];extension.append(extended)
+     watch_rows.append(dict(sector=sector,policy=mode,scenario=stress,symbol=cycle.symbol,name=cycle['name'],entry_at=cycle.entry_at,exit_at=cycle.exit_at,extended=extended,original=cl['original'],watch_origin=cl['origin'],window=cl['window'],net_pnl=cycle.net_pnl,net_return=cycle.net_return,closed=cycle.closed))
+    s.update(holding_stock_days=sum(sum(int(q)>0 for q in r['positions'].values()) for r in ds),exposure_days=sum(float(r['inventory'])/float(r['nav']) for r in ds),waiting_created=sum(r['kind']=='intent_create' for r in log),waiting_raised=sum(r['kind']=='waiting_support_raise' for r in log),waiting_inherited=sum(r['kind']=='waiting_support_inherited' for r in log),terminal_waiting=len(watch),extended_cycles=sum(extension),extended_net=float(c.loc[extension,'net_pnl'].sum()) if extension else 0,all_negative_with_open_marks=float(-c.loc[c.net_pnl.lt(0),'net_pnl'].sum()),cp_raises=sum(r['kind']=='cp_checkpoint' and r['raised_by_cp'] for r in log),cp_exits=sum(r['kind']=='cp_checkpoint' and r['reason']=='CP' for r in log),pause_events=sum(r['kind']=='risk_checkpoint' and r.get('event')=='pause' for r in log))
+    for why in ['expired','waiting_floor_breach','updated_floor_breach','structure_or_source','risk_pause','filled']:s['waiting_end_'+why]=sum(r['kind']=='intent_end' and r['reason']==why for r in log)
+    assert abs(c.net_pnl.sum()-s['net_profit'])<1e-5,(sector,aid,'campaign decomposition')
+    assert abs((c.buy_fees+c.sell_fees).sum()-s['fees'])<1e-5,(sector,aid,'fees')
+    assert abs(st.net_profit.sum()-s['net_profit'])<1e-5,(sector,aid,'stock decomposition')
+    summary.append(s)
+    for f,collection in [(st,stocks),(cv,curves),(c,campaigns)]:f=f.copy();f['sector']=sector;collection.append(f)
+    bank[sector,mode,stress]=dict(summary=s,stocks=st,curves=cv,campaigns=c,obj=obj,daily=ds,watch=watch,accounts=accounts)
+    sources.append(dict(sector=sector,policy=mode,scenario=stress,analysis=str(analysis),accounts=str(accounts),account_sha256=sha(accounts/f'{aid}.json'),summary_sha256=sha(analysis/'summary.csv')))
+  for base,new in PAIRS:
+   for stress in SCENARIOS:
+    b,n=bank[sector,base,stress],bank[sector,new,stress];r=dict(sector=sector,baseline=base,candidate=new,scenario=stress)
+    for k in ['net_return','max_drawdown','net_profit','tail_profit','ordinary_profit','open_profit','all_closed_losses','fees','mean_exposure','holding_stock_days','closed','extended_cycles','extended_net','pause_events']:
+     r['baseline_'+k]=b['summary'][k];r['candidate_'+k]=n['summary'][k];r['delta_'+k]=n['summary'][k]-b['summary'][k]
+    fields=['nav','inventory','positions','pending_buys','pending_sells'];diff=[u['at'][:10] for u,v in zip(b['daily'],n['daily']) if any(u[k]!=v[k] for k in fields)];r['first_economic_difference']=diff[0] if diff else None;pairs.append(r)
+    aa=b['stocks'].set_index('symbol');bb=n['stocks'].set_index('symbol');total=0
+    for sid in sorted(set(aa.index)|set(bb.index)):
+     old=float(aa.loc[sid,'net_profit']) if sid in aa.index else 0;newp=float(bb.loc[sid,'net_profit']) if sid in bb.index else 0;delta=newp-old;total+=delta
+     contributions.append(dict(sector=sector,baseline=base,candidate=new,scenario=stress,symbol=sid,name=aa.loc[sid,'name'] if sid in aa.index else bb.loc[sid,'name'],baseline_net=old,candidate_net=newp,delta_net=delta))
+    assert abs(total-r['delta_net_profit'])<1e-5,(sector,base,new,stress)
+  # Fixed ACT and SF base winners; no result-driven additions to the definition.
+  for ref in ['ACT','SF']:
+   cs=bank[sector,ref,'base']['campaigns'];tails=cs[cs.closed & cs.tail_closed];days=[r['at'][:10] for r in bank[sector,ref,'base']['daily']];possible={(w.symbol,d) for _,w in tails.iterrows() for d in days if w.entry_at[:10]<=d<w.exit_at[:10]}
+   for mode in ALL:
+    for stress in SCENARIOS:
+     b=bank[sector,mode,stress];dm={r['at'][:10]:r for r in b['daily']};covered={(sid,d) for sid,d in possible if int(dm[d]['positions'].get(sid,0))>0}
+     winner_rows.append(dict(sector=sector,reference=ref,policy=mode,scenario=stress,possible_stock_days=len(possible),held_stock_days=len(covered),coverage=len(covered)/len(possible) if possible else None,reference_tail_cycles=len(tails),fixed_symbols_full_period_net=b['campaigns'].loc[b['campaigns'].symbol.isin(set(tails.symbol)),'net_pnl'].sum()))
+  # Resource rejections use post-admission occupancy, matching the established audit.
+  for mode in MODES:
+   analysis,accounts=directories(sector,mode);decisions=rows(accounts/'decisions.jsonl.gz')
+   for stress in SCENARIOS:
+    aid=f'{mode}__S0_{stress}';b=bank[sector,mode,stress];risk={r['at']:r['on'] for r in b['obj']['audit_log'] if r['kind']=='risk_checkpoint'};cnt=Counter()
+    for r in decisions:
+     if r['account']!=aid:continue
+     if not risk[r['at']]:cnt['paused_days']+=1;continue
+     cnt['active_days']+=1;occ=r['occupancy'];occupied={x['security_id'] for x in occ};secs=Counter(x['sector_id'] for x in occ)
+     for sid in set(r['eligible'])-occupied-set(r['accepted']):
+      sec=sec_of[sid];why='total_six_full' if len(occ)>=6 else 'industry_two_full' if secs[sec]>=2 else 'three_industries_full' if sec not in secs and len(secs)>=3 else 'other_unaccepted';cnt[why]+=1
+    capacity.append(dict(sector=sector,policy=mode,scenario=stress,**cnt))
+ for name,rs in [('summary',summary),('pairs',pairs),('waiting-cycles',watch_rows),('risk-events',events),('capacity',capacity),('fixed-winner-coverage',winner_rows),('stock-differences',contributions),('sources',sources)]:pd.DataFrame(rs).to_csv(out/f'{name}.csv',index=False)
+ for name,fs in [('stocks',stocks),('curves',curves),('campaigns',campaigns)]:pd.concat(fs).to_csv(out/f'{name}.csv',index=False)
+ for stress in SCENARIOS:
+  fig,axes=plt.subplots(2,2,figsize=(16,10))
+  for row,sector in enumerate(['TECH','DRUG']):
+   for col,(base,family) in enumerate([('ACT',['ACP','A3CP','A10CP']),('SF',['SCP','WCP','S10CP'])]):
+    for m,color in zip([base]+family,['#777777','#1e72ab','#dc7923','#24a074']):
+     q=bank[sector,m,stress]['curves'];axes[row,col].plot(pd.to_datetime(q.date),q.nav/1e6,label=LABELS[m],color=color,linestyle='--' if m==base else '-')
+    axes[row,col].set_title(sector+' / '+base+' / '+stress);axes[row,col].set_ylabel('NAV (CNY million)');axes[row,col].legend(fontsize=9)
+  fig.tight_layout();fig.savefig(out/f'curves-{stress}.png',dpi=120);plt.close(fig)
+ save(out/'verification.json',dict(passed=True,paths=len(summary),paired_comparisons=len(pairs),stock_decompositions=len(pairs),source_identity_recorded=True,fixed_winners='ACT/SF base closed net return >=30%; fixed historical descriptive windows, not signal inputs or market-wide winner recall',extended_pnl='first actual fill has original I flag false; whole cycle net PnL, not net account incremental profit',terminal_wait='active watch at final cutoff; not treated as expired or filled'))
+ print(pd.DataFrame(summary)[['sector','policy','scenario','net_return','max_drawdown','mean_exposure','extended_cycles','extended_net']].to_string(index=False),flush=True)
+if __name__=='__main__':main()

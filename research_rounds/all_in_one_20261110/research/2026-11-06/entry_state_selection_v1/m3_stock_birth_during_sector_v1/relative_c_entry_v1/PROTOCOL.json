@@ -1,0 +1,45 @@
+{
+  "name": "RELATIVE_C_ENTRY_V1_PREFLIGHT_ONLY",
+  "created_utc": "2026-11-07",
+  "status": "Frozen rules for scope preflight; no ABC economic execution authorized",
+  "arms_future": "Original A_UNION_B versus A_UNION_B_UNION_C. Existing A/B dates/order/close/execution/manage stay identical. Future C qualification and lifecycle use each arm's own state, never baseline marks.",
+  "windows": [
+    [
+      "2022",
+      "2022-01-01",
+      "2022-12-31",
+      null
+    ],
+    [
+      "2024_924",
+      "2024-09-01",
+      "2024-12-31",
+      null
+    ],
+    [
+      "2026H1_SEMI",
+      "2026-01-01",
+      "2026-06-30",
+      "URFI881121"
+    ]
+  ],
+  "mark": "Start each window empty. Legal original A/B at actual FLAT, original I and PVR known, original checkclose PASS, but industry first2 slots already awarded: PASS_NOT_TOP2 creates unconsumed eligibility in current original I epoch. No C rejection creates marks.",
+  "clear": "Actual core entry, original I invalid/ends, source/relative/I/S/M3 UNKNOWN clear eligibility. PVR UNKNOWN blocks current C only. Known false S/M3 keeps eligibility. No old mark reuse after exit. Source or execution UNKNOWN locks stock as applicable under unchanged execution contract.",
+  "c_formula": "C_t = freshRelativeUP_t AND eligibleUnconsumedSameI_t AND state_t=FLAT AND S_(t-1)=S_t=1 AND M3Known_(t-1)=M3Known_t=1 AND M3_(t-1)=M3_t=1 AND originalIQualified_t AND originalPVRKnown_t AND noOriginalAB_t. Dates t-1,t are consecutive full common calendar days; UNKNOWN never false/0.",
+  "relative_formula": "x_t=log(adjusted stock close / official industry adjusted close); epsilon_t=x_t-x_(t-1); threshold frozen at strict extreme e: delta_e^2=(5/63)*sum(epsilon_j^2 for j=e-63..e-1). Import unchanged interval-aware clock_model.py. Need current known relative_event=+1, no event replay, no future-price-label transfer.",
+  "consumption": "Inviting does not consume eligibility. A losing C or explicit NOFILL cannot replay next day; only a later genuine freshRelativeUP can form a new C while same valid eligibility survives. BUY_PENDING blocks new C. Known NOFILL returns FLAT and preserves valid marker; UNKNOWN clears and locks. Actual entry consumes.",
+  "queue": "At CLOSE after original OPEN and held-close state changes, original A/B PVR-desc/sid-asc first, first2 feasible unchanged. C only contests max(0,2-AB awarded) remaining slots with original PVR-desc/sid-asc. No replacing A/B after next-open failure. Industry total<=2.",
+  "cost": "Original AST helpers finite/true/false/lineage/flags/fee/getmeta/size/checkclose unchanged. Initial fee-inclusive budget24000 CNY, floor-risk incl fees3000, reference NAV1200000,5bp adverse buy/sell, original dated fee/quantity. Capacity1% of last20 positive raw-volume observations through close. Next common OPEN recomputes quantity.",
+  "preflight": "Baseline actual chronological state and baseline PASS_NOT_TOP2 only diagnostic scope proxy. No new lifecycle, returns, wins, losses, or inferred improvement. Exact AB-state and close crosschecks, full calendar I/source/UNKNOWN checks; original receipts verified against recomputed relative clock.",
+  "scope": "Full existing per-window AB stock scope. Because a marker requires within-window AB, any excluded no-AB stock cannot satisfy C. Union1627 vs static1709 leaves82 with no qualifying mark; this is logical closure for C, not a new full-pool strategy or PIT universe.",
+  "limits": [
+    "Static NON-PIT membership",
+    "Historical orderability unknown",
+    "Next-OPEN conditional proxy is not actual fill",
+    "Future C holding may block later AB, requiring own-arm economic run only after independent audit and separate approval",
+    "Daily qualification UNKNOWN includes relative/S/M3 but PVR UNKNOWN does not clear marker"
+  ],
+  "unknown_same_day": "UNKNOWN at close takes precedence; no usable marker may survive or be established on that close. Future legal AB loss can establish a new mark.",
+  "execution_gate": "Only preflight now. No parameter scan. ABC economic run requires separate parent authorization after independent review.",
+  "fixed_examples": "Before new labels: every existing fixed case and all20 earlier2022 cases; all11 prior2024 tail timing cases. Additional each-window positive/negative examples are first by (day,sid) for C selected+known OPEN, close reject, AB full, UNKNOWN clear; absent types explicitly absent."
+}

@@ -1,0 +1,22 @@
+{
+  "status": "complete_not_adopted",
+  "valid_version": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-rotation-20261027-v2",
+  "new_valid_economic_paths": 4,
+  "economic_repair_batches": 1,
+  "strategy_parameter_revisions": 0,
+  "no_application_changes": true,
+  "files": {
+    "CONCLUSION.txt": "7e9a1d13fa7939220ae10331e1b9a8c1ef34fd5babfbe6538f9911f5318f452e",
+    "verification.json": "172f32859cbfc894db916fbf5e0e13a7a2d57dd06de2a6bc104654ad871103b9",
+    "repair-verification.json": "f019d66c1fd02c7ce709812738df4ddea85dc5512986418dee0c555cbd075bf6",
+    "repair.json": "c7bd80b8ba9cab1f3a550e9539277be174859996fd262f86c9e37e917ae449b2",
+    "summary.csv": "40e385636b0ea301a909b42abe6b9e1b6f9ef68b7a62ecb020362c9f7c9f513f",
+    "annual.csv": "fabdbcbbc213502fcc48e6eda2d1468c265f65f27be2b1845100c4bee27d7a44",
+    "rotations.csv": "37b6f1d1f1a1408e438bed5d7be84299395ab10005b53c151fc9944cf929f6fa",
+    "rotation-funnel.json": "529b28787d704ede330c4f9ff3aa24143ca2179e4d6902d1106bf705f26ca7ff",
+    "original-winner-participation.csv": "356ecf67c0a8411f1e6b844e5c0d62e773a9d5e56f8427ceb28df8ee1d4ce131",
+    "comparison.png": "0328108ce9046754197dc677c1b48d3e7fc56388eb402d17de539352d62452aa",
+    "case-huazheng-v2.png": "5ba36675a8df935af293a639940bb970757cdc217f8cc8af4151d3a94df2910b",
+    "postmortem.json": "97eb2a9247f6e5dac9d1ccc8a9cc09fce89356e87b3ac941fd32f8685f884eb4"
+  }
+}

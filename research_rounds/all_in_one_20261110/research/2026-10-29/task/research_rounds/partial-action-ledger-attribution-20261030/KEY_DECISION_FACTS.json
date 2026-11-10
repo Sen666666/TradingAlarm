@@ -1,0 +1,673 @@
+[
+  {
+    "sector": "TECH",
+    "stress": "base",
+    "policy": "A",
+    "date": "2025-11-17",
+    "symbol": "688031.SH",
+    "ACT": true,
+    "eligible": true,
+    "accepted": false,
+    "rejected": [],
+    "original_exits": false,
+    "held": 0,
+    "pending_buy": false,
+    "cash": "341622.7832497681680",
+    "positions": {
+      "688498.SH": 482,
+      "688048.SH": 2912,
+      "688027.SH": 458,
+      "688800.SH": 2000
+    },
+    "eligibility_detail": null,
+    "held_industry_counts": {
+      "URFI881121": 2,
+      "URFI881129": 1,
+      "URFI881123": 1
+    },
+    "target_industry": "URFI881272",
+    "target_is_new_industry": true,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "TECH",
+    "stress": "base",
+    "policy": "A",
+    "date": "2026-03-18",
+    "symbol": "603115.SH",
+    "ACT": true,
+    "eligible": true,
+    "accepted": false,
+    "rejected": [],
+    "original_exits": false,
+    "held": 0,
+    "pending_buy": false,
+    "cash": "503884.2387096716660",
+    "positions": {
+      "688498.SH": 482,
+      "688048.SH": 2912,
+      "300814.SZ": 2300,
+      "301486.SZ": 1300,
+      "300903.SZ": 9400
+    },
+    "eligibility_detail": null,
+    "held_industry_counts": {
+      "URFI881121": 2,
+      "URFI881270": 2,
+      "URFI881129": 1
+    },
+    "target_industry": "URFI881172",
+    "target_is_new_industry": true,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "TECH",
+    "stress": "base",
+    "policy": "A",
+    "date": "2026-02-03",
+    "symbol": "300903.SZ",
+    "ACT": true,
+    "eligible": true,
+    "accepted": true,
+    "rejected": [],
+    "original_exits": false,
+    "held": 0,
+    "pending_buy": true,
+    "cash": "202233.4165677849160",
+    "positions": {
+      "688498.SH": 482,
+      "688048.SH": 2912,
+      "688027.SH": 458,
+      "300814.SZ": 2300
+    },
+    "eligibility_detail": null,
+    "held_industry_counts": {
+      "URFI881121": 2,
+      "URFI881129": 1,
+      "URFI881270": 1
+    },
+    "target_industry": "URFI881270",
+    "target_is_new_industry": false,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "TECH",
+    "stress": "base",
+    "policy": "B",
+    "date": "2025-11-17",
+    "symbol": "688031.SH",
+    "ACT": true,
+    "eligible": true,
+    "accepted": true,
+    "rejected": [],
+    "original_exits": false,
+    "held": 0,
+    "pending_buy": true,
+    "cash": "299246.2671729728155",
+    "positions": {
+      "688498.SH": 454,
+      "688048.SH": 2747,
+      "688027.SH": 227,
+      "300454.SZ": 500
+    },
+    "eligibility_detail": {
+      "security_id": "688031.SH",
+      "issuer_id": "issuer:688031",
+      "sector_id": "URFI881272",
+      "q": true,
+      "reasons": []
+    },
+    "held_industry_counts": {
+      "URFI881121": 2,
+      "URFI881129": 1,
+      "URFI881272": 1
+    },
+    "target_industry": "URFI881272",
+    "target_is_new_industry": false,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "TECH",
+    "stress": "base",
+    "policy": "B",
+    "date": "2026-03-18",
+    "symbol": "603115.SH",
+    "ACT": true,
+    "eligible": true,
+    "accepted": true,
+    "rejected": [],
+    "original_exits": false,
+    "held": 0,
+    "pending_buy": true,
+    "cash": "634664.2218428965595",
+    "positions": {
+      "688498.SH": 454,
+      "688048.SH": 2747,
+      "301486.SZ": 800
+    },
+    "eligibility_detail": {
+      "security_id": "603115.SH",
+      "issuer_id": "issuer:603115",
+      "sector_id": "URFI881172",
+      "q": true,
+      "reasons": []
+    },
+    "held_industry_counts": {
+      "URFI881121": 2,
+      "URFI881129": 1
+    },
+    "target_industry": "URFI881172",
+    "target_is_new_industry": true,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "TECH",
+    "stress": "base",
+    "policy": "B",
+    "date": "2026-02-03",
+    "symbol": "300903.SZ",
+    "ACT": true,
+    "eligible": true,
+    "accepted": false,
+    "rejected": [],
+    "original_exits": false,
+    "held": 0,
+    "pending_buy": false,
+    "cash": "353906.4760581146095",
+    "positions": {
+      "688498.SH": 454,
+      "688048.SH": 2747,
+      "688027.SH": 454,
+      "300454.SZ": 300,
+      "688031.SH": 2922
+    },
+    "eligibility_detail": {
+      "security_id": "300903.SZ",
+      "issuer_id": "issuer:300903",
+      "sector_id": "URFI881270",
+      "q": true,
+      "reasons": []
+    },
+    "held_industry_counts": {
+      "URFI881121": 2,
+      "URFI881129": 1,
+      "URFI881272": 2
+    },
+    "target_industry": "URFI881270",
+    "target_is_new_industry": true,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "TECH",
+    "stress": "delay1",
+    "policy": "A",
+    "date": "2025-11-17",
+    "symbol": "688031.SH",
+    "ACT": true,
+    "eligible": true,
+    "accepted": true,
+    "rejected": [],
+    "original_exits": false,
+    "held": 0,
+    "pending_buy": true,
+    "cash": "83164.2280920094010",
+    "positions": {
+      "300502.SZ": 800,
+      "603083.SH": 800,
+      "688800.SH": 1884,
+      "002859.SZ": 2100,
+      "300454.SZ": 1000
+    },
+    "eligibility_detail": null,
+    "held_industry_counts": {
+      "URFI881129": 2,
+      "URFI881123": 2,
+      "URFI881272": 1
+    },
+    "target_industry": "URFI881272",
+    "target_is_new_industry": false,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "TECH",
+    "stress": "delay1",
+    "policy": "A",
+    "date": "2025-11-18",
+    "symbol": "688031.SH",
+    "ACT": true,
+    "eligible": true,
+    "accepted": true,
+    "rejected": [],
+    "original_exits": false,
+    "held": 0,
+    "pending_buy": true,
+    "cash": "329740.8846262578010",
+    "positions": {
+      "603083.SH": 800,
+      "688800.SH": 1884,
+      "002859.SZ": 2100,
+      "300454.SZ": 1000
+    },
+    "eligibility_detail": null,
+    "held_industry_counts": {
+      "URFI881129": 1,
+      "URFI881123": 2,
+      "URFI881272": 1
+    },
+    "target_industry": "URFI881272",
+    "target_is_new_industry": false,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "TECH",
+    "stress": "delay1",
+    "policy": "A",
+    "date": "2026-03-18",
+    "symbol": "603115.SH",
+    "ACT": true,
+    "eligible": true,
+    "accepted": false,
+    "rejected": [],
+    "original_exits": false,
+    "held": 0,
+    "pending_buy": false,
+    "cash": "91774.4924842675325",
+    "positions": {
+      "300475.SZ": 700,
+      "300131.SZ": 8100,
+      "600105.SH": 4600,
+      "603256.SH": 2100,
+      "600330.SH": 6900,
+      "001267.SZ": 2700
+    },
+    "eligibility_detail": null,
+    "held_industry_counts": {
+      "URFI881123": 2,
+      "URFI881129": 2,
+      "URFI881172": 2
+    },
+    "target_industry": "URFI881172",
+    "target_is_new_industry": false,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "TECH",
+    "stress": "delay1",
+    "policy": "A",
+    "date": "2026-03-25",
+    "symbol": "603115.SH",
+    "ACT": true,
+    "eligible": true,
+    "accepted": true,
+    "rejected": [],
+    "original_exits": false,
+    "held": 0,
+    "pending_buy": true,
+    "cash": "76293.6238131118325",
+    "positions": {
+      "300475.SZ": 700,
+      "600105.SH": 4600,
+      "603256.SH": 2100,
+      "001267.SZ": 2700
+    },
+    "eligibility_detail": null,
+    "held_industry_counts": {
+      "URFI881123": 1,
+      "URFI881129": 2,
+      "URFI881172": 1
+    },
+    "target_industry": "URFI881172",
+    "target_is_new_industry": false,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "TECH",
+    "stress": "delay1",
+    "policy": "B",
+    "date": "2025-11-17",
+    "symbol": "688031.SH",
+    "ACT": false,
+    "eligible": false,
+    "accepted": false,
+    "rejected": [],
+    "original_exits": false,
+    "held": 0,
+    "pending_buy": false,
+    "cash": "175833.3823857737675",
+    "positions": {
+      "300502.SZ": 700,
+      "603083.SH": 600,
+      "688800.SH": 1772,
+      "002859.SZ": 4200,
+      "300454.SZ": 900
+    },
+    "eligibility_detail": null,
+    "held_industry_counts": {
+      "URFI881129": 2,
+      "URFI881123": 2,
+      "URFI881272": 1
+    },
+    "target_industry": "URFI881272",
+    "target_is_new_industry": false,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "TECH",
+    "stress": "delay1",
+    "policy": "B",
+    "date": "2025-11-18",
+    "symbol": "688031.SH",
+    "ACT": false,
+    "eligible": false,
+    "accepted": false,
+    "rejected": [],
+    "original_exits": false,
+    "held": 0,
+    "pending_buy": false,
+    "cash": "821551.2246526166715",
+    "positions": {},
+    "eligibility_detail": null,
+    "held_industry_counts": {},
+    "target_industry": "URFI881272",
+    "target_is_new_industry": true,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "TECH",
+    "stress": "delay1",
+    "policy": "B",
+    "date": "2026-03-18",
+    "symbol": "603115.SH",
+    "ACT": true,
+    "eligible": true,
+    "accepted": false,
+    "rejected": [],
+    "original_exits": false,
+    "held": 0,
+    "pending_buy": false,
+    "cash": "81166.1303805363615",
+    "positions": {
+      "300475.SZ": 700,
+      "300131.SZ": 8000,
+      "600105.SH": 4500,
+      "603256.SH": 2100,
+      "600330.SH": 7000,
+      "001267.SZ": 2700
+    },
+    "eligibility_detail": {
+      "security_id": "603115.SH",
+      "issuer_id": "issuer:603115",
+      "sector_id": "URFI881172",
+      "q": true,
+      "reasons": []
+    },
+    "held_industry_counts": {
+      "URFI881123": 2,
+      "URFI881129": 2,
+      "URFI881172": 2
+    },
+    "target_industry": "URFI881172",
+    "target_is_new_industry": false,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "TECH",
+    "stress": "delay1",
+    "policy": "B",
+    "date": "2026-03-25",
+    "symbol": "603115.SH",
+    "ACT": true,
+    "eligible": true,
+    "accepted": true,
+    "rejected": [],
+    "original_exits": false,
+    "held": 0,
+    "pending_buy": true,
+    "cash": "191139.5208292373615",
+    "positions": {
+      "300475.SZ": 700,
+      "600105.SH": 4500,
+      "603256.SH": 1100,
+      "001267.SZ": 1400
+    },
+    "eligibility_detail": {
+      "security_id": "603115.SH",
+      "issuer_id": "issuer:603115",
+      "sector_id": "URFI881172",
+      "q": true,
+      "reasons": []
+    },
+    "held_industry_counts": {
+      "URFI881123": 1,
+      "URFI881129": 2,
+      "URFI881172": 1
+    },
+    "target_industry": "URFI881172",
+    "target_is_new_industry": false,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "DRUG",
+    "stress": "base",
+    "policy": "A",
+    "date": "2024-06-13",
+    "symbol": "688278.SH",
+    "ACT": true,
+    "eligible": false,
+    "accepted": false,
+    "rejected": [],
+    "original_exits": false,
+    "held": 2282,
+    "pending_buy": false,
+    "cash": "107337.1364907477140",
+    "positions": {
+      "688278.SH": 2282,
+      "688506.SH": 1088,
+      "688336.SH": 6350,
+      "688578.SH": 3317,
+      "300759.SZ": 7600,
+      "603259.SH": 2300
+    },
+    "eligibility_detail": null,
+    "held_industry_counts": {
+      "URFI881142": 2,
+      "URFI881140": 2,
+      "URFI881175": 2
+    },
+    "target_industry": "URFI881142",
+    "target_is_new_industry": false,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "DRUG",
+    "stress": "base",
+    "policy": "A",
+    "date": "2025-10-14",
+    "symbol": "300357.SZ",
+    "ACT": true,
+    "eligible": false,
+    "accepted": false,
+    "rejected": [],
+    "original_exits": false,
+    "held": 5600,
+    "pending_buy": false,
+    "cash": "458507.8765370501370",
+    "positions": {
+      "688131.SH": 2685,
+      "688331.SH": 1809,
+      "300357.SZ": 5600,
+      "603127.SH": 5100
+    },
+    "eligibility_detail": null,
+    "held_industry_counts": {
+      "URFI881175": 2,
+      "URFI881142": 2
+    },
+    "target_industry": "URFI881142",
+    "target_is_new_industry": false,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "DRUG",
+    "stress": "base",
+    "policy": "B",
+    "date": "2024-06-13",
+    "symbol": "688278.SH",
+    "ACT": true,
+    "eligible": false,
+    "accepted": false,
+    "rejected": [],
+    "original_exits": false,
+    "held": 1141,
+    "pending_buy": false,
+    "cash": "107224.9018783827445",
+    "positions": {
+      "688278.SH": 1141,
+      "688506.SH": 1088,
+      "688336.SH": 6350,
+      "688578.SH": 3307,
+      "300759.SZ": 7500,
+      "603259.SH": 3300
+    },
+    "eligibility_detail": {
+      "security_id": "688278.SH",
+      "issuer_id": "issuer:688278",
+      "sector_id": "URFI881142",
+      "q": false,
+      "reasons": [
+        "sector_up:false"
+      ]
+    },
+    "held_industry_counts": {
+      "URFI881142": 2,
+      "URFI881140": 2,
+      "URFI881175": 2
+    },
+    "target_industry": "URFI881142",
+    "target_is_new_industry": false,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "DRUG",
+    "stress": "base",
+    "policy": "B",
+    "date": "2025-10-14",
+    "symbol": "300357.SZ",
+    "ACT": true,
+    "eligible": false,
+    "accepted": false,
+    "rejected": [],
+    "original_exits": false,
+    "held": 2700,
+    "pending_buy": false,
+    "cash": "680032.2918781613645",
+    "positions": {
+      "688131.SH": 2627,
+      "688331.SH": 989,
+      "300357.SZ": 2700,
+      "603127.SH": 2500
+    },
+    "eligibility_detail": {
+      "security_id": "300357.SZ",
+      "issuer_id": "issuer:300357",
+      "sector_id": "URFI881142",
+      "q": false,
+      "reasons": [
+        "sector_up:false"
+      ]
+    },
+    "held_industry_counts": {
+      "URFI881175": 2,
+      "URFI881142": 2
+    },
+    "target_industry": "URFI881142",
+    "target_is_new_industry": false,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "DRUG",
+    "stress": "delay1",
+    "policy": "A",
+    "date": "2024-06-13",
+    "symbol": "688278.SH",
+    "ACT": true,
+    "eligible": false,
+    "accepted": false,
+    "rejected": [],
+    "original_exits": false,
+    "held": 2367,
+    "pending_buy": false,
+    "cash": "383333.0109664121790",
+    "positions": {
+      "688278.SH": 2367,
+      "688578.SH": 3461,
+      "688336.SH": 6153,
+      "688506.SH": 1049
+    },
+    "eligibility_detail": null,
+    "held_industry_counts": {
+      "URFI881142": 2,
+      "URFI881140": 2
+    },
+    "target_industry": "URFI881142",
+    "target_is_new_industry": false,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  },
+  {
+    "sector": "DRUG",
+    "stress": "delay1",
+    "policy": "B",
+    "date": "2024-06-13",
+    "symbol": "688278.SH",
+    "ACT": true,
+    "eligible": false,
+    "accepted": false,
+    "rejected": [],
+    "original_exits": false,
+    "held": 1196,
+    "pending_buy": false,
+    "cash": "553608.5528271404350",
+    "positions": {
+      "688278.SH": 1196,
+      "688578.SH": 1749,
+      "688336.SH": 6217,
+      "688506.SH": 1068
+    },
+    "eligibility_detail": {
+      "security_id": "688278.SH",
+      "issuer_id": "issuer:688278",
+      "sector_id": "URFI881142",
+      "q": false,
+      "reasons": [
+        "sector_up:false"
+      ]
+    },
+    "held_industry_counts": {
+      "URFI881142": 2,
+      "URFI881140": 2
+    },
+    "target_industry": "URFI881142",
+    "target_is_new_industry": false,
+    "snapshot_after_actual_decision": true,
+    "sole_rejection_cause_proven": false
+  }
+]

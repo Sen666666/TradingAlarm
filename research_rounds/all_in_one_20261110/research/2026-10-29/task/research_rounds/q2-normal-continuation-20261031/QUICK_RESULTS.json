@@ -1,0 +1,122 @@
+[
+  {
+    "reference": "B3",
+    "Q2_start_NAV": "1116212.5218547543770",
+    "Q2_end_NAV": "1242532.1258438418235",
+    "Q2_net_change": "126319.6039890874465",
+    "Q2_return_pct": "11.31680585155849126576960100",
+    "Q2_local_DD_pct": "1.822678805327698112527746040",
+    "cumulative_return_pct": "24.2532125843841823500",
+    "cumulative_DD_pct": "4.130425387749057493170542010",
+    "Q2_mean_exposure_pct": "17.59557815695090847369455185",
+    "Q2_peak_exposure_pct": "22.27942650088544219079377382",
+    "Q2_mean_cash_available_pct": "82.34404749815521398161795387",
+    "Q2_end_cash_available": "997280.1078438418235",
+    "Q2_mean_confirmed_committed_pct": "17.18517353828477501698086062",
+    "Q2_peak_confirmed_committed_pct": "21.38321264773161960457596814",
+    "Q2_mean_probe_committed_pct": "0.410404618666133518640381978",
+    "Q2_fees": "353.3891459125535",
+    "Q2_buy_fills": 14,
+    "Q2_sell_fills": 31,
+    "Q2_ACT_paused_closes": 0,
+    "ACT_transitions": [],
+    "monthly": [
+      {
+        "month": "2026-04",
+        "mean_exposure_pct": "17.38046002448003828260293357",
+        "end_exposure_pct": "14.66368905732934047584670634",
+        "mean_cash_available_pct": "82.56287584172950360615234443",
+        "mean_confirmed_committed_pct": "16.43338016125076386721284973",
+        "new_buy_cash": "3100.7397832422000",
+        "buy_fill_records": 3,
+        "sell_fill_records": 17,
+        "paused_closes": 0
+      },
+      {
+        "month": "2026-05",
+        "mean_exposure_pct": "16.55577246933894899799915051",
+        "end_exposure_pct": "15.81845075740435267300298629",
+        "mean_cash_available_pct": "83.38245472594477978507463878",
+        "mean_confirmed_committed_pct": "16.44362850285303095992238879",
+        "new_buy_cash": "36824.7453920067000",
+        "buy_fill_records": 6,
+        "sell_fill_records": 6,
+        "paused_closes": 0
+      },
+      {
+        "month": "2026-06",
+        "mean_exposure_pct": "18.70195830737488678681079984",
+        "end_exposure_pct": "19.67561601950282959454019807",
+        "mean_cash_available_pct": "81.23515581647558223983497624",
+        "mean_confirmed_committed_pct": "18.5725769456888525013704188",
+        "new_buy_cash": "15454.6994803430500",
+        "buy_fill_records": 5,
+        "sell_fill_records": 8,
+        "paused_closes": 0
+      }
+    ],
+    "independent_NAV_and_stock_gaps_zero": true,
+    "account_days": 242,
+    "period_vs_cumulative_not_rebased": true
+  },
+  {
+    "reference": "B_diag",
+    "Q2_start_NAV": "1261468.9450115387830",
+    "Q2_end_NAV": "1515350.2043282443620",
+    "Q2_net_change": "253881.2593167055790",
+    "Q2_return_pct": "20.12584299603057621444397370",
+    "Q2_local_DD_pct": "5.092905028637378767742194770",
+    "cumulative_return_pct": "51.535020432824436200",
+    "cumulative_DD_pct": "13.17950706908822863379594656",
+    "Q2_mean_exposure_pct": "63.55535007703992098821049327",
+    "Q2_peak_exposure_pct": "66.47105782917693455508326444",
+    "Q2_mean_cash_available_pct": "36.28485573877288174096357362",
+    "Q2_end_cash_available": "537345.0171282443620",
+    "Q2_mean_confirmed_committed_pct": "59.71855018590613233906258928",
+    "Q2_peak_confirmed_committed_pct": "62.36412010210566806335703554",
+    "Q2_mean_probe_committed_pct": "3.836799891133788740974032875",
+    "Q2_fees": "2535.4797832944210",
+    "Q2_buy_fills": 152,
+    "Q2_sell_fills": 124,
+    "Q2_ACT_paused_closes": 0,
+    "ACT_transitions": [],
+    "monthly": [
+      {
+        "month": "2026-04",
+        "mean_exposure_pct": "63.59510834394960409410820681",
+        "end_exposure_pct": "64.29810892629230752545603262",
+        "mean_cash_available_pct": "36.28040451444401939565999614",
+        "mean_confirmed_committed_pct": "58.50287761474340772103930667",
+        "new_buy_cash": "822009.5689204466075",
+        "buy_fill_records": 62,
+        "sell_fill_records": 41,
+        "paused_closes": 0
+      },
+      {
+        "month": "2026-05",
+        "mean_exposure_pct": "63.68600606419566789398102722",
+        "end_exposure_pct": "63.01083899999133334839796354",
+        "mean_cash_available_pct": "36.17263910347630039945962117",
+        "mean_confirmed_committed_pct": "60.47428929616691545707630794",
+        "new_buy_cash": "414988.6103201517830",
+        "buy_fill_records": 33,
+        "sell_fill_records": 33,
+        "paused_closes": 0
+      },
+      {
+        "month": "2026-06",
+        "mean_exposure_pct": "63.403600963996740534509465",
+        "end_exposure_pct": "64.31171337268651773306894659",
+        "mean_cash_available_pct": "36.38549265049881380755625317",
+        "mean_confirmed_committed_pct": "60.28644637684532857021697024",
+        "new_buy_cash": "646764.1288625735750",
+        "buy_fill_records": 57,
+        "sell_fill_records": 50,
+        "paused_closes": 0
+      }
+    ],
+    "independent_NAV_and_stock_gaps_zero": true,
+    "account_days": 242,
+    "period_vs_cumulative_not_rebased": true
+  }
+]

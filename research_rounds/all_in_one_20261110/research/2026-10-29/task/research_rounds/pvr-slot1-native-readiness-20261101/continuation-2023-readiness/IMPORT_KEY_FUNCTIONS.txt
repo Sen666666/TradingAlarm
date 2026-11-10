@@ -1,0 +1,127 @@
+horizon_import.py:68
+def identity_guard_for_original(path):
+    """Invoke the unchanged guard using original generation class, not this subclass."""
+    shell=N.Runner.__new__(N.Runner)
+    with IO.atomic_runner_outputs(shell,L,O/'old-generation-identity-guard',canonicalize=J.W.canon):
+        return IO.assert_checkpoint_identity(shell,path)
+
+horizon_import.py:117
+def import_verified_parent(self,binding=DEFAULT_BINDING):
+    assert not self.horizon_imported and self.horizon_import_generation==0,'parent import is single-use'
+    self.assert_native_wiring();bind=self.assert_binding(binding)
+    path=Path(bind['parent_checkpoint']);assert path.resolve()==(P/'runs/2022/checkpoint.pkl').resolve()
+    assert sha(path)==bind['parent_checkpoint_sha256']
+    assert sha(path.with_suffix('.provenance.json'))==bind['parent_provenance_sha256']
+    original_identity=identity_guard_for_original(path)
+    meta=read(path.with_suffix('.json'));payload=pickle.loads(path.read_bytes())
+    assert meta['sha256']==sha(path) and payload['last_completed_event']==PARENT_AT
+    assert payload['source_freeze']==meta['source_freeze']
+    for p,h in payload['source_freeze'].items():assert sha(p)==h,('old source identity drift',p)
+    old=payload['accounts']['B'];oldrunner=payload['runner'];a=self.accounts['B']
+    assert a.available==a.initial_cash==a.current_nav==J.D(1000000) and not a.positions and not a.trades
+    assert type(old['budget']) is N.BASE.NoAccountBudget
+    assert oldrunner['rank_mode']=='PVR_SLOT1' and oldrunner['integration_policy']==self.integration_policy
+    assert oldrunner['rank_scores_manifest_sha256']==OLD_SCORE_SHA
+    assert old['cost_multiplier']==1 and old['delay_events']==0 and not old['add_enabled'] and old['mode']=='ACT'
+    with __import__('gzip').open(P/'runs/2022/pair/B.json.gz','rt') as f:book=__import__('json').load(f)
+    fmap={'trades':'trades','layers':'layers','jmeta':'metadata','journal':'journal','buys':'orders','exits':'exits',
+          'audit_log':'audit','decisions':'decisions','available':'ending_cash','current_nav':'ending_NAV'}
+    book_checks={k:J.W.canon(old[k])==book[v] for k,v in fmap.items()};assert all(book_checks.values())
+    budget=old['budget']
+    assert J.W.canon(dict(sectors=budget.sectors,orders=budget.orders,
+        losses={str(k):v for k,v in budget.losses.items()},consumed=sorted(budget.consumed)))==book['budget']
+    streams={}
+    for field,file in {'daily':'daily','opportunities':'opportunities','funding':'funding','stage_events':'industry','balance_audit':'balances'}.items():
+        left=E.record_digest(oldrunner[field]);right=E.record_digest(E.file_rows(P/'runs/2022/pair'/(file+'.jsonl.gz')))
+        assert left==right;streams[field]=left
+    assert self.sector_by_sid==oldrunner['sector_by_sid']==old['sector_by_sid']
+    extended=dict(self.episode_starts);past=oldrunner['episode_starts']
+    assert all(extended.get(k)==v for k,v in past.items()),'past industry lookup changed'
+    added={k:v for k,v in extended.items() if k not in past}
+    assert all(v>PARENT_AT.date().toordinal() for v in added.values()),'new lookup fabricated a past start'
+    # Economic/strategy state copy is complete. Only named metadata and pure
+    # immutable input extension are retained from the new horizon view.
+    excluded={'source_freeze','run_seconds','episode_starts','rank_scores_manifest_sha256'}
+    copied=set(oldrunner)-excluded
+    for k in copied:setattr(self,k,copy.deepcopy(oldrunner[k]))
+    self.episode_starts=extended;self.rank_scores_manifest_sha256=NEW_SCORE_SHA
+    market,facts=a.market,a.facts
+    a.__dict__.clear();a.__dict__.update(copy.deepcopy(old));a.market=market;a.facts=facts
+    account_checks={k:E.equal(v,a.__dict__[k]) for k,v in old.items()}
+    strategy_checks={k:E.equal(oldrunner[k],getattr(self,k)) for k in copied}
+    assert all(account_checks.values()) and all(strategy_checks.values())
+    bal=a.balance(PARENT_AT,self.market.marks(PARENT_AT,a.positions))
+    assert bal['nav']==a.current_nav==J.D('715009.3354426633890')
+    assert abs(a.budget.nav-float(bal['nav']))<1e-6
+    assert all(E.equal(v,a.__dict__[k]) for k,v in old.items()),'read-only import validation mutated account'
+    assert len(a.positions)==60 and sum(x['qty']>0 for x in a.layers)==70 and len(a.pending)==79
+    assert all(i['clock'].earliest_execution_at==J.M.N.iso('2023-01-03T09:30:00+08:00') for i in a.pending)
+    self.horizon_imported=True;self.horizon_import_generation=1
+    self.horizon_last_completed=PARENT_AT;self._cursor_claimed=False
+    self.horizon_transition=dict(parent_checkpoint=str(path),parent_sha256=sha(path),
+        old_score_manifest_sha256=OLD_SCORE_SHA,new_score_manifest_sha256=NEW_SCORE_SHA,
+        pure_lookup_old=len(past),pure_lookup_new=len(extended),future_entries=len(added),
+        economic_state_reset=False,account_events=0)
+    self.assert_native_wiring()
+    return dict(passed=True,old_generation_identity_verified_by_unchanged_guard=original_identity,
+        all_account_fields_equal=account_checks,all_strategy_fields_equal=strategy_checks,
+        final_book_fields_equal=book_checks,all5_old_event_streams_exact=streams,
+        lookup_added_entries_after_parent_only=added,parent_cursor=str(PARENT_AT),
+        named_metadata_changes={'rank_scores_manifest_sha256':[OLD_SCORE_SHA,NEW_SCORE_SHA],
+                                'source_freeze':'explicit authorized new horizon binding'},
+        original_checkpoint_and_provenance_unchanged=True,transition=self.horizon_transition,
+        known_original_generation_not_backfilled=True,new_generation_identity=IO.runner_identity(self),actual_new_events=0)
+
+horizon_import.py:183
+def next_event_inventory(self,through='2023-01-03'):
+    assert self.horizon_imported and self.horizon_last_completed==PARENT_AT
+    finish=J.M.N.iso(through+'T15:10:00+08:00')
+    closes={x for x in self.market.cutoffs if PARENT_AT<x<=finish}
+    opens={x for x in self.market.sessions['A'] if PARENT_AT<x<=finish}
+    actions={datetime.combine(datetime.fromisoformat(d).date(),dt.min,J.M.N.TZ) for d in self.actions_by_date}
+    actions={x for x in actions if PARENT_AT<x<=finish}
+    return [dict(at=str(x),opening=x in opens,close=x in closes,action=x in actions)
+            for x in sorted(closes|opens|actions)]
+
+horizon_import.py:193
+def _claim_cursor(self,expected):
+    assert self.horizon_imported and not self._cursor_claimed,'cursor already claimed or not imported'
+    assert expected==self.horizon_last_completed,'resume cursor must be exact saved last-completed event'
+    assert expected<J.M.N.iso(END+'T15:10:00+08:00'),'horizon already complete'
+    self._cursor_claimed=True
+    return expected
+
+horizon_import.py:200
+def run_prepared(self,out,max_seconds,resume_after=None,end=None):
+    # No finance authorization file is created by this preflight task.
+    authorization=O/'FULL_2023_RUN_AUTHORIZATION.json'
+    assert authorization.exists(),'2023 account events not authorized'
+    auth=read(authorization)
+    assert auth['scope']=='ONE_PVR_SLOT1_2023_financial_continuation'
+    assert auth['horizon_import_sha256']==sha(Path(__file__)) and auth['binding_sha256']==self.horizon_binding_sha256
+    assert auth['native_adapter_sha256']==ADAPTER_SHA
+    after=self._claim_cursor(resume_after)
+    try:return _run_original(self,out,max_seconds,resume_after=after,end=end or END)
+    finally:self._cursor_claimed=False
+
+horizon_import.py:212
+def checkpoint(self,out,last_event):
+    assert self.horizon_imported and last_event>=self.horizon_last_completed
+    self.horizon_last_completed=last_event
+    # Checkpoint serializes a resumable boundary, not an in-flight lock.
+    claimed=self._cursor_claimed;self._cursor_claimed=False
+    try:_save_checkpoint(self,out,last_event)
+    finally:self._cursor_claimed=claimed
+    if str(last_event.date()) in {'2023-03-31','2023-06-30','2023-09-28','2023-12-29'}:
+        for suffix in ('pkl','json'):shutil.copyfile(Path(out)/('checkpoint.'+suffix),Path(out)/('checkpoint-'+str(last_event.date())+'.'+suffix))
+
+horizon_import.py:222
+def restore(self,path):
+    payload=pickle.loads(Path(path).read_bytes())
+    assert payload['runner']['horizon_binding_sha256']==self.horizon_binding_sha256,'checkpoint horizon binding differs'
+    assert payload['runner']['horizon_imported'] and payload['runner']['horizon_import_generation']==1
+    assert payload['runner']['horizon_last_completed']==payload['last_completed_event']
+    assert not payload['runner']['_cursor_claimed'],'in-flight lock cannot be resumed'
+    after=super().restore(path)
+    assert self.horizon_last_completed==after
+    return after

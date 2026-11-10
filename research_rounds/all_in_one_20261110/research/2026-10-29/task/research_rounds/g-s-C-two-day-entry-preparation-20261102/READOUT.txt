@@ -1,0 +1,23 @@
+C10 / C_BATCH20 两日历史入口准备（未执行账户）
+
+已完成只读：原R2 causal loader全部文件hash、两个原起点F1 bootstrap、1709身份/90行业、canonical/结构、H1/PVR、原权息/支付/因子通道。没有调用账户工厂，没有创建意图/预留/成交/金融checkpoint；旧A/SC/PVR账户未加载或修改。
+
+固定源范围与计数（输入资格，不是实际获资/成交）：
+2022 Jan4–5：1709股、90行业、91种子；每日股票原资格且有core或CP1的源候选300/136，全部canonical167/62；两个收盘行业H1未知均0。
+2025 Jul1–2：同1709/90/91；源候选319/245，全部canonical145/117；行业H1未知均0。Jul1权息8条、Jul2一条688608 1.40送转/现金1.20、到账日未知。688608 Jul1无core/freshCP1，原两日新账户不存在预起点意图，不会由Jul1凭据提交该股；原Jul2事件仍保留。其factor原值不是1。
+
+prefix_entry.py独立于冻结engine：每档各自原1m空金融起点，只继承真实市场State/source/proof/ordinal；实际账户状态决定H∪E排名域/目标/资金。复用原native market/window、canonical/source、股票资格和原权息函数，新增C行业H1输入及真实状态优先域；不读取静态原A决策当C状态，不按后验股票删股。已有待单键保持冻结。
+计划的每个OPEN/CLOSE出口保存完整原生账、budget、goal所有权、phase cursor、source/input manifest和身份；resume只从本入口同mode/window/source的已存checkpoint之后继续，不回放完成前缀。
+
+准确命令见readiness/RUN_COMMANDS.txt：四条分别2022/2025_26 × C10/C_BATCH20，仅原两日。它们未执行；approved授权文件不存在，四份not-approved-template中批准字段均false。缺授权的入口烟测在账户工厂之前拒绝，未建金融输出目录。
+
+当前绑定V3 native_c SHA363d879d55b87669c6ef3d05a70756d91541c8a2a4f6316942d58945c112e8df，ENGINE_BINDING标PENDING_INDEPENDENT_REVIEW。若独审修改engine，guard拒绝旧绑定，需显式更新再执行。只读/语法/授权前置门通过不等于历史金融接线通过；未实例化历史Account、未验证真实金融前缀/物理截断/恢复分支，等待独审和后续授权。
+新静态阻断：native_c.Runner.opening直接以supports.priority混排原生执行列表。C扩张键前置行业，core-only仍为原股票键；如(0,0,0,'C')与(0,'T')会TypeError。只读复现，无Account/订单实例。不能临时造一个新跨角色顺序来绕开；须在受影响原生混合角色合成中冻结统一排序语义后再放行。native_dispatch_ready=False，当前入口执行门在账户构造前拒绝pending review。
+额外明确阻断：live且尚未提交的C授权遇送转，其Q数量转换尚未在engine接通，入口在原子变更前拒绝，不能以原Q少买冒称一致。一般零股和其他engine unsupported仍精确停；不能跳股票/事件。此次两日688608源资格不触发该live-Q缺口，但不是更长窗口已覆盖。
+
+详证：readiness/READINESS.json（全部源文件hash）、GUARD_SMOKE.json、PREPARE日志、ENGINE_BINDING与ARTIFACT_SHA256.json。没有补缓存、刷新输入、重算指标或推进首月。
+
+后续连续行为验收补充（仅登记，未新增算法/参数）：
+不要求所有短促暴涨都达到80%；持续趋势检查证据积累后的真实扩张/持有/重入，短促上涨保留错过，假启动完整统计合计损耗、反复进出和转弱后新增风险。不得排除追入短行情的亏损，不按每行情重置账户。
+固定同窗完整共同机会母体；持续时间分类规则须在看C10/C20差额前登记，尾端未知单列，不能事后将没抓住者改叫短行情。持续时间仅后视结果分组，不进信号；当前尚未制定阈值，不在技术预检中偷偷设值。
+限速牺牲短机会还是持续趋势、节省换手是否减少全户假启动损耗并列报告。列最大贡献依赖度；剔除最大贡献只作算术收益敏感性，不称删除交易后可执行反事实。商业航天仅待核定义/数据的检查样本，不白名单、不为它提速，不新增第三档/指标/参数网格。

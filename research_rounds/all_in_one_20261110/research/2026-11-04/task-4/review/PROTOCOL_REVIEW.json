@@ -1,0 +1,22 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "protocol": "/Users/bytedance/Documents/Codex/2026-11-04/task-4/PROTOCOL.txt",
+  "sha256": "c442e824fe779108ad9ea194ca8e52143499764b21334b9b0f9cf8aeb0e09d42",
+  "authorization_scope": "One read-only industry evidence behavior diagnostic, no financial accounts, no budget sizing, no deployment",
+  "supported_design": [
+    "Complete native90 industry denominators and fixed windows",
+    "Both literal repeated-risk-evidence and one-promotion-per-context interpretations reported symmetrically",
+    "No optimization of20 window or breadth tolerance",
+    "Reuse original account evidence separately from new diagnostic",
+    "Old max-risk shared-proof design is not economically disproved; its exact formula and timing definition were rejected"
+  ],
+  "implementation_semantics_to_state_explicitly": [
+    "Promotion requires live original F1 ACTIVE and no pending failure, not an ended or un-restored repair context",
+    "repair_restored remains separate and does not automatically inherit earlier BREAK authorization",
+    "prior20 uses20 comparable same-source common-market observation slots, unknowns may not be skipped",
+    "break origin breadth and prior granted industry high are inherited from full history; unknown origins must remain unknown"
+  ],
+  "cost_boundary": "Use existing saved inputs; no new account or state-machine rewrite",
+  "review_reference": "INDUSTRY_TWO_LAYER_LOGIC_REVIEW.txt",
+  "financial_events": 0
+}

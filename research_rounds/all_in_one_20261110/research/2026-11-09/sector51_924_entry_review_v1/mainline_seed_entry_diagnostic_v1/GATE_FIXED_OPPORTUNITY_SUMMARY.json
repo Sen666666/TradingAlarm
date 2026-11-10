@@ -1,0 +1,170 @@
+[
+  {
+    "cohort": "STARTUP_OPEN_0923_0930",
+    "status": "PASS",
+    "state": "ALL",
+    "n": 72,
+    "original_net": "34049.4849605813790",
+    "original_seed_cost": "617851.8905631908670"
+  },
+  {
+    "cohort": "STARTUP_OPEN_0923_0930",
+    "status": "PASS",
+    "state": "CLOSED",
+    "n": 72,
+    "original_net": "34049.4849605813790",
+    "original_seed_cost": "617851.8905631908670"
+  },
+  {
+    "cohort": "STARTUP_OPEN_0923_0930",
+    "status": "PASS",
+    "state": "OPEN",
+    "n": 0,
+    "original_net": "0",
+    "original_seed_cost": "0"
+  },
+  {
+    "cohort": "STARTUP_OPEN_0923_0930",
+    "status": "STRUCTURE_WAIT",
+    "state": "ALL",
+    "n": 46,
+    "original_net": "64407.2484525733000",
+    "original_seed_cost": "356821.0510212995000"
+  },
+  {
+    "cohort": "STARTUP_OPEN_0923_0930",
+    "status": "STRUCTURE_WAIT",
+    "state": "CLOSED",
+    "n": 46,
+    "original_net": "64407.2484525733000",
+    "original_seed_cost": "356821.0510212995000"
+  },
+  {
+    "cohort": "STARTUP_OPEN_0923_0930",
+    "status": "STRUCTURE_WAIT",
+    "state": "OPEN",
+    "n": 0,
+    "original_net": "0",
+    "original_seed_cost": "0"
+  },
+  {
+    "cohort": "STARTUP_OPEN_0923_0930",
+    "status": "UNKNOWN_GATE",
+    "state": "ALL",
+    "n": 4,
+    "original_net": "1248.0823644611000",
+    "original_seed_cost": "32281.1893096881500"
+  },
+  {
+    "cohort": "STARTUP_OPEN_0923_0930",
+    "status": "UNKNOWN_GATE",
+    "state": "CLOSED",
+    "n": 4,
+    "original_net": "1248.0823644611000",
+    "original_seed_cost": "32281.1893096881500"
+  },
+  {
+    "cohort": "STARTUP_OPEN_0923_0930",
+    "status": "UNKNOWN_GATE",
+    "state": "OPEN",
+    "n": 0,
+    "original_net": "0",
+    "original_seed_cost": "0"
+  },
+  {
+    "cohort": "STARTUP_OPEN_0923_0930",
+    "status": "UNMODIFIED_EVENT",
+    "state": "ALL",
+    "n": 100,
+    "original_net": "134766.6665551656690",
+    "original_seed_cost": "818912.0121374940890"
+  },
+  {
+    "cohort": "STARTUP_OPEN_0923_0930",
+    "status": "UNMODIFIED_EVENT",
+    "state": "CLOSED",
+    "n": 100,
+    "original_net": "134766.6665551656690",
+    "original_seed_cost": "818912.0121374940890"
+  },
+  {
+    "cohort": "STARTUP_OPEN_0923_0930",
+    "status": "UNMODIFIED_EVENT",
+    "state": "OPEN",
+    "n": 0,
+    "original_net": "0",
+    "original_seed_cost": "0"
+  },
+  {
+    "cohort": "PV_OPEN_1023_1029",
+    "status": "PASS",
+    "state": "ALL",
+    "n": 23,
+    "original_net": "22435.2769863016590",
+    "original_seed_cost": "195394.6413926977570"
+  },
+  {
+    "cohort": "PV_OPEN_1023_1029",
+    "status": "PASS",
+    "state": "CLOSED",
+    "n": 23,
+    "original_net": "22435.2769863016590",
+    "original_seed_cost": "195394.6413926977570"
+  },
+  {
+    "cohort": "PV_OPEN_1023_1029",
+    "status": "PASS",
+    "state": "OPEN",
+    "n": 0,
+    "original_net": "0",
+    "original_seed_cost": "0"
+  },
+  {
+    "cohort": "PV_OPEN_1023_1029",
+    "status": "STRUCTURE_WAIT",
+    "state": "ALL",
+    "n": 8,
+    "original_net": "10680.6845489409480",
+    "original_seed_cost": "61318.7097935313280"
+  },
+  {
+    "cohort": "PV_OPEN_1023_1029",
+    "status": "STRUCTURE_WAIT",
+    "state": "CLOSED",
+    "n": 8,
+    "original_net": "10680.6845489409480",
+    "original_seed_cost": "61318.7097935313280"
+  },
+  {
+    "cohort": "PV_OPEN_1023_1029",
+    "status": "STRUCTURE_WAIT",
+    "state": "OPEN",
+    "n": 0,
+    "original_net": "0",
+    "original_seed_cost": "0"
+  },
+  {
+    "cohort": "PV_OPEN_1023_1029",
+    "status": "UNMODIFIED_EVENT",
+    "state": "ALL",
+    "n": 3,
+    "original_net": "-4427.5339119407000",
+    "original_seed_cost": "24128.5955824050000"
+  },
+  {
+    "cohort": "PV_OPEN_1023_1029",
+    "status": "UNMODIFIED_EVENT",
+    "state": "CLOSED",
+    "n": 3,
+    "original_net": "-4427.5339119407000",
+    "original_seed_cost": "24128.5955824050000"
+  },
+  {
+    "cohort": "PV_OPEN_1023_1029",
+    "status": "UNMODIFIED_EVENT",
+    "state": "OPEN",
+    "n": 0,
+    "original_net": "0",
+    "original_seed_cost": "0"
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "status": "COMPLETE_FIXED_CONDITIONAL_SIGNAL_RESEARCH_NO_RESIDUAL_ADMISSION",
+  "mother": 133713,
+  "source_RS20_arm_rows": 29948,
+  "evaluable_RS20_arm_rows": 28562,
+  "evaluable_RS20_cells": 13071,
+  "evaluable_RS20_sector_dates": 2476,
+  "evaluable_dates": 534,
+  "main_reference": "next_SHARED_OPEN",
+  "secondary_reference": "decision_CLOSE",
+  "new_scores": 0,
+  "new_residual_models": 0,
+  "new_accounts": 0,
+  "active_experimental_processes_owned_by_study": 0,
+  "remaining_execution_blocks": [],
+  "decision": "Stop introduction of residual ranking; no stable cross-period independent quality advantage demonstrated, does not prove RS20 has no descriptive path information.",
+  "files_sha256": {
+    "FREEZE.json": "ea11a7fc19b70a680e7559b876d08b52d2519af9db7da83926a59779090f58c7",
+    "READOUT.md": "429f68058c2078c0cbd0b9c54ee142a89ffb3c81e86b9522833618b50f6435d3",
+    "GLOBAL_METADATA_CLARIFICATION.json": "b6c3b1d29f1ef16ba51d89f0b214ffc22d1c369bbd4c07c1ed2e0ff010b2ddb8",
+    "conditional_saved.py": "6a2bf39d9cfc2ee91c76eeb4171dd6fd3b4ebf6c51c2aefe450624d1cd2d5984",
+    "conditional_saved_pre_global_metadata_fix.py.txt": "9a9d7e470f8c48653d28ab4e3c2c497082a4e703ee105ac7916ec2a231dcd6ab",
+    "prepared/COMPLETION_PRE_FUTURE_LABELS.json": "3d9e9528c0bc017bdf26d109c4bfb8fe50958176fe6bf84c767f9e537db1a31d",
+    "path20_labels/SEAL.json": "3b38e6014bcef7a8b1ff457cbedc16900120e6256115791a0811a68ae6cef81a",
+    "results/COMPLETION.json": "f82465df74ceac427a3e82c11e9acc9b25abb5d6c8ef8135577f4655bf43235e",
+    "results/PER_DECILE_COVERAGE_RECEIPT.json": "6627915c70d518a895e9ae7d8ef6b4d4158cd4d98dcb43574a2ebc4b77681207",
+    "independent_review/PRELABEL_COVERAGE_AUDIT.json": "e54585222363b2b493c9a44801826669cc49dcbd716de8bb3fc2262fcf9cfa76",
+    "independent_review/CONDITIONAL_RESULT_AUDIT.json": "e401f030db907ec0320027bbe1eff30f0551ac667e51709d5fd55c92d1b93f97"
+  }
+}

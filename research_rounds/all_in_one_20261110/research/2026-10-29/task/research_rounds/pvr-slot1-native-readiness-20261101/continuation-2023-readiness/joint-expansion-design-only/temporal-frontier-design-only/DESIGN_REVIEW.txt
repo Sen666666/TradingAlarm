@@ -1,0 +1,220 @@
+T1-L: within-attempt temporal-dispersion latch + conserved trial capacity
+DESIGN/SOURCE REVIEW ONLY; replaces archived v0 current-N gating BEFORE outcomes
+2026-11-01. ONE candidate for review. Not implementation/coverage/run approval.
+Universal financing-B remains STOPPED; no protected-principal requirement here.
+
+Question and claim
+Can distributed NEW price-frontier progress qualify fresh CP1 risk expansion,
+while initial uncertainty stays in a shared, limited trial pool? The proposed
+index measures distribution of positive progress, NOT independent samples,
+probability, trend quality or guaranteed capital preservation. Real accepted
+loss remains governed by actual protection and unchanged hard resources.
+
+1. Exact proposed market evidence (no calculation has been executed)
+Use the original causal price/amount source and exact original PVR DAILY
+features, available also as original stock CP1 s/m; not the aggregate PVR
+score and not CP1's lower-bounded frozen z:
+ r_t=log(C_t/C_previous_valid),
+ s_t=max(1.4826*median(previous63 absolute log returns),1e-8),
+ A_t=median(previous21 amounts),
+ u_t=tanh(r_t/s_t), b_t=tanh(log(amount_t/A_t)),
+ m_t=1+.5*abs(u_t)*b_t.
+Current close/amount enter only after that observation completes; s/A exclude
+it. Preserve original numeric comparisons/observation/source rules. Original
+CP1 input rejects nonpositive/missing close/amount; do not invent row removal,
+zero evidence, a gap bridge or a new warmup policy to make it run. Such absent
+source/lineage is an explicit unknown/blocker for this candidate.
+The DAILY features prepare before the original 85-observation aggregate score:
+that difference is explicit, not an accidental bypass of PVR-score readiness.
+
+At each valid, feature-ready observation in a defined stock market attempt:
+ a_t=tanh(max(0,log(C_t)-F_previous)/s_t)*m_t,
+ F_t=max(F_previous,log(C_t)).
+F is an attempt-wide maximum, not the CP1 anchor, purchase cost, all-time
+stock high or industry price. IMPORTANT: original receipt_consumed clears
+anchor/credit but leaves frontier at the high just reached; it does not lower
+that frontier. Reuse original delta_frontier with s/m rather than pretending
+that CP1 consumption creates another new market advance. Equal closes and
+recoveries below F contribute zero. Keep the last min(21,attempt_length) such observations,
+including valid zero-progress days. No invented full21-day startup wait.
+ N=(sum a)^2/sum(a^2); sum(a^2)=0 means no progress/proof, not NA division.
+h=5 is a NEW heuristic research threshold, despite familiar5/21 scale labels;
+it is not calibrated, optimized, statistically validated or a user risk limit.
+REJECT direct current-N gating: five a=.1 give N=5; adding a=1 changes it to
+(1.5)^2/1.05=15/7, about2.14, despite a new strong positive frontier.
+Select ONE explicit pre-coverage alternative: an attempt-local latch L.
+After all original resets, L becomes true only at a completed observation
+with N>=5 AND an original fresh MARKET CP1 receipt (hence positive frontier
+advance). Market validation ignores account funding/ACT/consumption; only
+actual new-capital admission checks those account conditions. L then stays true until an original market reset. A new
+strong advance cannot revoke an already validated L. A rising N caused only
+by old observations rolling out cannot set L: no fresh CP1, no validation.
+Expiry of the21-observation measurement window does not by itself clear L.
+This deliberately replaces current dispersion with HISTORICAL within-attempt
+validation, not current trend strength. Before first validation, a dominant
+strong advance can still postpone the first crossing; that cost is disclosed.
+Every capital upgrade/new expansion additionally needs its OWN current fresh
+legal CP1, current original Q/ACT/industry and real resource admission. L alone
+creates no order, quota or cash. It is never reset/consumed by receipt or money.
+No second rule or dynamic-versus-latch result selection is retained.
+
+2. Exact stock market lineage and clock -- independent of money
+Original STOCK input e0_valid is actually facts.i_target; e0_down is the
+original E0 event==-1. Do not substitute industry E0_valid or infer the reset
+sequence from canonical receipt IDs/E0 episode IDs/formation start alone.
+Use original full daily delta_frontier plus segment_id/e0_valid/e0_down,
+reset_reason,phase/frontier/next_phase,s/m. No candidate series is computed now.
+Source change, not-ready or I invalid clears queue/frontier/latch. Original
+restart/start, event -1 or SEEK lower_anchor rebuilds them at current close,
+a=0 and L=false that day. Simultaneous reasons are ONE original reset using
+the original branch precedence, not two attempt increments or positive credit.
+The original SEEK/UP clock is retained: ordinary UP pullback does not reset;
+SEEK new low does. receipt_consumed and account consumed are NOT reset reasons.
+A negative/reset restarts below the old high without an all-time-high hurdle.
+Canonical identity is stock/source/actual causal reset observation, not order,
+fill, entry cost, industry attempt or an arbitrary report-date alias.
+Market attempt != funded stock campaign != industry stage attempt. Same price
+and market-evidence path with different actual fills has identical F,N,L.
+No reset on flatness, order failure, G1 grade alone, quarter, ACT phase or loss;
+full flat only changes trial-campaign bookkeeping, never the market evidence.
+At completed signal close freeze L/rawN/validation receipt/reset lineage,
+current original fresh CP1 and the full existing priority key. No next-open
+close/amount/G1/future CP1 reading. No retroactive bar stop. Unknown reset or
+receipt lineage cannot qualify new expanded permission; it is not a forced exit.
+Core first trial keeps original I eligibility; every market/capital upgrade
+requires current original legal CP1, not a standing old signal/GTC allowance.
+
+3. Capital axes: explicit NEW policy, not a thin indicator bugfix
+Industry stage controls TOTAL industry commitments across roles, pools, old
+attempts and pending: probe2%, confirmed10%, expanded20%, original sector
+nominal risk1%. Inactive industry still permits no new order. This deliberately
+replaces v3's unconditional2% industry check for probe requests; otherwise a
+strong industry's existing confirmed holdings would block every new trial.
+Unproved new stock campaigns use the existing shared PROBE pool: capital10%
+and nominal risk.5%. No first-confirmed-trial exception may bypass these.
+Use one original first-order trial authorization, at most2% decisionNAV and
+original role target/lot/cash/risk sizing; no daily mark-drop refill. Only its
+original partial remainder may finish within the original order deadline.
+Further fresh orders need market proof even if stock still weighs below2%.
+Campaign starts at actual first fill; truly flat/no active buy/sell/cancel
+responsibility permits a fresh legal trial. Old receivables stay attributed to
+old campaign and do not hold it open forever. Loss/fee history never resets.
+Proof is allowed to predate funding: a stock already proved by causal market
+history can use a first legal fresh mobile/confirmed order, if industry and all
+resources allow; there is no fake requirement to first execute a token trial.
+Original core-first is unchanged: core stays a core/probe order, .25% sizing
+and actual I/E0 protection. Reservation success suppresses same-stock mobile
+even at zero fill. Proof does not promote an unfilled core order in shadow.
+
+A proof-qualified funded campaign may move its FILLED trial lots from probe
+to confirmed atomically, only on a current fresh stock-CP1 funding decision,
+with current industry stage>probe, validated L, no same-campaign open/cancel-
+pending buy, and target pool60% able to fit all those
+lots after fees/reservations. Role, cost, quantity, protection and history do
+not change. Other stocks' unproved/pending trials cannot migrate with it.
+Pick ONE old-before-new rule for this candidate: if the requesting campaign
+has existing trial lots, confirmed expansion waits for that campaign's legal
+atomic transfer. It does NOT wait for the entire industry's other campaigns.
+This intentionally retains local promotion priority, although a smaller new
+order could sometimes fit before all old trial lots; that is an accepted
+capacity cost to report, not a mathematical necessity or a free optimization.
+A campaign with no trial lots needs no fictional transfer. Use the frozen
+original stock/role order; each migration checks then-current resources.
+Migration is not a second order or second receipt consumption; record even a
+legal migration whose new order later has zero quantity. No quota is issued.
+If transfer cannot fit, trial occupancy remains; no proof-triggered release.
+No request can borrow confirmed capacity for an unproved trial. No pool can
+spend the same cash twice. Pending/cancel-pending remain occupied until native
+fill/cancel acknowledgement; anticipated sales provide no cash/risk space.
+Original sector/stock combined capital/risk, stock10%, confirmed60%, cash and
+fees/reserve, core.25% and mobile2% sizing, legal minimum/steps and ACT remain.
+Use current PVR/Bdiag account-risk policy; no hidden restoration of account3%.
+
+After L resets on original market evidence, existing confirmed lots remain
+in that pool under original exits, without forced sale/demotion. No new trial authorization is created while stock is live.
+This is inherited committed capital, not an unproved-first-entry loophole.
+Trial-pool occupancy includes proved lots that have not actually migrated.
+Keep original core I/E0 exits and original mobile CP1 exits; weak N alone is
+not an exit. Core's far line still charges actual risk; no mark-profit credit,
+CP1 shadow floor, floor-above-cost gate, B surplus or loss recovery hurdle.
+
+4. Nonredundancy and what is NOT yet established
+G1 already reads5/21 pace,21/63 structure and fresh-frontier reasons; S21/S63
+has no existing five-effective-day rule. PVR is weighted SIGNED daily evidence
+over21. CP1 accumulates displacement/m-credit; receipts reset anchor/credit
+but DO NOT lower frontier. T1-L adds a concentration summary and historical
+validation latch of these same new-frontier advances; it shares price,scale,
+amount and several frontier ideas. It is not independent corroboration and
+might add no useful information beyond these original signals.
+Actual old lineage exists; do not call the Neff construction new.
+time-evidence-audit/code/audit.py:18-25 uses f_j=positive log increments above
+running max since a confirmed E0 pivot; same (sum f)^2/sum(f^2) statistic.
+time-confirmation-mechanism/code/study.py:29,42-52,103-118 tested known-low
+origin Neff<2 -> fifth-valid-observation deadline, T additionally Neff>=2;
+fixed pivot/full leg, raw increments, original I first entry, no fresh CP1,
+independent1m per E0 opportunity, no shared ACT/resource competition. Its fixed
+rule stopped: T-A lower by4510.51 ten-thousand CNY across5349 independent
+opportunities, saving gross losses but losing more positive/tail contribution;
+NOT a single tradable account or a test of T1-L. New h5/PVR transform/21 window,
+reset/latch and stock-promotion use are materially different, not earned results.
+E0 density ALSO had actual407-stock observation research: previous21 MARKET
+sessions D_open/D_continue with current direction, then fixed same-day/industry
+preflight34 pairs/19dates, coverage insufficient, no paired forward-label test.
+Neither that limited design nor CP1-repeat/weekly proxy refutes all original
+E0 density/persistence hypotheses. T1-L does not count E0 event density.
+N rescales away total amplitude: five equally tiny advances also yield5.
+Original fresh CP1 supplies a displacement requirement, not proof of medium
+trend. CP1 interval and N's recent21 interval may differ. L can remain after
+rawN falls or its original days leave21; a later
+fresh CP1 may reuse this within-attempt validation. It is not five additional
+days per add, continuous current warmth, or five independent trials. No extra
+current-frontier/return threshold is added to hide stale-permission risk.
+
+5. Matched manual counterexamples -- not executed indicator/unit tests
+- Same ready scale and amount, same total log advance5s: one-day advance5s
+  then flat gives one nonzero a and N=1; five advances of s on different days
+  give five equal a and N=5. Both use the same endpoint. Five unequal advances
+  generally give N<5; five effective days is not five literal up days.
+- The .1,.1,.1,.1,.1,1 counterexample: a previously VALIDATED L survives the
+  last large advance. If the first five had no original fresh CP1, they did NOT
+  validate L; the strong day can still postpone first validation. Accepted
+  concentration semantics, not monotonic trend-strength semantics. Jump+flat
+  cannot validate; jump+micro-climb may eventually validate after the jump
+  ages out or enough positive increments accumulate; qualification still needs
+  a fresh CP1. No claim it is a strong trend.
+- Falling highs/lows followed by a distributed six-day bounce can produce
+  N>=5 and fresh CP1 while original far-line I remains active. After negative
+  reset, the bounce can qualify BELOW the old high. T1 does NOT solve that
+  countertrend failure; if exclusion of these bounces is mandatory, reject T1
+  rather than adding another hidden direction gate. Real trial/sector risk
+  absorbs accepted mistakes, with no hard cumulative-loss guarantee.
+- A normal pullback without original negative/reset keeps F and validated L.
+  Recovery below F contributes0; before first validation, missing new frontiers
+  can delay it. After validation only fresh CP1 can create another risk request.
+  A pullback large enough for original E0 negative clears proof; next recovery must earn it again. Existing core/mobile
+  exits still act independently and can cause false exits/reentries.
+- Failed attempt/new low then distributed new trend below former peak can
+  requalify after original reset. Same initial prefix produces identical
+  decisions before failure/winner branches separate; no hindsight reset.
+- Monotonic core with unchanged far E0 floor can reach a validated latch and fresh CP1;
+  it can expand if actual old/new risk and cash allow. No B-style deadlock.
+  A valid minimum order may still be unaffordable, old trial transfer may not
+  fit60%, or proof may mature only after the main move. No R1/ceiling increase.
+- A proved campaign reset while holding20% cannot obtain a fresh2% trial;
+  existing commitments remain. Unproved trial stocks across industries cannot
+  fill60%: they must share10%/.5% until actually proved and legally migrated.
+
+Verdict
+One revised candidate T1-L is specified, with explicit stock-scoped migration and
+industry-total-cap changes. It is NOT implementation-ready as a one-line gate,
+not proved superior, and not permission to run coverage or financial paths.
+Its falsifiable claim is distributed-vs-impulsive market permission usable
+under finite trial capacity, not risk-free expansion or elimination of bearish
+rebounds. Strongest unresolved semantic costs are resetting good pullbacks versus
+allowing distributed bearish recoveries, and a validation latch preserving
+possibly stale permission. Jump plus micro-climb can eventually validate
+before or after the old impulse rolls away if N crosses on another fresh CP1; this is not a
+complete one-impulse amplitude attribution or durable-mainline classifier; no new filter is selected here.
+If root continues, only the unchanged-source matched manual logic and native
+conservation/clock cases above should be designed/approved first. No new scale,
+window, threshold grid, feature cache, indicator or account was calculated.

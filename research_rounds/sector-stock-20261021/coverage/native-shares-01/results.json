@@ -1,0 +1,34 @@
+{
+  "started_at": "2026-10-22T20:57:56.733992+08:00",
+  "plan_sha256": "abbcfd91ea9b0283d452b29666fe5fd5e0fdaf4a8fb8965494e39a27cd84f154",
+  "code_sha256": "6d260b698798aca35f2b7e6dbe5723d399c2a73dde3f13b56fe6619221219fad",
+  "requests": [
+    {
+      "query": {
+        "id": 211,
+        "instance": 860002,
+        "zipversion": 3,
+        "market": "USZA",
+        "code": "300033",
+        "start": -1,
+        "end": 0,
+        "datatype": "1,899,900",
+        "period": 16384,
+        "fuquan": "Q"
+      },
+      "response": "shares-300033-211.bin",
+      "sha256": "d9eb77f6905dd24c8590f9916ed67208814b334f0209e868b8582ca6fbfff81f",
+      "records": [
+        {
+          "1": 20260410,
+          "899": "1b25350100000000",
+          "900": "0000002449dd9d41"
+        }
+      ]
+    }
+  ],
+  "credential_values_logged": false,
+  "handshake": "accepted",
+  "status": "response_saved_semantics_unverified",
+  "requests_sent": 1
+}

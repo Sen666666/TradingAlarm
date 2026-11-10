@@ -1,0 +1,795 @@
+HKEX Enhances Stock Settlement Fee Structure for Securities Market (https://www.hkex.com.hk/News/Market-Communications/2025/250221news?sc_lang=en)
+citeturn67view0 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"turn65view3","lineno":620}); Total lines: 670
+L459:         * 【47†Overview】
+L460:         * 【48†Infrastructure】
+L461:         * 【49†Risk Management】
+L462:         * 【50†CCP Disclosures】
+L463:       * Listed Derivatives
+L464:         * 【51†Overview】
+L465:         * 【52†Infrastructure】
+L466:         * 【53†Risk Management】
+L467:         * 【54†CCP Disclosures】
+L468:       * OTC Clear
+L469:         * 【55†Overview】
+L470:         * 【56†Infrastructure】
+L471:         * 【57†Risk Management】
+L472:         * 【58†CCP Disclosures】
+L473:     * Settlement and Depository
+L474:       * 【59†Settlement - Securities】
+L475:       * 【60†T+1 Settlement for the Hong Kong Cash Market】
+L476:       * 【61†Depository】
+L477:       * 【62†Uncertificated Securities Market】
+L478:       * 【63†Common Nominee Services】
+L479:       * 【64†Securities Admission into CCASS】
+L480:       * 【50†PFMI】
+L481:       * 【65†Unclaimed Entitlements Held by HKSCC Nominees Limited】
+L482:     * Platform Services
+L483:       * 【66†Corporate Action Messaging Standardisation】
+L484:       * 【67†Client Connect】
+L485:       * 【68†Orion Derivatives Platform】
+L486:       * 【69†FINI - A New Era for Hong Kong’s IPO market】
+L487:       * 【70†Orion Cash Platform】
+L488:       * 【71†Integrated Fund Platform】
+L489:       * 【72†HKEX Issuer Access Platform】
+L490:       * 【73†Digital Payment Adoption for After-Hours Trading】
+L491:     * 【74†Circulars & Notices】
+L492: View important information issued by HKEX to Exchange and Clearing House Participants, Market Data vendors and Hosting Services members
+L493: 
+L494:     * 【75†Become a Participant】
+L495: 
+L496: Connect to Hong Kong’s financial market through HKEX
+L497: 
+L498:     * 【76†HKEX Connect Hall】
+L499: 
+L500: A centrally-located venue at the heart of Hong Kong financial hub, the HKEX Connect Hall is an iconic venue for Hong Kong’s financial community.
+L501: 
+L502:   * 【77†Join Our Markets】
+L503:     * IPO
+L504:       * 【77†Listing with HKEX】
+L505:       * 【78†GEM】
+L506:       * 【79†Southeast Asia Listing Insights】
+L507:     * Northbound and Southbound
+L508:       * 【80†Stock Connect】
+L509:       *     * Commodities
+L510:       *       *     * 【83†Sustainable Finance at HKEX】
+L511:       * 【84†Core Climate】
+L512:       * 【85†Sustainable & Green Exchange (STAGE)】
+L513:       * 【86†HKEX Green Equity】
+L514:     * 【87†Biotech @ HKEX】
+L515: 
+L516: HKEX connects capital with a rich range of biotech issuers and investment products.
+L517:     * 【88†Listing of Specialist Technology Companies】
+L518: 
+L519: A new listing pathway for Specialist Technology Companies.
+L520: 
+L521:     * 【84†Core Climate】
+L522: 
+L523: The new carbon marketplace from HKEX
+L524: 
+L525:   * 【89†Listing Regulations】
+L526:     * 【90†Explore By Role】
+L527:       * 【90†Potential Applicants】
+L528:       * 【91†Listed Issuers】
+L529:       * 【92†Directors】
+L530:     * 【93†Rules & Resources】
+L531:       * 【94†Listing Rules】
+L532:       * 【95†Guidance】
+L533:       * 【96†Checklists, forms & templates】
+L534:       * 【97†Enforcement】
+L535:     * 【98†News & Publications】
+L536:       * 【99†What's New】
+L537:       * 【100†Listing Newsletters】
+L538:       * 【101†Reports】
+L539:       * 【102†Listing Consultations】
+L540:     * 【103†Sustainability & Corporate Governance】
+L541:       * 【103†ESG Academy】
+L542:       * 【104†Board Diversity Hub】
+L543:       * 【105†Corporate Governance Practices】
+L544:       * 【106†Shareholder Value in Focus】
+L545:       * 【107†INED Corner】
+L546:     * 【108†Education Centre】
+L547: A centralised education platform, including e-Learning.
+L548: 
+L549:     * 【109†About Listing & Contacts】
+L550: 
+L551: Find information about listing, including committee members and contact persons.
+L552: 
+L553:   * 【110†News centre】
+L554: 
+L555:     * 【111†Corporate News Releases】
+L556:     * 【112†Regulatory Announcements】
+L557:     * 【113†Market Communications】
+L558:     * 【114†Market Consultations】
+L559:     * 【110†News Centre】
+L560: 
+L561: Snapshot about HKEX latest news and information
+L562: 
+L563:     * 【115†HKEX Calendar】
+L564: Subscribe to our calendar containing trading and clearing information, public holidays and more
+L565: 
+L566:     * 【116†Research Reports】
+L567: 
+L568: Research and survey conducted by HKEX on its securities and derivatives markets and related topics
+L569: 
+L570:   * 【15†Connect Programmes】
+L571: 
+L572:     * 【117†Connect Hub】
+L573:     * 【80†Stock Connect】
+L574:     *     * 【119†Swap Connect】
+L575:     * 【120†Daily Statistics】
+L576: 
+L577: Statistics on Shanghai and Shenzhen Connect updated daily
+L578: 
+L579:     * 【121†Market Highlights】
+L580: View the market capitalization, number of listed companies and more in the Hong Kong, Shanghai and Shenzhen markets
+L581: 
+L582:     * 【122†Eligible Securities】
+L583: 
+L584: A list of securities eligible for trading under Shanghai and Shenzhen Stock Connect
+L585: 
+L586:   * 【15†Market Data】
+L587:     *     * Securities Prices
+L588:       * 【123†Equities】
+L589:       * 【124†Exchange Traded Products】
+L590:       * 【125†Derivative Warrants】
+L591:       * 【126†Inline Warrants】
+L592:       * 【127†Callable Bull / Bear Contracts】
+L593:       * 【128†Real Estate Investment Trusts】
+L594:       * 【129†Debt Securities】
+L595:     * Futures & Options Prices
+L596:       * 【130†Equity Index】
+L597:       * 【131†Single Stock】
+L598:       * 【132†Foreign Exchange】
+L599:       * 【133†Interest Rate】
+L600:       * 【134†Commodities】
+L601:     * Statistics
+L602:       * 【135†Consolidated Reports】
+L603:       * 【136†Securities Market】
+L604:       * 【137†Derivatives Market】
+L605:       * 【138†Participant】
+L606:       * 【139†Clearing, Settlement and Depository】
+L607:     * 【140†HKEXnews】
+L608: View listed company announcements and more on the centralised platform for regulatory filings and disclosures
+L609: 
+L610:     * 【141†News Alerts】
+L611: 
+L612: Sign up to receive company announcements or website updates by email
+L613: 
+L614:     * 【142†Market Data Services】
+L615: 
+L616: Vendors can sign up to purchase wholesale market data from HKEX’s Market Data Services department
+L617: 
+L618: [Input: Search Website] [Input]
+L619: ## Market Communications
+L620: 
+L621: ## 2025
+L622: 
+L623: 【147†Image: Navigation Icon】【148†Image: Navigation Icon】
+L624: ## HKEX Enhances Stock Settlement Fee Structure for Securities Market
+L625: 
+L626: Market Operations
+L627: 
+L628: 21 Feb 2025
+L629: 
+L630:   * Fee structure enhancement to align with the notional value traded, taking effect in June 2025
+L631:   * Minimum and maximum components of the stock settlement fee will be removed, with a new ad valorem rate at 0.42 bps (0.0042%) for each trade
+L632:   * Eligible market making trades for Exchange Traded Products (ETP) will be charged at 0.20 bps (0.0020%)
+L633: Hong Kong Exchanges and Clearing Limited (HKEX) is pleased to announce today (Friday) enhancements to the securities market stock settlement fee structure that are aimed at boosting market efficiency and ensuring consistent fee application across all trade sizes.
+L634: The current stock settlement fee structure, which includes a minimum fee of $2 and a maximum fee of $100, disproportionately impacts lower-value trades. To address this, HKEX will remove the minimum and maximum fee components, and adjust the ad valorem rate to 0.42 bps (0.0042%) for each trade. The new fee structure is designed to be cost-neutral to the market as a whole, creating a more equitable fee structure across all trade sizes.
+L635: In addition, the stock settlement fee for eligible market making trades for Exchange Traded Products (ETPs) will be set at a rate of 0.20 bps (0.0020%), removing the minimum and maximum fees. This adjustment aligns with the historical costs of ETP market-making activities and aims to ensure the ongoing provision of liquidity to the ETP market.
+L636: 
+L637: Based on HKEX data, about 77 per cent of all securities trades conducted between 2019 and 2024 would benefit from lower fees under the new structure.
+L638: HKEX Chief Operating Officer and Group Chief Financial Officer, Vanessa Lau, said: “At HKEX, we are committed to building a vibrant and efficient marketplace for our global investors. We are, therefore, pleased to introduce an enhanced stock settlement fee structure that is clear, consistent and equitable for all trades sizes, supporting our retail and institutional investors in executing their trading strategies.
+L639: This is also part of our ongoing initiatives to elevate the breadth and depth of our securities market, reinforcing Hong Kong’s position as a premier financial centre of choice.”
+L640: The new fee structure, which has been approved by the Securities and Futures Commission (SFC), will take effect in June 2025, ahead of the implementation of Phase 1 of the minimum spreads reduction, subject to market readiness. The reduction of minimum spreads would encourage trades to be executed in smaller sizes, thus benefiting from the new fee structure.
+L641: Please refer to the 【149†circular】 and the 【150†information sheet】 published today for details of the enhancements to the securities market stock settlement fee structure. Amendments will be also made to the General Rules of Hong Kong Securities Clearing Company Limited (HKSCC), and will be updated in due course.
+L642: 
+L643: 
+L644: 
+L645: 
+L646: 
+L647: About HKEX
+L648: Hong Kong Exchanges and Clearing Limited (HKEX) is a publicly-traded company (HKEX Stock Code: 388) and one of the world’s leading global exchange groups, offering a range of equity, derivative, commodity, fixed income and other financial markets, products and services, including the London Metal Exchange.
+L649: As a superconnector and gateway between East and West, HKEX facilitates the two-way flow of capital, ideas and dialogue between China and the rest of the world, through its pioneering Connect schemes, increasingly diversified product ecosystem and its deep, liquid and international markets.
+L650: 
+L651: HKEX is a purpose-led organisation which, across its business and through the work of HKEX Foundation, seeks to connect, promote and progress its markets and the communities it supports for the prosperity of all.
+L652: 【8†www.hkexgroup.com†www.hkexgroup.com】
+L653: 
+L654: 
+L655: 
+L656: 
+L657: 
+L658: 
+L659: 
+L660: Ends
+L661: 
+L662: Updated 30 May 2025
+L663: ## Latest
+L664: 
+L665: [Input]【15†View All  】
+L666: 
+L667:   * 【15†NEWS RELEASE】
+L668: 
+L669: ©2017-26 Hong Kong Exchanges and Clearing Limited. All rights reserved.
+--------------------------------------------------------------------------------
+Clearing and Settlement (Stock Connect Northbound) (https://www.hkex.com.hk/Services/Rules-and-Forms-and-Fees/Fees/Securities-%28Stock-Connect%29/Clearing-and-Settlement?sc_lang=en)
+citeturn67view1 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.hkex.com.hk/Services/Rules-and-Forms-and-Fees/Fees/Securities-%28Stock-Connect%29/Clearing-and-Settlement?sc_lang=en","lineno":null}); Redirected to URL: https://www.hkex.com.hk/Services/Rules-and-Forms-and-Fees/Fees/Securities-(Stock-Connect)/Clearing-and-Settlement?sc_lang=en; Total lines: 730
+L0: [Input]
+L1: 
+L2: [Input] [Input] [Input] [Input] [Input] [Input]
+L3: 
+L4: Market Turnover
+L5: 
+L6: -
+L7: 
+L8:  |  |
+L9: --- | --- | ---
+L10:  |
+L11:  |
+L12:  |
+L13:  |
+L14:  |
+L15:  |
+L16: 
+L17: -
+L18: 
+L19: -
+L20: 
+L21: |
+L22: 
+L23: |
+L24: 
+L25: |
+L26: 
+L27: |
+L28: 
+L29: |
+L30: 
+L31: |
+L32: 
+L33: [Input: ]
+L34: 
+L35: -
+L36: 
+L37:   *   *   *   *   *   *   *   *   * ---
+L38:  |  |  |  |
+L39: --- | --- | --- | --- | ---
+L40: ---
+L41:  |  |  |  |
+L42: --- | --- | --- | --- | ---
+L43: 
+L44: -
+L45: 
+L46:   *   *   *   *   *   *   *   *   *  |  |  |  |
+L47: --- | --- | --- | --- | ---
+L48: 
+L49: -
+L50: 
+L51: 繁 【0†简】
+L52: 
+L53: About HKEX
+L54: 
+L55: 【1†Image】
+L56: 
+L57: 【2†About HKEX†www.hkexgroup.com】
+L58: 
+L59: 【3†Investor Relations†www.hkexgroup.com】
+L60: 【4†Corporate Governance†www.hkexgroup.com】
+L61: 
+L62: 【5†Sustainability†www.hkexgroup.com】
+L63: 
+L64: 【6†Media Centre†www.hkexgroup.com】
+L65: 
+L66: 【7†Careers†www.hkexgroup.com】
+L67: 
+L68: Related Sites: LME
+L69: 
+L70: 【1†Image】
+L71: 
+L72: 【8†HKEX Group†www.hkexgroup.com】
+L73: 
+L74: 【9†LME†www.lme.com】
+L75: 
+L76: 【10†Bond Connect†www.chinabondconnect.com】
+L77: 
+L78: 【11†QME†www.qme.com】
+L79: 
+L80: 【12†HKEXnews†www.hkexnews.hk】
+L81: 
+L82: 【13†CESC†www.cesc.com】
+L83: 
+L84: 【14†Client Connect†connect.hkex.com.hk】
+L85: 
+L86: 【15†Latest Market Data】
+L87: 
+L88: 【15†Our Products】 【1†Image】
+L89: 
+L90: 【15†Securities】 【1†Image】
+L91: 
+L92: 【16†Equities】
+L93: 【17†Exchange Traded Products】
+L94: 
+L95: 【18†Structured Products】
+L96: 
+L97: 【19†Real Estate Investment Trusts】
+L98: 
+L99: 【20†Debt Securities】
+L100: 
+L101: 【15†Listed Derivatives】 【1†Image】
+L102: 
+L103: 【21†Equity Index】
+L104: 
+L105: 【22†Single Stock】
+L106: 
+L107: 【23†Foreign Exchange】
+L108: 
+L109: 【24†Interest Rate】
+L110: 
+L111: 【25†Commodities】
+L112: 
+L113: 【15†OTC Derivatives】 【1†Image】
+L114: 
+L115: 【26†Eligible OTC Clear Products】
+L116: 
+L117: 【27†Interest Rate Swaps】
+L118: 
+L119: 【28†Non Deliverable Forwards】
+L120: 
+L121: 【29†Cross Currency Swaps】
+L122: 
+L123: 【30†Deliverable FX】
+L124: 
+L125: 【31†Find a Partner】
+L126: 
+L127: 【32†MSCI Index Futures & Options】
+L128: 【33†HKEX Sustainable & Green Exchange】
+L129: 
+L130: 【15†Our Services】 【1†Image】
+L131: 
+L132: 【15†Trading】 【1†Image】
+L133: 
+L134: 【15†Securities】 【1†Image】
+L135: 
+L136: 【34†Overview】
+L137: 
+L138: 【35†Infrastructure】
+L139: 
+L140: 【15†Derivatives】 【1†Image】
+L141: 
+L142: 【36†Overview】
+L143: 
+L144: 【37†Infrastructure】
+L145: 
+L146: 【15†Connectivity】 【1†Image】
+L147: 
+L148: 【38†Hosting Services】
+L149: 
+L150: 【39†SDNet/2】
+L151: 
+L152: 【15†Data and Index Services】 【1†Image】
+L153: 
+L154: 【40†Real Time Data Services】
+L155: 
+L156: 【41†Historical Data Services】
+L157: 
+L158: 【42†Infrastructure】
+L159: 
+L160: 【43†Index Services】
+L161: 
+L162: 【15†Rules, Forms & Fees】 【1†Image】
+L163: 
+L164: 【44†Rules】
+L165: 
+L166: 【45†Forms】
+L167: 
+L168: 【46†Fees】
+L169: 【15†Clearing】 【1†Image】
+L170: 
+L171: 【15†Securities】 【1†Image】
+L172: 
+L173: 【47†Overview】
+L174: 
+L175: 【48†Infrastructure】
+L176: 
+L177: 【49†Risk Management】
+L178: 
+L179: 【50†CCP Disclosures】
+L180: 
+L181: 【15†Listed Derivatives】 【1†Image】
+L182: 
+L183: 【51†Overview】
+L184: 
+L185: 【52†Infrastructure】
+L186: 
+L187: 【53†Risk Management】
+L188: 
+L189: 【54†CCP Disclosures】
+L190: 
+L191: 【15†OTC Clear】 【1†Image】
+L192: 
+L193: 【55†Overview】
+L194: 
+L195: 【56†Infrastructure】
+L196: 
+L197: 【57†Risk Management】
+L198: 
+L199: 【58†CCP Disclosures】
+L200: 
+L201: 【15†Settlement and Depository】 【1†Image】
+L202: 
+L203: 【59†Settlement - Securities】
+L204: 
+L205: 【60†T+1 Settlement for the Hong Kong Cash Market】
+L206: 
+L207: 【61†Depository】
+L208: 【62†Uncertificated Securities Market】
+L209: 
+L210: 【63†Common Nominee Services】
+L211: 
+L212: 【64†Securities Admission into CCASS】
+L213: 
+L214: 【50†PFMI】
+L215: 
+L216: 【65†Unclaimed Entitlements Held by HKSCC Nominees Limited】
+L217: 
+L218: 【15†Platform Services】 【1†Image】
+L219: 
+L220: 【66†Corporate Action Messaging Standardisation】
+L221: 
+L222: 【67†Client Connect】
+L223: 
+L224: 【68†Orion Derivatives Platform】
+L225: 
+L226: 【69†FINI - A New Era for Hong Kong’s IPO market】
+L227: 
+L228: 【70†Orion Cash Platform】
+L229: 
+L230: 【71†Integrated Fund Platform】
+L231: 
+L232: 【72†HKEX Issuer Access Platform】
+L233: 
+L234: 【73†Digital Payment Adoption for After-Hours Trading】
+L235: 【74†Circulars & Notices】
+L236: 
+L237: 【75†Become a Participant】
+L238: 
+L239: 【76†HKEX Connect Hall】
+L240: 
+L241: 【77†Join Our Markets】 【1†Image】
+L242: 
+L243: 【15†IPO】 【1†Image】
+L244: 
+L245: 【77†Listing with HKEX】
+L246: 
+L247: 【78†GEM】
+L248: 
+L249: 【79†Southeast Asia Listing Insights】
+L250: 
+L251: 【15†Northbound and Southbound】 【1†Image】
+L252: 
+L253: 【80†Stock Connect】
+L254: 
+L255: 【10†Bond Connect†www.chinabondconnect.com】
+L256: 
+L257: 【15†Commodities】 【1†Image】
+L258: 
+L259: 【81†LME†www.lme.com】
+L260: 
+L261: 【82†QME†www.qme.com】
+L262: 
+L263: 【83†Sustainable Finance at HKEX】 【1†Image】
+L264: 
+L265: 【84†Core Climate】
+L266: 
+L267: 【85†Sustainable & Green Exchange (STAGE)】
+L268: 
+L269: 【86†HKEX Green Equity】
+L270: 【87†Biotech @ HKEX】
+L271: 
+L272: 【88†Listing of Specialist Technology Companies】
+L273: 
+L274: 【84†Core Climate】
+L275: 
+L276: 【89†Listing Regulations】 【1†Image】
+L277: 
+L278: 【90†Explore By Role】 【1†Image】
+L279: 
+L280: 【90†Potential Applicants】
+L281: 
+L282: 【91†Listed Issuers】
+L283: 
+L284: 【92†Directors】
+L285: 
+L286: 【93†Rules & Resources】 【1†Image】
+L287: 
+L288: 【94†Listing Rules】
+L289: 
+L290: 【95†Guidance】
+L291: 
+L292: 【96†Checklists, forms & templates】
+L293: 
+L294: 【97†Enforcement】
+L295: 
+L296: 【98†News & Publications】 【1†Image】
+L297: 
+L298: 【99†What's New】
+L299: 
+L300: 【100†Listing Newsletters】
+L301: 
+L302: 【101†Reports】
+L303: 
+L304: 【102†Listing Consultations】
+L305: 【103†Sustainability & Corporate Governance】 【1†Image】
+L306: 
+L307: 【103†ESG Academy】
+L308: 
+L309: 【104†Board Diversity Hub】
+L310: 
+L311: 【105†Corporate Governance Practices】
+L312: 
+L313: 【106†Shareholder Value in Focus】
+L314: 
+L315: 【107†INED Corner】
+L316: 
+L317: 【108†Education Centre】
+L318: 
+L319: 【109†About Listing & Contacts】
+L320: 
+L321: 【110†News Centre】 【1†Image】
+L322: 
+L323: 【111†Corporate News Releases】
+L324: 
+L325: 【112†Regulatory Announcements】
+L326: 
+L327: 【113†Market Communications】
+L328: 
+L329: 【114†Market Consultations】
+L330: 
+L331: 【110†News Centre】
+L332: 
+L333: 【115†HKEX Calendar】
+L334: 
+L335: 【116†Research Reports】
+L336: 
+L337: 【15†Connect Programmes】 【1†Image】
+L338: 【117†Connect Hub】
+L339: 
+L340: 【80†Stock Connect】
+L341: 
+L342: 【118†Bond Connect†www.chinabondconnect.com】
+L343: 
+L344: 【119†Swap Connect】
+L345: 
+L346: 【120†Daily Statistics】
+L347: 
+L348: 【121†Market Highlights】
+L349: 
+L350: 【122†Eligible Securities】
+L351: 
+L352: 【15†Market Data】 【1†Image】
+L353: 
+L354: Stock Quote Lookup
+L355: 
+L356: [Input: Input Stock Code]
+L357: 
+L358: 【15†Securities Prices】 【1†Image】
+L359: 
+L360: 【123†Equities】
+L361: 
+L362: 【124†Exchange Traded Products】
+L363: 
+L364: 【125†Derivative Warrants】
+L365: 
+L366: 【126†Inline Warrants】
+L367: 
+L368: 【127†Callable Bull / Bear Contracts】
+L369: 
+L370: 【128†Real Estate Investment Trusts】
+L371: 
+L372: 【129†Debt Securities】
+L373: 【15†Futures & Options Prices】 【1†Image】
+L374: 
+L375: 【130†Equity Index】
+L376: 
+L377: 【131†Single Stock】
+L378: 
+L379: 【132†Foreign Exchange】
+L380: 
+L381: 【133†Interest Rate】
+L382: 
+L383: 【134†Commodities】
+L384: 
+L385: 【15†Statistics】 【1†Image】
+L386: 
+L387: 【135†Consolidated Reports】
+L388: 
+L389: 【136†Securities Market】
+L390: 
+L391: 【137†Derivatives Market】
+L392: 
+L393: 【138†Participant】
+L394: 
+L395: 【139†Clearing, Settlement and Depository】
+L396: 
+L397: 【140†HKEXnews】
+L398: 
+L399: 【141†News Alerts】
+L400: 
+L401: 【142†Market Data Services】
+L402: 
+L403:   * 繁 【0†简】 【143†Image: Notification】 【144†Image: Notification】
+L404: 
+L405: 【145†Image】 【146†Image】
+L406: 
+L407:   * 【15†Our Products】
+L408:     * Securities
+L409:       * 【16†Equities】
+L410:       * 【17†Exchange Traded Products】
+L411:       * 【18†Structured Products】
+L412:       * 【19†Real Estate Investment Trusts】
+L413:       * 【20†Debt Securities】
+L414:     * Listed Derivatives
+L415:       * 【21†Equity Index】
+L416:       * 【22†Single Stock】
+L417:       * 【23†Foreign Exchange】
+L418:       * 【24†Interest Rate】
+L419:       * 【25†Commodities】
+L420:     * OTC Derivatives
+L421:       * 【26†Eligible OTC Clear Products】
+L422:       * 【27†Interest Rate Swaps】
+L423:       * 【28†Non Deliverable Forwards】
+L424:       * 【29†Cross Currency Swaps】
+L425:       * 【30†Deliverable FX】
+L426:     * 【31†Find a Partner】
+L427: Search our directory to find brokers, clearing members, information vendors and more
+L428: 
+L429:     * 【32†MSCI Index Futures & Options】
+L430: 
+L431: HKEX launched 39 MSCI equity index futures and options contracts
+L432: 
+L433:     * 【33†HKEX Sustainable & Green Exchange】
+L434: 
+L435: Collaborating on sustainable finance amongst our stakeholders
+L436: 
+L437:   * 【15†Our Services】
+L438:     * Trading
+L439:       * Securities
+L440:         * 【34†Overview】
+L441:         * 【35†Infrastructure】
+L442:       * Derivatives
+L443:         * 【36†Overview】
+L444:         * 【37†Infrastructure】
+L445:     * Connectivity
+L446:       * 【38†Hosting Services】
+L447:       * 【39†SDNet/2】
+L448:     * Data and Index Services
+L449:       * 【40†Real Time Data Services】
+L450:       * 【41†Historical Data Services】
+L451:       * 【42†Infrastructure】
+L452:       * 【43†Index Services】
+L453:     * Rules, Forms & Fees
+L454:       * 【44†Rules】
+L455:       * 【45†Forms】
+L456:       * 【46†Fees】
+L457:     * Clearing
+L458:       * Securities
+L459:         * 【47†Overview】
+L460:         * 【48†Infrastructure】
+L461:         * 【49†Risk Management】
+L462:         * 【50†CCP Disclosures】
+L463:       * Listed Derivatives
+L464:         * 【51†Overview】
+L465:         * 【52†Infrastructure】
+L466:         * 【53†Risk Management】
+L467:         * 【54†CCP Disclosures】
+L468:       * OTC Clear
+L469:         * 【55†Overview】
+L470:         * 【56†Infrastructure】
+L471:         * 【57†Risk Management】
+L472:         * 【58†CCP Disclosures】
+L473:     * Settlement and Depository
+L474:       * 【59†Settlement - Securities】
+L475:       * 【60†T+1 Settlement for the Hong Kong Cash Market】
+L476:       * 【61†Depository】
+L477:       * 【62†Uncertificated Securities Market】
+L478:       * 【63†Common Nominee Services】
+L479:       * 【64†Securities Admission into CCASS】
+L480:       * 【50†PFMI】
+L481:       * 【65†Unclaimed Entitlements Held by HKSCC Nominees Limited】
+L482:     * Platform Services
+L483:       * 【66†Corporate Action Messaging Standardisation】
+L484:       * 【67†Client Connect】
+L485:       * 【68†Orion Derivatives Platform】
+L486:       * 【69†FINI - A New Era for Hong Kong’s IPO market】
+L487:       * 【70†Orion Cash Platform】
+L488:       * 【71†Integrated Fund Platform】
+L489:       * 【72†HKEX Issuer Access Platform】
+L490:       * 【73†Digital Payment Adoption for After-Hours Trading】
+L491:     * 【74†Circulars & Notices】
+L492: View important information issued by HKEX to Exchange and Clearing House Participants, Market Data vendors and Hosting Services members
+L493: 
+L494:     * 【75†Become a Participant】
+L495: 
+L496: Connect to Hong Kong’s financial market through HKEX
+L497: 
+L498:     * 【76†HKEX Connect Hall】
+L499: 
+L500: A centrally-located venue at the heart of Hong Kong financial hub, the HKEX Connect Hall is an iconic venue for Hong Kong’s financial community.
+L501: 
+L502:   * 【77†Join Our Markets】
+L503:     * IPO
+L504:       * 【77†Listing with HKEX】
+L505:       * 【78†GEM】
+L506:       * 【79†Southeast Asia Listing Insights】
+L507:     * Northbound and Southbound
+L508:       * 【80†Stock Connect】
+L509:       *     * Commodities
+L510:       *       *     * 【83†Sustainable Finance at HKEX】
+L511:       * 【84†Core Climate】
+L512:       * 【85†Sustainable & Green Exchange (STAGE)】
+L513:       * 【86†HKEX Green Equity】
+L514:     * 【87†Biotech @ HKEX】
+L515: 
+L516: HKEX connects capital with a rich range of biotech issuers and investment products.
+L517:     * 【88†Listing of Specialist Technology Companies】
+L518: 
+L519: A new listing pathway for Specialist Technology Companies.
+L520: 
+L521:     * 【84†Core Climate】
+L522: 
+L523: The new carbon marketplace from HKEX
+L524: 
+L525:   * 【89†Listing Regulations】
+L526:     * 【90†Explore By Role】
+L527:       * 【90†Potential Applicants】
+L528:       * 【91†Listed Issuers】
+L529:       * 【92†Directors】
+L530:     * 【93†Rules & Resources】
+L531:       * 【94†Listing Rules】
+L532:       * 【95†Guidance】
+L533:       * 【96†Checklists, forms & templates】
+L534:       * 【97†Enforcement】
+L535:     * 【98†News & Publications】
+L536:       * 【99†What's New】
+L537:       * 【100†Listing Newsletters】
+L538:       * 【101†Reports】
+L539:       * 【102†Listing Consultations】
+L540:     * 【103†Sustainability & Corporate Governance】
+L541:       * 【103†ESG Academy】
+L542:       * 【104†Board Diversity Hub】
+L543:       * 【105†Corporate Governance Practices】
+L544:       * 【106†Shareholder Value in Focus】
+L545:       * 【107†INED Corner】
+L546:     * 【108†Education Centre】
+L547: A centralised education platform, including e-Learning.
+L548: 
+L549:     * 【109†About Listing & Contacts】
+L550: 
+L551: Find information about listing, including committee members and contact persons.
+L552: 
+L553:   * 【110†News centre】
+L554: 
+L555:     * 【111†Corporate News Releases】
+L556:     * 【112†Regulatory Announcements】
+L557:     * 【113†Market Communications】
+L558:     * 【114†Market Consultations】
+L559:     * 【110†News Centre】
+L560: 
+L561: Snapshot about HKEX latest news and information
+L562: 
+L563:     * 【115†HKEX Calendar】
+L564: Subscribe to our calendar containing trading and clearing information, public holidays and more
+L565: 
+L566:     * 【116†Research Reports】
+L567: 
+L568: Research and survey conducted by HKEX on its securities and derivatives markets and related topics
+L569: 
+L570:   * 【15†Connect Programmes】
+L571: 
+L572:     * 【117†Connect Hub】
+L573:     * 【80†Stock Connect】
+--------------------------------------------------------------------------------
+Internal Error ()
+citeturn67view2 [wordlim: 200] Source: open({"ref_id":"https://investor.szse.cn/warning/activities/stockintroduction/t20190531_567540.html","lineno":null}); Total lines: 1
+L0: Failed to fetch https://investor.szse.cn/warning/activities/stockintroduction/t20190531_567540.html: (400) Timeout fetching
+

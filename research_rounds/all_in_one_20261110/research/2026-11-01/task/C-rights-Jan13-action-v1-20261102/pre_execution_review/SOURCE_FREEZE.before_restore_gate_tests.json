@@ -1,0 +1,24 @@
+{
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan12-upgrade-v1-20261102/upgrade_runtime.py": "53340b55dbd5b02b8983df2f42181a3f325081b10bc49e05458e042fd776f0df",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan12-upgrade-v1-20261102/SOURCE_FREEZE.json": "4bb3cb899c0858afaffc6351f9a222e441a6a0bf9eb9c75903b976049dce94d2",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan12-upgrade-v1-20261102/IDENTITY.json": "6c3e8631cdd645d752542dcd7ff086b11223769cb5680dcb5477e348d2652ca1",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan12-upgrade-v1-20261102/UPGRADED_CHECKPOINTS.json": "33a88674e8c6348521716a3d0a796d0e359ba1fa2ff627fbbbd994ff71529d32",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan12-upgrade-v1-20261102/PACKAGE_SHA256.json": "c8c6df304e3ef7cbc972431635a2af199c9c7f1b7485110739789a042bcada55",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-no-subscription-wiring-v1-20261102/rights_wiring.py": "8e145124984dd52f49379cb1985b24af376e05382e82f45401913a1996195201",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-no-subscription-wiring-v1-20261102/CONTRACT.txt": "d7a1fcbcb04901b50402cbe67d20220581a9b667380bead925c685c320c353a2",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-no-subscription-wiring-v1-20261102/PACKAGE_SHA256.json": "abc64f84d88119395e3f648dd7b0acd42a418a513d363ad793082df2079a59c5",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v1-20261102/prepare_authority.py": "1294626da525a790ce11bc617135a9ae60e88a035271333128b99b93a02d282b",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v1-20261102/run_actions.py": "439fac75991b3b01daf5b760b65bcbe9a1aa8ee594795906159815efd8ff665f",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v1-20261102/state_snapshot.py": "e62aa274ad107f5a5a5f0e1721589aa3aa4e864c6b47a1e7a40811a0e55edcdf",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v1-20261102/restore_action.py": "cbd595dfe5ef1bb19efda8ca1c4395081e8f88c644dab81c399efe4e013c3741",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v1-20261102/action_runtime.py": "3c06300fba35f101b706fc6ba6cfabd564eaea286800c7264958ce1d6e13b555",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v1-20261102/CONTRACT.txt": "36db7a77a6e352239564e1aae1d7f9c99c77e0a05bc339225558ffcce9024ba8",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v1-20261102/EXECUTION_AUTHORITY.json": "a474efd7c7fa8883a3f658be054dcc85cfdd63707c3af83d0a6e4e19175b1ad7",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v1-20261102/UPGRADE_INDEPENDENT_AUDIT.json": "85bc7b2224c8d18a37268a3d59b3db6b112c70b6d1a41334f70ee4e70d371727",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v1-20261102/grants/2022-C10-JAN13-ACTION.json": "2efcbc97da5d3ab9d2db000c571dd3743439a90289f2946ea278b5a2a43f2645",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v1-20261102/grants/2022-C_BATCH20-JAN13-ACTION.json": "ede3f15212d47b9160da198009d6926f3ebd1eb87d4a16268ef67408a6c238b5"
+  },
+  "identity_sha256": "507056571024f207a18f830d2cbffed69638b9810436fab5ac3069dca0c955c6",
+  "scope": "Jan13 ACTION only; existing old sources guarded transitively unchanged"
+}

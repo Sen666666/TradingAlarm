@@ -1,0 +1,45 @@
+三个CLOSE的原CP字段独立代数核对（不运行calculate/features/账户）
+
+只读取父指定两份已保存JSON，target是盈新000620.SZ的2022-01-21、01-24，以及
+海能达002583.SZ的2024-10-18；前一观察分别是01-20、01-21、10-17。
+完整原数字/每项代数与残差：SELECTED_SAVED_INPUTS.json、THREE_CLOSE_ALGEBRA.json。
+
+按已保存frozen scale算T=sqrt(5)*scale，两触发余量为displacement-T、credit-T：
+日期               frozen scale          T                     displacement余量       credit余量
+盈新2022-01-21 .03240784770641102  .07246615047599569  +.02312031058440345  +.06689538465579007
+盈新2022-01-24 .03258592710125615  .07286434810826142  +.02194344535040521  +.06233969958712843
+海能2024-10-18 .02771295640381738  .06196805437642377  +.05790922288307405  +.09898706290084093
+三例saved delta_frontier都>0，两个余量都>0，与已保存receipt=True一致，无阈值近界问题。
+
+保护候选：discount=exp(-sqrt(21)*frozen scale)，candidate=C_adjusted*discount。
+盈新01-21：C=4.122878422779101，factor=1.138916691375442，raw C=3.62；
+ discount=.8619901673024313，saved candidate=3.553880661418941；raw candidate≈3.120404405634802。
+盈新01-24：C=4.53288843167426，factor=1.138916691375442，raw C=3.98；
+ discount=.8612870165646737，saved candidate=3.904117953737246；raw candidate≈3.427922325927402。
+海能10-18：C=67.15817825107045，factor=5.619931234399201，raw C=11.95；
+ discount=.8807365610106843，saved candidate=59.14866295659032；raw candidate≈10.52480190407768。
+raw candidate按已保存candidate/factor转换，并独列raw C*discount的序列化舍入差。
+这是CP candidate，不擅自把它当每个旧层实际floor或可保证卖出价。
+
+信用桥接：本日credit=前一观察next_credit+本日delta_frontier*本日m。
+盈新01-21：0+.09558646106039914*1.4579631214061377=.13936153513178576。
+盈新01-24：0+.09480779345866663*1.4260857969902525=.13520404769538985。
+海能10-18：.02945027478542134+.09564496387173005*1.3749269921645344
+           =.02945027478542134+.13150484249184336=.1609551172772647。
+三例前日next_anchor/next_scale/next_phase均逐字段精确等于今日anchor/scale/phase。
+盈新前日各有receipt，必须用清零后的next_credit=0，不能将前日消费前credit再加一次。
+海能10-17没有receipt，所以next_credit=.02945027478542134如实带入。
+
+另核：本日delta_frontier=今日frontier-前日已保存frontier；
+本日displacement=今frontier-今anchor；m也与1+.5*abs(已保存u)*已保存v作代数对照。
+未构造未保存的next_frontier，未重算u/v/B/scale等历史feature。
+
+精度：binary64标量同式复算中，三例delta、displacement、fsum信用桥接、candidate与
+已保存字段的残差全为0。50位Decimal将序列化小数视为精确量，credit残差分别
+-5.106326007801578e-18、+1.365884242975925e-18、+1.773833619261280e-18，原样保留。
+raw换算两途径差约4.35e-16、6.83e-16、-9.15e-16，属于已保存数值表示的量级；
+不把这些差补0或反推缺失字段。完整Decimal及binary64结果在JSON中并列。
+
+本日CP使用的是冻结scale，而非当天新的z；尤其海能10-18 frozen=.02771295640381738，
+当天z=.032506539668503996。当天receipt后next_scale才转到新的z。仅用现有标量核式，
+没有重新运行模型、特征、账户、回测，没有新parquet读取或修改原资料。

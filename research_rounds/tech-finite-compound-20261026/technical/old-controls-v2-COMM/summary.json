@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "accounts": [
+    "I__S1_base",
+    "IX__S1_base"
+  ],
+  "daily_rows": 116,
+  "technical": true,
+  "final_nav": {
+    "I__S1_base": "936526.9451431316000",
+    "IX__S1_base": "902882.3836823749280"
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "scope": "Bounded read-only historical dedup from rules/protocols/conclusions/py only. No raw large financialJSON scan, code execution, Account, restore or projection. Results are historical development, not new economic validation.",
+  "contracts": [
+    {
+      "id": "PVR_ROT15_v2",
+      "sources": [
+        "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-rotation-20261027-v2/protocol.json",
+        "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-rotation-20261027-v2/CONCLUSION.txt"
+      ],
+      "status": "full economic study, rejected",
+      "universe": "407 tech/11 industry current snapshot, 2024 first session..2026-10-27, each fresh1m",
+      "rule": "Original I new-buy and industry admission; newPVR>50 and new-old>=15; ordinary entry/structure exit first, only blocked feasible one-for-one. Pick lowest feasible incumbentPVR; at most1 pending pair/day; freeze atCLOSE, nextOPEN sell then buy with native prechecks/T+1/fees/expiry.",
+      "results": {
+        "PVR_only_base_return_pct": 138.47,
+        "PVR_only_DD_pct": 21.95,
+        "ROT_base_return_pct": 86.54,
+        "ROT_DD_pct": 26.43,
+        "ROT_cost2_return_pct": 65.14,
+        "ROT_delay_return_pct": 17.84
+      },
+      "counterexample": "2026-04-15 HuazhengPVR67.010293 versusBaoding83.624080; active healthy incumbent soldApr16. Matched original PVR holding cycle137.46% versus truncatedROT6.96%, different quantity/account paths, not recoverable profit.",
+      "dedup": "Relative rank-gap swap already tested. No assertion that all rotation fails."
+    },
+    {
+      "id": "COR1_BUF_and_weakening_COR",
+      "sources": [
+        "/Users/bytedance/Documents/ChatGPT/money/research_rounds/portfolio-correction-20261027/RULES_AND_EVALUATION.txt",
+        "/Users/bytedance/Documents/ChatGPT/money/research_rounds/portfolio-correction-20261027/CONCLUSION.txt"
+      ],
+      "status": "63 full fixed paths, neither passed",
+      "universe": "407/11, starts2024Jan/2024Jul/2025Jan..2026-10-27;3 initial orderings, ACT/BUF/COR, base+delay and earliest cost2; current snapshot/development",
+      "rule": "BUF weekly firstmarketCLOSE, incumbent>=10observations, originalI fresh/newRS>=50 and>=old+10. COR additionally new3of5 E0+G1warm, C>EMA21, EMA21 rising5obs, R10>0,U10>=60%; old3successiveC<EMA21,R10<=0,U10<50%. U10 is up-day actual CNYamount/10dayamount. Ordinary entries/exits first; no capacity relaxation.",
+      "results": {
+        "base_paired_improvements_BUF": "0/9",
+        "base_paired_improvements_COR": "0/9",
+        "weak_path_return_diff_pp_BUF": -133.3,
+        "weak_path_return_diff_pp_COR": -136.59,
+        "tail_contribution_preservation_BUF_pct": 49.28,
+        "tail_contribution_preservation_COR_pct": 54.2,
+        "COR_actual_replacement_cycles_in9base": 29,
+        "COR_those_cycle_total_net_CNY": -276000
+      },
+      "counterexample": "Donghua→Hande signal2025Aug4/fillAug5, new lost about12600 actual cycle; matched21price new-10.00%/old+12.18%;63 new-14.71%/old+8.23%. Later rank/EMA weakening can be normal consolidation. Prices not tradable shadow profits.",
+      "dedup": "EMA+amount own-weakness/healthy-incumbent protection already full tested; do not relabel as new."
+    },
+    {
+      "id": "selection_rotation_ABCD",
+      "sources": [
+        "/Users/bytedance/Documents/ChatGPT/money/research_rounds/selection-rotation-abcd-20261025/PROTOCOL.md",
+        "/Users/bytedance/Documents/ChatGPT/money/research_rounds/selection-rotation-abcd-20261025/CONCLUSION.md"
+      ],
+      "status": "12full paths, B/C/D not promoted",
+      "universe": "1709 qualified+2 unknown-cap records/90 current industries, 2015Jan5..2026Oct22,1m/6stocks/3industries/2each",
+      "rule": "DynamicC/D: challenger industrytop3 or within-industry stocktop2, lead>=2ranks beyondrawtie, same challenger/incumbent persists3commonCLOSEs, original new event needed on swapday. Old dataunknown not lowest. Industry swap exits whole industry; max1action/day, normal exits first. Sell fills before laterCLOSE recompetition; no guaranteed challenger receipt.",
+      "results": {
+        "A_base_return_pct": -83.95,
+        "C_base_return_pct": -90.05,
+        "D_base_return_pct": -92.88,
+        "A_DD_pct": 90.89,
+        "C_DD_pct": 94.72,
+        "D_DD_pct": 95.26,
+        "C_operations": 240,
+        "D_operations": 179,
+        "C_first_postclear_batch_contains_challenger": "124/240",
+        "D_first_postclear_batch_contains_challenger": "95/179"
+      },
+      "dedup": "Rank persistence, industry-first replacement, reentry restriction and actual postclear competition already tested. Whole-market current-snapshot IX foundation differs from currentNo60."
+    },
+    {
+      "id": "AMT15_and_execution_SD",
+      "sources": [
+        "/Users/bytedance/Documents/ChatGPT/money/research_rounds/tech-amount-rotation-20261026/PROTOCOL.md",
+        "/Users/bytedance/Documents/ChatGPT/money/research_rounds/tech-rotation-fix-delay-20261026/PROTOCOL.md",
+        "/Users/bytedance/Documents/ChatGPT/money/research_rounds/tech-rotation-fix-delay-20261026/CONCLUSION.md"
+      ],
+      "status": "originalAMT15 and correctedSD full studies, not stable improvement",
+      "universe": "407/11,2024..2026Oct26,1m/6stocks/3industries/2each/15%initial/90%investment",
+      "rule": "New originalI/industry-qualified candidate actual CNYamount>=1.5*incumbent same-dayamount; normal entryfirst; one-for-one must resolve actual capacity/cash blockage, max1pair. OriginalAMT soldthenlaterCLOSEwarmcheck; SD removes laterwarmcheck, freezes original evidence and attempts sameOPEN after full sale with explicit daily-priceproxy.",
+      "results": {
+        "I_base_return_pct": 139.14,
+        "I_base_DD_pct": 41.05,
+        "original_AMT15_return_pct": 109.47,
+        "original_AMT15_DD_pct": 50.19,
+        "SD_base_return_pct": 115.46,
+        "SD_base_DD_pct": 45.37,
+        "SD_explicit_fee_CNY_approx": 65400,
+        "I_explicit_fee_CNY_approx": 17900
+      },
+      "dedup": "Absolute activity superiority is not trend dominance; execution fix does not justify healthy-winner liquidation. 09:30+1second is causal ordering, not observed atomic execution."
+    },
+    {
+      "id": "B_M1_M2_joint_mobile_competition",
+      "sources": [
+        "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-B-mobile-competition-target-design-20261102/CONTRACT_PROPOSAL.txt",
+        "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-B-joint-target-v2-20261102/CONTRACT_V2.txt"
+      ],
+      "status": "design and limited conditional target projection, not a full-account proven strategy",
+      "universe": "old2fixedJan6/Jul3 source snapshots, 2022 and strong context; not fullnewNo60COREmother",
+      "rule": "Existing supportedmobile with I/ownfloor/A valid mayretain withoutfresh; freshqualified mobile incremental demand competes using fullPVR_SLOT1 jointorder. Only strictlylower-ranked legal sellablemobile donors, weakestfirst/FIFO, noCORE donors. EmptyD feasible for chosenincrement→no sell. Maxlegalnewincrement and minimallegal fixedprefixdonor amount jointly pass nativefees/risk; same-stock one netdirection, original duties kept.",
+      "counterexample": "Oldwinner consolidation/new singlebar volume spike maycause sellold/newfalsebreakout; prior5vs21 relative superiority flips. Nofresh or no laterfresh reentry after donorclear is real opportunity cost.",
+      "dedup": "Protectedstrongold/nofreshdoesnotmeanweak, boundedweak-donor funding, sameindustry funding, coreprotection and min-needed partialselling are existing contracts. Limits6%account/5%sector etc belong this oldcontract, not currentNo60."
+    },
+    {
+      "id": "six_fixed_packages_HARD_WEAK",
+      "sources": [
+        "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/replacement-six-package-projection-v1-20261103/CONTRACT.txt",
+        "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/replacement-six-package-projection-v1-20261103/summarize.py",
+        "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/replacement-quality-six-batches-v2-20261102/analyze.py",
+        "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/replacement-quality-six-batches-v2-20261102/summarize.py"
+      ],
+      "status": "sixselectedpackage static resource projections+oldprice/outcome joins, zero new financialevents",
+      "universe": "6preselectedoriginalC packages from2022Jan and2025Jul/Aug, not all80packages and not currentfullCORE",
+      "rule": "Q onlyoldpositiveauthorizedamounts; D onlyoldspecifiedlayers/qty, originalFIFO/units/locks retained. HARDnewPVR,H1>=oldboth and one>; WEAK forbids olddominatingnew, cross/tie allowed. NoNAcomparison. Every resource/stage cash/capital/risk edge matched separately with exactnative Decimal validation; unuseddonorcapacitysealed and olddeficitrepair doesnotbecomefreeresource.",
+      "results": {
+        "HARD_changed_packages": "3/6",
+        "WEAK_changed_packages": "1/6",
+        "Aug13_old_Huasheng_qty_retained": 6800,
+        "Aug13_incoming_Zhongji_increment": "300→0",
+        "Aug13_incoming_Taicheng_increment": "300→100"
+      },
+      "counterexample": "Protectoldstrong mayblocknew righttail. OriginalZhongji layer laternet-1582.09 while future21price+71.30%; neither is this projectionprofit. Originalriskdeficit repair, fee/NAV tightening and resource-specific admissibility matter.",
+      "dedup": "Two-dimensional dominance/healthywinner protection via constrained donor matching already exists; no economic verdict from these six selected cases. Existing labels use shared fixedmarket endpoints and rawOPENfactor adjustment."
+    },
+    {
+      "id": "sector_quota_removal",
+      "sources": [
+        "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-cap-ablation-20261027/protocol.json",
+        "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-cap-ablation-20261027/CONCLUSION.txt"
+      ],
+      "status": "6newfullpaths with6exactcontrols, simple removal not adopted",
+      "universe": "407/11,2024..2026Oct27,1m",
+      "rule": "Only3industry/2stockquota removed;6issueroverall remains, same S0industry roundrobin, original I/ACT/fees/exits/sizing; no active rotation.",
+      "results": {
+        "ACT_original_return_pct": 298.42,
+        "ACT_noquota_return_pct": 152.65,
+        "PVR_original_return_pct": 138.47,
+        "PVR_noquota_return_pct": 52.32
+      },
+      "dedup": "Removingindustryrestriction doesnotmonotonicallyaddopportunities: admittedstocks, cash/ACT and winners change. Different old countquota contract from current capitalpool mechanism."
+    }
+  ],
+  "source_sha256": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/portfolio-correction-20261027/CONCLUSION.txt": "9422ace0e1ed61f896dd6762d754d1bd7c8c825642f6a09dbf3f6642f5dc68f7",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/portfolio-correction-20261027/RULES_AND_EVALUATION.txt": "608bb18b3385a0ba919897919eeb0e37900cacf60926ffa2f0c79df95b1d1c09",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-rotation-20261027-v2/CONCLUSION.txt": "7e9a1d13fa7939220ae10331e1b9a8c1ef34fd5babfbe6538f9911f5318f452e",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-rotation-20261027-v2/protocol.json": "31d0e4d507572218a7cbf0476b386c6b9c11cd39d0998874362fbb22bd962c2d",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-cap-ablation-20261027/CONCLUSION.txt": "49cb5ae9a924ee880a4a7702302098ea9bef02705ae0c2a002c2e980a4ea337f",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-cap-ablation-20261027/protocol.json": "ee9ce0b28cab7e8c3527b269de5064c2d2b47427789b197acd1345c82f19dac9",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/selection-rotation-abcd-20261025/CONCLUSION.md": "999d94504d2a54c6c63b2a6dc3cb481e659844601b9bbf3337ba9fd8a5e02667",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/selection-rotation-abcd-20261025/PROTOCOL.md": "baf563af3ae50d0b01e4b28f4a7a9ed2af49e509ab921c9167da46a8c684349e",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/tech-amount-rotation-20261026/PROTOCOL.md": "f3b191b465f5ec66630805193987324692f5d8a25ce938dcf04a01921761e3de",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/tech-rotation-fix-delay-20261026/CONCLUSION.md": "f03daad6e44c7cc408ef189b0a4749cddd0c04b5e8a844261af4440117883c40",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/tech-rotation-fix-delay-20261026/PROTOCOL.md": "cab0f01b2be738564aa08fd777b328b6940a63af216a43bc7b6ec1a0e0cdadea",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-B-joint-target-v2-20261102/CONTRACT_V2.txt": "d228e5f7e447c799b8ba5c5ca11a945ce98cffb8d64592700fdd64b67d6bec5d",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-B-mobile-competition-target-design-20261102/CONTRACT_PROPOSAL.txt": "bc235f97e9be0478f6ba05a322e88125e705d9ba86fa0c8ae7772369059e9111",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/replacement-quality-six-batches-v2-20261102/analyze.py": "0cfeb0e4265a2984722c77e8df809cc5583deeb5f0b6789250f5aef3bf8e175e",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/replacement-quality-six-batches-v2-20261102/summarize.py": "2d42216ea5d4f5438fda904a63b58b863229010494eb6badfbba8fe5fd646809",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/replacement-six-package-projection-v1-20261103/CONTRACT.txt": "1a7d09eee9e2ab4b0d262658f23f26e5d6c3b02c3bcf755d21c4b7404ac94515",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/replacement-six-package-projection-v1-20261103/summarize.py": "36618504169d9aa75e4e63f63cb8aceb2d3db6676e435da1321e1f9ce694cdc8"
+  },
+  "current_new_rule_admission": false,
+  "new_financial_accounts": 0
+}

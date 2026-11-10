@@ -1,0 +1,8 @@
+{
+  "decision": "STOP_NO_STABLE_INCREMENTAL_EVIDENCE",
+  "account_runs": 0,
+  "parameter_searches": 0,
+  "new_candidate_reorders": 0,
+  "model_refits_after_results": 0,
+  "note": "Local positive patterns retained; no reliable joint increment or stable30percent real-round win rate. Do not reverse or retune."
+}

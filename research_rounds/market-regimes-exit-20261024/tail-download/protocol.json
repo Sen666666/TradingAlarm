@@ -1,0 +1,1 @@
+{"schema_version":1,"items":[{"symbol":"USHJ512480","node":"9602","end":"20261023","earliest":"2026-09-01","mode":"tail","rights":true,"max_pages":1}],"max_requests":2,"request_interval_seconds":0.5,"read_timeout_seconds":15,"session_preference":"snapshot"}

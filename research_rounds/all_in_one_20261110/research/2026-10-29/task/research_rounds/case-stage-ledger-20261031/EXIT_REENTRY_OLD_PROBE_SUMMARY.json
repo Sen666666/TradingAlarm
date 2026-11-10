@@ -1,0 +1,158 @@
+[
+  {
+    "account": "A",
+    "actual_exit_requests": 43,
+    "actual_sell_fills": 43,
+    "requests_unfilled_by_end": 0,
+    "same_structure_mobile_reentries": 0,
+    "all_reentries": 12,
+    "days_old_probe_occupied": 162,
+    "maximum_old_probe_capital": "49899.00",
+    "maximum_old_probe_risk": "13058.99999999999995006923654",
+    "probe_risk_refusals_with_old_probe_risk_coexisting": 1171,
+    "not_claimed_exclusive_cause": true,
+    "coexisting_examples": [
+      {
+        "funding_refusal": {
+          "account": "A",
+          "at": "2025-07-30 09:30:00+08:00",
+          "sid": "300726.SZ",
+          "role": "core",
+          "result": "probe_risk"
+        },
+        "preceding_close_old_probe": {
+          "account": "A",
+          "day": "2025-07-29",
+          "old_attempt_probe_layers": 3,
+          "old_attempt_probe_capital": "19337.00",
+          "old_attempt_probe_risk": "3184.458726331907694846185984",
+          "old_core_probe_capital": "19337.00",
+          "old_core_probe_risk": "3184.458726331907694846185984",
+          "total_probe_capital": 49825.0,
+          "total_probe_risk": 7506.764746397811,
+          "NAV": "1004807.5457977719500"
+        }
+      },
+      {
+        "funding_refusal": {
+          "account": "A",
+          "at": "2025-07-30 09:30:00+08:00",
+          "sid": "605376.SH",
+          "role": "core",
+          "result": "probe_risk"
+        },
+        "preceding_close_old_probe": {
+          "account": "A",
+          "day": "2025-07-29",
+          "old_attempt_probe_layers": 3,
+          "old_attempt_probe_capital": "19337.00",
+          "old_attempt_probe_risk": "3184.458726331907694846185984",
+          "old_core_probe_capital": "19337.00",
+          "old_core_probe_risk": "3184.458726331907694846185984",
+          "total_probe_capital": 49825.0,
+          "total_probe_risk": 7506.764746397811,
+          "NAV": "1004807.5457977719500"
+        }
+      },
+      {
+        "funding_refusal": {
+          "account": "A",
+          "at": "2025-07-30 09:30:00+08:00",
+          "sid": "605376.SH",
+          "role": "mobile",
+          "result": "probe_risk"
+        },
+        "preceding_close_old_probe": {
+          "account": "A",
+          "day": "2025-07-29",
+          "old_attempt_probe_layers": 3,
+          "old_attempt_probe_capital": "19337.00",
+          "old_attempt_probe_risk": "3184.458726331907694846185984",
+          "old_core_probe_capital": "19337.00",
+          "old_core_probe_risk": "3184.458726331907694846185984",
+          "total_probe_capital": 49825.0,
+          "total_probe_risk": 7506.764746397811,
+          "NAV": "1004807.5457977719500"
+        }
+      }
+    ]
+  },
+  {
+    "account": "B",
+    "actual_exit_requests": 98,
+    "actual_sell_fills": 98,
+    "requests_unfilled_by_end": 0,
+    "same_structure_mobile_reentries": 3,
+    "all_reentries": 38,
+    "days_old_probe_occupied": 19,
+    "maximum_old_probe_capital": "21663.00",
+    "maximum_old_probe_risk": "3791.000000000000582899425551",
+    "probe_risk_refusals_with_old_probe_risk_coexisting": 23,
+    "not_claimed_exclusive_cause": true,
+    "coexisting_examples": [
+      {
+        "funding_refusal": {
+          "account": "B",
+          "at": "2026-02-06 09:30:00+08:00",
+          "sid": "002142.SZ",
+          "role": "core",
+          "result": "probe_risk,sector_capital"
+        },
+        "preceding_close_old_probe": {
+          "account": "B",
+          "day": "2026-02-05",
+          "old_attempt_probe_layers": 2,
+          "old_attempt_probe_capital": "15957.00",
+          "old_attempt_probe_risk": "2136.000000000000582899425551",
+          "old_core_probe_capital": "15957.00",
+          "old_core_probe_risk": "2136.000000000000582899425551",
+          "total_probe_capital": 35813.0,
+          "total_probe_risk": 2318.000000000003,
+          "NAV": "1113066.2924491076500"
+        }
+      },
+      {
+        "funding_refusal": {
+          "account": "B",
+          "at": "2026-02-06 09:30:00+08:00",
+          "sid": "002142.SZ",
+          "role": "mobile",
+          "result": "probe_risk,sector_capital"
+        },
+        "preceding_close_old_probe": {
+          "account": "B",
+          "day": "2026-02-05",
+          "old_attempt_probe_layers": 2,
+          "old_attempt_probe_capital": "15957.00",
+          "old_attempt_probe_risk": "2136.000000000000582899425551",
+          "old_core_probe_capital": "15957.00",
+          "old_core_probe_risk": "2136.000000000000582899425551",
+          "total_probe_capital": 35813.0,
+          "total_probe_risk": 2318.000000000003,
+          "NAV": "1113066.2924491076500"
+        }
+      },
+      {
+        "funding_refusal": {
+          "account": "B",
+          "at": "2026-02-06 09:30:00+08:00",
+          "sid": "601963.SH",
+          "role": "core",
+          "result": "probe_risk,sector_capital"
+        },
+        "preceding_close_old_probe": {
+          "account": "B",
+          "day": "2026-02-05",
+          "old_attempt_probe_layers": 2,
+          "old_attempt_probe_capital": "15957.00",
+          "old_attempt_probe_risk": "2136.000000000000582899425551",
+          "old_core_probe_capital": "15957.00",
+          "old_core_probe_risk": "2136.000000000000582899425551",
+          "total_probe_capital": 35813.0,
+          "total_probe_risk": 2318.000000000003,
+          "NAV": "1113066.2924491076500"
+        }
+      }
+    ]
+  }
+]

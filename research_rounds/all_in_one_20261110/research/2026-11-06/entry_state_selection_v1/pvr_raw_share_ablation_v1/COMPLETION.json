@@ -1,0 +1,13 @@
+{
+  "status": "ONE_FROZEN_SHARE_COUNT_ABLATION_COMPLETE_NOT_STRATEGY",
+  "rows": 53121,
+  "picks_each": 14185,
+  "accounts": 0,
+  "parameter_scan": 0,
+  "source_inputs_unchanged": true,
+  "rank_seal_unchanged": true,
+  "no_claim_true_float_turnover": true,
+  "not_PIT": true,
+  "not_out_of_sample": true,
+  "seconds": 4.514193833805621
+}

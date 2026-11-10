@@ -1,0 +1,143 @@
+{
+  "planned_fixed_pressure_paths": 4,
+  "completed_cost2_paths": 2,
+  "delay1_paths_started": 0,
+  "normal_or_R1_paths_replayed": 0,
+  "references": [
+    "original expanded B with account nominal-risk 3% admission",
+    "B_diag only account nominal-risk admission removed"
+  ],
+  "scope": {
+    "stocks_fixed_snapshot": 1709,
+    "sectors": 90,
+    "start": "2025-07-01",
+    "end": "2026-03-31",
+    "initial_cash_each": 1000000,
+    "R1": false,
+    "stage_new_policy": false
+  },
+  "timing": {
+    "cost2_paths_complete": 2,
+    "delay_paths_started": 0,
+    "normal_paths_replayed": 0,
+    "total_seconds": 336.51177162490785,
+    "delay_blocker": "independent mobile wait-credit contract pending"
+  },
+  "IO_module_SHA256": "3d7cae91648150fa09d17f048156c2ea7f9bc4ebeed96c87a9397942d431c2fa",
+  "delay_blocker": {
+    "status": "pending explicit execution-role contract; not denied; no uncertain execution",
+    "target": "independent CP1 mobile first entry/add/reentry delay waiting-credit consumption",
+    "reason": "day-expiring buy orders repeatedly spend delay without fill; native flat credit is only consumed by core, held-core ADD credit not applicable",
+    "native_evidence_tests": 6,
+    "source_evidence": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/execution-pressure-preflight-20261031/NATIVE_PROTOCOL_EVIDENCE.json",
+    "no_new_credit_or_signal_extension_applied": true
+  },
+  "cost2_acceptance": {
+    "physical_prefix": "2025-07-07",
+    "both_sides_persisted": true,
+    "checkpoint_identity_restore": true,
+    "independent_cashflow_NAV_days_per_arm": 182,
+    "NAV_and_stock_difference": 0,
+    "budget_float_tolerance_less_than": 1e-06,
+    "all_frozen_code_input_hashes_unchanged_after_run": true
+  },
+  "pressure_semantics": {
+    "cost2": "stress-enabled fee rates and slippage doubled; brokerage minimum5 and sell stamp unchanged; incremental order fees across partial fills",
+    "delay1": "both sides skip one distinct eligible positive executable window; not calendar day; mobile contract gap prevents economic evaluation"
+  },
+  "limitation": "snapshot survivorship and consumed development history; daily full OHLCV opening feasibility and same-open sale-cash reuse are common research proxies, not certified live execution",
+  "metrics": {
+    "B3": {
+      "normal": {
+        "NAV": "1116212.5218547543770",
+        "net_profit": "116212.5218547543770",
+        "return_pct": "11.621252185475437700",
+        "DD_pct": "4.130425387749057493170542010",
+        "longest_observed_underwater_calendar_days": 75,
+        "average_exposure_pct": "25.25907451229780898691633219",
+        "peak_exposure_pct": "44.03444573240998188907122352",
+        "cumulative_buy_cash": "2131542.2531917093895",
+        "fees": "3588.1439852456230",
+        "buy_fills": 259,
+        "sell_fills": 205,
+        "ACT_paused_closes": 0,
+        "closed_negative_layer_loss": "127819.7162429802634629629630",
+        "record_only_gross_negative_realization_plus_all_fees": "129736.154680245620159",
+        "terminal_stock_count": 27,
+        "terminal_inventory": "280822.61",
+        "terminal_sale_AR": "0",
+        "terminal_dividend_AR": "631.3600",
+        "industry_contribution_NAV_gap": "0E-13",
+        "actual_splits": 0
+      },
+      "cost2": {
+        "NAV": "1035670.0912023085940",
+        "net_profit": "35670.0912023085940",
+        "return_pct": "3.567009120230859400",
+        "DD_pct": "5.906858353062351260628850180",
+        "longest_observed_underwater_calendar_days": 210,
+        "average_exposure_pct": "25.03489001913373669960581738",
+        "peak_exposure_pct": "42.88313783078334332503252172",
+        "cumulative_buy_cash": "2237978.6035250913960",
+        "fees": "4462.1960676914060",
+        "buy_fills": 278,
+        "sell_fills": 219,
+        "ACT_paused_closes": 0,
+        "closed_negative_layer_loss": "132614.2217096548933333333333",
+        "record_only_gross_negative_realization_plus_all_fees": "135223.541607691401199",
+        "terminal_stock_count": 29,
+        "terminal_inventory": "314942.57",
+        "terminal_sale_AR": "0",
+        "terminal_dividend_AR": "816.83200",
+        "industry_contribution_NAV_gap": "0E-13",
+        "actual_splits": 0
+      }
+    },
+    "B_diag": {
+      "normal": {
+        "NAV": "1261468.9450115387830",
+        "net_profit": "261468.9450115387830",
+        "return_pct": "26.146894501153878300",
+        "DD_pct": "13.17950706908822863379594656",
+        "longest_observed_underwater_calendar_days": 125,
+        "average_exposure_pct": "63.72302382523523938740971582",
+        "peak_exposure_pct": "67.80946153358012671618607523",
+        "cumulative_buy_cash": "7415021.4651978849735",
+        "fees": "11208.0366884612170",
+        "buy_fills": 750,
+        "sell_fills": 549,
+        "ACT_paused_closes": 0,
+        "closed_negative_layer_loss": "469428.0490891289731803817895",
+        "record_only_gross_negative_realization_plus_all_fees": "474984.535543461231364",
+        "terminal_stock_count": 37,
+        "terminal_inventory": "589084.38",
+        "terminal_sale_AR": "0",
+        "terminal_dividend_AR": "1565.07200",
+        "industry_contribution_NAV_gap": "0E-13",
+        "actual_splits": 0
+      },
+      "cost2": {
+        "NAV": "1253038.9747734344600",
+        "net_profit": "253038.9747734344600",
+        "return_pct": "25.30389747734344600",
+        "DD_pct": "13.93498707987202029737807049",
+        "longest_observed_underwater_calendar_days": 126,
+        "average_exposure_pct": "63.57340624434848508441147516",
+        "peak_exposure_pct": "68.46976782025870974867804067",
+        "cumulative_buy_cash": "7203836.7176400073880",
+        "fees": "13234.6462465655400",
+        "buy_fills": 675,
+        "sell_fills": 488,
+        "ACT_paused_closes": 0,
+        "closed_negative_layer_loss": "470247.0136361858854949494951",
+        "record_only_gross_negative_realization_plus_all_fees": "476669.899506565515633",
+        "terminal_stock_count": 39,
+        "terminal_inventory": "648721.30",
+        "terminal_sale_AR": "0",
+        "terminal_dividend_AR": "1504.8800",
+        "industry_contribution_NAV_gap": "0E-13",
+        "actual_splits": 1
+      }
+    }
+  }
+}

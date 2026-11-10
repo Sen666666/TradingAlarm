@@ -1,0 +1,21 @@
+盈新发展000620.SZ原No60资金占用：补充说明（仅已有保存数据）
+
+原记录与逐笔算式在PER_ACTUAL_BUY.csv/json；21个CLOSE全账户原汇总在ALL_SAVED_CLOSE_ACCOUNT_TOTALS.csv；原层净账在EXACT_SELECTED_ORIGINAL_LAYERS.json；来源哈希在SOURCE_SHA256.json。2022-01-04—02-08，不运行账户、Market、模型或features。
+
+首轮Mobile69/75/78：6300/5700/4200股，原含买费支出19420.4239953674、19339.37630707505、16058.4458143514元，合计54818.24611679385元，生命周期净-7113.69729630735。第二轮113/122：5100/4700股，支出18988.1696578082、18816.06839378元，合计37804.2380515882元，生命周期净-10706.7766102631。CORE68仅100股、支出306.17721204935、净-29.6725034644。两轮现金分时使用，不能相加称同时仓位。
+
+原Mobile预算精确为min(.02*信号NAV,max(0,.1*信号NAV-信号时已持市值))，五笔都是2%项更紧；它不是单股总仓2%或每笔0.25%风险。五笔原audit.risk_budget均null。J joint_v3.py:255–256仅CORE调用LR.resize_core；LR study.py:42–54的0.25%是CORE含费保护风险合同。原budget限制gross，实际买费另占现金。
+
+OPEN原budget/cap/实际shares/价/费与信号时已持股数/市值，全部在PER_ACTUAL_BUY。Mobile仅cap/gross的OPEN整手上界依次6300/5700/5100/5100/4700，实际第三笔4200；后续route确实进一步缩量，但成功reserved记录没有保存4300股开始失败的首个约束，不能由收盘现金推定现金首因。特别：现有列名original_frozen_cap_and_gross_at_OPEN_max_shares对CORE只表示cap/gross上界，未包含其0.25%风险重验，不能称其实际可买量。
+
+原持仓资源风险=Σqty*max(mark-effective_raw_floor,0)+真实未成交订单qty*max(limit-floor,0)，没有停板/跳空损失保证。CORE有效线取last_core_line，Mobile取x.floor。1/27两层Mobile低于保护线时原风险为0，但仍9800股未卖；加CORE全股9900股、市值35145，股风险约56。2/7仍9900股/28512元，原股风险0。clip为0并非卖出、现金释放或亏损封顶。后续退出单证据见exit_zero_risk_audit_v1/order_chain。
+
+21日task3 original_*与原long_OFF/pair/daily逐字段相等；原成交和原意图也与B.json.gz相等。NAV余额恒等式差0，两池风险加总差0，两池资本减库存最大浮点差2e-12元。以上为已保存原汇总的核账；独立全仓逐股估价未证，详FULL_ACCOUNT_RECONSTRUCTION_LIMITS.json。pending_intents只是未预留计划，不是真实未成交订单。
+
+有效源码：
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py:36–61、213–259、302–324
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/lot-risk-allocation-20261029/code/study.py:21–22、42–66
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/budget_v3/model.py:106–117（resources公式未改）
+/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/native_adapter.py:11–40与component.py:17–34为No60有效接线；confirmed60和account3已移除，不能拿旧门当有效约束。
+
+本说明在环境恢复后补写，仅引用上轮已完成核对与本轮原订单证据，没有重新运行extract_original或任何金融路径。

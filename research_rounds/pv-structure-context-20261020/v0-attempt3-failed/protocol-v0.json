@@ -1,0 +1,52 @@
+{
+  "created_utc": "2026-10-20T05:27:32.391632+00:00",
+  "phase": "algorithm and visual review ONLY; account backtests forbidden",
+  "hypothesis": "Price swings have different structural roles. A pullback pivot earns promotion only after supporting a break of its reference extreme. Volume explains the relation of successive legs instead of speeding pivot confirmation.",
+  "raw_protocol_sha256": "b07fedd3415f6ebac324652994f809fce7ea12ad7e7704b6cbfa28ca57859916",
+  "history": "All development history previously seen. Two-prefix manual notes saved before new output. Not out-of-sample or genuinely blind.",
+  "v0": {
+    "parser": "price-only same sqrt5 * lagged63 logreturn RMS at extreme; volume only common valid-observation eligibility",
+    "structure": "neutral: new confirmed pivot plus last2highs and last2lows both rising => up, both falling => down. Active boundary breaks -> neutral; no same-row reestablishment. Pullback pivot promotes only after current close exceeds reference previous confirmed extreme. Direction not changed by volume. At establishment current close must still be strictly inside proposed boundary; pre-run invariant clarification, not a post-output revision.",
+    "volume": "last two confirmed legs (start,end]; E mean(V/prior21 median); S abs(log endpoint displacement)/valid n; ratios new/old compared with natural1; no probabilities. Support/opposition labels conditional on structural direction; mixed ratios contested. No developing leg consumption in v0; known stale-phase risk.",
+    "comparators": "old saved price/volume event structure; price-only phase from S; Bollinger20 SMA/std0 percent_b and relative bandwidth; independent 4 disjoint63obs simple returns weighted .4,.2,.2,.2 (O’Neil-inspired, not proprietary replica) ranked only same-date same saved group, average ties, NaN unranked.",
+    "freedoms": "21/63 and sqrt5 inherited;20 from Bollinger descriptive default;252 ranking only, never structural warmup requirement. No grid search."
+  },
+  "review": [
+    "15 fixed cases and both saved raw checkpoints",
+    "all15 complete model charts",
+    "if common contradiction warrants, one mechanism revision plus all15 review",
+    "no future-label accuracy optimization; no PnL/nAV"
+  ],
+  "checks": [
+    "prefix invariance",
+    "price/volume scaling",
+    "constant price",
+    "same prefix different futures",
+    "positive volume reallocation keeps pivots and direction, can change phase",
+    "earned boundary promotions traceable",
+    "source hashes unchanged",
+    "no order/position/account API"
+  ],
+  "sources": [
+    "https://www.wyckoffanalytics.com/wp-content/uploads/2020/02/Wyckoff_Analytics_Wyckoff-Method_English.pdf",
+    "https://www.williamoneil.com/about-us/legal/oneil-proprietary-rating-and-rankings",
+    "https://www.bollingerbands.com/bollinger-band-rules"
+  ],
+  "failure_cases": [
+    "V turns and monotonic moves delay established structure",
+    "tiny chop can form HH/HL",
+    "old boundary can be stale",
+    "short shallow pullback can look fast",
+    "volume phase can lag while waiting for next pivot"
+  ],
+  "stop": "After v0 and at most one substantive revision: report retained/failure/uncertain mechanism. No account stage.",
+  "mechanical_repair_before_first_valid_output": {
+    "time_utc": "2026-10-20T05:31:52.038657+00:00",
+    "prior_attempt": "v0-attempt1-failed",
+    "fixes": [
+      "bool fields assigned False",
+      "candidate invalidated at first close crossing its boundary before promotion",
+      "stable numeric diagnostic dtypes across prefixes; failed attempt2 retained"
+    ]
+  }
+}

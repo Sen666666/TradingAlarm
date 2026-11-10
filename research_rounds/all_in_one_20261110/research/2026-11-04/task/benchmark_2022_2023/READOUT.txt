@@ -1,0 +1,63 @@
+2022-2023 absolute-loss benchmark | independent audit PASS_WITH_SCOPE
+Audit: ../independent_review/BENCHMARK_2022_2023_INDEPENDENT_AUDIT.json.
+INDEPENDENT_REVIEW_STATUS.json binds its SHA; initial RESULTS.json historical
+pending marker is preserved rather than editing frozen financial output.
+
+Same484close dates2022Jan4-Dec29'23; original1m continuous account, no annual
+reset. Jan4signal/first possible Jan5OPEN. ETF proxy inputs use actual raw
+OPEN/close and distribution ex/payment data; all dated-state execution limits
+below remain explicit. These are new diagnostic benchmarks, no No60 strategy
+path or tuned candidate. Results.json/daily files are authoritative amounts.
+
+Reference                         return%      maxDD%       endNAV
+510300 buy&hold proxy             -27.0368      29.6433     729632.06575
+510300 MA63 90% long/cash proxy     -4.5130      10.1416     954870.36600
+HS300 index Jan5OPEN reference    -30.0905      32.8128     699095.13787
+zero-interest cash reference        0            0       1000000
+
+No60 own continuous2023 DONE ending745426.95838 (two-year return-25.4573%).
+It beats ETF buy&hold by15794.89 (+1.5795pp), but ends209443.41 (-20.9443pp)
+below the fixed MA63 proxy. Thus beating oldPVR or surviving an absolute loss
+does not establish adequate risk/reward. This does not promote MA63, declare
+cash a universal solution, or erase No60 stronger upside-window evidence.
+
+MA63 uses causal total-return CLOSE, inclusive63-day mean, ON iff strictly
+above; Jan4initial state then regime OFF->ON entry90% original signal-NAV
+cash budget incl cost, ON natural holding, ON->OFF next-open exit. No daily
+rebalancing.22 actual fills, mean exposure26.3926%;2022 return-1.6704%,2023
+return-2.8908% on real carried983295.6695 NAV. Cost paid29396.634; freezing same
+actual quantities gives cost-before NAV984267 (-1.5733%), exact direct cost
+bridge, not a zero-cost rerun allowing different quantities.
+Buy&hold1fill Jan5,200500 shares, cost1497.43425; distributions27869.5 accrued
+and paid. Distribution cash held, no reinvestment. No terminal liquidation.
+
+Execution boundary: existing local ETF contract rawOPEN +15bp estimated cost
+once, minimum5/order, lot100, prior20mean volume x100 shares *1% participation,
+T+1 lots, no stock stampduty or additional5bp. Max actual participation relative
+priorADV0.04438%(BH)/0.06967%(MA), below1% cap. Minimum indicative10% limit-band
+distance1024.3/966.5bp; no actual order near those proxy bands. Historical
+dated halt/limit/auction state is unavailable, so execution_verified=false:
+daily execution proxy, never a verified auction/broker fill certificate.
+ETF15bp is the frozen portfolio model's estimated friction, not a current broker
+quote or the No60 stocks' native multi-component fee contract. Cross-universe
+NAV comparison is opportunity-cost reference, not a single-factor attribution
+of all differences to one timing gate or fee efficiency.
+
+Index unit/index return is distinct: true local USZI399300 PRICE index,
+Jan4close4917.77 -> Dec29'23close3431.11 =-30.23037%, close-peakDD32.94725%.
+HS300_PRICE_REFERENCE.json/HS300_PRICE_8Q.csv use this first-close market
+reference; synthetic aligned daily index uses Jan4cash then Jan5OPEN, causing
+the small start-base difference. Price index has no ETF distribution benefit.
+
+Sources: raw Tencent ETF+Eastmoney local F10, true THS index canonical/checkpoint
+and saved wire pages in migration copy, original9ETF causal transform. Raw
+and signal checked against frozen9asset input (0 and2.04e-14 max differences).
+No downloads. No future H/L/volume used to select fills or boost capacity.
+All input/source/code frozen before account computation and tail rechecked.
+
+Data sharing: inputs/HS300_daily.csv and510300_daily.csv plus history/actions;
+daily/{BUY_HOLD,MA63_90,HS300_PRICE_INDEX,CASH}.csv;PERIODS.csv24mo/8q/2yr.
+Global full drawdown is never annual-reset; periodDD separately labelled.
+Independent audit passed29source/input SHA,1327sequential TR/MA63/ADV values,
+all23fills and both484day cash/share/AR/accrual/pay/NAV/DD bridges. Proxy and
+development-window limits remain; no strategy promotion or live proof.

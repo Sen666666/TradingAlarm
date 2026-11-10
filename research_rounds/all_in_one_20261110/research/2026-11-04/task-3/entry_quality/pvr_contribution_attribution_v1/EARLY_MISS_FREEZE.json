@@ -1,0 +1,12 @@
+{
+  "status": "BOUNDED_POST_OUTCOME_EXPLANATION_NOT_PREDICTIVE_VALIDATION",
+  "groups": {
+    "lost_large": 330,
+    "matched_retained_large": 158,
+    "lost_failed_only": 105
+  },
+  "first_break": "Current close > max prior20 closes and no earlier observation in this original I episode did so. Uses only <=t.",
+  "hypothesis": "E_fresh=E-A_up*(1-max(P5,FirstBreakInI)); no extra weighted factors. This preserves original up-amount amplification at first20-close-high in I.",
+  "guarantee": "If a row selected in original E topN is restored exactly to E while all revised candidates remain <=their original E, it must remain selected under identical universe and sid tie-break. Count this sufficient recovery condition only; do not call it full performance.",
+  "code_sha256": "1c05009d1b080df8d2f53012c6b69ee28366b4a9893335a843438d84806ee511"
+}

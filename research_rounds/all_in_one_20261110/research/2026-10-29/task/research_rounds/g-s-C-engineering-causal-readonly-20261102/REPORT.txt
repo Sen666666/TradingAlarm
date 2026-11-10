@@ -1,0 +1,79 @@
+工程机械全流程只读归因：先给已证首阻
+
+Jul1—21两档均有17张去重fresh CP1且原Q通过，涉及11只工程机械股票；全部进入C投影但Q=0，原trace均含account_risk6界限。不是算法到Jul22才发现。
+Jul1长龄液压C-mobile=0，但独立T/core实际预留300；Jul2 OHLC全42.46，原reject_flat_day代理不准成交，实际零fill。此为准入和执行两层，也不是“早买必赚”的反事实。
+Jul8徐工/三一/恒立已合格，C计划全0；Jul21六个合格候选仍全0；Jul22行业升至真实C队首后才授予大Q。Jul23实际C10买五只、毛49.1141万，C20买三只、毛29.7455万；计划不冒充成交。
+截至此证据，首段主要阻挡是原行业优先序下的联合资源竞争，另有一笔core准入后执行阻挡；不能归成没有信号。account_risk6是已存可共存界限，不擅称全部独占，也不推放宽即可盈利。
+
+2025_26-C10 全行业分母 {'market_stock_days': 39307, 'fresh_CP1': 3336, 'Q_pass': 3328, 'C_requested': 3306, 'C_positive_plan': 88, 'C_zero_plan': 3218, 'C_zero_plan_with_account_risk_bound': 2541, 'actual_C_reserved_receipts': 81, 'actual_C_filled_receipts': 79, 'stage_counts': {'C_zero_plan_with_recorded_bounds': 3218, 'C_positive_plan': 88, 'no_current_new_S_or_G_permission': 22}, 'engineering_qualified_fresh': 33, 'engineering_stage_counts': {'C_zero_plan_with_recorded_bounds': 20, 'C_positive_plan': 12, 'no_current_new_S_or_G_permission': 1}}
+该分母为股票×决策日×canonical receipt，重复股票/行业相关，不是独立样本或策略胜率。Jul31次开仍待执行，单列终点删失；同股core成交不当成C-mobile凭据兑现。
+工程机械每日行业H1全90名次 / 实际C队列 / 原持仓风险 / 参考风险上限(未扣新费) / 可用现金：
+2025-07-01 H1=66.11111111111111 ranks=31/18, permit/support/mature=True/True/False, risk=0.00/60,000.00, cash=1,000,000.00
+2025-07-02 H1=69.44444444444444 ranks=28/14, permit/support/mature=True/True/False, risk=42,847.81/58,958.47, cash=258,683.30
+2025-07-03 H1=66.11111111111111 ranks=31/None, permit/support/mature=True/True/False, risk=60,700.48/59,684.40, cash=204,783.52
+2025-07-04 H1=66.11111111111111 ranks=31/None, permit/support/mature=True/True/False, risk=52,779.30/58,992.70, cash=240,076.70
+2025-07-07 H1=65.0 ranks=32/None, permit/support/mature=True/True/False, risk=51,325.70/58,705.18, cash=180,074.53
+2025-07-08 H1=66.11111111111111 ranks=31/23, permit/support/mature=True/True/False, risk=67,531.72/59,778.12, cash=162,233.22
+2025-07-09 H1=63.888888888888886 ranks=33/None, permit/support/mature=True/True/False, risk=62,898.05/59,789.18, cash=383,886.36
+2025-07-10 H1=65.0 ranks=32/18, permit/support/mature=True/True/False, risk=49,340.39/59,077.15, cash=474,642.94
+2025-07-11 H1=59.44444444444444 ranks=37/23, permit/support/mature=True/True/False, risk=53,447.93/58,461.65, cash=464,079.14
+2025-07-14 H1=63.888888888888886 ranks=33/21, permit/support/mature=True/True/False, risk=49,375.90/57,936.21, cash=381,884.42
+2025-07-15 H1=63.888888888888886 ranks=33/24, permit/support/mature=True/True/False, risk=63,701.12/58,784.12, cash=347,824.25
+2025-07-16 H1=69.44444444444444 ranks=28/17, permit/support/mature=True/True/False, risk=56,407.96/59,037.39, cash=479,006.41
+2025-07-17 H1=70.55555555555556 ranks=27/None, permit/support/mature=True/True/True, risk=60,458.75/59,586.44, cash=388,058.89
+2025-07-18 H1=68.33333333333333 ranks=29/None, permit/support/mature=True/True/True, risk=62,035.13/60,119.64, cash=390,761.70
+2025-07-21 H1=92.77777777777777 ranks=7/7, permit/support/mature=True/True/True, risk=55,553.05/59,880.96, cash=351,029.89
+2025-07-22 H1=99.44444444444444 ranks=1/1, permit/support/mature=True/True/True, risk=50,079.70/59,570.27, cash=317,259.89
+2025-07-23 H1=99.44444444444444 ranks=1/1, permit/support/mature=True/True/True, risk=38,295.08/57,750.20, cash=333,598.48
+2025-07-24 H1=99.44444444444444 ranks=1/1, permit/support/mature=True/True/True, risk=38,587.45/57,827.00, cash=261,230.70
+2025-07-25 H1=98.33333333333333 ranks=2/2, permit/support/mature=True/True/True, risk=50,629.18/56,222.04, cash=98,763.67
+2025-07-28 H1=99.44444444444444 ranks=1/1, permit/support/mature=True/True/True, risk=36,876.73/56,078.94, cash=434,060.11
+2025-07-29 H1=99.44444444444444 ranks=1/1, permit/support/mature=True/True/True, risk=52,203.60/56,033.38, cash=232,975.60
+2025-07-30 H1=99.44444444444444 ranks=1/1, permit/support/mature=True/True/True, risk=41,028.93/54,869.51, cash=176,188.86
+2025-07-31 H1=95.0 ranks=5/5, permit/support/mature=False/True/True, risk=39,873.79/55,005.20, cash=270,954.92
+全行业实际CP1退出责任层数 20；初始保护距离中位数 0.04615623581855624（纯描述，不搜索阈值）。
+2025_26-C_BATCH20 全行业分母 {'market_stock_days': 39307, 'fresh_CP1': 3336, 'Q_pass': 3328, 'C_requested': 3306, 'C_positive_plan': 87, 'C_zero_plan': 3219, 'C_zero_plan_with_account_risk_bound': 2230, 'actual_C_reserved_receipts': 81, 'actual_C_filled_receipts': 80, 'stage_counts': {'C_zero_plan_with_recorded_bounds': 3219, 'C_positive_plan': 87, 'no_current_new_S_or_G_permission': 22}, 'engineering_qualified_fresh': 33, 'engineering_stage_counts': {'C_zero_plan_with_recorded_bounds': 23, 'C_positive_plan': 9, 'no_current_new_S_or_G_permission': 1}}
+该分母为股票×决策日×canonical receipt，重复股票/行业相关，不是独立样本或策略胜率。Jul31次开仍待执行，单列终点删失；同股core成交不当成C-mobile凭据兑现。
+工程机械每日行业H1全90名次 / 实际C队列 / 原持仓风险 / 参考风险上限(未扣新费) / 可用现金：
+2025-07-01 H1=66.11111111111111 ranks=31/18, permit/support/mature=True/True/False, risk=0.00/60,000.00, cash=1,000,000.00
+2025-07-02 H1=69.44444444444444 ranks=28/14, permit/support/mature=True/True/False, risk=42,847.81/58,958.47, cash=258,683.30
+2025-07-03 H1=66.11111111111111 ranks=31/None, permit/support/mature=True/True/False, risk=60,700.48/59,684.40, cash=204,783.52
+2025-07-04 H1=66.11111111111111 ranks=31/None, permit/support/mature=True/True/False, risk=52,779.30/58,992.70, cash=240,076.70
+2025-07-07 H1=65.0 ranks=32/None, permit/support/mature=True/True/False, risk=51,325.70/58,705.18, cash=180,074.53
+2025-07-08 H1=66.11111111111111 ranks=31/23, permit/support/mature=True/True/False, risk=67,531.72/59,778.12, cash=162,233.22
+2025-07-09 H1=63.888888888888886 ranks=33/None, permit/support/mature=True/True/False, risk=62,049.31/59,787.46, cash=319,645.65
+2025-07-10 H1=65.0 ranks=32/18, permit/support/mature=True/True/False, risk=53,442.60/59,317.42, cash=363,303.52
+2025-07-11 H1=59.44444444444444 ranks=37/23, permit/support/mature=True/True/False, risk=57,204.20/58,975.39, cash=372,266.86
+2025-07-14 H1=63.888888888888886 ranks=33/21, permit/support/mature=True/True/False, risk=55,335.34/58,711.51, cash=382,528.61
+2025-07-15 H1=63.888888888888886 ranks=33/23, permit/support/mature=True/True/False, risk=63,614.60/59,632.31, cash=420,818.97
+2025-07-16 H1=69.44444444444444 ranks=28/17, permit/support/mature=True/True/False, risk=58,759.75/60,122.04, cash=465,821.06
+2025-07-17 H1=70.55555555555556 ranks=27/None, permit/support/mature=True/True/True, risk=62,329.68/60,666.28, cash=401,149.25
+2025-07-18 H1=68.33333333333333 ranks=29/None, permit/support/mature=True/True/True, risk=62,571.08/61,197.08, cash=432,101.42
+2025-07-21 H1=92.77777777777777 ranks=7/7, permit/support/mature=True/True/True, risk=55,562.47/60,870.36, cash=370,141.69
+2025-07-22 H1=99.44444444444444 ranks=1/1, permit/support/mature=True/True/True, risk=51,252.29/60,310.30, cash=306,716.94
+2025-07-23 H1=99.44444444444444 ranks=1/1, permit/support/mature=True/True/True, risk=47,061.56/59,289.47, cash=208,484.43
+2025-07-24 H1=99.44444444444444 ranks=1/1, permit/support/mature=True/True/True, risk=47,292.81/59,569.30, cash=170,456.70
+2025-07-25 H1=98.33333333333333 ranks=2/2, permit/support/mature=True/True/True, risk=57,009.50/58,380.36, cash=101,040.65
+2025-07-28 H1=99.44444444444444 ranks=1/1, permit/support/mature=True/True/True, risk=40,602.39/58,264.54, cash=410,734.79
+2025-07-29 H1=99.44444444444444 ranks=1/1, permit/support/mature=True/True/True, risk=53,493.56/58,253.77, cash=230,434.91
+2025-07-30 H1=99.44444444444444 ranks=1/1, permit/support/mature=True/True/True, risk=42,065.73/57,009.47, cash=164,065.46
+2025-07-31 H1=95.0 ranks=5/5, permit/support/mature=False/True/True, risk=53,434.05/57,817.63, cash=279,956.01
+全行业实际CP1退出责任层数 16；初始保护距离中位数 0.04615623581855624（纯描述，不搜索阈值）。
+
+保护链重点（C10；两档线/时钟相同、数量不同）：
+{'sid': '000528.SZ', 'opened': '2025-07-23 09:30:00+08:00', 'initial_price': '12.576285', 'initial_floor': '11.39541145626106827038636174', 'initial_distance': '0.09389684980412989444924620108', 'source_scale': 0.010552357714117954, 'request': '2025-07-25 15:10:00+08:00', 'earliest': '2025-07-28 09:30:00+08:00', 'accepted_line_before_trigger_CLOSE': Decimal('11.39541145626106827038636174'), 'trigger_close': Decimal('11.15'), 'actual_sales': [{'at': '2025-07-28 09:30:00+08:00', 'fee_cny': '66.0035601108000', 'kind': 'add', 'layer': 85, 'net_cash': '86314.7844398892000', 'price': '11.074460', 'reason': 'CP1_old_line_exit', 'receipt': 'fill:000528.SZ:602', 'shares': 7800}]}
+{'sid': '000425.SZ', 'opened': '2025-07-23 09:30:00+08:00', 'initial_price': '9.60480', 'initial_floor': '8.678780565260558766815803035', 'initial_distance': '0.09641215170950370993505299069', 'source_scale': 0.011537801419390162, 'request': '2025-07-25 15:10:00+08:00', 'earliest': '2025-07-28 09:30:00+08:00', 'accepted_line_before_trigger_CLOSE': Decimal('8.678780565260558766815803035'), 'trigger_close': Decimal('8.53'), 'actual_sales': [{'at': '2025-07-28 09:30:00+08:00', 'fee_cny': '67.1781583179000', 'kind': 'add', 'layer': 86, 'net_cash': '87850.8408416821000', 'price': '8.535730', 'reason': 'CP1_old_line_exit', 'receipt': 'fill:000425.SZ:600', 'shares': 10300}]}
+{'sid': '688425.SH', 'opened': '2025-07-24 09:30:00+08:00', 'initial_price': '7.493745', 'initial_floor': '6.879829579004983828603314021', 'initial_distance': '0.08192371384334750800790338863', 'source_scale': 0.007487894704425189, 'request': '2025-07-25 15:10:00+08:00', 'earliest': '2025-07-28 09:30:00+08:00', 'accepted_line_before_trigger_CLOSE': Decimal('7.459590498584054754884434204'), 'trigger_close': Decimal('6.57'), 'actual_sales': [{'at': '2025-07-28 09:30:00+08:00', 'fee_cny': '64.9368599756760', 'kind': 'add', 'layer': 90, 'net_cash': '84919.8295000243240', 'price': '6.616690', 'reason': 'CP1_old_line_exit', 'receipt': 'fill:688425.SH:612', 'shares': 12844}]}
+{'sid': '688425.SH', 'opened': '2025-07-30 09:30:00+08:00', 'initial_price': '6.60330', 'initial_floor': '6.521174370595690293762693457', 'initial_distance': '0.01243705865314459531405608453', 'source_scale': 0.007525904485036521, 'request': '2025-07-30 15:10:00+08:00', 'earliest': '2025-07-31 09:30:00+08:00', 'accepted_line_before_trigger_CLOSE': Decimal('6.521174370595690293762693457'), 'trigger_close': Decimal('6.51'), 'actual_sales': [{'at': '2025-07-31 09:30:00+08:00', 'fee_cny': '67.9052483550180', 'kind': 'add', 'layer': 111, 'net_cash': '88801.6777316449820', 'price': '6.426785', 'reason': 'CP1_old_line_exit', 'receipt': 'fill:688425.SH:682', 'shares': 13828}]}
+风险锁h是冻结风险基准，可能早于最后一次CP1抬线；不能把h.floor错当退出线。已用触发日原OPEN持仓线、当日CLOSE及原订单记录交叉核。
+徐工/柳工首次保护距离约9.64%/9.39%，并非紧贴成本的微小线；买前Jul22 G1=4，Jul23买后CLOSE才变−3/原E0负事件，不能倒用当日收盘冷却为买前已知。I仍有效，23/24收盘尚在线上，25才真穿线，28原下一市场开盘卖；这是规则选择，不是漏执行退出。
+铁建首次初始距离约8.19%；Jul24收盘新CP1将实际线抬至约7.4596，Jul25收盘6.57已大幅穿线，Jul28实卖6.61669。即便名义线接近成本也不保证能在该线成交；收盘触发/下一开盘和跳空损失不可抹除。
+铁建Jul25 E0_down_reset、Jul28 lower_anchor；Jul29新receipt在SEEK中的真实新局部推进产生，raw close6.75仍低于此前7.72，原I有效、G1暖2；不是重用旧receipt，但也不是已收复旧高。新候选线6.52117，Jul30买6.6033（距离1.24%），同CLOSE6.51穿线，Jul31卖6.426785。
+低波动尺度约0.75%确实沿用，但不能把首次大跌亏损简单归为“保护太近”：初买开盘跳高放大到8%以上距离，且后续抬线被大跌跨过；再入1.24%近线的代价需与全部同类退出/恢复比较。
+
+最多两个源头假设与下一最小事件验收（仅建议，未执行）：
+H1：行业相对H1×大目标优先/联合资源使早期合格股拿不到立足量，急涨后队首才集中。检验应固定Jul8/21/22真实规划快照：保持全部资格/限额，核原前排预留对替代一手是否确实构成直接竞争；只作局部合法性，不能累加或推收益。长龄的一字零fill为执行负控；IT服务实际盈利旧仓不能事后叫弱仓。若不可替代主要来自固定保护风险/原最小单位，而非排序，则否定单纯排序解释。
+H2：持续I/行业支持被用于新资金，而局部CP1重置后新推进与保护退出不是同一尺度的趋势证明。用原公式的同前缀“持续赢家/暴涨后回落/跌后真恢复”事件链，检验source reset/新receipt、实际线生效钟、入场风险和次开执行；同价路径不同账户成交必须产生相同市场凭据。必须同时纳入全部行业“急冷但未穿线随后盈利”的负控，不能先启用G1急跌全卖或禁止重入。
+
+剩余未知：这里的old_risk和top10 owners是整批前真实快照；未保存的逐候选精确影子前缀不猜补，trace计数不是机会数。未做放松上限/换名单/新政策账户或新收益回放。82行业上涨仅作环境描述，不是策略可赚全部的基准。
+完整字段见ENGINEERING_DAILY（14股×23日×两档，I/E0/G1/CP1/PVR/结构/真实资格、目标、实际预留/成交）、DAILY_RESOURCE_CONTEXT（90/队列名次、支持/permit、资金风险/旧持仓）、ALL_FRESH_CP1_COHORT（全行业原母体）、ALL_PROTECTION_EVENTS与PROTECTION_ACCEPTED_LINES。

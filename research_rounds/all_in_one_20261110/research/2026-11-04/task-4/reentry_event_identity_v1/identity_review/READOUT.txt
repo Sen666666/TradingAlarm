@@ -1,0 +1,40 @@
+重入事件身份独立审查：不同ID、同一价格观察与预算记忆
+
+范围
+仅原源码与已保存来源说明；不补行情、不计算指标/模型/Account，不选择新参数或设计策略。山东出版、航天发展、盈新的交易/价格数值由独立数据线提供，本报告不替其确认某条链盈利，也不以事后盈亏定义市场事件。
+
+一、必须分开的身份
+1. 原E0 event和E0 target段不同。E0 event是涨跌腿确认，确认时才公开confirmed_pivot_date/price；pivot日期可以早于确认日，不能将确认许可回填到pivot那一天（evidence.py:140–150）。E0 target从旧floor失效与新up event维护，原state有entered/exited而无统一E0 episode_id（policy.py:99–114,151–163）。target仍为True时可以发生新的up/down价格事件，不等于新E0 target段。
+2. trace的original_E0_episode_id是派生标识：canonical+segment+已知False→True时的观察hash。若截头就是True，trace标起点unknown而不猜（trace.py:34–39,50）。joint_v3.py:192–194另生成sid|segment|开段日的stock_structure；它以shift(fill_value=False)容许首个已True起字符串。两种表示若起点有证据可建立映射，但不能无条件当作同一个原生ID，更不能将截头伪起点说成真实新E0。
+3. G1 fresh是同日理由集合，不是每次都新建一个E0周期。grade.py:24–29接受原E0 up、S21/S63新确认或确认UP内新frontier。S21与S63各有h、候选anchor和确认观察（B4model.py:122–160,232–255）；相同收盘可同时给不同h证据，running frontier是已确认方向里的延伸，不等于再次方向确认。fresh也不等于grade必升级，grade可不变或下降（grade.py:45–61）。这些是同源数据的不同转换，不能默认统计独立。
+4. 原native I是G1_I，不能套G1_IX。I_target是持续状态，i_buy是active且opportunity（policies_g1.py:6–35）。cache.py:27–35复用旧cache的G1字段后重投G1_I，没有直接拿旧ix_target作现行I。I可晚于E0才启动；不同ID定义不证明同E0一定包含多次I退出再开。
+5. runner I epoch不是E0 ID：joint_v3.py:216–219按(i_target,segment)键变化递增counter，global_watch仅当event_Q真更新。counter取决于完整重放/初始化，不能脱离同次运行硬拼为全局原事件。账户core_epoch则在实际CORE fill记下该epoch（pilot.py:68–70），卖空只删除last_buy、不删除core_epoch（87）。同epoch CORE锁与MOBILE资格不同（joint_v3.py:244–245）；账户成交历史不能倒过来改变市场ID。
+6. CP receipt是市场证明，不是交易。实际股票输入e0_valid=i_target（generate.py:26）；模型receipt后当日即重锚/credit清零，未资助或未成交也如此（model.py:44–50）。同一receipt的scale_id为模型源码SHA标签，不是数值frozen scale；预算Evidence的scale='21'也不是B4 S21结构身份。
+7. CP trace的price_event_id实为日期price-observation hash（trace.py:34,47），不是原E0 ±1事件。event=0仍可推进CP，derived_native_event_id仅sign±1时存在；provider没有原生eventID，源码明文标derived（55）。receipt_id绑定canonical、模型scale_id、segment、个股E0episode、anchor和confirmation观察（49）。consumed推进去重以日期观察ID为准；不同日期走回相同绝对价格区域不自动被视为旧ID。source重置不代表外界来了独立利好；source发生变化要看segment，因为model.py:31的source_reset reason常被同轮start/unprepared等覆盖。
+8. 预算episode通常是行业E0，不是个股E0。joint_v3.py:198–205用industry_rows.E0_episode启动预算；stock CP的市场receipt包含个股E0，但route.py:276包装其资金token时epoch填s.episode、attempt填当前行业attempt。账户layer的metadata.episode也取bo.episode，而另有stock_structure（110）。表里不能只留一列epoch而丢失作用域。
+9. 三层消费不同：CP数值机receipt立即重置；trace维护市场观察已消费；每个账户budget.request再消费stock receipt并创建订单（model_without_account_check.py:218–232）。route找不到正合法数量就不request；reserve后执行窗仍可无成交（joint_v3.py:318–323，先前已核）。所以“receipt出现”“获预算”“订单提交/保留”“原代理fill”“后来盈亏”必须分别记。
+
+二、失败记忆不是一个ID
+实际个股卖出会保存layer现金、closed、reason和trade parts，joint_v3.py:130–135还累加budget.loss；没有把该股失败价/失败次数回写下一CP anchor、scale或receipt资格。
+行业failed_bar来自行业市场线/E0失效，不是个股亏损。industry end_attempt或无效优先于同观察receipt（joint_v3.py:201–205），预算要求后续行业receipt end/confirmed_time晚于failed_bar，未要求formation_start也晚于它（budget.py:131–157,166–172）。attempt更换不擦除既有仓位、订单或历史损失；原行业episode换段时failed_bar仍传递（95–104）。
+CORE同I epoch锁、ACT、exit_pending、buy_pending、现金及资源门槛仍在；不能因CP数值机不读盈亏而说整个系统没有失败记忆。新MOBILE receipt可能在原I/E0仍有效时重新申请；能否成交及是否盈利需逐次原账核，不是新ID自动证明。
+
+三、“同E0固定额度会冻重启/压赢家”的事实边界
+当前No60没有一个“每个股E0仅发一次、耗尽永久不补”的固定额度合同。其资源上限是现存仓位/订单的并发占用；budget.loss另按(行业,原行业E0 episode)累计负损益和费用，实际设置为record_only（joint_v3.py:16）。No60的文本改动移除account总风险检查及confirmed60限制，不能把它们误说成当前仍在的阻挡；保留的现金、行业与单股等限制照原有效source解释（component.py:17–34）。
+“固定”至少可能指同时占用上限、整段累计损耗上限或整段累计买入额，三者对卖出后能否重入含义不同。若用户以后选择整段不可补充的累计预算，早期失败耗尽后确会在逻辑上挡住同段后续许可；是否因此挡住山东出版/航天发展已实现的盈利波段，必须先看原E0是否同段、当时预算是否真的耗尽、行业/现金等约束，以及该规则的明确消耗定义。现有个案盈利本身不足以证明它必然压赢家，也不足以证明每个新CP应发一份新额度。
+相反，新的市场receipt_ID不抹除已实现亏损或旧仓责任。把“新证据”直接等同“亏损预算清零”也不是原代码事实。上述是语义/事实边界，不给新额度公式、不决定哪种合同更优。
+
+四、给人工比较的证据表（只定字段，不定义策略）
+以原冻结source和真实可知观察先标身份，再关联账户动作，最后附评价。建议并列stock_E0_episode、industry_E0_episode、runner_I_epoch、account_core_epoch、G1_reason/h、CP_anchor/reset/receipt、industry_attempt，禁止统一改叫“大赢家第二波”。每个派生键同时标raw/derived、scope、source SHA、known_start和unknown原因；不能把先前未知起点由事后成功补成已知。
+一条市场receipt可以关联不同账户的不同request/订单/layer，但不能因账户不同多造市场证据。所有原signal CLOSE、reserve/open、fill、stop proposal/actual exit时间分列；pivot_date和confirmation_day分列；代理窗口timestamp与供应商received_at分列，原文件没存就NOT_SAVED。
+结果列如实际净现金/费用、累计原层贡献、预定评价窗内标记损益及分母只用于评价，不参与身份键、episode边界或匹配。比较同一事前规定窗口内全部实际尝试（包含航天发展中间又失败那次），不得从后来最赚钱的那层开始重写“第一次有效重入”。
+EVIDENCE_COLUMNS.json列出来源与缺失边界；IDENTITY_TABLE.csv并列身份。它们不生成任何信号或新市场ID。
+
+缺失字段与不可代填
+原No60 facts只导出cache.py:12列，未导出E0/I entered/exited/exit_reason或G1 up_reasons、结构候选完整身份。原E0 entered可从已绑定原states旁取并标来源；原G1 reasons可从经hash核同旧G1缓存旁取（prepare_ix.py:29–32），但旧IX target不可代native I。I的entered/exited若未保存只能标NOT_SAVED，不能拿旧IX同名列填。
+S21/S63的完整anchor/confirmation journal若所选原冻结未保存，应标NOT_SAVED；不能只凭reason字符串伪造provider eventID。CP trace已明确provider无原生ID、盘中live_publication_time unknown。runner epoch/account锁需原运行状态或日志佐证，不能由事后涨幅推导。source/供应商真实received_at不在则未知，不用协议CLOSE或代理OPEN冒充。
+
+纠正记录
+首次向父线程快报误说“同E0可因更高旧I线多次I退出再开”，已立即撤回：这是从不同身份定义跳到了未证实的可达状态。最终仅保留I可晚启动、ID域不同，及同E0内CP层保护后新MOBILE可再申请的源码事实。
+
+本轮0行情读取、0数值重算、0模型/指标/Market/Account/回测，无原文件修改；原账fill始终只指原日线代理账本，不当真实市场回执。

@@ -1,0 +1,37 @@
+VOLUME_NEUTRAL_ORIGINAL_MOTHERS_INTERPRETATION_V1
+冻结用途：全1799 pure-feature导出之前冻结解释口径、母体与reader字段；本目录不生成模型特征、不构造/恢复Account或Runner、不跑订单/经济。拟导出属于另一项root授权，本文本不授权执行。
+
+1. 唯一问题与完整母体
+同一原价、原source段、当前固定1709股/90行业的开发历史，现有算法预测量乘子中性是否实质改变普通试错损耗相关的信息，并保留固定原赢家的信息？信号变化本身不构成改进。须同时保留撤回、保持、提前、延后和新增的原/中性完整日期流，不能仅在原买入日问neutral有无当日event。
+已冻No60原实际买入层2265（2022—24自身连续账）与1171（2025Jul—2026Jun自身连续账）；不是3436独立交易/订单。准确decision_at取real_buy_fill.budget_order中的CLOSE，signal_at、实际fill_at另列。所有原层、原买款、正/负/零net、first/add/reentry、core/mobile、fill时probe/confirmed、未平/未付AR均完整保留。所有原PnL均为原路径贡献关联，不能改名候选质量、可避损、新PnL或NAV。
+另固定原PVR已冻tail83/94的全名单，不缩成No60已匹配45/67。原tail定义为原层net/含费buycost>=30%，含原mark/div，不是现金闭合campaign或未见样本。金额和结果标签只能用于诊断，不能进入neutral特征/准入或按结果挑case。
+
+2. 已核原生角色语义：不可凭函数名推断
+实际源 Facts.packet('I')先令stock.trend_up=I_target，并将buy_allowed=共同market_buyable AND 当日i_buy；S0 eligibility明确检查buy_allowed、common_ready、stock_up、sector_up、当日行业观察、stock/sector RS fresh、当前固定cap/issuer/sector身份。
+因此原core的必要市场触发是当日i_buy + 持续I_target + 原S0其它项；J.planning再加未持有、core_epoch未消费。同source的I_target真假转换或source段变化推进epoch并重置global_watch；event.q为True才登记global_watch。持续target+epoch不足以代替当日i_buy。不得把短名单实验make_lists或其它实验的资格误作本母体接口。
+原mobile使用同日fresh canonical CP1 + continuing.q；continuing将packet的event门替换为共同market_buyable，仍要持续I/Q，但不要求当日i_buy。原CP1凭据只作原身份标签，neutral CP1布尔/候选不是原canonical授权；本轮不批量新造股票金融凭据。
+源审与原账交叉：三年core498/498及strong core304/304决策日I_target、i_buy均True；mobile1767中140、strong867中38在i_buy=False仍成交。无核心反例。此为原入口事实，非证明未买母体资格。
+
+3. reader两条正交轴，先保字段后聚合
+A 原actualdecision条件诊断：在每笔原decision CLOSE读real/neutral I状态、fresh-I、CP1 fresh、floor/candidate、E0/行业CP1/纯market stage、PVR及共同原价/RS/执行mask。未知逐原因保留，不能填False/0。role/pool/attempt/held/core_epoch/ACT/pending/资金是原账上下文，不作为neutral资格。
+B 全日期流：全1709股（22无本地观察保空/NA）在968策略日及完整warm同时保两臂known/NA、I_target、i_buy、CP1 receipt/candidate；全90行业保各臂E0/CP1/纯market stage；保所有新增/提前event，即使原账从未买过。不仅保changed或event并集：完整stock×968 calendar分母、实际观察分母及双方均无event也须可复核。不得把neutral-only日期删掉后只论原亏损覆盖。
+在原decision的即时状态分类：unknown；neutral_I_inactive；neutral_I_active_fresh_I；neutral_I_active_no_fresh_I。CP1另独立分同日双方fresh/real-only/neutral-only/双方无fresh/unknown。core与mobile不能合成一个“当天没信号”。
+日期变化另轴：同source、同calendar上的事件交集/real-only/neutral-only全保留；active I run的起点相对原run起点为earlier/same/later/unknown。起点仅用截至该decision已有prefix；若两臂run不重叠、跨source或未知则unmatched，不用最近邻强配同一机会。完整前后事件序列可以事后描述trigger提前/延后，但不能把未来event倒填当日或宣称原日一定可买。
+例如neutral当天I仍有效但无fresh-I，可能是早已触发；对core当天不能忽略event门，但也不能称该赢家整段失去早试机会。mobile原日无freshCP1仅说明该日mobile primitive不同；完整更早/更晚/新增CP1需对称列出，不推断资金/consume后的成交。
+
+4. 不能冻结旧内生状态为neutral许可
+旧financial industry level、attempt、容量、消耗凭据、core_epoch、held/pending/exits、ACT_on、cash/NAV/peak和订单不得代入neutral状态。90行业若需stage，只能各臂从自己的全warm E0/CP1走原纯market stage；不得复制旧金融stage。原RS/H1因价不变共同保留，但仍保其实际known_at/observed_at与fresh mask，PVR排序特征各臂重建。
+neutral ACT全1709输入尚未有完成/独审收据时，所有结果称“市场输入条件diagnostic”，不称完整neutral Q/全策略资格/一定成交。即使neutral ACT输入齐，未运行账户DD/flat反馈仍不得给neutral_ACT_on或恢复日期。旧ACT仅context。
+真实V/ADV、报价可交易/停复牌/涨跌停/HLV、原价和公司行动保持共同实值；预测乘子中性不得伪造成交量或放松执行mask。若reader仅有原实际fill时mask而无全域同clock mask，明确mask scope，不把price-only flag标成完整Q。
+
+5. raw floor与CP1 candidate单独审，不生成新订单
+各臂同clock的adjusted I_floor/CP1 candidate、factor/source/可知日及换算raw值独立保留，分stock I变化、CP1 candidate变化、行业E0变化及unknown。trade.floor是原买入时adjusted初始线，不用终态抬高线冒充初始。raw换算必须用对应日期factor与公司行动区间同单位；source/因子/行动有歧义时原值保留、raw比较unknown，不补0、不挪到未来因子。
+不从市场候选直接造neutral intent/order/units，不选两臂较紧floor，不按未来收益给candidate优先。R0、LR1、C2、R1及negative-event退出的旧失败保持关闭，不借量中性附带重启。
+
+6. 冻结报告分母与止步规则
+先报全3436和83/94覆盖及unknown，再报年/季、原已冻L01—L05（尤其L03/L04）、2024pre924/六close/Oct8后303、strong四季；phase定义只引用既有固定日期，不以新feature移界。first/add/reentry、core/mobile、probe/confirmed与原正负贡献对称列出。入场层lifetime net按入场阶段分组只是关联；阶段真实财富必须读已核边界现金/库存/div桥，不能把跨年终身net贴当年回报。post303净亏112457.60不是整个post phase净亏167054.32。
+每组报告原actual buycash/含费cost、正净贡献/负净贡献/净额、closed/open/未付AR与总分母；不算删除/缩量/重投后的PnL，不把负贡献覆盖比例叫可避损。所有原买款/net/phase/role/tail标签不进入新市场特征。
+若两臂在主要损耗资本与固定赢家的完整primitive/日期流差别小、差别仅floor/候选而无资格规模，或未知/控制不齐，直接报告规模与局限并停在feature诊断；不得自动补门、改阈值、挑图、静态删损失或跑账户。若存在实质区别，只提出有对称赢家反例的下一项问题，账户仍须另grant。
+
+7. 状态
+当前仅解释protocol/reader字段冻结及原生源码+已存原facts只读核验；0新模型、0新neutral feature生成、0订单、0账户。全池1799导出卡/生产者另属ar6；原三fixture机械独审PASS不代表全neutral ACT、行业stage或经济有效。

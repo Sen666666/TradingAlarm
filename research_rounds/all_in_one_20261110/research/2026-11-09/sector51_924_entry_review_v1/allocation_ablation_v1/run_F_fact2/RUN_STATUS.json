@@ -1,0 +1,23 @@
+{
+  "arm": "F",
+  "fact_revision": 2,
+  "days": 33,
+  "orders": 1858,
+  "certified_through": "2024-10-25",
+  "blockers": [
+    "2024-10-28 300277.SZ OPEN_MISSING"
+  ],
+  "last": {
+    "day": "2024-10-25",
+    "cash": "139569.9673372046570",
+    "receivable": "0.0000",
+    "market_value": "1269389.10",
+    "NAV": "1408959.0673372046570",
+    "net_liquidation_NAV": "1406104.8099673003120",
+    "stocks": 296,
+    "shares": 63966,
+    "weight_pct": "90.09410773011466578336419163",
+    "fees_paid": "10857.1899327953430"
+  },
+  "economic_rule_changes": 0
+}

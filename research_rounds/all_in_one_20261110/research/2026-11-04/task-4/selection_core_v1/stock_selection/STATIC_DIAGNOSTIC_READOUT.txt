@@ -1,0 +1,36 @@
+旧版Sstar_static三日冻结诊断已完成并保留；后续行业双通道v2没有重算/调这版S*权重。
+3日×1709=5127行全部保留，formal_PIT_Sstar全未知。一次分数.4/.3/.2/.1，未跑账户/收益/新CP/其它权重。
+
+日期          U_t   原source-Q合法  合法且U  四known可评分  MAIN  START 去重并集
+2022-01-24   1425       35             35        35          8     10      17
+2024-09-24   1532     1010            953       952         10     10      20
+2026-01-15   1641      284            282       282         10     10      20
+2024剩余一条为华电国际600027真PVR未知，未用H1/0补。unknown和未入U原因全存。
+
+同业分位四项同N、同一完整合法/U集合；分数用精确整数(4*nPVR+3*nRS+2*nD+nA)/(20N)，每n=2*less+equal。
+170个同业日组逐值独立核midrank/整数分子全exact，N1各分位及S*均.5；数学同分不以浮点1e-16拆开。
+Sstar数值Top20仅是跨行业数值展示，不是跨行业资金优先或已可成交榜；同业平均分固定.5、小N可达到的最大分不同。
+
+预定focal原资格先核，再计算新分数：
+2026Jan15三半导体股均合法、U PASS且真PVRknown。同业N33：金海通.863636(第2)、江丰.851515(第3)、珂玛.833333(第4)。
+旧Hstar半导体rank20不进MAIN前5；三股当日原E0 event/entered无START证据，所以这版两榜都未纳入，未调门救案例。
+三股原CORE size仍为minimum_unit_exceeds_risk_or_nominal_cap；新分数不消除该阻挡。江丰/珂玛另有原MOBILE计划，并非整股没有原买入机会；CPfalse且无canonical的金海通仅因原CORE Q合法保留，没按无CP删除，其当日没有原pending。
+924海能同业N19第一.8，但行业rank33、无原START证据，两榜均未入且one_price_up_T=True仅watch；银之杰N22第一.913636、行业rank4，MAIN第4。
+2022Jan24盈新地产N3第一.833333，但行业rank6、无START，两榜均未入；江丰半导体N5第一.74以域内正结构START入第1。不能因此声称避免盈新亏损或捕获整段行情。
+
+同一282个可评分股、1-based旧新数值顺序：
+2026Jan15 江丰 原H1=125 / 真PVR数值=12 / S*=9；珂玛6/41/12；金海通42/9/8。
+它们不是原native pending priority；不同母体旧全1709名次/0-based名次不得直接拼作改善。
+真PVR来自score-cache，不是trade.pvr/intent.score兼容H1。金额A21与PVR.b共享输入，RS20同业排名等同同业股票20日自身回报排名。
+
+START取证：原prepared positive E0 event是native消费的历史低pivot确认事件；source.entered不升格actual native entered。
+所有30个旧START入榜都有positive event>0，不存在只靠旧source.entered入榜；首次域/域内分型另由native E0 ready同段0→1/1→1确认。
+5127原E0切片中4743点events.target/segment与native fact可比且0不符，384无源保未知；这不认证全历史provider asof/PIT。
+
+原ACT三日均true，原NAV/现金/stock qty/pool原数组、pending intent的budget/cap/floor/epoch原值在FOCAL_WITH_ACT_INTENTS_RESOURCES.csv并列。
+未知current core epoch未从价格或终态层倒推；联合拒因原串不冒称第一道约束，下一OPEN原记录仅注释，不进T分数。
+MAIN名单也不等于可执行单：Jan15华胜天成在榜但T日线一价上涨，watch_only；无真实limit/suspend/盘口时执行全unknown。
+
+主要入口：FOCAL_SAME_POOL_OLD_COMPARISON.csv；ALL_ORIGINAL_SIGNAL_LEGAL_WITH_CONSTRAINTS.csv；THREE_DATE_NUMERICAL_TOP20_NOT_ALLOCATION.csv；
+MAIN_INDUSTRY_TOP5_ROUND_ROBIN.csv；START_TOP10_ORIGINAL_E0_EVIDENCE.csv；ALL5127_STATIC_DIAGNOSTIC_WITH_REASONS.parquet。
+原始输出、源SHA、整数核查、原E0证据全保。只固定三个日的静态诊断，不证明全趋势收益、整段漏掉或可实现成交。

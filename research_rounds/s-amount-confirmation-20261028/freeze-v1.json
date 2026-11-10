@@ -1,0 +1,11 @@
+{
+  "candidate": "S-AMT1",
+  "status": "implementation_before_synthetic_tests",
+  "scope": "no historical signal run or account backtest",
+  "files": {
+    "research_rounds/s-amount-confirmation-20261028/RULES.txt": "1891d30ab28dda4d67b0bbefd4a3909067db943df6db385ca36b0d124d732b0f",
+    "research_rounds/s-amount-confirmation-20261028/code/s_amount.py": "3ed123179658ae0f62178afea225f805f77f8b0f066780f7993524d3e473d8f1",
+    "research_rounds/s-amount-confirmation-20261028/code/s_amount_arithmetic.py": "bee04c1ff88fd7a1c7571eada45380bafbbff524494f493c4a245dd9d19cafb2",
+    "research_rounds/s-amount-confirmation-20261028/code/test_s_amount.py": "71b6306cb788cf00a851375dd07a5382c08d04a87d7ceb3c8c36a85a29d5b8ea"
+  }
+}

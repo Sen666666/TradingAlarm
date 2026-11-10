@@ -1,0 +1,43 @@
+{
+  "id": "legacy_600919.SH",
+  "group": "original_e0_price_adapter",
+  "rows": 750,
+  "price_observations": 750,
+  "strength_observations": 750,
+  "events": 56,
+  "entries": 12,
+  "exits": 11,
+  "floor_updates": 16,
+  "memories": 1,
+  "ledger_records": 1,
+  "first": "2023-09-06",
+  "last": "2026-10-16",
+  "historical_b4_compared": false,
+  "historical_e0_compared": false,
+  "prefixes": [
+    {
+      "rows": 65,
+      "completed": false
+    },
+    {
+      "rows": 250,
+      "completed": false
+    },
+    {
+      "rows": 500,
+      "completed": false
+    },
+    {
+      "rows": 749,
+      "completed": false
+    }
+  ],
+  "differences": 6,
+  "passed": false,
+  "sha256": {
+    "evidence.parquet": "5d3e3e54560fa1b170b7116cea1afe8028ab4768980503e3c20884ab27e76292",
+    "journal.json": "4f0adbd52191286052abe3999f5d625eb799e4e31f3e6d31a5bc16e03454c9c3",
+    "ledger.parquet": "5c582fdc6177932c45cc1e4448c817032dbf2d2bea3919319e5a7e4cfd401893",
+    "state.parquet": "f588b1a8b8e724507f8587848f4bcf14431dbca75190b3e409eef0d0afb6f08d"
+  }
+}

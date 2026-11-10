@@ -1,0 +1,16 @@
+{
+  "status": "complete_read_only",
+  "recorded_at": "2026-10-29T14:15:56.375883+08:00",
+  "new_backtests": 0,
+  "new_accounts": 0,
+  "new_signal_calculations": 0,
+  "rules_parameters_changed": 0,
+  "old_artifacts_unchanged": 67,
+  "core_intents_analyzed": 19623,
+  "rejections_reconciled": 4307,
+  "figures": 2,
+  "figures_inspected": 2,
+  "counterfactuals": "static minimum-order feasibility only; no hypothetical fills or returns",
+  "user_requested_no_further_backtests": true,
+  "next_queue_started": false
+}

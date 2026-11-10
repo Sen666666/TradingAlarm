@@ -1,0 +1,45 @@
+{
+  "arms": {
+    "A0": {
+      "order_count": 50,
+      "gross_sum_of_independent_reservations": "805311.274410",
+      "reserved_Fq": "333.0857604936810"
+    },
+    "B0": {
+      "order_count": 161,
+      "gross_sum_of_independent_reservations": "804647.412645",
+      "reserved_Fq": "865.9806426765445"
+    },
+    "A1": {
+      "order_count": 135,
+      "gross_sum_of_independent_reservations": "3047640.658800",
+      "reserved_Fq": "1003.0857255910800"
+    },
+    "B1": {
+      "order_count": 451,
+      "gross_sum_of_independent_reservations": "3053919.846825",
+      "reserved_Fq": "2499.0484744874825"
+    }
+  },
+  "A1_vs_A0": {
+    "added": 91,
+    "lost": 6,
+    "shrunk": 2,
+    "increased": 9
+  },
+  "B1_vs_B0": {
+    "added": 294,
+    "lost": 4,
+    "shrunk": 3,
+    "increased": 17
+  },
+  "complete_rows_per_comparison": 4172,
+  "reference_identities_passed": 26,
+  "focus16": 16,
+  "remaining14_covered": true,
+  "no_new_price_labels": true,
+  "no_new_PnL": true,
+  "new_accounts": 0,
+  "new_restores": 0,
+  "real_fills": 0
+}

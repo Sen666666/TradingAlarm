@@ -1,0 +1,138 @@
+E0、G1、I：逐式对照原码
+
+符号和三种观察时钟
+C_t、V_t取eligible signal的连续close、volume；raw_close和factor另存供原生执行。
+同一source_segment内部依次处理；不是按自然日补零。eligible_prices(data_utils.py26–58)
+剔除无效OHLC、非真实观察、synthetic_action、source_invalid等，普通缺量不删除有效价。
+price时钟：有效价观察；event时钟：其中C/V均正且有限的观察；strength时钟：显式
+valid_strength_observation子集，runtime中为有效价且V正有限。缺量可能保留价格破线
+检查，却不推进event/strength。在当前runtime输入契约下，event和strength有效行集合均取正且有限V，彼此集合相同，
+但维护不同状态/尺度；三个t在下文各段局部定义，不应直接混成日历日。
+每个当日公式含C_t/V_t的部分，到当日CLOSE才可得；此前窗口/冻结锚可更早已知。
+海能达实际源close_available_time=15:05，原共同决策CLOSE=15:10，最早下一交易OPEN。
+
+一、E0转折确认事件：evidence.py92–157；旧events原numeric.py58–136
+本节t是在同source、C/V均正有限的event序列中的位置（0起）。
+r_t=log(C_t/C_(t-1))，原local log_ratio按gamma4数值并列及log1p分支处理。
+B_t=median(V_(t-21)..V_(t-1))。
+sigma_t=max(sqrt(sum(r_j^2,j=t-63..t-1)/63),1e-8)。
+从t=64（第65个event有效观察）才计算sigma；不是含今日收益的63日波动。
+注意E0 sigma是RMS，后文B4的s是1.4826*median(abs(r))，两者不是同一指标。
+
+状态direction初始-1，ext初始空。已有足够sigma/B后令ext=t；down leg时更低close
+更新ext，上行leg时更高close更新ext。只在t>ext时尝试反向确认。ext是截至今日的
+developing extreme，不是未来回看得到的最高/最低点，pivot用close而非日内high/low。
+A_(ext,t)=clip(sqrt(mean(V_(ext+1)..V_t)/B_ext),0.5,2)。
+Q_(ext,t)=(-direction)*log(C_t/C_ext)*A_(ext,t)/(sqrt(5)*sigma_ext)。
+若max(Q,0)>=1（用原gamma4比较），当前t发event=-direction；
+confirmed_pivot_price=C_ext，confirmed_pivot_date=date_ext，pivot_age=t-ext；
+随后direction=event、ext=t，开始新的developing leg。
+sigma_ext/B_ext冻结在ext这个已知观察，均只用了ext之前窗口；A及Q用了ext后到当前t
+已发生的数据。确认阈值测试在当前t，不在date_ext。
+
+时间意义：event(+1/-1)、pivot_price及pivot_date这组确认信息只在确认CLOSE t公开。
+pivot_date可指向几日前，但不得把event/许可回写到该历史pivot日。原码把这些字段
+写入当前循环row并按当前date索引，event journal同时保存当前date和历史pivot_date。
+未成熟sigma/B时confirmation、leg等为NaN、event=0；缺C/V行reindex回price序列，
+event填0，不把缺量伪造成一个已确认转折。
+
+二、当前E0 target/floor：policy.py79–163；实际开关refresh.py57
+每source初始active=False、floor=NaN、pending=None。对每个有效价格CLOSE：
+1. 若原active且C_t<=旧floor，先active=False、exited=1。
+2. 若当日已确认price_event=+1，pivot=当日可知的confirmed_pivot_price：
+   仍active则floor=higher(old floor,pivot)；
+   否则只有当日未exited，才active=True、entered=1、floor=pivot。
+3. target=int(active)；active或当日exited时输出floor，否则NaN。
+same-day先退出后不重开；旧floor先检，新确认pivot不能救已经触线的那次退出。
+down price_event=-1不是本policy的直接卖出指令；它不等于close已破结构floor。
+
+policy源码还有decline_candidate→pending/reclaim通道，但当前refresh.py57明确将
+decline_candidate=False，cache.py26亦如此，因此现行不会新建该pending。不可把
+未启用的放量下跌后reclaim入口讲成当前No60实际E0入口。enhancements=False。
+ready是事件准备状态，与target是否active分开；未准备不等于市场被判中性。
+
+三、G1之前的B4强度特征：model.py96–281；SCALES=(21,63)
+本节t是同source、有效strength观察序列的位置。p_t=log(C_t/C_0)，r_t=p_t-p_(t-1)。
+mu_h,t=alpha_h*r_t+(1-alpha_h)*mu_h,t-1，h=5,21，alpha_h=2/(h+1)。
+mu从r_1开始以第一个收益为种子递推，虽然公开输出要等第65个有效strength观察；
+不是到第65日才重新初始化。t<64的公开strength行整体unknown。
+s_t=max(1.4826*median(abs(r_(t-63)..r_(t-1))),1e-8)。
+Vref_t=median(V_(t-21)..V_(t-1))，activity_t=V_t/Vref_t。
+q_t=r_t/s_t，qeff_t=q_t*sqrt(clip(activity_t,1,4))。
+acute_up=(qeff>=2)，acute_down=(qeff<=-2)，用B4原32-epsilon比较。
+这里s/Vref不含当日，mu/q/acute包含已发生的当日收益/量；当日CLOSE才完整可知。
+
+S21/S63究竟是什么：它们分别是h=21、63的事件驱动结构方向状态{-1,0,+1}，
+不是21/63日均线、也不是今天相对21/63日前涨跌的符号。初始state.direction=0；
+为up/down建候选。candidate创建/重置时记录anchor价格和日期，并冻结
+Delta_h=sqrt(h)*scale、volume_reference、scale_at_anchor；之后不随每日报价改阈值。
+初始化在t=64时anchor可以是t-1，而使用的scale是候选创建日t已知的scale；不要仅凭
+字段名scale_at_anchor把它回写成历史anchor日当时已公开的sigma。
+
+对每个方向d=+1/-1的候选（model.py136–161）：
+x_t=d*(p_t-p_anchor)，F_old=该候选已接受frontier，Q_old=累计credit。
+w_t=clip(sqrt(V_t/冻结Vref),.5,2)，joint=True。
+eligible=(x_t严格超过F_old的原数值容差) AND d*r_t>0。
+eligible时F_new=x_t，DeltaF=x_t-F_old，Q_new=Q_old+DeltaF*w_t；否则F/Q不变。
+只在eligible且x_t>=冻结Delta_h且Q_new>=冻结Delta_h时确认该方向。
+所以单是价格到位置或S_h保持up不等于当日新确认；只有新frontier才给credit。
+
+候选更新顺序（model.py195–271）：
+每观察confirmed_h=0、confirmed_direction_h=0，未确认时不携带昨天的确认事件。
+方向>=0期间若创新high，重置反向down候选；方向<=0期间创新low，重置反向up候选。
+然后推进当前候选，最多一方向本日确认。确认在当前t发journal并设S_h=direction，
+重建反向候选，当前方向running high/low从今日close开始；未有新确认则S_h持续原值。
+running_extreme_date/anchor_date可在历史，但新confirm只在当前date/observation发生，
+不能把S_h确认回填到锚日。source改变，mu/S/候选/warm-up全部重置。
+
+四、G1 grade的原始有序规则：grade.py9–63
+a=S21，b=S63，m5=mu5，m21=mu21；z5=sqrt(5)*m5/s，z21=sqrt(21)*m21/s。
+fresh_up=以下至少一个当日证据成立：
+  原E0当日event=+1；
+  当日confirmed_direction_21或_63=+1（事件，非S_h持续状态）；
+  a和上个有效a均=+1，当前S21 running_extreme_price高于上个有效extreme（32eps）。
+source变化先清previous_grade/prior_extreme/prior_s21。strength无效或mu21非有限：
+grade/proposal/score/z为NaN、ready=False、fresh_up=False；不把NaN补0，旧有效记忆不推进。
+
+先按以下if/elif得g（代码顺序不可交换）：
+  a=b=0 → g=0；
+  m21<0且m5<=0 → 若a=b=-1则-3，否则-2；
+  m21<0且m5>0 → 若a=+1则+1，否则-1；
+  m21>0 → 若a=b=+1则+3，否则a=+1给+2，否则m5>0给+1，否则-1；
+  其余m21=0 → 由m5正/负/零给+1/-1/0。
+再按以下顺序覆盖：
+  a=b=+1且z5>=1且z21>=1 → +4；
+  launch=acute_up且E0 event=+1且m5>0，若g<2则提到+2；
+  z5<=-1且g>-2 → 压到-2；
+  acute_down → g=min(g,-3)。
+proposal保存此时g；若已有previous_grade且proposal>previous_grade但fresh_up=False，
+则最终grade保留previous_grade（blocked upgrade）。降级不要求fresh_up。
+score=25*grade；warm不是独立指标，后续I定义为ready且grade>=2。
+等级文字为-3强冷/-2冷/-1弱冷/0未立中性/+1修复/+2暖/+3热/+4扩张。
+
+五、I_target、I_floor、i_buy：policies_g1.py6–35
+现行project(...,'G1_I')使use_i=True、use_x=False（不是G1_IX）。
+每source初始active=False、floor=NaN；shadow=当前E0 target，warm=G1 ready且grade>=2，
+fresh=G1 ready时fresh_up，否则False。已有active时先：
+  not shadow 或 C_t<=旧I floor → reason=E0_structure_boundary，active=False、exited=1；
+  否则floor=max(旧I floor,当前E0 floor)（若后者有限）。
+源码中的cold判断只有use_x才触发；G1_I不因grade冷或acute_down本身退出。
+opportunity=shadow AND warm AND (当日E0 entered OR fresh)。
+若not active AND not exited AND opportunity，才active=True、entered=1、floor=E0 floor。
+buy_event=active AND opportunity；target=int(active)。
+因此I target可持续True而当日i_buy=False，i_buy不是每日carry。原CORE入口再要求
+这个当日buy事件和完整S0；持有仅看I结构/ACT的事情与当日新买不是同一谓词。
+same-day已exited不能被同日opportunity救回。输出floor在active或本日exited时保留，
+否则NaN；无效价格行明确target/floor为NaN，不据此声称某方向。
+
+六、从计算CLOSE到订单时钟
+refresh.py58–65保存e0_target/e0_floor、i_target/i_floor、i_buy、g_grade/g_fresh_up/
+g_acute_down/g_ready、e0_ready、factor/raw_close；指标历史只从完整同源预热得到。
+engine.py31–47在原决策CLOSE读取它们：stock trend取i_target，buy_allowed在原市场
+资格上AND exact-day i_buy；Clock.earliest_execution_at是决策后下一共同交易OPEN。
+历史确认pivot所在日期不能当作当时已有i_buy，不能用翌日CLOSE生成今天OPEN信号。
+本次只解释原计算与时钟，没有执行公式、重算指标或验证新的交易效果。
+
+字段保存边界：当前facts未导出E0 entered/exited、I entered/exited或I exit_reason；
+这些是上游函数内部/返回帧字段，不得拿旧IX同名字段填入现行I日表，应标NOT_SAVED。
+当前No60 I是G1_I(use_i=True,use_x=False)，旧IX是另一有cold退出的投影。

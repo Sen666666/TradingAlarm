@@ -1,0 +1,79 @@
+开盘mobile整单信号参考名义风险｜全母体有界诊断，2026-11-04
+
+最终状态：后续实际q裁剪敏感度及R0近邻核查已关闭本方向继续优先级。
+以FINAL_DISPOSITION_STOP.txt为最终裁决；下文保留裁剪前的作用域诊断，
+不能把“above组原亏损”当作守恒数量规则可避免的损失。
+
+结论：存在足够大的实际风险扩张范围，值得保留一个数量约束待证命题；
+没有证明它能提高账户收益/控制完整大亏，也不能把超参考组删除。
+强窗真赢家反例很大，候选只可减量、不得收紧floor或以未来赢家豁免。
+
+不是原bug：原mobile只有冻结nominal budget/cap，原OPEN各stock/sector/
+probe风险、资本、现金reserve、费用、Q/CP1检查都保留。原LR1 core已有
+含费.25%NAV风险约束，明确ADD/mobile不加同限制；这里不把.25%转移给
+mobile，也不把nominal R塞入含费protection_risk。R1最小单位4%、C2名义
+step2%(PVR本来2%)、C10账户总风险及旧更快止损均非本机制；旧失败不抹掉。
+
+定义先于特征结果冻结，见PROTOCOL/INPUT_FREEZE：原budget_order实际
+decision-CLOSE；reference用整单原intent.cap和冻结trade.floor，不是实填
+q、末日抬高线或fill-day CLOSE。normal5bp计入reference/实际执行价，
+价与floor均同原因子单位。主R=cap×(reference price−floor)；实际A为同
+order所有实际fill q×(真实买价−初始floor)一次累计。A>R只是拟议新规则
+可作用的描述，不是原合同违约。nominal风险不含买卖费/不能保证止损成交。
+
+全部2265三年fill：
+• mobile超整单参考418单/326股，买费6070971.61；实际初始nominal风险
+  635627.92，较参考多117135.15。净−169635.92(闭合正245091.61、负
+  −414727.53，负层自身买款4327095.38；AR3451.86)，不是可避损额。
+• mobile未超1340单买13487585.33仍净−132533.97；9mobile行动未知
+  买93354.14净−3455.93，另498core买1870486.23净−56384.57。
+• 用实填q固定时的gap增风险和用原cap整单基准分开。不能用前者制造
+  大量“超额承诺”，也不能用原cap后验改成实际q来选好结果。
+
+强窗1171fill：187mobile超参考买4929300.45，多nominal119468.08，净
++366484.03(闭合正531578.00/负−288434.31，未平层生命周期净123340.34)。
+676未超mobile净+834887.81，4mobile行动未知−4214.85，304core+66124.24。
+同期超参考不是坏质量的标签；资本更少可能也削掉尾部金额。
+
+关键阶段(完整原层period wealth，非当年入场层终身PnL)
+                 超参考类wealth      全账wealth
+2022年              −89935.30        −295512.15
+2023年              −30091.34         +40939.11
+2024年              −49609.28        −107437.35
+2022Q1              −71303.80        −140975.78
+2022Q3               −8748.17        −105181.59
+既有L04             −24908.74         −27681.07
+固定postOct8        −57002.87        −167054.32
+关键303个严格Oct8后新fill：78超参考买1032160.17净−44400.59；171未超
+mobile买1629431.22净−55359.83；53core净−11161.44、1未知−1535.74，
+合−112457.60。303净贡献仅因它们确在边界后新买才可直接归该阶段；
+完整post阶段还包括Oct8已持有层的wealth变化，未偷贴全生命周期。
+
+完整预冻原PVR tail层控制（不按新特征挑赢家）：三年83、strong94成员，
+No60 exact budget_order/sid/role/CP1receipt(核心再核watch_epoch)匹配45/67，
+未匹配和同股其它fill全保留；其中超参考匹配9/19，原旧净70604.20/
+276111.44，No60匹配净72990.12/407657.78。该阈值包括原未平mark/股息，
+不是cashclosed campaign尾。三年曙光/上海电影、强窗中船/嘉美都在风险
+扩张反例中。原层本地ID及内生attempt从不跨arm强配。
+
+原单事实对比见CANDIDATE_CARD，未求新的q：000620 Jan24'22仅多38.64
+nominal却亏5820.35；埃斯顿Jun9'26多1543.78亏5393.65；嘉美Dec5'25
+多419.07赚66785.39；中船Apr30多597.20末值+110718.75(未平)；光智
+Apr21未超参考却末值+93027.75。不能把该组亏损归因全部gap，也不能把
+超额名义风险当可回收现金；同一行业/市场失败和正常尾部回撤仍需分清。
+
+公司行动/单位补核：ACTIONS_INTERVAL_CHECK直接原canonical manifest→
+全部相关stock actions JSON，逐SHA/identity/status/currency/coverage/
+同日唯一/规范化条款核。decision<effective_date<=fill：三年9事件间隔
+均已有factor flag，strong6均已有flag(4mobile+2core)，额外因子不变
+action间隔0。core两条仍只作原core控制，不叫可比mobile超参考；所有
+未知明细在ALL_REFERENCE_UNKNOWNS。原declared research proxy并不认证
+真实公告、付息/解禁时刻，候选若处理公司行动必须先验整单股数/R/floor
+映射，当前卡未知禁止新mobile而不退回旧无参考约束。
+
+财务与执行边界：strictreal/openunreal/AR/实际买卖费均只一次，原pure
+ledger按新标签分组复用，逐日q/NAV/AR和全部phase财富同账。是共享已审
+basis，不称独立财务双算；layer金融字段来自原完整账户截止，phase与
+entry-lifetime另存。未改变风险线、收益标签或信号，未初始化账户、未
+做静态求量或经济。所有新候选有效性未知；下一步只独审/接口卡，由
+root另定是否还有必要经济，不能自动开矩阵或追加阈值。

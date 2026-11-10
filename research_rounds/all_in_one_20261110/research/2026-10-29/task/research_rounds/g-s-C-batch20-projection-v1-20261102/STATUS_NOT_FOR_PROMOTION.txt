@@ -1,0 +1,1 @@
+R1 frozen as failure evidence. Two genuine budget-component ingress counterexamples (time ordering and nonpositive price) are in KNOWN_FAILURES.json. Real Jan6/Jul3 snapshots used positive prices and no observer events; original static economic objects are preserved for exact R2 comparison. No account event executed. Final reviewed candidate will be separate r2 directory.

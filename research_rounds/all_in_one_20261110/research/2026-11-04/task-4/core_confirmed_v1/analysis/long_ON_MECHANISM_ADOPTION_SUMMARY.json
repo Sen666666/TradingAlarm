@@ -1,0 +1,13 @@
+{
+  "attempt_stream_present": true,
+  "attempt_results": {
+    "not_reserved": 4859,
+    "reserved": 710
+  },
+  "direct_confirmed_core_layers": 699,
+  "actual_buy_cash": "7906986.5873663407890",
+  "lifecycle_net": "-139415.8390084889402770109546",
+  "unlinked_actual_layers": [],
+  "nonmatching_CP_actual_layers": [],
+  "attribution": "Cohort descriptive only. Its profit is not the ON-OFF portfolio increment."
+}

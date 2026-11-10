@@ -1,0 +1,31 @@
+{
+  "status": "FIXED_STRUCTURE_CONDITIONAL_PVR_RESEARCH_BEFORE_NEW_STAGE_OUTPUTS",
+  "dates": ["2022-01-24", "2024-09-24", "2026-01-15"],
+  "cohort": "Exactly existing complete known-True i_buy cohorts 177/2313/779. No new qualification or future outcome filter. Predetermined case nonmembers reported separately.",
+  "hypothesis": "PVR emphasizes recent positive standardized price-volume changes; the chronological relationship to an already-confirmed E0 peak may distinguish a rebound below resistance from structural progress. This is overlapping price information with different memory/order, not claimed independent information.",
+  "source": "/Users/bytedance/repos/my-quant/data/processed/adjusted_daily_bars/adjusted_daily_bars.parquet",
+  "source_sha256": "11e7f9e38798e6e411f33b3250c564bcd5fcfbe34af2bda74e04c02cf8d08d9b",
+  "event_core": "Original eligible_prices then event_frame_numeric(close,volume,joint=True,event_exit=False). Each date physically prefix-clipped; original arithmetic, warmup, mask and full available origin retained.",
+  "confirmation_clock": "event +1 confirms trough and -1 confirms peak. confirmed_pivot_date is occurrence date; current row is confirmation date. No historical backfill, no developing extreme as a confirmed reference.",
+  "state_rules_in_order": [
+    "Reproduce original E0 active/floor: compare current close with OLD active floor first; close<=floor exits and prevents same-close original up-event re-entry. Original ratchet uses compare/higher.",
+    "Record confirmed event peak/trough on its confirmation row only, retaining occurrence and confirmation dates. An inactive E0 is INACTIVE/BROKEN, not a buy-stage candidate.",
+    "On -1 event with E0 still active, set RETRACED and revoke prior BREAKOUT stage; this is a confirmed local downward reversal, not a claim of I failure or a new exit.",
+    "On +1 event with E0 active, set START and freeze the latest peak confirmed at or before this close as reference H; absent reference remains START_NO_REFERENCE in the same START queue. An existing tiny holding never grants maturity.",
+    "On this or a subsequent active close after that upward start, close>frozen H under original numerical compare sets BREAKOUT; latch until a new -1 event or original floor failure. No added high-age threshold, HL threshold, moving average or calendar-specific exception. Another +1 may start a new subcycle within the same original E0 epoch.",
+    "Original I/i_buy eligibility and all original protection/exit rules are read-only. This research changes ranking only, not order quantity, entries, exits or actual holdings."
+  ],
+  "ranking": "All original score-known i_buy members sorted lexicographically by phase priority BREAKOUT=0, START(including NO_REFERENCE)=1, RETRACED=2; inside each phase original PVR descending, sid ascending ties. R_i=1+count(j:phase_j<phase_i OR [phase_j=phase_i AND (PVR_j>PVR_i OR (PVR_j=PVR_i AND sid_j<sid_i))]). No fitted coefficients. Unknown PVR stays unranked in the complete cohort; unexpected inactive/unknown-stage known i_buy blocks final ranking pending inspection.",
+  "comparison": "Same fixed TOP20/TOP100 count vs original PVR; phase counts and phase-internal PVR ranks; fixed existing 5/20 effective-close labels; replacement lists, dropped ex-post positive/tail members and retained/added losers. Labels only after new stage/rank table is saved and hashed. Full observed-date selection bias remains.",
+  "cases": ["000620.SZ", "300666.SZ", "603061.SH", "301611.SZ", "300085.SZ", "002583.SZ", "300604.SZ", "002371.SZ", "688012.SH", "688498.SH", "301308.SZ"],
+  "predeclared_failures": [
+    "A latest local peak may itself be a lower high in a larger decline; BREAKOUT does not establish a profitable long trend.",
+    "A deep V or a new listing without a nearby confirmed peak can stay START while many BREAKOUT names occupy the entire top queue; preserve and quantify winner displacement, do not retune priority.",
+    "Normal volatile uptrends can repeatedly enter RETRACED; the ordering may punish future strong trends.",
+    "Old/missing pre-source peaks and 2014-or-later truncated history can change stage identity; report age/origin and unknown reference, never certify full-history/PIT.",
+    "If stages cannot distinguish Yingxin from strong winners at the actual dates, explicitly say so; three consumed dates cannot establish all-year ranking efficacy."
+  ],
+  "no_account_runs": true,
+  "no_new_network_data": true,
+  "no_parameter_selection_from_dates": true
+}

@@ -1,0 +1,8 @@
+SC D1 April1 bounded boundary check PASS; no April2 events.
+Parent Mar31 state restored under frozen generation identity/source:119 pending intents,16 exits (6delay-spent/10unspent),0active buys.
+Full vs physical Apr1 original actions/payments/OPEN/CLOSE: complete native account+mutable strategy+streams exact, past industry lookup exact; saved full-input checkpoint and complete restart exact.
+6 actual sell fills,0 buy fills, fees196.4832193474500, splits0. EndNAV1254017.3510707366560, available869454.3910707366560.
+End270 newly planned intents,11 exit obligations(10delay-spent/1unspent),0active buys. Do not describe119+151 surviving old intents: new close plans replace old-intent list.
+Full checkpoint SHA b6e09b25e6145f3efd618cd42cf242303419514f28d3a8b11b361787cc3de5ff; cursor2026-04-01 15:10+08.
+Full prefix was NOT rerun: first execution saved before a report timestamp assertion; frozen economic controller unchanged, analysis-only resolver now handles nested actual FillReceipt.at; original error and exact recovery evidence preserved.
+SC fullQ2 remains unauthorized. PVR-D1 July7 checkpoint separately restored with original identity/allfields and is directly reusable for the now-authorized single PVR-D1 path; no horizon importer needed.

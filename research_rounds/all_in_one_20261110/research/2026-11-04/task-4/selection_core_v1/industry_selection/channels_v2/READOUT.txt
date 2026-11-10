@@ -1,0 +1,28 @@
+父新CONT/START行业机会日表已完成，旧Hstar三日结果完整保留，本版没有TopK/加权总分资格。
+
+三日固定结果：
+2024-09-24：CONT68、START18、并集70、重叠16，软件配对B .40625→.96875，Δ+.5625；地产.45→.95，Δ+.50，均BOTH。
+2026-01-15：CONT63、START6、并集63、重叠6，软件1→.941176，Δ−.058824；地产.952381→.809524，Δ−.142857，均CONT_ONLY。
+2022-01-24：CONT11、START14、并集17、重叠8，软件.629630→.703704，Δ+.074074；地产.619048→.714286，Δ+.095238，均BOTH。
+三日各通道完整行业名单见SNAPSHOTS_3D_COUNTS_AND_SECTORS.json；完整原量/阈值/前会话状态见SNAPSHOTS_3D。TOP10_DISPLAY_3D仅显示，不截断资格。
+
+完整固定研究窗口覆盖2022-01-04—2026-06-30，1085个真实CSI300会话×90行业=97,650行，包含2025H1，没有挑额外局部窗口。
+2022/2023/2024/2025/2026H1会话数分别242/242/242/243/116。平均日并集行业数分别30.343/28.719/27.826/33.807/28.034，不等于下单或资金配置。
+
+CONT严格R20(industry−CSI)>0且B_now>=.60；START严格当日全known R5行业midpercentile>=.80且paired ΔB5>0。
+B_now与B_lag5_pairedU都用T的同一个U_t；后者股票MA20为C_t-24..t-5，正好25窗内。另保B_lag5_ownU=当时各自U的广度shift5，仅诊断不触发。
+固定25会话有效价量、同source及历史流动性门保持原式；原三日5127股日U资格及当前above MA逐股exact。
+日表保Nstatic/Nobserved/N25valid/N_U及前1/5日加入/退出/交集，不能因同cohort差分就宣称每日U覆盖变化已消失。
+
+真实行业RS按共同端点计算，pR5使用当日所有R5-known行业；本数据各日都是90个，不受旧Hstar四项complete集合/Top5约束。
+CONT/START是nullable Boolean，UNION使用Kleene OR。实际97,650行机会输入皆known；独立6例合成缺失测试仍验证了True|unknown=True、False|unknown=unknown等，缺失没有填False。
+formal_PIT_opportunity始终unknown，membership_PIT_verified=False；这是1709静态存活/市值/行业选择子池诊断，不冒称历史全市场行业资格。
+
+保真实前一会话CONT/START/UNION上下文及prevsession_date，首研究日上一会话2021-12-31。窗口首日True不自动冒充新启动；持续True不是每日新增CP凭据。
+行情机会退出不等于卖出现有持仓；原E0/I/CP合法性、行业资金许可和执行限制都未修改，没有账户/买卖/收益回测。
+
+核验与接口
+原prepared股票母源一遍读；15个确定性股票日期前缀所有U/above/流量/成员变化序列逐值exact。新股票资格沿旧3日逐股exact。
+配对差恒等式、成员集合交并计数、前会话状态逐行业核验通过；源SHA重核未变化。计算约11.94秒。
+正式INDUSTRY_OPPORTUNITIES_DAILY.parquet/csv供semis做稳定性/未来路径、rules做原H1/E0/CP状态连接。SCHEMA给字段/别名/自然log单位。
+本目录没有计算未来路径标签、误入比例或新账户。不得按后续表现再调.60/.80、另设TopK或换金额份额门。

@@ -1,0 +1,54 @@
+完整原固定赢家的反馈与自身成熟时钟
+2026-11-04。只映射既有主研究输出；不改市场信号母体，不加gate，不重算5日标签，不运行账户。
+
+结论
+Strong原固定94个尾层里，58个原实际决策发生在全市场5-close反馈为negative的收盘，原生命周期贡献+588036.75元；其中38个有No60精确实际对应，对应贡献+637198.43元。负态会与大量真正赢家入口重叠，不能将“市场反馈负”自动解释为“此时新股趋势无效”。这些金额是原路径贡献，不是关闭新买后的损失或政策收益。
+
+一、全名单与时钟
+原83/94固定名单直接读取local_high/*_FIXED_TAILS.json，全部177成员保留，未挑案例。跨arm对应只核sid、actual decision_at、role、CP1 receipt，core另核watch_epoch；No60 key唯一。原本地layer ID只作为可追溯标识，未用它跨arm匹配。
+每个原tail的decision CLOSE按同一原i_target/source段/false→true起日映射I root，177/177精确。root再映射已冻结SIGNALS或LEFT_CENSORED，不因为赢家另开或重选母体。
+全市场反馈只从所属主view DAILY_FEEDBACK取同日精确行：positive/negative/zero，raw NO_MATURE_DATA明确映射NO_DATA；评价窗外写outsidewindow，绝不把最后一个分析日反馈前填/后填到2023或其他窗外日期。
+自身first及第5成熟时钟只复用主EVENTS的有效close日期。有效close数和maturity先过滤<=原decision日，未来成熟不提前算已知；用足5后remaining=0，尚未足5按已知有效close数写等待数，若源时钟本来不明则保留unknown。27个strong继承root的真实历史first不可认证，不能拿Jul1第一次看到当first并伪造第5成熟日。
+
+二、Strong完整94控制：市场反馈分组（元）
+反馈       原成员    原贡献             有No60对应的原成员    No60实际对应贡献
+positive   21        +468852.60          15                    +477859.04
+negative   58        +588036.75          38                    +637198.43
+zero       0         0                  0                     0
+NO_DATA    15        +106158.44          14                    +105923.36
+outside    0         0                  0                     0
+合计       94        +1163047.78         67                    +1220980.82
+原94层只涉及65只股票，不是94个独立实验。原贡献含19个开放mark层，源原名单未保存严格real/open/AR细分则明确NA，未填零。
+No60对应全67层包含严格real+601412.45、open+618340.74、AR+1227.63；负反馈38个对应层中real+441998.63、open+195010.24、AR+189.56，不能把全637198.43叫已经兑现利润。
+
+三、Strong自身I-root first的第5成熟状态
+自身状态                         原成员/原贡献          No60对应成员/贡献
+当时已成熟                       56/+875892.17           39/+925761.67
+当时未满5有效close               11/+92281.51            6/+84033.58
+历史first未知（left-censored）   27/+194874.10           22/+211185.57
+在negative反馈58成员中：38个自身已成熟、10个未满5、10个left；positive中18/1/2，NO_DATA中0/0/15。完整互斥交叉在SUMMARY.json，非遗漏组保留零数。
+这里没有推出“统一等自身5日后再买”的策略。等待会改变可成交价、资格、数量与后续机会，不能把未满5组的原贡献机械视为会损失的钱。
+
+四、原2022→2024固定83控制：保留未覆盖的年份和日期
+市场反馈     原成员/原贡献            No60对应成员/贡献
+positive     11/+45049.48              3/+26040.22
+negative     33/+94881.61              19/+78123.28
+zero         0/0                       0/0
+NO_DATA      0/0                       0/0
+outside      39/+159988.52             23/+136787.26
+83中只有44个decision在本次分析窗：2022_weak18个原贡献+67947.50；2024_recovery26个+71983.59。窗外39个为2023的25个、2024分析窗外14个，原样保留，不能把它们贴上2022或2024Sep反馈。
+83个自身root都在完整信号主母体中，70个在原decision前已成熟、13个尚未满5；没有把同root后续实际买入重新当first。窗外成员自身成熟可用2024 view保留的早期warmup事件定位，但市场反馈仍是outsidewindow。这两个“数据可用”口径不能互换。
+
+五、指定赢家的明确时钟
+嘉美包装002969.SZ：原2025-12-05 mobile尾层，当时市场反馈negative（median约−0.3261%）。同I-root真实first为11-28，5个有效close为12-01/02/03/04/05，原decision当天才成熟，此前未提前使用。原尾贡献+1187.69；No60精确对应+66785.39。不能把小额原PVR层和较大No60金额混写。
+中船特气688146.SH：2026-04-21原mobile为positive反馈，同I-root first04-03、第五有效close04-13，已成熟；原贡献+109228.80、No60对应+89853.47。04-30同root后续mobile发生在negative反馈，原贡献+78816.56、No60对应+110718.75，均非“新的root首次”且包含开放mark。2025-07-01那一原尾层则是NO_DATA且I-root继承，只能标first历史未知。
+同一只真实赢家可以跨positive与negative反馈继续获得新资金，反馈符号不能替代股票结构与许可的动态语义。
+
+六、验证与边界
+源主manifest已完成且代码SHA一致才读取；EVENTS、DAILY_FEEDBACK、SIGNALS、LEFT、原名单和逐股facts均绑SHA，映射结束复核输入未变化。83/94名单数量、45/67原有跨arm对应、所有root、精确feedback日期、own成熟as-of、原/No60金额分组守恒均核过。
+全市场母体固定不按赢家筛。本映射中的“赢家”是原固定终态>=30%控制标签；它不进入任何实时信号。全市场5日price-response不是交易PnL；negative重叠只是潜在误伤域，未定义任何关买政策，也未给少赚/可避损承诺。
+当前存续股/当前行业快照、已见历史、日线执行代理、相关前向窗口及真实成交限制继承主研究；没有样本外或真实资金验证。
+
+交付：2022_2024_WINNER_TIMING.json、strong_WINNER_TIMING.json、ALL_WINNER_TIMING.csv；SUMMARY完整五反馈状态及自身成熟交叉；VALIDATION、SOURCE_MANIFEST、PROTOCOL、map_winners.py。所有原成员、未对应与窗外都在。
+
+版本薄核对（v1→v2）：主研究v2仅补strong末端既有5个calendar会话的离线价格尾。SOURCE_VERSION_RECONCILIATION.json核542个as-of feedback全字段、177个赢家决策当时反馈/自身成熟可知性/有效close计数及等待数完全不变；本固定名单未来maturity日期变化0。旧row/CSV中复制的label_observation_end等元数据明确绑定留档v1，见COPIED_MAIN_FIELD_VERSION_BINDING.json。活动SOURCE_MANIFEST已把原主文件SHA重新指向pre_calendar_tail_fix中的精确旧bytes；原路径清单仅作明确命名的V1_HISTORICAL_PATH_RECORD保存，不是当前输入绑定。没有重算root、收益、gate或账户。

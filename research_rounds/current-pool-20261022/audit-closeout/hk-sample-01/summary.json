@@ -1,0 +1,35 @@
+{
+  "sampled": 24,
+  "verified": 24,
+  "failed": [],
+  "raw_rows": 81200,
+  "missing_volume_rows": 12760,
+  "missing_amount_rows": 12760,
+  "invalid_price_rows": 2093,
+  "parser_dropped_recovered": 121,
+  "unit_statuses": {
+    "turnover_consistent_with_unscaled_shares_and_quote_currency": 24
+  },
+  "unit_median_min": 0.9946153012178816,
+  "unit_median_max": 1.0,
+  "history_statuses": {
+    "complete": 24
+  },
+  "stop_reasons": {
+    "requested_earliest_reached": 22,
+    "short_raw_page_source_boundary": 2
+  },
+  "last_dates": {
+    "2026-10-22": 23,
+    "2026-09-02": 1
+  },
+  "rights_statuses": {
+    "received_current": 24
+  },
+  "empty_rights": 0,
+  "rights_missing_date": 0,
+  "rights_missing_text": 0,
+  "network_requests": 0,
+  "account_runs": 0,
+  "full_pool_certified": false
+}

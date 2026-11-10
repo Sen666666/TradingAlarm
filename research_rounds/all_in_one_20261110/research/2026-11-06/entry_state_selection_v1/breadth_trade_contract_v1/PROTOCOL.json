@@ -1,0 +1,31 @@
+{
+  "windows": [
+    [
+      "2022",
+      "2022-01-01",
+      "2022-12-31",
+      null
+    ],
+    [
+      "2024_924",
+      "2024-09-01",
+      "2024-12-31",
+      null
+    ],
+    [
+      "2026H1_SEMI",
+      "2026-01-01",
+      "2026-06-30",
+      "URFI881121"
+    ]
+  ],
+  "denominator": "same day/same both-known stock members, fixed future 1709/90 research pool NON-PIT",
+  "event": "FALSE->TRUE only for main study; UNKNOWN->TRUE and LEFT_CENSORED separately, never silently promoted. Full panel shifted before window filter.",
+  "selection": "every same-industry both-known right3 stock; original I close state valid, e0/g ready, positive protection floor; first entry does not require fresh; record current-I start and most recent old I buy signal; mean previous20 observed amount through decision close descending then sid; top2 per event, no ex-post replacement",
+  "position": "Independent slots, not a capital account. 1.2m reference NAV; initial max0.5%NAV per name, <=2 names/event; one add max0.5%NAV/name; slot capital max1%NAV; baseline fee-inclusive stop-reference loss cap0.125%NAV/slot; quantity sensitivity0.0625%,0.25% at identical entries. These are research choices, not user risk promises.",
+  "add": "Only first unused original stock CP1 receipt, current I valid, industry current robust qualification TRUE, whole stock round net liquidation at close >0 after all fees, and rechecked at next open; no averaging down. One add maximum in this finite contract, no tuning.",
+  "exit": "Core uses original I_structure_exit, next common open; add uses original CP1_add_protection with trailing max(I floor, fresh CP candidate). Industry decline only stops new buys/adds, never forced sell. Original account ACT/cash/global protection must also gate deployed strategy, but cannot be inferred for a new account from old account P&L.",
+  "execution": "Signal known close, next common open +/-5bp; dated native commission/minimum5/levies/stamp/quantity rules; A-share T+1. Missing price, source switch/gap, corporate action/factor change => UNKNOWN (not dropped), right-censor => OPEN_CENSORED. Historical limit/suspension orderability UNKNOWN for every proxy fill.",
+  "resources": "Original account next-open snapshot overlay is a separate necessary-condition rejection screen only, after its original reservations; does not prove positive admission nor reuse its trade P&L. Ends2026-05-15. Prices/indicators stop2026-06-30. All independent events may overlap and cannot be summed into NAV or claimed full-strategy win rate.",
+  "sample": "All selected events and names, not first3 only; known-date case diagnostics kept separate; no threshold search; no full financial account run"
+}

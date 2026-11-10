@@ -1,0 +1,74 @@
+2022—2023防守与恢复：限时算法判别结果
+2026-11-04。本支只负责宏观暴露/恢复；买入重入质量与重大行情由其它独立任务并行。本文件不声明已有策略改进。
+
+裁决
+停止当前“市场转D就全部退出”的完整三态金融接线；不做短连续账户对照，也不增第三个宏观过滤门来救现版。
+保留20日早试探与原E0噪声尺度推进这两条价格资格线索。它们有时序价值，但独立几何不等于完整策略；迟防守、局部赢家和资金动作冲突仍未解决。
+最新父指令已否决按当日盈亏处置旧仓：盈利不等于健康，亏损也可能正常。下文旧库存盈亏分类只保留历史诊断，不再作为交易候选。当前动作明确拆为新增风险许可与原持仓结构退出；后者不受宏观D或当日盈亏强卖。
+
+主要问题的真实规模（原100万元账户，不缩放为计划120万元）
+原ACT20在2022Apr20收盘首次暂停时已亏214933.82，仍持704716.07并挂70个退出；Apr21才真实flat。它是事后账户损害熔断，不能保证市场下跌早期减仓。
+2022Jun17恢复后，Jun20首个OPEN即买701746.53，收盘暴露89.98%、名义保护风险9.847%。Jul4仍持739784.23/89.99%，直接进入L03。
+L03全79个OPEN旧ACT都on，平均前收盘暴露81.09%，新增循环买款2.8319m，净损83674.28。限新钱不能让期初库存自动消失。期初持股61只在该段合计−23383.51但含段内加仓255733；新立足和期初flat重入合计−60290.77。两桶不能称删交易的可省损失。
+
+三态假设及已停止实现
+共同输入为原synthetic M（行业等权/行业内股票等权log-return累计）及原金额广度B，不是沪深300或可交易ETF价格。
+D首个M_t>max(M[t−20:t])且B>.6时给P资格，下一可执行点才可能新买。试探单位借原probe10%gross/.5%NAV名义风险；该单位不自动等于新宏观总额度或实际持仓。
+固定初始20日箱体R升档已停止：2022May23箱宽14.0413%，整个L02最高只推进0.785R，确认比旧63还慢。2024春同样过宽。不能因此否定父提出的三态骨架。
+按新高次数直接加单位也未准入：九次微小新高仅涨0.09%就可授90%gross/4.5%风险草案，次数不能自动代表幅度成熟；派生4.5%不是原No60上限或用户永久偏好。
+
+下一价格推进线索（唯一尺度，非参数网格）
+首P时冻结σ=max(sqrt(fsum(前63条log M收益平方)/63),1e−8)，排P当日，需要64个此前M收盘。首次推进价距用√5σ，另需新20日高点与原B条件。这借的是原E0价格位移尺度，不是B4/CP1的MAD/信用核；对象改为M、锚改为P，本身是待证假说。
+独立条件锚点：2022May23 P→Jun8首次达几何门，比旧63早7观察；2023Jul31假P在达门前Aug11先破S；2024春早35、924早1；以D起点看strong则晚13。strong原账户没有暂停，该起点敏感性不能当真实必丢收益。
+低σ下仍能很快确认微小绝对涨幅，不能称成熟保证；M波动也不能替代股票风险或账户亏损。
+
+完整连续纸面递推，结果比局部几何更严格
+仅在M/B上从完整warm初始D因果行走，不注入旧ACT未来暂停，不运行资金。P/C先检旧S；合格新20高＋冻结噪声推进＋持续B才进/留C并抬S。B中断只冻结推进/rearm，不直接卖。此处“C”仅市场结构标签。
+v1仅在推进证据时更新S。2022Jan20已D，有较早防守依据；但L03前62/79收盘仍C，Sep30才D。到该日旧账户已从822090.57降至713594.95，损108495.61；以后原路径至Oct31反而+24821.33，不能把迟退当成功。
+2023Q2 v1全59日C；7月继承C直至Aug25才D。因此独立“Jul31新P失败”不能拼成完整动态策略已过滤假恢复。几何Jun8在完整链仅rearm，Jun10才C。
+
+v2唯一改动：每天先用此前20日低点更新S，再检当前价跌破；其余原样。它无前瞻，但在完整已知区间实质是strict20close-low通道退出。
+                 v1                    v2
+L01首D           Jan20                 Jan11
+L03首D           Sep30，62/79 C         Aug31，41/79 C
+2023Q2           59 C                  55 D＋4 P，0 C
+strong           2次D／33 D日／196 C   4次D／81 D日／122 C
+v2改善迟退，却明显扩大退出/等待足迹，停止金融推进。不能只择L03较好的一面，也不能将结构标签直接换成新仓位或漏盈金额。
+
+现成盈利反例与防守动作的可作用规模
+v1 strong Mar23、Jun8发D时旧库存约145.89万、169.52万，旧路径以后仍上涨。最干净反例是Jun8电子化学品存量372102.39、当时已知未实现254041.06；之后无买卖/费用仍增102920.86（含股息114.93）。全退会触及真实正在盈利的趋势，不只是其它新钱造成的混合差额；仍不能把10.29万元直接称新策略误伤净利润。
+另对v1全部181个D收盘、6445个持仓stock-close，用截至当日的当前flat-campaign净交易现金＋raw库存＋已确认股息/AR分类，不用未来terminal净额：
+日期              全退库存       当时亏损库存      当时盈利库存
+2022Jan20         880394.29      423938.29         456456.00
+2022Sep30         308232.00      195843.00         112389.00
+2026Mar23         1458865.12     431204.12         1027661.00
+2026Jun8          1695183.89     500319.48         1194864.41
+strong持续D日的盈利库存权重约72.78%。181是收盘观察数，非181次退出或唯一资金。
+Jun8中船特气、唯特偶当时campaign净额分别+128762.55、+125638.52；它们的正盈是当时可得信息，非未来赢家标签。分类含已实现和股息，不等于纯浮盈或本金已被保护。5个股日沿原账此前已知报价估值，quote_day保留，不保证当日可成交。
+
+下一候选和真正阻碍
+本段原“弱市收缩亏损库存、保留盈利库存”建议已由最新父指令否决，不实施、不继续验证。旧静态分类未证明价格结构健康与否；所有旧层继续原I/CP1保护，不按当日盈亏划分卖出。
+保盈利意味着D仍有持仓，不能再同时要求市场恢复真实flat；必须把原ACT20硬暂停与新的市场防守分开。P新增额度也不能把保留下来的赢家全塞入10%试探总池而卡死恢复。持续D中的盈亏转换、未完成退出/撤单占用、真实重入锁与累计试错成本均须明定。
+市场D长期挡住局部新赢家的问题还需与独立重大行情/买入质量任务整合。不能在本支临时加一条“局部强”例外后声称已解决。
+这些是策略合同/证据阻碍，不是缺行情。未定义之前不投入资金接线或新RiskBook，不重复构建中性或canonical管线。
+
+成本与停止条件
+本轮各次单一纸面计算约0.05–0.9秒，原账关联复用旧账，公式/案例/独审按10–15分钟小任务并行；未运行资金账户。相较可能触及的L01大损耗与L03约10.85万已发生损耗，纸面检验成本足够低，已先支付；它不授权更昂贵的金融实现。
+当前两个完整价格结构版本均STOP。后续必须先证明主要下跌段及时收缩且不系统阻断局部赢家，再定义可执行动作和风险口径，列薄适配/前缀/核账的具体实测预算。若仍需新loader、大导出或另造账本，或只改善一个窗口而显著扩大强窗干预，就不准入。不开参数网格、不给新宏观门追加第三个条件救例。
+
+复核入口
+最新新增风险独立权限表：pvr_pool_feasibility/market_new_risk_only/RIGHTS_PRIORITY_TRANSITIONS.txt
+最新全部原新层关联：loss_correction/macro_new_risk_association_v1/READOUT.txt
+最新独审：independent_review/market_recovery_three_state_review/MARKET_NEW_RISK_ONLY_AUDIT.json（SHA8c54365fb2286e6eb7c0ab282891e311f2f62a895ec623e489c72ab189f0593a）。3273标签、3436原层、177固定尾部、552分组、12旧仓cohort/562sell parts核过；仅原路径关联PASS，不准入新账户。
+纯宏观停新增仍不能区分：L03 C层原净−67307.76/D−2116.68；post303全部C原净−112457.60；strong D390层原净+314015.58（含未实现262431.90）。这些按原decisionCLOSE分组的层贡献累计至原bookcutoff，非相应期间财富，更非删单后收益。故停止当前全市场新增风险门资金接线，不搭C反馈账；经父授权转行业/个股动态风险薄诊断，旧仓原保护不变。
+ar6_native_feasibility/market_recovery_three_state/READOUT.txt
+ar6_native_feasibility/market_recovery_three_state/noise_rms63_single_check/READOUT.txt
+ar6_native_feasibility/market_recovery_three_state/structural_walk_v1/READOUT.txt
+ar6_native_feasibility/market_recovery_three_state/structural_walk_daily_support_v2/READOUT.txt
+risk_constraints/market_regime_risk/macro_footprints_v1/READOUT.md
+risk_constraints/market_regime_risk/all_D_asof_v1/READOUT.md
+independent_review/market_recovery_three_state_review/RMS63_GEOMETRY_AUDIT.json
+independent_review/market_recovery_three_state_review/STRUCTURAL_WALK_SOURCE_PREFIX_AUDIT.json
+independent_review/market_recovery_three_state_review/DAILY_SUPPORT_V2_AUDIT.json
+independent_review/market_recovery_three_state_review/STRUCTURAL_FOOTPRINTS_MONEY_AUDIT.json
+independent_review/market_recovery_three_state_review/ALL_V1_D_ASOF_CAMPAIGN_AUDIT.json

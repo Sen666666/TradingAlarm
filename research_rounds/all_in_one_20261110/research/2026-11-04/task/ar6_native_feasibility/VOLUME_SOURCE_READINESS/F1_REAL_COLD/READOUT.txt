@@ -1,0 +1,15 @@
+独立F1真实量原函数冷算PASS，6.835921秒，60秒上限。
+收到risk owner明确“尚未执行F1/任何feature，可立即独立做”后冻结75源并启动一次。root后续“如未开则不重复”的交叉消息到达时已完成；无第二次模型计算、无第四fixture。
+
+000001.SZ：原因果signal从2013Jan4至2026Jun30共3271合法行；未改prepare_facts原函数AST执行原B5→固定B4→G1→NR1→I，14facts全列exact原U缓存，IX四个G1列exact；原numeric事件15列全warm exact。原CP1.calculate的输入exact，24输出列全warm exact，188receipt。
+银行URFI881155：2007Aug1至2026Jun30共4563行，cold原E0 target/floor映射原industry CP1 input exact；原numeric事件15列、CP1全部24列exact，271receipt。不声称industry原有G1控制；为调用未改prepare_facts虽产生G1但行业不消费它。
+原F1 PVR全warm执行冻结score源码，已有13个requested日期8字段及968策略日score全部exact。其余warm没有旧8列输出参考，不能把本次生成的全warm表冒称旧控制。
+
+实际加载data_utils/api/evidence/arithmetic/policy/grade/policies_g1模块文件已列DONE；75冻结源后SHA不变。函数先读审无default cache写入，本次只输出本目录9个parquet，python-B不写旧pycache。没有neutral、ACT全池、Account/Runner或任何金融事件。
+
+仅原cold参考，不计算任何新physicalprefix。DONE里PVR_scope出现“source/prefix”仅泛指主fixture约定核验边界；本独立run新prefix次数确为0，已另存SCOPE_CLARIFICATION.json，owner唯一运行其18个NEUTRAL物理前缀，不为“双臂physical”报告补跑。
+
+与owner已保存F1 REAL raw的7项只读逐值比较亦PASS（0.093秒/0模型）：股票facts/q/CP1/PVR，行业定义的E0 facts/q/CP1。bank q只有列展示顺序e0_valid/e0_down互换；完整同名列集合相等后按owner顺序比较，全字段精确，未删列或放数值误差，初次严格列序比较中止已存ERRATA。
+主reviewer另有VOLUME_FIXTURE_FIRST_PASS_AUDIT.json，独核owner全部6 REAL门；不冒本方额外重算F2/F3。
+
+owner首neutral停在np.testing.assert_equal(Series,Series)比较器类型错误，0neutral输出，原失败保留。该修复/续接由root与owner控制；本方没有改旧模块、owner源或自动retry。F1真量源链无未解释差异，可支持owner继续其唯一薄组装；不推成量有效或全池/账户已就绪。

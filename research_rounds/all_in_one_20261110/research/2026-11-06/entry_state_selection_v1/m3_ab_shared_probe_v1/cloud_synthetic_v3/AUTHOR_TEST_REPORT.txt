@@ -1,0 +1,21 @@
+UTC: 2026-11-09T02:37:35.054682+00:00
+Scope: synthetic only; no original data, original source import, backtest or real first day.
+Command: PYTHONDONTWRITEBYTECODE=1 python3 -m unittest -v test_budget_service_release
+
+test_01_close_opportunities_are_not_cash_reservations (test_budget_service_release.BudgetSyntheticTests.test_01_close_opportunities_are_not_cash_reservations) ... ok
+test_02_ex_claim_does_not_fund_open_and_pay_is_next_open (test_budget_service_release.BudgetSyntheticTests.test_02_ex_claim_does_not_fund_open_and_pay_is_next_open) ... ok
+test_03_known_exits_release_cash_before_queue_and_t1_is_per_fill (test_budget_service_release.BudgetSyntheticTests.test_03_known_exits_release_cash_before_queue_and_t1_is_per_fill) ... ok
+test_04_cash_includes_fee_and_risk_dimensions_are_distinct (test_budget_service_release.BudgetSyntheticTests.test_04_cash_includes_fee_and_risk_dimensions_are_distinct) ... ok
+test_05_partial_fill_and_cancel_pending_keep_all_obligations (test_budget_service_release.BudgetSyntheticTests.test_05_partial_fill_and_cancel_pending_keep_all_obligations) ... ok
+test_06_probe_and_industry_all_caps_include_held_live_and_cancel (test_budget_service_release.BudgetSyntheticTests.test_06_probe_and_industry_all_caps_include_held_live_and_cancel) ... ok
+test_07_core_add_share_round_slot_risk_and_only_one_add (test_budget_service_release.BudgetSyntheticTests.test_07_core_add_share_round_slot_risk_and_only_one_add) ... ok
+test_08_external_queue_is_fixed_and_no_third_industry_refill (test_budget_service_release.BudgetSyntheticTests.test_08_external_queue_is_fixed_and_no_third_industry_refill) ... ok
+test_09_promotion_is_one_stock_full_round_evidence_not_sector (test_budget_service_release.BudgetSyntheticTests.test_09_promotion_is_one_stock_full_round_evidence_not_sector) ... ok
+test_10_old_round_dividend_never_enters_new_round_cash_or_claims (test_budget_service_release.BudgetSyntheticTests.test_10_old_round_dividend_never_enters_new_round_cash_or_claims) ... ok
+test_11_unknown_retains_assets_allows_known_exit_and_claim_then_blocks_new (test_budget_service_release.BudgetSyntheticTests.test_11_unknown_retains_assets_allows_known_exit_and_claim_then_blocks_new) ... ok
+test_12_decimal_validation_duplicate_events_and_invalid_fill_are_atomic (test_budget_service_release.BudgetSyntheticTests.test_12_decimal_validation_duplicate_events_and_invalid_fill_are_atomic) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.007s
+
+OK

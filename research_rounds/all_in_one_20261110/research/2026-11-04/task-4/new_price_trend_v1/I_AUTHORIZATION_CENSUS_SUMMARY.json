@@ -1,0 +1,59 @@
+{
+  "mother": {
+    "long": {
+      "layers": 2265,
+      "first_exit_reasons": {
+        "CP1_add_protection": 1083,
+        "I_structure_exit": 935,
+        "ACT_pause": 247
+      },
+      "first_I_exit_diagnostic": {
+        "layers": 935,
+        "unique_stock_CLOSEs": 797,
+        "known": 935,
+        "unknown": 0,
+        "E0_still_on": 0,
+        "E0_off": 935,
+        "I_still_on": 0
+      }
+    },
+    "strong": {
+      "layers": 1171,
+      "first_exit_reasons": {
+        "CP1_add_protection": 666,
+        "I_structure_exit": 433
+      },
+      "first_I_exit_diagnostic": {
+        "layers": 433,
+        "unique_stock_CLOSEs": 397,
+        "known": 433,
+        "unknown": 0,
+        "E0_still_on": 0,
+        "E0_off": 433,
+        "I_still_on": 0
+      }
+    }
+  },
+  "raw_gap_summary": {
+    "long": {
+      "known_E0_I_stock_CLOSEs": 1138812,
+      "raw_E0_on_I_off_stock_CLOSEs": 83396,
+      "raw_gap_BB_cross_events": 1767,
+      "raw_gap_EMA_cross_events": 313,
+      "raw_gap_original_CP_receipts": 0
+    },
+    "strong": {
+      "known_E0_I_stock_CLOSEs": 401691,
+      "raw_E0_on_I_off_stock_CLOSEs": 21572,
+      "raw_gap_BB_cross_events": 859,
+      "raw_gap_EMA_cross_events": 177,
+      "raw_gap_original_CP_receipts": 0
+    }
+  },
+  "scope": "Source semantics and original stock-CLOSE states only; raw E0-on/I-off price crosses do not imply S0/Q/industry/ACT/units/funding permission or future returns. No I overlay or account implemented.",
+  "EMA_cross": "EMA20 crosses aboveEMA60, previous same-source known line ordering, using already computed arrays. First saved2022 observation lacks previous saved line and is UNKNOWN, not forcedFalse evidence.",
+  "next_hypothesis": "A new supplemental starting proof during E0-valid/I-not-activated gaps would be a separate entry authorization policy, not prevention of cold-G1 holding exits.",
+  "seconds": 8.28065066691488,
+  "new_accounts": 0,
+  "new_price_indicators": 0
+}

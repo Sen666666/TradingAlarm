@@ -1,0 +1,27 @@
+{
+  "status": "SINGLE_FORMULA_DIAGNOSTIC_DONE_NOT_ACCOUNT",
+  "candidate_rows": 53121,
+  "known": 53069,
+  "unknown": 52,
+  "dates": 796,
+  "picks_per_arm": 14185,
+  "changed_picks": 637,
+  "changed_dates": 444,
+  "changed_ranks": 41726,
+  "max_abs_rank_move": 434,
+  "source_path_continuity_corrections": {
+    "5": 0,
+    "20": 0,
+    "60": 0
+  },
+  "semiconductor_sector_ids": [
+    "URFI881121",
+    "URFI881172"
+  ],
+  "original_rounds": 2693,
+  "original_closed": 2626,
+  "original_winners": 675,
+  "account_runs": 0,
+  "parameter_scans": 0,
+  "fits": 0
+}

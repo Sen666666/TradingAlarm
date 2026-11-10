@@ -1,0 +1,47 @@
+{
+  "protocol_sha256": "dcb218208d9675d99894fdbda7e236eb216e4f7473ae9e3957a54c1510520ad2",
+  "normalizer_sha256": "ddd95f469ffda8a5a24b24cf4d61a9cfaae1926819f867eac58a01b6a5f00056",
+  "analysis_sha256": "a938ed496b1ecb248cc671866fcca2c05cb921c71d5fbda8776222be6a730f81",
+  "days": [
+    "2026-04-30",
+    "2026-05-07"
+  ],
+  "stocks": 1709,
+  "industries": 90,
+  "normalization_only": "None/NaN/NA/NaT equivalence, missing field UNKNOWN",
+  "old_frozen_counts": {
+    "static": 50,
+    "B": 73,
+    "C": 62,
+    "attribution": 24,
+    "coverage": 32
+  },
+  "no_loader_import": true,
+  "no_account_or_solver_execution": true,
+  "no_indicator_calculation": true,
+  "original_pure_AST_subsets": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/native_rank.py": [
+      "priority_plan"
+    ],
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/market_rules.py": [
+      "RuleUnavailable",
+      "day",
+      "version_on",
+      "market_identity_on"
+    ],
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py": [
+      "dec",
+      "positive",
+      "FeeComponent",
+      "FeeSchedule"
+    ],
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/g-s-static-capital-competition-v1/analyze_static.py": [
+      "dated",
+      "fee",
+      "nextday",
+      "context_cap",
+      "raw_capacity",
+      "candidate"
+    ]
+  }
+}

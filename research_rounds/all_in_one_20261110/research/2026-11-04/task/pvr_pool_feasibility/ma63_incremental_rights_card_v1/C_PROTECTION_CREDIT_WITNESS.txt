@@ -1,0 +1,22 @@
+父新增“按真实保护释放约束增量”建议：原对象可核的必要证书与具体阻断
+
+纸面上可定义同单位名义风险释放，不等于已有宏观权利账。
+对同一许可episode里已实际fill、当时仍持有的trial layer，使用同一原账户mark p、同一实际重叠持有数量q、相同权息/币种/原factor单位，比较原保护生效前后floor f_old/f_new：
+DeltaR_protect = q * (max(0,p-f_old) - max(0,p-f_new))。
+只当原保护确已生效且f_new>f_old时作为非负释放证书；未知mark/单位/前floor/原proof/同层归属则UNKNOWN_NO_CREDIT，不把未知填0。卖掉的数量不参与q，不把卖出、跌价、浮盈、现金到账、迁池或CA本身当保护credit。
+
+拟议最小权利约束仅为：每次新的合格market price progress与新的真实trial保护证书同时具备后，新增订单的nominal预留至多尚未消耗的合格DeltaR_protect，不能按新高次数整份加风险。每原保护receipt/同一受保护数量只核一次；多层共享同一stock/CP1证据也须逐层数量去重，不能重复发credit。未成预留即占用，cancel待ACK不返；真实ACK最多退该单未用部分，亏损试错不自动返还。H撤销旧epoch未用授权，真实flat后新P不能重放旧保护证书。
+
+边界：该同mark差分只衡量保护上移带来的名义风险变化，不保证跨日全账户总risk不增，也不创造cash或gross容量。市场mark上涨可增加原库存mark-floor风险；旧仓/其它层/挂单仍按原全部资源约束保留。新订单price/floor/fee/整手也要真实原准入，不能以DeltaR除某个未来止损价虚构可买股数。
+
+原源码提供的载体及缺口（只读勘查）
+case-stage-ledger-20261031/v3/joint_v3.py::Account.sync把实际layer、role、qty、factor调整后的floor同步到budget.lots；resources用current mark-floor计算名义风险。planning中core last_core_line来自原I floor；mobile floor=max(old floor,known I floor,当日原CP1 receipt candidate)。real_buy_fill有layer/budget_order/CP1_id；daily原层有当前floor/metadata。
+因此可以只读查看原真实保护前后的量级/正反例。但原journal未提供现成的“宏观保护credit发放/消费/epoch余额”对象；Contract.consumed是原行业/股票证据消费，不是这份资金授权账，不能挪用或清空。单看相邻daily floor变化还须排除数量/CA/单位变化及明确原保护证据，不能把终态floor倒填。
+
+当前仍BLOCKED的具体点
+1. qualified market price progress尚未冻结，不混回旧synthetic M阈值或另选窗口。
+2. 新grant的有限gross上限及旧仓自然漂移/全部库存占用如何与增量权利并列，尚未定义。
+3. P/C credit归属、去重、partial/cancel/CA、未用credit到期及renew/reset需要新的权限消耗语义，原Contract没有此功能。不可因为公式可写就宣布原系统已能执行。
+4. 首先要核旧真实trial在保护推进前后的原赢家/失败分布与DeltaR量级；若失败同样轻易产生credit、赢家来不及产生或释放量极小，就停止，不为实现而建RiskBook。
+
+结论：值得把DeltaR_protect作为便宜只读反馈量级诊断的对象；当前只冻结必要证书形式，不作新数值、不发授权、不实现账。C的权利与金额仍BLOCKED，禁止0.5%*n、tiny新高次数满风险、当日盈亏强卖或为反例加第三门。

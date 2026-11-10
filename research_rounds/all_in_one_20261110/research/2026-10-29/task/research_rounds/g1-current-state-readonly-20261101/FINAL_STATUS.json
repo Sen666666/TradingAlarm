@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "current_G1_predicate_distinct_from_I": true,
+  "current_grade_has_promotion_memory": true,
+  "cohort_layers": 1178,
+  "primary_losses_remain_current_warm": true,
+  "new_policy_enabled": false,
+  "new_accounts": 0,
+  "new_indicators": 0,
+  "industry_G1_unavailable": 79,
+  "behavior2023_complete": true,
+  "latest_safe_common_end_not_yet_frozen": true,
+  "execution_blockers": []
+}

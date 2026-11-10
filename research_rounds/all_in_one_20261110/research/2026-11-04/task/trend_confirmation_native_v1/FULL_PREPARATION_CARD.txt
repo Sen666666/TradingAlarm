@@ -1,0 +1,9 @@
+完整窗口准备与技术接续：不隐含完整账户授权
+固定四臂B/NONE、UNIFORM50、A_ONLY、A_OR_B；原公式与参数不变，不叠成本守卫，不改E0/I/PVR/ACT20 BREAK63/退出/费用/资本来源。
+完整long为2022Jan4–2024Dec31共726个CLOSE；strong为2025Jul1–2026Jun30共242个CLOSE；各自fresh1m，同1709开发快照池，long自身连续跨年不reset。
+private frozen_capacity_inputs.py逐byte复用原已审wrapper。long PVR source按实际决策年严格分派2022/23/24原manifest，later historical overlap不回写旧年；strong为原single source。私有bindings始终在本目录。
+固定FeatureCache.end为该完整窗口末日，不因小prefix改小。physical input_limit是本次实际可用价格/资格数据末日；函数拒绝day>end或day>input_limit，不以UNKNOWN静默越界。输入/完整source/score绑定在native新事件前冻结。
+派生A/B数组不进pickle，真实账户、pending已冻结cap/budget/m、CP1消费、风险状态和全部真实账由原checkpoint保存。restore验证同full-end、同source/code/score，允许只在该固定域内扩大物理availability；按原source最初暖机重建EMA/rolling，绝不从restart日重seed。旧Jan14小cache checkpoint不作为full种子。
+技术仅long full-end schema：一个Jan4–Jan14直接9CLOSE物理prefix；独立进程Jan4–Jan7前4CLOSE checkpoint；再另一进程从该新full-spec checkpoint接到Jan14，前后账户、计划m、真实订单/费用及全部金融日exact。缓存values/source访问次序是可重建派生元数据，不能要求字节同而误判交易差异；对齐实际使用的flags/m/plan与账。
+上述新full-schema接续是必要技术验证，不重跑旧FAILED。当前两个成本full在跑，本线仅顺序小prefix，不并行大账户/宽特征导出。
+run_trend_window.py --prepare只生成immutable source manifests及approved=False的提案；--technical最大9CLOSE；--execute要求root另供approved=True、准确source-manifestSHA与独审gateSHA。没有匹配授权即禁止full。

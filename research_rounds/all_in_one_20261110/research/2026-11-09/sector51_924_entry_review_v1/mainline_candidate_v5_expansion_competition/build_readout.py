@@ -1,0 +1,40 @@
+from pathlib import Path
+import json
+from decimal import Decimal as D
+O=Path(__file__).resolve().parent;R=O.parent
+rd=lambda n:json.loads((O/(n+'.json')).read_text())
+fmt=lambda v:f'{D(str(v)):,.2f}'
+rows=rd('ACCOUNT_COMPARISON');focus=rd('FIVE_FOCUS_COMPARISON');sectors=rd('ALL50_CAPITAL_COMPARISON');cost=rd('TRIAL_COST_COMPARISON');roles=[];donors=[]
+for arm,path in [('M4_fixed','mainline_candidate_v4_known_sector_fix_v2'),('M5',O.name)]:
+ p=R/path/'once_20241008';orders=json.loads((p/'ORDERS.json').read_text());at=json.loads((p/'ATTEMPTS.json').read_text());phase={t['round_id']:t.get('allocation_phase') for t in orders if t['side']=='BUY_SEED'}
+ for role in ['INITIAL','EXPANSION']:
+  aa=[x for x in at if x['final_qty']==0 and x['add_count']==0 and D(x['marked_net_pnl'])<0 and (phase[x['id']] in ['EVENT','RESIDUAL'])==(role=='INITIAL')];roles.append(dict(arm=arm,role=role,losing_closed_no_ADD_rounds=len(aa),net=str(sum((D(x['marked_net_pnl']) for x in aa),D(0)))))
+p=O/'once_20241008';orders={r['order_seq']:r for r in json.loads((p/'ORDERS.json').read_text())};agg={}
+for r in rd('ALL_DONOR_IN_WINDOW_PRICE_PATHS'):
+ if r['evaluation_day']!='2024-10-08' or not r['same_source']:continue
+ a=agg.setdefault(r['sector51'],dict(sales=0,sold_notional=D(0),terminal_price_difference_proxy=D(0),net_released=D(0)));t=orders[r['order_seq']];a['sales']+=1;a['sold_notional']+=D(t['notional']);a['terminal_price_difference_proxy']+=D(t['notional'])*D(r['adjusted_close_change_from_sale_proxy']);a['net_released']+=D(t['cash_delta'])
+for s,a in sorted(agg.items(),key=lambda x:x[1]['terminal_price_difference_proxy'],reverse=True):donors.append(dict(sector51=s,**a,weighted_later_price_change_pct=100*a['terminal_price_difference_proxy']/a['sold_notional'],not_funded_counterfactual=True))
+for n,v in [('ROLE_SPLIT_FAILED_TRIALS',roles),('DONOR_TERMINAL_PRICE_OPPORTUNITY',donors)]:
+ (O/(n+'.json')).write_text(json.dumps(v,ensure_ascii=False,indent=2,default=str));__import__('pandas').DataFrame(v).to_csv(O/(n+'.csv'),index=False)
+fixed={r['sector51']:r for r in sectors if r['arm']=='M4_fixed' and r['day']=='2024-10-08'};deltas=[dict(sector51=r['sector51'],delta=D(r['marked_net_pnl'])-D(fixed[r['sector51']]['marked_net_pnl'])) for r in sectors if r['arm']=='M5' and r['day']=='2024-10-08'];assert sum((r['delta'] for r in deltas),D(0))==D('14004.8680233918605')
+(O/'ALL50_CONTRIBUTION_DELTA.json').write_text(json.dumps(deltas,ensure_ascii=False,indent=2,default=str))
+a=['# M5：成熟扩张与初始核心分离后的真实模拟','', '## 已经跑出来的结论','', '本轮不是只审计：先完成M4行业UNKNOWN的唯一修复，再冻结并运行M5新算法。两者均从120万元、2024-09-02独立建账至10-08，各20个交易日，不复制对手账户的中途持仓。M5完整654单，无事实缺口中断。','', 'M5打通了后到趋势的增配：紫光国微9/30实际加300股，半导体10/8达6.26%仓位。终值较修复M4多14,004.87元，但9/30曾少4,238.72元，优势到10/8才转正。因此这是可继续检验的改进候选，不是稳健优胜结论。','', '## 1. M4修复与基准','', '只修改行业UNKNOWN的可供出分类，没有改尺寸、信号、CP、排序或费用。19个实际UNKNOWN lot行全部冻结。原M4终值1,544,232.16元，修复后1,542,477.29元。没有直接卖UNKNOWN也会改变固定资本、T和后续交易，不能声称无经济影响。','', '## 2. 可直接计算的规则','', '- 实际EVENT/RESIDUAL SEED永久记为INITIAL；MATURE SEED和所有ADD记为EXPANSION。盈利/确认不能使扩张仓升格为初始核心。','- INITIAL在当前M TRUE、真实OPEN确认且整轮费后清算盈利时保留核心；成熟扩张仅在known、未锁退出且满足T+1时可竞争。UNKNOWN不是现金，不可供出。','- E = max(RS5, 0) × n/N；ΔE+ = max(E_t − E_前一共同交易日, 0)；W = E + ΔE+。前值未知时只使用已知当前E，不把缺失值当0。没有未来赢家标签。','- F_s = 当前行业标记市值 − 合法可供出的市值（核心包含一次）。G = NAV − 10%现金底线 − 应收 − ΣF_s − 保守卖出成本stress − 真实事件预约ΣR_s。','- 对M TRUE且E>0的行业，T_s = F_s + G×W_s/ΣW + R_s；J外只有固定资本及合法事件预约。成熟买入限额=max(0,F_s+G×W_s/ΣW−实际行业持仓)。','- 先当前可退让INITIAL，再非主线扩张，再主线超T扩张；只有真实受资请求缺现金时才卖，净卖款到账后才买。CLOSE冻结候选/数量，OPEN只缩减或取消。','- 未增加共享试错风险池，原M/CP/双时点盈利/I保护、法定量、容量、10%单股、2%单次ADD及4%整轮市值约束仍在。最后两项存在成熟阶段适用性问题，见后续。','', '## 3. 账户结果','', '| 路径 | 10/8净值 | 总收益 | 9/23后收益 | 已付费+滑点代理 | 双边换手 | 收盘最大回撤 | 持股数 |','|---|---:|---:|---:|---:|---:|---:|---:|']
+for r in rows:
+ if r['day']=='2024-10-08':a.append(f"| {r['arm']} | {fmt(r['NAV'])} | {fmt(r['return_pct'])}% | {fmt(r['since_0923_return_pct'])}% | {fmt(r['total_cost'])} | {fmt(r['two_way_turnover'])}倍 | {fmt(r['running_max_drawdown_pct'])}% | {r['stocks']} |")
+a+=['','费用已经从净值中扣除，滑点也已进入成交价，不应再次从收益减一次。回撤是这20个交易日收盘路径，不是盘中/长期最大风险。M5费用加滑点比修复M4增加1,827.47元；ADD中35/51笔的已知保护位损失估计超过加仓前利润，仍是在承担新本金风险，并非“盈利免费加仓”。','', '| 日期 | 修复M4净值 | M5净值 | M5−M4 |','|---|---:|---:|---:|']
+for d in ['2024-09-23','2024-09-27','2024-09-30','2024-10-08']:
+ x=next(r for r in rows if r['arm']=='M4_fixed' and r['day']==d);y=next(r for r in rows if r['arm']=='M5' and r['day']==d);a.append(f"| {d} | {fmt(x['NAV'])} | {fmt(y['NAV'])} | {fmt(D(y['NAV'])-D(x['NAV']))} |")
+a+=['','## 4. 重点行业与9/24行情','', '以下行情涨幅是当前样本内9/23收盘至9/30收盘的同源复权收益中位数，供事后描述，不是可投资行业指数，也没有用于挑本次名单。全部50行业结果另见ALL50_0924_RALLY_DESCRIPTIVE与ALL50_CAPITAL_COMPARISON。','', '| 行业 | 行情中位涨幅 | M4修复10/8仓位 | M5 10/8仓位 | M5累计贡献 | 相对修复M4贡献变化 |','|---|---:|---:|---:|---:|---:|']
+market={x['sector51']:x for x in rd('ALL50_0924_RALLY_DESCRIPTIVE')}
+for s in ['证券保险','半导体','软件与IT服务','动力电池','白酒']:
+ x=fixed[s];y=next(r for r in focus if r['arm']=='M5' and r['day']=='2024-10-08' and r['sector51']==s);a.append(f"| {s} | {fmt(100*D(str(market[s]['return5_median'])))}% | {fmt(x['account_weight_pct'])}% | {fmt(y['account_weight_pct'])}% | {fmt(y['marked_net_pnl'])} | {fmt(D(y['marked_net_pnl'])-D(x['marked_net_pnl']))} |")
+a+=['','半导体路径：9/27买紫光200股、兆易100股，行业1.45%；9/30同一有效CP下紫光加300股，含费18,015.15元，行业2.76%；10/8紫光再加200股、兆易加200股，卓胜微新买100股、捷捷微电新买300股，行业市值97,409元、6.26%。','', '9/27半导体T从修复M4的12,875.80元提升为M5的40,180.21元，成熟增量空间从1,535.80元到20,800.21元。9/30进一步T=112,944.58元，10/8收盘新T=163,220.11元（只是下次计划上限，不是10/8已经成交）。','', '并非只有这五个行业受益：生物制品+9,395.38元、服装纺织+8,299.40元、光伏风电+7,615.78元、旅游酒店+5,840.19元等共同抵消证券保险−46,149.51元的贡献减少。行业贡献是两条真实路径的差，不是某一参数独立因果归因。','', '## 5. 试错成本与换出代价','', '全窗“亏损且闭合、从未ADD”的轮数/净亏：M3为316轮/18,407.99元；修复M4为102轮/20,221.22元；M5为103轮/20,321.83元。次数减少不代表损失降低，经济单位变大会放大每轮损失。','', '进一步按实际买入阶段分开，避免把成熟SEED误叫初始试错：','', '| 路径 | 初始失败轮数 | 初始失败净亏 | 成熟扩张失败轮数 | 成熟扩张失败净亏 |','|---|---:|---:|---:|---:|']
+for arm in ['M4_fixed','M5']:
+ x=next(r for r in roles if r['arm']==arm and r['role']=='INITIAL');y=next(r for r in roles if r['arm']==arm and r['role']=='EXPANSION');a.append(f"| {arm} | {x['losing_closed_no_ADD_rounds']} | {fmt(x['net'])} | {y['losing_closed_no_ADD_rounds']} | {fmt(y['net'])} |")
+a+=['','M5主动腾退160笔，净释放1,552,246.92元（可重复周转，不是新增本金）；修复M4为88笔/843,749.06元。以下为每次卖出后到10/8的同源价格差额描述，忽略未来再投资机会、后续保护退出、再次买入及账户资金约束；不能与实际利润相加，也不是可同时持有的反事实账户。','', '| 换出行业 | 卖出笔数 | 净释放现金 | 卖出数量到10/8价格差额代理 |','|---|---:|---:|---:|']
+for r in donors[:6]:a.append(f"| {r['sector51']} | {r['sales']} | {fmt(r['net_released'])} | {fmt(r['terminal_price_difference_proxy'])} |")
+a+=['','证券保险17笔腾退的价格差额约45,988.98元，与全账户该行业少贡献46,149.51元吻合，说明新机会确实支付了舍弃旧机会的代价。不能只报新半导体赚了多少钱。白酒与软件也有换出后继续上涨，但新旧买卖重叠，不能把上述差额当作完整可实现损失。','', '## 6. 还没解决的主线约束，继续推进','', 'M5已解除“成熟买入自动变永久核心”及“固定核心与扩张份额混在同一个max(F,λE)”的限制。10/8初始核心313,762.36元，修复M4为867,383.72元；这不表示可把全部释放额立刻投入，仍要真实候选、报价和现金。','', '剩余明确问题：10/8紫光原计划ADD 300股，却被原尝试NAV的4%整轮市值槽裁为200股；半导体当时目标/现金并不是这笔裁量的阻挡点。这是把初始试仓尺寸继续套在成熟扩张上的阶段混用。下一步先全行业核对该限制与CP/I/信号缺口，不根据10/8赢家定制个股特例。','', '同时保留问题：目标仍向没有合法请求的行业分配纸面份额；OPEN高开不能放大CLOSE冻结股数；现金底线在价格上涨后可能暂时低于10%，不会强制卖核心补齐；单日新增证据加权可能增加换仓。不能靠放松所有门槛解决，应按独立可检验机制分步。','', '## 7. 验证边界与文件','', '四条路径现金、应收、持仓股数、费用、行业贡献每日重建通过；M5实际570条EXPANSION lot记录核心均0，19条行业UNKNOWN均不可供出，160次主动卖出未卖冻结初始核心。规则/输入/输出哈希见FROZEN_INPUTS.json、COMPARISON_QA.json及POST_RUN_INDEPENDENT_AUDIT.json。','', '关键局限：只有一个强行情窗口，当前成分与行业映射非PIT，OPEN±5bp只是条件执行代理；缺少真实盘口/封单/冲击与充分样本外验证。20日收益更高不能推出未来收益更高。','', '完整文件：CONTRACT.md、engine.py、once_20241008/、ACCOUNT_COMPARISON.csv、ALL50_CAPITAL_COMPARISON.csv、FIVE_FOCUS_COMPARISON.csv、ROLE_SPLIT_FAILED_TRIALS.csv、DONOR_TERMINAL_PRICE_OPPORTUNITY.csv、ALL_DONOR_IN_WINDOW_PRICE_PATHS.csv、M5_PURPLE_GATES.json。']
+(O/'READOUT.md').write_text('\n'.join(a)+'\n')
+for name in ['mainline_candidate_v4_known_sector_fix_v2',O.name]:
+ p=R/name;run=json.loads((p/'RUN_STATUS.json').read_text());(p/'STATUS.json').write_text(json.dumps(dict(status='HISTORICAL_RUN_COMPLETED',run=run,account_reconstruction='PASS',next='M5 remaining mainline constraints diagnostic; continue strategy improvement, no live orders'),ensure_ascii=False,indent=2))
+print(O/'READOUT.md')

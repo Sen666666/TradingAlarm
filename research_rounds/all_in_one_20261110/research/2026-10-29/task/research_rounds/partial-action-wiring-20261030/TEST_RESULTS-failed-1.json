@@ -1,0 +1,128 @@
+{
+  "passed": false,
+  "tests": [
+    {
+      "name": "only_risk_200_sold_core_200_kept",
+      "passed": true,
+      "actual": {
+        "K": 200,
+        "R": 0,
+        "available": "37890.0",
+        "completion": 0,
+        "missing_scale_preserved_unknown": true,
+        "account_reconciles": "-210.0"
+      }
+    },
+    {
+      "name": "partial_reduction_retains_occupancy",
+      "passed": true,
+      "actual": {
+        "physical": 300,
+        "pending_target": 100,
+        "restore_accepted": []
+      }
+    },
+    {
+      "name": "ACT_or_structure_upgrades_pending_trim_to_full",
+      "passed": true,
+      "actual": {
+        "real_completion": 1,
+        "account_reconciles": "-210.0"
+      }
+    },
+    {
+      "name": "restore_and_new_stock_share_original_ranked_cash",
+      "passed": true,
+      "actual": {
+        "order_follows_original_H1": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "C",
+            "A"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "insufficient_committed_cash_and_unsplittable_lot",
+      "passed": true,
+      "actual": {
+        "committed_cash_fixture_remaining": "0.00786",
+        "refused": [
+          [
+            "A",
+            "insufficient_budget_or_quantity"
+          ]
+        ],
+        "one_lot_core": 100
+      }
+    },
+    {
+      "name": "same_day_fresh_receipt_consumed_once",
+      "passed": true,
+      "actual": {
+        "stale_not_used": true,
+        "same_receipt_once": true,
+        "next_execution": "2020-01-07 13:00:00+00:00",
+        "order_purpose": "risk_restore"
+      }
+    },
+    {
+      "name": "rising_price_only_affordable_reference_gap_restored",
+      "passed": true,
+      "actual": {
+        "actual_restored": 100,
+        "reference_cap": 200,
+        "budget_after_existing_stock_cap": "2000"
+      }
+    },
+    {
+      "name": "dividend_split_and_odd_share_role_conservation",
+      "passed": true,
+      "actual": {
+        "dividend_core": 20,
+        "dividend_risk": 20,
+        "split_actual": 800,
+        "fractional_actual": 401,
+        "no_fractional_cash": true
+      }
+    },
+    {
+      "name": "repeated_risk_rounds_keep_all_structure_costs",
+      "passed": true,
+      "actual": {
+        "real_fills": 6,
+        "fees": "30",
+        "structure_total": "-430.0",
+        "real_completion": 0
+      }
+    },
+    {
+      "name": "role_disabled_exact_original_behavior",
+      "passed": true,
+      "actual": {
+        "full_synthetic_ledger_audit_exact": true,
+        "fills": 2,
+        "audit_rows": 10
+      }
+    },
+    {
+      "name": "partial_restore_then_risk_cancels_unfilled_remainder",
+      "passed": true,
+      "actual": {
+        "cancelled_restore_remainder": true,
+        "sold_actual_risk": 100,
+        "core_kept": 200
+      }
+    },
+    {
+      "name": "natural_concentration_blocks_new_risk_not_core",
+      "passed": false,
+      "error": "AssertionError()",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/partial-action-wiring-20261030/test_wiring.py\", line 31, in case\n    try:detail=fn();results.append(dict(name=name,passed=True,actual=detail));print(name,'PASS',detail,flush=True)\n               ~~^^\n  File \"/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/partial-action-wiring-20261030/test_wiring.py\", line 93, in cap_and_slots\n    b.settle_due(op);full=commit(b,op+timedelta(hours=6),new=True);assert full.accepted==('A',) and any(s=='C' and r=='total_slots_full' for s,r in full.rejected) and len(b.occupancy(op+timedelta(hours=6)))==6\n                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    }
+  ]
+}

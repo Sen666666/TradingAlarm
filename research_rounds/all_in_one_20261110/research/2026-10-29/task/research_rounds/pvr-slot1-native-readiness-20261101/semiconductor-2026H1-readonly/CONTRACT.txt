@@ -1,0 +1,25 @@
+Saved PVR_SLOT1 2026H1 rally participation and structural capacity audit.
+Read only original 2025Jul--2026Jun book/logs and frozen cached price/signal/state.
+Evaluation Jan1--Jun30 2026, beginning wealth/positions at Dec31 2025 retained.
+Strict original sectors: semiconductor URFI881121; electronic chemicals URFI881172
+and components URFI881270 reported SEPARATELY, never merged into semiconductor.
+No new account/indicator/breadth computation, parameter, limit, order or input refresh.
+T1-L remains design only. Jul--Oct 2026 economic participation is unvalidated.
+
+Daily price, holdings, exposure, role/pool, actual buy/sell and contribution bridge.
+Separate interval contribution, closed trading PnL, change in unrealized PnL and
+recognized dividends; open-layer category is not unrealized PnL. Existing boundary
+and terminal open lots must have no previous partial sale for this simple bridge.
+Active inventory funding = actual buy gross minus actual sell gross; remainder
+of inventory change is mark/rights effect, not a new policy or hypothetical return.
+
+Representative states: first H1 close, Q1 end, semiconductor H1 price trough,
+first confirmed/expanded after trough, actual semiconductor weight peak, terminal.
+All selected states are daily CLOSE after planning, not exact pre-opening states.
+No relaxed-constraint order preview without exact original decision state.
+Hindsight stock controls selected deterministically: top5 H1 adjusted-price returns
+in all126 original semiconductor snapshot identities, plus largest actual positive
+and negative interval stock contribution; full mother and NAs retained.
+Signals, Q, ACT, planning, reservation and fill are separate; raw merged route
+reasons are not exclusive constraint attribution or an executable substitution.
+Current source budget numbers are research choices, not user risk instructions.

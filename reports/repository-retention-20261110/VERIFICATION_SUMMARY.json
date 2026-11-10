@@ -1,0 +1,18 @@
+{
+  "current_inputs": {
+    "files_checked": 9108,
+    "bytes_hashed": 859282876,
+    "matches": 9108,
+    "all_read_from_archive": true,
+    "errors": 0
+  },
+  "archive": {
+    "entries_checked": 686178,
+    "files_with_sha256_checked": 17036,
+    "internal_links_checked": 255,
+    "logical_bytes": 374971218952,
+    "large_unhashed_files_verified_by_size_and_native_clone_receipt_only": true,
+    "errors": 0
+  },
+  "passed": true
+}

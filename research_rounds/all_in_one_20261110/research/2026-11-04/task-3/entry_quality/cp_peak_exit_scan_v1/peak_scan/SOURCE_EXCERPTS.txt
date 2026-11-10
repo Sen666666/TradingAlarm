@@ -1,0 +1,71 @@
+
+SOURCE /Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py:20-24
+20:  out=pd.DataFrame(index=f.index,columns=['r','s','z','B','u','v','m'],dtype=float)
+21:  for _,g in f.groupby('segment_id',sort=False):
+22:   r=np.log(g.close).diff();s=r.abs().shift().rolling(63,min_periods=63).median().mul(1.4826).clip(lower=1e-8)
+23:   B=g.amount.shift().rolling(21,min_periods=21).median();u=np.tanh(r/s);v=np.tanh(np.log(g.amount/B))
+24:   out.loc[g.index]=pd.DataFrame(dict(r=r,s=s,z=s.clip(lower=S_MIN),B=B,u=u,v=v,m=1+.5*u.abs()*v),index=g.index)
+
+SOURCE /Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py:26-50
+26: def calculate(f,price_only=False):
+27:  z=features(f);out=[];phase=None;anchor=frontier=scale=None;credit=0.;segment=None
+28:  for day,row in f.iterrows():
+29:   q=z.loc[day];p=math.log(row.close);fresh=0.;receipt=False;candidate=math.nan;reason=None;disp=math.nan
+30:   if row.segment_id!=segment:
+31:    phase=None;segment=row.segment_id;reason='source_reset'
+32:   ready=math.isfinite(q.z)
+33:   if not ready or not row.e0_valid:
+34:    phase=None;anchor=frontier=scale=None;credit=0.;reason='unprepared' if not ready else 'E0_invalid'
+35:   elif phase is None or row.e0_down:
+36:    phase='SEEK';anchor=frontier=p;credit=0.;scale=float(q.z);reason='E0_down_reset' if row.e0_down else 'start'
+37:   elif phase=='SEEK' and gt(anchor,p):
+38:    anchor=frontier=p;credit=0.;scale=float(q.z);reason='lower_anchor'
+39:   else:
+40:    fresh=p-frontier if gt(p,frontier) else 0.
+41:    if fresh:
+42:     frontier=p;credit=math.fsum((credit,fresh*(1. if price_only else float(q.m))))
+43:    disp=frontier-anchor
+44:    receipt=bool(fresh and ge(disp,A*scale) and ge(credit,A*scale))
+45:    if receipt:candidate=float(row.close)*math.exp(-K*scale)
+46:   used_anchor,used_scale,used_credit=anchor,scale,credit
+47:   used_phase=phase
+48:   if receipt:
+49:    phase='UP';anchor=frontier=p;credit=0.;scale=float(q.z);reason='receipt_consumed'
+50:   out.append(dict(ready=ready,phase=used_phase,reset_reason=reason,anchor=used_anchor,frontier=frontier,scale=used_scale,credit=used_credit,delta_frontier=fresh,displacement=disp,receipt=receipt,candidate=candidate,next_anchor=anchor,next_scale=scale,next_credit=credit,next_phase=phase))
+
+SOURCE /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/cp1-evidence-trace-20261031/trace.py:48-57
+48:   if bool(q['receipt']):
+49:    rid=ident('market-CP1-receipt',canonical,SCALE,segment,ep,anchor_obs,obs);unknown=[]
+50:    if not epknown:unknown.append('original_E0_episode_start_unknown')
+51:    if anchor_at is None or anchor_idx is None:unknown.append('CP1_anchor_origin_unknown')
+52:    if any(not p['native_event_known'] for p in points):unknown.append('native_event_row_missing_in_advances')
+53:    assert points and points[-1]['day']==d and fresh>0;assert all(p['price_event_id'] not in consumed for p in points),(canonical,d,'old impulse reused');assert all(p['day']>anchor_at for p in points)
+54:    if last_receipt:assert all(p['day']>last_receipt['confirmed_day'] for p in points)
+55:    checks['new_unconsumed_advance_receipts']+=1;used_ids=[p['price_event_id'] for p in points];signature=ident(canonical,segment,anchor_obs,obs,[(p['price_event_id'],p['log_displacement'],p['volume_multiplier']) for p in points]);row=dict(canonical_series=canonical,source_alias=alias or canonical,scale_id=SCALE,source_segment=segment,original_E0_episode_id=ep,confirmed_day=d,receipt_id=rid,decision_evidence_key=ident('one-series-scale-observation',canonical,SCALE,obs),formation_start_exclusive=anchor_at,formation_end_inclusive=d,anchor_observation_id=anchor_obs,confirmation_observation_id=obs,previous_market_receipt_id=last_receipt['receipt_id'] if last_receipt else None,previous_market_confirmed_day=last_receipt['confirmed_day'] if last_receipt else None,previous_global_market_receipt_id=global_last['receipt_id'] if global_last else None,previous_consumed_frontier_log=last_receipt['frontier_log'] if last_receipt else None,original_candidate=float(q['candidate']),original_scale=float(q['scale']),scale_frozen_at=scale_at,scale_old_return_end_observations=[ident('price-observation',canonical,segment,str(t.date())) for t in dates[max(1,anchor_idx-63):anchor_idx]] if anchor_idx is not None else [],new_advance_price_event_ids=used_ids,new_advance_observations=len(points),new_log_price_displacement=float(q['displacement']),original_credit=float(q['credit']),evidence_signature=signature,trace_unknown=unknown,native_event_id_note='derived from cached event observation; provider supplies no original eventID',live_publication_time='unknown; confirmation day only',stage_controller_consumed=False)
+56:    if BEGIN<=d<=END:out.append(row);allinc.extend(dict(receipt_id=rid,canonical_series=canonical,**p) for p in points)
+57:    consumed.update(used_ids);last_receipt=global_last=dict(receipt_id=rid,confirmed_day=d,frontier_log=math.log(r['close']));points=[];anchor_at=d;anchor_obs=frontier_obs=obs;scale_at=d;anchor_idx=i
+
+SOURCE /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py:225-240
+225:     if not a.risk_state['on'] or not bool(row.i_target):
+226:      if not bool(row.i_target):
+227:       for x in a.live(sid):
+228:        if x['kind']=='core':a.jmeta[x['id']]['pending_I_exit_reference']=True
+229:      a.sell(sid,clock,quote,[x['id'] for x in a.live(sid)],'ACT_pause' if not a.risk_state['on'] else 'I_structure_exit');continue
+230:     for x in a.live(sid):
+231:      if x['kind']=='core':
+232:       known_floor=self.facts.floor(sid,at,'I')
+233:       if known_floor is not None:a.jmeta[x['id']]['last_core_line']=str(known_floor)
+234:       continue
+235:      if x['kind']!='add' or x['id'] in a.sell_layers.get(sid,set()):continue
+236:      if D(str(row.close))<=x['floor']:a.sell(sid,clock,quote,[x['id']],'CP1_add_protection')
+237:      else:
+238:       floor=self.facts.floor(sid,at,'I')
+239:       if floor is not None:x['floor']=max(x['floor'],floor)
+240:       if cp is not None and bool(cp.receipt):x['floor']=max(x['floor'],D(str(cp.candidate)))
+
+SOURCE /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py:252-256
+252:     q=self.market.quote(sid,at);floor=self.facts.floor(sid,at,'I')
+253:     if q is None or floor is None:continue
+254:     for role in roles:
+255:      fline=max(floor,D(str(self.cp[sid].loc[day,'candidate']))) if role=='mobile' else floor;budget=min(a.current_nav*D('.02'),max(Z,a.current_nav*D('.1')-a.quantity(sid)*q.raw_price));i=dict(sid=sid,clock=clock,quote=q,budget=budget,cap=q.quantity.buy_floor(int(budget/q.raw_price)),weight=1.,group=0,score=sd[sid].rank.read(clock),kind='add' if role=='mobile' else 'core',role=role,floor=fline,epoch=epoch,reason='fresh_CP1_mobile' if role=='mobile' else 'I_early_core',rank=rank,CP1_id=cpr['receipt_id'] if role=='mobile' else None,CP1_trace=cpr if role=='mobile' else None)
+256:      if role=='core':LR.resize_core(i,a.current_nav,self.facts.factor(sid,at))

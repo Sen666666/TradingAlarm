@@ -1,0 +1,232 @@
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/probe-pyramid-pilot-20261029/code/pilot.py
+SHA256 38ac36ba3b9da599c66307451f4173249efc229f54dfb6a0d8469517431f94b4
+74:  def fill_exit(self,sid,w):
+75:   receipt=super().fill_exit(sid,w)
+76:   if receipt:
+77:    left=receipt.shares;targets=self.sell_layers[sid];parts=[]
+78:    for z in self.live(sid):
+79:     if z['id'] not in targets:continue
+80:     take=min(left,z['qty']);z['qty']-=take;left-=take;cash=(receipt.gross_cny-receipt.fees_cny)*D(take)/receipt.shares;z['cash']+=cash
+81:     if not z['qty']:z['closed']=w.at
+82:     parts.append(dict(layer=z['id'],kind=z['kind'],shares=take,net_cash=cash,reason=z['reason']))
+83:     if not left:break
+84:    assert not left,(sid,receipt,'sale allocation')
+85:    self.trades.append(dict(**asdict(receipt),parts=parts,raw_open=w.raw_open,price=w.execution_price,reason=','.join(sorted({p['reason'] for p in parts}))))
+86:    if sid not in self.exits:self.sell_layers.pop(sid,None)
+87:    if not self.quantity(sid):self.last_buy.pop(sid,None)
+88:    self.counts['sell_fills']+=1
+89:   self.check();return receipt
+104:  def sell(self,sid,clock,quote,ids,reason):
+105:   ids=set(ids)
+106:   for z in self.live(sid):
+107:    if z['id'] in ids:z['reason']=reason
+108:   ids|=self.sell_layers.get(sid,set());self.sell_layers[sid]=ids
+109:   shares=sum(z['qty'] for z in self.live(sid) if z['id'] in ids)
+110:   if not shares:return
+111:   if sid not in self.exits:super().request_reduction(quote,clock,shares)
+112:   else:
+113:    ex=self.exits[sid];ex.remaining_target=shares
+114:    if shares==self.quantity(sid):ex.purpose='structure_exit';ex.remaining_target=None
+115:   self.log('pilot_layer_exit',clock.decision_at,sid=sid,layers=sorted(ids),shares=shares,reason=reason)
+
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py
+SHA256 fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425
+130:  def fill_exit(self,sid,w):
+131:   before={x['id']:dict(x) for x in self.live(sid)};r=super().fill_exit(sid,w)
+132:   if r:
+133:    for part in self.trades[-1]['parts']:
+134:     meta=self.jmeta[part['layer']];fee=float(r.fees_cny)*part['shares']/r.shares;loss=max(0.,meta['unit_cost']-float(r.gross_cny/D(r.shares)))*part['shares']+fee;self.budget.loss(meta['sector'],meta['episode'],loss)
+135:    self.journal.append(dict(kind='real_sell_fill',at=w.at,sid=sid,shares=r.shares,price=r.gross_cny/D(r.shares),fees=r.fees_cny,parts=self.trades[-1]['parts']));self.sync(w.at)
+136:   return r
+222:    C.activate(a);a.expire_day_buys(at);a.current_nav=a.balance(at,self.market.marks(at,a.positions))['nav'];M.E.risk_policy.step(a,at,'ACT20_BREAK');a.pending=[]
+223:    for sid in tuple(a.positions):
+224:     row=self.facts.row(sid,at);cp=self.cp[sid].loc[day] if day in self.cp[sid].index else None;quote=self.market.quote(sid,at);assert quote
+225:     if not a.risk_state['on'] or not bool(row.i_target):
+226:      if not bool(row.i_target):
+227:       for x in a.live(sid):
+228:        if x['kind']=='core':a.jmeta[x['id']]['pending_I_exit_reference']=True
+229:      a.sell(sid,clock,quote,[x['id'] for x in a.live(sid)],'ACT_pause' if not a.risk_state['on'] else 'I_structure_exit');continue
+230:     for x in a.live(sid):
+231:      if x['kind']=='core':
+232:       known_floor=self.facts.floor(sid,at,'I')
+233:       if known_floor is not None:a.jmeta[x['id']]['last_core_line']=str(known_floor)
+234:       continue
+235:      if x['kind']!='add' or x['id'] in a.sell_layers.get(sid,set()):continue
+236:      if D(str(row.close))<=x['floor']:a.sell(sid,clock,quote,[x['id']],'CP1_add_protection')
+237:      else:
+238:       floor=self.facts.floor(sid,at,'I')
+239:       if floor is not None:x['floor']=max(x['floor'],floor)
+240:       if cp is not None and bool(cp.receipt):x['floor']=max(x['floor'],D(str(cp.candidate)))
+241:    a.sync(at);self.industry(a,at)
+242:    for rank,sid in enumerate(ordered):
+243:     cpr=self.receipts[sid].get(gidday(at));roles=[];why=[];held=bool(a.quantity(sid));epoch=self.global_watch.get(sid);sector=self.sector_by_sid[sid]
+244:     if event[sid].q is True and not held and a.core_epoch.get(sid)!=epoch:roles.append('core')
+245:     if cpr and continuing[sid].q is True:roles.append('mobile')
+246:     if not a.risk_state['on']:why.append('ACT_paused')
+247:     if sid in a.exits:why.append('exit_pending')
+248:     if sid in a.buys:why.append('buy_pending')
+249:     if event[sid].q is not True and not (cpr and continuing[sid].q is True):why.extend(event[sid].reasons or ['no_fresh_signal_or_Q'])
+302:  def opening(self,a,at):
+303:   C.activate(a)
+304:   for sid in sorted(a.exits):
+305:    win=self.market.window(sid,at,'sell',1)
+306:    if win:a.fill_exit(sid,win)
+307:   a.settle_due(at);a.sync(at);funded=[];done=set()
+
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/temperature-sizing-20261026/code/fast_market.py
+SHA256 55f9ccf4085ace9f476afde4d29f250f7317dea405cbd9dffa69f5d7e366f36a
+17:  def lag(self,market,at,count):
+18:   if count==0:return at
+19:   j=bisect_right(self.session_days[market],at.date())+count-1
+20:   if j>=len(self.sessions[market]):raise RuleUnavailable('Calendar does not cover settlement')
+21:   return self.sessions[market][j]
+45:  def window(self,sid,at,side,cost_multiplier):
+46:   self._cache(at);key=(sid,side,cost_multiplier)
+47:   if key in self.wc:return self.wc[key]
+48:   self.wc[key]=None;market=self.lines[sid].market
+49:   if at not in self.sessions_set[market]:return None
+50:   try:self.source_available(sid,at)
+51:   except RuleUnavailable:return None
+52:   a=self.arr[sid];day=pd.Timestamp(at.date()).value//86400000000000;p=np.searchsorted(a['days'],day)
+53:   if p>=len(a['days']) or a['days'][p]!=day or not a['valid'][p] or not np.isfinite(a['volume'][p]) or a['volume'][p]<=0:return None
+54:   j=np.searchsorted(a['positive'],p)
+55:   if j<20:return None
+56:   try:
+57:    market_identity_on(self.rules,sid,at.date(),self.protocol['approved_proxy_ids']);availability=self._version('availability_versions',sid,at);buy,sell=availability.get('buy_allowed'),availability.get('sell_allowed');policy=self.protocol['daily_execution'][market]
+58:    assert policy['price_limit_policy']=='conservative_hl_proxy'
+59:    if policy['reject_flat_day'] and a['high'][p]<=a['low'][p]:buy=sell=False
+60:    prior=a['volume'][a['positive'][j-20:j]];capacity=int(min(prior.mean()*float(self.protocol['participation_rate']),a['volume'][p]));slip=D(policy['slippage_bps'])/10000
+61:    if cost_multiplier==2 and policy['stress_slippage']:slip*=2
+62:    op=D(str(a['open'][p]));price=op*(1+slip if side=='buy' else 1-slip)
+63:    w=ledger.FillWindow(f'{sid}:{at.isoformat()}:{side}',sid,at,op,price,self.rate('CNY',at),self.quantity(sid,at),self.fees(sid,at),capacity,True,buy,sell,self.lag(market,at,self.protocol['sellable_lag_sessions'][market]),self.lag(market,at,self.protocol['settlement_lag_sessions'][market]),self.bundle.series[sid].record['raw']['sha256'],'explicit_daily_bar_proxy_past20_capacity_same_day_hlv_postcheck',self.rules.get('security_metadata',{}).get(sid,{}).get('par_value'))
+64:   except RuleUnavailable:return None
+65:   if key not in self.window_verified:
+66:    assert w==super().window(sid,at,side,cost_multiplier),(sid,at,'window identity');self.window_identity_checks+=1;self.window_verified.add(key)
+67:   self.wc[key]=w;return w
+
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py
+SHA256 48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb
+267: @dataclass
+268: class ExitOrder:
+269:     event_id: str
+270:     quote: DecisionQuote
+271:     requested_at: datetime
+272:     earliest_at: datetime
+273:     delay_remaining: int
+274:     local_notional: Decimal = ZERO
+275:     fees_local: dict[str, Decimal] = field(default_factory=dict)
+276:     fee_accrued_local: dict[str, Decimal] = field(default_factory=dict)
+277:     submitted_remaining: int = 0
+278:     remaining_target: int | None = None
+279:     purpose: str = 'structure_exit'
+570:     def request_exit(self, quote: DecisionQuote, clock: admission.Clock):
+571:         self._time(clock.decision_at)
+572:         sid = quote.security_id
+573:         if sid in self.positions:
+574:             pos = self.positions[sid]
+575:             if (quote.issuer_id, quote.sector_id, quote.currency) != (pos.issuer_id, pos.sector_id, pos.currency):
+576:                 raise ValueError('Exit identity/currency disagrees with existing inventory')
+577:         self.cancel_buy(sid)
+578:         if self.quantity(sid) and sid not in self.exits:
+579:             quote.read_price(clock.decision_at)
+580:             self.exits[sid] = ExitOrder(self._id('exit', sid), quote, clock.decision_at,
+581:                                         clock.earliest_execution_at, self.delay_events)
+582:             self.audit_log.append(dict(kind='exit_request', at=clock.decision_at, sid=sid,
+583:                                       event_id=self.exits[sid].event_id))
+584: 
+585:     def request_reduction(self, quote: DecisionQuote, clock: admission.Clock, shares: int):
+586:         """B0's frozen annual sell delta; never used for a strategy trend exit."""
+587:         if type(shares) is not int or shares < 0 or shares > self.quantity(quote.security_id):
+588:             raise ValueError('Annual sell delta must fit actual integer inventory')
+589:         if not shares:
+590:             return
+591:         if quote.security_id in self.exits:
+592:             raise ValueError('Cancel the old annual reduction before replacing its target')
+593:         self.request_exit(quote, clock)
+594:         order = self.exits[quote.security_id]
+595:         order.remaining_target, order.purpose = shares, 'annual_rebalance'
+666:     def _eligible_event(self, order, window: FillWindow, side):
+667:         window.validate(); self._time(window.at)
+668:         earliest = order.earliest_at
+669:         if window.security_id != order.quote.security_id:
+670:             raise ValueError('Order and execution security mismatch')
+671:         if order.quote.currency == 'CNY' and dec(window.fx.cny_per_local) != ONE:
+672:             raise ValueError('CNY execution FX must equal one')
+673:         if window.at < earliest or window.market_open is not True:
+674:             return False
+675:         return (window.buy_allowed if side == 'buy' else window.sell_allowed) is True
+676: 
+677:     def _consume_event(self, order, window):
+678:         identity = order.order_id if isinstance(order, BuyOrder) else order.event_id
+679:         key = identity, window.event_id
+680:         if key in self.used_events:
+681:             return False
+682:         self.used_events.add(key)
+683:         if order.delay_remaining:
+684:             order.delay_remaining -= 1
+685:             return False
+686:         return True
+746:     def fill_exit(self, sid, window: FillWindow) -> FillReceipt | None:
+747:         order = self.exits.get(sid)
+748:         if order is None or not self._eligible_event(order, window, 'sell'):
+749:             return None
+750:         pos = self.positions[sid]
+751:         available = sum(lot.shares for lot in pos.lots if lot.sellable_at <= window.at)
+752:         target = pos.shares if order.remaining_target is None else order.remaining_target
+753:         available = min(available, target)
+754:         additional_available = max(0, available-order.submitted_remaining)
+755:         additional_order = window.quantity.sell_floor(additional_available,
+756:                                                        pos.shares-order.submitted_remaining)
+757:         submitted = order.submitted_remaining+additional_order
+758:         count = min(submitted, available, window.capacity_shares)//window.quantity.fill_step*window.quantity.fill_step
+759:         if not count:
+760:             return None
+761:         price, fx = dec(window.execution_price), window.fx.read(window.at)
+762:         local = count*price
+763:         components = self._fee(order, window.fees, 'sell', local, shares=count, par_value=window.par_value)
+764:         fee = sum(components.values(), ZERO)*fx
+765:         net = local*fx-fee
+766:         if net < 0 and self.available < -net:
+767:             return None
+768:         if not self._consume_event(order, window):
+769:             return None
+770:         order.submitted_remaining = submitted-count
+771:         if order.remaining_target is not None:
+772:             order.remaining_target -= count
+773:         remaining = count
+774:         for lot in pos.lots:
+775:             if lot.sellable_at <= window.at:
+776:                 sold = min(remaining, lot.shares); lot.shares -= sold; remaining -= sold
+777:         pos.lots[:] = [lot for lot in pos.lots if lot.shares]
+778:         self._remember_fees(order, window.fees, 'sell', local, components,
+779:                            shares=count, par_value=window.par_value)
+780:         settlement_id = self._id('sale', sid)
+781:         if net < 0:
+782:             self.available += net  # Lock only the excess fee; no borrowed cash.
+783:         self.settlements[settlement_id] = Settlement(settlement_id, abs(net), net < 0,
+784:                         window.cash_due_at, abs(local-sum(components.values(), ZERO)), fx, window.fx.source_id)
+785:         receipt = FillReceipt(self._id('fill', sid), sid, 'sell', count, local*fx, fee,
+786:                                window.at, settlement_id, window.execution_basis)
+787:         self.fills.append(receipt); self.fees_cny += fee
+788:         self.audit_log.append(dict(kind='fill', receipt=receipt, order_id=order.event_id,
+789:                                   raw_open=window.raw_open, price=price, fx_rate=fx,
+790:                                   fx_source=window.fx.source_id, source=window.source_id,
+791:                                   fee_schedule=window.fees.schedule_id, fee_components=components))
+792:         if not pos.shares:
+793:             del self.positions[sid]; del self.exits[sid]
+794:             self.completed.append(admission.ExitCompletion(sid, order.event_id, window.at))
+795:         elif order.remaining_target == 0:
+796:             del self.exits[sid]
+797:         return receipt
+798: 
+799:     def settle_due(self, at) -> tuple[str, ...]:
+800:         self._time(at)
+801:         done = []
+802:         for key, item in list(self.settlements.items()):
+803:             if item.due_at <= at:
+804:                 if not item.debit:
+805:                     self.available += item.cny_amount
+806:                 # Debit cash was already locked, never available for another buy.
+807:                 del self.settlements[key]; done.append(key)
+808:                 self.audit_log.append(dict(kind='settle', at=at, settlement=item))
+809:         return tuple(done)

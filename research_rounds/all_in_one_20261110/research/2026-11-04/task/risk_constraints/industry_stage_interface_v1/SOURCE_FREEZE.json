@@ -1,0 +1,109 @@
+{
+  "before_execution": true,
+  "grant": "root explicit 2026-11-04: only same3industry pure trace/Stage, exact real reference, neutral ownE0,3neutral fixed2024Sep23physical prefixes, <=30seconds; no retry/account/90batch",
+  "authorized_series": [
+    "URFI881155",
+    "URFI881278",
+    "URFI881118"
+  ],
+  "physical_prefix_cut": "2024-09-23",
+  "budget_seconds": 30,
+  "neutral_method_identity": "c3dbee1b5347f02ec8074c5bd47059ccd83bcd5dc6fce9d0edfb77ab6836a087",
+  "series": {
+    "URFI881155": {
+      "old_state": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/state/URFI881155.parquet",
+      "old_receipts": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/receipts/URFI881155.json",
+      "real": {
+        "facts": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881155_REAL/facts.parquet",
+        "q": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881155_REAL/q.parquet",
+        "CP1": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881155_REAL/CP1.parquet",
+        "evidence": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881155_REAL/evidence.parquet"
+      },
+      "neutral": {
+        "facts": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881155_NEUTRAL/facts.parquet",
+        "q": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881155_NEUTRAL/q.parquet",
+        "CP1": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881155_NEUTRAL/CP1.parquet",
+        "evidence": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881155_NEUTRAL/evidence.parquet"
+      }
+    },
+    "URFI881278": {
+      "old_state": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/state/URFI881278.parquet",
+      "old_receipts": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/receipts/URFI881278.json",
+      "real": {
+        "facts": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881278_REAL/facts.parquet",
+        "q": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881278_REAL/q.parquet",
+        "CP1": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881278_REAL/CP1.parquet",
+        "evidence": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881278_REAL/evidence.parquet"
+      },
+      "neutral": {
+        "facts": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881278_NEUTRAL/facts.parquet",
+        "q": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881278_NEUTRAL/q.parquet",
+        "CP1": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881278_NEUTRAL/CP1.parquet",
+        "evidence": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881278_NEUTRAL/evidence.parquet"
+      }
+    },
+    "URFI881118": {
+      "old_state": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/state/URFI881118.parquet",
+      "old_receipts": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/receipts/URFI881118.json",
+      "real": {
+        "facts": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881118_REAL/facts.parquet",
+        "q": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881118_REAL/q.parquet",
+        "CP1": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881118_REAL/CP1.parquet",
+        "evidence": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881118_REAL/evidence.parquet"
+      },
+      "neutral": {
+        "facts": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881118_NEUTRAL/facts.parquet",
+        "q": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881118_NEUTRAL/q.parquet",
+        "CP1": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881118_NEUTRAL/CP1.parquet",
+        "evidence": "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881118_NEUTRAL/evidence.parquet"
+      }
+    }
+  },
+  "original_source_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/cp1-evidence-trace-20261031/trace.py": "bac0d77f7cc6aac767c24e70147d6d711e493ede57a30a8130eeeb0a122d00fe",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/industry-mobile-stage-20261031/stage.py": "91b21d664eadb5864a7ff97bc288392325c0101d164b3c873d9fa7d492d7268d",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py": "85f21ad1622863645618f570b5f2e832558ebaca218ff2c71d0b4a0b545dd0bf"
+  },
+  "all_input_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/cp1-evidence-trace-20261031/trace.py": "bac0d77f7cc6aac767c24e70147d6d711e493ede57a30a8130eeeb0a122d00fe",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/industry-mobile-stage-20261031/stage.py": "91b21d664eadb5864a7ff97bc288392325c0101d164b3c873d9fa7d492d7268d",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py": "85f21ad1622863645618f570b5f2e832558ebaca218ff2c71d0b4a0b545dd0bf",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/industry_stage_interface_v1/pure_stage_wrapper.py": "acdd074f5ac637ecdae3a23be96ad53136fcef1f96c984ebb9c74a8186da78d8",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/industry_stage_interface_v1/run_three_industry_once.py": "d7d6033b9968e8236e2f8b522b850acc56e34318038e853941c1de6951dae2ce",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/INDUSTRY_MANIFEST.json": "339c89777f488b3bbd5685cd93e38ad47748585b783808e7da35c685ad0775cd",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/EXECUTION_FREEZE.json": "3628e68f9378841421cabeaae246f949e1dac8aa8906b2d21e9f031e5e91beeb",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/EXECUTION_FREEZE.json": "b887a3bd30710a36f9a219c8d4e04c6f8789b8c1378c920d1318c173ead6cfec",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/COMPLETED.json": "f165352ab21a992a9a3ee3ccc1f335578605c152260053fc10a22d78b9a3e3b9",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881155_REAL/facts.parquet": "c8bbb187106ff153c10cd3f8e780acb3342762ffde0fa47f6fe44201055bf01f",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881155_REAL/q.parquet": "aa456d3b855120178a9beaed3a02fbb9771ac269ed53bd7570cab1b5fa7838a5",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881155_REAL/CP1.parquet": "b0e584217e6c6b18e75d7c0c963a805917788a615e8cb2dec4e47fb3a7e9a806",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881155_REAL/evidence.parquet": "651a0c158b9f24d1930cda43a254bd1df281428a748f78fe743202bcf977ce36",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881155_NEUTRAL/facts.parquet": "1a14c39a7121777ee10f899560ed7596b69719d3b5742f8f2962e307d262e446",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881155_NEUTRAL/q.parquet": "0989bc6ebe7d2adf8ced8b1eadce9d5fa16662ed519ac51fdc49c592ef2f7ebf",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881155_NEUTRAL/CP1.parquet": "e364a4b87dd8c245e1c45248cbdc9e2bada5332e62d9ecb195dd9a6bd642ff44",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881155_NEUTRAL/evidence.parquet": "d6e9d6ccb92d624961b5428aca0aa3c12f1e0db05977990509dc58ed491b2c79",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/state/URFI881155.parquet": "9af7646cd49a2159e271757147a1b296d7bece5c3a103e2b4b7f1c369e1ee93d",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/receipts/URFI881155.json": "42bc8f4a2d19ec6c423a0f76e688e44203613bdc3d48828f0ca1202cf99cd5c7",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881278_REAL/facts.parquet": "40dcb3ac2ff033c7fc3497e0c7c11b4bc2373674d66b81b9813eb782a058f1f9",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881278_REAL/q.parquet": "802a76440f97f4e003b06aa511ba037db798ba3b8047b4346438d320f2ec259f",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881278_REAL/CP1.parquet": "bd9cffaa194b2aa237c3a63508aa5676ce2455fa2e2c42b77a214b0b7cf0ea0f",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881278_REAL/evidence.parquet": "edaf1cdfb4797ed7e4da66a86a841b49d45be6215a6a620a4edc80c0ceca8e03",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881278_NEUTRAL/facts.parquet": "2741398c198a67c90baccb8b513a40dc9d50dd4bda9abe54c2ac56be827ff2b1",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881278_NEUTRAL/q.parquet": "a3a4ac486ef76ebd4cf3fedd5bbd5c70b95159a12631b3033711c1256b2389e1",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881278_NEUTRAL/CP1.parquet": "a2beb0de46f4eae65bbeabcb89e63da30eb18fdb22f75c5ba85c1f17235dc383",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881278_NEUTRAL/evidence.parquet": "c661dc734c3ea2d4922d2a99f34665e4b6204115d049af84cd4ad2daac9fe5d8",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/state/URFI881278.parquet": "48b4d0645b6fdc5516767db6954068c40ef3bb777760fa277f14250b538ee168",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/receipts/URFI881278.json": "bebed08522c04d3d3224563a3c50624e2f9773fbcf61410ec75dae033ca7be68",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881118_REAL/facts.parquet": "c6d200793705ec7163dfeb9eb436970e622fcf9816bb57efdbc03c340b3af3cf",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881118_REAL/q.parquet": "e8d4dbc2a6a865e0fd5e76878b50b481cc3eb1ffba70963f82bf22d2eadd8a1e",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881118_REAL/CP1.parquet": "183bd078415a55805a95d3c604b89de5ba3473c0e0b8c6ccfeaa14c834fc2015",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/URFI881118_REAL/evidence.parquet": "1bfba0c6681ed7e9e7518f65c17d36b7aa05139029c946edcdc3dd01aebf15b8",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881118_NEUTRAL/facts.parquet": "3aa25ebf3ffec11e518b6b172f7cccd377307857b0fe1ca2fa80e0bffa8cbe92",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881118_NEUTRAL/q.parquet": "468b2e3101028c88c481eef4c23f52dd6f8fb5b64304dffc2b4ad47da2184853",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881118_NEUTRAL/CP1.parquet": "dba7e8f232df64bac8e331c323d1f44a73a6d96f8ba1af2bf5cf762b3cb986aa",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/volume_feature_fixtures_v1/verification_fix_v2/URFI881118_NEUTRAL/evidence.parquet": "f15d99f14fb85b0be5d901bc927d3a0553108f32132936fb70dbe4344a48d597",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/state/URFI881118.parquet": "d6e4a166ca0587cf543091bc733366d5eccaf87192ccf53729a02ed07db97012",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/receipts/URFI881118.json": "f9d69d900e1b9d31b834d98c13380633b9aa72d071af3b39277e228588d41e2d"
+  },
+  "calculation_executed": false
+}

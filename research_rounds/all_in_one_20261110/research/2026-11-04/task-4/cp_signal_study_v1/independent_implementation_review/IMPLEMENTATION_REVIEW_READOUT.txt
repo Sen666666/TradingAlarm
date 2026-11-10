@@ -1,0 +1,34 @@
+冻结CP信号研究：实际实现独立静态审查通过（无重跑）
+
+结论及范围
+没有发现需要参数修改、代码纠错或重新拟合的合同违约。PASS仅限已读特征/标签/evaluator代码与冻结设计、实际FITS/DECISION身份核对；不等于独立重算99k样本、特征/标签/系数全值，不是市场PIT/经济收益通过。root另做有限独立数值校核，本审查不冒认其工作。
+已保存DECISION的4族均未通过全3验证期门，代码按原子门逐阶段/逐族合取，没有因失败选新窗口/参数/子期。1个切点规则模板作用于4个预定模型族/12连续输出，不应把metadata candidate_rules_tested=1误说成只拟合1个预测器。
+
+特征实现
+compute_frozen_features.py12–15仅17fields，8/4/5分组；113只读事件源字段，不读标签/未来结果。134–141核全CP原receipt日期及signal/facts/CPinput close/segment一致，unique sid/date保留缺canonicalID行。
+41/53–58固定CSI300网格、完整h+1及h+6窗口，无分别压缩/零填充；相关更严格missing政策已在拟合前冻结。65–66 EMA按本股有效价格递推、source内seed/minperiodn，两斜率均最近65共同会话完整门；不是在2022窗口重新起算。
+67–88 prior20HL通道、dd20、prior21amount、6close/5amount方向份额均按冻结时钟。常量/平通道/缺金额为未知，不制造0或临时更改特征集合。
+最后metadata对齐修补只将event_on_market_calendar转numpy bool并断言非空，没有修改17预测值公式。prefix检查是原程序前缀自洽，未冒独立数值对拍。
+
+标签实现
+build_labels.py55–67同源连续block内有效observed/positive close-volume观察；122–146取t0后20条，同segment不跨，MFE/MAE含0，FINAL20。未知保留在99031母体，不填0；实际label_end控制DEV purge。nextOPEN价量/一价/限价未知字段仅注释，execution_proven始终False，无T+1假成交或next-open收益。
+154–158非重叠以完整标签先取最早并严格date>前label_end；此限定已明写FROZEN_DESIGN。原保存SUMMARY为99031/99031 COMPLETE20，所以当前与全母体先取首张等价；未来若删失必须标条件母体，不能沿用无条件覆盖名称。
+本审查读取SUMMARY关闭该逻辑finding，不将读取summary冒称另行逐99031重算。
+
+训练/标准化/切点
+run_frozen_signal_analysis.py243–256 dev=DEV且标签完整且label_end<=2023-12-31，再取该family完整特征。60–79中w_i=1/同股模型有效开发事件数，W=sum w；weighted mean/人口方差均只train计算。
+Gram=Z'WZ/W、cross=Z'W(Y-ymean)/W后加.01I求解，因此是weighted mean-MSE+.01||beta||²，不是忘记W的sum-loss正则。截距用weighted ymean独立不惩罚，常数列固定0；3输出可并列求解等价各自同一惩罚。
+77以训练fitted MAE和同w定weighted经验20%值；164、259用>=保留ties。predict102–107只用固定DEV mu/std/beta/ymean，没有test标准化/重新拟合/输出clip。
+实际FITS各族最大signal日期2023-12-01、最大label_end2023-12-29、lambda.01、weight_sum1588；这些是原保存元数据，源码断言最大日期亦排2024。normal equation残差为原运行自检，不是本审查数值重拟合。
+248尾阈用全purged DEV标签未加权linear，249–250环境三分位只DEV。模型特征可用子母体不改全局尾阈。263在验证metrics之前保存FITS；先前对val X推断predict不参与fit/cut/quantile。
+
+评价/去重/统计
+157–181每期完整特征/全CP、保留且标签特征完整/全CP；路径/尾部比较均同完整base，条件保留率另列。开发purge事件在DEV evaluate计入label_unavailable，此字段同时含‘开发时点不合格’而非声称数据真实缺失；总原标签完备与purge数应同时解释。
+273–281非重叠/within-phase/月/行业/预定段只切同一D预测，绝不调用fit。116–136股票multinomial配对draw对kept与同base事件均值作差，固定seed/200次、95%linear区间，不重fit，不消除共同日期依赖；当前解释已明确条件于这段市场路径。
+196–218逐family/phase所有注册门合取，非重叠CI只报告没有暗增CI门；未缺漏已冻结coverage、tail、FINAL或MAE下界条件。
+
+实际身份
+FITS记录design/features/labels/events四SHA全部与现文件匹配；FROZEN_DESIGN_USED快照匹配同design hash。OUTPUT_SHA保存的脚本/FITS/DECISION/RUN_SUMMARY四SHA也匹配，详见ACTUAL_INPUT_AND_OUTPUT_HASH_CHECKS.json。
+与此前局部设计预审相比，本次检查的是已完成这一次运行的源文件/拟合冻结产物/决策文件；仍未生成任何新账户、订单、CP或收益，不将标签路径改善当实际可避免损失。
+
+最终收尾补记：根已保存ROOT_FROZEN_ANALYSIS_NUMERICAL_AUDIT.json，独立核开发均值/std、已存β正规方程、4切点及开发尾阈、ALL17三验证期指标，无solve/refit；属于根的有限数值工作。本审查只读其范围并绑定，不重复计算。分析目录COLUMN_AND_SCOPE_NOTES已明确DEV purge并非标签缺失。未新增检查、模型或参数。

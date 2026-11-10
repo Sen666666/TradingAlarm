@@ -1,0 +1,47 @@
+from pathlib import Path
+import sys,importlib.util,json,time
+from decimal import Decimal as D
+import pandas as pd
+O=Path('/Users/bytedance/Documents/ChatGPT/money/research_rounds/s0-first-margin-20261029');sp=importlib.util.spec_from_file_location('s0_finish',O/'code/study.py');S=importlib.util.module_from_spec(sp);sys.modules[sp.name]=S;sp.loader.exec_module(S);H=S.H
+t=time.monotonic();su=H.read(O/'results/summary.json');b=su['1'];c=su['2'];coverage=H.read(O/'coverage-freeze.json');sample=H.read(O/'sample/verification.json');full=H.read(O/'results/verification.json');reportcheck=H.read(O/'results/report-verification.json');ident=H.read(O/'input-identity.json')['sha256'];assert all(H.sha(p)==h for p,h in ident.items())
+p=pd.read_csv(O/'results/paired-events-cost1.csv',dtype={'delta':'string'});p.delta=p.delta.map(D);groups=[]
+for (a,z),g in p.groupby([p.first_fill_first.notna(),p.first_fill_second.notna()]):groups.append(dict(first_filled=bool(a),second_filled=bool(z),pairs=len(g),delta=sum(g.delta,D(0))))
+S.save(O/'results/fill-decomposition.json',groups)
+top=p.sort_values('delta',ascending=False).iloc[0];verdict='limited_support_under_original_I_E0_exit_and_idle_cash'
+assert all(D(su[str(x)]['delta'])>0 and D(su[str(x)]['first']['net_pnl'])>0 and D(su[str(x)]['tail_delta'])>=0 and D(su[str(x)]['ordinary_delta'])>=0 for x in [1,2])
+S.save(O/'FAILURES.json',dict(economic_failures=0,economic_reruns=0,technical_report_only='All aggregate results and verification were saved, then final console print NameError enc; old code preserved, print changed to S.enc. No economic or aggregation rerun.',preserved_code='code/report-v1-console-name-failed.py',parameters_changed_after_outcomes=False))
+def m(x):return f'{D(str(x))/10000:,.2f}'
+text=f'''S0第一名相对第二名：193对边际价值检验，完成收口
+
+裁决：在这个事前去重集合、原I/E0退出及退出后持现的口径下，有限定证据保留S0第一名优先于第二名。第一名绝对净贡献为正，基础/双成本差额同向，尾部和普通部分均改善。不能推广全部654个候选日、整个排名的单调预测性、行业内个股排序、PVR、资本周转最优或真实ACT整户表现；没有改产品或直接晋升新策略。
+
+冻结范围：407科技池原完整合法I候选32899条/654日；日期顺序只比较原S0第1、第2，两者E0事件只要已有任何一方用过就跳过整日，不递补第三名。形成193对/386唯一E0机会/235只股票，186跨行业、7同行业；442日重复、19日不足两候选。每对等权，两种选择各同100万元初始现金，193×2×2=772腿。无共享现金、复利、追加/重入、ACT或排名后强制换仓；所有未成交/期末持股/权益保留。结果是独立替代选择合计，不是一个可交易账户。
+
+主结果（金额万元；每事件百万元尺度）：
+基础：第一名净贡献{m(b['first']['net_pnl'])}，平均52,814.90元（+5.2815%）；第二名{m(b['second']['net_pnl'])}，平均34,521.90元（+3.4522%）。差额+{m(b['delta'])}，平均+18,293.00元。省负损耗+{m(b['loss_saved'])}，新增正贡献+{m(b['positive_added'])}，二者精确合计净差。
+双成本：第一名{m(c['first']['net_pnl'])}，第二名{m(c['second']['net_pnl'])}；差额+{m(c['delta'])}，平均+18,196.34元。没有因成本压力反向。
+基础平均盈利额/平均亏损额第一名2.853、第二名3.008；利润因子1.529/1.332。第一名平均盈亏比并未全面优于次选；胜率34.72%/30.05%仅描述，不据此通过。首选仍有125个负事件，全部负损耗1925.62万元均计入，没有只看盈利交易。
+
+尾部/普通：任一腿决策后净贡献/实际买入总成本>=30%即该对尾部，既有标签仅事后使用，不进选股。两成本均40个尾部对；基础尾部差额+{m(b['tail_delta'])}、普通+{m(b['ordinary_delta'])}万元；双成本+{m(c['tail_delta'])}/+{m(c['ordinary_delta'])}。40对触发尾部标签的腿均已无持股，仍未支付股息继续入权益。30%不等于数倍行情，未扫描新阈值。
+贡献稀疏：100对差额正、93对负；最大正差为2025-10-20源杰科技/海星股份约+363.00万元，略高于全部净差353.05万元；前5正差合计1043.92万元、后5差额−843.80万元。完整连续分布保留；稀疏肥尾不要求删最大赢家仍盈利，也不能把这条历史优势称稳定。
+7个同行业对净差−22.31万元、186跨行业对+375.36万元。前者太少，不足以否定个股H1；整体主要支持行业优先合成选择在此集合中的结果，不能称各排序层均已验证。
+
+成交/费用：第一名192成交/1未成交，第二名189/4；188对两边同日实际成交。5对单边未成交均留在主账：仅第一名成交4对差额−95.34万元，仅第二名成交1对差额+13.62万元，合计−81.72；双边成交188对+434.77，精确回到总差353.05。此为会计附表，不用剔除未成交结果替代主账。
+基础第一名实际买入及买费合计18618.99万元、第二名18418.47万元；仅成交单位平均96.97/97.45万元。显式费用19.44/18.51万元，原开盘滑点18.80/18.12万元；额外显式费用0.93万元、滑点0.68万元已经在净账，不能重复扣除。全部分项费用见fee-components.csv。
+
+占用时间：全部事件平均41.32/40.10个持股收盘，成交子集41.53/40.95；成本本金×持有收盘合计78.30/74.97亿元·收盘，首选高约4.44%。不按收益/天机械年化。
+事后分组：第一名持有更长86对差额+1522.57万元，较短86对−1287.92，等长21对+118.41；三项精确合计主差。持有期由价格和原退出共同决定，这不是控制持有期后的因果效应。平均占用接近也不能证明再投效率更高；该部分结论仍未识别。
+本轮统一从同日决策后下一可执行开盘起算，原I/E0退出后现金不再投资，终点统一2026-10-27；因此比较的是这次资金选择与原出口的联合结果。若E0让某股过早/过晚退出，其影响包含在成绩中，不能将其从排序中单独剥离，不能宣称已找到最优资金机会成本。
+
+期末：第一名8个持股单元、估值653.38万元，第二名16个、1257.45万元；待收股息14.78/17.40万元，均纳入主账。估值不是成交，预计清算费用/滑点只在summary备忘，不冒充已发生。零成交保留现金，没有被判为亏损或从分母删除。
+
+验收：原完整候选654日排序与原S0纯选择器一致；193对386事件唯一；2024末81对、2025末148对、2026-06末164对的物理配对前缀完全一致。前6对24腿样例用时{sample['seconds']:.3f}秒，12条截断金融前缀一致；全量772腿{full['seconds']:.3f}秒，低于300秒；样例与全量金融数字一致。独立开盘、费用、股数、现金、权息、NAV核验通过，最大现金/NAV残差0；尾部+普通、省损耗+新增正贡献、成交分组、持有期分组均回到主差。13项输入SHA不变。
+阶段耗时：冻结/排序与配对前缀2.891秒，样例0.419秒，全量6.339秒，聚合核验0.197秒；开发/阅读未单独秒表计时，不伪造精确纯开发耗时。聚合末尾控制台打印名称错误已留旧版，仅改打印名，原结果/核验此前均已落盘，金融重跑/结果后调参0。
+
+边界：已见开发历史、当前股票池/行业/市值快照、原日线开盘与容量/当日HLV代理、分数股/股息税代理沿用，非样本外或实盘可成交证明。此处S0是行业H1→行业内个股H1→轮巡，不使用PVR排资金。本轮不扩PVR、第三名、随机组、更多起点/阈值或算法修订。结论是保留原首选作为这一限定研究基线；不因一个初始交换案例就否定，也不因当前正差把它当永久正确底座。
+
+产物：PROTOCOL.json、risk-set.parquet、pairs.parquet、coverage-freeze.json、input-identity.json；results/units.parquet、paired-events-cost*.csv、continuous-contributions.csv、duration-decomposition.csv、fill-decomposition.json、fills.csv、fee-components.csv、summary.json和核验。任务收口，无剩余权限/数据阻塞，无产品/账户/交易/外部发送。
+'''
+(O/'FINAL_REPORT.txt').write_text(text)
+S.save(O/'COMPLETION.json',dict(status='completed',verdict=verdict,pairs=193,units=772,main=su,source_hashes_unchanged=len(ident),sample_seconds=sample['seconds'],full_seconds=full['seconds'],blockers=[],product_changes=0,accounts=0,trades=0,new_arms=0,report=str(O/'FINAL_REPORT.txt')))
+print(json.dumps(dict(completed=True,verdict=verdict,seconds=time.monotonic()-t),ensure_ascii=False))

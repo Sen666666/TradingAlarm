@@ -1,0 +1,9 @@
+{
+  "status": "EXPLORATORY_AFTER_ENTRY_ONLY_RESULT",
+  "formula": "E_support=E-A_up*(1-P5), unchanged breakout candidate",
+  "universe": "All original known i_buy with known recorded I episode and complete cache attribution; no first-I restriction. Missing pre2022 left-censored/feature rows excluded and reported.",
+  "selection": "Original per-date E top20 or top20pct versus same candidates E_support selection. No accounts or new permissions.",
+  "evaluation": "First require every candidate used by either selected set has full h outcomes on a given date. For each original I episode, average its selected signal-day label. Descriptive method mean is equal episode-weight, not independent stock-day count; episodic selection memberships differ. Daily paired mean difference separately reported. 2022/23 versus seen2024-26 and year.",
+  "causal": "All feature <= signal close; next observed open benchmark is not verified execution",
+  "code_sha256": "bf3f205374280dc09013d7e4c65de58138f19adad4b4b84cb6b985b27b89c437"
+}

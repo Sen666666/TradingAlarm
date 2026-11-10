@@ -1,0 +1,97 @@
+"""Read-only accounting, full-universe attribution and predeclared path inspection."""
+from pilot import *
+from raw_review import CASES
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+plt.rcParams['font.family']=['Arial Unicode MS','PingFang SC','DejaVu Sans']
+OLD=ROOT/'research_rounds/rs-h1-execution-20261025'
+def load(p):return json.loads(Path(p).read_text())
+def rows(p):
+ with gzip.open(p,'rt') as f:return [json.loads(line) for line in f]
+def maximum_gap(mask):
+ best=run=0
+ for x in mask:
+  run=0 if x else run+1;best=max(best,run)
+ return best
+def main():
+ out=O/'analysis';out.mkdir(exist_ok=False);meta=pd.read_csv(ROOT/'research_rounds/tech-compound-design-20261026/proposed-pool.csv').set_index('symbol').to_dict('index')
+ old=C.import_path('bp_independent_audit',OLD/'code/analyze_accounts.py');prices=old.Prices.__new__(old.Prices);prices.records={r['series_id']:r for r in load(ROOT/'research_rounds/pvr-act-comparison-20261027/input/manifest.json')['series']};prices.cache={}
+ rules=load(ROOT/'research_rounds/pvr-act-comparison-20261027/execution-rules-v2.json');calendar=sorted(pd.Timestamp(x) for x in rules['calendars']['A']);calendar+=sorted(pd.Timestamp(f'2026-10-{d}T09:30:00+08:00') for d in ['27','28','29','30'] if pd.Timestamp(f'2026-10-{d}T09:30:00+08:00') not in calendar)
+ dsall=rows(O/'results/daily.jsonl.gz');summ=[];audits=[];campaigns=[];stocks=[];layerrows=[];curves=[];windows=[];presence=[];attributions=[];risk=[]
+ facts={s:pd.read_parquet(SNAP/'facts'/f'{s}.parquet').loc['2024-01-02':'2026-10-27'] for s in meta}
+ multibag={}
+ for s,f in facts.items():
+  f=f.loc[f.close.gt(0)]
+  if len(f) and f.close.max()>=3*f.close.iloc[0]:multibag[s]=dict(first_close=float(f.close.iloc[0]),peak_multiple=float(f.close.max()/f.close.iloc[0]))
+ allcurves={};allobjects={};allhold={}
+ for name in ['P0','P1','D1']:
+  ds=[r for r in dsall if r['account']==name];obj=load(O/f'results/{name}.json');allobjects[name]=obj
+  # B0_ is only the unchanged audit function's switch to skip legacy 6-stock/3-sector assertions.
+  # It does not select a B0 trading strategy or alter any money/share checks.
+  contributions=[];cs,receipt=old.audit_account('B0_BP1_'+name,dict(audit_log=obj['audit']),ds,prices,meta,calendar,contributions);receipt['account']=name;audits.append(receipt)
+  for c in cs:c['account']=name;campaigns.append(c)
+  for c in contributions:c['account']=name;attributions.append(c)
+  frame=pd.DataFrame(ds);dates=pd.DatetimeIndex([pd.Timestamp(r['at']).tz_localize(None).normalize() for r in ds]);nav=frame.nav.astype(float).to_numpy();mv=frame.inventory.astype(float).to_numpy();peak=np.maximum.accumulate(nav);dd=1-nav/peak;counts=np.array([len(r['positions']) for r in ds]);allcurves[name]=(dates,nav,mv,dd)
+  held={s:np.array([r['positions'].get(s,0)>0 for r in ds]) for s in meta};allhold[name]=held
+  layercheck=ZERO;bykind=collections.defaultdict(lambda:ZERO)
+  for z in obj['layers']:
+   value=D(z['qty'])*prices.mark(z['sid'],str(dates[-1].date()));pnl=D(z['cash'])+D(z['dividend'])+value;layercheck+=pnl;bykind[z['kind']]+=pnl
+   layerrows.append(dict(account=name,id=z['id'],symbol=z['sid'],name=meta[z['sid']]['name'],kind=z['kind'],opened=z['opened'],closed=z['closed'],signal_at=z['signal_at'],final_shares=z['qty'],net_pnl=float(pnl),dividend=float(z['dividend']),final_market_value=float(value),reason=z['reason']))
+  assert abs(layercheck-(D(ds[-1]['nav'])-INITIAL))<D('.00000001'),(name,'layer attribution mismatch')
+  for s in meta:
+   cc=[c for c in cs if c['symbol']==s];pnl=sum((c['net_pnl'] for c in cc),ZERO)
+   stocks.append(dict(account=name,symbol=s,name=meta[s]['name'],industry=meta[s]['industry'],net_profit=float(pnl),cycles=len(cc),holding_days=int(held[s].sum()),is_price_3x=s in multibag))
+  profit=sum((c['net_pnl'] for c in cs if c['net_pnl']>0),ZERO);loss=-sum((c['net_pnl'] for c in cs if c['net_pnl']<0),ZERO);closedloss=-sum((c['net_pnl'] for c in cs if c['closed'] and c['net_pnl']<0),ZERO)
+  tail=sum((c['net_pnl'] for c in cs if c['net_return'] is not None and c['net_return']>=.3),ZERO);slip=sum(D(t['shares'])*abs(D(t['price'])-D(t['raw_open'])) for t in obj['trades']);winnerprofit=sum((c['net_pnl'] for c in cs if c['symbol'] in multibag),ZERO)
+  top=sorted([x for x in stocks if x['account']==name],key=lambda x:-x['net_profit'])
+  r=dict(account=name,final_nav=nav[-1],net_return=nav[-1]/1e6-1,max_drawdown=float(dd.max()),peak_positions=int(counts.max()),mean_positions=float(counts.mean()),mean_exposure=float((mv/nav).mean()),peak_market_value=float(mv.max()),fees=float(ds[-1]['fees_cny']),slippage=float(slip),buy_fills=sum(t['side']=='buy' for t in obj['trades']),sell_fills=sum(t['side']=='sell' for t in obj['trades']),cycles=len(cs),open_cycles=sum(not c['closed'] for c in cs),positive_cycles_profit=float(profit),all_negative_cycles_loss=float(loss),closed_losing_cycles_loss=float(closedloss),profit_over_loss=float(profit/loss) if loss else None,tail30_cycle_profit=float(tail),core_profit=float(bykind['core']),add_profit=float(bykind['add']),price_3x_stock_profit=float(winnerprofit),top5_stock_profit=sum(x['net_profit'] for x in top[:5]),max_stock_weight=receipt['max_stock_weight'],max_sector_weight=receipt['max_sector_weight'],minimum_available=float(obj['minimum_available']),active_close_days=int(frame.on.sum()),total_close_days=len(ds),counts=obj['counts'])
+  lr=[x for x in layerrows if x['account']==name];r.update(all_negative_layers_loss=-sum(x['net_pnl'] for x in lr if x['net_pnl']<0),positive_layers_profit=sum(x['net_pnl'] for x in lr if x['net_pnl']>0),negative_core_layers_loss=-sum(x['net_pnl'] for x in lr if x['net_pnl']<0 and x['kind']=='core'),negative_add_layers_loss=-sum(x['net_pnl'] for x in lr if x['net_pnl']<0 and x['kind']=='add'),closed_layers=sum(x['final_shares']==0 for x in lr),open_layers=sum(x['final_shares']>0 for x in lr))
+  summ.append(r)
+  for i,d in enumerate(dates):curves.append(dict(account=name,date=str(d.date()),nav=nav[i],market_value=mv[i],positions=int(counts[i]),drawdown=dd[i],on=ds[i]['on']))
+  for a in obj['audit']:
+   if a['kind']=='risk_checkpoint' and a['event'] is not None:risk.append(dict(account=name,**a))
+  # All predeclared names plus every full-pool price-3x name, never just profitable trades.
+  for s in sorted(set(CASES)|set(multibag)):
+   f=facts[s];peakday=f.close.idxmax();pre=f.loc[:peakday];start=pre.close.idxmin();part=f.loc[start:peakday];mask=(dates>=start)&(dates<=peakday);h=held[s][mask];core=[];weights=[]
+   for i in np.flatnonzero(mask):
+    dsr=ds[i];core.append(any(z['sid']==s and z['kind']=='core' and z['qty'] for z in dsr['layers']));weights.append(float(D(dsr['positions'].get(s,0))*prices.mark(s,str(dates[i].date()))/D(dsr['nav'])))
+   buys=[t for t in obj['trades'] if t['security_id']==s and t['side']=='buy' and start<=pd.Timestamp(t['at']).tz_localize(None).normalize()<=peakday]
+   stock=next(x for x in stocks if x['account']==name and x['symbol']==s)
+   windows.append(dict(account=name,symbol=s,name=meta[s]['name'],is_price_3x=s in multibag,trough=str(start.date()),peak=str(peakday.date()),expost_price_multiple=float(part.close.iloc[-1]/part.close.iloc[0]),observations=len(h),held_days=int(h.sum()),holding_coverage=float(h.mean()) if len(h) else 0,core_coverage=float(np.mean(core)) if core else 0,max_absent_days=maximum_gap(h),first_window_buy=buys[0]['at'][:10] if buys else None,first_window_buy_vs_trough=float((D(buys[0]['price'])*D(str(facts[s].loc[buys[0]['at'][:10]].factor)))/D(str(part.close.iloc[0]))-1) if buys else None,mean_weight=float(np.mean(weights)) if weights else 0,peak_day_weight=weights[-1] if weights else 0,whole_period_net_profit=stock['net_profit'],buy_fills=len(buys)))
+  print(name,'audited',len(ds),len(obj['trades']),flush=True)
+ # Cross-arm differences are whole-account counterfactuals, not additive isolated early-entry alpha.
+ for label,data in [('summary',summ),('campaigns',campaigns),('stocks',stocks),('layers',layerrows),('curves',curves),('winner-windows',windows),('contributions',attributions),('risk-events',risk)]:pd.DataFrame(N.encoded(data)).to_csv(out/f'{label}.csv',index=False)
+ save(out/'summary.json',summ);save(out/'accounting.json',dict(passed=True,daily_rows=len(dsall),receipts=audits,layer_and_stock_attribution_reconciled=True,legacy_audit_B0_prefix_only_skips_count_limits=True));save(out/'price-3x-universe.json',multibag)
+ plot(out,allcurves,allobjects,allhold,dsall,meta,facts,windows)
+
+def plot(out,curves,objects,held,dsall,meta,facts,windows):
+ colors={'P0':'#248268','P1':'#c74848','D1':'#4867b0'}
+ fig,axs=plt.subplots(3,1,figsize=(15,10),sharex=True,layout='constrained')
+ for name,(dates,nav,mv,dd) in curves.items():
+  axs[0].plot(dates,nav/1e6,label=name,color=colors[name]);axs[1].plot(dates,dd*100,color=colors[name]);axs[2].plot(dates,mv/nav*100,color=colors[name])
+ legacy=[r for r in rows(ROOT/'research_rounds/pvr-act-comparison-20261027/RS/accounts-v2/daily.jsonl.gz') if r['account']=='I__S0_base'];ld=pd.to_datetime([r['at'][:10] for r in legacy]);ln=np.array([float(r['nav']) for r in legacy]);lm=np.array([float(r['inventory']) for r in legacy])
+ axs[0].plot(ld,ln/1e6,c='#333333',ls='--',lw=.9,label='原ACT（引用旧结果）');axs[1].plot(ld,(1-ln/np.maximum.accumulate(ln))*100,c='#333333',ls='--',lw=.8);axs[2].plot(ld,lm/ln*100,c='#333333',ls='--',lw=.8)
+ axs[0].set_ylabel('净值 / 初始100万');axs[1].set_ylabel('回撤 %');axs[2].set_ylabel('股票市值 / 净值 %');axs[0].legend();axs[0].set_title('BP-1 有限试验｜407科技股，费用与5bps单边滑点后')
+ for ax in axs:ax.grid(alpha=.2)
+ fig.savefig(O/'charts/account-comparison.png',dpi=145);plt.close(fig)
+ for s in CASES:
+  f=facts[s];dates=curves['P1'][0];fig,axs=plt.subplots(5,1,figsize=(17,12),sharex=True,gridspec_kw={'height_ratios':[3,1,1,1,1]},layout='constrained')
+  # Continuous causal price scale avoids presenting stock splits as economic losses.
+  base=f.close.iloc[0];axs[0].plot(f.index,f.close/base,color='#263543',lw=1,label='因果价格/期初（未参与选股）');axs[0].plot(f.index,f.i_floor/base,color='#9da4ae',lw=.6,label='原I/E0保护')
+  axs[0].set_title(f'{meta[s]["name"]} {s}｜红三角：P1核心买；橙三角：P1追加；绿倒三角：P1实际卖出',loc='left')
+  for t in objects['P1']['trades']:
+   if t['security_id']!=s:continue
+   day=pd.Timestamp(t['at']).tz_localize(None).normalize();price=float(D(t['price'])*D(str(f.loc[day].factor)))/base
+   color='#c74848' if t['side']=='buy' and t['kind']=='core' else '#d18f16' if t['side']=='buy' else '#248268';axs[0].scatter(day,price,c=color,marker='^' if t['side']=='buy' else 'v',s=26,zorder=4)
+  axs[0].legend(loc='upper left',fontsize=8);axs[0].set_ylabel('期初=1')
+  for k,name in enumerate(['P0','P1','D1'],1):
+   ds=[r for r in dsall if r['account']==name];weight=[];core=[]
+   for day,r in zip(dates,ds):
+    raw=float(f.loc[day].raw_close) if day in f.index else 0;weight.append(r['positions'].get(s,0)*raw/float(r['nav'])*100);core.append(sum(z['qty'] for z in r['layers'] if z['sid']==s and z['kind']=='core')*raw/float(r['nav'])*100)
+   axs[k].fill_between(dates,0,weight,color=colors[name],alpha=.55,label='总持股权重');axs[k].plot(dates,core,color='#222',lw=.65,label='核心权重');axs[k].set_ylabel(name+' 权重%');axs[k].legend(loc='upper left',fontsize=7)
+  ds=[r for r in dsall if r['account']=='P1'];axs[4].step(dates,[int(r['on']) for r in ds],where='post',label='P1 ACT可参与状态');axs[4].set_ylim(-.1,1.1);axs[4].set_ylabel('ACTIVE=1');axs[4].legend(loc='upper left',fontsize=8)
+  for ax in axs:ax.grid(alpha=.15)
+  fig.savefig(O/'charts'/f'path-{s}.png',dpi=140);plt.close(fig)
+
+if __name__=='__main__':main()

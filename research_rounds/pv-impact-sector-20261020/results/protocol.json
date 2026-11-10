@@ -1,0 +1,32 @@
+{
+  "created_utc": "2026-10-20T01:40:12.284472+00:00",
+  "status": "specified before new event outcomes and ETF vs stock accounts; all history previously seen",
+  "objective": "Explore price/volume interaction in trend continuation and begin honest ETF vs multiple-stock comparison; not claim best model found",
+  "event_diagnostic": {
+    "universe": "existing ETF17/HK7 positive-volume observed sessions; 2018..2026-10-16",
+    "event": "prior63 log return measured through t-5 >0; t-4..t 5-session return<0; require previous21 RMS>0; at least21 sessions after preceding accepted event per asset",
+    "features": "severity=r5/(sqrt5*RMS previous21 excluding5); background=r63/(sqrt63*same RMS); volatility_ratio=RMS5/RMSprior21; relative_volume=mean volume5/median volume previous63 excluding5; split volume units causal",
+    "volume_cells": "high>=1.5; low<=1; middle retained but not contrasted",
+    "price_cells": "mild severity>=-1.5; severe<-1.5",
+    "outcomes": "next21 observed close logreturn, min logreturn, probability regain previous5-day close peak; labels only and complete horizon",
+    "matching": "one-to-one greedy nearest low-volume event without reuse within same symbol and fixed period 2018-21/2022-23/2024-26; |severity difference|<=.5, |background difference|<=.75, |log volatility_ratio difference|<=.5; chronological high-volume event priority; use only price features",
+    "interpretation": "descriptive conditional comparison, not causal effect; publish cells and match coverage; under10 matched pairs per market/period insufficient. No fitted thresholds or trading filter added. Prior exit disagreement audit had unstable volume effects; new design uses price matching and nonoverlapping own-symbol horizons, not merely repeat median split."
+  },
+  "sector_pilot": {
+    "source": "https://www.hkexnews.hk/listedco/listconews/sehk/2021/0831/2021083101074.pdf",
+    "cohort": "HK00700/HK03690/HK09618 historical disclosed subset; selected for existing audited data availability, not complete universe or unbiased selection",
+    "sector_proxy": "HK03033 Hang Seng TECH ETF, not an official industry classification",
+    "period": "2022-01-01..2026-10-16",
+    "signals": "same ETF pairwise weighted-median strength, true volume vs price-only ablation; original fixed crossing 5+5*tanh(1), exit<=5; no new signal optimization",
+    "accounts": [
+      "ETF only 90% initial budget",
+      "all3 stocks equal initial30% on same ETF state",
+      "top2 of fixed3 at each sector entry by own causal pairwise strength,45% each, retain picks until sector exits",
+      "all3 choose2 combinations as three fixed controls (same gate,45% each)",
+      "buyhold ETF and all3"
+    ],
+    "costs": "all base15bps+FX10bps; ETF/all3/top2 volume signal additionally cost2 and delay1; tested monthly_ah_engine, claims/reconciliation/episode audit preserved",
+    "scope": "Implementation comparison independent of mechanism diagnostic; no adapting strategy based on event outcomes; same gate differentiates basket effect from trend model. Fixed combinations show selection effect versus small-universe luck. Daily initial equal is not rebalancing."
+  },
+  "next": "If conditional volume effects weak/reversing, do not turn them into extra filters; formulate a different volume-price representation. If subset comparison promising, expand historical membership and A-share evidence before generalizing."
+}

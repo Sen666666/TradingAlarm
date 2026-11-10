@@ -1,0 +1,21 @@
+{
+  "status": "COMPLETE_READ_ONLY_ACCOUNT_ATTRIBUTION_NO_NEW_ACCOUNT",
+  "strict112": 112,
+  "double51": 51,
+  "read_first": [
+    "READOUT.md",
+    "FUNNEL_SUMMARY.json",
+    "CASH_BRIDGE_SUMMARY.json",
+    "NET_ROUND_WINRATES.json",
+    "ALL_112_STOCK_PROFILES_WITH_MONEY.csv"
+  ],
+  "full_CP_events": 739,
+  "source_accounts_unmodified": true,
+  "pure_native_CORE_sizing_checks": 1676,
+  "unknown_reconstruction_CP_events": 0,
+  "final_PVR_only_queue_top20_stocks": [
+    37,
+    19
+  ],
+  "output_files": 29
+}

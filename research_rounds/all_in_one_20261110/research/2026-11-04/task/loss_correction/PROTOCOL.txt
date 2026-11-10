@@ -1,0 +1,36 @@
+2026-11-04 loss-correction prioritization, exploratory read-only extension.
+
+Question: Do the current C10/C20 books still lose mainly through a few >30%
+closed losses, making faster exits the first research priority, or has the
+problem shifted to repeated smaller losses and large unproved commitments?
+
+Sources are the already audited complete saved layer tables for original
+C10/C20 and R0 in January 2022 (19 decision dates), plus July-August 2025
+(two continuous months). These are current-survivor development snapshots,
+not point-in-time universes, holdout samples, or a full-cycle economic test.
+The January accounts restart independently and are not stitched to 2025.
+
+Exploratory disclosure: before writing this protocol I inspected the July-
+August four-cell layer counts, largest losses, and group summaries. No new
+policy or account event has been run. This protocol freezes only descriptive
+aggregation; it is not a preregistered economic strategy experiment.
+
+Use Decimal monetary arithmetic. Preserve every layer, closed/open separately.
+Closed is remaining_qty==0. Final contribution includes allocated dividends;
+return denominator is actual buy_cost incl fees. Report counts and gross
+negative/positive closed contribution, >10/20/30% losses, deterministic worst
+five and five-largest-loss shares. Report all layers grouped by actual
+role/pool/purpose/entry_class, with purchase cash denominators to avoid
+mistaking capital allocation for deteriorating prediction. No labels enter
+any signal or action.
+
+Classify closed layers by actual sell reasons: funding-only, protection-only
+(I_structure_exit or CP1_old_line_exit), mixed, or other. This is an ex-post
+description of the observed pathway, not a causal or avoidable-loss estimate.
+Record full source hashes before and after; no saved account, source or old
+report mutation. No account-engine imports, event replay, new indicator,
+price labels, parameter search or external requests.
+
+Stop after one aggregation and independent arithmetic verification. The
+output supports priority and one proposed next finite experiment card; it
+does not select a policy or claim an executable PnL counterfactual.

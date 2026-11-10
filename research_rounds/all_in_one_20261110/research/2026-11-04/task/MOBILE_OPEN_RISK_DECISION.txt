@@ -1,0 +1,50 @@
+移动仓OPEN参考风险守恒：停止扩展，不做原生接线或连续回测
+2026-11-04，parent要求按主亏损覆盖和R0经验裁决。
+
+唯一候选曾是什么
+原CLOSE整单intent.cap×信号价至初始floor距离冻结为名义风险元金额；
+下一OPEN只缩实际股数以守该额，不抬floor、不改原2%预算/core/排序/退出。
+原mobile合同没有这项承诺，因此不是bug修复或原合同违约。
+本轮只做已存订单纯求量和固定原路径敏感度，0新账户、0 S0恢复、0新成交。
+
+覆盖主亏损的实际幅度
+以原实际q为最大量，保原合法整手，已知mobile三年418单缩量；强窗187单。
+下面的金额严格是各原层净贡献×(1−新q/原q)的固定路径比例敏感度：
+
+范围                      减少负贡献       同时减少正贡献    差额         原净亏覆盖
+2022—2023完整1557层       77978.23元       37966.85元        +40011.39元   15.72%
+Oct8后303新buyfill        31502.56元       19612.52元        +11890.04元   10.57%
+2025Jul—2026Jun强窗       82050.01元       195130.72元       −113080.72元  不适用
+
+303的1.19万元仅相当于整个Oct8后阶段16.71万元亏损的7.12%，此数未加旧层
+敏感度。2022—23原亏25.46万元及303原亏11.25万元，绝大多数损耗未覆盖。
+未知行动/因子订单另列，不混主结果：上述三范围理论拒绝敏感度分别−675.55、
++1535.74、+4214.85元。其拒绝是未知规则作用，不冒称gap缩量效果。
+
+这是裁决幅度的近似，不是新账户盈利/可避免损失/收益上界。
+固定原退出、原库存估值和原资金路径，比例分摊原费用与股息；最低费、整数
+split/分红舍入、可卖单位、实际新退出及释放资金的用途均可改变结果。原净
+贡献含未平仓估值。没有把差额加回原NAV生成候选账户。
+
+赢家代价与旧R0
+强窗匹配旧原PVR尾部层中19单缩量，1单低于最小单位而消失；嘉美食品和
+中船特气的重要赢单亦受约束。不能按后验赢家豁免或只计算少亏一侧。
+已有R0是高度同族：CLOSE已批准Q0×(mark×1.0005−effective floor)冻结
+名义风险，OPEN/partial只缩量。旧域是confirmed G/S mobile，本卡是all
+mobile原cap/初始floor，非逐域完全同义；但不能把思想当从未检验。
+旧真实连续July C10/C20分别改善8148.90/10491.87元；January C10仅+99.15、
+C20−3287.11元。后排重分配、放大量和失去原盈利单可吞掉局部缩量收益。
+
+裁决依据
+潜在作用覆盖非主要驱动，强窗赢家代价显著，且旧同族没有稳定迁移证据。
+不投入native adapter、恢复/S0或任何经济全路径，不补新阈值救结果。
+继续恢复的假恢复成本/真实延续和买入、重入质量研究；此小风险分支关闭。
+
+复核入口
+ar6_native_feasibility/MOBILE_OPEN_RISK_QUANTITY_V1/READOUT.txt
+ar6_native_feasibility/MOBILE_OPEN_RISK_QUANTITY_V1/R0_NEAR_NEIGHBOR_REVIEW.txt
+independent_review/ENTRY_RISK_COMMITMENT_AUDIT.json
+independent_review/ENTRY_RISK_ACTION_INTERVAL_AUDIT.json
+independent_review/ENTRY_RISK_PURE_QUANTITY_AUDIT.json
+independent_review/ENTRY_RISK_STATIC_SENSITIVITY_AUDIT.json
+loss_correction/entry_risk_commitment_review/READOUT.txt

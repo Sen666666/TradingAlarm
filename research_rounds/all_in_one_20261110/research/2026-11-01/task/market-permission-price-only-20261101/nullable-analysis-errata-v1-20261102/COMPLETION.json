@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "scope": "isolated market-analysis errata",
+  "state_changes": 5,
+  "distinct_industries": 3,
+  "corrected_fresh": {
+    "2026-04-30": 14,
+    "2026-05-07": 62
+  },
+  "original_files_unchanged": true,
+  "financial_loader_calls": 0,
+  "accounts": 0,
+  "target_solves": 0,
+  "financial_events": 0,
+  "orders": 0,
+  "indicator_runs": 0,
+  "F1_runs": 0,
+  "downloads": 0,
+  "seconds": 8.741129292175174
+}

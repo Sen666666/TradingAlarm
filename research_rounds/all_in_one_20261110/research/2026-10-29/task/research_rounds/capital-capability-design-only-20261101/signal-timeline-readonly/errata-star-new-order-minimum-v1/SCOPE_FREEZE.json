@@ -1,0 +1,112 @@
+{
+  "protocol_sha256": "0f66b78c2ba549cd63612fe8c6799ec0d46715223850a78990e6164f13a6b82a",
+  "specs": [
+    [
+      "OLD407_global",
+      "924旧域全局",
+      "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/historical-shadow/run-v1/OLD407_global_daily.parquet",
+      "2024-09-24",
+      "2024-12-31",
+      "OLD407",
+      "None"
+    ],
+    [
+      "NATIVE1709_URFI881129",
+      "通信设备",
+      "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/industry-coverage/run-v1/daily/NATIVE1709_URFI881129.parquet",
+      "2023-01-01",
+      "2023-12-31",
+      "NATIVE1709",
+      "URFI881129"
+    ],
+    [
+      "NATIVE1709_URFI881130",
+      "计算机设备",
+      "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/industry-coverage/run-v1/daily/NATIVE1709_URFI881130.parquet",
+      "2023-01-01",
+      "2023-12-31",
+      "NATIVE1709",
+      "URFI881130"
+    ],
+    [
+      "NATIVE1709_URFI881162",
+      "通信服务",
+      "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/industry-coverage/run-v1/daily/NATIVE1709_URFI881162.parquet",
+      "2023-01-01",
+      "2023-12-31",
+      "NATIVE1709",
+      "URFI881162"
+    ],
+    [
+      "NATIVE1709_URFI881164",
+      "文化传媒",
+      "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/industry-coverage/run-v1/daily/NATIVE1709_URFI881164.parquet",
+      "2023-01-01",
+      "2023-12-31",
+      "NATIVE1709",
+      "URFI881164"
+    ],
+    [
+      "NATIVE1709_URFI881271",
+      "IT服务",
+      "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/industry-coverage/run-v1/daily/NATIVE1709_URFI881271.parquet",
+      "2023-01-01",
+      "2023-12-31",
+      "NATIVE1709",
+      "URFI881271"
+    ],
+    [
+      "NATIVE1709_URFI881272",
+      "软件开发",
+      "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/industry-coverage/run-v1/daily/NATIVE1709_URFI881272.parquet",
+      "2023-01-01",
+      "2023-12-31",
+      "NATIVE1709",
+      "URFI881272"
+    ],
+    [
+      "NATIVE1709_URFI881274",
+      "影视院线",
+      "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/industry-coverage/run-v1/daily/NATIVE1709_URFI881274.parquet",
+      "2023-01-01",
+      "2023-12-31",
+      "NATIVE1709",
+      "URFI881274"
+    ],
+    [
+      "NATIVE1709_URFI881275",
+      "游戏",
+      "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/industry-coverage/run-v1/daily/NATIVE1709_URFI881275.parquet",
+      "2023-01-01",
+      "2023-12-31",
+      "NATIVE1709",
+      "URFI881275"
+    ],
+    [
+      "NATIVE1709_URFI881121",
+      "半导体",
+      "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/industry-coverage/run-v1/daily/NATIVE1709_URFI881121.parquet",
+      "2026-04-30",
+      "2026-06-30",
+      "NATIVE1709",
+      "URFI881121"
+    ],
+    [
+      "NATIVE1709_URFI881172",
+      "电子化学品",
+      "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/industry-coverage/run-v1/daily/NATIVE1709_URFI881172.parquet",
+      "2026-04-30",
+      "2026-06-30",
+      "NATIVE1709",
+      "URFI881172"
+    ]
+  ],
+  "financial_paths": 0,
+  "indicator_calculations": 0,
+  "failed_perstock_candidate": "preserved; not repaired",
+  "source_F1": "saved frozen outputs only",
+  "initial_protocol_file": "PROTOCOL_INITIAL.txt",
+  "clarified_protocol_file": "PROTOCOL.txt",
+  "clarified_protocol_sha256": "057fe4ca4396527375526e0f05dd4720684cdb8e1ec8008c6a6c4275b8d452c0",
+  "clarification": "first/minimum vs STAR add-step source semantics corrected in analysis, no signal/policy/account execution; current figures supersede temporary capacity preview"
+}

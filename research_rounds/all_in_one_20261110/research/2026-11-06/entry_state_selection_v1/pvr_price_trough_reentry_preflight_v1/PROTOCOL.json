@@ -1,0 +1,12 @@
+{
+  "scope": "Exactly eight existing 2022 paired-case stocks for full 2022, plus two Sep-Oct2024 and five H1-2026 startup stocks; selected development cases, NOT independent OOS.",
+  "extrema": "P_k strictly below both P_(k-1) and P_(k+1), known only at k+1 close. IEEE float comparisons on unchanged original PVR; exact ties do not create a trough, no epsilon/economic tolerance.",
+  "pair": "Most recent two confirmed troughs a<b within a known native I root and uninterrupted source-valid common-date sequence. P_b<P_a AND min(C[a+1..b])>C_a.",
+  "issue": "After b is confirmed, first t with C_t>max(C_(t-1),C_(t-2)), P_t>P_b, E0=I=1, Gready and Ggrade>=2, and finite 0<I_floor<C_t. One issue per (a,b), never backdated.",
+  "expiry": "Next confirmed trough replaces setup whether or not its pair qualifies; C_t<=C_a, I/E0 off or UNKNOWN/source/common-date break kills setup. No arbitrary time expiry. An already issued token is not reissued.",
+  "clock": "Market evidence at t close; only next immediate common OPEN can be considered. No simulated pending/fill or cash. Proposed consumer consumes identity on confirmed fill; NOFILL/expired one-day opportunity not replayed, needs a new b. Existing fast/CP/AB channels unchanged, so no original channel is blocked.",
+  "unknown": "Invalid original PVR/price/source identity or missing common date clears pair. Root after a gap is UNKNOWN until an adjacent valid native I 0->1. Conservative extra knowledge restriction disclosed; does not change canonical PVR.",
+  "fit": "No model fit, threshold scan, backwards pivot selection or new return labels. Existing economic rows joined only after feature outputs sealed.",
+  "evaluation": "Counts and timing only. Existing per-stock realized core/FULL sums include every original round in the fixed birth window and retain UNKNOWN; neither new-strategy payoff nor shared-account return.",
+  "comparison": "Original score exact check; original i_buy, CP receipt, E0/G/I, canonical sector M3/PVR3 alongside. PVR-only price-free divergence is NOT inferred to be supply absorption."
+}

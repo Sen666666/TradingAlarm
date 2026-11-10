@@ -1,0 +1,22 @@
+{
+  "status": "HISTORY_READ_ONLY_COMPLETE_TAIL_CARD_NOT_READY",
+  "report": "HISTORY_AND_TAIL_EXCEPTION_REVIEW.txt",
+  "applied_scope": "Pluggable entry/authorization/holding mechanisms; no full replacement strategy matrix.",
+  "dedup": [
+    "EMA9/21/50 rising entry hard-AND already tested; no broad promotion.",
+    "Video EMA Q1/D1 and BB descriptions not completed same-contract accounts.",
+    "W3/W10 are flat-candidate lifetime, not held CP grace periods.",
+    "PH/N1 stop future ratchets only before old stop breaks; not current CP-breach half-tail exception."
+  ],
+  "critical_blockers": [
+    "Original CORE creation requires not held; a live tail cannot receive CORE via unchanged rules.",
+    "A breached CP line has zero clamped nominal risk; a lower tail hardline creates positive new risk and requires explicit shared-risk permission.",
+    "Actual trim/partial-fill transition, effective line in budget, fixed grace expiry and exact EMA/BB boolean still need freezing."
+  ],
+  "native_reuse": "Current No60 native_adapter/execution_support/PreparedRunner and native ledger; old EMA pure recurrence/Fact-binding examples only.",
+  "new_accounts": 0,
+  "new_restores": 0,
+  "new_indicator_runs": 0,
+  "new_projections": 0,
+  "report_sha256": "24ea687af6d8dfde43db1b0c2e0196bae14eaf92d1f91943f89a85b9ac070936"
+}

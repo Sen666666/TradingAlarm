@@ -1,0 +1,18 @@
+{
+  "created_at": "2026-10-22T21:10:41.871167+08:00",
+  "plan_sha256": "3ec265c2a98a2bca61b2816fdf33ade1e96cf14fa5f4c13acb7a4ed2f3569eaa",
+  "code_sha256": "5f20a386759dca9eab9d0dc8a73a538c84f50f19bc58de59da3b0c316365c4bf",
+  "credentials_used": false,
+  "requests": [
+    {
+      "sequence": 1,
+      "url": "https://query.sse.com.cn/commonQuery.do?sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQTZXX_L&isPagination=true&pageHelp.pageSize=10&pageHelp.pageNo=1&pageHelp.beginPage=1&pageHelp.cacheSize=1&pageHelp.endPage=1&keyword=&validDate=&jsonCallBack=metadataProbe",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 4296,
+      "response": "01.body",
+      "sha256": "ce874079233d010fd6ed1a29386abb1eb684038944c9a6ca40d887c341c756d7",
+      "redirects": 0
+    }
+  ]
+}

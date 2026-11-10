@@ -1,0 +1,32 @@
+{
+  "status": "SOURCE_DATA_POSITIVE_PREFIX_PASSED",
+  "active_new_arms": [
+    "R_ONLY",
+    "P_ONLY",
+    "JOINT"
+  ],
+  "new_full_paths": 6,
+  "baseline_reused_paths": 2,
+  "all_windows": [
+    "2022_2024",
+    "strong"
+  ],
+  "hypothesis_parameters_frozen_before_any_new_full_result": true,
+  "baseline_source": "../trend_exit_controls_v1/runs/BASELINE",
+  "files": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/dec2022_authorization_v1/DIAGNOSTIC_FREEZE.json": "1f1b6cc1cbdec52aad45e944ad1b5b9123c0c45cd94d548c547fb24ef6eca679",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/dec2022_authorization_v1/H2_POLICY_FREEZE.json": "ffb217b17e44d107255c15aed9e62482e4375d75b7614719b9c2eb25898f1c80",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/dec2022_authorization_v1/COVERAGE_AND_ADMISSION.txt": "b7b2dbe65fd2750b5042ad3825f02fcd76fdc8b6d1b21921ccac1acfdaecb9da",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/dec2022_authorization_v1/run_h2_account.py": "cf6ea58c35becb859d7d167e4c1acab709846d14603678cdb53450fa8831810f",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/dec2022_authorization_v1/prepare_relative_context.py": "594d15db63ee9d738ab54260f6fc35ae216d5a7212ec96c325670ead86f084f1",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/dec2022_authorization_v1/context_provider.py": "f2607783982c957e281eda7b1ec397d15f24280b141783a997155c60f432c69d",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/dec2022_authorization_v1/relative_context/MANIFEST.json": "766b88def4e7b7beb9f97683c020be2bbd33af9550b496287605adb6765499ff",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/dec2022_authorization_v1/native_adapter/mobile_authorization_adapter.py": "613eb847576398f100db3bf3778d5825a752ce0daf5f5b25ad8a1f0c8b8f4a77",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/dec2022_authorization_v1/native_adapter/SOURCE_AND_BRANCH_CHECKS.json": "2f0683efc331448c36b55b78a335ae89bdf0f187ce73e625251b5dbc64e1186a",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/dec2022_authorization_v1/independent_review/RELATIVE_CONTEXT_FULL_AUDIT.json": "82d746b136208cf035a7ab5d5cccd893f631d0ad992e751b6678cb971f5bfb16",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/dec2022_authorization_v1/independent_review/RELATIVE_CONTEXT_PREFIX_AUDIT.json": "ccfcede6139a80416d5a3eb263366d77d3d2a930a0366ef845a49d6e99cefb1b",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/dec2022_authorization_v1/independent_review/H2_NATIVE_POSITIVE_PREFIX_AUDIT.json": "50af757bb8796e9efd6883ea596524c2f335b117ec34e140e812dcba19ee9476"
+  },
+  "source_or_parameter_changes_after_execution": 0,
+  "no_live_trading": true
+}

@@ -1,0 +1,38 @@
+只读静态资本竞争诊断：审计入口
+
+先读REPORT.txt；PROTOCOL.txt固定两项原则与日期，FREEZE.json固定分析源。
+本包不包含新策略、账户状态切换、账户构造/恢复、订单或资金回测。
+
+1. ALL1709_DENOMINATOR：两真实日全部股票分母、H1/PVR/NA、原stock Q
+   与fresh入场q分列；全部持仓见HOLDINGS，core受限资本未混入mobile。
+2. COMPETITION：旧合法mobile+当前fresh的唯一stock联合域。用原
+   native_rank.priority_plan AST纯函数，原155/243新意图域排序逐值核同；
+   原全域名次、numeric slot holes、NA anchors、12位同分规则均保留。
+3. REPLACEMENT_PAIRS与PAIR_EVIDENCE：全配对与原A请求/需求关系，均非
+   一一资金归属，也不是B交易。旧无fresh可以保留；未以其q=False删除。
+4. 容量分两口径，不能混用：COMPETITION/SUMMARY沿实际A请求后保存账；
+   SHARED_PRE_ALLOCATION_STATIC是同刻原股票/F1处理后、A新请求前的
+   纯静态约束表。仅剔除同收盘且原因集合纯actionable_S_funding的新锁
+   所产生的附加风险收费；库存、现金、核心、既有/独立责任均不变。
+   这是共同决策点比较，不是撤单/回滚账户。对应最小单位遍历见证为
+   12/5只，保存账口径是另一组12/6只；均非最大名额或资金目标。
+   greedy名额受优先顺序和离散成本影响，不能用数量大小评判优劣。
+5. minimum/as_recorded_executable等JSON字段均是CLOSE价格条件容量，
+   必须连读actual_next_open_execution=UNKNOWN；没有读取下一开盘价或
+   同日HLV来作排序。原prior20容量只是上界；不是实盘/实际可成交承诺。
+6. 2026全1709/90域只读复用原缓存。ALL1709_DISPOSITIONS、全fresh
+   COMPETITION、SECTOR_OPPORTUNITY保留零/未知节点。严格半导体按原
+   sector881121（126身份），电子化学品另列881172。4/30的19个半导体
+   fresh只是S0而非S1，没有按结果放宽。没有2026 G/S金融状态，未补空账
+   或导入旧SC/PVR账。行业名册供给上界不是联合可行配置。
+7. POSTHOC只读固定5/21有效信号价格观察，在排序文件冻结后计算；
+   RANKING_BEFORE_FUTURE_EVALUATION_SHA256核其未变。所有配对保留，
+   重复配对不得当独立胜率；不是交易净收益或持仓一定会保持的假设。
+8. SOURCE_SHA256、ADDITIONAL_SOURCE_SHA256、SHARED_POINT_SOURCE_SHA256
+   绑定原文件；VERIFICATION核原nextsession冻结索引和来源未变。
+   PACKAGE_SHA256冻结本目录所有交付及保留的只读失败/中断证据。
+
+不执行旧研究模块：analyze_static.py仅AST抽取原priority_plan、原纯日期
+规则函数、FeeComponent/FeeSchedule费率算术；不导入Account/Runner。
+shared_point_capacity只使用这些纯计算器与JSON字典，没有金融方法。
+后续实际联合目标求解、卖出排序经济检验仍未就绪；不得以本包晋升策略。

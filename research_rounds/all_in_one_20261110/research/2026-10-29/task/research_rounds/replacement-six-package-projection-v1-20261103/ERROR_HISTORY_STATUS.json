@@ -1,0 +1,8 @@
+{
+  "current_preflight": "PASS",
+  "historical_errors_preserved": [
+    "failures/01_off_unsorted_input",
+    "failures/02_off_C20_separate_budget_guard"
+  ],
+  "financial_events": 0
+}

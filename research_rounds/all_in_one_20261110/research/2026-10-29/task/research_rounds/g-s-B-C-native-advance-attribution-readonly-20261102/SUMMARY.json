@@ -1,0 +1,54 @@
+{
+  "2022": {
+    "B": {
+      "positive_requests": 8,
+      "receiving_industries": 4,
+      "same_day_advance_receiving_industries": 0,
+      "new_mark_capital": "629167.00",
+      "with_same_day_advance_mark_capital": "0",
+      "donor_industries": 22,
+      "same_day_advance_donor_industries": 1,
+      "donor_mark_capital": "729907.00",
+      "saved_net_sell": "728572.5471337754500",
+      "unimplemented_event_gate": true
+    },
+    "C": {
+      "positive_requests": 9,
+      "receiving_industries": 2,
+      "same_day_advance_receiving_industries": 0,
+      "new_mark_capital": "752097.00",
+      "with_same_day_advance_mark_capital": "0",
+      "donor_industries": 21,
+      "same_day_advance_donor_industries": 1,
+      "donor_mark_capital": "731974.00",
+      "saved_net_sell": "730645.6637165469000",
+      "unimplemented_event_gate": true
+    }
+  },
+  "2025_26": {
+    "B": {
+      "positive_requests": 5,
+      "receiving_industries": 5,
+      "same_day_advance_receiving_industries": 0,
+      "new_mark_capital": "441657.50",
+      "with_same_day_advance_mark_capital": "0",
+      "donor_industries": 16,
+      "same_day_advance_donor_industries": 0,
+      "donor_mark_capital": "628265.00",
+      "saved_net_sell": "627422.8285525432500",
+      "unimplemented_event_gate": true
+    },
+    "C": {
+      "positive_requests": 6,
+      "receiving_industries": 4,
+      "same_day_advance_receiving_industries": 0,
+      "new_mark_capital": "463772.20",
+      "with_same_day_advance_mark_capital": "0",
+      "donor_industries": 13,
+      "same_day_advance_donor_industries": 0,
+      "donor_mark_capital": "638443.00",
+      "saved_net_sell": "637597.5920185481500",
+      "unimplemented_event_gate": true
+    }
+  }
+}

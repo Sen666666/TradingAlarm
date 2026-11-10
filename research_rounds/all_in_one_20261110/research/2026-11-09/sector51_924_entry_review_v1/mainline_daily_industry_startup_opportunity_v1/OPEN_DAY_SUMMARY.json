@@ -1,0 +1,50 @@
+[
+  {
+    "original_OPEN": "2024-09-23",
+    "all_rounds": 33,
+    "EVENT_unmodified": 10,
+    "MATURE_T": 0,
+    "MATURE_F": 23,
+    "MATURE_U": 0
+  },
+  {
+    "original_OPEN": "2024-09-24",
+    "all_rounds": 64,
+    "EVENT_unmodified": 36,
+    "MATURE_T": 5,
+    "MATURE_F": 23,
+    "MATURE_U": 0
+  },
+  {
+    "original_OPEN": "2024-09-25",
+    "all_rounds": 35,
+    "EVENT_unmodified": 3,
+    "MATURE_T": 32,
+    "MATURE_F": 0,
+    "MATURE_U": 0
+  },
+  {
+    "original_OPEN": "2024-09-26",
+    "all_rounds": 30,
+    "EVENT_unmodified": 14,
+    "MATURE_T": 16,
+    "MATURE_F": 0,
+    "MATURE_U": 0
+  },
+  {
+    "original_OPEN": "2024-09-27",
+    "all_rounds": 50,
+    "EVENT_unmodified": 37,
+    "MATURE_T": 13,
+    "MATURE_F": 0,
+    "MATURE_U": 0
+  },
+  {
+    "original_OPEN": "2024-09-30",
+    "all_rounds": 10,
+    "EVENT_unmodified": 0,
+    "MATURE_T": 10,
+    "MATURE_F": 0,
+    "MATURE_U": 0
+  }
+]

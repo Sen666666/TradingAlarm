@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "count": 3,
+  "tests": [
+    "only_four_proven_lazy_keys_removed_freeze_first_unknown_fails",
+    "on_disk_empty_vs_baseline_end_proves_four_exact_keys",
+    "each_promotion_only_missing_invalid_or_blocked_candidate_audited"
+  ],
+  "implementation_sha256": "755547e59cce871762523167bf21006033260291d6f0e613876d5c063aa5bc02",
+  "scope": "restart repair and promotion observability only; no account history execution"
+}

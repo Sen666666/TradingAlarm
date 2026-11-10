@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "seconds": 6.477865249849856,
+  "subjects": [
+    "002292.SZ",
+    "300049.SZ",
+    "300255.SZ",
+    "300308.SZ",
+    "300502.SZ",
+    "601326.SH",
+    "603083.SH",
+    "920808.BJ"
+  ],
+  "opportunity_rows": 972,
+  "new_account_replays": 0,
+  "new_indicators": 0
+}

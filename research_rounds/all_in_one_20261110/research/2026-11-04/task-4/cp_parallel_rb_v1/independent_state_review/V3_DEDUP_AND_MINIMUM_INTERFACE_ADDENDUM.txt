@@ -1,0 +1,16 @@
+补充裁决与两种V3的排重范围
+
+当前‘完整CP优化’包装不通过。R/B是可计算诊断及待实现的资格覆层；尚未解决旧高退休、重复试探经济成本、市场许可与真实订单/持仓接线，不能据形态分工预告收益或重大行情参与改善。
+相对已否决的单Q，它去掉路径处罚，让短轴在已确认低点后可支持急V试探；这不等于修复全部V滞后。原E0确认、canonicalCP信用门、次OPEN、B收复旧高、首证仅probe及实际资金/成交限制仍可能延迟。
+
+V3必须用全名：
+1 case-stage-ledger-20261031/v3/joint_v3.py：原No60执行/角色/管理接线基类；本轮实际No60仍叠其既有NoAccount/No60派生route。J244/245原roles已有未持有core与fresh CP mobile；J225–240已有ACT/I/CP旧保护退出顺序。不能把它说成某个待换的保护候选，亦不能把它原有机制重新包装成新R/B成果。
+2 cp_formula_redesign_v1/FROZEN_PROTECTION_V3.txt：本线程纯数学影子的下行尺度保护候选，改变sigmaH与新收盘高抬线；未成为原No60代码。R/B资格分工与此保护式不是同一改动；只在这一精确比较范围可以说作用不同，未穷尽所有名为V3的旧研究。
+
+短接口建议，仅作为待实现契约
+输入：同source E0确认事件(low/high sign、pivot/confirm观察及审计键)，当前R/B及冻结锚ID，原canonicalCP receipt/candidate及其原身份，原域/旧保护/待退资格。非receipt frontier无原candidate时不进入本最小覆层。
+持久市场状态：up_leg(lowID,frozen priorHighID,active/revoked,probe_proposal_issued)、classifiedCP IDs、revocation log；来源不能用原预算池‘probe’名词代替，因为二者不是同一个对象。
+输出：NO_NEW_PERMISSION、PROBE_ONLY、MATURE_ADD_ELIGIBLE、RB_UP_LEG_REVOKED、DOMAIN_OFF；一观察至多一个提案，CP/E0共证合并provenance，不相加。event-1只撤本模块未用上行资格，不撤历史确认、I或已成交仓。
+首次合法R>=1的canonicalCP→PROBE_ONLY；后续不同canonicalCP且B>=0→MATURE_ADD_ELIGIBLE，原保护优先。状态持续/重复消息不是新提案。
+unknown/尚未冻结：原已有CORE/MOBILE持仓如何映射到‘已小试’；proposal emitted与实际fill失败时的marker职责；pending buy撤销/ACK时钟；lower-high跨up_leg是否退休旧全波障碍；精确原风险/交易约束接口。市场classifiedCP只是本模块去重，不能冒称原预算receipt已被消费。
+这些未知不阻碍读诊断，但阻碍把覆层说成可直接执行的完整CP替代。0新状态/账户/参数或后验判断。

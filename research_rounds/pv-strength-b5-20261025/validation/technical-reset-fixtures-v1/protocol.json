@@ -1,0 +1,38 @@
+{
+  "scope": "Pre-execution addendum; original 20 native and 12 policy fixtures unchanged",
+  "schema": "B5 every integer state field is fixed nullable Int64. Legacy ordinary int64 columns are explicitly cast to Int64 before exact comparison; float values and ledger remain unchanged. Prefix checks include exact dtype.",
+  "source_fixture": "research_rounds/pv-strength-b5-20261025/validation/technical-fixtures-v1/native-two_segments.parquet",
+  "source_sha256": "42c9f664c257d8d876cd1b2caac07006bd5fd0517ac688b5c791aeac7ee7b575",
+  "reset_fixtures": [
+    {
+      "name": "reset_pending",
+      "first_segment_rows": 65,
+      "rows": 132,
+      "prefix_lengths": [
+        64,
+        65,
+        66,
+        67,
+        131,
+        132
+      ]
+    },
+    {
+      "name": "reset_active",
+      "first_segment_rows": 66,
+      "rows": 133,
+      "prefix_lengths": [
+        65,
+        66,
+        67,
+        68,
+        132,
+        133
+      ]
+    }
+  ],
+  "derivation": "Take exactly first 65 or 66 rows of s1, then all original s2 rows without modifying any value. First segment ends pending or active.",
+  "generator_sha256": "b229bf6a23d3a67c5d92272f0542fcdb660f2aefd47842638c8906d997857b87",
+  "accounts": 0,
+  "downloads": 0
+}

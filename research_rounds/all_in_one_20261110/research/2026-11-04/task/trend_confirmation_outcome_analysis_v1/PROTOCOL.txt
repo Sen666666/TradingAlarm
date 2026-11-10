@@ -1,0 +1,35 @@
+现有No60计划新买量确认插件：结果解释协议｜2026-11-04
+
+只读本轮已完成实际book，不运行账户，不改producer、审核或冻结源。主线是2022–23/2024绝对亏损、仓位、924及之后损耗；强窗赢家/新主线是必要反例，不以两条都盈利的小差异主导研究。
+固定四臂B(原No60)、UNIFORM50、A_ONLY、A_OR_B；不叠加已停止的成本额度guard。不更改E0/I_target授权、原保护/退出、PVR排序或ACT20+BREAK63恢复。
+插件仅在原合法计划和PVR顺序形成之后，将计划cap/budget乘0.5或1（含合法最小单位向下取整），不独立发买点。
+
+冻结实现与数值审查边界
+按原股票因果可比CLOSE、同原source/观察槽。A：C>=inclusive MA60，且MA60>5槽前MA60。B：C严格fresh cross到20槽布林上轨之上（均值+2×ddof0标准差，前槽未在其上），且EMA10>3槽前EMA10（adjust=False、min_periods10）。A_ONLY取A真时1，否则/未知0.5；A_OR_B取A或B真时1，否则/未知0.5。
+描述的是冻结pandas rolling/ewm实现。已知9个精确数学等号边界和11个m差异，0实际reserve；这不构成精确数学全PASS，也不证明替代分类反事实整账毫无影响。不得根据经济结果修阈值或增容差。
+实际所有newplan multiplier已冻在CLOSE，下一合法OPEN执行；重启从原warm source重建特征，不以restart日重seed。未使用未来回带标签产生信号。
+
+范围和对照
+long：2022Jan4–2024Dec31，726CLOSE，自身年度接续、初始1m。strong：2025Jul1–2026Jun30，242CLOSE，独立fresh1m；不称完整25/26自然年或与前窗连续的2022–26账户。两窗均1709当前A股开发快照池，非PIT/OOS/H股/120万元实盘证明。
+原已审简单ETF MA63/BH/CASH仅复用，无新回测；不同资产和费用合同，execution proxy、不是单因素alpha或替换现有框架的候选。
+
+读表和发布门
+优先复用既存只读Genericreader/原analyze_saved.py::account，按实际终层qty、daily原positions/rawmark、真实tradecash/dividend AR取数；不新建CA、权益或估价engine。旧函数固定242断言仅参数化为expected days。
+原trend full输出没有perarm views时，只在本目录建读取投影：原book可hardlink为B.json.gz，shared daily/balances/opportunities只按account分流并把account标签改B，数值不改；源SHA绑定。不得向producer目录写export、改变任何账。
+必须等DONE.completed及WINDOW_RESULT.passed/actual_end==fixed_full_end，才分析完整窗口；checkpoint时点只作已完成日期元数据，不加载pickle执行任何历史代码。
+
+指标口径
+全四臂ret/CLOSE globalDD/actual fee/whole buy-sell/mean lag及CLOSE市值暴露/held count，另报原nominal mark-floor风险与实际初始名义风险；不能从市值暴露、股数推断实际风险减半。
+初始名义风险=q*max(0,actual execprice−冻结floor/实际成交时已知factor)，分母原decision CLOSE NAV；原滑点在实际execprice中，费用不混入此乘积。跨买单累计risk是周转之和，不是同时风险/最坏损失；未知保留。
+UNIFORM50是计划级半量，不是账户半仓或实际同风险。必须看新补位、更多持股、实际fill/费用、半量后不足最小单位的计划事件；重复stock-role-day不叫独立错失机会。
+完整36月/12季/3年保留，原各年度own NAV，不年reset globalDD；主坏月份和2022–23末/2024末先报。固定924六closeSep24–Oct8与post Oct9–Dec31，按自己实际期初NAV计算收益，期间财富用inventory变化+actualtradecash+已确认div权益；不同起始资金不能只比元金额作每单位质量判断。
+
+解释与复核
+赢家/原固定83/94名单、实际已持有层与后来新增分开，完整正反及新股全集合保留。严格H1半导体为原URFI881121的126成员，不混电子化学品/元件。
+B-only实际orders使用独立logic reviewer已存budget_order键连接A_OR_B真实layer/parts/终余量，区分A_knownfalse_Btrue与unknown；只算其原路径cohort贡献，不把ORB−A_ONLY整个账户差当这些单因果alpha。1/3/5槽回带标签只是事后价格形态，非亏损或新退出。
+不扩二级BB标签engine，不重算指标或账户。原I_target持续授权/退出不在本插件测试内；若原坏月份高暴露和损耗未改善，应明确未修复，不能因强窗两臂都盈利而晋升。
+
+财务与logic分别引用独审：financial PASS不等于精确数学分类PASS。所有尚未独审的派生统计标明本地读表/算术核桥，不称源代码或反事实收益证明。
+
+最终审查范围补充（原文字中的9键/11m/0reserve只适用于当时已完成strong，不适用于之后完成的long）：
+最终两窗logic索引 FINAL_ACTUAL_CONSUMPTION_REVIEW_INDEX.json确认long11个等号键、26条m差异并关联3条实际fill；strong9键、11m、0实际reserve。合计20键/37m，精确数学分类FAIL保留。物理prefix复现冻结pandas及执行时钟PASS独立列示，未跑数值修正整账反事实。完整receipt与SHA见本目录FINAL_REVIEW_SCOPE_ADDENDUM.json，不将旧0reserve文字推广至long；原SOURCE_BINDING历史身份保留。

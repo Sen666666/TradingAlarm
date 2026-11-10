@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-10-22T20:57:56.721466+08:00",
+  "plan_sha256": "abbcfd91ea9b0283d452b29666fe5fd5e0fdaf4a8fb8965494e39a27cd84f154",
+  "code_sha256": "e3ed439b7330b056e3d4452e08021a62f4db5c211aa6eb74710c407f4db9f607",
+  "budget": 1,
+  "credentials_used": false,
+  "requests": [
+    {
+      "sequence": 1,
+      "url": "https://www.sse.com.cn/xhtml/home/2021public/querySearch/search_southboundStock_2021.js",
+      "requested_at": "2026-10-22T20:57:56.721591+08:00",
+      "status": 200,
+      "final_url": "https://www.sse.com.cn/xhtml/home/2021public/querySearch/search_southboundStock_2021.js",
+      "content_type": "application/javascript",
+      "bytes": 158872,
+      "response": "01.body",
+      "sha256": "eed1410daa884591a9a54d0e4a84c5595c11cccfc1cee4b84ffd27d70e7c59c5",
+      "redirects": 0
+    }
+  ]
+}

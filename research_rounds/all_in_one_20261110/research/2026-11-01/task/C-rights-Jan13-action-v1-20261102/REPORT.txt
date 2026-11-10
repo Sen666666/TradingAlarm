@@ -1,0 +1,13 @@
+Jan13 ACTION最小任务收口：STOPPED_UNREGISTERED。两账户已提交并注册的ACTION=0。
+
+2022-C10：一次内存ACTION尝试，原不认购handler返回observed_no_subscription。随后action_runtime.py:117完整状态指纹比较失败（旧7证书重算均已通过）；异常路径执行了pickle回装，但:126回滚财务指纹比较再次失败。不能声称原子回滚验真通过。进程exit1，未落盘任何Jan13 checkpoint、POST_STATE_FIELDS、ACTION_EVIDENCE或可信OUTPUT_REGISTRY。只留下空outputs/2022-C10目录。
+2022-C_BATCH20：未执行ACTION。
+
+已越过的C10程序核验：原handler及外围财务/策略/预算守恒、允许字段差异、单ACTION/日志/审计/回调计数、理论除权参考与保护坐标/数量/实际股比，以及7个真实旧源证书projection。上述仅为失败进程内已通过检查，不等于可恢复输出或独审PASS。
+两原Jan12升级checkpoint的恢复预检已通过，全部14旧证书真实旧源验证。原Jan12注册保持。Jan13输出不存在，跨进程恢复与重复ACTION测试未运行，不能报告完成。
+
+精确阻断：证书重算前后完整字段指纹不相同，且回装后的财务指纹也不相同；失败时未持久化具体字段差异，当前无法区分实际缓存/状态变化与序列化指纹缺陷。纯无事件pickle诊断的prefix与抽样typed金融字段相等，但未消除此阻断。不将怀疑升级为已证原因，不关闭守卫，不改已审N/U内核或原源码，不重试事件。
+无不支持结算或混合批的报错；没有以改规则绕过。两起点002948.SZ实际持股均为0，因此本次即使成功也不能覆盖真实持股配股历史情景。
+
+本次停止：不执行OPEN/CLOSE、不运行2025、不增加一般企业行动、不认购/扣款/增股。原源码、原Jan12账户与既有输出的已绑定哈希复核见CLOSEOUT_SOURCE_CHECKS.json；无原件写入。
+审计入口：ACTION_ATTEMPT_STATUS.json、ACTION_STDERR.txt、ACTION_STDOUT.txt、AUTHORITY_PREFLIGHT.json、NO_EVENT_FINGERPRINT_DIAGNOSTIC.json、CLOSEOUT_SOURCE_CHECKS.json。当前ACTION代码/授权保留为失败稿，不能当通过版本供主接入。

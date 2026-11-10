@@ -1,0 +1,14 @@
+{
+  "status": "PASS_MISSING_2025H1_EXPORT",
+  "stocks": 1709,
+  "industries": 90,
+  "stock_receipts": 9507,
+  "industry_receipts": 708,
+  "score_cells": 199953,
+  "score_NA": 9410,
+  "original_I_CP1_stage_recomputations": 0,
+  "original_PVR_formula_executions": 1709,
+  "account_events": 0,
+  "seconds": 67.43916970910504,
+  "manifest_sha256": "0dd5a96c0c3cd9f27b315b328254e2d6d176fa4487b65c57f202ee4d285c6ad2"
+}

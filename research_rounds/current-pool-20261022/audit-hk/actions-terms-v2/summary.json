@@ -1,0 +1,51 @@
+{
+  "finished_at": "2026-10-23T00:19:03+08:00",
+  "reports": [
+    {
+      "symbol": "UHKGHK8003",
+      "raw_records": 3,
+      "review_window_records": 2,
+      "candidate_terms": 2,
+      "unresolved_records": 0,
+      "unresolved_reasons": {}
+    },
+    {
+      "symbol": "UHKMHK0001",
+      "raw_records": 82,
+      "review_window_records": 30,
+      "candidate_terms": 28,
+      "unresolved_records": 2,
+      "unresolved_reasons": {
+        "in_kind_or_election_unmodeled": 1,
+        "unsupported_cash_or_other_terms": 1
+      }
+    },
+    {
+      "symbol": "UHKMHK0700",
+      "raw_records": 27,
+      "review_window_records": 19,
+      "candidate_terms": 14,
+      "unresolved_records": 5,
+      "unresolved_reasons": {
+        "cash_share_basis_after_split_unverified": 1,
+        "subscription_terms_unmodeled": 1,
+        "in_kind_or_election_unmodeled": 3
+      }
+    },
+    {
+      "symbol": "UHKMHK0770",
+      "raw_records": 18,
+      "review_window_records": 4,
+      "candidate_terms": 0,
+      "unresolved_records": 4,
+      "unresolved_reasons": {
+        "cash_currency_requires_explicit_fx_or_matching_quote_currency": 3,
+        "subscription_terms_unmodeled": 1
+      }
+    }
+  ],
+  "tests_passed": 12,
+  "network_requests": 0,
+  "account_runs": 0,
+  "payment_or_delivery_proxy_decisions": 0
+}

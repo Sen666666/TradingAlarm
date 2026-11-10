@@ -1,0 +1,19 @@
+2023/1/3唯一交易日连续前缀完成，等待独立prefix审查/主审全年go；没有1/4或之后账户事件。
+
+原PVR2022末自身状态→1/3 OPEN→CLOSE；完整输入与物理截断输入两分支完整经济状态、全部事件流、冻结priority键一致；63/26字段导入在两分支分别验证，79条旧意图开盘前全对象不变。原2022历史只追加：daily242→243，opportunity413578→415287，funding40696→40796，industry6008→6045，balance242→243，rank28779→29003；历史交易1630笔未变。完整输入分支新checkpoint已保存并实际restore核同，后续严格从1/3 15:10之后接续，不重跑本前缀。
+
+79条原意图在1/3开盘全部经过原路由：51行业失效、20 probe_risk+sector_capital、8 probe_risk；0预留/0成交，不是跳过开盘。收盘另有21条目标诊断：16条core最小单位限制、5条mobile无名义预算缺口。收盘pending279条全部为1/3新生成、1/4开盘执行的意图：184core、95mobile。旧79条已全部经过路由并到期，不在末pending中；279条意图均尚未资金化，不是已预留买单。
+
+收盘NAV718280.5454426633890，现金251181.2954426633890、分红应收1993.84000，60股70层，无新增成交/费用/拆股/分红到账。独立原交易流权益桥、预算权益/可用现金/预留/池占用/股数差均0；价格mark仍沿原日线代理，不是独立外部报价。1/3收盘603589原mobile保护触发400股待卖责任，尚未实际卖出，下一交易日未运行。已完成支付/应收/权息状态从旧checkpoint逐字段保留；本区间原事件清单无额外action，原结算/支付调用次序不改。
+
+物理分支行情/事实/receipt/行业状态截到1/3，PVR实际值也删掉未来，224次读取最大日期1/3；行业lookup所有截至当日的旧项exact，未来项不混入市场状态。两分支只在扩展输入lookup覆盖元数据不同，经济字段/历史流/新事件完全相同。
+
+运行：加载90.62s；实际单日循环full 0.433s、physical 0.652s；含验证、落盘/恢复共166.96s。未发生本轮工程异常。导入独审PASS原件已复制independent-horizon-import/，本轮仍待prefix独审。
+
+原native SHA=5ec91c2323b2d3b8fa5c99df504139e2ac7af9b5b84359222c3d6353d0cd697c
+原horizon导入 SHA=edd7170bbb184a690fed10f4ab12e5f8c18cd28716dd248ab509034756285218
+有界控制入口 SHA=c656b859cef20025e5a20a5a78fb57f9ab70c98ec9740912b29bbf2c5a3f9f7f
+有界授权 SHA=01e938e49432fb820abe49d4bfa878c2bf69c84a4c306a3985ea8c33a75a7a1c
+完整输入1/3 checkpoint SHA=27d1d3c21e76cbca42f97803ab0f21014769d7aea22ffd6e1d3cb1408d61f0cd
+
+控制入口是单独核root Jan3限定授权后，以固定end=1/3调用原事件循环；H.Continuation原全年run_prepared守卫及旧horizon binding均未改，全年授权文件不存在。新检查点的实际trading class仍H.Continuation，原planning/opening/route及native回调不变；source_freeze另外明确包含有界控制入口和授权，以供后续恢复核同。没有新策略/SC重跑/全年回测。

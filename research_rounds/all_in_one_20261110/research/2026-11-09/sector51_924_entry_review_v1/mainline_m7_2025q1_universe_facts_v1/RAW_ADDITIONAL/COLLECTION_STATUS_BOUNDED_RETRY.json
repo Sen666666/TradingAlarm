@@ -1,0 +1,9 @@
+[
+  {
+    "sid": "000728.SZ",
+    "status": "FAILED_ONE_BOUNDED_ATTEMPT",
+    "error_type": "HTTPError",
+    "error": "403 Client Error: Forbidden for url: https://webapi.cninfo.com.cn/api/sysapi/p_sysapi1139?scode=000728",
+    "transport_status": 403
+  }
+]

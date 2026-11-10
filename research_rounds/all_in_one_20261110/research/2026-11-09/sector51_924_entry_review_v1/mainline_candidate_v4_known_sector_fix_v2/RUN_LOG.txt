@@ -1,0 +1,54 @@
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v4_known_sector_fix_v2/engine.py", line 288, in <module>
+    data=Data();save(O/'FROZEN_INPUTS.json',dict(hashes=data.hashes,engine_sha256=sha(O/'engine.py'),contract_sha256=sha(O/'CONTRACT.md')));save(O/'RUN_STARTED.json',dict(end='2024-10-08',time=str(pd.Timestamp.now(tz='UTC'))));e=Engine(data).run();e.export(O/'once_20241008');save(O/'RUN_STATUS.json',dict(days=len(e.ledger),orders=len(e.orders),blockers=e.blockers,last=e.ledger[-1] if e.ledger else None));print(json.dumps(read(O/'RUN_STATUS.json')))
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v4_known_sector_fix_v2/engine.py", line 16, in __init__
+    super().__init__(end)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v3_core_reference/engine.py", line 28, in __init__
+    super().__init__(end)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v2_pending_quote_pause/engine.py", line 18, in __init__
+    super().__init__(end)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v1/engine.py", line 58, in __init__
+    super().__init__(end)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/joint51_candidate_v9_facts/engine.py", line 56, in __init__
+    k=pd.read_parquet(hashed(Q/'KNOWN3.parquet'))[self.ids].loc[:self.end];r=pd.read_parquet(hashed(Q/'RIGHT3.parquet'))[self.ids].loc[:self.end]
+      ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bytedance/Library/Python/3.13/lib/python/site-packages/pandas/io/parquet.py", line 668, in read_parquet
+    impl = get_engine(engine)
+  File "/Users/bytedance/Library/Python/3.13/lib/python/site-packages/pandas/io/parquet.py", line 68, in get_engine
+    raise ImportError(
+    ...<7 lines>...
+    )
+ImportError: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - `Import pyarrow` failed. pyarrow is required for parquet support. Use pip or conda to install the pyarrow package.
+ - `Import fastparquet` failed. fastparquet is required for parquet support. Use pip or conda to install the fastparquet package.
+DAY 2024-09-02 orders=0 tickets=0 NAV=1200000
+DAY 2024-09-03 orders=27 tickets=74 NAV=1205921.0459334310000
+DAY 2024-09-04 orders=83 tickets=39 NAV=1206023.3414194342000
+DAY 2024-09-05 orders=101 tickets=24 NAV=1206985.2673301559000
+DAY 2024-09-06 orders=148 tickets=28 NAV=1196311.5086716259145
+DAY 2024-09-09 orders=211 tickets=22 NAV=1195975.9507324484085
+DAY 2024-09-10 orders=219 tickets=14 NAV=1194993.2035157121085
+DAY 2024-09-11 orders=227 tickets=0 NAV=1195577.2595686275085
+DAY 2024-09-12 orders=230 tickets=0 NAV=1195302.3726115052085
+DAY 2024-09-13 orders=234 tickets=2 NAV=1193986.3204835460585
+DAY 2024-09-18 orders=236 tickets=0 NAV=1195810.9791982701085
+DAY 2024-09-19 orders=240 tickets=14 NAV=1195972.8953582667585
+DAY 2024-09-20 orders=243 tickets=24 NAV=1196617.4664009411585
+CHECKPOINT {"day": "2024-09-23", "cash": "790694.6325162118585", "receivable": "0.00", "market_value": "407446.00", "NAV": "1198140.6325162118585", "net_liquidation_NAV": "1197493.0285303561585", "stocks": 42, "shares": 61500, "weight_pct": "34.00652552316198242291216133", "fees_paid": "1994.0819887881415"}
+DAY 2024-09-23 orders=277 tickets=47 NAV=1198140.6325162118585
+DAY 2024-09-24 orders=333 tickets=163 NAV=1221518.5797292015765
+DAY 2024-09-25 orders=375 tickets=171 NAV=1226821.3141672036905
+DAY 2024-09-26 orders=415 tickets=257 NAV=1284164.0705617902405
+CHECKPOINT {"day": "2024-09-27", "cash": "144555.6952042587335", "receivable": "0.000", "market_value": "1203958.50", "NAV": "1348514.1952042587335", "net_liquidation_NAV": "1346656.7991480036585", "stocks": 114, "shares": 166046, "weight_pct": "89.28037274517803955090143891", "fees_paid": "3272.1419707412665"}
+DAY 2024-09-27 orders=458 tickets=844 NAV=1348514.1952042587335
+CHECKPOINT {"day": "2024-09-30", "cash": "146292.4010160991635", "receivable": "0.000", "market_value": "1309379.60", "NAV": "1455672.0010160991635", "net_liquidation_NAV": "1453766.7363726553435", "stocks": 98, "shares": 152934, "weight_pct": "89.95018102196215652077575005", "fees_paid": "3592.8904589008365"}
+DAY 2024-09-30 orders=496 tickets=862 NAV=1455672.0010160991635
+CHECKPOINT {"day": "2024-10-08", "cash": "165988.3681868895885", "receivable": "0.000", "market_value": "1376488.92", "NAV": "1542477.2881868895885", "net_liquidation_NAV": "1540542.7747955094745", "stocks": 87, "shares": 143137, "weight_pct": "89.23884523564031170078142286", "fees_paid": "3759.5135381104115"}
+DAY 2024-10-08 orders=515 tickets=921 NAV=1542477.2881868895885
+{"days": 20, "orders": 515, "blockers": [], "last": {"day": "2024-10-08", "cash": "165988.3681868895885", "receivable": "0.000", "market_value": "1376488.92", "NAV": "1542477.2881868895885", "net_liquidation_NAV": "1540542.7747955094745", "stocks": 87, "shares": 143137, "weight_pct": "89.23884523564031170078142286", "fees_paid": "3759.5135381104115"}}

@@ -1,0 +1,29 @@
+原CP公式本体与盈新2022-01-04—02-08输入（只读，账户0）
+
+本目录仅提取原21个交易日输入/CP缓存/41条原持层收盘保护记录；不运行calculate/features/project、Market/Account/Runner或EMA，不计算新影子公式、信号、资金/订单、替代收益。旧实际买卖只是历史标签。
+
+原式（绝对源码/逐字片段见ORIGINAL_FORMULA_AND_EFFECTIVE_PROTECTION_SOURCE.txt）：
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py
+- :5–8 A=√5，K=√21，S_MIN=log(1.001)。EPS=4·2^-53/(1−4·2^-53)；ge允许EPS相对容差，gt排除同容差内差异。
+- :20–24 在每个source segment内：r_t=log(C_t)-log(C_{t−1})；s_t=max(1e−8,1.4826·median(|r_{t−63}|,…,|r_{t−1}|))；z_t=max(s_t,log(1.001))。B_t=median(amount_{t−21},…,amount_{t−1})；u_t=tanh(r_t/s_t)；v_t=tanh(log(amount_t/B_t))；m_t=1+0.5·|u_t|·v_t。C是原signal调整价close_a，amount是成交额CNY，不是volume股数。s/z/B不含当日输入，u/v/m包含当日CLOSE价格/成交额。
+- :29–38 p_t=log(C_t)。source改变、未ready或e0_valid=false使状态失活；首次活跃/原e0_down事件令phase=SEEK，anchor=frontier=p_t、credit=0、scale=z_t；SEEK出现更低p时同样重置并重新冻结scale。日常不按新s/z下调既冻结scale。
+- :40–45 fresh=max(p_t−旧frontier,0)，按原gt容差；有fresh才frontier=p_t、credit=fsum(旧credit,fresh·m_t)。displacement=frontier−anchor。receipt同时要求fresh>0、displacement≥√5·冻结scale、credit≥√5·冻结scale，沿原ge容差。只有receipt日输出candidate_a=C_t·exp(−√21·冻结scale)。
+- :46–50 保存出票前used_anchor/used_scale/used_credit/used_phase；receipt后置phase=UP、anchor=frontier=p_t、credit=0、next_scale=当日z。原scale/credit与next_scale/next_credit代表两个时钟，不能把出票后清零的credit当作本次触发输入。
+
+实际输入命名：
+同目录common.py:17–24：原e0_valid取facts.i_target，导出e0_floor取I_floor；e0_down来自原已确认向下事件。它不是直接的facts.e0_target开关，也不表示I已退出。当前本股refs.CP1_input同时保存close/segment_id/i_target/i_floor/amount/e0_down/e0_valid，已经逐日核同实际原表。原CP算法本体不读持仓、已实现盈亏或账户资金。
+
+原数据已具备：
+- 21日close_a/raw/factor与成交额；r/s/z/B/u/v/m全部已存，CP全21日ready；active scale共17日。
+- Jan4/5和Feb7/8原I无效，anchor/scale等null是合法失活状态，不是缺数；非receipt日candidate=null是原定义。
+- 原e0_down在Jan17、Jan26，会重置CP；当时I未因此直接退出。
+- 9个原receipt：Jan7/10/11/12/13/20/21/24/25。其余日完整保留，未只挑买成或亏损日。
+- 原CP1 parquet 21行与此前original_CP_cache逐字段完全相等；原CP输入close/amount/I有效开关与既有原case字段完全相等。没有重算来证明自己。
+- 原CP1_input从2013-01-04已有3241行；仅本段21天不足以独立重算滞后63回报尺度/21成交额基线，但完整暖历史已经存在且源SHA已固定，本轮不调用模型。每日s/z和本段冻结scale分别导出，不把原robust median尺度写成RMS。
+- 原source未保存供应商received_at/known_at；15:10是原协议CLOSE钟，不是认证接收时刻。每个非receipt状态的anchor日期未显式导出；canonical收据的原形成段/ID另保留，不补造日期。
+
+原持层保护接线：
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py:225–240：先I失效或ACT退出所有层；否则CORE更新last_core_line，不由CP收紧；Mobile先用旧x.floor检查close<=floor，破则退出，未破才max旧floor、当前I_floor和新CP候选。该次新CP不能先抬线再回填成刚才已触保护。:302–307将原请求交下一原OPEN尝试成交。
+保护表逐层保留原before/after raw与调整线、真实numeric advance、exit latched及原请求；原OPEN卖16200在Jan20、卖9900在Feb8。Jan27 CP9800先请求，Feb7 I失效才加入CORE100；候选线不是当日已成交保护保证。没有替换原保护或模拟新退出。
+
+文件：ORIGINAL_CP_21_DAILY_INPUTS_AND_STATES.csv（21日价格/成交额/特征/原状态）；ORIGINAL_HELD_LAYER_PROTECTION_BY_CLOSE.csv（41层日）；ORIGINAL_21_DAILY_RAW_RECORDS.json（含原CP input/output、canonical、原层与实际旧请求/成交）；FIELD_AVAILABILITY_AND_SCOPE.json；SOURCE_SHA256.json；OUTPUT_SHA256.json。candidate_raw_display仅为原candidate_a/当日factor展示，不能当新订单或成交价。

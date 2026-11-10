@@ -1,0 +1,61 @@
+H1归因与H*/S*静态诊断：任何新分数/排名计算前固定
+
+优先级
+先交原H1/PVR源码、真实缓存和三日旧候选/原拒因；不能把遗漏统一归因H1，不能用新分数掩盖原许可/资金阻挡。
+首批三日为2024-09-24、2026-01-15、2022-01-24，均由根在读取新分数前固定。
+不跑账户。新结果只为可复核静态诊断，不宣称全市场、PIT、收益改善或可成交。
+
+正式定义与静态代理分开
+父H*=.25 p(RS_ind20)+.25 p(RS_ind5)+.25 p(Breadth20)+.25 p(share_change)。
+父S*=.4 p_within(PVR)+.3 p_within(RS_stock20)+.2 p_within(drawdown20)+.1 p_within(amount_change)。
+权重均固定研究假设，不拟合/挑优。本轮不另算其它权重组合。
+历史行业成员与历史完整市场池缺失，所以formal PIT H*/S*字段保持unknown。
+计算另名Hstar_static/Sstar_static，为2026-10-22原静态1709池/当前行业桥条件比较，不填充formal字段。
+真实行业价格指数用于RS；广度和金额份额只用同一可得股票子池，不用当前成员造历史价格指数。
+
+共同数据/流动性子池U_t
+同一CSI300共同会话日历，原prepared信号OHLC为理论除权坐标，原amount为CNY，raw保留作一价风险。
+只用T及此前。需过去25个共同会话（t-24..t）原observed、price_eligible、finite positive OHLC/volume/amount、
+非synthetic、非source_invalid且单segment；缺一则不在这次共同可得子池，原因/计数必须另报，不能0补。
+历史流动性初值：此前21会话amount中位>=20,000,000 CNY，且此前5会话amount平均>=10,000,000 CNY；
+这两个先验量级不是已验证交易容量，不使用当日一次放量补足历史流动性。
+这些不足直接列eligibility缺口，不能默默当为弱分。原1709还来自2026当前市值筛选，非历史全A股。
+
+Hstar_static原量
+RS_ind,h=ln(I_t/I_t-h)-ln(CSI300_t/CSI300_t-h)，h5/20，同一端点，不压缩/填缺失。
+Breadth20=该静态行业U_t中C_t>SMA20(t-19..t)的股票数/该行业U_t数，严格>，分母0未知。
+广度保留原Nstatic、Nobserved、N25valid、Nliquid；小样本不冒充完整行业证据，不另设事后N门。
+成员固定为U_t在这整个25日比较窗，静态industry映射固定为T已存当前桥；只能称静态共同子池广度/金额份额。
+N_k,j=sum_{s in U_t and static_sector=k} amount_s,j，D_j=sum_{s in U_t} amount_s,j。
+share5=Σ_{j=t-4..t}N_k,j/Σ_{j=t-4..t}D_j；
+share20=Σ_{j=t-24..t-5}N_k,j/Σ_{j=t-24..t-5}D_j（与近5不重叠）；
+share_change=share5/share20-1。分母<=0未知，不用每日份额均值替换聚合金额份额。
+不使用URFI行业index金额跨行业相加：原源声明其turnover units仅支持同序列比率；CSI300 amount也不是全市场金额。
+行业四项均已知时才参与同日行业mid-percentile，所有四项使用同一known行业集合；
+p=(#值更低+.5#相同)/N，数值0—1，tie同分；N=1时.5，未知不排末位。
+Hstar_static为四个p各.25。保留N行业分母与formal_unknown原因。
+
+Sstar_static原量与分位母体
+PVR必须取真实score-cache.score/原PVR_score，不得读交易兼容字段trade.pvr或intent.score（它们是H1）。
+RS_stock20=ln(C_t/C_t-20)-ln(I_t/I_t-20)。同业分位与同业20日自身回报分位相同，非新增独立行业信息。
+drawdown20=min(0,ln(C_t/max(High_t-20..t-1)))；前20不含T，突破以上都为0，不奖励越追高。
+amount_change=ln(amount_t/median(amount_t-21..t-1))，与PVR金额调制共享输入，不能称独立确认。
+先对U_t中原合法信号与四项都已知者，在同业同日同一集合求四个mid-percentile，再按父权重计算Sstar_static。
+原合法信号=原source core_Q为True OR (原canonical CP存在 AND 原mobile_Q为True)。
+原core持有/epoch、pending、ACT、行业/资金路由不因新分数消失，按原记录并列展示；缺旧Q不以i_buy代造合法。
+同时输出原合法分位集合N，单候选各p=.5，小集合排序不冒充置信度足够。
+若为理解发现能力另展示非合法股，只能单列watchlist，不能混入可申请名单或p分母。
+
+两通道与不同于简单跨行业总分的最小结构建议（不产生订单）
+MAIN：原合法信号且原E0/I有效；按行业Hstar_static前5行业，每行业Sstar_static前2，行业第1轮/第2轮轮询。
+START：原合法信号且原E0 entered=True或当日原positive E0 event；明确分首次域启动与有效域内结构再启动。
+START不必先在MAIN前5行业，保留前10个Sstar_static并以行业p(RS5)、sid确定并列先后；此为发现启动候选单榜。
+同股出现在两榜时标两种证据来源但不双算候选/申请；首次资格不能按重复CP每日重命名。
+行业轮询思想在旧admission _priority已存在，当前No60 J.planning未使用；不把复用称全新发明。
+这只是可审查的分层选择建议，首批不拿两通道表现反向改H*/S*权重。
+
+巨涨/交易时钟
+原T raw O=H=L=C且signal log变化>0，标one_price_up_T=True，只能称日线一价上涨，不伪造真实涨停状态。
+在发现榜可保留并标watch_only，不算已证可成交。不存在历史limit/ST/盘口队列时execution_status=UNKNOWN。
+T+1原日线仅作事后可得性/一价风险注释，不参与T分数；其OPEN/H/L/V不能回填成当时已知排序信息。
+收盘证据最早下一合法OPEN提出执行；新买股份T+1可售另约束。不开账户、不自动买入、不假设一字票能成交。

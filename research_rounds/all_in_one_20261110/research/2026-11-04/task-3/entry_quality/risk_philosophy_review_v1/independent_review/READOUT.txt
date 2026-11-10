@@ -1,0 +1,5 @@
+No60 的 shared_loss_budget=20000、exhausted_policy=record_only 是累计损耗记账，不是2万元硬停。实际 request/migrate/route 已核，不只读未启用模型。gross负损与买卖费按行业/原episode累计，正收益不冲抵；record_only 同时跳过耗尽撤单和新请求拒绝，ACT20为另一套规则。
+
+银之杰1963：Oct10买300@49.874925；当日收盘37.76低于已知保护线约41.023422，CP退出待执行，名义mark-to-floor风险0，但300股/11328元市值仍入资本与真实NAV。Oct11先全部卖300@30.194895，再进入其他新reserve/buy；原账同日也没有该股新买。损失5920.08元证明跳空与执行尺度不能由名义保护距离保证，不证明未退出本金被风险0腾挪重用。
+
+退出请求不删除旧仓；open/cancel_pending买单在ack前不释放原reserve。same-stock exit_pending与每次opening done是实际屏障，done不是永久全日封禁。跨股风险额度重用仅为源码可能，实际用途未审，不可把本例当资金挤占或超额风险证据。本审0模型/0账户/0回测/0shadow投影。

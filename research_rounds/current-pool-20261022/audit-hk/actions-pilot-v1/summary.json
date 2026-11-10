@@ -1,0 +1,57 @@
+{
+  "created_at": "2026-10-23T00:14:20+08:00",
+  "totals": {
+    "raw_records": 130,
+    "candidate_events_in_window": 33,
+    "unresolved_records_in_window": 6,
+    "ignored_outside_window": 91
+  },
+  "symbols": [
+    {
+      "symbol": "UHKGHK8003",
+      "origin": "2013-01-02",
+      "last": "2026-10-22",
+      "raw_records": 3,
+      "candidate_events": 2,
+      "unresolved_records": 0,
+      "unresolved_reasons": {}
+    },
+    {
+      "symbol": "UHKMHK0001",
+      "origin": "2013-01-02",
+      "last": "2026-10-22",
+      "raw_records": 82,
+      "candidate_events": 28,
+      "unresolved_records": 2,
+      "unresolved_reasons": {
+        "in_kind_or_election_unmodeled": 1,
+        "unsupported_cash_or_other_terms": 1
+      }
+    },
+    {
+      "symbol": "UHKMHK0700",
+      "origin": "2023-10-04",
+      "last": "2026-10-22",
+      "raw_records": 27,
+      "candidate_events": 3,
+      "unresolved_records": 0,
+      "unresolved_reasons": {}
+    },
+    {
+      "symbol": "UHKMHK0770",
+      "origin": "2013-01-02",
+      "last": "2026-10-22",
+      "raw_records": 18,
+      "candidate_events": 0,
+      "unresolved_records": 4,
+      "unresolved_reasons": {
+        "cash_currency_requires_explicit_fx_or_matching_quote_currency": 3,
+        "subscription_terms_unmodeled": 1
+      }
+    }
+  ],
+  "network_requests": 0,
+  "account_runs": 0,
+  "algorithm_changes": 0,
+  "payment_or_delivery_proxy_decisions": 0
+}

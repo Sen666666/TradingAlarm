@@ -1,0 +1,26 @@
+{
+  "at_UTC": "2026-11-04T10:01:07.699962+00:00",
+  "before_MA_feature_labels_and_results": true,
+  "account_events": 0,
+  "protocol_sha256": "58fd99a563ace65caee4dc2bfd7d82d0318caad00d3de088f4061e86fff8cdbc",
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/MA63_DIAGNOSTIC_PROTOCOL.txt": "58fd99a563ace65caee4dc2bfd7d82d0318caad00d3de088f4061e86fff8cdbc",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/continuation2024_finance/analysis/2022_2024/PVR_SLOT1/LAYERS.json": "8f6113a333c6f6382375377874b32d8581708a8aa5fa8466bd4161aabb565735",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/continuation2024_finance/analysis/2022_2024/PVR_NO_CONFIRMED60/LAYERS.json": "5799e71dc05a8d94cfab0a14801b7aad0fb98a3726e8140f3e026983c4c2d80c",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/pvr_pool_results_2025_26/analysis/2025_26/PVR_SLOT1/LAYERS.json": "c8847a4e163a200854ed047e06f4c05d4d22b823d699d4769e659d494f9798d7",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/pvr_pool_results_2025_26/analysis/2025_26/PVR_NO_CONFIRMED60/LAYERS.json": "cf3eb8e5934148f6344c05b5733a5b7dbe22b95551d37386b651427ac568bb6c",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/INDUSTRY_MANIFEST.json": "339c89777f488b3bbd5685cd93e38ad47748585b783808e7da35c685ad0775cd",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/absolute-direction-diagnostic-20261031/analyze.py": "ba13c539fab9f849fc473905e9fc3e5ed953172257651c8d16834f10f57a6b42",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/absolute-direction-diagnostic-20261031/READOUT.txt": "0324efe9d7111fa198c56f385d34643967b0adf6298adc89eca27ed8a26114a6",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/stage-progress-R-diagnostic-20261031/READOUT.txt": "28e2c0eba2caf489c1b306d92063bcfde841de8ed1a12cc4732bb26cf857ef38",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/INPUT_FREEZE.json": "f61be5667fcde7d695662d44f64546b7e006f5369470aee9712af9cdf98fb825",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/inputs/510300_history.csv": "fb6754b16fbfecb02bdb2fc9ff7e34546640009d268fc6b7896fd511530b8e41",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/three-layer-prototype-20261024/inputs/USHJ510300.parquet": "87634d3f63fdbd0133e634cb6f00ad0567b48458e8930f269d5ca4cd8645a4a2",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/market_phase_2022_2023/HS300_ALL_LEGS.json": "49686ccf17e453280e7e29a109aa09dc3b49d628033baa101de6d548a740c243",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/continuation2024_finance/PHASES_924.json": "bed9cf7c47da246080136dc21f51cd585b712fc45b444cb38c086a54827053bf",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/cycle2024/no60/run-2024/pair/B.json.gz": "0f29f72cebb8d2ea4f1cf576c0a3fded90f747b58b5439b52564a57c31886440",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/runs/2025_26/pair/B.json.gz": "932b843daa6b207d43eae4f773442b886c0fda9181c41bf34dac5f91dec76147"
+  },
+  "fixed_tail_membership_recipe": "all saved original PVR LAYERS whole-life net/actualbuycash>=.30; fixed before MA labels, full2024 cohort not claimed pre2024"
+}

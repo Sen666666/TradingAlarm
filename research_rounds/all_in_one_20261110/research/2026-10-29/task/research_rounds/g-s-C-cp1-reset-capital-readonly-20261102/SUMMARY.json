@@ -1,0 +1,246 @@
+{
+  "2025_26-C10": {
+    "RESET_SEEK_REPAIR": {
+      "events": 860,
+      "stocks": 741,
+      "Q_pass": 857,
+      "Q_unknown": 3,
+      "Q_false": 0,
+      "C_requested": 846,
+      "C_positive": 17,
+      "C_actual_reserved": 16,
+      "C_actual_filled": 16,
+      "original_max_gross": "81565724.831175",
+      "planned_gross": "853812.612960",
+      "actual_buy_gross": "749877.751500",
+      "layers": 18,
+      "entry_classes": {
+        "first": 15,
+        "reentry": 2,
+        "add": 1
+      },
+      "role_pool": {
+        "mobile|confirmed|S": 14,
+        "mobile|confirmed|G": 2,
+        "core|probe|T": 2
+      },
+      "actual_realized": "481.1712720777295",
+      "unrealized": "4.7853495520650",
+      "booked_dividend": "0",
+      "closed_positive": "14513.5465923765500",
+      "closed_negative": "-8435.5650742884580",
+      "open_layer_contribution": "-5592.0248964582975"
+    },
+    "UP_CONTINUATION": {
+      "events": 2221,
+      "stocks": 1049,
+      "Q_pass": 2216,
+      "Q_unknown": 5,
+      "Q_false": 0,
+      "C_requested": 2205,
+      "C_positive": 64,
+      "C_actual_reserved": 59,
+      "C_actual_filled": 57,
+      "original_max_gross": "212187927.383220",
+      "planned_gross": "4158644.583150",
+      "actual_buy_gross": "3849475.776000",
+      "layers": 85,
+      "entry_classes": {
+        "first": 68,
+        "reentry": 7,
+        "add": 10
+      },
+      "role_pool": {
+        "mobile|confirmed|S": 46,
+        "core|probe|T": 6,
+        "mobile|confirmed|G": 11,
+        "mobile|probe|T": 22
+      },
+      "actual_realized": "-83612.11828065010900000000000",
+      "unrealized": "5305.073270659844000000000000",
+      "booked_dividend": "42.8000",
+      "closed_positive": "44943.86459235554100000000000",
+      "closed_negative": "-128513.1828730056500",
+      "open_layer_contribution": "5305.0732706598440"
+    },
+    "SEEK_ORIGIN_UNKNOWN": {
+      "events": 178,
+      "stocks": 178,
+      "Q_pass": 178,
+      "Q_unknown": 0,
+      "Q_false": 0,
+      "C_requested": 178,
+      "C_positive": 6,
+      "C_actual_reserved": 5,
+      "C_actual_filled": 5,
+      "original_max_gross": "17424098.575440",
+      "planned_gross": "296586.219000",
+      "actual_buy_gross": "293176.515000",
+      "layers": 7,
+      "entry_classes": {
+        "first": 7
+      },
+      "role_pool": {
+        "mobile|confirmed|G": 4,
+        "mobile|probe|T": 1,
+        "mobile|confirmed|S": 1,
+        "core|probe|T": 1
+      },
+      "actual_realized": "-1395.1652108682500",
+      "unrealized": "-17.4332534144000",
+      "booked_dividend": "13.16800",
+      "closed_positive": "3024.2047256138000",
+      "closed_negative": "-4419.3699364820500",
+      "open_layer_contribution": "-4.2652534144000"
+    },
+    "START_SEEK_FIRST": {
+      "events": 77,
+      "stocks": 77,
+      "Q_pass": 77,
+      "Q_unknown": 0,
+      "Q_false": 0,
+      "C_requested": 77,
+      "C_positive": 1,
+      "C_actual_reserved": 1,
+      "C_actual_filled": 1,
+      "original_max_gross": "7341122.987130",
+      "planned_gross": "97728.840000",
+      "actual_buy_gross": "97048.500000",
+      "layers": 1,
+      "entry_classes": {
+        "first": 1
+      },
+      "role_pool": {
+        "mobile|confirmed|G": 1
+      },
+      "actual_realized": "-2993.1727397400000",
+      "unrealized": "0E-13",
+      "booked_dividend": "0",
+      "closed_positive": "0",
+      "closed_negative": "-2993.1727397400000",
+      "open_layer_contribution": "0"
+    }
+  },
+  "2025_26-C_BATCH20": {
+    "RESET_SEEK_REPAIR": {
+      "events": 860,
+      "stocks": 741,
+      "Q_pass": 857,
+      "Q_unknown": 3,
+      "Q_false": 0,
+      "C_requested": 846,
+      "C_positive": 16,
+      "C_actual_reserved": 16,
+      "C_actual_filled": 16,
+      "original_max_gross": "83061620.525235",
+      "planned_gross": "672674.429130",
+      "actual_buy_gross": "648367.721850",
+      "layers": 18,
+      "entry_classes": {
+        "first": 15,
+        "reentry": 2,
+        "add": 1
+      },
+      "role_pool": {
+        "mobile|confirmed|S": 14,
+        "mobile|confirmed|G": 2,
+        "core|probe|T": 2
+      },
+      "actual_realized": "1738.9606644697640",
+      "unrealized": "138.9184233165450",
+      "booked_dividend": "0",
+      "closed_positive": "10570.2652705601000",
+      "closed_negative": "-8831.3046060903360",
+      "open_layer_contribution": "138.9184233165450"
+    },
+    "UP_CONTINUATION": {
+      "events": 2221,
+      "stocks": 1049,
+      "Q_pass": 2216,
+      "Q_unknown": 5,
+      "Q_false": 0,
+      "C_requested": 2205,
+      "C_positive": 64,
+      "C_actual_reserved": 59,
+      "C_actual_filled": 58,
+      "original_max_gross": "215808229.999905",
+      "planned_gross": "3425514.271185",
+      "actual_buy_gross": "3244980.689505",
+      "layers": 93,
+      "entry_classes": {
+        "first": 76,
+        "reentry": 7,
+        "add": 10
+      },
+      "role_pool": {
+        "mobile|confirmed|S": 47,
+        "core|probe|T": 11,
+        "mobile|confirmed|G": 11,
+        "mobile|probe|T": 24
+      },
+      "actual_realized": "-60525.21194349077800000000000",
+      "unrealized": "22832.84162607783500000000000",
+      "booked_dividend": "642.6400",
+      "closed_positive": "27641.75769303741200000000000",
+      "closed_negative": "-97604.7335675175885",
+      "open_layer_contribution": "32913.2455570672335"
+    },
+    "SEEK_ORIGIN_UNKNOWN": {
+      "events": 178,
+      "stocks": 178,
+      "Q_pass": 178,
+      "Q_unknown": 0,
+      "Q_false": 0,
+      "C_requested": 178,
+      "C_positive": 6,
+      "C_actual_reserved": 5,
+      "C_actual_filled": 5,
+      "original_max_gross": "17468115.572940",
+      "planned_gross": "296586.219000",
+      "actual_buy_gross": "293176.515000",
+      "layers": 7,
+      "entry_classes": {
+        "first": 7
+      },
+      "role_pool": {
+        "mobile|confirmed|G": 4,
+        "mobile|probe|T": 1,
+        "mobile|confirmed|S": 1,
+        "core|probe|T": 1
+      },
+      "actual_realized": "-77.9308836545500",
+      "unrealized": "-17.4332534144000",
+      "booked_dividend": "13.16800",
+      "closed_positive": "3024.2047256138000",
+      "closed_negative": "-3102.1356092683500",
+      "open_layer_contribution": "-4.2652534144000"
+    },
+    "START_SEEK_FIRST": {
+      "events": 77,
+      "stocks": 77,
+      "Q_pass": 77,
+      "Q_unknown": 0,
+      "Q_false": 0,
+      "C_requested": 77,
+      "C_positive": 1,
+      "C_actual_reserved": 1,
+      "C_actual_filled": 1,
+      "original_max_gross": "7455406.070115",
+      "planned_gross": "4886.442000",
+      "actual_buy_gross": "4852.425000",
+      "layers": 1,
+      "entry_classes": {
+        "first": 1
+      },
+      "role_pool": {
+        "mobile|confirmed|G": 1
+      },
+      "actual_realized": "-157.7466229870000",
+      "unrealized": "0E-13",
+      "booked_dividend": "0",
+      "closed_positive": "0",
+      "closed_negative": "-157.7466229870000",
+      "open_layer_contribution": "0"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-30T08:29:48.766079+00:00",
+  "before_forward_labels_computed": true,
+  "fields_fixed_before_outcomes": true,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-repair-R-observation-20261030/PROTOCOL.txt": "411f54e24c9f0ba1d2a4c0ff5ef4119cd5da28eebca599739b98c275087e98e2",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-repair-R-observation-20261030/features-before-forward-labels.csv": "fac2a0a42aafbb6a635dc5b3a1b2f97b012b81faaad8f7611e8924cbb2ee9952",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-repair-R-observation-20261030/all-E0-period-identities.csv": "ed067f14406d5c7b0ee4a095939519a2d776bf9592490aed8e6bb5dc91574551",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-repair-R-observation-20261030/SIX_CASE_VERIFICATION.json": "23fbde047af6b499f71042d399bfc5f4759f932369b0a480ae508d04bb4fd98c"
+  }
+}

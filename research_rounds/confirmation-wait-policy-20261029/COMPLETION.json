@@ -1,0 +1,18 @@
+{
+  "status": "explicit_tradeoff_not_promoted",
+  "mother": 1917,
+  "ledgers": 11502,
+  "unknown": 0,
+  "primary": "B_minus_C",
+  "base_delta": "-248346.1996970378015",
+  "cost2_delta": "-248151.4280203962060",
+  "B_switches": 876,
+  "BC_exit_request_changes": 493,
+  "BC_actual_sale_time_changes": 491,
+  "successful_full_runs": 1,
+  "new_portfolio_paths": 0,
+  "post_result_rule_changes": 0,
+  "total_economic_runtime_seconds": 22.02631679130718,
+  "wall_seconds": 674.35736,
+  "next_experiment_started": false
+}

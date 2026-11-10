@@ -1,0 +1,26 @@
+2022两原Jan12 CLOSE的无事件配股接线升级，等待独审后由主线程显式使用。原版本先恢复验真，再升级；没有运行Jan13或任何新历史ACTION/OPEN/CLOSE，没有改变原源码/历史账户/原产物，没有读取、恢复或对2025账户checkpoint算hash。只读取共同源代码及包含路径的原索引metadata；2025主流程不受本包写入影响。
+
+两个原checkpoint分别是c04ad34ec452f6663b2c640136b1c94de15ea708843263ac0220043518895158（C10）、3a36c7c1cb2ef233f6fb2e99fc4f8715f64aa5cd838da928773d23ae2f9d18bf（C_BATCH20）。以真实month_runtime.MonthRunner.restore检查原checkpoint/provenance、精确类/源/input/mode身份和所有旧C证书，原版本恢复验真5.28秒；原源代码/manifest/hash均未改。ORIGINAL_SELECTION.json与ORIGINAL_BASELINE.json冻结原对象身份和前缀，原source40条核同。
+
+每个原账户有7张C证书，日期为Jan4/5/6/7/10/11/12。Jan4/5/6在month_old_certificates中；Jan7/10/11/12不在。新版全部7张均经真实旧MonthRunner视图重算，不能只处理旧子集：view为object.__new__(原M.MonthRunner)，inputs为保留的独立原M.MonthInputs；账户仅copy镜像以使owner/inputs正确，不构造新金融账户。原MonthRunner再沿其未改的month/horizon/provider旧证书层级选择真实旧来源/输入，原verify_native原样验证certificate/mode/source/trusted/snapshot/receipt/projection，并调用原_solve重算Q/D。14个重算result hash逐张等于原projection_hash；8张Jan7–12完整覆盖。证书和trusted银行整体hash原值保持，不改证书，不把source换成新类，不缓存PASS替代重算。
+
+升级仅为原对象赋新runner/input类、保留原输入镜像并记录rights_upgrade_record；账户类仍是原M.MonthAccount，金融账户没有重新初始化。输入数据与原manifest原样，仅读取接口增加已审不认购类型。原C.prefix_view的whole及每个字段hash前后一致，覆盖原observable金融/策略/F1/流水、lifecycle、last_stock_state、cursor、goal_intents、busy、active_intents和rank_bindings。完整证据UPGRADE_RESULTS.json。
+
+| 原Jan12账户 | 升级前后现金相同 | 买/卖/待开意图均保留 | 原New/Carry均保留 |
+|---|---:|---|---|
+| C10 | 272859.6912329377500 | 0 / 9 / 142 | 472281.00 / 0 |
+| C_BATCH20 | 274206.1809882621000 | 0 / 4 / 142 | 187368.00 / 0 |
+
+这些是原账/预算身份保持，不是新交易、资金收益或配股事件结果；New是原预算记录，不是新增现金。股数digest、证书银行、trusted银行与before/after逐字段hash另存。
+
+错来源路径/hash、错模式、改证书source/mode/target、改trusted snapshot、错旧输入类、无Jan13授权、OPEN及直接native event，共22项拒绝测试通过；恢复测试两模式各在独立进程验证原14证书并重复upgrade，返回already_upgraded，前缀/升级记录不新增。新版checkpoint、provenance、source/input/engine/mode身份另行冻结，注册于UPGRADED_CHECKPOINTS.json；从未覆盖原checkpoint。
+
+原已审配股模块rights_wiring.py和合同完全未改。独审/tmp/rights-independent-n69vj0m0/FINAL_AUDIT.json为PASS。覆盖须准确：原test05的New/Carry均0，不能称其验证了正预算；正New198000、正Carry179769.2307692307692307692308的保持来自独审另补的真实生成合成，连同价格驱动财富下降和异常回滚均PASS。本次真实无事件升级保留正New但Carry仍0，不能冒称实际配股已验证正Carry。
+
+未来Jan13 ACTION入口为jan13_action.py，当前没有执行。须另有parent_approved=True、精确IDENTITY hash、arm/升级checkpoint hash、Jan13/ACTION/no_OPEN_CLOSE的新grant，并提供其可信sha及--execute-action。模板*-JAN13-GRANT.DRAFT.json均parent_approved=False。原Jan12 grant从未延长或改写。补充权限验证仍调用原M.guard、原READ_ONLY_GATE/数据身份、原grant校验与冻结数据horizon，只补新的ACTION授权；step/event/普通ACTION仍拒绝，不借此获得OPEN/CLOSE资格。
+
+仅当将来明确批准后，入口可恢复本包注册的Jan12版本，执行已审不认购rights分支并把ACTION输出另存新目录。ACTION后的checkpoint注册/恢复和后续OPEN/CLOSE权限尚未验证，须在实际结果独审后由主继续明确；不能把该入口当整月执行授权。NSR1既有混合rights/ordinary批、到期或未知settlement、认购/卖权利/价值补偿、一般零股等边界继续拒绝，未被此次升级绕过。
+
+准备过程一份已成功的无事件版本留在attempts/before_future_input_gate_hardening；封存前把未来ACTION的原READ_ONLY_GATE、旧grant及数据horizon检查显式保留，因此重新绑定新源码并重新完成两账户无事件导入/证书/恢复。旧版检查点和记录保留，不修改原件，不产生额外历史事件。后续不应调用build_upgrade.py覆盖已完成目录。
+
+审计入口AUDIT_ENTRY.txt；SOURCE_FREEZE.json、IDENTITY.json冻结新身份与原依赖；UPGRADED_CHECKPOINTS.json精确给两个新版checkpoint/hash；NEGATIVE_TESTS.json、两份RESTORE.json、VERIFICATION.json给测试；PACKAGE_SHA256.json封存整包。当前授权内无事件工作已完成，无权限拒绝；Jan13 ACTION与后续金融执行仍待新的明确授权，不能现在运行。

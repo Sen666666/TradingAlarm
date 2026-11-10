@@ -1,0 +1,40 @@
+{
+  "scope": "remaining4456_same_native_minimum_unit_labels_disjoint_SID_continuation",
+  "shard_ids": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "events_per_shard": 1114,
+  "per_worker_limit_seconds": 90.0,
+  "per_path_deadline_margin_seconds": 0.5,
+  "total_additional_limit_seconds": 360,
+  "original_label_compute_seconds": 120.10009508393705,
+  "source_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/labels_new/run_remaining_shard.py": "c39245112d28d33a2e4fee3930f621aa9d92a124f6d3dc4bcafa5864e17a33a8",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/labels_new/RESOURCE_CONTINUATION_CARD.txt": "2a5830f4ce541927a722a0ad2513cb4370626bcbc0959c7e370ad8deb3b14dd8",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/labels_new/remaining_shards/REMAINING_SHARD_PLAN.json": "a57f6172dfeb58fd75ff0035cb6eb093d9cce274c3f7bed1ecb6107943e3d2b6",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/labels_new/FIRST_REJECT_SHADOW_LABELS.partial.jsonl.gz": "f1e668fe5aa7696e52a25e3f257690d8e3ae0d4e5ad835b57350ddbe65eca27e",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/events/CORE_SECTOR_REJECT_EVENTS_WITH_PREFIX.jsonl.gz": "9f5a379e79ea0ddb0dafd72584befd7eff0daae65d69499b0dcb4d68756311fe",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/labels_new/native_single_asset.py": "c9d7632bb6f6103979d91a676b8a7efbed9f2a7c69bc3dfaa6c635be1c1b87bd",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/labels_new/FULL_LABEL_TIMING.json": "b81b35d8f2e9b137cfee949ec1aa333e2fbc1801240da37e4b25af0f97c456c9",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/labels_new/TECHNICAL_CALIBRATION_RESULT.json": "46caaa4ed3b71b449f97a5f0f650680f9facfc4f8d5f6fba32f0bd4b0455be71",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/MATCHED_PROTOCOL.txt": "a52827c0f9b45c5e3b880d4edc0dd4ef87f36a86c1732a2cabb1d7104d327b01",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/labels_new/remaining_shards/shard0_events.jsonl.gz": "834d81c1c72132fe9323b4aae1cbc1c7a984609428bb1d460859d435ebe1de43",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/labels_new/remaining_shards/shard1_events.jsonl.gz": "3b0f0728465cc7240167f3d4181257342ba4cda266df93fc2eefc1719555f22e",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/labels_new/remaining_shards/shard2_events.jsonl.gz": "61b94093e516f50f4aab7c1766e827354815091070fcae29454951afcf8733ce",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/labels_new/remaining_shards/shard3_events.jsonl.gz": "b4d3e668f9cc146ca443ebbbd33618828a8289fdbc394e078cc2aa56cca71f24",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/actual-risk-recovery-20261027/code/engine.py": "781589c0a80a6713bf03ee4abb0bb3ab6ba649f7482f13179ab458809dc2e374",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/ix-a-share-entry-20261025/code/multi_runner.py": "8272c400fcee074a3902db9430dcf22d7ea3f0e0b3abb3caed3dc1e2a344d285",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/lot-risk-allocation-20261029/code/study.py": "2e7cfbdded269ae5430c9146d0b1f5c2b2281e5a5c774fdffb088b620d72bff4",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/probe-pyramid-pilot-20261029/code/pilot.py": "38ac36ba3b9da599c66307451f4173249efc229f54dfb6a0d8469517431f94b4",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-participation-response-20261020/code/data_utils.py": "e5623d85b66ca575e9ba3066389d0a1119f757388ae68e2711e4a70852909668",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/current_pool_bridge.py": "a483e213ec18a4065323a8b4c1d85e2443724700b7a421a4aa682e757f1ae805",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/market_rules.py": "2fe02c28d30b9202a627acb5541c8ef917a6fb92953494a467148ed5f83f5cdb",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py": "48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/temperature-sizing-20261026/code/fast_market.py": "55f9ccf4085ace9f476afde4d29f250f7317dea405cbd9dffa69f5d7e366f36a",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lr1-cp1-add-preflight-20261031/adapter.py": "b81569bd13f22a39e973ebd38b8b382fbafe9da959536bae455ca7bed2a45185"
+  },
+  "no_new_portfolio_policy_accounts": true
+}

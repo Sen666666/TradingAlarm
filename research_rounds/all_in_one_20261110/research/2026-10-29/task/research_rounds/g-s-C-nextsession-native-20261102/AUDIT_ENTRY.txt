@@ -1,0 +1,10 @@
+只读入口：AUTHORIZATION.json、c_horizon.py、INPUT_FREEZE.json、INPUT_GATE.json、PREFLIGHT_GATE.json。
+正式末态：CONTINUATION_CHECKPOINTS.json；physical独立沙盒，不可混入正式路径。
+对照：runs/<window>-<mode>/COMPARISON.json，完整经济/策略/原生audit/decisions，来源差异明确列出。
+财务：FINANCIAL_CHECKS.json，20事件状态×7重算差0；股数/asof桥。
+行为：RESULTS.json，含真实fill与未执行Q/D、预算、拒绝及时间分段。
+只读重复验证（不执行金融事件）：
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B compare_branches.py 2022 C10
+另三格同理。
+禁止重新执行run_next.py/day_driver.py/PREFLIGHT：已经完成的金融phase不得重跑。
+原两日冻结产物未修改；新日期仅1/6、7/3，未进入更后日期。

@@ -1,0 +1,24 @@
+{
+  "recorded_at": "2026-10-25T02:56:55.582618+00:00",
+  "status": "frozen_before_real_model_outputs",
+  "protocol_sha256": "545f82e9aa271fbef00e3919c47dd909950d07968808b2118601283718e8d2c1",
+  "code": {
+    "data.py": "03ef7256c93e1e61b2866859e00e7f13095e7737fb5af3b29a523faa5eb87343",
+    "model.py": "39ab531d3af0dff377179db3d19d0fdd7e62749dfc3eb55c3ac8b0d0e41e8ca2",
+    "run.py": "b06f2fdc7749540978804a3906eb6d743659c9889124628fcd4a03ce85059317"
+  },
+  "inputs": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-20261025/inputs/AU0.parquet": "6812493d6d634b23ad1c027232e44b6a11d9931b399e38b48c691d27fe070bd1",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-20261025/inputs/518880.parquet": "929db1550fa0264d7a664bbd1e13a63465e6783a5823af36b592964a9365959f",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-20261025/inputs/512480.parquet": "ce087ea3614f6b21c61957dd38a34a971439d720bc8071b29f87be9d1ed7157e",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-20261025/inputs/001309.SZ.parquet": "51bbb9c6262d183548c51e8f703ba25a7fb4474706c5de8cfcb298103cd09ee1",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-20261025/inputs/688981.SH.parquet": "44f60834a63cc8d73890fdfad5ca4ebb896a16749c8df9d8225969171acd2af3",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-20261025/inputs/600036.SH.parquet": "458002e665a8be3628576fbb8377ace82a1969d9650f5fd315ac769c971f939e",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-20261025/inputs/600519.SH.parquet": "de1738b4bea97003e5ed3c9d91383e4df96a45d569be1312c546c6488b0597f7"
+  },
+  "source_manifest_sha256": "85ece20cfc7d685e3c620a4db955357a1b76e3c7ac93674979581f6033ef4ab6",
+  "research_basis": "seen_historical_development",
+  "formal_candidates": 1,
+  "real_output_rule_revisions": 0,
+  "account_runs": 0
+}

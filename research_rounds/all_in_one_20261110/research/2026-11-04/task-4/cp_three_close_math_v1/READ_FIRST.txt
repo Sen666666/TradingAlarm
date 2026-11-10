@@ -1,0 +1,56 @@
+三次原CP receipt的逐行代入与证据依赖
+
+结论：三个原receipt均可由已存标量原样复算。delta_frontier、displacement、fsum credit、candidate的binary64复算残差三例均为0；独立数值线另用50位Decimal保留序列化微差。未重算63/21窗口、features、calculate、G1/I、账户或策略。
+
+先看 ARITHMETIC_WALKTHROUGH.txt（逐行数值）、THREE_CLOSE_SUMMARY.csv（并列）和 THREE_CLOSE_SCALAR_SUBSTITUTIONS.json（完整输入/代入/残差）。READONLY_INPUTS.json绑定三个当前收盘、前一观察及锚对应的原字段；原文件SHA在ROOT_SCOPE.json。
+
+原公式及完整顺序
+
+同一source segment内：r=log(C_t)-log(C_prev)；s=max(1e-8,1.4826*median(此前63个abs(r)))；z=max(s,log1p(.001))；B=此前21个成交金额的中位数。这里B是金额，不是成交量。
+u=tanh(r/s)；v=tanh(log(amount/B))；m=1+.5*abs(u)*v。
+只有log(C_t)超过旧frontier才有fresh=log(C_t)-frontier；credit=fsum(旧credit,fresh*m)，frontier推进至log(C_t)。displacement=frontier-anchor。
+receipt=fresh>0 AND displacement>=sqrt(5)*冻结scale AND credit>=sqrt(5)*冻结scale。原ge/gt还有gamma4浮点容差；三例均远离边界。
+candidate=C_t*exp(-sqrt(21)*冻结scale)。candidate计算完成后才重置：phase=UP、anchor=frontier=log(C_t)、credit=0、scale=当日z。不能用新的z替代本次旧冻结scale。
+source更换、未ready、I无效、原down事件、SEEK创新低的分支优先级，均在 CP_ORIGINAL_FORMULA_WITH_LINES.txt 原代码1–58行中；未省掉这些reset条件后声称是完整状态机。
+
+关键并列（完整精度见JSON；此处显示12小数）
+案例                 fresh           displacement    credit          threshold       位移余量        credit余量
+盈新2022-01-21  .095586461060  .095586461060  .139361535132  .072466150476  .023120310584  .066895384656
+盈新2022-01-24  .094807793459  .094807793459  .135204047695  .072864348108  .021943445350  .062339699587
+海能2024-10-18  .095644963872  .119877277259  .160955117277  .061968054376  .057909222883  .098987062901
+
+海能达10/18的旧credit=.02945027478542134来自10/17未触发receipt的那一日；加当天.09564496387173005*1.3749269921645344=.13150484249184335，合=.1609551172772647。不能遗漏旧credit，也不能将10/16已消费的credit再加回来。
+盈新1/21、1/24各接前一receipt清零后的next_credit=0。每次阈值使用prev.next_scale；不是把当天s一律代入。
+
+a/raw坐标
+
+案例                 收盘a             raw收盘  CP候选a            raw候选（代数换算）
+盈新2022-01-21  4.122878422779101    3.62   3.553880661418941   3.120404405634802
+盈新2022-01-24  4.532888431674260    3.98   3.904117953737246   3.427922325927402
+海能2024-10-18 67.158178251070450   11.95  59.148662956590320  10.524801904077680
+
+a=raw*当日factor，盈新factor=1.138916691375442；海能factor=5.619931234399201。本次三个formation区间的factor均不变，已逐字段核实。所以log位移/credit/scale/threshold在两个坐标相同，不能给credit强行添加“元”单位。raw candidate按已存candidate/factor推算；不是另有原raw保护列，也不是保证成交价。
+若要看价格差而非log位移：盈新1/21锚raw3.29→3.62，差raw.33/a.3758425081538963；1/24锚raw3.62→3.98，差raw.36/a.41001000889515904；海能10/16锚raw10.60→10/18 11.95，差raw1.35/a7.586907166438927。完整当前/旧frontier的两套log坐标亦在JSON。
+这些值是当日新MOBILE保护候选，不自动成为CORE实际线。三日I_floor分别仍为a3.4053609072125717、3.4053609072125717、42.59907875674594；原意图各只有MOBILE，不能由G1/i_buy/CP三项同时成立就宣称发生了三笔授信或重复成交。
+
+为什么同一波可以接连发receipt
+
+receipt是市场数值机事件，是否获资助、成交或亏损不参与其重置。盈新1/20 receipt后锚raw3.29、credit0；1/21从3.29涨至3.62取得新receipt，后锚变3.62；1/24从3.62涨至3.98又取得新receipt。没有最小等待天数或“必须先出现不同外部证据”的条件。
+普通UP回撤不扣credit，也不降低frontier；没有新高推进不会重复计fresh。这不等于CP内部把同一个price_event重复计入。原down/I失效/source等reset后，可在不同观察ID下重新推进此前走过的价格区域；trace去重不是失败价格区间永久禁入。
+盈新前失败MOBILE回合最后确认是1/13 raw3.64。1/19原CP已SEEK lower_anchor到raw2.99；该日原代理账户也提出旧层退出，但CP输入中没有该交易失败。1/20新receipt raw3.29、1/21新receipt raw3.62均无需收复3.64。这个“前次失败回合确认价”是本次显示参考，不是原算法保存的交易许可字段，也不是1/19退出触发价或后续OPEN的成交价。
+三例formation内新增推进m均>1，因此credit>displacement；其credit门槛没有额外拦截，位移门槛更紧。这个结论只针对三例；m<1时credit仍可能成为更紧条件，未据此宣布所有行情的credit无效。
+
+G1/I/CP的依赖与三日实际来源
+
+G1 fresh来源：盈新1/21=new_S21_up_confirmation；1/24=new_S63_up_confirmation|new_price_frontier_in_confirmed_up_structure；海能10/18=new_price_frontier_in_confirmed_up_structure。对应grade为2、4、4；原facts的I_target/i_buy均true，E0当日entered均0。
+I的opportunity=E0_target AND warm(ready且grade>=2) AND (E0_entered OR G1_fresh)，i_buy=active AND opportunity。I_target是持续状态；原G1_I不因当日G1 cold本身退出。三日不能把i_buy再当独立于G1的一份外生确认。
+实际股票CP的e0_valid字段直接=facts.i_target；不是裸E0。CP另有自己的冻结尺度、累计frontier与21日金额背景，非逐字等价于G1；但其价格冲击及历史许可与G1/I重合，统计独立性并未证明。
+MOBILE的信号角色条件为当天新cpr和continuing_Q，后者恢复原market_buyable，不额外要求当天i_buy/G1fresh；正式意图仍先受ACT/exit_pending/buy_pending、可用I线与数量条件约束。因此不能把它描述为每次都串联三次新鲜确认。三个目标日恰好同时成立，不代表所有CP都如此。
+原代码没有G1/I/CP之间原始价格证据的跨机制去重；CP内部price_event与预算申请消费去重则存在。是否相关信号有经济价值、是否误伤V反转，本次没有测试或下结论。
+
+失败记忆范围
+
+CP数值机不消费该股上次实际止损/盈亏/失败价。系统其他层保存逐层交易、budget.loss、行业failed_bar、CORE epoch和exit_pending，故不能说全系统毫无失败记忆。行业failed_bar是行业市场结构失效，不是个股亏损；后receipt结束/确认晚于失败，不保证formation_start也晚于失败。预算loss原设置record_only，仍有ACT、现金、行业额度和退出锁等其它限制。
+详见 dependency_review/READOUT.txt 与18份有效源码绑定。独立数值核查见 independent_numbers/READOUT.txt。所有“原成交”仍仅是原No60日线代理账本记录；当前CLOSE代入不把未来OPEN填入当日信号，也不认证供应商历史实际发布时间。
+
+没有新增修改建议、参数、策略或账户测试；本交付仅供用户亲自推演。

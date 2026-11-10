@@ -1,0 +1,291 @@
+[
+  {
+    "group": [
+      "long",
+      "2022"
+    ],
+    "events": 2181,
+    "matched": 1794,
+    "unmatched": {
+      "no_existing_inventory": 378,
+      "candidate_unfilled_or_unknown": 6,
+      "anchor_OPEN_reference_only_unknown": 3
+    },
+    "quadrants": {
+      "new_loss_old_loss": 1063,
+      "new_loss_old_profit": 331,
+      "new_profit_old_loss": 246,
+      "new_profit_old_profit": 154
+    },
+    "new_net_return_pct": {
+      "n": 1794,
+      "mean": "-3.811904955530103271033048133",
+      "median": "-6.65548694191356085935105325",
+      "p10": "-14.34248959255172978044601998",
+      "p90": "9.082108159525709215690771000",
+      "minimum": "-30.71076710798651665770559678",
+      "maximum": "95.22791201855700090112580190"
+    },
+    "old_net_return_pct": {
+      "n": 1794,
+      "mean": "-1.871251843951445635624423070",
+      "median": "-3.640410151019613304457301200",
+      "p10": "-12.30839132500394477317554241",
+      "p90": "8.670862910795911295911295900",
+      "minimum": "-37.07639808133800265668397537",
+      "maximum": "132.2233275344402110199296600"
+    },
+    "equal_cash_gap": {
+      "n": 1794,
+      "mean": "-54.50569598410547868423156313",
+      "median": "-28.98823488017877250837807835",
+      "p10": "-501.871696284273384367863447",
+      "p90": "295.356416708382729901849271",
+      "minimum": "-5456.11829784935661843270764",
+      "maximum": "12679.77257816257980143300384"
+    },
+    "required_relief_scenario_gap": {
+      "n": 1794,
+      "mean": "99.29810321160200411257904604",
+      "median": "118.6698074346820706963772250",
+      "p10": "-1585.428029729287699822346416",
+      "p90": "3113.490664810254642449011070",
+      "minimum": "-78309.92495639359758102274052",
+      "maximum": "18687.86083912872387988799129"
+    },
+    "required_relief_scenario_gap_positive": 1020,
+    "matched_not_ruled_out_by_capital_bound": 1370,
+    "note": "Descriptive repeated/overlapping experiments; money differences cannot be summed as portfolio gains."
+  },
+  {
+    "group": [
+      "long",
+      "2023"
+    ],
+    "events": 1489,
+    "matched": 1342,
+    "unmatched": {
+      "no_existing_inventory": 141,
+      "anchor_OPEN_reference_only_unknown": 5,
+      "candidate_unfilled_or_unknown": 1
+    },
+    "quadrants": {
+      "new_profit_old_loss": 186,
+      "new_loss_old_loss": 708,
+      "new_loss_old_profit": 257,
+      "new_profit_old_profit": 191
+    },
+    "new_net_return_pct": {
+      "n": 1342,
+      "mean": "-0.5547827819718381645624380077",
+      "median": "-5.15410520257792195900494539",
+      "p10": "-12.79070096195040897459055220",
+      "p90": "13.51743158759644463035640920",
+      "minimum": "-28.70079626127508988187888584",
+      "maximum": "288.6904623638888835855940066"
+    },
+    "old_net_return_pct": {
+      "n": 1342,
+      "mean": "-0.5813262301845565314227194206",
+      "median": "-3.048406408420963933595771305",
+      "p10": "-9.722525927742165242165242170",
+      "p90": "10.17028325717591208666068810",
+      "minimum": "-26.91899296506754045740270162",
+      "maximum": "146.9889401214779874213836478"
+    },
+    "equal_cash_gap": {
+      "n": 1342,
+      "mean": "-12.46801216714019183268641958",
+      "median": "-23.6867286825487298404599576",
+      "p10": "-521.217258294089947971021254",
+      "p90": "326.385712381083349625137597",
+      "minimum": "-4541.44354175029098905049218",
+      "maximum": "20341.14344731002054952927966"
+    },
+    "required_relief_scenario_gap": {
+      "n": 1342,
+      "mean": "376.5183863235847030122298491",
+      "median": "69.3042528597947771295225967",
+      "p10": "-1450.781308174509030228904038",
+      "p90": "2891.646223514509483779494195",
+      "minimum": "-40943.57118924600930145506671",
+      "maximum": "20109.23373352342534793848714"
+    },
+    "required_relief_scenario_gap_positive": 746,
+    "matched_not_ruled_out_by_capital_bound": 1056,
+    "note": "Descriptive repeated/overlapping experiments; money differences cannot be summed as portfolio gains."
+  },
+  {
+    "group": [
+      "long",
+      "2024"
+    ],
+    "events": 1594,
+    "matched": 1382,
+    "unmatched": {
+      "no_existing_inventory": 204,
+      "candidate_unfilled_or_unknown": 8
+    },
+    "quadrants": {
+      "new_loss_old_loss": 676,
+      "new_profit_old_profit": 306,
+      "new_profit_old_loss": 186,
+      "new_loss_old_profit": 214
+    },
+    "new_net_return_pct": {
+      "n": 1382,
+      "mean": "2.672379373555408428190234314",
+      "median": "-5.463871805890580979287090485",
+      "p10": "-14.28522529620122177756579629",
+      "p90": "27.84780607691097528868738490",
+      "minimum": "-29.98050747578033754499326395",
+      "maximum": "192.1447974710824079902228375"
+    },
+    "old_net_return_pct": {
+      "n": 1382,
+      "mean": "0.7710694336829194011319333466",
+      "median": "-2.943500097915811939839615520",
+      "p10": "-11.96492179612001891415552594",
+      "p90": "24.49148958011943817920852980",
+      "minimum": "-29.60841524020444444444444444",
+      "maximum": "113.0226975646833333333333333"
+    },
+    "equal_cash_gap": {
+      "n": 1382,
+      "mean": "31.34690642440063566055518826",
+      "median": "-17.84011862646012103148722065",
+      "p10": "-435.934340697389054785198588",
+      "p90": "463.867762340839687511185613",
+      "minimum": "-18515.04668356175932574285159",
+      "maximum": "15813.93646924378517687756555"
+    },
+    "required_relief_scenario_gap": {
+      "n": 1377,
+      "mean": "96.37120716792169166572023544",
+      "median": "109.0919337161417401763196698",
+      "p10": "-2402.082477397539999142437239",
+      "p90": "3086.976167644945449660213329",
+      "minimum": "-31380.22541241176438625471340",
+      "maximum": "15679.19892099185291234826639"
+    },
+    "required_relief_scenario_gap_positive": 781,
+    "matched_not_ruled_out_by_capital_bound": 1019,
+    "note": "Descriptive repeated/overlapping experiments; money differences cannot be summed as portfolio gains."
+  },
+  {
+    "group": [
+      "strong",
+      "2025H2"
+    ],
+    "events": 1743,
+    "matched": 1528,
+    "unmatched": {
+      "no_existing_inventory": 206,
+      "anchor_OPEN_reference_only_unknown": 7,
+      "candidate_unfilled_or_unknown": 2
+    },
+    "quadrants": {
+      "new_profit_old_loss": 270,
+      "new_profit_old_profit": 435,
+      "new_loss_old_loss": 473,
+      "new_loss_old_profit": 350
+    },
+    "new_net_return_pct": {
+      "n": 1528,
+      "mean": "13.60739856408808234985459109",
+      "median": "-1.315074976597949927508076675",
+      "p10": "-11.68497104907070813225718890",
+      "p90": "41.03166015815632198685731400",
+      "minimum": "-26.63940005103190297917637142",
+      "maximum": "1410.185477126584560804554233"
+    },
+    "old_net_return_pct": {
+      "n": 1528,
+      "mean": "6.356228880794693320792503862",
+      "median": "0.549513204219844256893098850",
+      "p10": "-10.37270789435334872979214781",
+      "p90": "29.87336111899826036532328210",
+      "minimum": "-30.17393472435154707044107966",
+      "maximum": "111.6927925326891769671389810"
+    },
+    "equal_cash_gap": {
+      "n": 1528,
+      "mean": "575.3061937418688171018271369",
+      "median": "-18.1270553810866954942370064",
+      "p10": "-919.083848857896547224869440",
+      "p90": "1457.030679492728334163517012",
+      "minimum": "-12958.29832499081980884389047",
+      "maximum": "81998.11260274404303183154258"
+    },
+    "required_relief_scenario_gap": {
+      "n": 1528,
+      "mean": "-320.2785078529667579925112182",
+      "median": "19.05843091486115225128679782",
+      "p10": "-6076.877472138426493446251004",
+      "p90": "4859.640432099635648193593592",
+      "minimum": "-40205.83660915651307053841243",
+      "maximum": "82624.79668946591985219474944"
+    },
+    "required_relief_scenario_gap_positive": 778,
+    "matched_not_ruled_out_by_capital_bound": 1248,
+    "note": "Descriptive repeated/overlapping experiments; money differences cannot be summed as portfolio gains."
+  },
+  {
+    "group": [
+      "strong",
+      "2026H1"
+    ],
+    "events": 1328,
+    "matched": 1236,
+    "unmatched": {
+      "anchor_OPEN_reference_only_unknown": 2,
+      "no_existing_inventory": 83,
+      "candidate_unfilled_or_unknown": 7
+    },
+    "quadrants": {
+      "new_loss_old_profit": 295,
+      "new_loss_old_loss": 555,
+      "new_profit_old_loss": 132,
+      "new_profit_old_profit": 254
+    },
+    "new_net_return_pct": {
+      "n": 1236,
+      "mean": "6.897790012917068718960391778",
+      "median": "-5.489841952652734467900821215",
+      "p10": "-14.18769625305485991119870634",
+      "p90": "35.01386555544256837390566300",
+      "minimum": "-36.11917083444499318095081357",
+      "maximum": "481.8032326896296336446498491"
+    },
+    "old_net_return_pct": {
+      "n": 1236,
+      "mean": "6.371437214291647506607907692",
+      "median": "-1.700564258807820981031287655",
+      "p10": "-13.72538659287301214105155669",
+      "p90": "29.00245137361776541480227040",
+      "minimum": "-38.95754853973354735152487961",
+      "maximum": "293.8040642687875320962900622"
+    },
+    "equal_cash_gap": {
+      "n": 1236,
+      "mean": "52.69429338803515421885106900",
+      "median": "-58.3810793173854052309036467",
+      "p10": "-1123.441427080559984773005577",
+      "p90": "1292.869335530280019723865878",
+      "minimum": "-50667.4422476443401896341028",
+      "maximum": "50406.68396216940626294402949"
+    },
+    "required_relief_scenario_gap": {
+      "n": 1236,
+      "mean": "-2124.975833161367508276525667",
+      "median": "-21.48659898346751141448763345",
+      "p10": "-7792.963407878028848044149646",
+      "p90": "7654.848458127048351063886365",
+      "minimum": "-256130.4984060125565687242925",
+      "maximum": "55552.91766172640856552030984"
+    },
+    "required_relief_scenario_gap_positive": 597,
+    "matched_not_ruled_out_by_capital_bound": 948,
+    "note": "Descriptive repeated/overlapping experiments; money differences cannot be summed as portfolio gains."
+  }
+]

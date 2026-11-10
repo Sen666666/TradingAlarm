@@ -1,0 +1,48 @@
+test_AH_dedup_takes_current_policy_priority (__main__.AdmissionTests.test_AH_dedup_takes_current_policy_priority) ... ok
+test_RS_253_boundary_and_formula (__main__.AdmissionTests.test_RS_253_boundary_and_formula) ... ok
+test_T0_T1_global_priority_S0_sector_round_robin (__main__.AdmissionTests.test_T0_T1_global_priority_S0_sector_round_robin) ... ok
+test_announced_future_buy_change_execution_clock (__main__.AdmissionTests.test_announced_future_buy_change_execution_clock) ... ok
+test_cancel_unfilled_reservation_frees_slot_but_partial_does_not (__main__.AdmissionTests.test_cancel_unfilled_reservation_frees_slot_but_partial_does_not) ... ok
+test_cap_strict_threshold_not_float_cap (__main__.AdmissionTests.test_cap_strict_threshold_not_float_cap) ... ok
+test_commit_consumes_candidate_no_unacknowledged_reentry (__main__.AdmissionTests.test_commit_consumes_candidate_no_unacknowledged_reentry) ... ok
+test_common_coverage_no_T0_expansion (__main__.AdmissionTests.test_common_coverage_no_T0_expansion) ... ok
+test_current_RS_reorders_waiting (__main__.AdmissionTests.test_current_RS_reorders_waiting) ... ok
+test_duplicate_line_does_not_consume_sector_first_pass (__main__.AdmissionTests.test_duplicate_line_does_not_consume_sector_first_pass) ... ok
+test_existing_migration_excess_does_not_force_sale (__main__.AdmissionTests.test_existing_migration_excess_does_not_force_sale) ... ok
+test_exit_completion_survives_unknown_and_is_idempotent (__main__.AdmissionTests.test_exit_completion_survives_unknown_and_is_idempotent) ... ok
+test_exit_event_old_replay_and_identity_timestamp_mismatch_rejected (__main__.AdmissionTests.test_exit_event_old_replay_and_identity_timestamp_mismatch_rejected) ... ok
+test_explicit_exit_reentry (__main__.AdmissionTests.test_explicit_exit_reentry) ... ok
+test_fact_interval_end_is_exclusive (__main__.AdmissionTests.test_fact_interval_end_is_exclusive) ... ok
+test_false_unknown_true_is_real_eligibility_edge (__main__.AdmissionTests.test_false_unknown_true_is_real_eligibility_edge) ... ok
+test_four_existing_sectors_cannot_add_fifth_but_can_fill_existing (__main__.AdmissionTests.test_four_existing_sectors_cannot_add_fifth_but_can_fill_existing) ... ok
+test_future_facts_cannot_change_current_selection (__main__.AdmissionTests.test_future_facts_cannot_change_current_selection) ... ok
+test_future_information_not_read (__main__.AdmissionTests.test_future_information_not_read) ... ok
+test_holiday_RS_is_unavailable_not_fresh (__main__.AdmissionTests.test_holiday_RS_is_unavailable_not_fresh) ... ok
+test_input_integrity_and_no_mutation (__main__.AdmissionTests.test_input_integrity_and_no_mutation) ... ok
+test_missing_global_RS_degrades_T0_T1_entire_batch (__main__.AdmissionTests.test_missing_global_RS_degrades_T0_T1_entire_batch) ... ok
+test_missing_observation_pauses_not_cancel (__main__.AdmissionTests.test_missing_observation_pauses_not_cancel) ... ok
+test_missing_sector_RS_degrades_whole_batch (__main__.AdmissionTests.test_missing_sector_RS_degrades_whole_batch) ... ok
+test_missing_stock_RS_only_affects_its_sector (__main__.AdmissionTests.test_missing_stock_RS_only_affects_its_sector) ... ok
+test_partial_priority_and_reserved_capacity (__main__.AdmissionTests.test_partial_priority_and_reserved_capacity) ... ok
+test_partial_unknown_pauses_before_completion_priority (__main__.AdmissionTests.test_partial_unknown_pauses_before_completion_priority) ... ok
+test_pending_before_first_fill_reranks_without_cancelling (__main__.AdmissionTests.test_pending_before_first_fill_reranks_without_cancelling) ... ok
+test_permutation_invariance (__main__.AdmissionTests.test_permutation_invariance) ... ok
+test_real_false_cancels_then_restoration_creates_new_event (__main__.AdmissionTests.test_real_false_cancels_then_restoration_creates_new_event) ... ok
+test_sector_failure_cancels_remainder_not_holding (__main__.AdmissionTests.test_sector_failure_cancels_remainder_not_holding) ... ok
+test_slot_limits_and_round_robin (__main__.AdmissionTests.test_slot_limits_and_round_robin) ... ok
+test_snapshot_not_historical_membership (__main__.AdmissionTests.test_snapshot_not_historical_membership) ... ok
+test_snapshot_observed_after_decision_is_not_known_for_next_open (__main__.AdmissionTests.test_snapshot_observed_after_decision_is_not_known_for_next_open) ... ok
+test_stale_occupancy_classification_is_rejected (__main__.AdmissionTests.test_stale_occupancy_classification_is_rejected) ... ok
+test_stock_failure_latches_exit_and_recovery_does_not_release (__main__.AdmissionTests.test_stock_failure_latches_exit_and_recovery_does_not_release) ... ok
+test_synthetic_prefix_replay_is_identical (__main__.AdmissionTests.test_synthetic_prefix_replay_is_identical) ... ok
+test_three_variant_gate (__main__.AdmissionTests.test_three_variant_gate) ... ok
+test_twelve_digit_tie_stable_id (__main__.AdmissionTests.test_twelve_digit_tie_stable_id) ... ok
+test_unknown_not_forced_false (__main__.AdmissionTests.test_unknown_not_forced_false) ... ok
+test_unknown_pauses_pending_and_reserves_issuer (__main__.AdmissionTests.test_unknown_pauses_pending_and_reserves_issuer) ... ok
+test_unknown_restore_keeps_candidate_identity (__main__.AdmissionTests.test_unknown_restore_keeps_candidate_identity) ... ok
+test_unknown_then_true_without_prior_false_is_not_event (__main__.AdmissionTests.test_unknown_then_true_without_prior_false_is_not_event) ... ok
+
+----------------------------------------------------------------------
+Ran 43 tests in 0.005s
+
+OK

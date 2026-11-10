@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "engine_sha256": "15c30e8b3eb3a6dfec5777febe33b1e161d5160057d75c13749f9f50e3384d4c",
+  "runner_sha256": "2f7e249814341a1b1c7a15765f3271ea031bb6b8ff93b07623682fee389fb5bf",
+  "approval_sha256": "4573afada1c8fe10947208f514f4e7c01ba1ce5f4697976916a0c1c58ab36ed4",
+  "frozen_manifest_sha256": "0514fdf0b80a6dea5eeca1b1c9e5222946cc2afb31dc737370b4c35fe3d416f6",
+  "status_sha256": "445ff13549e6b37573566cab22f389911b0e3275b9e8400d0a852a02c04c27cb",
+  "original_source_manifest_equal": true,
+  "startup_attempts": [
+    {
+      "result": "PRE_HISTORY_LOADER_ARGUMENT_ASSERTION",
+      "history_days": 0,
+      "run_started": false,
+      "reason": "Sealed Data requires original END 2026-06-30; keep exact Data() and bound execution loop to 2025-01-20",
+      "strategy_changed": false
+    }
+  ],
+  "planned_execution_days": 93,
+  "actual_committed_days": 20,
+  "actual_end": "2024-10-08",
+  "no_strategy_imported_by_audit": true
+}

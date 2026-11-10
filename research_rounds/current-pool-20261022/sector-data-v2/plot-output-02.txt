@@ -1,0 +1,22 @@
+/Users/bytedance/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/sj/6vknnkzj0_q6yp4myjk4mtt00000gn/T/matplotlib-8rr_hasq because there was an issue with the default path (/Users/bytedance/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/bytedance/.cache/fontconfig
+	/Users/bytedance/.fontconfig
+Matplotlib is building the font cache; this may take a moment.
+findfont: Failed to find font weight bold for Heiti TC, now using 400.
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/code/plot_sector_raw.py:49: UserWarning: Glyph 8313 (\N{SUPERSCRIPT NINE}) missing from font(s) Heiti TC.
+  path=charts/(sid+'.png');fig.savefig(path,dpi=140);plt.close(fig)
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/code/plot_sector_raw.py:49: UserWarning: Glyph 8313 (\N{SUPERSCRIPT NINE}) missing from font(s) Heiti TC.
+  path=charts/(sid+'.png');fig.savefig(path,dpi=140);plt.close(fig)
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/code/plot_sector_raw.py:49: UserWarning: Glyph 8313 (\N{SUPERSCRIPT NINE}) missing from font(s) Heiti TC.
+  path=charts/(sid+'.png');fig.savefig(path,dpi=140);plt.close(fig)
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/code/plot_sector_raw.py:49: UserWarning: Glyph 8313 (\N{SUPERSCRIPT NINE}) missing from font(s) Heiti TC.
+  path=charts/(sid+'.png');fig.savefig(path,dpi=140);plt.close(fig)
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/code/plot_sector_raw.py:49: UserWarning: Glyph 8313 (\N{SUPERSCRIPT NINE}) missing from font(s) Heiti TC.
+  path=charts/(sid+'.png');fig.savefig(path,dpi=140);plt.close(fig)
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/code/plot_sector_raw.py:49: UserWarning: Glyph 8313 (\N{SUPERSCRIPT NINE}) missing from font(s) Heiti TC.
+  path=charts/(sid+'.png');fig.savefig(path,dpi=140);plt.close(fig)
+{"charts": 6, "output": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/sector-data-v2/charts-v2", "accounts_run": 0}

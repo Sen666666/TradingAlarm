@@ -1,0 +1,24 @@
+[
+  {
+    "year": 2022,
+    "strict_negative": 12,
+    "same_root_nonnegative": 9,
+    "later_new_root_birth": 11,
+    "same_root_nonnegative_missing_but_new_birth": 2,
+    "either_path": 11,
+    "neither_path_within_saved_window": 1,
+    "same_root_fail_seen": 11,
+    "same_root_unknown_seen": 0
+  },
+  {
+    "year": 2024,
+    "strict_negative": 42,
+    "same_root_nonnegative": 35,
+    "later_new_root_birth": 10,
+    "same_root_nonnegative_missing_but_new_birth": 0,
+    "either_path": 35,
+    "neither_path_within_saved_window": 7,
+    "same_root_fail_seen": 28,
+    "same_root_unknown_seen": 0
+  }
+]

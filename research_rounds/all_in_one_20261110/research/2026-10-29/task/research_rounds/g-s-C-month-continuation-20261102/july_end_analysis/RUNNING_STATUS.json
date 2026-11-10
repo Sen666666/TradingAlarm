@@ -1,0 +1,34 @@
+{
+  "status": "COMPLETED_AND_STOPPED",
+  "checked_at": "2026-11-02T11:25:13.040318+00:00",
+  "accounts": [
+    {
+      "arm": "2025_26-C10",
+      "progress": {
+        "checkpoint": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-month-continuation-20261102/runs/2025_26-C10/2025-07-31-CLOSE.pkl",
+        "sha256": "2b98dcca28a486e3ce6b40b155e29d5a65ab7fcfb423d777a99b0ad216c22096",
+        "cursor": "2025-07-31 15:10:00+08:00",
+        "phase": "CLOSE"
+      },
+      "actual_start": "2026-11-02T10:50:50.995275+00:00",
+      "actual_end": "2026-11-02T11:08:47.807182+00:00",
+      "seconds": 1081.6393430419266,
+      "process_exit_code": 0
+    },
+    {
+      "arm": "2025_26-C_BATCH20",
+      "progress": {
+        "checkpoint": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-month-continuation-20261102/runs/2025_26-C_BATCH20/2025-07-31-CLOSE.pkl",
+        "sha256": "2a9e611e0bcd4847025646d13c99553d615f731a1f705aecf17c959aabe8c389",
+        "cursor": "2025-07-31 15:10:00+08:00",
+        "phase": "CLOSE"
+      },
+      "actual_start": "2026-11-02T10:55:17.141535+00:00",
+      "actual_end": "2026-11-02T11:09:04.961296+00:00",
+      "seconds": 832.993848875165,
+      "process_exit_code": 0
+    }
+  ],
+  "no_Aug1_event": true,
+  "prior_running_status_archived": "interim/RUNNING_STATUS-at-Jul24.json"
+}

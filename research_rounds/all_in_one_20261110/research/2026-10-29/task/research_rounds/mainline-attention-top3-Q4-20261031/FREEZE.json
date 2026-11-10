@@ -1,0 +1,20 @@
+{
+  "before_single_attention_path": true,
+  "K": 3,
+  "attention_now_main_industry_rank": true,
+  "only_ranking_changed": true,
+  "budget_seconds": 60,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-attention-top3-Q4-20261031/PROTOCOL.txt": "d06606b82eb383d14936be11a14c8c0f4f7b4a17c8888b2979b1a5eac4bc9ac9",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-attention-top3-Q4-20261031/attention.py": "afd49bdd9b50a786239e5894197c770cf1207f401d6184fc382a3210ec5ffe97",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-top3-entry-Q4-20261031/top3.py": "4941716c50c26a68ee424e592d92b1bb010fc4d5499457ae00cfd4448beebc6b",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-top3-entry-Q4-20261031/FREEZE.json": "01c786ba4722379c466e8bebf16e722ea7fa1305555453c41e82a089391bd2a9",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-top3-entry-Q4-20261031/results/T3.json.gz": "5d34b616af4077d141d4173d180ea51fbc668a9d3533d53e23a3fec71bf8774e",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/results/RAW.json.gz": "52d2b4ad4790cea783b99b66bccb0b37cd738434dccd2227d86efe236df05890",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/seed.chk": "e9501163c403f5fa2a5910e84d1fcaed9a07448e78c9cf098f6a3b95836abca8",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/recovery.csv": "76599d9013946bc5fc501a57b046f36a2868ad61f147ef1a6c73c9575b35906a",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/market-mainline-measurement-20261031/FEATURE_MATRIX_90.parquet": "4be2fe5842221099f4c0fe9fb6380bf4ec77a26cca786d0cb9ac3a25c3464598",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/market-mainline-measurement-20261031/FEATURE_FREEZE.json": "a38dcb383c7c33c53c61412e782bf7b12073f1191e54c06556eb7c430f5e0ee3"
+  },
+  "candidate_rank_source_replacement": "def make_lists(self,at):\n  day=str(at.date());target,measure=self.industry_target(at);g=self.matrix_days[day];raw=[];available=[];unknown=[]\n  for sid in self.market.lines:\n   f=self.facts.f[sid];today=pd.Timestamp(day)\n   if today not in f.index:continue\n   r=f.loc[today]\n   if not bool(r.i_buy) or not bool(r.i_target):continue\n   raw.append(sid);q=g.loc[self.line_sector[sid]]\n   if not np.isfinite(q.H1_original):unknown.append(sid);continue\n   available.append(sid)\n  maximum=(len(available)+1)//2;ref=self.raw_selection[day];assert raw==[x for x in available]+[x for x in unknown] or len(raw)==len(available)+len(unknown);assert available==ref['candidates'] and maximum==ref['maximum_B']\n  ordered=sorted(available,key=lambda sid:(-float(g.loc[self.line_sector[sid], 'attention_ratio' if self.rank_enabled else 'H1_original']),self.line_sector[sid],self.line_order[sid],sid));pool=ordered if self.off else [sid for sid in ordered if self.line_sector[sid] in target];chosen=pool[:maximum];self.shortlists={'T3':set(chosen)};assert len(chosen)==min(maximum,len(pool)) and len(set(chosen))==len(chosen)\n  if self.off:assert chosen==ref['selected']\n  else:assert all(self.line_sector[sid] in target for sid in chosen)\n  raw_per={sec:sum(self.line_sector[s]==sec for s in available) for sec in target}\n  self.targets.append(dict(day=day,targets=target,eligible_industries=sum(q['qualified'] for q in measure),target_rawI=raw_per,target_without_rawI=[s for s in target if not raw_per[s]],industry_inputs=measure))\n  self.selection_rows.append(dict(day=day,policy='T3',raw_I_count=len(raw),P_score_known_count=len(available),P_rank_unknown_count=len(unknown),maximum_B=maximum,B=len(chosen),targets=target,target_pool_count=len(pool),candidates=available,selected=chosen,unknown=unknown,attention_at_or_below1_selected=0))\n  self.capacity.append(dict(day=day,maximum_B=maximum,actual_selected=len(chosen),shortage=maximum-len(chosen),target_pool_count=len(pool),targets=target))"
+}

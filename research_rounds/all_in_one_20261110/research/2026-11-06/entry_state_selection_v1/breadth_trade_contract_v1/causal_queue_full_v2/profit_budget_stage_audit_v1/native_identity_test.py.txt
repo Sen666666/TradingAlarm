@@ -1,0 +1,41 @@
+{
+  "source_sha256": "c4e61fc6f12eb47aeaa9bfb7faea82f29467a2fb2627875c39308ef9f642af26",
+  "migration_return": true,
+  "old_lots_unchanged": true,
+  "old_lots": [
+    [
+      "breadth_hu",
+      "BREADTH_2026_06_11",
+      "probe"
+    ],
+    [
+      "breadth_li",
+      "BREADTH_2026_06_11",
+      "probe"
+    ]
+  ],
+  "new_mobile_request": "reserved",
+  "new_order": {
+    "oid": "new_li_add",
+    "stock": "605358.SH",
+    "sector": "URFI881121",
+    "episode": "1f87f9fa300e427ed46d5a815ded2de4e20156d358f97cabeecc29196f793d59",
+    "pool": "confirmed",
+    "qty": 100,
+    "limit": 77.0385,
+    "floor": 66.1,
+    "fee_per_share": 0.05493816785,
+    "status": "open",
+    "role": "mobile",
+    "created_bar": 739793,
+    "expiry_bar": 739796,
+    "attempt": "1f87f9fa300e427ed46d5a815ded2de4e20156d358f97cabeecc29196f793d59:2eed8214ae23c351ce37266ff3575cef11e145605d0354ec2413931dbf0e605a"
+  },
+  "resources": [
+    26330.21,
+    4174.030000000001,
+    7709.343816785
+  ],
+  "no_fills": true,
+  "native_Account_initializations": 0
+}

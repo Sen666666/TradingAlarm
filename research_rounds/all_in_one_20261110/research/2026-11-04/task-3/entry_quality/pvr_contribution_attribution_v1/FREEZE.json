@@ -1,0 +1,53 @@
+{
+  "status": "FROZEN_BEFORE_PATH_LABEL_READ",
+  "cache_identity": "b0af9a5b8a8f6d1f8da1b56577cee3270c7ef2a20e2bd48edd435d9b38904704",
+  "source_sha256": "11e7f9e38798e6e411f33b3250c564bcd5fcfbe34af2bda74e04c02cf8d08d9b",
+  "cache_manifest_sha256": "e197bb09043f3fcf864131de401c4f5b6fe9df10f09114b02ad1247b2295796b",
+  "code_sha256": "eb5523947e54c09d3bac21fef5a7df5a94464eeccff6b3a215c740a18903eb2e",
+  "weights": [
+    0.013651386354174419,
+    0.015168207060193799,
+    0.016853563400215328,
+    0.01872618155579481,
+    0.020806868395327565,
+    0.023118742661475074,
+    0.02568749184608342,
+    0.02854165760675935,
+    0.03171295289639928,
+    0.035236614329332526,
+    0.039151793699258364,
+    0.04350199299917596,
+    0.04833554777686218,
+    0.05370616419651353,
+    0.05967351577390392,
+    0.0663039064154488,
+    0.07367100712827643,
+    0.08185667458697382,
+    0.09095186065219313,
+    0.10105762294688125,
+    0.11228624771875695
+  ],
+  "no_signal_or_account_execution": true,
+  "attribution_boundary": "Exclude first21 actual cached observations; never synthesize pre2022 d_j. Invalid full21/block unknown. Unknown I start excluded until recorded i_entered.",
+  "event": "sid + cumulative original i_entered; age0 is original entered observation. i_buy never starts/restarts episode.",
+  "primary": "One original I entry age0 per episode; secondary first repeated original i_buy at exact age1..5,6..20,21+ reported separately, never pooled.",
+  "match": "Same signal date, floor(original PVR score/2), exact I observation age; at least4 in feature-formed stratum. Pair high/low extreme inward, omit median. Membership frozen before checking horizon completeness; never replace censored pairs.",
+  "periods": {
+    "development_diagnostic": "2022-2023",
+    "already_seen_time_external_diagnostic": "2024-2026-05-15"
+  },
+  "candidates": {
+    "E_price": "sum w*u, amount ablation",
+    "E_amt_retained": "E - sum w * max(e-u,0) * 1[u>0 and b>0] * (1-kappa)",
+    "E_path_retained": "sum w*e*kappa",
+    "kappa": "clip(sign(r_j)*(log C_t-log C_(j-1))/abs(r_j),0,1); r=0 ->1; only through t"
+  },
+  "labels": {
+    "ret_h": "C_(t+h)/C_t-1, h actual observed bars, fullh only",
+    "mfe_mae": "max/min of future close/anchor-1 including 0",
+    "big60": "mfe60>=30% AND terminal60>=20%",
+    "fail_rebound20": "mfe20>=5% AND terminal20<=-5%",
+    "nextopen": "unexecuted next open benchmark, not fill simulation"
+  },
+  "no_hyperparameter_search": true
+}

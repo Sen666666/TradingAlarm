@@ -1,0 +1,127 @@
+{
+  "status": "FROZEN_BEFORE_NEW_CASE_CALCULATION; outcomes and historical cases previously viewed, not blinded",
+  "scope": "22 fixed stock-dates,19 stocks. Causal stock structure only. No labels fitted, no new economics, no actual entry gate implemented.",
+  "cases": [
+    [
+      "000977.SZ",
+      "2022-01-05",
+      "prior_fixed_19"
+    ],
+    [
+      "600100.SH",
+      "2022-01-04",
+      "prior_fixed_19"
+    ],
+    [
+      "688256.SH",
+      "2022-03-04",
+      "prior_fixed_19"
+    ],
+    [
+      "605118.SH",
+      "2022-08-22",
+      "prior_fixed_19"
+    ],
+    [
+      "605020.SH",
+      "2022-07-15",
+      "prior_fixed_19"
+    ],
+    [
+      "002174.SZ",
+      "2022-11-08",
+      "prior_fixed_19"
+    ],
+    [
+      "688248.SH",
+      "2022-05-12",
+      "prior_fixed_19"
+    ],
+    [
+      "688660.SH",
+      "2024-09-25",
+      "prior_fixed_19"
+    ],
+    [
+      "600396.SH",
+      "2024-10-28",
+      "prior_fixed_19"
+    ],
+    [
+      "605488.SH",
+      "2024-09-30",
+      "prior_fixed_19"
+    ],
+    [
+      "002241.SZ",
+      "2024-09-30",
+      "prior_fixed_19"
+    ],
+    [
+      "600126.SH",
+      "2024-12-11",
+      "prior_fixed_19"
+    ],
+    [
+      "605099.SH",
+      "2024-12-11",
+      "prior_fixed_19"
+    ],
+    [
+      "002126.SZ",
+      "2024-12-25",
+      "prior_fixed_19"
+    ],
+    [
+      "002583.SZ",
+      "2024-09-25",
+      "prior_fixed_19"
+    ],
+    [
+      "300666.SZ",
+      "2025-12-15",
+      "prior_fixed_19"
+    ],
+    [
+      "300666.SZ",
+      "2025-12-17",
+      "prior_fixed_19"
+    ],
+    [
+      "300666.SZ",
+      "2026-01-05",
+      "prior_fixed_19"
+    ],
+    [
+      "300666.SZ",
+      "2026-01-15",
+      "prior_fixed_19"
+    ],
+    [
+      "301611.SZ",
+      "2026-01-15",
+      "prior_semiconductor_fixed"
+    ],
+    [
+      "603061.SH",
+      "2026-01-15",
+      "prior_semiconductor_fixed"
+    ],
+    [
+      "002317.SZ",
+      "2022-10-14",
+      "prior_long_gate_counterexample"
+    ]
+  ],
+  "inputs": "63 returns ending signal close. s=1.4826*MAD of prior63 returns excluding current. Raw shares relative to their previous21 common-day median; need84 consecutive source-valid observations. No zero-scale floor. All raw/native coordinate and units checked, no future prices.",
+  "weights": "w_j=1+0.5*tanh(log(V_j/median(V[j-21:j-1]))). Range(0.5,1.5). Large volume strengthens positive OR negative return evidence; this assumes precision, not empirical alpha.",
+  "lineage": "Strict same source_kind/source_path/segment_id/adjustment_factor/volume_factor over84 observations; changes UNKNOWN, not poor. This deliberately sacrifices supported coverage rather than pretend split/volume comparability. H=L bars are allowed for this return model; not fillability proof.",
+  "model": "Conditional working Gaussian x_j=r_j/s ~ N(mu_segment,1/w_j). Each segment mu has N(0,1) prior truncated to its indicated sign. Nochange prior1/2 with signs+/- equiprobable. Onechange prior1/2; segment signs independent equiprobable; post lengths h=2..21 uniform. Priors C3/8,R1/8,N1/2, not equal C/R.",
+  "marginal": "For segment W=sumw,S=sumwx,Q=sumwx²: logMall=-Q/2-log(1+W)/2+S²/(2(1+W)); logMplus/minus=logMall+log2+logPhi(+/-S/sqrt(1+W)). Shared observation constants cancel.",
+  "channels": "EC=(1/4)Mplus(full)+(1/(8K))*sum_h Mplus(pre)*Mplus(post). ER=(1/(8K))*sum_h Mminus(pre)*Mplus(post). EN=(1/4)Mminus(full)+(1/(8K))*sum_h [Mplus(pre)*Mminus(post)+Mminus(pre)*Mminus(post)]. Normalize to piC,piR,piN.",
+  "proposed_structure_qualification": "Original legal PRICE invitation AND piC+piR>piN; not actually applied. If inputUNKNOWN retain original route rather than reject. Channel mixture qC=piC/(piC+piR),qR=piR/(piC+piR); dominance label is only a description, not proved bottom or final win probability.",
+  "execution": "No new root or receipt; apply only to original eligible same-close candidate, no second ticket. All original minimum-lot/cash/risk/industry/nextOPEN checks remain. Initial size unchanged; existing holdings ignore state relabels; original failure/new-receipt reentry remains with no fixed cooldown. This is an unvalidated candidate, not an execution change.",
+  "context": "Market B20/delta5 and industry state only joined as contemporaneous descriptions; not AND gates, not defined by dates or later returns.",
+  "limits": "Fixed windows/priors/volume scale, working Gaussian and conditional volume precision are modeling assumptions; may be overconfident under jumps/serial dependence. Two observed post-change days allowed but no claimed V-bottom certainty. Fixed future universe and source versions remain NON-PIT.",
+  "withdrawn_before_data": "Initial unequal-complexity C/R/N BIC sketch rejected algebraically: old falling presegment could fake reversal evidence. Full matched ending-negative split competitors replace it before any new fixed-case calculation."
+}

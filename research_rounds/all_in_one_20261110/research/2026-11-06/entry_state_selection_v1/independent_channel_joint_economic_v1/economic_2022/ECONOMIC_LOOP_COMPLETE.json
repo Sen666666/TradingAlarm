@@ -1,0 +1,21 @@
+{
+  "window": "2022",
+  "elapsed_seconds": 950.7807448748499,
+  "rounds": 4127,
+  "actions": 9611,
+  "statuses": {
+    "COMPLETE_CONDITIONAL_STOCK_ROUND": 3677,
+    "MISSING_OPEN_PATH_UNKNOWN": 42,
+    "PRECHECK_Q0_NO_SUBMIT": 3,
+    "NEXT_OPEN_BELOW_PROTECTION_NOFILL": 1,
+    "MISSING_NEXT_OPEN_UNKNOWN": 6,
+    "UNADMITTED_ACTION_PATH_UNKNOWN": 313,
+    "FACTOR_PATH_UNKNOWN": 63,
+    "UNADMITTED_ACTION_AT_ENTRY_UNKNOWN": 10,
+    "REGISTER_OR_ENTITLEMENT_UNKNOWN": 7,
+    "FACTOR_AT_ENTRY_UNKNOWN": 4,
+    "MINIMUM_LOT_NOT_FUNDED_NOFILL": 1
+  },
+  "source_checks_passed": true,
+  "report_pending": true
+}

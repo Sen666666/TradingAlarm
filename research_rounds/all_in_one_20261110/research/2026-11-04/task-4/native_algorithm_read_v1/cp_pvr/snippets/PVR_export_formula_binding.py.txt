@@ -1,0 +1,18 @@
+O = Path(__file__).resolve().parent
+W = O.parent
+P = W/'pvr-current-v3-information-capital-20261101'
+FORMULA = P/'original_score_function.py'
+EXPECTED = '9328109bada26c53b04cf0f3e84d719917cb528ff8608b3e9faa5d1c55ba8cb2'
+WINDOWS = [('2022-01-01', '2022-12-30'), ('2025-07-01', '2026-06-30')]
+
+def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def save(p, x):
+    p = Path(p); p.parent.mkdir(parents=True, exist_ok=True)
+    t = p.with_name(p.name+'.tmp')
+    t.write_text(json.dumps(x, ensure_ascii=False, indent=2, allow_nan=False)+'\n'); t.replace(p)
+
+def original():
+    assert sha(FORMULA) == EXPECTED
+    env = dict(np=np, pd=pd)
+    exec(compile(FORMULA.read_text(), str(FORMULA), 'exec'), env)
+    return env['score']

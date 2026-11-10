@@ -1,0 +1,22 @@
+[
+  {
+    "scope": "full",
+    "stocks": 1709,
+    "stocks_with_blocked": 1666,
+    "observations": 3672050,
+    "blocked_warm_proposal_cold": 274597,
+    "slow_blocked": 34761,
+    "slow_blocked_positive_close": 21024,
+    "slow_blocked_positive_close_above_median_volume": 6912
+  },
+  {
+    "scope": "recent",
+    "stocks": 1709,
+    "stocks_with_blocked": 1666,
+    "observations": 1476692,
+    "blocked_warm_proposal_cold": 110098,
+    "slow_blocked": 13985,
+    "slow_blocked_positive_close": 8272,
+    "slow_blocked_positive_close_above_median_volume": 2862
+  }
+]

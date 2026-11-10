@@ -1,0 +1,66 @@
+@dataclass(frozen=True)
+class DecisionQuote:
+    security_id: str
+    issuer_id: str
+    sector_id: str
+    currency: str
+    raw_price: Decimal
+    known_at: datetime
+    fx: FXQuote
+    quantity: QuantityRule
+    fees: FeeSchedule
+    source_id: str
+    par_value: Decimal | None = None
+
+    def read_price(self, at: datetime) -> Decimal:
+        aware(at); aware(self.known_at)
+        if self.known_at > at or not self.source_id or self.currency not in ('CNY', 'HKD'):
+            raise ValueError('Future/unidentified raw price or unsupported currency')
+        self.fx.read(at)
+        if self.currency == 'CNY' and dec(self.fx.cny_per_local) != ONE:
+            raise ValueError('CNY conversion must equal one')
+        return positive(self.raw_price)
+
+
+@dataclass(frozen=True)
+class Mark:
+    raw_price: Decimal
+    known_at: datetime
+    fx: FXQuote
+    source_id: str
+
+    def cny_price(self, at: datetime) -> Decimal:
+        aware(self.known_at)
+        if self.known_at > at or not self.source_id:
+            raise ValueError('Future or unidentified valuation mark')
+        return positive(self.raw_price) * self.fx.read(at)
+
+
+@dataclass(frozen=True)
+class FillWindow:
+    event_id: str
+    security_id: str
+    at: datetime
+    raw_open: Decimal
+    execution_price: Decimal  # Explicit protocol slippage already applied.
+    fx: FXQuote
+    quantity: QuantityRule
+    fees: FeeSchedule
+    capacity_shares: int
+    market_open: bool | None
+    buy_allowed: bool | None
+    sell_allowed: bool | None
+    sellable_at: datetime
+    cash_due_at: datetime
+    source_id: str
+    execution_basis: str  # e.g. observed_open or explicit_daily_bar_proxy.
+    par_value: Decimal | None = None
+
+    def validate(self):
+        for t in (self.at, self.sellable_at, self.cash_due_at):
+            aware(t)
+        if (not self.event_id or not self.source_id or not self.execution_basis
+                or type(self.capacity_shares) is not int or self.capacity_shares < 0
+                or self.sellable_at < self.at or self.cash_due_at < self.at):
+            raise ValueError('Invalid execution event/availability/settlement facts')
+        positive(self.raw_open); positive(self.execution_price); self.fx.read(self.at)

@@ -1,0 +1,299 @@
+{
+  "scope": "Existing sealed conditional OPEN+5bp proxy records, read-only post-close necessary-condition audit. No execution certification or counterfactual account.",
+  "synthetic_audit_tests": 3,
+  "raw_symbols": 107,
+  "raw_source_hashes_verified": true,
+  "limit_cache": {
+    "path": "/Users/bytedance/repos/my-quant/data/processed/factors/limit_prices/limit_prices.parquet",
+    "rows": 7599,
+    "date_min": "2026-05-15 00:00:00",
+    "date_max": "2026-05-15 00:00:00",
+    "trade_matches": 0
+  },
+  "arms": {
+    "all1709": {
+      "actions": 236,
+      "stocks": 79,
+      "rounds": 80,
+      "shares": 385058,
+      "gross": "2348975.833830",
+      "fees": "1933.7210794860030",
+      "actions_by_side": {
+        "buy_core": 80,
+        "buy_add": 42,
+        "sell_add": 34,
+        "sell_all": 80
+      },
+      "raw_known": 236,
+      "source_quality_invalid": 0,
+      "outside_day_range": {
+        "actions": 28,
+        "stocks": 26,
+        "rounds": 26,
+        "shares": 49400,
+        "gross": "255150.630500",
+        "fees": "178.3165888650500",
+        "actions_by_side": {
+          "buy_core": 8,
+          "buy_add": 11,
+          "sell_all": 8,
+          "sell_add": 1
+        },
+        "affected_old_rounds": {
+          "rounds": 26,
+          "financial_known_rounds": 26,
+          "old_full_net_sum": -16293.79143612165,
+          "old_wins": 4,
+          "old_net_return_ge30_tails": 0,
+          "not_corrected_strategy_return": true
+        }
+      },
+      "one_price_day": {
+        "actions": 1,
+        "stocks": 1,
+        "rounds": 1,
+        "shares": 2400,
+        "gross": "13350.672000",
+        "fees": "5.8557780752000",
+        "actions_by_side": {
+          "buy_add": 1
+        },
+        "affected_old_rounds": {
+          "rounds": 1,
+          "financial_known_rounds": 1,
+          "old_full_net_sum": -1422.00146126105,
+          "old_wins": 0,
+          "old_net_return_ge30_tails": 0,
+          "not_corrected_strategy_return": true
+        }
+      },
+      "single_quote_off_tick": {
+        "actions": 235,
+        "stocks": 79,
+        "rounds": 80,
+        "shares": 384558,
+        "gross": "2328965.833830",
+        "fees": "1927.4384384860030",
+        "actions_by_side": {
+          "buy_core": 79,
+          "buy_add": 42,
+          "sell_add": 34,
+          "sell_all": 80
+        },
+        "affected_old_rounds": {
+          "rounds": 80,
+          "financial_known_rounds": 80,
+          "old_full_net_sum": 22183.324840513997,
+          "old_wins": 20,
+          "old_net_return_ge30_tails": 2,
+          "not_corrected_strategy_return": true
+        }
+      },
+      "gross_not_cent_representable": {
+        "actions": 190,
+        "stocks": 77,
+        "rounds": 78,
+        "shares": 284758,
+        "gross": "1700061.983830",
+        "fees": "1484.4375927010030",
+        "actions_by_side": {
+          "buy_core": 67,
+          "buy_add": 34,
+          "sell_add": 19,
+          "sell_all": 70
+        },
+        "affected_old_rounds": {
+          "rounds": 78,
+          "financial_known_rounds": 78,
+          "old_full_net_sum": 24575.641077510998,
+          "old_wins": 20,
+          "old_net_return_ge30_tails": 2,
+          "not_corrected_strategy_return": true
+        }
+      },
+      "gross_inconsistent_after_float_cleanup": {
+        "actions": 190,
+        "stocks": 77,
+        "rounds": 78,
+        "shares": 284758,
+        "gross": "1700061.983830",
+        "fees": "1484.4375927010030",
+        "actions_by_side": {
+          "buy_core": 67,
+          "buy_add": 34,
+          "sell_add": 19,
+          "sell_all": 70
+        },
+        "affected_old_rounds": {
+          "rounds": 78,
+          "financial_known_rounds": 78,
+          "old_full_net_sum": 24575.641077510998,
+          "old_wins": 20,
+          "old_net_return_ge30_tails": 2,
+          "not_corrected_strategy_return": true
+        }
+      },
+      "raw_price_off_tick": {
+        "actions": 0,
+        "stocks": 0,
+        "rounds": 0,
+        "shares": 0,
+        "gross": "0",
+        "fees": "0",
+        "actions_by_side": {},
+        "affected_old_rounds": {
+          "rounds": 0,
+          "financial_known_rounds": 0,
+          "old_full_net_sum": 0,
+          "old_wins": 0,
+          "old_net_return_ge30_tails": 0,
+          "not_corrected_strategy_return": true
+        }
+      },
+      "outside_range_distance_not_a_pnl_correction": "127.533500",
+      "historical_daily_limit_unknown": 236,
+      "queue_or_fill_unknown": 236
+    },
+    "tech407": {
+      "actions": 97,
+      "stocks": 33,
+      "rounds": 33,
+      "shares": 115076,
+      "gross": "1049701.125570",
+      "fees": "831.4659472615370",
+      "actions_by_side": {
+        "buy_core": 33,
+        "buy_add": 17,
+        "sell_all": 32,
+        "sell_add": 15
+      },
+      "raw_known": 97,
+      "source_quality_invalid": 0,
+      "outside_day_range": {
+        "actions": 14,
+        "stocks": 12,
+        "rounds": 12,
+        "shares": 6900,
+        "gross": "114375.856000",
+        "fees": "90.9831631196000",
+        "actions_by_side": {
+          "buy_core": 6,
+          "buy_add": 5,
+          "sell_add": 1,
+          "sell_all": 2
+        },
+        "affected_old_rounds": {
+          "rounds": 12,
+          "financial_known_rounds": 12,
+          "old_full_net_sum": -7418.904723103799,
+          "old_wins": 2,
+          "old_net_return_ge30_tails": 1,
+          "not_corrected_strategy_return": true
+        }
+      },
+      "one_price_day": {
+        "actions": 0,
+        "stocks": 0,
+        "rounds": 0,
+        "shares": 0,
+        "gross": "0",
+        "fees": "0",
+        "actions_by_side": {},
+        "affected_old_rounds": {
+          "rounds": 0,
+          "financial_known_rounds": 0,
+          "old_full_net_sum": 0,
+          "old_wins": 0,
+          "old_net_return_ge30_tails": 0,
+          "not_corrected_strategy_return": true
+        }
+      },
+      "single_quote_off_tick": {
+        "actions": 97,
+        "stocks": 33,
+        "rounds": 33,
+        "shares": 115076,
+        "gross": "1049701.125570",
+        "fees": "831.4659472615370",
+        "actions_by_side": {
+          "buy_core": 33,
+          "buy_add": 17,
+          "sell_all": 32,
+          "sell_add": 15
+        },
+        "affected_old_rounds": {
+          "rounds": 33,
+          "financial_known_rounds": 32,
+          "old_full_net_sum": 60780.787971268015,
+          "old_wins": 12,
+          "old_net_return_ge30_tails": 7,
+          "not_corrected_strategy_return": true
+        }
+      },
+      "gross_not_cent_representable": {
+        "actions": 77,
+        "stocks": 33,
+        "rounds": 33,
+        "shares": 79976,
+        "gross": "759889.945570",
+        "fees": "621.9960236235370",
+        "actions_by_side": {
+          "buy_core": 28,
+          "buy_add": 12,
+          "sell_all": 29,
+          "sell_add": 8
+        },
+        "affected_old_rounds": {
+          "rounds": 33,
+          "financial_known_rounds": 32,
+          "old_full_net_sum": 60780.787971268015,
+          "old_wins": 12,
+          "old_net_return_ge30_tails": 7,
+          "not_corrected_strategy_return": true
+        }
+      },
+      "gross_inconsistent_after_float_cleanup": {
+        "actions": 77,
+        "stocks": 33,
+        "rounds": 33,
+        "shares": 79976,
+        "gross": "759889.945570",
+        "fees": "621.9960236235370",
+        "actions_by_side": {
+          "buy_core": 28,
+          "buy_add": 12,
+          "sell_all": 29,
+          "sell_add": 8
+        },
+        "affected_old_rounds": {
+          "rounds": 33,
+          "financial_known_rounds": 32,
+          "old_full_net_sum": 60780.787971268015,
+          "old_wins": 12,
+          "old_net_return_ge30_tails": 7,
+          "not_corrected_strategy_return": true
+        }
+      },
+      "raw_price_off_tick": {
+        "actions": 0,
+        "stocks": 0,
+        "rounds": 0,
+        "shares": 0,
+        "gross": "0",
+        "fees": "0",
+        "actions_by_side": {},
+        "affected_old_rounds": {
+          "rounds": 0,
+          "financial_known_rounds": 0,
+          "old_full_net_sum": 0,
+          "old_wins": 0,
+          "old_net_return_ge30_tails": 0,
+          "not_corrected_strategy_return": true
+        }
+      },
+      "outside_range_distance_not_a_pnl_correction": "49.173000",
+      "historical_daily_limit_unknown": 97,
+      "queue_or_fill_unknown": 97
+    }
+  }
+}

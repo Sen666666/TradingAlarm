@@ -1,0 +1,1 @@
+Analysis JSON export failed on existing NaN for unavailable market-context dates. Preserve unknown as null, never 0 or a guessed date. Already-read financial projections and all original inputs remain unchanged; no account/target/model replay.

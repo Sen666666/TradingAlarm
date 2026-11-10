@@ -1,0 +1,4 @@
+只生成79固定案例股完整暖机原I/E0与原CP1缓存，不生成账户收益、选股政策或真实交易。79身份直接复用上轮已冻结CASE_STOCK_CP1_COVERAGE；三个工程参照000021/000034/000050单列，不混入真实案例。
+输出截至2026-06-30；使用原source segment全历史暖机，不从2025-07-01重置CP1。原cache.py:derive只从既存signal/events/states/旧IX-G1结果重新投影原E0/I；原CP1 features/calculate参数与原common.frame映射不变（CP1命名e0_valid实际映射i_target，真实e0_target另存）。价格/amount/原event同源同日期。缺失/无当期行情不得补零或造事件。
+工程闸门：3股full frame逐字段同原common.frame；CP1逐字段同旧signals；物理2025-12-31截断重算原I/CP1与过去输出一致。关trace只是原市场输出，无交易控制器。
+每个案例股导出期内I/E0字段与既有原生I缓存逐值同；保留完整暖机I/E0、CP1及负event输入。截止前没有真实观察记not_applicable；有观察但CP1必需字段非正/缺失记blocked/unknown，不能删坏行强算。90秒预算，预估42秒；到预算保存已完成并报告，不扩1709。

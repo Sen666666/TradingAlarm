@@ -1,0 +1,17 @@
+{
+  "completed": true,
+  "industries": 90,
+  "pilot_reused": true,
+  "all_history_seconds": 52.35663862666115,
+  "aggregation_seconds": 1.3795787920244038,
+  "new_economic_paths": 0,
+  "aggregation_resume_without_market_recalculation": true,
+  "deliverables_sha256": {
+    "RESULTS.txt": "984922b5d2c49222d1d9aa57d3ddc1c43e50cc86252a5c26e2f49027086da1d4",
+    "SUMMARY.json": "c19207d85c0b2d93dc873219850f92a9809ca9ee95ba0cf2c36cc09eb028a0f1",
+    "DAILY_COUNTS.json": "98dbaf8c4d343626c0adb303cc481688c046bca269ef136396445cf1eaf6196a",
+    "FIXED_PRICE_BLOCKS.json": "9aa59651cf9fee3ea7f8564275c8e82e5da332f604f044c7d1714e50ac2f4800",
+    "ATTEMPT_SUMMARY.json": "ecf469e321a68d853347b026f387cc016d1684c70f201b6cbc15dc4b19320bef",
+    "STOCK79_PREFLIGHT.json": "bcb7a6542dcddba071d27509bfcc9dc79030177eeade242eba6813d46b4897de"
+  }
+}

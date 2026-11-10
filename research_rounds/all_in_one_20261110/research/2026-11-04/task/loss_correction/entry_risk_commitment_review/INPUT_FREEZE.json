@@ -1,0 +1,10 @@
+{
+  "before_new_risk_feature_results": true,
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/cycle2024/no60/run-2024/pair/B.json.gz": "0f29f72cebb8d2ea4f1cf576c0a3fded90f747b58b5439b52564a57c31886440",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/cycle2024/no60/run-2024/pair/daily.jsonl.gz": "f185e0a768db347401bb57670d29ea30383217357fb581967ef52514eac4e8f4",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/runs/2025_26/pair/B.json.gz": "932b843daa6b207d43eae4f773442b886c0fda9181c41bf34dac5f91dec76147",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/runs/2025_26/pair/daily.jsonl.gz": "31d1ec94e4d4f1e249d24441794611886f56f6add844f1b2e70b15ae42fed197",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0"
+  }
+}

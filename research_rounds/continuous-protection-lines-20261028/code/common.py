@@ -1,0 +1,24 @@
+from pathlib import Path
+import json,hashlib,math
+import pandas as pd
+import numpy as np
+ROOT=Path(__file__).resolve().parents[3]
+O=Path(__file__).resolve().parents[1]
+PH=ROOT/'research_rounds/ph1-cross-sector-20261028'
+SA=ROOT/'research_rounds/s-amount-cross-sector-20261028'
+PREP=ROOT/'TradingAlarm/runtime/market/update-20261027-153013-2ffe04/prepared'
+POOL=ROOT/'research_rounds/tech-compound-design-20261026/proposed-pool.csv'
+END='2026-10-27'
+def read(p):return json.loads(Path(p).read_text())
+def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def save(p,x):
+ p=Path(p);p.parent.mkdir(parents=True,exist_ok=True)
+ with p.open('x') as f:json.dump(x,f,ensure_ascii=False,indent=2,allow_nan=False)
+def frame(sid,cut=None):
+ f=pd.read_parquet(PREP/'facts'/f'{sid}.parquet').loc[:cut]
+ raw=pd.read_parquet(PREP/'signals'/f'{sid}.parquet').reindex(f.index)
+ ev=pd.read_parquet(PH/'events/TECH'/f'{sid}.parquet').reindex(f.index)
+ assert (f.close==raw.close).all() and set(raw.amount_unit)=={'CNY'}
+ out=f[['close','segment_id','i_target','i_floor']].copy()
+ out['amount']=raw.amount;out['e0_down']=ev.event.eq(-1);out['e0_valid']=f.i_target.astype(bool)
+ return out

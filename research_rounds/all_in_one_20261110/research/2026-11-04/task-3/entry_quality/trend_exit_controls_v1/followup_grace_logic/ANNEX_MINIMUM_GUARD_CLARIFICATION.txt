@@ -1,0 +1,49 @@
+最终定义澄清：根冻结最小guard与后续softscope附加条件分开
+
+本附录优先澄清FORMULA_AND_SCOPE.txt第1、6段中的“冻结grace”用语：
+根STATE_MACHINE_FREEZE/PROTOCOL提出的最小grace可行guard是
+  I失效 AND C>此前原I线 AND EMA仍有效，
+并非统一显式另加E0_on。E0_on是执行review后来讨论softscope时采用
+的附加条件；不能把这个附加条件冒充原始冻结定义或已运行策略。
+六grace账户均未运行。本附录不改原数据、冻结规则或adapter。
+
+必须区分两个结论：
+
+A. 若额外要求E0_on：
+同源有效、前一观察I active时，原G1_I代码直接给出
+  Ioff iff (!E0_shadow OR C<=old_I_floor)。
+因此Ioff & E0_on & C>old_I_floor严格互斥。这是带附加E0条件的逻辑结论。
+
+B. 根原最小guard仅要求C>旧I线+EMA有效：
+原E0在同源有效结构中仅因旧floor边界退出；I进入时继承E0 floor，
+存续时max该线，故按普通实数顺序很难出现首次Ioff而旧线未破。
+但E0 compare使用gamma4数值并列带，I的直接价线比较用literal <=。
+不能据此宣称任意浮点序列上裸最小guard绝无反例。
+
+解析边界例（理论说明，不是新账户/新行情或模型运行）：
+旧E0/I floor=1，C=1+2^-52。binary64下literal C>1成立；E0使用
+gamma4=4u/(1-4u)，u=2^-53，差值2^-52落在gamma4并列带内，compare
+返回0，E0可判结构退出，I因shadow off随之退出。若EMA仍有效，裸
+literal C>旧线条件并不自动排除该点。若将“未破旧结构边界”按原
+E0同一compare定义理解，该点仍是边界触及，而非可放松的软失效。
+源切换/无效观察另属未知或新域，不准比较跨源旧线，也不能作为软
+grace许可。此前报告中的逻辑证明已明确限同源有效首次转折。
+
+本缓存的事实仍完整成立，不需重扫：全1709固定股原facts共4081068
+观察，66816个同源I on→off全部literal C<=严格前一观察I floor，
+E0也全部off。没有gamma4造成literal above-floor的首转折。22空股、
+warmup与未知prior-floor行均单列。裸Ifalse且高于历史旧线的232113
+后续inactive观察不能取消已锁退出，不能冒充新的首次许可。
+
+最终推荐措辞：
+“保持原结构风险契约、不撤销既有退出的根冻结最小grace口径，在本
+缓存中没有可延缓的首次失效，故当前六臂无作用域并停止。加E0_on的
+更窄审查口径还具有直接逻辑互斥性；二者不混同。不称EMA延缓经经济
+回测无效，也不称任意浮点输入上的裸最小guard数学恒假。”
+
+源码依据：
+.../b5-g1-20261025/code/policies_g1.py:8,20-34
+.../pv-strength-b5-20261025/code/policy.py:99-114
+.../pv-strength-b5-20261025/code/arithmetic.py:UNIT_ROUNDOFF,GAMMA4,compare
+原全池收据：ALL_POOL_TRANSITION_SUMMARY.json及SOURCE_SHA256.json。
+本次仅附录澄清，0新扫描、0模型、0账户、0执行事件。

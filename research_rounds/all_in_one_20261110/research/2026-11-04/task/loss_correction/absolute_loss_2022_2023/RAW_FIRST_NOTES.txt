@@ -1,0 +1,32 @@
+2026-11-04, viewed FOUR_RAW_OHLCV.png before state/entry overlays for this
+frozen four-case diagnostic. Selection uses completed outcome, fully consumed
+development, not independent validation.
+
+000620: several very sharp upward legs reverse, and long declines/ranges lie
+between them. Loss could be accumulated entry/addition into these failed legs,
+or one large unsupported position, so check real sizes/cycles. The 2023 raw
+price discontinuity is NOT assumed to be a tradeable market crash; first check
+saved factor/source changes and whether an actual position existed then.
+
+600415: 2022 has many small false starts in a range; April2023 shows a much
+larger-volume and larger-price advance, followed by normal violent pullbacks.
+Most repeated losses might belong to the former range while the account misses
+the later real move. Alternative: entries may already be during the true move
+and a fast protection clips it. Five past attempts cannot be used as a real-
+time permanent ban; need original structure identity and actual funding.
+
+601595: much of 2022 is a quiet range; 2023 March-April is a decisive advance
+with pullbacks while still far above the base. An early failed attempt can be
+ordinary preparation for a later tail rather than proof of bad reentry. Need
+to check whether the recovered winner is a new source/E0/industry attempt or
+just a new receipt within the same structure, and how the actual role changes.
+
+301319: many modest up/down legs before a much steeper 2026 rise. A losing
+early attempt is visually plausible even for the stock with a later marked
+tail. Alternative: an always-held low-protection base might already survive
+all those swings; then the extra failed episode may be optional role capital,
+not a need to reject the whole stock. Do not infer a clock/stop from this plot.
+
+The raw charts alone do not distinguish a temporary failure from a normal
+retreat in a later winner. Next reveal only original cached E0/I/CP1 and actual
+trade/role/floor paths, retaining every ordinary/loss/tail control population.

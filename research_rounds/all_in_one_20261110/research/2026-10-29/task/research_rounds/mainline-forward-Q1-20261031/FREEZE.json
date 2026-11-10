@@ -1,0 +1,17 @@
+{
+  "before_two_Q1_paths": true,
+  "no_Q2": true,
+  "normal_only": true,
+  "budget_seconds": 90,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-forward-Q1-20261031/PROTOCOL.txt": "fcafc38af7b724a04703b5f82acb6e006563b0e3335da7019b8bae86a5c5163e",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-forward-Q1-20261031/continuation.py": "34fda506a24beadb183320b8cf0fff00cbadac05d6f0db94b147486d8cb45379",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-forward-Q1-20261031/boundary-2025-12-31.chk": "3d9584f64c1d037c9ba03db77a15d48c1f627827d860c1c14457faf5b63024f9",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-attention-top3-Q4-20261031/attention.py": "afd49bdd9b50a786239e5894197c770cf1207f401d6184fc382a3210ec5ffe97",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-attention-top3-Q4-20261031/FREEZE.json": "f688bb8903d213d972ee13b0ac85770c028f18e3f716696916067a08d3cd77bc",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-attention-top3-Q4-20261031/results/T3.json.gz": "ea3c11605fbc45e21b001f3e93aae7bded6bbdf7cd8334732828035baa9af524",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/results/RAW.json.gz": "52d2b4ad4790cea783b99b66bccb0b37cd738434dccd2227d86efe236df05890",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/recovery.csv": "76599d9013946bc5fc501a57b046f36a2868ad61f147ef1a6c73c9575b35906a",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/market-mainline-measurement-20261031/FEATURE_MATRIX_90.parquet": "4be2fe5842221099f4c0fe9fb6380bf4ec77a26cca786d0cb9ac3a25c3464598"
+  }
+}

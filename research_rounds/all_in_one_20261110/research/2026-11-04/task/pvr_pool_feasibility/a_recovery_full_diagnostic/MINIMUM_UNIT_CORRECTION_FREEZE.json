@@ -1,0 +1,10 @@
+{
+  "before_corrected_2022_minimum_numerics": true,
+  "date": "2022-06-01",
+  "correction": "Original STOCK_MANIFEST canonical ref belongs strong2025; use actual2022-normal-reference canonical receipt source. Initial120unknown preserved; no data gap or policy change.",
+  "new_source_directory": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/2022-normal-reference-20261031/inputs/stock-receipts",
+  "original_scope_sha256": "f7bbfe5b886a38d0c18db5af6d5a1df7e439a4bcc7ce261e7f7f4320a58469bd",
+  "script_sha256": "9c1b2cc876bbc81261ccdf9d81d5dd322a990bb9fb1a7a8f426bb72fa111f65d",
+  "rerun_other_dates": false,
+  "new_accounts_S0_orders": 0
+}

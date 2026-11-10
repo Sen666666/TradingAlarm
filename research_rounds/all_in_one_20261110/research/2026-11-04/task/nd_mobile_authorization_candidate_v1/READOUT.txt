@@ -1,0 +1,18 @@
+结论：两个具体权限命题均STOP，不进入native/账户，不调等待期、票数或比例。它们没有提供覆盖主要损耗且保留恢复与新leader的风险合同。此结论只针对下列命题，不是否定所有授权纠错；与父线个股首次买入/重入质量保持分工。
+
+母体：已完成D_GROSS10同1m、1709开发快照的2022—24自身连续和2025Jul—2026Jun独立strong账。post严格actual buy>2024Oct8 CLOSE，原mobile227层−107345.19，正101070.69/负−208415.88，买费资本2685097.36。原整个post财富损耗−186615.50。这些数字是原路径贡献/累计周转，绝非新政策可省或收益。0新账户、0价格读取/指标、新loader/宽表；两个纯saved脚本各约1秒。
+
+P1：同sector+原金融E0 episode发生mobile CP1结构保护退出请求后，新增mobile不能继续走confirmed、仅可原probe；由严格后续的已接纳industryCP1续回原stage权限。旧持仓/原结构管理/资金占用不变，不按浮盈亏卖出或毕业。
+post原confirmed49层落在该权限撤回域，买64.15万，原净−24501.03（正20965.46/负−45466.49），仅为原mobile净亏22.82%/原post总净损耗13.13%；其余178仍−82844.16。原probe另2层−1446.23不冒称可被该confirmed撤权再缩。
+反例：June22_ND仅2层−1811.92；Feb24_ND及Sep24恢复首波均0；Mar22—Apr21'23相关9层原净+56515.20；strong相关167层原净+113269.21（正267011.98/负−153742.76）。候选虽能触及一部分失败，同样触及真正恢复资金。此阶段不扩算q/资金反馈。
+请求时钟特别限定：用15:10原pilot_layer_exit请求，不是次日/以后sell fill；原顺序为保护请求→industry.observe→新intents。P1明确同CLOSE失败优先，strict后续CLOSE才续权，不假称原流程如此。当前按所有原请求重置：long160层、strong167层有重复请求；不是每层仅最早请求的政策。详P1_REQUEST_CLOCK_CLARIFICATION.json；不把此范围偷换成全部‘结构已破即撤新权’均无效，也未把请求前亏损补成可省。
+
+P2：一条最新industryCP1最多授权一张新的confirmed mobile原合法reserve，之后fresh stockCP1仅保原probe，直到新industryCP1。按原funding顺序、真实reserve消费而非firstfill；原行业本就是多股背景，原stockCP1全部独立，因此这不是重复凭据bug。
+原post：118层属旧行业凭据后的后续confirmed reserve，买142.09万，原净−56706.17（正48565.05/负−105271.22）；90层首reserve、19层原probe，无post继承未知。这个更大关联不足以提供‘一票’风险合同。
+反例：June22 23层+4928.82；MarApr23 49层+65743.81；Feb24 34层+10556.42；Sep恢复首波19层+5163.32。strong379层+472007.34（正840927.04/负−368919.70），其中固定中船2层+105959.26、唯特偶1层+49289.24、光智2层+64764.76。正常多股和赢家扩张本来就复用行业共同背景；不能因原坏环境亏钱另立一票限额。
+完整真实reserve复用为long583笔、strong390笔，对应576/379实际层；预留未fill仍消费原关联首笔。warm继承/无可连filled metadata的25/52笔reserve保持UNKNOWN，不补loader或把未知当首/复用。原层贡献含已闭/未闭mark/股息，不称全为已兑现；逐层qty/closed/value保留。
+
+排重与不变项：原J.planning的mobile条件是fresh stockCP1+continuingQ；初始floor=max(I,CP1)。原budget.loss(record_only)只记损失，不按单股结构退出撤sector级active/level；原行业invalidate由自己的E0/action触发。P1额外局部反馈与旧global H、F/E、R0、current grade/proposal、行业20、同E0重入锁不同；但有源scope内强反例，所以不接线。
+旧market-proof-lifecycle提出许可存续问题及FAST/SECTOR/MARKET_NEW/ALL负证据，不能冒称首次发现。旧absolute_loss已表明1199独立stockCP1；后续292组price/candidate都推进仍负，而strong同类正，故不复活‘等已有线证明再加’。stage-progress-R诊断的是原stage与行业净推进，不等于一条industryCP1仅一笔reserve；opportunity-quality原诊断明确未加当天新industryCP1，非本P2经济支持；probe-batch是原probe资金分配，并非P2票据合同。未在上述范围发现P1/P2完全等价经济试验，不声称穷尽全历史。
+
+限制/下一步：两个方案均为预冻命题后的原路径关联，未改q/资金/自身ACT，不能按减少买款线性推收益。旧仓允许按原结构继续持有，但probe可能被既有行业资本占满，无保证落脚。真实winner正常保护退出也是结构事件，不能视为质量变坏。P1限定薄审由父协调，当前未独审；P2也未独审。没有通过逻辑且可直接经济检验的新授权机制；不再加第三个规则或参数。财务、执行日线代理、幸存者/非PIT/HK边界沿原来源保留。

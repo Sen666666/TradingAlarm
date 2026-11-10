@@ -1,0 +1,22 @@
+{
+  "status": "complete_read_only_review",
+  "new_economic_accounts": 0,
+  "new_market_downloads": 0,
+  "source_files_unchanged": 16,
+  "output_hashes": {
+    "ASSESSMENT.md": "f7e8716c81679942def0749a06859a08e07f33ef7a0ed83f6f086f552dc66bd1",
+    "README.md": "946f8539bec5ab057e6fa165ad9f7d784956af44b248aa2b567bb71a338872ac",
+    "REVIEW_RECEIPT.json": "4c5d1c6c9db96ae82e74d515ae09737d984f16817249032643ec5aa687a54e2b",
+    "code/review.py": "a1213f7b7820d09776337d0b46a47b3c1b7c204273da6c4aeeb95cb68a299ffc",
+    "index.html": "dc799b1cb1d4ac7317283b9b6af9699c997d6d47673d33a563ad253f8a0daaf5",
+    "tables/broad-universe-all-scenarios.csv": "ce8befa07d1164bee0fd50dd34e6004fbbe28d70b0dcdd1314a167188a418bfc",
+    "tables/case-means-not-a-portfolio.csv": "26e1ae5e274524af43d8b6bf5d00e651c064698b00beb9c080ec4a24e5390184",
+    "tables/dataset-registry.csv": "f74c226b6bf2bfa046b365ab22feefd4369795286c345b7361d8a31036f462bb",
+    "tables/fixed-stock-pools-all-scenarios.csv": "8ade086142d2df8feef69d36d4de9be629b4590c213861c282a2090520814ac8",
+    "tables/gold-czsc-special-only.csv": "c079b9022b86c729cae22e9c1644dceb78f8f06ff3ccb1c220c94b8c0f898bc4",
+    "tables/legacy-378-deduplicated-cases.csv": "8ef10c37d119175e6751bd77763f8dd466a25f07f3995f0a55d12c4b0151c9b5",
+    "tables/legacy-63-model-summary.csv": "ac026b4042e20dfe3c2a593ad39be73ef118ac0dc3e945e4957747047beeb6e1",
+    "tables/single-assets-all-policies.csv": "f9f93c4a72e3baa94e1b6501c7fb445eb8979b919791cf36d90bf45c8de54a16",
+    "tables/single-assets-continuous-base.csv": "6048efdef739f47bb9d86c339de75be86222997b7874ed2e5503479076c87d6b"
+  }
+}

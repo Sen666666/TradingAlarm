@@ -1,0 +1,101 @@
+Static effective No60 model methods, NOT EXECUTED.
+SOURCE /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/model_without_account_check.py
+
+METHOD resources
+ 106     def resources(self, pool=None, sector=None):
+ 107         lots = [x for x in self.lots if (pool is None or x.pool == pool)
+ 108                 and (sector is None or x.sector == sector)]
+ 109         orders = [x for x in self.orders.values() if x.qty > 0 and
+ 110                   x.status in ('open', 'cancel_pending') and
+ 111                   (pool is None or x.pool == pool) and
+ 112                   (sector is None or x.sector == sector)]
+ 113         capital = sum(x.qty*self.prices[x.stock] for x in lots) + sum(x.qty*x.limit for x in orders)
+ 114         risk = sum(x.qty*max(0., self.prices[x.stock]-x.floor) for x in lots)
+ 115         risk += sum(x.qty*max(0., x.limit-x.floor) for x in orders)
+ 116         reserve = sum(x.qty*(x.limit+x.fee_per_share) for x in orders)
+ 117         return capital, risk, reserve
+
+METHOD invalidate
+ 166     def invalidate(self, sector, episode, *, bar):
+ 167         s = self.sectors[sector]
+ 168         assert s.episode == episode
+ 169         s.active, s.status = False, 'invalidated'
+ 170         s.failed_bar = max(s.failed_bar, bar)
+ 171         for o in self.orders.values():
+ 172             if o.sector == sector and o.episode == episode: self.cancel(o.oid)
+
+METHOD migrate
+ 188     def migrate(self, sector):
+ 189         s = self.sectors[sector]
+ 190         if s.level == 0 or not s.active:
+ 191             return False
+ 192         if any(o.sector == sector and o.attempt == s.attempt and o.pool == 'probe' and o.qty > 0
+ 193                and o.status in ('open', 'cancel_pending') for o in self.orders.values()):
+ 194             s.status = 'confirmed_unfunded'
+ 195             return False
+ 196         moved = sum(x.qty*self.prices[x.stock] for x in self.lots if x.sector == sector and x.attempt == s.attempt and x.pool == 'probe')
+ 197         pending_fees = sum(o.qty*o.fee_per_share for o in self.orders.values()
+ 198                            if o.status in ('open', 'cancel_pending'))
+ 199         before = (self.cash, self.nav, self.resources(), self.shared_loss)
+ 200         for x in self.lots:
+ 201             if x.sector == sector and x.attempt == s.attempt and x.pool == 'probe':
+ 202                 x.pool = 'confirmed'
+ 203         s.status = 'confirmed' if s.level == 1 else 'expanded'
+ 204         assert before == (self.cash, self.nav, self.resources(), self.shared_loss)
+ 205         return True
+
+METHOD request
+ 207     def request(self, oid, stock, sector, qty, limit, floor, stock_token=None,
+ 208                 bar=0, fee_per_share=0., *, probe_request=False, role='core',
+ 209                 order_expiry_bar=None,
+ 210                 core_epoch_locked=False):
+ 211         assert qty > 0 and limit > 0 and 0 <= floor <= limit and fee_per_share >= 0
+ 212         assert role in ('core', 'mobile')
+ 213         if order_expiry_bar is None: order_expiry_bar = bar
+ 214         assert order_expiry_bar >= bar
+ 215         if oid in self.orders or oid in self.stock_requests:
+ 216             return 'duplicate_request'
+ 217         self.stock_requests.add(oid)  # Failed request is not silently replayed every day.
+ 218         s = self.sectors[sector]
+ 219         if not s.active: return 'industry_invalidated'
+ 220         if probe_request and role == 'core' and core_epoch_locked: return 'core_epoch_locked'
+ 221         pool = 'probe' if probe_request else 'confirmed'
+ 222         if not probe_request and s.level == 0: return 'explicit_probe_request_required'
+ 223         if not probe_request and role != 'mobile': return 'mobile_role_required'
+ 224         if role == 'mobile':
+ 225             if stock_token is None:
+ 226                 return 'no_fresh_stock_signal'
+ 227             if not self.valid(stock_token, 'stock_cp1', bar) or stock_token.confirmed_time != bar or stock_token.sector != sector or stock_token.stock != stock or stock_token.event_id in self.consumed:
+ 228                 return 'no_fresh_stock_signal'
+ 229             self.consumed.add(stock_token.event_id)
+ 230         if pool == 'confirmed':
+ 231             if not self.migrate(sector):
+ 232                 return 'confirmed_unfunded'
+ 233         if self.exhausted_policy != 'record_only' and self.shared_loss >= self.loss_budget and (pool == 'probe' or self.exhausted_policy == 'all_new_risk'):
+ 234             if pool == 'confirmed': s.status = 'confirmed_unfunded'
+ 235             return 'shared_loss_exhausted'
+ 236         cap, risk = qty*limit, qty*(limit-floor)
+ 237         pc, pr, _ = self.resources(pool)
+ 238         sc, sr, _ = self.resources(sector=sector)
+ 239         _, ar, reserve = self.resources()
+ 240         pending_fees = sum(o.qty*o.fee_per_share for o in self.orders.values()
+ 241                            if o.status in ('open', 'cancel_pending'))
+ 242         # Known execution fees cannot make an at-cap reservation violate its own cap on fill.
+ 243         budget_nav = self.nav - pending_fees - qty*fee_per_share
+ 244         failures = []
+ 245         if reserve + qty*(limit+fee_per_share) > self.cash + 1e-9: failures.append('cash')
+ 246         if pool == 'probe' and pc+cap > 0.10*budget_nav + 1e-9: failures.append('pool_capital')
+ 247         if pool == 'probe' and pr+risk > .005*budget_nav + 1e-9: failures.append('probe_risk')
+ 248         sector_fraction = .02 if probe_request else (0.02, 0.10, 0.20)[s.level]
+ 249         if sc+cap > sector_fraction*budget_nav + 1e-9: failures.append('sector_capital')
+ 250         if sr+risk > .01*budget_nav + 1e-9: failures.append('sector_risk')
+ 251         if failures:
+ 252             if pool == 'confirmed': s.status = 'confirmed_unfunded'
+ 253             return ','.join(failures)
+ 254         self.prices.setdefault(stock, limit)
+ 255         self.orders[oid] = Order(oid, stock, sector, s.episode, pool, qty, limit, floor, fee_per_share)
+ 256         self.orders[oid].role = role
+ 257         self.orders[oid].created_bar, self.orders[oid].expiry_bar = bar, order_expiry_bar
+ 258         self.orders[oid].attempt = s.attempt
+ 259         return 'reserved'
+

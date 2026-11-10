@@ -1,0 +1,76 @@
+HELD_I_INCREMENT最小可编码动作与风险接口（独立审查建议，未实现）
+
+1. 只改变一类当日原意图缺口
+if canonical_CP_state == KNOWN_PRESENT:
+    run_original_CP_path_unchanged(); return
+if canonical_CP_state != KNOWN_ABSENT:
+    no_new_held_I(); return
+if not (true_qty>0 and original_full_core_Q is True and original_i_buy is True
+        and original_I/E0/source_known_valid and ACT_on
+        and no_buy_or_exit_or_unacknowledged_same_stock_commitment):
+    no_new_held_I(); return
+if not explicit_typed_heldI_grant_for_current_confirmed_industry_epoch_attempt:
+    no_new_held_I(); return
+
+event_id=(sid,source_segment,original_I_epoch,original_i_buy_fact_time,input_hash)
+if event_id already_reserved_or_consumed_or_attempted_under_frozen_policy: no_new_held_I()
+单日真i_buy必须来自原事实，不由I_target自行生成。CP未知不能补成False。
+该日期id仍不足以证明新事实，必须绑定底层E0 event、S21/S63确认pivot或frontier
+更新的稳定origin refs/观测时点；本新增量已消费的同一底层事实不能换日期/hash重用。
+origin身份或消费账缺失则DENY，本轮不生成一套假canonical I token。
+
+2. 信号时冻结，与原核心线准确对齐
+S_sig=当时合法I线；保存原continuous坐标、dated factor、fee/quantity/source ids。
+N_sig=当日真实NAV；B_order=0.0025*N_sig（沿原先验预算，不是实亏保证）。
+reference_price=信号raw_close*(1+原SLIP)，沿原CORE参考时钟与假定。
+Cap_stock=max(0,0.10*N_sig-全同股实际库存市值-未确认取消的买单资本预留)。
+q_cap=max_legal_BUY_quantity:
+  gross(q,reference_price)<=Cap_stock
+  LR.protection_risk(q,raw_reference_price,raw_S,dated_fee_schedule,par_value)<=B_order
+最低单位不通过则0，不放大到最小手，不借CP更紧线定量。新I不再套2%MOBILE单次金额，
+否则会误称已产生尺寸差异；它沿宽I风险预算与原同股余额、行业及真实池额度定量。
+该cap是已知单笔/名义上界，不在CLOSE假定明日可卖所得或现在就占未来买单责任。
+组合RiskBook可做非修改preview；真实q与grant仅在下一OPEN、旧退出及前排订单处理
+后的同一真实prefix确定。不能因今天尚无未来卖款，就在不必要的早时钟封死所有明日意图。
+
+RiskBook不是一句‘风险够就买’：必须提供同一当前快照、完整现存数量和未决责任，
+对每个q返回显式deny理由/占用金额/有效期。至少同时检查：单笔已知风险、行业总额、
+账户共同场景压力、累计已用亏损/试错额、实际可用现金及10%保留。旧No60不具备这些
+全账强约束；未定义/未授予就不能伪造grant。
+共同场景风险接口可写为
+  Phi_omega=Σ真实层q_i*max(0,P_i-X_i^omega)+退出费用
+            +未成交买单剩余量的责任+未解除的额外执行责任，
+  max_omega(Phi_omega) <= B_portfolio_current_remaining。
+X_i^omega由风险方提前冻结为执行压力情景，不是未来实际最低价或保证止损价。
+持仓和同一pending-exit不能重复累加，应逐层保留适用的最大责任/额外差额；已成交
+买单数量从订单转入库存，不能双计；未确认取消不释放。场景及预算未定义是明确
+阻碍，不用原max(P-S,0)假装已经包含T+1/跳空/相关性。
+
+3. OPEN只收紧、不救单
+先处理原退出、真实结算和既有订单；按原PVR同批股票顺序走一次。
+以当时实际raw/factor、dated规则和费用重验q<=冻结q_cap、预算<=B_order、真实
+现金和所有池/行业/单股/组合责任。实际OPEN归一价必须>最后真实买价且>冻结I线；
+信号时最新合法I不得低于上次适用线。OPEN仅用前一CLOSE已知冻结I/last_core_line，
+不能读取facts.row(OPEN当日)里的未来CLOSE/I值来重验。没有新fresh CP，不借它回退；CP本来存在则第1步早已
+走原路径，不应先改状态再说CP原样。只有所选一个I新单实际reserve才锁责任；
+未成交/部分成交的预留与事件消费政策需唯一且保留至真实取消确认。
+一张事件至多一个订单；部分成交回调不重新产生新事件/预算。不得用当天未来HLV
+使前排先假定买不到再把预算给本单，沿原执行代理的原时钟。
+
+4. 新层的持有合同明确，旧层不动
+新kind=HELD_I_INCREMENT，原metadata需显式支持，不能伪造stock_cp1或假kind=core。
+金融confirmed权限是新的typed授权；不清原CORE已消费epoch。
+新层沿原CORE实际I_target结构退出和last_core_line风险参考语义；stored entry
+x.floor不是原CORE直接CLOSE止损接口。若增加冻结初始线/源段退出等新硬条件须
+逐项明示，不能称旧源原有。旧MOBILE保持原CP，旧CORE保持原I；不做隐式身份转换。
+
+5. 不任意封顶收益，也不许伪扩张
+取消4/6%目标和最多两次，但每次仍须新的真实原fresh-I事件、同一总风险本和现金。
+股价上涨自然提高仓位不触发为凑目标减仓；超过原集中度门只拒后续新增。
+新层亏损/退出的真实损失不因新epoch而清零；风险方必须定义恢复时钟与损失预算。
+若严格无CP交集极少或所有宽I最小手/真实资金皆0，就如实报告该机制对主要行情
+没有覆盖，不再补EMA/换周期/换更宽池硬救。
+
+当前状态
+这是可编写成纯决策函数的动作合同建议，压力/风险grant/typed池接线尚未实现，
+没有新订单、账户结果或保证收益。它替代的只是一个明确缺口，不代表完整策略修复。

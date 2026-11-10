@@ -1,0 +1,8 @@
+ selection=dict(snapshot_id='A-roster-industry22-cap-observed24',observed_at=snap['updated_at'],source_id='THS-current-3541450-company-total-CNY; separate roster22',
+  roster_asof='2026-10-22',cap_observed_date='2026-10-24',market_timestamp_unknown=True,lines=lines,
+  universe_limit='Current survivors/current cap/current industry historical development, not PIT or out-of-sample',
+  all_roster_dispositions=ref(out/'roster-dispositions.json'))
+ write(out/'selection.json',selection)
+ manifest=dict(schema_version=1,scope_date='2026-10-22',research_basis='current_pool_historical_development',
+   upstream_sha256={n:sha256(p) for n,p in UPSTREAM.items()},selection=ref(out/'selection.json'),series=series,
+   sector_series={x['series_id']:x['series_id'] for x in sectors})

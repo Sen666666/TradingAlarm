@@ -1,0 +1,11 @@
+{
+  "global_unique_Q_pass_fresh_CP1": 21411,
+  "duplicate_receipt_rows": 0,
+  "three_fixed_case_unique_counts": [
+    72,
+    79,
+    75
+  ],
+  "three_fixed_case_total": 226,
+  "counterfactual_global_complete_count": "unknown after diagnostic budget/save failure; do not infer from raw funding rows"
+}

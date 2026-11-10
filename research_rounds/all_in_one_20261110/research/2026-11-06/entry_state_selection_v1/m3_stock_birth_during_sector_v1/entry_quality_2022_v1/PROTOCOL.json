@@ -1,0 +1,9 @@
+{
+  "name": "2022 causal entry anatomy",
+  "scope": "Diagnostic only, no new trading model or parameter search. All2432 selected A_UNION_B2022 permits retained; completed labels only for descriptive comparisons, unknown separate.",
+  "cohort": "163 same-signal-day same-sector pairs in existing selected completed rounds, exactly one net winner and one loser. All pairs retained, no matching using new features.",
+  "cases": "Representative8 industries with most such pairs, descending count then industry name. Within each choose earliest paired signal day. Label-based descriptive examples, not prediction validation. Ordering/ties frozen before new price-position features.",
+  "features": "At signal t close: originalPVR, M/S recent10days, canonicalMU5, G/I facts, lastIbuy age, I root age, floor history; adjusted stock/sector closes from preexisting h1.npz, stockC verified againstfacts. Descriptive5/21/63 logprice movement, position below prior63high, same-period logstock minus logindustry movement. No next-dayHLC/volume or eventual outcome in features.",
+  "unknown": "Stock/industry segment discontinuity or missing price inside lookback => corresponding featureUNKNOWN. No ffill. Original static membershipNON-PIT and prepared data revision limits retained.",
+  "new_hypothesis": "Not yet selected. Relative-price directional-change lifecycle is under historical duplicate audit; do not claim novelty or profitability until actual mechanics checked."
+}

@@ -1,0 +1,74 @@
+2026-11-05｜CORE补充：原生合法性、旧规则排重、全P原账必要界
+
+当前判断
+不支持A“只换buy_allowed”的表述；不支持把P OR称为只补fresh。
+旧I入口本是warm&&(E0.entered||G1 fresh)，warm是i_buy上游证据而非S0独立字段。
+本次A1211全为G1 ready/grade<2，本E0起始也未暖、段内warm+fresh数0且G1未知0。
+原I没有激活有明确上游原因。A新许可仍缺授权/硬floor/持有退出/原I接续闭环。
+旧TRE只改buy_allowed，保留stock_up=i_target，PB/BOX361和BOTH320新增事件I均已真；
+它没有检验A。具体价格P与旧PB/BOX不同，但不足以直接准入完整新账户。
+
+全部P与B原账交集
+原35699 P全部一次join，无新的Account/Runner、买单、预留投影或收益估计。
+CORE消费仅由原real_buy_fill(role=core)+实际buy epoch识别，802相关实际CORE epoch
+对回本账I/segment日钟；MOBILE不消费CORE锁。A/A2/B/C分母均保留。
+long B20075：19529 ready但grade<2，546暖但无fresh。
+strong B7677：7528 ready但grade<2，149暖但无fresh。
+故把全部B接P等同于连当前G1暖态一起替换，不能称只是提前几天补fresh。
+
+保留原G1暖态的诊断子组（不是据结果添加新规则）
+                  B价格日  flat/ACT/其余S0/无pending/CORE未消费  同日原CP  后同I原CP
+long                 546                      298                  4        185
+strong               149                      134                  0         97
+其后signal+OPEN最小手+原S0 cash10必要项均过185/89；sector资本确定拒绝97/50
+(与最小手等多门可重叠)。未被这些必要条件排除的乐观上界为134/61股票日，
+不是合法订单/组合数量/收益，其他OPEN风险、行业许可和原冻结max/budget仍未知。
+
+H1半导体126只全母体
+B259价格日中252未暖/7暖无fresh；原账户flat等交集174股票日/78股，167未暖/7暖。
+同日原CP15；未来同native I epoch见原CP141，只是事后时钟标签，不能提前使用。
+最低单与现金等必要项后未排除21股票日/20股/21源-E0段：19未暖，仅2暖。
+现有行业总资本SC已给出至少133/174的CORE新增2%行业资本阻挡证书；
+该比例是原路径上的确定阻挡下界，不是完整新路径拒绝率，多个失败门可重叠。
+暖态7交集：min/OPEN/cash三必要项均过3，sector拒5，最后仅2事件未被这些项排除：
+  600877 电科芯片 2026-04-27，后原CP 2026-05-06(9自然日)；
+  688380 中微半导 2026-04-30，后原CP 2026-05-07(7自然日)。
+二者旧TRE PB/BOX/BOTH当日事件均为False(6个旧冻结文件SHA核同)，有具体时点差异；
+这不证明实际买到、获利或能修复半导体主线。原来8个AP/6股亦全未暖、ACT on、
+真实flat、无CP、无CORE消费；额外授权未知，不能从现金有余额推成可买。
+
+指定三股均未进入上述残余上界
+江丰H1仅1个P且为C/原i_buy重合；未新增B事件。
+珂玛4P为1C+3B。3B grade=-3，flat等交集成立，但100股含费保护风险
+5652.52/6387.94/5912.67分别超过.25%NAV预算3738.52/3707.68/3876.27，
+同时sector资本也确定拒绝；最低单现金够。不是单一现金失败。
+金海通4B，仅2/25满足flat等交集，grade=-3，最低单/risk/cash必要项通过，sector拒绝。
+原已合格CORE的尺寸拒绝另用根ORIGINAL_CORE_SIZE_CENSUS.json：H1 semis1169条
+combined risk/nominal尺寸拒绝、68股、实际1CORE；不得拆出唯一风险/金额原因。
+
+SC及资源必要界的含义
+新增CORE route只probe，但industry migrate不筛role，既有CORE可随行业证明迁confirmed；
+pool迁移不减少该行业所有库存/订单的SC。下一只CORE仍以全行业SC对2%判新增。
+本次不为任意P构造完整RiskBook。966原OPEN的S0库存由saved same-CLOSE股数扣除
+同OPEN全部实际buy fills直接解账，保留原公司行为/保护卖出；native OPEN marks估值。
+13已有exact S0逐股与资本核同；NAV上界=原S0 cash+S0库存+截至OPEN累计已确认
+净股息(不扣已支付，故为乐观权益上界)。原A股销售lag0/既有预留与AR责任仍沿已审原账。
+只有SC+新CORE最小买单资本仍大于2%该乐观上界，才给sector确定阻挡；后排原预留
+只会增加占用。同一钱/额度不能逐P累加；未阻挡者仍不代表其他风险/顺序已通过。
+原raw predicate无显式正浮点垫；已对27704保存标量再加NAV+1e-6元、比较+1e-6元
+保守核验，重分类0，最小原正拒margin0.838104元。13上界最大负差-2.45e-10是
+float表示，安全垫覆盖；最新SAFE聚合及TOLERANCE_AUDIT为口径。
+
+原两窗968 CLOSE/966 OPEN、全部P原barriers/CP、真实CORE fill、已提交竞争单均保留。
+P_ORIGINAL_RESOURCE_CONTEXT.jsonl.gz是全事件表；ORIGINAL_OPEN_RESERVED_COMPETITORS.json
+给原实际同OPEN预留单。exact OPEN全risk只在已有13日期可核；本报告不外推为许可。
+早期SEMICONDUCTOR_P_NECESSARY_SUMMARY的strong标签原来仅指2025H2，已保留旧件并
+改名H2_2025；完整strong半导体B=555=296(H2)+259(H1)，以最新G1分层全窗为准。
+
+计算与状态
+全原账census实际136.616秒，较根120秒上限超16.616秒。监控停止未及时触发，
+尝试终止时进程已自然exit0。RESOURCE_CENSUS_OVERRUN.json如实保留；没有再跑全marks。
+之后仅已落结果轻聚合0.598秒、6个既有TRE信号lookup0.853秒、A/三股轻聚合0.153秒。
+不以工程超时为策略失效；也不隐藏成本。无新经济账户、无新授权adapter、无原源修改。
+独审SAVED_RESOURCE_CONTEXT_REVIEW.json已通过保存结果的键/分层/标量必要界核验；
+它没有独立重演全源mark，也没有把802源码assert说成第三次全facts复算。

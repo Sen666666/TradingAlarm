@@ -1,0 +1,20 @@
+仅full准备评估；当前v1小账源码不改，0账户重放
+
+建议未来full复用旧已审empty-role诊断压缩，避免两臂726日保留约248万完整母体行。
+可原样借capacity_cost_guard_v1/capacity_adapter.py::Runner.planning中的已审片段：
+先first=len(opportunities)，完整执行N.Runner.planning(self,at)，之后只对本次新增
+opportunities日志保留roles非空，并另存当日full_rows/retained_role_candidates/accounts。
+不导入旧costadapter，不保留它的capacity_daily/cost context，不改资金或计划函数。
+
+只读源证据：joint_v3.py中opportunities只在初始化、planning.append和dump使用；
+实际pending由同次原事实/资格本地变量生成。N.planning先原J.planning，再对各自
+pending apply_priority；不读opportunities。完成N.planning之后压缩日志不会改变
+任何cash/qty/intents/rank/原E0/I/CP1/H/exit，也不会放行被原拒绝的订单。
+所有roles非空即使ACT暂停/exit_pending/其它barrier也保留；禁止过滤这些行。
+gross-admission-events里的唯一原route记录和原子reserve/fill完全保留，不把
+maximum_quantity内binary preview次数当被挡机会。
+
+若后续full授权，放入独立v2 adapter并明确wire规划method是只包原N.planning的
+日志wrapper；现有小账资金无需重跑，只做源码等价和日志人口计数证据。当前未实现。
+原源SHA见small STARTED及feasibility SOURCE_BINDING；root完整grant应绑定新v2
+源、provider v2、独立expected-calendar与实际COMBINED_SCORE_BINDING JSON/原manifests。

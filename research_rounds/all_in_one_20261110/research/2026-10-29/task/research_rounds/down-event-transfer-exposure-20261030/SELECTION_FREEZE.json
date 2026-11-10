@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-30T02:47:18.347522+00:00",
+  "before_reading_existing_final_cycle_labels": true,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/down-event-transfer-exposure-20261030/CONTRACT-v1.txt": "67810f373d395f4c8c2dd749ef11ae6ecba21ed439c4cfde0d87b80751864a44",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/down-event-transfer-exposure-20261030/all-holding-exposure-before-labels.csv": "b94b6e85f6e92e71f35d9685dfb9adcac593d2097a6aaec6fa2403e378bf5344",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/down-event-transfer-exposure-20261030/pair-options-before-labels.csv": "baef11ab27bfd85a04b7b56ab108741028729949dd34a5d6f6a19b1c9d75d5a0",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/down-event-transfer-exposure-20261030/selected-events-before-labels.csv": "a88e12e7a172965cfcdf991d244568b6d36f4a38da45c10b404bc4c72723a8fe"
+  },
+  "new_forward_return_paths": 0
+}

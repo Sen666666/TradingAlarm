@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "seconds": 0.010509999934583902,
+  "checks": [
+    "price_equals_MA_with_positive_slope_is_A_TRUE",
+    "prior_price_equals_upper_then_strict_break_is_B_TRUE",
+    "sustained_above_upper_without_fresh_cross_is_B_FALSE"
+  ],
+  "new_accounts": 0,
+  "repeated_full_source_verification": false
+}

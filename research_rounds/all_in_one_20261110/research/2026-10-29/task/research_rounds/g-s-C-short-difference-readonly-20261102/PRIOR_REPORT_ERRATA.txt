@@ -1,0 +1,12 @@
+Analysis wording correction only; original short-window package remains frozen.
+The prior REPORT/report_short.py described Jan12 白云山200/1200 as both reentries.
+Correct: C10 had bought/exited 白云山 Jan7→Jan10, so Jan12 200 is reentry.
+C_BATCH20 had never owned it before Jan12, so its 1200 is FIRST participation.
+ALL_LAYERS entry_class and actual financial ledgers already have the correct classification.
+No account, signal, target, fill, fee or NAV correction; no financial replay.
+
+This new diagnostic pins the four original Jan12/Jul9 checkpoints from the frozen
+short_window_analysis/CONTINUATION_CHECKPOINTS.json, not mutable live PROGRESS.
+The 12 mutable 2025 endpoint metadata files have been byte-exactly archived under
+month-continuation/archives/grant002 before the separately authorized July extension.
+This preserves a reproducible seven-day diagnostic as the live accounts continue.

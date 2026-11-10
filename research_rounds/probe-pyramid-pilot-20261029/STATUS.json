@@ -1,0 +1,18 @@
+{
+  "status": "complete",
+  "as_of": "2026-10-29T12:33:41.910616+08:00",
+  "successful_paths": 3,
+  "new_full_matrix": false,
+  "candidate_promoted": false,
+  "P0": "competitive_followup_clue_only",
+  "P1": "not_supported_for_adoption",
+  "further_research_started": false,
+  "new_downloads": 0,
+  "platform_and_accounts_modified": false,
+  "parameters_changed_after_results": 0,
+  "economic_same_parameter_replays_for_serialization": 1,
+  "technical_prefix_paths": 1,
+  "tests_passed": 10,
+  "accounting_passed": true,
+  "causal_and_identity_passed": true
+}

@@ -1,0 +1,25 @@
+{
+  "status": "COMPLETE_FIXED_CASE_STUDY_NO_PROMOTION",
+  "completed_utc": "2026-11-08T17:35:09.717633+00:00",
+  "cases": 22,
+  "stocks": 19,
+  "strict_known": 18,
+  "strict_unknown": 4,
+  "new_formula_count": 1,
+  "candidate_case_calculation_runs": 1,
+  "parameter_searches": 0,
+  "consumer_runs": 0,
+  "account_runs": 0,
+  "shadow_pnl": false,
+  "new_winrate": false,
+  "independent_audit": "formula_INDEPENDENT_CANDIDATE_AUDIT.md",
+  "interpretation_limits": [
+    "Cross-date fixed seen development cases, not same-date same-sector tradable pairs; score order does not prove slot displacement.",
+    "Score compression is only a score/potential-ranking cost, not missed fills or improved win rate.",
+    "Legacy PVR MOBILE actual rounds and current PRICE conditional q0 labels belong to distinct contracts; never substitute.",
+    "Current survivor pool and source versions are NON-PIT, not OOS."
+  ],
+  "final_readout": "candidate_FINAL_READOUT.md",
+  "detailed_readout": "candidate_READOUT.md",
+  "source_unchanged": true
+}

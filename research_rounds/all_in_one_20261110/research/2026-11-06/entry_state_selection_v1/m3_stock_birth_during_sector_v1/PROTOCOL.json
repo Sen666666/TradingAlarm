@@ -1,0 +1,36 @@
+{
+  "name": "M3_stock_birth_during_sector_v1",
+  "status": "FROZEN_BEFORE_NEW_EVENT_COUNTS_AND_PATH_LABELS_NOT_OOS",
+  "scope": "Signal/event diagnostic only. No accounts, no orders, no ranking retuning, no economic simulation. Existing historical research already consumed.",
+  "clock": "All signals at t close, execution earliest next immediate common trading session OPEN. Build shifts on full existing panel before windows. No future OHLC, fill, profit, or membership labels define signals.",
+  "stock_state": "M=canonical RIGHT3 where KNOWN3 true; otherwise UNKNOWN. Original mu5 and strict three-date source validation inherited unchanged. PVR availability is separate ranking knowledge, never turns M unknown into false.",
+  "sector_state": "S=existing COMMON_K_COMPARISON.M3_candidate (1/0/-1) for fixed1709/90 same common M3/PVR member domain. No changed breadth formula or thresholds.",
+  "events": {
+    "A_SECTOR_BIRTH": "S_t=1 AND S_prev=0 AND M_t=1. Original sector-edge main candidate form.",
+    "B_STOCK_BIRTH_DURING_SECTOR": "S_t=1 AND S_prev=1 AND M_t=1 AND M_prev=0 (both stock states known). Adds stock-specific births while sector remains eligible.",
+    "OTHER_UNKNOWN_OR_LEFT": "S_t=1, M_t=1 but S_prev unknown/left or S_prev=1 and M_prev unknown: separate observations, not new main births.",
+    "PERSISTENT": "Both S and M remain true: no repeated receipt."
+  },
+  "domain": "At each event append original e0_ready, g_ready, i_target, positive finite i_floor, fresh i_buy and fresh CP only as causal descriptors. Original I validity retained for direct integration; distinct raw birth vs I-qualified vs known PVR vs trade-quantity feasible. Do not claim all raw births are orders.",
+  "participation": "Signal is stock-specific one-time invitation for flat position only. Actual held/buy_pending/sell_pending prevents new initial order; never route it to averaging down. Existing profitable fresh-CP addition contract unchanged. No old receipt replay after later exit. After exit a fresh future birth required. Signal-only histories cannot identify changed actual holdings or cash.",
+  "reference": "Compare A to existing breadth_trade_contract main rows within2022,2024Sep-Dec,2026H1semi. Existing next-open fee/slippage/lot and2pct/.25pct risk contract is context, not run here. Extra events may cost extra commission and occupy slots; no new strategy winrate.",
+  "periods": [
+    "2022-01-01..2022-12-31 all",
+    "2024-09-01..2024-12-31 all",
+    "2026-01-01..2026-06-30 URFI881121"
+  ],
+  "fixed_cases": [
+    "2024-09-24..2024-10-31 semiconductor all members",
+    "2026H1 semiconductor all members",
+    "300085.SZ银之杰",
+    "002583.SZ海能达",
+    "603061.SH金海通",
+    "300623.SZ捷捷微电",
+    "688498.SH源杰科技",
+    "300666.SZ江丰电子",
+    "301611.SZ珂玛科技"
+  ],
+  "phase1": "Only counts and causal paths. Freeze all event identities then inspect specified stock timelines and if appropriate unchanged-source next-open5/20 close path descriptors. No calling fixed-horizon positive return a trade win; missing/price factor/source changes UNKNOWN.",
+  "limits": "Static future stock pool and sector mapping NON-PIT; common calendar/source inherited; original mu may retain pre-gap history; historical exchange orderability unavailable. New actual cash/state not reconstructed.",
+  "root_request": "Parent explicitly prioritized this bounded event study and stopped prior volume-distribution idea."
+}

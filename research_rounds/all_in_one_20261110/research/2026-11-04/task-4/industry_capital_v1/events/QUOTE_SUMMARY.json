@@ -1,0 +1,15 @@
+{
+  "complete": true,
+  "events": 33569,
+  "stocks": 1620,
+  "coverage": {
+    "has_prior_S0_scalar_lower_bound": 15267,
+    "has_13date_exact_S0": 851
+  },
+  "seconds": 18.87792166741565,
+  "limit_seconds": 100,
+  "new_accounts": 0,
+  "new_RiskBooks": 0,
+  "new_full_market_marks": 0,
+  "new_orders": 0
+}

@@ -1,0 +1,5 @@
+# UNKNOWN执行安全补件
+
+v1已知样本计数正确，但bool(NaN)可能把缺失usable当True。原失败版与独审证据均保留。本补件只把唯一公式的输入解释改为严格三态：Python bool、numpy.bool_、原CSV字面True/False；None/NaN/pd.NA、数值0/1和其他字符串不当作布尔。
+
+37456市场票及3621登记票的preflight_gate/sector_market_condition/sector_market_reason逐行完全一致；所有合成缺失字段测试通过。已有parent不读取新门，未知parent不等于无parent。没有新公式、新参数、trace/CP/经济重跑。本补件只是事实预检解释器，不是执行消费者或上线认证。最终安全标签以本目录MARKET_STRICT_LABELS.csv、REGISTERED_STRICT_LABELS.csv和FIXED_CASE_PREFLIGHT_FINAL_STRICT.csv为准。

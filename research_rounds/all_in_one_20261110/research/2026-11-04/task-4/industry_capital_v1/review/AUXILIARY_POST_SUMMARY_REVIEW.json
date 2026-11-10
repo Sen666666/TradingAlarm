@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "scope": "Candidate amount/return/holding-day distributions, same-batch comparison tables and all summary groups plus posthoc display-example selection. No new path/mark or parameter.",
+  "mother_events": 8335,
+  "candidate_cohort_distribution_groups": 6,
+  "same_batch_records": 3415,
+  "same_batch_counts": {
+    "long": 2156,
+    "strong": 1259
+  },
+  "all_saved_auxiliary_group_counts_and_distributions_exact": true,
+  "balanced_posthoc_examples": 8,
+  "same_batch_cashflow_source_limit": "Comparison-table groups/returns match saved actual-commitment baselines. This audit did not recalculate each auxiliary original buy-layer terminal mark; main old S0 baskets were fully checked separately.",
+  "display_examples_are_signals": false,
+  "entry_cohort_not_portfolio_period_wealth": true,
+  "new_reviewer_accounts": 0,
+  "new_reviewer_prices": 0,
+  "source_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/review/audit_auxiliary_post_summaries.py": "fb0409f459f71da4c7a2ea6d286dc88f051b6e51c73e33cfd17ef329f08a025d",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/CANDIDATE_NET_AND_AMOUNT_DISTRIBUTIONS.json": "1a786783c1b4c75fdf6a71b9e7dda0e0e4b440e2b754e993783ed026f7bc7790",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/SAME_BATCH_ACTUAL_FILL_COMPARISON.json": "0b288b5917685ca80c72f1e021eed33c2dbc9c7fc39524d71d73a866164e5161",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/SAME_BATCH_SUMMARY.json": "3d25d87f51da2ccd724ace8cc2f83088b474435ed28c59ae82141e5854eea47e",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/BALANCED_EXAMPLES.json": "036f0cf2939b2a3fed2ef1d485c69cde1ac4b2bcfb11f42f317dbbc4f65669f4",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/industry_capital_v1/summarize_opportunity_cost.py": "75364b05070d150742f78658bebf9946b842d27b4e8a5a977793f961cec4742b"
+  },
+  "seconds": 0.8186638746410608
+}

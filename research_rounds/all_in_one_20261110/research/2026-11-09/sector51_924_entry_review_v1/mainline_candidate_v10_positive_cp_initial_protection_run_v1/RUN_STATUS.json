@@ -1,0 +1,20 @@
+{
+  "days": 41,
+  "orders": 1594,
+  "blockers": [],
+  "last": {
+    "day": "2024-11-06",
+    "cash": "149348.1200106376895",
+    "receivable": "0.00000",
+    "market_value": "1341574.28",
+    "NAV": "1490922.4000106376895",
+    "net_liquidation_NAV": "1489080.2013045433635",
+    "stocks": 71,
+    "shares": 184787,
+    "weight_pct": "89.98283746963811833175826188",
+    "fees_paid": "12781.9282393623105"
+  },
+  "planned_end": "2024-11-06",
+  "completed_horizon": true,
+  "protection_orders": 17
+}

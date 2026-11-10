@@ -1,0 +1,23 @@
+{
+  "version": "v2",
+  "frozen_at": "2026-10-29T12:47:16.089158+00:00",
+  "development_target_minutes": 15,
+  "full_compute_budget_seconds": 300,
+  "base_contract": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/time-evidence-audit-20261029/TIME_CONTRACT_DRAFT.txt",
+  "scope": "All fixed5349 E0 epochs, independent1m each alternative, costs1/2, original I/E0 exit and terminalOct27. A read-only experiment-one I; only W/T new computation.",
+  "feature": "Causal adjusted valid C/V closes; origin last already-confirmed E0 up pivot frozen per intent. f_j=positive log increment above prior record high since pivot under original numerical tie rule. Neff=(sum f)^2/sum f^2; >=2 is only this research dispersion boundary, not sustained-trend guarantee.",
+  "clock": "Origin is observation1; target=origin valid-stock-C/V observation number+4. Count as valid observations arrive, never put future calendar deadline into origin record. Halt/invalid CV does not advance. Source/I/E0 invalidity cancels.",
+  "policies": {
+    "A": "Original I, existing ledger.",
+    "W": "If origin Neff>=2 or unknown, original immediate I. If known<2, wait fixed fifth valid observation, no extra dispersion filter.",
+    "T": "Same targeted wait as W, same origin clock; at fifth observation require frozen-anchor Neff>=2. Then original dayorder, not wait for fresh I at deadline."
+  },
+  "continuation": "Deadline original non-event eligibility Q_cont AND known G1 ready/warm, original I/E0/source alive; exact current original i_floor for order. Temporary G1 cold while structure alive does not by itself cancel; warmth required at deadline.",
+  "unknown": "Count absent/NaN origin Neff or pivot and use original I immediately, no added time restriction. Unknown-event outcomes separate and not confirmation support. Known-intent critical anchor/clock cannot become indeterminate; report blocker rather than fabricate cache.",
+  "rebuild": "An intent ends on rejection/cancel or order submission; after submission original execution-day expiry applies. Only a future new original Q event may start next intent. A rejected deadline cannot reuse its same-close Q. A zero-fill execution day may use that day new close Q because it is later than submitted decision/consumed signal. No rolling extension, old-signal reuse or permanent deletion.",
+  "divergence": "W/T first common intent has identical clock. After divergence each consumes only own future Q while unheld/no order. Rich-origin exact A identity only before first actual low-intent divergence, not unconditional after state differences.",
+  "entry": "At most one actual entry per E0 unit, including partial fill as entry. All origin/rebuild/dayexpiry/no-fill and losing units included. F/ACT forced-exit reentries outside this test.",
+  "accounting": "Compare T-A,W-A,T-W. Derived D copies W entire outcome iff T temporal rule would pass W first actual-entry intent, else cash0 PnL. T-W=(D-W)+(T-D). Later term includes restored/changed path, not pure causal information. No fourth economic arm.",
+  "report": "Fixed5349 denominator plus first-origin-low subset, ever-low-eligible subset and actual-low-intent subset; unknown separate from no-Q cash. Realized/open/claims, tail either comparison arm>=30% and continuous curve, failures, delayed participation, no-fill, holding duration, raw/repeated signals, standardized first-order/waiting/holding concurrency. Waiting intents reserve no cash.",
+  "stop": "No parameter change after results, no3/7/extra grade/volume gates, no product/accounts. Fewer fills alone not success. Mixed signs tradeoff; insufficient net/tail value stop this temporal gate."
+}

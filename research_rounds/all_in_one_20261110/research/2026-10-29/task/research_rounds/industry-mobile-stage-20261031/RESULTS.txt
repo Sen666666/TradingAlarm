@@ -1,0 +1,26 @@
+行业扩张资格+行业mobile保护，研究状态trace，未运行收益/账户/财务控制器。
+纯计算4.897秒，18个固定状态/合成检查通过；5行业完整历史21418行，原CP1输出未改，物理2025-12-31状态前缀相同，unknown=0。真实案例不在季度起点重置；合成150暖机仅形成原市场输入，控制器从固定尾段第1观察空状态启动。
+
+规则：先原E0/来源身份，再用前一观察已知mobile检查close<=line；失效撤旧授权、当观察不再probe。下一新CP1只能probe，再后两张不同观察新凭据才confirmed/expanded。初始line=max(该receipt candidate,原E0 floor)，之后旧线未触才接受原floor/新candidate的max，与原ADD保护初始化及更新顺序一致。负event不降低本尝试保护；旧attempt与E0 episode分开。expanded后新receipt仅替换授权身份，不继续升档/叠加余额。实际资金/持仓/损耗未由本适配器持有，更不因attempt重置而清零。
+
+六固定路径：
+缓升：第3/7/11观察probe/confirmed/expanded，1尝试、无重置；observe2/probe4/confirmed4/expanded110观察。
+单跳横盘：仅第1观察probe，全120观察留probe，绝无自行升档。
+下降反弹：第1/2/3升级，第21旧mobile失效；第31新probe、第32confirmed、第33expanded；第48再mobile失效；第60新probe，随后E0结束；第83新probe。共4尝试、2mobile重置，observe33/probe52/confirmed2/expanded33。没有继承旧expanded，但低位反弹仍可合法升至expanded，此规则只把资格与保护配对，未声称反弹不再失败。
+正常回撤再推进：第1/2/3升级，第22mobile失效，第31新probe、第34confirmed、第38expanded。2尝试/1mobile重置；observe9/probe4/confirmed5/expanded102。说明正常回撤也确有资格重置代价。
+启动后持续失败：第1/2/3升级，第22mobile失效，此后没有新probe；observe99/probe1/confirmed1/expanded19。
+失败后恢复：与继续失败共享前52观察，之前状态完全一致；第59新probe、第63confirmed、第67expanded，无重回旧高要求。2尝试/1mobile重置；observe37/probe5/confirmed5/expanded73。
+正常回撤/失败前28观察、恢复/继续失败前52观察的状态完全一致，不偷用后续分支。合成日期只观察标签，非交易所日历。
+
+真实6案例（日期为真实历史观察，价格变化相对案例前一交易日收盘；资格并非成交/配置）：
+能源金属2025Q3：继承5/8 probe、6/9 confirmed、6/23 expanded；Q3全部66观察expanded，mobile重置0。Q3实际原策略行业资金为0，不能称本trace已有投资参与。行业季末+41.10%。
+银行2025Q3：继承4/15 probe、4/18 confirmed、5/8 expanded；Q3 expanded20观察，7/29原E0结束（相对季初-0.40%），observe46。原行情7/10一度+6.47%，不能把阶段标签当已知持续主线。
+军工电子2025Q4：10/13 probe（+1.25%）、10/24 confirmed（-1.18%）、11/24 expanded（+0.40%），季末+21.49%；observe2/probe9/confirmed21/expanded28，mobile重置0。新CP1资格不保证价格高于probe。
+汽车服务2025Q4：10/15 probe（+1.60%）、10/28 confirmed（+3.83%，本季价格峰），11/20mobile失效（-1.50%）；12/10新probe（-0.02%）、12/19confirmed（-0.15%），没有expanded。observe18/probe16/confirmed26；mobile重置1。
+油气服务2026Q1：1/6 probe（+3.97%）、1/9confirmed（+7.78%）、1/13expanded（+10.77%），早于3/4最高收盘+84.77%。2/2mobile失效（+26.58%），2/4新probe（+31.44%）、2/24confirmed（+43.33%）、3/2expanded（+63.60%），3/6再失效（+69.25%）。observe21/probe11/confirmed6/expanded18；2次mobile重置中，2/2之后在原E0内收复此前尝试峰，是明确的“后续恢复但曾重置”反例；不能因此认为该次重置必然坏或模拟出交易收益。
+军工电子2026Q1：继承Q4 expanded，1/15mobile失效（+10.74%），此前1/12价格最高+22.25%；1/23新probe（+11.58%），1/29原E0结束（+2.53%），未再次confirmed。expanded8/observe44/probe4。
+
+6案例共4次mobile失效且E0当时仍有效，其中1次在同E0/本案例内后来收复失效前尝试最高收盘。不能把4次都称“正常回撤”：其余3只是截至评价窗没有观察到同样收复，不是预知永久失败。资格退回也不代表已有股票已卖、真实敞口已下降。
+
+边界/冲突：未发现原保护时钟冲突。首次线取max原floor是原ADD同义初始化；当日新floor不先倒灌为旧线。行业E0终止优先。首个失效后凭据即使形成区间开始于失效日或以前，也只新probe，绝不恢复高档。对同日重复输入幂等、冲突输入报错、旧receipt不再升档；缺失冻结授权而不伪清仓。本轮没有实际持仓/挂单/共享资金接口，未来超过试探限制的旧敞口必须继续占预算；不能从本trace的probe状态直接再拨一笔新钱。
+结论：该候选的状态生命周期和固定行为检查已过，既保留缓升扩张，也允许低位重新试探；它仍不是趋势真假识别器。下一步若接共享预算，必须核已有风险/未完成订单/累计损耗跨attempt守恒及授权余额替代不叠加；本轮没有自动执行该接线或收益实验。

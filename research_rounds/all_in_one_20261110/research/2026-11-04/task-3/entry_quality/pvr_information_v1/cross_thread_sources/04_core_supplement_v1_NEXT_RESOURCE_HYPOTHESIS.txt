@@ -1,0 +1,34 @@
+下一研究问题：原合法CORE能否竞争已有confirmed额度（纸面，未实施/未排重完/未获经济准入）
+
+动机
+本轮A/P不解释主要行情缺口，保留原G1暖态的B/P在H1半导体仅2个未被必要界排除事件。
+原No60已有大量合法CORE证据，却只有1个半导体CORE实际买入，阻挡有CLOSE最小手风险/
+金额和OPEN现金/probe/行业等多类。新买点无法绕过这些实际限制；不应继续放宽EMA参数。
+
+可检验的唯一资本机制
+只用原当日完整合法CORE信号(i_target/i_buy/S0/ACT/flat/原source-I epoch未实际消费)，
+不增加P/EMA许可，不改变原I线、持有/退出、每CORE0.25%含费风险、10%原名义上限和
+dated最小手。若该行业当时原已active且level>=1，考虑允许该CORE像原MOBILE一样在
+既有probe/confirmed两池中竞争，取原native最大合法数量、平量probe优先；不另外等待
+行业再创新高，不因为同波多个股票重复发预算，也不提前发新industry证据。
+行业尚probe时无变化。原sector attempt/migrate未ACK要求保留，不撤锁单、不动健康旧仓。
+
+这改变的是CORE可使用的资金许可，不是宣称原合同没变
+route原来只给MOBILE confirmed路线；Contract.request更有mobile_role_required。
+至少须显式改这两处作用于相同CORE许可，且confirmed CORE也必须保留原实际CORE epoch锁：
+原request目前仅在probe_request时检查core_epoch_locked，不能改池时意外解锁同I重入。
+不伪造CP token；原CORE原生I信号的同股/当日/epoch证据必须显式校验。其他MOBILE/CP规则不动。
+保留行业1%风险、原现金10%保留、股10%资本、同池/行业各当前额度、费用与下一OPEN重验。
+No60原已取消account3%门/confirmed60%资本门，不可误抄回去，也不能说存在固定3%总风险。
+允许新CORE进confirmed可能增加实际持仓和风险暴露，不能称风险中性或账户总风险不增。
+
+先做否证，不直接回测
+1 必须先与旧CORE资金角色/partial-action/行业confirmed研究精确排重，未证明新合同。
+2 全原CORE母体拆CLOSE尺寸拒绝、OPEN preview、可选pool失败集合；不能把现金+行业+风险
+  多门只挑sector。CLOSE已尺寸失败不会被改pool解决，珂玛/金海早期不能算解锁。
+3 只对原行业当时confirmed、在原CORE风险/单位/现金上已可行而仅probe相关门阻挡的集合
+  给静态必要覆盖；其余原风险/现金失败留全。必要样本不能仅挑2026半导体赢家。
+4 原既有资金竞争/原赢家延误和2022/2024失败CORE需并列。若主要又是现金/最小手而非
+  该角色许可，立即否决此替代，不搭engine、不默认卖旧赢家，不借此复活已失败小手例外。
+
+这只是根据本轮证据提出的机制不同替代，不是价格P的改参版本，也不是已证实收益改进。

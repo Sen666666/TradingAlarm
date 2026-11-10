@@ -1,0 +1,45 @@
+{
+  "stocks": [
+    "000977.SZ",
+    "002126.SZ",
+    "002174.SZ",
+    "002241.SZ",
+    "002317.SZ",
+    "002385.SZ",
+    "002583.SZ",
+    "300182.SZ",
+    "300666.SZ",
+    "600100.SH",
+    "600126.SH",
+    "600396.SH",
+    "600606.SH",
+    "601607.SH",
+    "605020.SH",
+    "605099.SH",
+    "605118.SH",
+    "605488.SH",
+    "688248.SH",
+    "688256.SH",
+    "688582.SH",
+    "688660.SH"
+  ],
+  "windows": [
+    [
+      "2022",
+      "2022-01-01",
+      "2022-12-31"
+    ],
+    [
+      "2024_924",
+      "2024-09-01",
+      "2024-12-31"
+    ]
+  ],
+  "END": "2026-06-30 00:00:00",
+  "formula": "Only LOCAL is PROBE; source/open and structural oldS first; close<=frozen nativeU1 exits nextOPEN; otherwise close>frozen nativeU0 promotes TREND; original E0 lift and CONTROL unchanged; after actual exit original fresh signals can reenter; no new births beyond original windows",
+  "native_coordinate": true,
+  "shared_account": false,
+  "threshold_sweeps": 0,
+  "case_windows_excluded": true,
+  "script_patch_sha256": "9d6e9b6de729b8af074c91e30eb19c2c556f0d59431c13d622a92a87ad100c82"
+}

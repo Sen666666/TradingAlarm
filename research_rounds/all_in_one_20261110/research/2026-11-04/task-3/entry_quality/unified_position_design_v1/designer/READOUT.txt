@@ -1,0 +1,13 @@
+UPG-1纸面统一仓位卡已落：ALGORITHM_CARD.md
+
+核心：I-only CORE和flat-MOBILE都先TRIAL；首笔2%gross上限及.25%风险先验，保各自真实I/CP线。实际fill后CLOSE，1R+新CP+新post-entry价格高点+在手净估值盈利才允许5%总目标；BUILD真实加仓后，另一新证据+2R才允许10%总目标。CP只补全股总目标差额，held/pending跨role/pool都扣。
+
+每级许可为.25/.5/1%Vk，历史同机会D不因CP/epoch/子周期洗掉，行业D连续反馈。行业1%、probe.5%、全户6%只管当前责任，非账户累计损耗耗尽永久锁。主账是paid-basis本金参考责任+冻结承诺+2%mark名义GAP储备；mark到线浮盈回吐另账，浮盈不是现金。GAP可超额，必须记真实debt，不保证DD或实际累计损失封顶。
+
+重要源码纠正已纳卡：原CORE已有上游G1_I close<=旧floor→I_targetFalse→J退出；保持这个旧线先判断、后ratchet时钟。stage不改physicalkind，不新加同I线硬退。原封版risk_philosophy报告未改，root及接口审另有更正sidecar。
+
+必改接口：single-stock槽、两来源备选一次TRIAL；route/request/allpool epoch锁/迁池一致；原request的预先consume需prepare/commit原子边界；partial/ACK/split/fee域/restore sourcehash一致。依赖CORE-confirmed草案，并非现接口已经实现。
+
+强反例已正面保留：local_high旧缩首笔静态强窗净−52.50万；无CORE mobile714层强贡献；盈利后加仓已覆盖大量亏损；保护毕业延迟；G成本guard强窗代价。新卡对联合条件没有经济证明，不由语义或代码自洽晋升。
+
+0模型、0账户、0回测、0参数测试、0经济路径/合成模拟。只有只读源码/现有证据、纸面公式和手工单次订单数量说明。feedback独立审核已确认时钟/partial stage/refill/retry锚/费用basis/价域/全pool事务主问题闭合，纸面逻辑PASS；不是实施或经济PASS。此为一套联合政策，不是单因素改动，所有经济有效性未验证。

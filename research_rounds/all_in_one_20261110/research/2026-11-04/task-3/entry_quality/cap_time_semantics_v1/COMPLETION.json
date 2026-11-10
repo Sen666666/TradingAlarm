@@ -1,0 +1,64 @@
+{
+  "status": "COMPLETE_BOUNDED_WITH_HISTORICAL_CAP_AND_RUNTIME_LEAF_PROVENANCE_GAPS",
+  "created_at_UTC": "2026-11-05T19:00:52.980264+00:00",
+  "report": "READOUT.md",
+  "report_sha256": "2c0b550d4f8e0065f6cfc1524d214b4e1eb9ce4148158c55e5c8a04c5dbee79f",
+  "independent_subreview_seals": [
+    {
+      "seal": "source_semantics/SEAL_RECEIPT.json",
+      "sha256": "ce445c827a304dee8a1721e1310108e538b3e842467b936bc9e8dfbe820a15cc",
+      "verified_files": 4
+    },
+    {
+      "seal": "coverage_impact/SEAL.json",
+      "sha256": "2739540071a5ce2a1e94e536555b060e9725e0b526a3bbb807c30ddbe4be06c1",
+      "verified_files": 10
+    },
+    {
+      "seal": "runtime_binding/SEAL.json",
+      "sha256": "207c07eba89b45bb352e59d9e887032dcaddd0c3db67e246d1f8efbf72a34933",
+      "verified_files": 7
+    }
+  ],
+  "root_static_check": {
+    "selection_known_ids": 1709,
+    "unknown_ids": 2,
+    "selection_known_ids_equal_roster_selected": true,
+    "all_selection_cap_values_equal_roster": true,
+    "selection_file_sha256": "3b0dac60526ff042b24e3a436638d6ef5a631a52f62f0c9daeb57e644633ca99",
+    "two_run_fixed_identity_and_source_freeze_reviewed": true,
+    "pre_fixed_names": 14,
+    "names_currently_selected": 10
+  },
+  "facts": {
+    "canonical_current_cap_status": {
+      "NOT_GT10BN": 3817,
+      "GT10BN": 1681,
+      "NOT_IN_CURRENT_ROSTER": 17,
+      "UNKNOWN_CAP": 2
+    },
+    "current_roster_status": {
+      "selected": 1709,
+      "known_current_cap_not_above_100yi": 3865,
+      "unknown_cap_retained": 2
+    },
+    "two_different_source_record_threshold_disagreements": 482,
+    "dated_cap_only": "2026-05-15",
+    "dated_cap_symbols": 5495
+  },
+  "limits": [
+    "Current code deliberately returns fixed current cap across historical clocks; not certified historical PIT cap.",
+    "Two saved baseline run identities and current transitive references agree, but cap reader/manifest/selection leaf not directly frozen and no per-value cap dump was recovered.",
+    "No dated cap for checked 2024 or January2026 dates; actual historical false inclusion/exclusion count unknown.",
+    "482 threshold disagreements mix dates/providers/definitions and are not historical wrong screens.",
+    "No account economics or missed-winner return inferred."
+  ],
+  "activity": {
+    "accounts_or_runners_created": 0,
+    "market_models_or_account_backtests": 0,
+    "strategy_changes": 0,
+    "network_calls": 0,
+    "checkpoint_unpickling": 0,
+    "one_field_read_only": true
+  }
+}

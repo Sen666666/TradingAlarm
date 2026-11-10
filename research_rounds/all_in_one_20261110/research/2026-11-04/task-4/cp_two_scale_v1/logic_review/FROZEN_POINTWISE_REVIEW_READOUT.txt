@@ -1,0 +1,23 @@
+冻结双尺度假设与7点分数：限定数学/来源审查
+
+已通过范围
+FROZEN_TWO_SCALE_PERMISSION_HYPOTHESIS.txt把E0 event+1低/-1高的确认CLOSE与历史pivot日区分清楚；以pivot价作锚时L包含pivot→确认全部已知路径，没有提前到pivot日授予权限。短/长sigma分别取原CP.z在低/高确认日，即当时已知lag63活动尺度，不是旧local CP.scale、pivot日尺度或当前日覆盖。
+A/L/ER/G/Q符号和量纲一致；L0空，负长A不平方成正分。短支持只给一个lowID的START_PROBE来源，短不构成独立概率证据。长不足仍保试探，不等于自动加钱/放宽旧保护。
+长下一证要求较上次已发G再进一个原门，超多阈值一观察仅一张；这比把TRUE状态每日当新证清晰，但完整证据消费状态尚未实现。
+保护段已明确：指数型K保留，sigma冻结来源/发线时点改变；原I和旧线先判、未破才取max，不把更改包装成‘原合同完全不变’。这里只能通过公式边界表述，不能认证未来每层实际合同已正确接线。
+
+独立有限代入
+FINITE_THREE_POINT_REVIEW.json：盈新2022-01-20、1-24、海能2024-09-30三个预先指定点，短长各一轴，共60项PASS，最大误差3.164135620181696e-15。
+直接读原events、CP1_input和CP1缓存：确认event符号/日期/pivot价为当时最后可知锚；从pivot日起完整原价格段计算A/L/ER/DD；sigma复制确认日CP.z并独立用该日之前63|r|复算；G、k、Q逐一核对。未运行任一新权限/active-barrier/rollover/FSM或账户。
+盈新1-20长Q负而短Q>1，1-24长A已正但Q约.08961；海能9-30长Q约.33120仍不足。这些只是同一套冻结定义的点值，不是实际发过START/LONG证，更不是盈亏归因。
+
+必须保留的未实现接口
+1 ‘本日新长frontier’应定义为当前active_long结构起的已知价格frontier。pointwise class只按Q作数值分类，没有实现frontier、资格、消费或旧线优先，不可称LONG_ADD事件。
+2 active长锚或其sigma在更高高rebase/STRUCTURAL_ROLLOVER时改变，原last_issued_G属于旧锚，不应直接比较。必须按新长结构ID归档旧marker，首证G>=k，后证G>=last_issued_G+k，每观察至多一张；同一旧结构的短锚更新/down/CP receipt不能洗此marker。
+3 原表latest confirmed high与拟议active_long_barrier不同。lower/equal-high不能只因出现在表中就成为active；较低长段须显式l1-h1-l2与G条件到齐才退休旧段，激活日不回填。几个同域点没有遇到未处理lower-high，不证明全史此FSM已完成。
+4 E0完整新up域的初始化、旧活动高/已消费lowID如何延续或退役必须精确到源事件；I暂时OFF不应充当任意刷新长权限的开关。当前文字是待编码合同，未独立验证其全路径落地。
+5 短低确认和长路径重叠同源，不能乘成独立成功率；无long支持仍可出现后续强趋势，9-30反例必须保留。发START一次不证明仅承受一次真实试错成本，也不授权每天重新铸预算。
+6 当前新保护是市场参考候选，不自动替换CORE/I/每层线，不能因一个probe更新其他层真实保护，也不能把EXIT_REQUIRED当已经ACK卖出。
+
+结论
+限定通过冻结公式/确认时钟/sigma来源/保护改动披露与三点60项算式。没有完整权限状态机、证据消费、原框架接线、交易执行或经济优势PASS。0新状态、0账户、0回测、0收益估计。V2/V3与此前净锚反例不因点值分类而作废。

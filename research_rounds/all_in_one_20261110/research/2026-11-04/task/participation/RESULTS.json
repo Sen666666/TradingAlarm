@@ -1,0 +1,514 @@
+{
+  "scope": "new descriptive cross-window aggregation, zero account events, no price-return labels read",
+  "source_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/participation/PROTOCOL.txt": "d56fdfa3686fbf5f1b014393381ec47a50f3ad9ffe68573e99dd232135a76d36",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/participation/audit_coverage.py": "bb98a5056a1982fc19b28f5e317e8b8a03f5520f08e8c6dc395ac6ea220808a7",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/C10-account6-ablation-five-snapshots-v1-20261103/SUMMARY.json": "10bf93ded3999cc03ca967d830a3730f703898dbd1a9a91b26cc5900a6579ed0",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/industry-evidence-ranking-readonly-v1/2022-FULL_TABLE_WITH_HISTORY.parquet": "a431991b570845f7514ed5252d3df6da4d974efc190042db39199e2f81b576ab",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/industry-evidence-ranking-readonly-v1/2023-FULL_TABLE_WITH_HISTORY.parquet": "77d60bd3a2109d4134b4680a43381a28a559f823868537c6c7e7534e47f3f02f",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/industry-evidence-ranking-readonly-v1/OLD924-FULL_TABLE_WITH_HISTORY.parquet": "47e1e0920a1a79d69cc5f664ed50584c83881fa5491f17dcb4a62cb9b5689571",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/industry-evidence-ranking-readonly-v1/LOCAL2026-FULL_TABLE_WITH_HISTORY.parquet": "80b40fb857615b248498cca653372dfc2010a47de34297bff5bd5183038c9d53"
+  },
+  "coverage": {
+    "2022": {
+      "from": "2022-06-17",
+      "to": "2022-12-29",
+      "industry_observations": 12060,
+      "days": 134,
+      "industries": 90,
+      "groups": {
+        "global_only": {
+          "industry_observations": 1270,
+          "distinct_days": 21,
+          "distinct_industries": 87,
+          "I_entry_Q_stock_observations": 2677,
+          "canonical_CP1_Q_stock_observations": 1132
+        },
+        "local_only": {
+          "industry_observations": 1203,
+          "distinct_days": 98,
+          "distinct_industries": 71,
+          "I_entry_Q_stock_observations": 4511,
+          "canonical_CP1_Q_stock_observations": 2090
+        },
+        "both": {
+          "industry_observations": 620,
+          "distinct_days": 21,
+          "distinct_industries": 59,
+          "I_entry_Q_stock_observations": 2630,
+          "canonical_CP1_Q_stock_observations": 1163
+        },
+        "neither": {
+          "industry_observations": 8967,
+          "distinct_days": 113,
+          "distinct_industries": 90,
+          "I_entry_Q_stock_observations": 13635,
+          "canonical_CP1_Q_stock_observations": 5602
+        }
+      },
+      "local_mature_while_global_false": {
+        "industry_observations": 721,
+        "distinct_days": 93,
+        "distinct_industries": 59,
+        "I_entry_Q_stock_observations": 2859,
+        "canonical_CP1_Q_stock_observations": 1287
+      },
+      "canonical_status": {
+        "READY": 12060
+      }
+    },
+    "2023": {
+      "from": "2023-01-19",
+      "to": "2023-08-25",
+      "industry_observations": 13140,
+      "days": 146,
+      "industries": 90,
+      "groups": {
+        "global_only": {
+          "industry_observations": 1238,
+          "distinct_days": 25,
+          "distinct_industries": 89,
+          "I_entry_Q_stock_observations": 2677,
+          "canonical_CP1_Q_stock_observations": 1097
+        },
+        "local_only": {
+          "industry_observations": 1416,
+          "distinct_days": 118,
+          "distinct_industries": 68,
+          "I_entry_Q_stock_observations": 6765,
+          "canonical_CP1_Q_stock_observations": 3328
+        },
+        "both": {
+          "industry_observations": 1012,
+          "distinct_days": 25,
+          "distinct_industries": 60,
+          "I_entry_Q_stock_observations": 4470,
+          "canonical_CP1_Q_stock_observations": 1910
+        },
+        "neither": {
+          "industry_observations": 9474,
+          "distinct_days": 121,
+          "distinct_industries": 90,
+          "I_entry_Q_stock_observations": 13325,
+          "canonical_CP1_Q_stock_observations": 5674
+        }
+      },
+      "local_mature_while_global_false": {
+        "industry_observations": 817,
+        "distinct_days": 103,
+        "distinct_industries": 59,
+        "I_entry_Q_stock_observations": 4268,
+        "canonical_CP1_Q_stock_observations": 2221
+      },
+      "canonical_status": {
+        "READY": 13140
+      }
+    },
+    "OLD924": {
+      "from": "2024-09-24",
+      "to": "2024-12-31",
+      "industry_observations": 726,
+      "days": 66,
+      "industries": 11,
+      "groups": {
+        "global_only": {
+          "industry_observations": 32,
+          "distinct_days": 7,
+          "distinct_industries": 8,
+          "I_entry_Q_stock_observations": 217,
+          "canonical_CP1_Q_stock_observations": null
+        },
+        "local_only": {
+          "industry_observations": 114,
+          "distinct_days": 30,
+          "distinct_industries": 10,
+          "I_entry_Q_stock_observations": 529,
+          "canonical_CP1_Q_stock_observations": null
+        },
+        "both": {
+          "industry_observations": 276,
+          "distinct_days": 28,
+          "distinct_industries": 11,
+          "I_entry_Q_stock_observations": 2867,
+          "canonical_CP1_Q_stock_observations": null
+        },
+        "neither": {
+          "industry_observations": 304,
+          "distinct_days": 38,
+          "distinct_industries": 11,
+          "I_entry_Q_stock_observations": 924,
+          "canonical_CP1_Q_stock_observations": null
+        }
+      },
+      "local_mature_while_global_false": {
+        "industry_observations": 91,
+        "distinct_days": 28,
+        "distinct_industries": 9,
+        "I_entry_Q_stock_observations": 323,
+        "canonical_CP1_Q_stock_observations": null
+      },
+      "canonical_status": {
+        "UNKNOWN_old924_canonical_export_missing": 726
+      }
+    },
+    "LOCAL2026": {
+      "from": "2026-04-30",
+      "to": "2026-06-30",
+      "industry_observations": 3600,
+      "days": 40,
+      "industries": 90,
+      "groups": {
+        "global_only": {
+          "industry_observations": 208,
+          "distinct_days": 3,
+          "distinct_industries": 71,
+          "I_entry_Q_stock_observations": 580,
+          "canonical_CP1_Q_stock_observations": 202
+        },
+        "local_only": {
+          "industry_observations": 362,
+          "distinct_days": 37,
+          "distinct_industries": 25,
+          "I_entry_Q_stock_observations": 3441,
+          "canonical_CP1_Q_stock_observations": 1546
+        },
+        "both": {
+          "industry_observations": 62,
+          "distinct_days": 3,
+          "distinct_industries": 22,
+          "I_entry_Q_stock_observations": 672,
+          "canonical_CP1_Q_stock_observations": 251
+        },
+        "neither": {
+          "industry_observations": 2968,
+          "distinct_days": 37,
+          "distinct_industries": 89,
+          "I_entry_Q_stock_observations": 5352,
+          "canonical_CP1_Q_stock_observations": 2261
+        }
+      },
+      "local_mature_while_global_false": {
+        "industry_observations": 258,
+        "distinct_days": 37,
+        "distinct_industries": 15,
+        "I_entry_Q_stock_observations": 2431,
+        "canonical_CP1_Q_stock_observations": 1093
+      },
+      "canonical_status": {
+        "READY": 3600
+      },
+      "semiconductor": {
+        "observations": 40,
+        "global_permitted": 3,
+        "local_permitted": 27,
+        "local_mature_permitted": 20,
+        "canonical_CP1_Q_total": 631,
+        "canonical_CP1_Q_local_permitted": 525,
+        "canonical_CP1_Q_local_mature_permitted": 372,
+        "first_local_mature_permitted": "2026-05-07"
+      }
+    }
+  },
+  "static_account6_recovered": [
+    {
+      "day": "2025-07-08",
+      "full_original_C_candidates": 172,
+      "original_identity": true,
+      "modes": {
+        "ORIGINAL_6": {
+          "Q_positive": 1,
+          "D_positive": 7,
+          "new_buy_gross": "98224.087500",
+          "D_mark_gross": "316009.00",
+          "nominal_risk_pct": 5.995109127684848,
+          "capital_pct": 61.882510702454546
+        },
+        "NO_AR6": {
+          "Q_positive": 5,
+          "D_positive": 6,
+          "new_buy_gross": "200004.952500",
+          "D_mark_gross": "137669.00",
+          "nominal_risk_pct": 7.817105975670173,
+          "capital_pct": 89.99557133982039
+        }
+      },
+      "Q_changes": [
+        {
+          "sid": "002517.SZ",
+          "old_Q": 0,
+          "new_Q": 4900
+        },
+        {
+          "sid": "603118.SH",
+          "old_Q": 0,
+          "new_Q": 200
+        },
+        {
+          "sid": "000617.SZ",
+          "old_Q": 0,
+          "new_Q": 100
+        },
+        {
+          "sid": "601005.SH",
+          "old_Q": 0,
+          "new_Q": 100
+        }
+      ],
+      "focus": {
+        "000425.SZ": {
+          "name": "徐工机械",
+          "old_Q": 0,
+          "new_Q": 0
+        },
+        "600031.SH": {
+          "name": "三一重工",
+          "old_Q": 0,
+          "new_Q": 0
+        },
+        "601100.SH": {
+          "name": "恒立液压",
+          "old_Q": 0,
+          "new_Q": 0
+        }
+      }
+    },
+    {
+      "day": "2025-07-22",
+      "full_original_C_candidates": 316,
+      "original_identity": true,
+      "modes": {
+        "ORIGINAL_6": {
+          "Q_positive": 8,
+          "D_positive": 7,
+          "new_buy_gross": "716845.863810",
+          "D_mark_gross": "510641.76",
+          "nominal_risk_pct": 5.966014821612864,
+          "capital_pct": 88.87464488170416
+        },
+        "NO_AR6": {
+          "Q_positive": 8,
+          "D_positive": 8,
+          "new_buy_gross": "727391.133810",
+          "D_mark_gross": "510268.58",
+          "nominal_risk_pct": 6.047390887378245,
+          "capital_pct": 89.9763002855484
+        }
+      },
+      "Q_changes": [
+        {
+          "sid": "000680.SZ",
+          "old_Q": 2700,
+          "new_Q": 3700
+        }
+      ],
+      "focus": {
+        "000425.SZ": {
+          "name": "徐工机械",
+          "old_Q": 10800,
+          "new_Q": 10800
+        },
+        "600031.SH": {
+          "name": "三一重工",
+          "old_Q": 4600,
+          "new_Q": 4600
+        },
+        "601100.SH": {
+          "name": "恒立液压",
+          "old_Q": 1200,
+          "new_Q": 1200
+        },
+        "000680.SZ": {
+          "name": "山推股份",
+          "old_Q": 2700,
+          "new_Q": 3700
+        },
+        "603338.SH": {
+          "name": "浙江鼎力",
+          "old_Q": 0,
+          "new_Q": 0
+        }
+      }
+    },
+    {
+      "day": "2025-08-05",
+      "full_original_C_candidates": 152,
+      "original_identity": true,
+      "modes": {
+        "ORIGINAL_6": {
+          "Q_positive": 3,
+          "D_positive": 3,
+          "new_buy_gross": "91844.319210",
+          "D_mark_gross": "120791.24",
+          "nominal_risk_pct": 5.991056655280258,
+          "capital_pct": 53.99424898363794
+        },
+        "NO_AR6": {
+          "Q_positive": 2,
+          "D_positive": 3,
+          "new_buy_gross": "128329.552710",
+          "D_mark_gross": "120791.24",
+          "nominal_risk_pct": 6.198590677898128,
+          "capital_pct": 57.93454841762348
+        }
+      },
+      "Q_changes": [
+        {
+          "sid": "603638.SH",
+          "old_Q": 100,
+          "new_Q": 2100
+        },
+        {
+          "sid": "300083.SZ",
+          "old_Q": 100,
+          "new_Q": 0
+        }
+      ],
+      "focus": {
+        "601100.SH": {
+          "name": "恒立液压",
+          "old_Q": 0,
+          "new_Q": 0
+        },
+        "603516.SH": {
+          "name": "淳中科技",
+          "old_Q": 0,
+          "new_Q": 0
+        }
+      }
+    },
+    {
+      "day": "2025-08-13",
+      "full_original_C_candidates": 254,
+      "original_identity": true,
+      "modes": {
+        "ORIGINAL_6": {
+          "Q_positive": 6,
+          "D_positive": 9,
+          "new_buy_gross": "401580.009660",
+          "D_mark_gross": "610905.76",
+          "nominal_risk_pct": 5.97974534776077,
+          "capital_pct": 55.797286485690876
+        },
+        "NO_AR6": {
+          "Q_positive": 6,
+          "D_positive": 6,
+          "new_buy_gross": "451544.979660",
+          "D_mark_gross": "341297.20",
+          "nominal_risk_pct": 8.205794522866334,
+          "capital_pct": 89.89278365208052
+        }
+      },
+      "Q_changes": [
+        {
+          "sid": "300570.SZ",
+          "old_Q": 300,
+          "new_Q": 500
+        },
+        {
+          "sid": "003031.SZ",
+          "old_Q": 200,
+          "new_Q": 600
+        }
+      ],
+      "focus": {
+        "000425.SZ": {
+          "name": "徐工机械",
+          "old_Q": null,
+          "new_Q": null
+        },
+        "600031.SH": {
+          "name": "三一重工",
+          "old_Q": null,
+          "new_Q": null
+        },
+        "603338.SH": {
+          "name": "浙江鼎力",
+          "old_Q": null,
+          "new_Q": null
+        },
+        "603516.SH": {
+          "name": "淳中科技",
+          "old_Q": 0,
+          "new_Q": 0
+        },
+        "300308.SZ": {
+          "name": "中际旭创",
+          "old_Q": 300,
+          "new_Q": 300
+        },
+        "600410.SH": {
+          "name": "华胜天成",
+          "old_Q": null,
+          "new_Q": null
+        }
+      }
+    },
+    {
+      "day": "2025-08-15",
+      "full_original_C_candidates": 296,
+      "original_identity": true,
+      "modes": {
+        "ORIGINAL_6": {
+          "Q_positive": 8,
+          "D_positive": 6,
+          "new_buy_gross": "433662.723000",
+          "D_mark_gross": "385122.00",
+          "nominal_risk_pct": 5.977929070032101,
+          "capital_pct": 68.50788210724838
+        },
+        "NO_AR6": {
+          "Q_positive": 11,
+          "D_positive": 6,
+          "new_buy_gross": "636875.278500",
+          "D_mark_gross": "385452.00",
+          "nominal_risk_pct": 8.00759507866841,
+          "capital_pct": 89.88396955631899
+        }
+      },
+      "Q_changes": [
+        {
+          "sid": "601137.SH",
+          "old_Q": 1400,
+          "new_Q": 3600
+        },
+        {
+          "sid": "600366.SH",
+          "old_Q": 0,
+          "new_Q": 5500
+        },
+        {
+          "sid": "300855.SZ",
+          "old_Q": 0,
+          "new_Q": 1600
+        },
+        {
+          "sid": "000970.SZ",
+          "old_Q": 0,
+          "new_Q": 100
+        }
+      ],
+      "focus": {
+        "603338.SH": {
+          "name": "浙江鼎力",
+          "old_Q": 0,
+          "new_Q": 0
+        },
+        "603516.SH": {
+          "name": "淳中科技",
+          "old_Q": 0,
+          "new_Q": 0
+        },
+        "300308.SZ": {
+          "name": "中际旭创",
+          "old_Q": null,
+          "new_Q": null
+        },
+        "600410.SH": {
+          "name": "华胜天成",
+          "old_Q": 0,
+          "new_Q": 0
+        }
+      }
+    }
+  ]
+}

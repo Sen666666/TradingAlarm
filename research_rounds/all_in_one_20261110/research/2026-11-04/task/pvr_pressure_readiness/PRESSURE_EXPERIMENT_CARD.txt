@@ -1,0 +1,54 @@
+PVR_NO_CONFIRMED60 pressure readiness | 2026-11-04 | no full economic grant
+
+Question: Does the normal strong-window gain survive the original cost2 and
+bounded one-market-session D1v2 contracts, and does the 2022 loss worsen?
+Counts or capital participation alone cannot answer. This is development,
+current-snapshot A-only1709/90 industries, not PIT/OOS/live execution.
+
+Freeze exactly two windows, original fresh1m and original warm market state:
+2022-01-01 -> 2022-12-30 CLOSE (first decision Jan4),
+2025-07-01 -> 2026-06-30 CLOSE. No normal midaccount import or resets.
+No60 normal means only the three related confirmed60 gates removed; retain
+actual pending/unACK same-attempt migration, cash10, probe10/.5 risk, sector
+capital2/10/20 and1 risk, stock10, fresh target2%, original PVR priority, ACT,
+all receipts, protections, lots, settlement, corporate actions and ledgers.
+
+Minimal eventual paired cells, subject to root separate grant:
+  cost2: oldPVR and No60 in each window = four new full paths.
+  D1v2: oldPVR2022, No60_2022, No60_strong = three new full paths;
+        reuse immutable oldPVR strong D1v2 full path after identity/hash audit.
+Total at most seven new full paths. Never use SC as the PVR control.
+Normal old/new completed paths are read-only context. No combined cost2+D1,
+cost scan, delay scan or tuning to rescue the result.
+
+Cost2 reuses existing native FeeSchedule.incremental cost_multiplier=2:
+stressable broker/handling/regulatory/transfer rate x2, order minimum5 and
+sell stamp duty unchanged; buy/sell slippage5 ->10bps. Change native opening
+market.window cost argument consistently, retaining preview/reserve/fill and
+sell/protection formulas. Do not subtract hypothetical fees at the endpoint.
+
+D1v2 reuses audited bounded delayed Account/Pair and PVR Composition: first
+otherwise executable session skips once, original order/receipt continues to
+next market session; buy expiry next-session close, cancellations/revalidation
+first, quantity/principal cannot increase, original aggregate core-risk bound,
+sell obligation persists. Old-order resource checks use actual open NAV while
+fresh intents keep original decision NAV. No delay credit transfer/re-ranking.
+No60+D1 additionally removes only confirmed60 in amend_d1 (fourth gate),
+preserving probe10 and every other amendment predicate/body verbatim.
+
+This stage permits affected-source/fixture tests and bounded technical prefix
+only: strong-window July1->July3 CLOSE for full/physical ON cost2 and ON D1v2,
+cost1 OFF same period to saved normal prefix, D1 OFF same period to saved D1
+prefix. Same-process restore before first real execution plus separate process
+continuation; wrong policy/cost/D1/source/horizon bindings must reject. Original
+native lifecycle coverage reused if unchanged hashes, targeted fourth-gate
+counterexamples rerun. Record all actual OPEN/CLOSE/fills, not 'zero accounts'.
+
+Full economics require independent technical audit and root grant bound to
+source/card hashes. Resume only own pressure checkpoint, source/engine/input
+exact and strictly after its cursor; preserve failures and partial output.
+Compare return/DD/recovery, trial and closed-campaign ordinary/tail costs,
+entry/add/reentry, cash and pending capital, industry/semiconductor participation
+and retained winners. All fees/dividends/unrealized/receivables reconcile once.
+35% DD is user boundary, not pass standard; do not scale1m to1.2m. Stress
+outcomes remain unknown here; no strategy promotion or full-cycle claim.

@@ -1,0 +1,11 @@
+{
+  "scope_count": 217,
+  "stocks": 217,
+  "probe_primary": 215,
+  "hashes": {
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/cohort_2024_924/DECISIONS.json": "26875017c8d7674194f834247f38725050953e283bf9ac57be986cadffead29a",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/cohort_2024_924/AUDIT.json": "dbb0bc3feb313d7d2b902ee464c86ddbc8177018cd659db98f5eae4101ad9a81",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/shared_missed_birth_cp_preflight_v1/PROTOCOL.json": "81b1d5dc2affbe911812f51e1482593ea1077ca2adf49987bec4b5557616d371",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/shared_missed_birth_cp_preflight_v1/FIXED_SEEDS.json": "74d2e2c27056bbec5b717a0e2ecd9c0afb8808f4f500db57218e54647ef63598"
+  }
+}

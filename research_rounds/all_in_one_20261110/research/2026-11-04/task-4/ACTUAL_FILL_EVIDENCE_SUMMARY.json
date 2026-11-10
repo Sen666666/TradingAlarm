@@ -1,0 +1,137 @@
+{
+  "2022_entries_lifecycle_to2024end": {
+    "not_promoted_and_permitted": {
+      "layers": 711,
+      "buy_cost": "7154187.4772216468865",
+      "actual_original_net": "-160635.2260423862694854070660",
+      "closed_negative_layers": 501,
+      "closed_negative_net": "-393004.9003674156101617826617",
+      "original_actions": {
+        "first_actual_participation": 413,
+        "add_to_existing_stock": 155,
+        "fresh_reentry_after_actual_flat": 143
+      },
+      "literal_same_day_layers": 0
+    },
+    "BREAK_promoted_permit": {
+      "layers": 266,
+      "buy_cost": "2869702.5886001122960",
+      "actual_original_net": "-128655.7849806898284395013587",
+      "closed_negative_layers": 216,
+      "closed_negative_net": "-186222.6538460105907636771829",
+      "original_actions": {
+        "first_actual_participation": 145,
+        "add_to_existing_stock": 74,
+        "fresh_reentry_after_actual_flat": 47
+      },
+      "literal_same_day_layers": 94
+    },
+    "REPAIR_promoted_permit": {
+      "layers": 2,
+      "buy_cost": "38194.4676618847000",
+      "actual_original_net": "-2988.4850879715000",
+      "closed_negative_layers": 2,
+      "closed_negative_net": "-2988.4850879715000",
+      "original_actions": {
+        "first_actual_participation": 2
+      },
+      "literal_same_day_layers": 2
+    }
+  },
+  "2023_entries_lifecycle_to2024end": {
+    "not_promoted_and_permitted": {
+      "layers": 334,
+      "buy_cost": "2880674.1766111340885",
+      "actual_original_net": "-61990.12170975419657509157510",
+      "closed_negative_layers": 230,
+      "closed_negative_net": "-154536.9929412820564267758386",
+      "original_actions": {
+        "first_actual_participation": 138,
+        "add_to_existing_stock": 86,
+        "fresh_reentry_after_actual_flat": 110
+      },
+      "literal_same_day_layers": 0
+    },
+    "BREAK_promoted_permit": {
+      "layers": 244,
+      "buy_cost": "2484932.9445127702205",
+      "actual_original_net": "99696.5761988918480000000000",
+      "closed_negative_layers": 154,
+      "closed_negative_net": "-117677.4170446046503535353535",
+      "original_actions": {
+        "fresh_reentry_after_actual_flat": 81,
+        "first_actual_participation": 74,
+        "add_to_existing_stock": 89
+      },
+      "literal_same_day_layers": 72
+    }
+  },
+  "POST924_strict303_newfills_to2024end": {
+    "BREAK_promoted_permit": {
+      "layers": 45,
+      "buy_cost": "583560.3226125190815",
+      "actual_original_net": "-52219.5206530857195",
+      "closed_negative_layers": 37,
+      "closed_negative_net": "-58559.4947824836695",
+      "original_actions": {
+        "fresh_reentry_after_actual_flat": 25,
+        "first_actual_participation": 12,
+        "add_to_existing_stock": 8
+      },
+      "literal_same_day_layers": 4
+    },
+    "not_promoted_and_permitted": {
+      "layers": 165,
+      "buy_cost": "1353551.3760479652645",
+      "actual_original_net": "3744.12601388691370507270508",
+      "closed_negative_layers": 108,
+      "closed_negative_net": "-80175.32961590307863123618238",
+      "original_actions": {
+        "first_actual_participation": 32,
+        "fresh_reentry_after_actual_flat": 87,
+        "add_to_existing_stock": 46
+      },
+      "literal_same_day_layers": 0
+    },
+    "REPAIR_promoted_permit": {
+      "layers": 93,
+      "buy_cost": "902525.5243384523565",
+      "actual_original_net": "-63982.20593022981570507270508",
+      "closed_negative_layers": 74,
+      "closed_negative_net": "-80486.13851770322649567099567",
+      "original_actions": {
+        "add_to_existing_stock": 31,
+        "fresh_reentry_after_actual_flat": 38,
+        "first_actual_participation": 24
+      },
+      "literal_same_day_layers": 20
+    }
+  },
+  "2026H1_semiconductor_toJun30": {
+    "not_promoted_and_permitted": {
+      "layers": 4,
+      "buy_cost": "72636.2943930967000",
+      "actual_original_net": "-11562.6561729216170",
+      "closed_negative_layers": 4,
+      "closed_negative_net": "-11562.6561729216170",
+      "original_actions": {
+        "first_actual_participation": 3,
+        "add_to_existing_stock": 1
+      },
+      "literal_same_day_layers": 0
+    },
+    "BREAK_promoted_permit": {
+      "layers": 21,
+      "buy_cost": "565837.1813586532900",
+      "actual_original_net": "-5220.9242895715305",
+      "closed_negative_layers": 11,
+      "closed_negative_net": "-39636.4992531096095",
+      "original_actions": {
+        "add_to_existing_stock": 5,
+        "fresh_reentry_after_actual_flat": 4,
+        "first_actual_participation": 12
+      },
+      "literal_same_day_layers": 5
+    }
+  }
+}

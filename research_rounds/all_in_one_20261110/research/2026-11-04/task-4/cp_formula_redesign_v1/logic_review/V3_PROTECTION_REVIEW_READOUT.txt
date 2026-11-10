@@ -1,0 +1,20 @@
+V3保护尺度：独立限定通过
+
+冻结定义与V2差异
+量价分门、原域、原proof尺度及21/63/K不改。改变的是每段趋势的保护距离：首张receipt确认前的旧冻结proof sigma保存为sigma_init，之后sigmaH=max(sigma_init,过去21个观察min(r,0)^2均值开根)。原V2及其反例保留；这不是证明V3具有经济改善。
+持续正r不直接增加新的downside RMS；但sigma_init仍来自旧63收益绝对值中位数，可能已含此前单边趋势。它是段内保护尺度下限，不是预测概率或账户最大损失。旧有效线不下调仍只限同一未破episode；REPAIR后的新episode可有更宽/更低新线。
+
+实际代码
+compute_shadow_protection_v3.py32的downside21在同source的原缓存r上截正收益为0、平方、shift1、21期mean、sqrt。分母固定21，不按负收益观察数重定基，当前观察不参与当前尺度。
+70在72把proof sigma刷新为z63之前先保存sigma_init=sigma；持续LIVE的后续receipt只增advance，不刷新init。47/source、52/域OFF或未热、54/旧线失败清init；56/down仅重proof，不清未破趋势的init/H/M。73–75独立新高更新仍在proof分支之后，旧线在53优先检查，失败日不发receipt或抬线。
+50在分支之前计算protection_scale，因此失败/I-off行可能仍展示旧episode的decision-time尺度；这不表示转移后仍有活动线。转移后H_after/init_after为NULL。不能把该列误称为after-state有效尺度。
+V3仍计算z21作旧展示/ready条件；它和downside21的有限支持来自同一r的lag21。标准完整原数据下其热身一致，本次没有独立新增数据过滤。
+
+有限原数核验
+FINITE_V3_PROTECTION_SUBSTITUTIONS.json：4个原先指定失败日直接读原CP1_input/facts并独立算lag21下行RMS、lag63旧尺度、旧H/当日C及raw映射、REPAIR锚/清零；另外2个种子特意核旧/新sigma不同（盈新1/20、海能11/20），以及2个down保存不变量。共74项PASS，最大绝对误差8.673617379884035e-18。
+失败日为盈新2022-01-18、1-27；海能2024-11-01；银之杰2024-10-10。海能11-01旧H142.67588178863483、当日C142.6338547290517，先破旧线，不是以新线回溯触发。
+四个失败是CP市场参考事件，不是成交时间或账户收益；在CLOSE才生成提案，不能提前于次OPEN执行。
+
+已保存6个prefix exact记录已读，属于同脚本截断前缀自洽，不是另一实现全路径对拍，也不认证历史供应商vintage/PIT/真实盘口。root保存三股完整暖历史公式输出已绑定；审核者只有限代入和静态源码对齐，没有执行shadow()、原CP模型、策略、账户或收益计算。
+
+PASS仅限冻结V3保护式→实际脚本接线和所列有限原数。近期第一根急跌排在当前尺度之外、隔夜跳空、T+1及不可成交边界仍存在；新高连续抬线可能误伤正常回撤，宽sigma_init仍可能长期保护不足。没有公式/经济优势通过结论。

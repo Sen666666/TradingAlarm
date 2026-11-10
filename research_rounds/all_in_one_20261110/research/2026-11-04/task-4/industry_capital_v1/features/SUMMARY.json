@@ -1,0 +1,128 @@
+{
+  "complete": true,
+  "events": 8335,
+  "needed_stocks": 1636,
+  "point_features": 16131,
+  "counts": {
+    "long|PVR|no_old_inventory": 724,
+    "long|COR|no_old_inventory": 724,
+    "long|PVR|gap_0_to15": 1028,
+    "long|COR|none_weak": 4386,
+    "long|PVR|gap_negative": 3201,
+    "long|PVR|gap_ge15": 269,
+    "long|COR|mixed_weak": 124,
+    "long|COR|all_weak": 16,
+    "long|PVR|unknown": 42,
+    "long|COR|unknown": 14,
+    "strong|PVR|no_old_inventory": 290,
+    "strong|COR|no_old_inventory": 290,
+    "strong|PVR|gap_0_to15": 501,
+    "strong|COR|none_weak": 2598,
+    "strong|PVR|gap_negative": 2082,
+    "strong|PVR|gap_ge15": 183,
+    "strong|COR|mixed_weak": 158,
+    "strong|PVR|unknown": 15,
+    "strong|COR|unknown": 11,
+    "strong|COR|all_weak": 14
+  },
+  "prefix_checks": [
+    {
+      "sid": "000001.SZ",
+      "cut": "2023-12-29",
+      "observations": 2670,
+      "exact": true
+    },
+    {
+      "sid": "000001.SZ",
+      "cut": "2024-09-30",
+      "observations": 2851,
+      "exact": true
+    },
+    {
+      "sid": "000001.SZ",
+      "cut": "2026-03-31",
+      "observations": 3211,
+      "exact": true
+    },
+    {
+      "sid": "002718.SZ",
+      "cut": "2023-12-29",
+      "observations": 2391,
+      "exact": true
+    },
+    {
+      "sid": "002718.SZ",
+      "cut": "2024-09-30",
+      "observations": 2572,
+      "exact": true
+    },
+    {
+      "sid": "002718.SZ",
+      "cut": "2026-03-31",
+      "observations": 2924,
+      "exact": true
+    },
+    {
+      "sid": "600153.SH",
+      "cut": "2023-12-29",
+      "observations": 2431,
+      "exact": true
+    },
+    {
+      "sid": "600153.SH",
+      "cut": "2024-09-30",
+      "observations": 2612,
+      "exact": true
+    },
+    {
+      "sid": "600153.SH",
+      "cut": "2026-03-31",
+      "observations": 2972,
+      "exact": true
+    },
+    {
+      "sid": "601878.SH",
+      "cut": "2023-12-29",
+      "observations": 1587,
+      "exact": true
+    },
+    {
+      "sid": "601878.SH",
+      "cut": "2024-09-30",
+      "observations": 1768,
+      "exact": true
+    },
+    {
+      "sid": "601878.SH",
+      "cut": "2026-03-31",
+      "observations": 2128,
+      "exact": true
+    },
+    {
+      "sid": "920982.BJ",
+      "cut": "2023-12-29",
+      "observations": 111,
+      "exact": true
+    },
+    {
+      "sid": "920982.BJ",
+      "cut": "2024-09-30",
+      "observations": 292,
+      "exact": true
+    },
+    {
+      "sid": "920982.BJ",
+      "cut": "2026-03-31",
+      "observations": 652,
+      "exact": true
+    }
+  ],
+  "seconds": 57.26831308286637,
+  "limit_seconds": 90.0,
+  "no_future_labels_read": true,
+  "new_accounts": 0,
+  "new_ledger_paths": 0,
+  "parameters_fitted": false,
+  "state_boundary": "Unknown indicator/warmup values are None rather than known False; current OPEN only provides capital weights, not H/L/C signal evidence.",
+  "old_basket_boundary": "Prior CLOSE locks are observed, but these features grant no FIFO/bonus-share/limit/partial-order sellability."
+}

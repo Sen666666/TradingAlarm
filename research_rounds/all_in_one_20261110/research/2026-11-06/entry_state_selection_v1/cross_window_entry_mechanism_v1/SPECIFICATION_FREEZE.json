@@ -1,0 +1,10 @@
+{
+  "frozen_at_utc": "2026-11-07T15:09:37.652429+00:00",
+  "case_count": 25,
+  "prior_labels_seen": true,
+  "new_labels_not_opened_before_specification": true,
+  "sha256": {
+    "FIXED_COHORT_SPEC.md": "ae53fe933629050660732d3e14ec8763579d66cfd9a4526f2a076a08ecbff6ed",
+    "FIXED_CASES.csv": "373fa0cad5f23cc9487d185f1bf21939161a6a976cb5f99e786ea8884f706dbe"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "passed": true,
+  "at_UTC": "2026-10-31T13:04:11.023863+00:00",
+  "summary": {
+    "events": 75,
+    "groups": 55,
+    "joint_common_scorable": 75,
+    "counts": {
+      "remains": 75
+    },
+    "disappeared_prior_already_out": 0,
+    "disappeared_current_still_in": 0,
+    "common_pool_min": 1637,
+    "common_pool_max": 1656,
+    "pool_loss_from_prior_max": 2,
+    "pool_loss_from_current_max": 3,
+    "pool_loss_from_prior_median": 0.0,
+    "pool_loss_from_current_median": 1.0,
+    "own_members_loss_events": 1,
+    "common_industry_min": 1,
+    "common_industry_max": 60,
+    "global_only_counts": {
+      "remains": 75
+    },
+    "members_only_counts": {
+      "remains": 75
+    },
+    "indicator_interaction_counts": {
+      "0": 75
+    },
+    "changed_stocks_raw_read": 59,
+    "quality_counts_stockdates": {
+      "no_local_bar": 58,
+      "before_first_local_bar": 17
+    },
+    "no_future_labels_read": true,
+    "no_economic_paths": true,
+    "seconds_before_output": 1.7805730002000928,
+    "seconds_with_output": 1.7983272499404848
+  },
+  "effect_summary": {
+    "fixed_global_only_replacement_indicator_sum": 0,
+    "fixed_members_only_replacement_indicator_sum": 0,
+    "interaction_indicator_sum": 0,
+    "log_score_change_max_abs": {
+      "score_change_log_direct_global": 0.005480915160297278,
+      "score_change_log_direct_members": 0.01500828532445455,
+      "score_change_log_interaction": 0.0002638761600601905
+    },
+    "previous_top3_changed_groups": 0,
+    "current_changed_group_details": [
+      {
+        "group_id": "G050",
+        "prior_original": [
+          "URFI881166",
+          "URFI881156",
+          "URFI881180"
+        ],
+        "prior_common": [
+          "URFI881166",
+          "URFI881156",
+          "URFI881180"
+        ],
+        "current_original": [
+          "URFI881179",
+          "URFI881164",
+          "URFI881156"
+        ],
+        "current_common": [
+          "URFI881179",
+          "URFI881156",
+          "URFI881164"
+        ]
+      }
+    ],
+    "original_complete_pool0_range": [
+      1637,
+      1658
+    ],
+    "original_complete_pool1_range": [
+      1637,
+      1658
+    ],
+    "zero_baseline_excluded_range": [
+      0,
+      0
+    ],
+    "current_top3_order_changed_groups": 1,
+    "current_target_set_changed_groups": 0
+  },
+  "blockers": [],
+  "limitations": [
+    "conditional t-known common-sample historical comparison, not live algorithm",
+    "explicit listing/suspension causes not certified from missing rows",
+    "same frozen survivor snapshot"
+  ],
+  "no_new_score": true,
+  "economic_paths": 0
+}

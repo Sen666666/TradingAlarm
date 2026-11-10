@@ -1,0 +1,91 @@
+Dec2022授权质量：输入可用，但当前四格不支持把主要损耗归为“双弱”
+
+根在计算前固定诊断：真HS300价格指数USZI399300作market，不换ETF择优；
+其市场日历t/t-20共21个close，stock与industry的两个端点都须当日已知、
+同源，否则UNKNOWN，不按每股各自最近20观察伸缩。RS20定义为
+  (Cstock_t/Cstock_t20-1) - max(Cindustry_t/Cindustry_t20-1, CHS300_t/CHS300_t20-1)
+与C>=EMA20作完整四格。EMA20复用原valid-observation source时钟，span20、
+adjust=False、min_periods20；它不是20个market日历行的另一个SMA。
+本轮没有准入filter、root候选代码、账户或参数搜索；没有把三格拒绝的
+AND门当成已获授权。后续政策必须另冻，core原早期试探不改。
+
+1. 完整实际决策母体
+2022年12月原实际decision118层、92股、41原行业，mobile80/core38。
+当日stock/industry/market端点和EMA20全部已知，stock原I及决策ACT全部on。
+这来自实际已买母体，不能外推所有全市场Q机会都已知或ACT具有区分力。
+金融列是这些层原全生命周期贡献，不是12月月损益，也不是可避免损益；
+继承旧仓和月内财富归因须另作，不与此表混用。
+
+四格                             mobile层/原终生净额       core层/原终生净额
+RS>0，C>=EMA20                   64 / -39181.75           34 / -12383.34
+RS>0，C<EMA20                     0 / 0                    0 / 0
+RS<=0，C>=EMA20                  15 / +6903.04             3 / +96.64
+RS<=0，C<EMA20                    1 / +1731.04             1 / -6.77
+UNKNOWN                           0                        0
+完整正贡献、负贡献、累计买款、stocks与全部空cell见FOUR_CELLS。
+主要mobile新层损耗仍在“双强”格；只凭“双弱”直觉无法覆盖它，也不能
+为了覆盖损耗改成拒其它两格、换benchmark或观察窗。本诊断不替父判断
+最终政策；只给全部原样本的决策时上下文。
+
+2. 已验证的真实benchmark来源
+HS300真价格指数：repos/TradingAlarm/.../research/data/
+ths-index-history-20261018/canonical/USZI399300.csv，5288行，
+2005-01-04..2026-10-16；checkpoint完整且canonical SHA核同。它不是ETF，
+无本地原E0/I列；原ACT合成市场另有定义，不能把它改称HS300状态。
+
+沪深300 ETF真实缓存是USHJ510300/510300，最新现成原因果signal close：
+task/capacity_cost_guard_analysis_v1/benchmark_B_2025_26/inputs/
+510300_history.csv，1928行2018-07-17..2026-06-30，含raw OHLCV和
+signal_close/ma63/on。此前2022—23与2024续年输入有冻结重叠验证，ETF
+signal是causal reinvested total return close。本轮不以ETF替换真指数。
+
+上证50已有USZA000016-signal.parquet，750行2023-07-12..2026-09-03；
+它是上证50指数，不是510050 ETF，且不能覆盖Dec2022。两主research/data
+root未找到tencent-sh510050-raw.json，也未查得510050已有可核ETF链；
+这是本次检索边界，不宣称整块磁盘绝无任何510050文件。
+
+3. 行业与时钟限制
+原90个URFI行业index facts有close/segment/E0/floor/raw_close/factor，
+没有原industry I。逐层表写NOT_DEFINED，未另算或冒造I。Dec41行业的
+已知当日E0如实保存；行业factor为原值，不拿个股因果factor套行业。
+原metadata.json把股票连到当前冻结行业；它是当前快照回溯开发池，
+不是2022年当时行业成员或PIT市值。个股、行业与HS300历史价格当日
+可得，不会让今日分类自动成为历史当时可得。
+
+每一行给固定market anchor日、current日、两端价格/source_segment、
+共同21日历内实际可见close数与中间缺日。根固定的是两个端点必须
+known同源，不把中间缺日擅自变成额外过滤，也不前填缺端点。
+个股为原因果调整价格证据；行业/HS300为价格index。比值推进用于
+信号上下文，不等于含费现金/股息AR/再投资的实际账户收益。
+EMA20状态只在当前真实观察可读；缺源不拿陈旧昨价假装今天有效。
+决策CLOSE与下一合法OPEN实际fill分列，未读取fill日收盘生成标签。
+
+4. strong固定尾部输入覆盖与旧近邻
+全部原strong94固定赢家成员均已做纯输入readiness，HS300共同20日端点、
+stock/industry同源端点、EMA20未知均0。仅验证可读性，没有在强窗按结果
+新算四格、选择门槛，也没有因未匹配No60就删原赢家成员。
+
+RS不是原框架空白：原sector_stock_admission.py:207-214要求stock/sector
+RS ready且fresh，再排序；没有要求stock return20超过同业或HS300。
+原H1是4个63区间权重与同历史长度横截面分位，职责是排序，和本候选
+20日绝对相对推进门不同。原PVR仅替换个股排序、不加分数门槛。
+在本次搜索/核读范围，未找到与本次“20日stock-max(industry,HS300)
++EMA20、mobile新增权限”精确相同的已完成经济试验；这不是全历史
+绝无同类实验的证明，不把已有RS排序称为新门已经被测。
+
+可直接复用的失败约束：
+- rs-h1-execution-20261025/CONCLUSION.md：全池H1排序+日单生命周期联合
+  修正四基础账户均未改善；T1原28.67%→-65.84%，S0原-68.84%→-85.92%。
+  非本次20日RS门的单因素对照，不能照搬收益；它提示历史涨幅排序
+  会改变入场位置与资金，不能只看多碰到赢家。
+- rs-history-matched-20261025/README.md：高长窗RS与最近63日负收益可并存；
+  原prototype账户0，不能把其技术可算性当短窗门有效。
+- mobile_current_grade_quickcheck_v1：当前暖grade门与原I保持态非冗余，
+  但原主要损耗仍在暖组，strict303非暖组原净正，方向已停止。
+- ma63_information_diagnostic_v1：原303新层301在双MA63上仍净亏113650，
+  慢方向背景未解释主损耗；它不是本次20日相对门，但同样要求完整
+  正负分母和固定尾部控制，不能把删掉原亏损当新账户收益。
+
+交付：DEC2022_ALL118_DECISION_CONTEXT.json、完整四格、strong94纯输入
+readiness、SOURCE_AVAILABILITY.json、VALIDATION.json及源码/来源SHA。
+后续最小字段建议已直接体现在118行中；不需要先扩工程或启动账户。

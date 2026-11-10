@@ -1,0 +1,10 @@
+{
+  "selection": "fixed top3 period-loss stock and top2 period-profit stock; diagnostic only",
+  "sources": {
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261027-153013-2ffe04/prepared/facts/603083.SH.parquet": "b938925900506a090d705fe176f671a20ff27f89dabbc75501d75536754012f9",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/facts/301128.SZ.parquet": "de0c05b8a9babf1b456db48a2cf3a4a93208a52cf3edb612c5472917688b35e7",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/facts/688003.SH.parquet": "6e3d6574167fc4971310e6d03cb3a44b589a91d7321e8d2a9d83a07b8df90855",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261027-153013-2ffe04/prepared/facts/920808.BJ.parquet": "48f840b936efba3c2a84ea22243c9a4e1978e2e9890c374980930b75d40dbb3e",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/facts/002315.SZ.parquet": "98baffd5540b30478667f29f246a567ce215ed8a10aace0a9fd28fe8a65f7955"
+  }
+}

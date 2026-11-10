@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-11-09T03:16:00.417118+00:00",
+  "stage": "PRE_REVIEW_FREEZE_NO_NEW_FEATURES_YET",
+  "formula": "Unchanged prior native-leg subcondition. At original signal CLOSE, ALLOW iff source-valid original native leg_direction==+1 with regenerated native field agreement; DENY iff -1; UNKNOWN otherwise. No new threshold, no next-day price or future direction enters gate.",
+  "mother": "ALL sealed A/B invitations in windows2022 and2024_924:12917+6878=19795. No2026 expansion. Keep originalOTHER_UNKNOWN_OR_LEFT outsideAB separately counted as notAB, not silently madeFALSE. No outcome filtering at feature stage.",
+  "breakdowns": [
+    "2022_ALL",
+    "2022_Q1 signal_day<=2022-03-31",
+    "2024_924 September-December"
+  ],
+  "levels": [
+    "alloriginalABinvitations",
+    "originalI_and_PVR_known subset",
+    "all current corrected A_UNION_B selected permits",
+    "evidence_usable_closed old CORE and old FULL separately",
+    "financially unusable closed and executionUNKNOWN/NOFILL/censored remain separately reported"
+  ],
+  "old_labels": "Use exactly corrected2022relative_priority_equity_run_2022_v1/report/CORE_AND_FULL_ROUNDS.csv and2024cash_equity_baseline_2024_v1/report/CORE_AND_FULL_ROUNDS.csv armA_UNION_B;join one-to-one byevent_id;do not mix early2432version. Report oldpositive/negative/zero and finalnetreturn>=30%/50%, notMFE. No deleted-loss newwinrate or savedcash.",
+  "source": "Same originalSTOCK_MANIFEST source signal/events/facts. Source hashes exact. Current source bar eligible_prices, positivefinitevolume, facts/eventsegment match, valid source_kind/path. No currentcapitalization or hidden newuniverse filtering. Allmembers/pool NONPIT.",
+  "native_verification": "Perstock and source segment regenerate native event_frame_numeric through latestrequested signal endpoint; compare7originalpreflightnumericfields at alleventrows, fullprefixmatches separately. Generator causal/no futurelookahead; additional physicalprefix endpoints on a fixed deterministic subset(firstalphabetic stock perwindow-quarter plus previous30applicablepoints) before any labels. Do not imply everyevent had a separatephysical raw/PITreconstruction.",
+  "consumer": "Only direction subcondition coverage, not changed buy permission/slot/cash/execution. Existing gates, PVRsort,2slots,smallprobe,profitADD,exit,reentry unchanged. No new economic account.",
+  "clock_separation": "Seal a signal-time-only table first. Future recovery not included in features. Oldlabels attached afterward and only for association/coverage.",
+  "decision": "Do not promote based on rejected oldloss sums. If lowcoverage or material oldtails touched, stopcandidate; no threshold/exception repair. Inspect fixed deniedtail paths only as counterexamples, not to create exceptions.",
+  "limits": "Development history already seen; staticmembers/pool/sourceversions NONPIT; known dailybar doesnot prove execution. Same-day/stock dependence, originalstrategy selection and labels conditional on oldstate. Unknownnotzero.",
+  "files": {
+    "prior_protocol": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_native_leg_entry_preflight_v1/PROTOCOL.json",
+    "prior_signal_view": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_native_leg_entry_preflight_v1/SIGNAL_TIME_FEATURES.csv"
+  }
+}

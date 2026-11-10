@@ -1,0 +1,19 @@
+政策变体 MD1：迁池与新confirmed准入解耦；不是历史bugfix。
+
+仅在独立研究目录内实现。原model/route/真实执行器、所有旧结果与已审投影不改。底座是原单遍Bdiag（无账户3%检查的既定参考）；保留probe/confirmed及行业/股/现金/风险等原检查、全部原signal target/price/floor/clock/CP1、H1/code/rank和同股core-first。2×2另列两遍，只用于分离两项政策局部效应，不选组合冠军。
+
+唯一经济语义变化位于两处：
+1. route保留原位置的migrate尝试；返回True时仍执行原pools_from_model，False时不伪装迁池。但只要原行业active/level及mobile资格允许，confirmed仍进入原完整target最大合法数量比较，tie仍probe。
+2. request保留原位置的best-effort migrate调用；False不再直接return confirmed_unfunded，后续原实时资源与fresh receipt检查完整执行。不是取消迁池，也不是放宽其旧条件。
+
+迁池函数完全沿原逻辑：同attempt probe open/cancel_pending仍挡迁池；目的池必须能接下全部该attempt已成交probe，旧attempt不迁。任何失败不释放待单、不改旧order/lot角色，不移动pending、不清累计费用/损耗；只有实际ack/原合法fill改变预留，后续迁池重新读取真实当时资源。
+
+每次迁池单列primary reason、pending清单、旧filled probe整迁所需、当时confirmed占用/剩余额和缺口；request阶段另列新单金额/费用与该池容量可行性。这个局部池可行标记不是完整准入许可，完整原sector/stock/cash/risk仍可能挡。市场stage、migration结果、新单结果分开记录，不用legacy confirmed_unfunded标签冒称行业失效。
+
+同行业所有pool/attempt/core/mobile/挂单合计仍用于行业资本/risk检查；新probe仍用全行业2%，新confirmed用有效stage10/20%。不是confirmed之外再领2%。原global probe10%/.5%risk、confirmed60%、股10%、core .25%含费保护风险、mobile2%目标、cashreserve10%及原适用总risk门均不变。Bdiag既无3%门，本变体不暗加/暗减其它门。
+
+同股core预留成功即跳mobile（零fill也跳），同股buys/exits与done、每股一单和canonical receipt一次使用不变；解除跨股票依赖不把梅花自己的core100换成mobile1200。原quantity minimum/step、部分成交、原股退出、ACT、行业失效撤单规则不改。
+
+两遍仍仅内部planning，固定role/pool，不在最终验证重跑route择池；每股最终聚合单。first-pass与final fixed-prefix迁池诊断分开，记录失败候选也发生的迁池；失败试算不能抹掉此前合法前缀。没有真实batch transaction/submission/fill API。
+
+验证范围：11项新政策纯预算/规划合成（其中fill/sell/cancel仅旧纯预算模型的人工fixture回调，不是真实ledger执行验证）；两个已独审的固定S0投影、四格allocation-only。每个旧格除新增诊断字段外的全部旧字段与冻结结果完全一致，输入指纹和43旧文件SHA不变。未重建指标/账户、无新历史经济路径、无未来收益读取、无开盘后账户推进、无全批扫描。完整runner恢复/真实成交准入/实盘/OOS均未被本结果证明。

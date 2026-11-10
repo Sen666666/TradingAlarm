@@ -1,0 +1,50 @@
+{
+  "version": "CP_first_control_supplement_v1",
+  "status": "EXPLORATORY_AFTER_POOLED_RESULTS_ALREADY_SEEN_NOT_OOS",
+  "basis": "Only existing frozen original AB attributed rounds and all AB decisions; no consumer, no counterfactual, no new economics.",
+  "comparisons": [
+    [
+      "CP_FIRST_IN_I",
+      "CP_REPEAT_IN_I"
+    ],
+    [
+      "CP_FIRST_IN_I",
+      "NO_CP_TODAY"
+    ]
+  ],
+  "known_at": "CP receipt must exist at signal close t and full known I ordinal computed only through t; never future first-CP backfill.",
+  "population": "All registered rounds retained; financial_path_group mutually exclusive. actual initial buy is separate axis and can overlap UNKNOWN. Only original financially covered COMPLETE FULL rounds yield W/L/net/R/tails.",
+  "R": "Original initial entry_risk; no 3000 budget proxy, no ADD risk synthesis.",
+  "pooled_metrics": [
+    "registered",
+    "actual_buys",
+    "terminal_bucket_counts",
+    "covered_closed",
+    "W/L/zero",
+    "win_rate",
+    "mean_net",
+    "mean_win/loss",
+    "payoff",
+    "mean_full_return",
+    "mean_full_net_over_entry_risk",
+    "net_sum",
+    "tail_ge30_count/rate",
+    "tail_gt3_initial_R_count/rate",
+    "n_dates/industries/stocks",
+    "maximum_day_registration_concentration"
+  ],
+  "months": "Fixed all 2022-01..12 and 2024-09..12 for all four CP groups, even empty cells.",
+  "controls": [
+    {
+      "unit": "exact signal date",
+      "rule": "Require both compared CP groups have >=1 registered round on same date. For outcome difference additionally require >=1 covered complete on each side; missing economics remain excluded-but-counted cells, never zero-filled."
+    },
+    {
+      "unit": "exact signal date x original sector industry ID",
+      "rule": "Require both groups coexist in exact cell. Same outcome rule. Do not relax to month/adjacent date/sector pooling after seeing sparsity."
+    }
+  ],
+  "controlled_metrics": "Within each fixed unit compare group mean_net, W-rate, mean_full_return, mean_net_R, tail>=30 rate, tail>3R rate; equal-weight eligible units, first-minus-comparator. Show all coexisting and outcome-eligible n_cells/dates/industries/stocks, population shares, each side covered/unknown/no-buy, largest-day concentration.",
+  "selection_funnel": "All original CP_FIRST_IN_I decisions, SELECTED_PENDING vs PASS_NOT_TOP2 separately. Join original queue_rank/selected_rank/PVR_score and exact date/industry all-group observed selected count and feasible candidate count. Unselected get no PnL. No shared-account or actual broker slot claims.",
+  "scope_limits": "Descriptive selected-cohort association; matching handles date and observed industry only, not other selection/confounding, serial/cross-stock dependence, or missingness. No confidence interval or optimization."
+}

@@ -1,0 +1,11 @@
+{
+  "frozen_before_new_exact_B_fill_cross": true,
+  "definition": "C_t > mean(previous63 close slots), exclude t; decision CLOSE; industry only",
+  "files": {
+    "DESIGN_CARD.txt": "a6ff03246802c0ebced21d97092dcf9613dd3000191bbf0bce7e596fcee665ac",
+    "DEDUP.json": "f389237f8fa8051607282425699bcdb14b97501ebd5dedf169b399f0079b53ae",
+    "FALSIFICATION_MATRIX.csv": "30537f5f8bbb5badadbd4b5cb6506f446952b01c2e44a3e3671d9f875486d4da",
+    "SCOPE.json": "571158438b85d31c2552fe519982a127217fd105a331e60e39a22f217d8b750e",
+    "ACTUAL_FILL_CROSS_PROTOCOL.txt": "8d40bfa48c5cb9bd5640bebe83aeacdfac418fc8c3bb661a69bad95423b5e017"
+  }
+}

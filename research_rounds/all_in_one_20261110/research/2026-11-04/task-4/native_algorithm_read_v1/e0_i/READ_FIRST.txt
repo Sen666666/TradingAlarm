@@ -1,0 +1,38 @@
+现行No60的E0/G1/I原始算法阅读索引（只读，不运行模型）
+
+先读一页GUIDE.txt，再按SOURCE_INDEX.json定位SOURCE_EXCERPTS.txt。
+FORMULAS_AND_TIME_ALIGNMENT.txt只作可选的逐变量符号对照。
+后者为原样代码摘录，含原绝对路径、行号和当前文件SHA；没有改写成新的实现。
+
+实际2024消费文件与公式来源分开
+海能达002583.SZ原2024/long_OFF实际facts：
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261027-153013-2ffe04/prepared/facts/002583.SZ.parquet
+SHA256 5616966ea1df4066d5b9ffdc5a2b57d253821a0510d57c436fed942b9e64a2c3
+原universe-cp1-inputs-20261031/STOCK_MANIFEST.json的该股refs.facts直接绑定它。
+2024_full/loader_2024.py41、49–50读取full refs后覆入facts.f；已完成long_OFF的
+new_price_trend_v1/funding/input_loader.py45、56–58同样读取现成full refs。
+它不是BEGIN=2025-07的strong缓存目录在2024现场生成的输出。
+
+该runtime full facts的现行生成式是TradingAlarm/desk/refresh.py47–66：
+eligible_prices→run_b5→G1 classify→强制decline_candidate=False→e0_policy→
+project(...,'G1_I')→保存e0_target/floor、i_target/floor/buy及G1字段。
+native-I-cache-interface/cache.py16–35是同公式的旧数据复用/校验链，derive返回full
+history；只有job55写其接口目录时才截BEGIN。universe prepare.py31–32在full frame
+exact一致后才复用runtime facts，不能把这个同公式校验关系说成同一个输出目录。
+
+prepared-v2前因也已摘原代码：current_pool_bridge.state_frame230调用原numeric
+event_frame_numeric(joint=True,event_exit=False)生成events；IX prepare_ix19–30
+调用B5/classify保存G1。cache复用这些events/G1，再明确project G1_I，不能把IX的
+use_x=True退出分支当现行I。现行runtime prepare_facts则直接调用B5纯事件函数。
+
+对应源码顺序
+1. refresh.py47–75：实际full facts字段接线。
+2. evidence.py92–157：E0转折事件，confirmed_at在当前行，pivot_date只是历史锚。
+3. policy.py79–163：E0 target/floor；当前decline_candidate固定False，reclaim未启用。
+4. B4 model.py96–281：mu5/mu21、s、S21/S63候选与确认；21/63不是均线周期信号。
+5. grade.py9–63：G1 grade/fresh及逐级覆盖的精确顺序。
+6. policies_g1.py6–35：I target/floor/buy_event；现行use_i=True/use_x=False。
+7. engine.py31–47：同日i_buy作为信号事实，下一共同交易OPEN是最早执行时点。
+
+本次不提风险设计/新策略、不运行或重新生成events/facts/model/账户/回测；没有新增
+指标或参数测试。对源代码因果依赖的解读，不冒称本次重跑验证了历史每个数值。

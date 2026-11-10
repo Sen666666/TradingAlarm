@@ -1,0 +1,32 @@
+{
+  "events": 7746,
+  "prefix_checks": 485,
+  "matched_total": 38,
+  "groups": [
+    {
+      "group": "a485",
+      "period": "2018-21",
+      "n": 0,
+      "mean21": null,
+      "mean63": null,
+      "insufficient": true
+    },
+    {
+      "group": "a485",
+      "period": "2022-23",
+      "n": 0,
+      "mean21": null,
+      "mean63": null,
+      "insufficient": true
+    },
+    {
+      "group": "a485",
+      "period": "2024-26",
+      "n": 38,
+      "mean21": -0.00692092249611523,
+      "mean63": -0.009081827642805013,
+      "insufficient": false
+    }
+  ],
+  "conclusion": "Report match support before any economic inference; no new trading rule."
+}

@@ -1,0 +1,21 @@
+Root authorized <=15min LABEL-ONLY map of immutable v2 DAILY3273.
+No model/market/state/risk ledger/Account/Runner recomputation; no cap/n/PNL.
+At decisionCLOSE, macroD means next-market-plannedOPEN zero NEW OPEN/ADD
+permission; request cancel all unfilled buy intents and await ACK/native
+reconciliation. Pending fills are not assumed cancelled or zero. MacroP labels
+probe category only; macroC conditional incremental category only, both UNSIZED
+and NOT executable eligibility. Unknown current market inputs cannot give a
+new grant, preserved state and raw fields remain separately visible.
+ALL old inventory in D/P/C retains ORIGINAL_I_CP1_EXIT; macro state alone never
+forces sells, no floating profit/loss classification. Original native exits,
+ACT obligations and real pending execution remain independent responsibilities.
+Historical No60 ACT on/flat/event is sidecar ONLY, never injected into new macro
+state/calendar. Abstract newH contract: zero new risk, queue original full exits;
+flat+cancelACK then postH fresh20 evidence may proposeP; cannot borrow oldrawC
+or preH anchor as reentry. This coupled path is BLOCKED_NOT_SIMULATED here.
+NextplannedOPEN is next date on the EXISTING original M calendar at09:30+08,
+NOT evidence any stock can fill. At final source date it is null/censored.
+Join mother records by exact original budget_order decisionCLOSE; never join
+fill-day/nearest/prior signal or future date. All core/mobile/ADD/reentry roles
+use same macro labels; original strategy admission and fees remain unspecified.
+Fixed phase windows inherited, whole3273daily always retained for3436mother join.

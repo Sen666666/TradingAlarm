@@ -1,0 +1,51 @@
+{
+  "completed": true,
+  "completed_at": "2026-10-31T05:20:59.234531+00:00",
+  "protocol_to_completion_wall_seconds": 774.6142957210541,
+  "measured_compute_seconds": 221.17901162570342,
+  "other_short_extracts_and_reporting_not_individually_timed": true,
+  "new_economic_paths_completed": 6,
+  "economic_replays": 0,
+  "new_rule_parameters": 0,
+  "original_A_economic_paths_reused": 6,
+  "full_off_accounts_exact": 6,
+  "physical_future_prefixes_exact": 2,
+  "prefix_end": "2025-12-31",
+  "candidate_account_days": 4086,
+  "actual_buy_fills": 534,
+  "actual_total_fills": 1066,
+  "independent_risk_over_budget": 0,
+  "max_NAV_residual_CNY": "0",
+  "stock_delta_bridge_residuals": [
+    "0E-13",
+    "0E-13",
+    "0E-13",
+    "0E-13",
+    "0E-13",
+    "0E-13"
+  ],
+  "active_paths": 0,
+  "blockers": [],
+  "data_limits": [
+    "current-survivor/industry/cap snapshot",
+    "consumed historical data not OOS",
+    "dividend pay/sellability timing proxies",
+    "daily HLV execution proxy",
+    "pending-exit floor unknown TECH64/DRUG60 delay account days",
+    "stale marks listed"
+  ],
+  "decision": "retain initial-risk budget benchmark and explicit tradeoff, not production promotion; later unchanged-parameter historical migration pressure is justifiable but not started",
+  "deliverables": [
+    "FINAL_REPORT.txt",
+    "MATRIX_12.csv",
+    "DRAWDOWN_EPISODES.csv",
+    "RISK_REJECTIONS.csv",
+    "INDEPENDENT_ENTRY_RISK.csv",
+    "STRUCTURE_TRIALS.csv",
+    "THREE_SEVERE_COHORT.csv",
+    "A_TAIL_STRUCTURE_COHORT.csv",
+    "STOCK_DIFFERENCES.csv",
+    "KEY_DECISION_SNAPSHOTS.json",
+    "risk/FLOOR_RISK_SUMMARY.json"
+  ]
+}

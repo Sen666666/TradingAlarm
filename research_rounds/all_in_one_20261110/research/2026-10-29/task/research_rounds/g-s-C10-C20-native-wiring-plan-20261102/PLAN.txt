@@ -1,0 +1,27 @@
+C10 / C_BATCH20 最小原生接线清单（仅计划）
+
+组件/静态投影已审。本轮仅读源码、整理范围，未创建账户、意图或运行金融事件。下一授权应仅为原生合成闭环；两日历史前缀及首月仍未授权。两档唯一经济差分为C_BATCH20的整批机会性D毛市值20%约束；C10关闭它。原C10目标、行业H1→业内PVR、供资顺序、资格、联合资源及退出完全相同，不叠其他研究改动。
+
+1. 账户持久budget：显式跨snapshot，不清carry
+现有solve_C20要求book.source_binding == digest(snapshot)，且batch cursor/NAV核同；new_book只适合静态初始化。不能删guard、每批new_book或无证据改binding。
+最小新增受守卫转换：核旧绑定/cursor、期间原生成交/撤ACK/行动/支付链及当前实际commitments，成功才登记old→new snapshot。plans、残余机会性/mandatory责任、去重历史持续；新建/消失层必须来自真实lot事件。订单创建snapshot/receipt/deadline不可改，回调同时核原身份与当前转换链。
+同批Carry/New不因成交/缩量/撤ACK返还；新批仅重估真实残余carry。C10走同一生命周期，唯独不执行20%拒绝谓词。checkpoint含mode、实际module/class/函数来源+SHA、输入/cursor、转换链和所有责任，恢复核实际账。
+验收：跨批/重算/重启不刷新；partial、cancel_pending、送转同域；错误snapshot/缺事件拒绝；老单跨snapshot回调一次；carry超20只停新增机会性D，独立退出/空D部署继续。
+
+2. 原生层／订单／回调唯一映射：provider与C证书一起接
+provider读真实balance/journal、全部core/mobile与pool、lot/保护线/因子/T+1、买卖待撤/风险锁、已批未提交及独占筹资覆盖、canonical/source时钟；本金预留与费预留分开。预计卖款不可花，NAV残差不吞差。
+真缺口：JF2.verify_certificate现在重算旧A solve，静态C输入又是analysis_only。需隔离的C10/C_BATCH20验证入口，绑定真实provider、完整Q/D、receipt、价格可知时点与期限；复用CertificateBook的hash、数量守恒、实际commitments和fresh不复活/恢复守卫。不能翻analysis_only或给A证书改名，原JF2不改。
+统一certificate→固定role/pool/use/priority的原生买单，capital layer→指定native lot，D→该层真实退出责任。复用fill_exit_selected、inventory_map、原生部分费用/最低佣金、原子amend及风险锁。原生账只记一次现金/股数/费用，真实receipt再驱动证书/budget观察；实卖释对应责任/风险，结算释现金，撤请求不释放。退出多原因取稳定责任并集，不借core顶不可卖mobile。
+行动全量原子preflight后复用native split/dividend/payment；所有待单/责任/价格/成本同域。一般零股逐层核销、多单G退化子集等仍不支持时，在最早cursor变更前明确停，不取整删股/跳事件。
+验收：真实partial/T+1/指定层、聚合最低费一次、卖出与结算分时、取消竞赛、重复/篡改receipt、STAR每张新单200与同单余量50、行动缺字段原子拒绝、跨进程桥/映射一致。
+
+3. 同一原生调度：budget off/on，不复制runner
+复用已审CLOSE/OPEN、原生账和I/O：原actions/payments/结算→ACT cutoff与旧线/I失败→幸存线更新→F1原ordinal/proof及一次解锁→旧单重验→共同provider→C联合计划→完整预留→原生执行。决策NAV与实际开盘资源NAV分离，全批预留后才问买窗口，零fill不回灌，不启用D1。
+两档同时替换旧A的K/80÷K、现金only筹资及S→G→T外圈对C扩张排序的干扰；使用已审C合法旧mobile∪fresh域、行业H1→业内PVR；无fresh旧可留不可加，core/T仍走原独立优先并共享资源。旧行业Q/attempt授权按已核manifest唯一替换，股票就绪/I/结构/canonical/可交易/整手/费用保留；持有A与新买P、原G备用数量/期限分别核。F1公式、原ACT时钟不变。
+验收：20%未binding时两mode完整事件/计划一致；首差仅来自整批D预算，之后账户/ACT反馈另归因。空D不卖、强退不冒称机会性，同股成功预留即占角色slot（零fill不补另一角色）。真实合成需覆盖空仓快部署、旧仓腾挪、多目标及跨批carry，不以全零路径充验收。
+
+范围与行为验收
+上述三项是接线缺口；快迁移错卖旧赢家、慢迁移错过极速主线是待测代价，不是风险偏好阻挡工程的理由。先隔离冻结代码，合成独审；未改组件复用既有审计，只测当前变更与交互。
+后续另审批：各全新1m账户Jan4–5 2022、Jul1–2 2025两日前缀；仅继承原F1/指标市场暖机，不切A/SC/PVR金融checkpoint，首开无旧意图。全通道物理截断/未来派生重建、完整状态/流/键及跨进程恢复核同；Jul2 688608原1.40送转与现金事件保留。
+首月仅规划2022Jan4–Jan28（共同钟19观察）、2025Jul1–Jul31（23观察）；当前金融包只到Jan6/Jul3，余下原来源事件/会话须另授权补导与执行，不扩大fixture日历。固定1709/90，N/A不删，不重算公式。
+预先输出主动买款/被动上涨/迁池、行业集中、机会→证书→预留→fill时延/拒因/终止、同日买后卖请求与真实T+1卖、回转/重入、有效旧赢家被卖、实际止损、强行情到位速度；已实现/未实现/应收股息/零股核销分列。保留两档不利结果；snapshot非PIT、日线OHLCV代理限制不变。20/50/80只作能力报告刻度，不新增交易门。

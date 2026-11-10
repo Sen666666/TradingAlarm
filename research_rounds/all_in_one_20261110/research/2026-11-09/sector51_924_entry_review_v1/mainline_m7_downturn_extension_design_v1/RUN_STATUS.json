@@ -1,0 +1,35 @@
+{
+  "days": 20,
+  "orders": 733,
+  "blockers": [
+    "2024-10-09 605499.SH UNADMITTED_EQUITY_EVENT"
+  ],
+  "last": {
+    "day": "2024-10-08",
+    "cash": "161177.7655649536940",
+    "receivable": "0.000",
+    "market_value": "1412279.15",
+    "NAV": "1573456.9155649536940",
+    "net_liquidation_NAV": "1571539.7593006589515",
+    "stocks": 71,
+    "shares": 73266,
+    "weight_pct": "89.75645510401011465168992664",
+    "fees_paid": "5611.2570150463060"
+  },
+  "prefix_pass": true,
+  "planned_end": "2024-10-31",
+  "completed_horizon": false,
+  "recovered_from_persisted_outputs": true,
+  "secondary_export_error": "Final rolled-back export incorrectly retriggered prefix comparison on blocker diagnostics; checkpoint prefix passed before 10/09",
+  "uncertified_day": {
+    "day": "2024-10-09",
+    "reason": "2024-10-09 605499.SH UNADMITTED_EQUITY_EVENT",
+    "partial_orders": []
+  },
+  "source_hashes": {
+    "DAY_LEDGER.json": "5826bd788e3d275112ccb47fd63d446ba8c05f65c03608bb3aa0e65d1590a1a1",
+    "ORDERS.json": "19030a07bdee564c284d348065cbbf38eed8ef90ef3ffc0b293c215b5b9db699",
+    "BLOCKERS.json": "7a3053dd5ff7111e7366d244d256bcf8fed85f8cf6c39a9de7ad4f3485a6728f",
+    "UNCERTIFIED_DAY.json": "680951d612dc6ee26c1487a9ff6f951c5fa6c13eaa62112a3015176382e597b4"
+  }
+}

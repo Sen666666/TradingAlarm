@@ -1,0 +1,88 @@
+原No60规模、PVR与CORE资金来源事实
+2026-11-04；3436原层、968原CLOSE；描述研究，新账户/新账户事件0
+
+主要结论
+资金损耗落在mobile自主初买与重启，但CORE先置、PVR高低、行业成熟度没有
+形成可直接用于删单/缩仓的经济分离。此分支不再建议统一首仓缩水、要求先
+实际CORE或禁expanded；也不把名义线风险直接叫保证可控的最大损失。
+
+1. 实际本金、初始保护距离与参考风险
+三年CORE498层净−56384.57、实际买款1870486.23；mobile1767层净−305625.82、
+买款19651911.08，mobile承担84.4%净损耗。strong CORE304净+66124.24、mobile867
+净+1197156.99，mobile也承担94.8%净利润。买款是实际周转，不是同时占资。
+mobile原每次计划gross预算恒2%决策NAV，并非单次风险2%。真实成交q×(成交价−
+该时已冻结原线)的名义初始风险，弱/strong median为0.1053%/0.1008%NAV，P90
+0.2313%/0.2454%，max0.4853%/0.4699%。CORE对应median0.0465%/0.0419%，max
+0.2468%/0.2481%；CORE有原all-in预算，但其I参考线不是独立CORE硬止损。
+入场nominal不含未来退出摩擦，遇跳空、次可成交时点/容量及原线失效仍可超出。
+mobile初始宽度median7.8071%/8.1122%，CORE14.4728%/18.4808%；不据此扫阈值。
+
+2. CORE实际funded、计划与未来fill严格分开
+primary为decision CLOSE原native q>0已有CORE，不把同CLOSE core intent或次OPEN
+资金结果倒填成事前证据。三年mobile已有CORE295层净+20207.07；无CORE但同CLOSE
+有CORE意图1001层净−180504.24；无CORE也无CORE意图471层净−145328.65。
+strong三组153层+73373.89、480层+424315.20、234层+699467.90。
+无CORE的1472弱层净−325832.89，但714强层净+1123783.10，是强窗mobile净利的
+约93.9%。简单要求CORE先funded会拒绝主要赢家，不能作为新规则重建账户。
+在两个原完整账内，同sid mobile与CORE同OPEN实际同时fill均0，与原singlepass/
+实际同股买入约束一致；“同CLOSE有CORE意图”不等于实际探测仓已经获得资金。
+
+已独立核2634mobile补表：448笔decision已有CORE（弱295/强153），逐CORE保q、
+last_core_line、factor/rawclose、signed距线%、basis/mark/unreal、已付本金至线
+敞口及mark至线回吐敞口。原CORE已浮盈弱269/295、强143/153；距已知参考线
+median18.7166%/24.1248%；新mobile实际cash/原COREbasis median2.9924/3.9538。
+新mobile实际fill现金仅后验诊断，决策时可得计划gross单列。CORE亏损加仓覆盖
+小，不把“没有CORE”或“已有CORE浮盈”任一标签直接判为失效。
+
+3. 新授权与实际试错母体
+全三年原native合格mobile意图有36650个不同receipt，实际funded1767；strong
+25806/867。意图数不是账户试错数，不保证资金，也不等于独立结构。
+同watch_epoch、decision前实际mobile funded为0的1302弱层净−218454.67，strong
+623层净+663702.59；已funded1/2次的弱净−43015.85/−27161.41，strong却分别
++382489.85/+154681.15。按真实campaign首mobile1359弱层净−242473.96，652强层
+净+665880.98。简单已亏试错/重复次数门覆盖不了大量初次资金授权，也有强窗代价。
+6个原生null watch_epoch（弱4/强2）保留UNKNOWN，不把null合成同一结构、也不
+把它们静默归入“首epoch”。完整所有层、所有raw意图/actual funded计数分开保存。
+
+4. PVR、行业阶段及集中度反例
+PVR>=95原层：三年153层净−54032.69，但strong129层+78417.80，含13个原固定
+尾部贡献158356.78；80—90、90—95等组在弱窗也负而强窗正。此为固定自然区间
+描述，不据已消费历史挑PVR阈值。PVR的priority rank和decision分数逐层保留。
+industry market expanded组三年1221层−262848.62（约72.6%总净亏），strong747层
++915811.01（约72.5%总净利）；confirmed为−89416.20/+310454.88、probe为
+−9745.57/+37015.34。不能用expanded删单把弱段损耗直接当可保留的净改善。
+实际pool_at_fill独立保留；financial_level只carry当时或更早native stage change
+日志，没有冷seed日志的39弱/55强明示UNKNOWN；不以market stage冒充金融状态。
+
+按实际period财富聚合：三年709只股票净负、毛负1020068.26，最亏10股仅占8.665%；
+1600负层毛负1248257.55，最亏10层3.649%；69个负行业毛负656440.25，最亏10行业
+37.633%。strong同层级最亏10股11.365%、最亏10层6.199%。分母取决于层/股/行业
+及内部抵销，不能混合加总；与accounting的campaign分母也不同。最亏名单只是
+评价，不能作为事前过滤，也不代表删除后现金重用的新账户收益。
+
+5. 同日实际占资与已知线敞口
+最大实际stock mark/NAV弱18.1796%（2023-05-04曙光数创）、强13.3119%；行业
+21.0565%/23.8480%，可能来自持有后价格增长，不能称新增资金违反原入场cap。
+全组合“已付basis高于当前已知参考线价值的正部分”占NAV：弱median3.3728%、
+P90 6.2296%、max10.0121%（2022-06-21，57层其中mobile52层）；strong median
+4.1145%、P90 5.4362%、max7.5358%。它不是原预算引擎风险公式、不是保证止损
+上界，不能据此直接恢复旧全局gate。mark到线另有正常赢家利润回吐，单列而不
+当损耗优化目标。所有stock/sector/role daily原资本、basis、两种线敞口已保存。
+
+决策与限制
+本事实集支持优先检查“I仍许mobile自主初买/重启时，原个股结构到底提供了什么
+新证据及失败否决”，不支持把CORE来源、最高PVR或成熟行业单维变成仓位开关。
+要判风险上限/本金缩放的净收益，必须保原最小股数、固定/最低费用、CORE竞争、
+cash预留/再用、freshreceipt及ACT反馈的完整账户；本轮没有把固定原路径的层净额
+等比缩放成策略收益，也没有新建这一账户。不能把多个重叠分组损耗加成可避损。
+全部历史已消费、当前存续池及行业快照、原日线/权息执行代理限制保留，不是PIT
+或真正样本外。终局净额/固定尾部仅评价，不进入任何候选信号。
+
+文件
+*_ALL_LAYER_SCALE_CONTEXT.json与ALL_LAYER_SCALE_CONTEXT.csv：完整3436层。
+*_DAILY_CAPITAL_RISK_CONTEXT.json：968原CLOSE的真实stock/sector/role资本与线敞口。
+*_DESCRIPTIVE_GROUPS.json、SUMMARY.json：分组及母体。
+PRIOR_CORE_PROTECTION_SUPPLEMENT.json及CHECKS：2634mobile/448已有CORE。
+NEGATIVE_CONTRIBUTION_CONCENTRATION.json：复用accounting原period财富15个层级。
+SOURCE_SHA256、SUPPLEMENT_SOURCE_SHA256及最终清单绑定原始来源。
+results_v1/v2保留schema失败：null epoch与industry日志非全daily；均无financial事件。

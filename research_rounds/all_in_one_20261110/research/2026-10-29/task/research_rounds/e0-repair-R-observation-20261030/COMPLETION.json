@@ -1,0 +1,55 @@
+{
+  "status": "completed_observation_only_stopped",
+  "completed_at": "2026-10-30T08:37:57.707132+00:00",
+  "coverage": 12972,
+  "full_pool": 407,
+  "T0_stocks": 395,
+  "main_closed_T1": 8715,
+  "main_stocks": 393,
+  "no_new_trading_rule": true,
+  "indicators_recomputed": 0,
+  "trade_paths": 0,
+  "only_one_predefined_control": true,
+  "fields_frozen_before_forward_labels": true,
+  "source_and_feature_hashes_unchanged": true,
+  "numeric_lower_bound_check": {
+    "status": "stopped_missing_fields",
+    "action": "Numerically check x>=sqrt5*sigma_L/a and associated R floor",
+    "target": "cached native E0 positive-event receipts",
+    "reason": "Minimal cache has event/pivot/date/close/segment only; original sigma_L/a/confirmation not stored",
+    "completed": "Exact H/L/C/R fixtures, H>L and C>L, ratio identity and symbolic bound, all mother/clock checks",
+    "outcome": "numeric_k_not_verified_no_indicator_recomputation"
+  },
+  "timing": {
+    "scan_seconds": 49.384404625277966,
+    "analysis_plot_seconds": 14.572195415850729,
+    "combined_seconds": 63.956600041128695,
+    "total_wall_since_first_checkpoint_seconds": 866.707132
+  },
+  "sha256": {
+    "PROTOCOL.txt": "411f54e24c9f0ba1d2a4c0ff5ef4119cd5da28eebca599739b98c275087e98e2",
+    "scan.py": "6dc53e8f23bcce941b01749e48a74b9213f18909f68bdfa3635072ef3485bb9e",
+    "analyze.py": "e378c2877c7228c54627abe61cb8bbf29ebada7da77cf57d8d7d4f8f14975b37",
+    "INPUT_IDENTITY.json": "851f733512b46ec5bc938e63edb2ebde9736af7fe903e892b885da0b80d940a2",
+    "FEATURE_FREEZE.json": "ea9e56b4864e534bd677dab7e87ae00e9b160595eb26da32ef647c280407c31f",
+    "observation-ledger.csv": "a2f0ee2b61e17d5c23bb7ff49f91851d2de5ab1bc8a0721634c970bd089822e3",
+    "features-before-forward-labels.csv": "fac2a0a42aafbb6a635dc5b3a1b2f97b012b81faaad8f7611e8924cbb2ee9952",
+    "RESULTS.json": "11bcd69c40e4ca430a1804bd8140b3fe9a934ada6787b62ceeae5852fdedc41f",
+    "REPORT.txt": "9b75510b85c8b8e8161b24d364e5462e4fbe22c220682a232387c83601ff7802",
+    "SIX_CASE_VERIFICATION.json": "23fbde047af6b499f71042d399bfc5f4759f932369b0a480ae508d04bb4fd98c",
+    "PERIOD_AND_CLOCK_VERIFICATION.json": "c801faaf85351f10a3716002f828529003b4a74fa61ec4df845d9396692b4faf",
+    "continuous-scatter.png": "eaaabcbb3b3a5b89def594f5728f0ed56f205e0080bb02e26ff34ffb1657ac0e",
+    "source-coverage.csv": "0f3e9875949de7c13c0bc9173bb3964597c2c2d1138a00abc4fccb3174e910ef",
+    "RESEARCH_WINDOW_SUBSET.json": "cc072550797df92c7f508ca7d72b44ac8097a7ca48ef81725b51f967fa76cd2e",
+    "research-window-existing-T0-subset.csv": "4bb46359a32281c65a81acc71a85886bcad284209b34cb1fdbc24ddf518eca4e"
+  },
+  "finalized_at": "2026-10-30T08:40:16.514838+00:00",
+  "research_window_scope_only": {
+    "T0": 4340,
+    "T1": 2873,
+    "prior_T0_excluded_intersecting_epochs": 102,
+    "intersecting_epochs_without_T0": 907,
+    "new_models": 0,
+    "reselected_T0": 0
+  }
+}

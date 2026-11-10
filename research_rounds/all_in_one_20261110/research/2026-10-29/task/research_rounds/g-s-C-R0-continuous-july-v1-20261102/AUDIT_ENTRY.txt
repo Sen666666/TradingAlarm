@@ -1,0 +1,20 @@
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/month_r0.py SHA256 a9fecca4bea21d418f65d27b75d8ce41d346e7f4cb87456ea172e8a4a2ee92de
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/run_july.py SHA256 d06695f62dba6bb69796c88f7b428d1735a601d58b9b44ea3b2e0702dd329edc
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/INPUT_IDENTITY.json SHA256 2322c456fdf2654a316cf71d98fa0b10ad2959411a08d48a02f2b69b0803ea13
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/CONTINUATION_AUTHORIZATION.json SHA256 f4c55b5554220bdd5672b80f152609fb9c4a19fd55c243d3dc29052e71627625
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/TWO_DAY_GATE.json SHA256 9295e362bd1b964943ffdb9d1b2d5ee8841c3ec57f38088cfafbdc481d3e4899
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/analysis/RESULTS.json SHA256 fd7ab3b285a16b67c0b5ecca44122a82aa1519f0ca61494cf2f57d5958c201d1
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/analysis/VERIFICATION.json SHA256 4d27dbadbb5be4e353adff008bd7500f92edabbe862a9ea1b4f33268272578c4
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/REPORT.txt SHA256 99c9e6376c125de102b12815d8f66b31c804233ae4ab65691de028422228c417
+Exact invocation: python -B analyze_month.py; python -B report_month.py (read-only saved accounts)
+Formal checkpoints: runs/{C10,C_BATCH20}/PROGRESS.json; every original ACTION/OPEN/CLOSE checkpoint/provenance/event snapshot retained.
+
+Final partial-status audit index (C10 complete; C20 technical stop):
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/RUN_STATUS.json SHA256 ca5dcc7701956e2f800a8c8992cb59c7f1a277e156e07c2e4584f85fd957be11
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/REPORT.txt SHA256 c020d2f445395289115e75ed9236d6941232f7a55f79ead9a27a2780c26ba54a
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/TWO_DAY_GATE.json SHA256 9295e362bd1b964943ffdb9d1b2d5ee8841c3ec57f38088cfafbdc481d3e4899
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/analysis/VERIFICATION.json SHA256 4d27dbadbb5be4e353adff008bd7500f92edabbe862a9ea1b4f33268272578c4
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/analysis/ARCHIVE_AND_FINAL_RESTORE.json SHA256 4fef0beb0ce57a62024905ae50118788005b39bee348ca5881e0c93a0676472c
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/analysis/AUTHORIZATION_RISK_BRIDGES.json SHA256 041305de47d210a7c336f682420529bc1867db2ffb8c8b0707cd9199f5c85438
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/C20_PURE_SEARCH_RESULT.json SHA256 e2c67e1aa600802364ccb232dac91ffd64dd5634d53979276f83c199883c17ca
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/C20_BLOCKED_STAGE_VERIFICATION.json SHA256 ea3b77834fcb6c8959e273a94eaf08d0b8349a6f2478b7a2645278b511406030

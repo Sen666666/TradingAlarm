@@ -1,0 +1,32 @@
+{
+  "status": "14_FIXED_NOV_DEC_EVENT_DATE_COMPLETION_NO_ADMISSIONS",
+  "official_api_successes": 14,
+  "unique_exact_date_rows": 14,
+  "calendar_dates_complete": 14,
+  "unchanged_economic_predicates_pass": 14,
+  "source_cash_matches_official_cash": 13,
+  "source_vs_cash_difference": [
+    {
+      "sid": "600157.SH",
+      "ex_date": "2024-11-15",
+      "d_source": "0.0056",
+      "d_cash": "0.00556",
+      "d_ref": "0.00551"
+    }
+  ],
+  "genuine_pdf_packaging_count": 1,
+  "remaining_api_or_html_only_packaging_count": 13,
+  "missing_record_pay_disclosure_count": 0,
+  "reference_null_allowed_without_new_generic_requirement": true,
+  "pdf_blocker": {
+    "service": "static.sse.com.cn",
+    "action": "GET600157 issuer PDF",
+    "status": "HTTP200 JavaScript cookie challenge,not PDF",
+    "path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_m7_cash_batch_design_v5/NOV_DEC_RAW_COMPLETION/600157_20241107_official.pdf",
+    "excluded_from_fact_evidence": true,
+    "no_challenge_bypass_or_retry": true
+  },
+  "history_runs": 0,
+  "new_admissions": 0,
+  "prior_v4_and_packet_unmodified": true
+}

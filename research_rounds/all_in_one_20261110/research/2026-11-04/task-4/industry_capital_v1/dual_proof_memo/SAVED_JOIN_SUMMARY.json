@@ -1,0 +1,112 @@
+{
+  "scope": "Original first-source-I CORE sector rejects with same-OPEN original MOBILE actual fill, saved data only",
+  "rows": 315,
+  "by_window": {
+    "long": 236,
+    "strong": 79
+  },
+  "actual_MOBILE_pools": {
+    "confirmed": 315
+  },
+  "original_CORE_failure_sets": {
+    "probe_risk,sector_capital": 276,
+    "sector_capital": 37,
+    "sector_capital,sector_risk": 1,
+    "probe_risk,sector_capital,sector_risk": 1
+  },
+  "Mobile_floor_higher_than_Core_1e_9": 242,
+  "retained_sector_risk_failure_keys": [
+    "long|2022-01-14|603658.SH|core",
+    "long|2022-10-14|300677.SZ|core"
+  ],
+  "H1_semiconductor_keys": [
+    "strong|2026-06-29|688469.SH|core"
+  ],
+  "H1_semiconductor_all_first_dual_keys": [
+    "strong|2026-01-09|300666.SZ|core",
+    "strong|2026-01-09|600584.SH|core",
+    "strong|2026-01-09|002156.SZ|core",
+    "strong|2026-01-09|300623.SZ|core",
+    "strong|2026-01-12|300077.SZ|core",
+    "strong|2026-01-12|300458.SZ|core",
+    "strong|2026-01-12|300613.SZ|core",
+    "strong|2026-01-12|603893.SH|core",
+    "strong|2026-01-12|603501.SH|core",
+    "strong|2026-01-12|688279.SH|core",
+    "strong|2026-01-12|688593.SH|core",
+    "strong|2026-01-14|688047.SH|core",
+    "strong|2026-01-14|688608.SH|core",
+    "strong|2026-01-15|688661.SH|core",
+    "strong|2026-01-15|688396.SH|core",
+    "strong|2026-01-16|002185.SZ|core",
+    "strong|2026-01-16|688449.SH|core",
+    "strong|2026-01-16|688535.SH|core",
+    "strong|2026-01-16|688123.SH|core",
+    "strong|2026-01-16|688605.SH|core",
+    "strong|2026-01-16|688172.SH|core",
+    "strong|2026-01-19|603290.SH|core",
+    "strong|2026-01-19|688702.SH|core",
+    "strong|2026-01-21|300661.SZ|core",
+    "strong|2026-02-24|300223.SZ|core",
+    "strong|2026-02-25|300604.SZ|core",
+    "strong|2026-03-02|688002.SH|core",
+    "strong|2026-04-22|688361.SH|core",
+    "strong|2026-04-22|002371.SZ|core",
+    "strong|2026-05-11|688332.SH|core",
+    "strong|2026-05-14|688352.SH|core",
+    "strong|2026-05-14|300661.SZ|core",
+    "strong|2026-05-14|688249.SH|core",
+    "strong|2026-05-15|688107.SH|core",
+    "strong|2026-05-15|301297.SZ|core",
+    "strong|2026-05-18|688727.SH|core",
+    "strong|2026-05-19|688126.SH|core",
+    "strong|2026-05-19|688783.SH|core",
+    "strong|2026-05-19|002185.SZ|core",
+    "strong|2026-05-19|300623.SZ|core",
+    "strong|2026-05-19|688728.SH|core",
+    "strong|2026-05-19|688584.SH|core",
+    "strong|2026-05-20|300604.SZ|core",
+    "strong|2026-05-20|688380.SH|core",
+    "strong|2026-05-20|603005.SH|core",
+    "strong|2026-05-20|002156.SZ|core",
+    "strong|2026-05-20|688981.SH|core",
+    "strong|2026-05-21|301678.SZ|core",
+    "strong|2026-05-22|688234.SH|core",
+    "strong|2026-05-25|688120.SH|core",
+    "strong|2026-05-25|600171.SH|core",
+    "strong|2026-05-25|603501.SH|core",
+    "strong|2026-05-25|688582.SH|core",
+    "strong|2026-05-26|300223.SZ|core",
+    "strong|2026-05-28|600206.SH|core",
+    "strong|2026-05-28|688661.SH|core",
+    "strong|2026-06-17|688535.SH|core",
+    "strong|2026-06-26|688126.SH|core",
+    "strong|2026-06-26|688432.SH|core",
+    "strong|2026-06-26|688584.SH|core",
+    "strong|2026-06-29|688469.SH|core",
+    "strong|2026-06-29|688728.SH|core"
+  ],
+  "H1_semiconductor_all_first_dual_failure_sets": {
+    "cash_or_original_reserve,probe_risk,sector_capital": 17,
+    "cash_or_original_reserve,sector_capital": 30,
+    "cash_or_original_reserve,sector_capital,sector_risk": 6,
+    "cash_or_original_reserve,probe_risk,sector_capital,sector_risk": 8,
+    "probe_risk,sector_capital": 1
+  },
+  "first_mother_counts": {
+    "all_first": 8335,
+    "all_first_dual_CP": 2940,
+    "H1_semis_first": 167,
+    "H1_semis_first_dual_CP": 62
+  },
+  "no_new_Account": true,
+  "no_new_marks": true,
+  "no_route_projection": true,
+  "elapsed_seconds": 0.4689996247179806,
+  "known_limits": [
+    "315 is post-outcome diagnostic selection, not a legal live cohort.",
+    "Merged original failure tags are sets, not a unique first-cause sequence.",
+    "Original rejected CORE quantity was not submitted/logged; min/max are saved preview bounds.",
+    "Actual Mobile confirmed fill does not prove CORE quantity/risk/execution admissible."
+  ]
+}

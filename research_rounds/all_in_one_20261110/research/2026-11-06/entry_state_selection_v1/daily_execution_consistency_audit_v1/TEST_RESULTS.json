@@ -1,0 +1,47 @@
+{
+  "audit_tests": [
+    [
+      {
+        "outside_day_range": true,
+        "single_quote_off_tick": true,
+        "gross_not_cent_representable": true,
+        "one_price_day": false
+      },
+      {
+        "outside_day_range": true,
+        "single_quote_off_tick": true,
+        "gross_not_cent_representable": true,
+        "one_price_day": false
+      }
+    ],
+    [
+      {
+        "outside_day_range": false,
+        "single_quote_off_tick": true,
+        "gross_not_cent_representable": false,
+        "one_price_day": false
+      },
+      {
+        "outside_day_range": false,
+        "single_quote_off_tick": true,
+        "gross_not_cent_representable": false,
+        "one_price_day": false
+      }
+    ],
+    [
+      {
+        "outside_day_range": true,
+        "single_quote_off_tick": true,
+        "gross_not_cent_representable": false,
+        "one_price_day": true
+      },
+      {
+        "outside_day_range": true,
+        "single_quote_off_tick": true,
+        "gross_not_cent_representable": false,
+        "one_price_day": true
+      }
+    ]
+  ],
+  "passed": true
+}

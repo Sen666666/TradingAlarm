@@ -1,0 +1,6 @@
+仅文案另存修订；旧版未改，原脚本/源码/账户未改，无实现或参数测试。
+旧FILES_SHA256.json仍绑定旧阶段，以下新文案哈希作为补充。
+/Users/bytedance/Documents/Codex/2026-11-04/task-4/review_924_v1/rules/SMALL_PROBE_ACCOUNT_RISK_REVIEW.txt
+SHA256 b0bb14d2f15875322018778da4fb4fcb82d40b58a0639694177acbaf7b30adf0
+/Users/bytedance/Documents/Codex/2026-11-04/task-4/review_924_v1/rules/SMALL_PROBE_ACCOUNT_RISK_REVIEW_CORRECTED.txt
+SHA256 938611a7e1a51bcaabf8c2bccc9c523d303cd9d5dee97b39b3726d61f1e057bd

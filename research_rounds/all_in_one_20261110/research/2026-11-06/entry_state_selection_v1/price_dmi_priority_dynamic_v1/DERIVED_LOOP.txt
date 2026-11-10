@@ -1,0 +1,27 @@
+def isolated_loop(self, authorization):
+    self.s.reset(True)
+    groups_ab = {d: g.to_dict('records') for d, g in self.s.ev.groupby('day')}
+    prices = self._candidate_frame()
+    groups_price = {d: g.to_dict('records') for d, g in prices.groupby('day')}
+    for k, day in enumerate(self.s.cal):
+        if day < self.start or day > self.s.END:
+            continue
+        prevday = self.s.cal[k - 1] if k else None
+        self.process_day(day, prevday, groups_ab.get(day, []), groups_price.get(day, []))
+    for sid, st in self.states.items():
+        if st['state'] == 'HELD':
+            self._record(st, 'OPEN_CENSORED_AT_2026_06_30', self.s.END)
+        elif st['state'] == 'BUY_PENDING':
+            self._record(st, 'BUY_PENDING_CENSORED_AT_DATA_END', self.s.END)
+        self.s.blocks.append(dict(window=self.window, arm=self.arm, sid=sid, final_state=st['state'], round_id=st['round_id']))
+    self.s.finalize()
+    for row in self.s.rounds:
+        st = self.s.archives[row['round_id']]
+        row.update(owner_lane=st.get('owner_lane', 'AB'), price_root=st.get('price_root'), actual_ack='NOT_PROVIDED', actual_fill='NOT_PROVIDED', historical_tradability='UNKNOWN')
+    self.market_source_sha256 = self.market.verify_sources()
+    for path, digest in self.s.hashes.items():
+        assert self.s.sha(path) == digest, ('BASE_SOURCE_DRIFT_AT_END', path)
+    if hasattr(self, 'candidate_source_sha256'):
+        path = O.parent / 'independent_channel_full1709_preflight_v1/overlap/RECEIPT_CONDITIONAL_OVERLAP.parquet'
+        assert self.s.sha(path) == self.candidate_source_sha256, 'CANDIDATE_SOURCE_DRIFT_AT_END'
+    return self

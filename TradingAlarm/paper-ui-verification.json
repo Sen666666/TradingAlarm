@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "process_restart_events_identical": true,
+  "process_restart_account_identical": true,
+  "actual_account_fingerprint_unchanged": true,
+  "csv_download_rows": 4,
+  "csv_sha256": "76892689d16cbca960539f5ea1056d7dc485a667e32af29402a09fe5a8edee46",
+  "date_selector_verified": true,
+  "screenshot": "TradingAlarm/paper-preview.png"
+}

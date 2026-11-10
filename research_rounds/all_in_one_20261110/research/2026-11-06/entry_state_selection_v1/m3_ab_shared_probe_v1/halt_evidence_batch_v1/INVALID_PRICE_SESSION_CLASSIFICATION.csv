@@ -1,0 +1,6 @@
+sid,day,raw_row_present,actual_core_preopen,actual_add_preopen,source_status,formal_registry_changed,publication_known_at,source_url,detail
+000552.SZ,2022-04-11,True,0,0,OFFICIAL_RETROSPECTIVE_START_ONLY_NO_PUBLIC_CLOCK,False,,https://docs.static.szse.cn/www/market/periodical/month/W020220511397986494671.html,"Monthly table confirms Apr11 halt start; resume field is 9999 placeholder. No historical public clock, no whole-interval admission."
+300319.SZ,2023-06-20,True,0,0,UNCHECKED_NO_EVIDENCE,False,,,Row exists but OPEN/CLOSE/flags invalid; never reclassify automatically as suspension.
+600027.SH,2024-07-25,True,0,0,UNCHECKED_NO_EVIDENCE,False,,,Row exists but OPEN/CLOSE/flags invalid; never reclassify automatically as suspension.
+600345.SH,2022-08-05,True,0,0,UNCHECKED_NO_EVIDENCE,False,,,Row exists but OPEN/CLOSE/flags invalid; never reclassify automatically as suspension.
+600717.SH,2026-06-18,True,0,0,UNCHECKED_NO_EVIDENCE,False,,,Row exists but OPEN/CLOSE/flags invalid; never reclassify automatically as suspension.

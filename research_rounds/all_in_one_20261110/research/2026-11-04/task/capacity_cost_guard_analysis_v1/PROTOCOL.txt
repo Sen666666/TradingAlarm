@@ -1,0 +1,47 @@
+CAPACITY_COST_GUARD_V1：结果解释和对照复用协议｜2026-11-04
+
+对象与固定范围
+本支不生成账户、不运行第二套经济路径、不建立新财务engine。唯一producer是capacity_native_v1；原子costcap及ledger由capacity_ledger_review_v1独审。结果使用同一本真实native book的实际买卖/费用/分派/余量/已知mark做薄聚合。
+候选是在原No60框架上增加一项准入/定量约束，E0/I_target/PVR/stock与sector资格/排序/原退出/ACT20+BREAK63恢复保留；本轮不同时换MA恢复证书，也不把独立MA策略当最终替代品。参数由root在结果前固定alpha=0.10/0.20/0.40；另有无guard的No60控制，不逐期间挑最优alpha。
+经济对照起点同原1,000,000元。计划A为2022-01-04..2024-12-31，726个原CLOSE、2023/2024各自状态和资金接续；计划B为2025-07-01..2026-06-30，242个原CLOSE、同强窗新起点。B不是完整2025或2026自然年。用户120万元计划本金不线性缩放本1m开发实验。
+同1709当前A股股票池/90行业、同数据和原执行合同；不得把407旧科技池的2024结果混作同口径控制。当前快照/幸存者和行业映射、已见开发历史限制保持，不称PIT、退市完整或OOS/H股/真实交易证明。
+
+producer最小兼容输出（不要求扩建）
+每arm root/pair/B.json.gz：原book ending_NAV、trades、audit、journal、layers、metadata、actual positions/orders；root/pair/daily.jsonl.gz及balances.jsonl.gz保持原格式、DONE.json记录实际完成范围。
+原shared数据/信号按旧缓存读取；源哈希由producer/ledger审，不把多个同价输入看成多份独立证据。
+新增guard日志仅记录新增机制的真实决策边界：candidate/order key、时钟、原请求q/候选q/批准q、alpha、未保护持仓剩余basis、pending/cancel_pending含费承诺、NAVbefore和projected NAVafter、protected/unprotected/unknown/exit责任、guard结果及原拒绝原因。actual fill层与order trace保留真实关联。
+不为报告重演被拒订单、不补虚拟fill，不把拒单按以后涨幅计为实际错失收益。
+
+优先复用现有读表
+1. risk_constraints/analyze_absolute_loss.py::analyze(ref,root,expected_days)/period_summary：逐日trade cash+raw库存+股息权益财富桥、分sector财富、剩余真实buygross+buyfee basis、partial卖出按当时余量比例分摊、年度/月度/季度和DD。该reader原split只处理已证无fraction路径；新arm若有fraction须ledger reviewer给原账basis核销，不能删除样本或静默断言无fraction。
+2. risk_constraints/analyze_continuation2024_finance.py：兼容726日自身连续book的薄调用范例；所有CLOSE的global peak不年reset。
+3. risk_constraints/analyze_pvr_pool_finance.py及其原A.account：242日完整强窗、原期末mark/dividend AR、actual fee、pool/stock/sector分解。
+4. loss_correction/bridge_924_after.py与continuation2024_layers/AFTER_924_LAYER_WEALTH_BRIDGE.json：已有Oct8实际持有层和严格之后新fill的期间财富桥范例。不要用layer终生贡献冒充跨任意窗口期间贡献。
+这些函数import不运行main，不修改原输出目录；本支只写capacity_cost_guard_analysis_v1/下新报告。能读producer兼容book就不做新loader/估价/账户。
+
+主结果表（每alpha与无guard并列，不只展示赢家）
+必须列实际起止/交易日数/初始own NAV/末NAV/累计净元及收益、完整CLOSE maxDD及峰谷日期；逐年收益用自身真实上年末NAV，globalDD继续历史peak。不会把本金损失与maxDD混同，不把35%回撤边界叫成功。
+必须列费用总额和buy/sell分项、actual buygross/含费buycash、fill数/unique股数、平均前CLOSE市场暴露、平均CLOSE当前成本占用、平均现金/nominal mark-floor风险、pending/settlement/AR、ACT trip/recovery次数和实际时间。
+成本额度占用：原guard时钟的C_unprotected/NAV和含pending承诺另列。actual market value exposure与held costbasis不同，不互相替代。保护到入场价不表示没有浮盈回吐、跳空、滑点、停牌、T+1或手续费风险。
+被阻机会：分guard完全拒绝/缩量/原其它约束拒绝/实际零fill。role计划按candidate key去重；每日重复core不叫独立机会。guard guardreason与native其它原因可能重叠，不当互斥原因相加。original/q shrunk对应的最后真实fill和未成部份明确，不把请求或预留当成交。
+当前占比可能因NAV下跌、保护退化/未知或旧仓自然漂移被动超cap；与新买使cap超限分别标识。被动超额不直接要求卖旧仓，也不当原子不变量失败；原guard当时是否仍加新必须独审。
+
+固定期间与行情，不随candidate结果挑选
+A全部36月/12季度/3年度和726日完整保留。另沿既存HS300_ALL_LEGS.json全部5个2022–23 zigzag段（事后诊断标签，永不输入信号）以及固定2023Q2 AI/2023Jul–Sep、2024春和924。
+924六close=2024-09-24..2024-10-08；后续=2024-10-09..2024-12-31。各期保previous actual CLOSE库存为begin、期间现金和实际分红权益的真正财富桥。phase财富不是entry-cohort的终生净额。
+B四季度、完整242日及2026H1半导体均列；半导体严格行业URFI881121，原current metadata126成员固定，不混电子化学品/元件来扩大“半导体参与”。以前冻结的其它fixed行业/正反案例保留，不按新arm收益重选。
+固定原尾部名单：risk_constraints/ma63_information_diagnostic_v1/ORIGINAL_FIXED_TAIL_COHORT_PRE_FEATURE.json的2022_2024=83、strong=94全名单。它来自原PVR而不是83/94个No60必然同单；只能按既有actual budget_order/receipt/role/epoch准确匹配，保原未匹配和界外，不按sid强凑。原尾部净额可能含未平mark/股息应收，不叫全部兑现。
+原已持有赢家：保原固定stock/member集合，对候选报告actual firstentry、实际新增/加仓、退出及当期库存/财富；原受cap阻挡的未来赢家不是candidate实时选股条件。既有赢家继续自然持有、保护变化及新add层分别看。
+新龙头：先定义candidate有actual buy而No60原全窗无actual buy的完整新sid集合，不用未来涨幅筛为信号。结果后可按实际净贡献排序展示top及negative，并保全成员；若使用原价格行情标签，清楚标posthoc标签不是账户收益或可实现反事实。
+
+基准复用及缺口
+同A日历：benchmark_2022_2023/daily的BUY_HOLD、MA63_90、CASH，加continuation2024/daily_2024形成原726日连续own-state基准。已审benchmark来自ETF510300的rawOPEN日线执行代理，historical datedhalt/limit/queue/auction未证、execution_verified=false；其15bp估计摩擦/基金税费与股票native多项费用合同不同，cross-universe比较是机会成本参考，不是市场门单因素alpha归因。
+MA63是工具基线，不能因弱窗口更好就宣称最优或替代E0/I/PVR；所有比较同时报告持仓差与强窗口。
+当前B在本目录未定位到已审同起点ETF/MA全242日账户基准，不借2022–24终值或简单close收益充当它。如果root要求新增B简单基准，复用既存portfolio protocol/本地源另冻为独立diagnostic reference，不扩成选参或ETF策略研究。
+
+解释边界与判停
+principal entry/F状态、MA/direction、future价格事件标签、账户当期财富和layer cutoff contribution分开。原组亏损或删单组净额绝不写成“可省损失”。释放额度只是允许申请，必须真实route/预算/排队/合法qty/成交后才有资金效果。
+低费用或低DD仅因仓位大降不自动成功；A绝对财富改善需和B赢家参与/新主线承接/完整DD回报并列。若全部alpha既不能改善主失败又显著损害强趋势，按root迅速终止机制，不追加结果后阈值、恢复规则或参数救案。
+即使某alpha值得继续，报告是同一个可插拔机制的预固定敏感度，不能按年度/行情拼出事后最优policy。重复试错退出释放槽位的累积成本本版未直接限制，必须在actual paths报告，不能称已解决全部亏损。
+
+本协议0账户事件/0策略重算；等待producer小样本及完整动态账户输出。独立核账结果未出前，任何新策略收益均UNVERIFIED。

@@ -1,0 +1,75 @@
+{
+  "frozen_utc": "2026-10-20T10:47:37.763705+00:00",
+  "status": "completed_not_promoted",
+  "new_candidates": 1,
+  "post_candidate_mechanism_revisions": 0,
+  "original_baseline_changed": false,
+  "account_runs": 0,
+  "live_trades": 0,
+  "history": "Previously seen development history; no out-of-sample claims",
+  "decision": "Retain testable volume-selected memory; do not promote its current narrow trigger. No additional mechanism revision supported uniquely by shared evidence.",
+  "scope": {
+    "series": 14,
+    "fixed_windows": 18,
+    "eligible_price_observations": 27655,
+    "volume_events": 23,
+    "changed_state_days_vs_original": 115,
+    "changed_fixed_windows": [
+      "S3",
+      "C5"
+    ]
+  },
+  "protocol_sha256": "eaa213edd28b8cce0d29e62d782a4bfc95fc764e8df3be8991cf6c1a85da87fb",
+  "input_manifest_sha256": "c1bb3b370ab69fa5628cb6091cc9b04eb934a465f07a963c8fa1e8e9329d844d",
+  "baseline_sha256": "b61e889e684305cbb45223e0e2dd8da324e8e8d0a2d201794e2749eb9441540e",
+  "entry_code": {
+    "baseline_event_structure.py": "b61e889e684305cbb45223e0e2dd8da324e8e8d0a2d201794e2749eb9441540e",
+    "data_utils.py": "c2537b9a235c678666f0556b5a227286e78f8e49a7af16ee40363abc84d33cc9",
+    "prepare_inputs.py": "bd43167e9026f288a1d015474115b0569355376e1d00f8d208a6d1b66e3f264d",
+    "run_study.py": "4ba35db3037cd2f9333a6bc3c399796dd7910f234b34713c196927b594512cc5",
+    "test_response_independent.py": "194a92813b6b35819d39d57853942d66fd52142a7b65109504ff076123b30817",
+    "validate_real.py": "3c27203d7d061681de9dee142bb02d4670fa6e4e5fcc5a37917b2a17b877cdd5",
+    "volume_response.py": "c3b7b26bdd3da441ceeb7d831e09cf6eb2d0ef872084aaf280d532cb7b89a723"
+  },
+  "successful_run_code": {
+    "volume_response.py": "430e99b8955326cc6c1dc259143b84af2c8624cca4fc40905e1725d0f332e6ce",
+    "baseline_event_structure.py": "b61e889e684305cbb45223e0e2dd8da324e8e8d0a2d201794e2749eb9441540e",
+    "data_utils.py": "c2537b9a235c678666f0556b5a227286e78f8e49a7af16ee40363abc84d33cc9",
+    "run_study.py": "4ba35db3037cd2f9333a6bc3c399796dd7910f234b34713c196927b594512cc5"
+  },
+  "successful_run_manifest_sha256": "09b70846f75f4b816d018af40b8ce7ca4807642494cf35d9bc5f54a4b187882e",
+  "post_run_code_changes": "Ledger date dtype and source-origin API guards; numeric target/pending/floor/entered/exited/created/resolved matched saved output for all 14 series. Code bytes are not identical.",
+  "verification": {
+    "synthetic_groups": 20,
+    "synthetic_passed": true,
+    "real_passed": 239,
+    "real_failed": 11,
+    "real_fixed_prefixes_passed": 126,
+    "all_checks_passed": false,
+    "real_failure_scope": "9 full-column unit checks failed on 3 price_attempt labels, 1 upstream unit check and 1 legacy reconstructed-input diagnostic check failed; actual events and states unchanged in tested scales."
+  },
+  "evidence": {
+    "reviews/data-readiness.md": "c9b543a59361a9e5941a6a6a2cf7f9a8e097149620ba7cb1933849bec696fa91",
+    "reviews/event-chain-review-summary.json": "e381c462df03239b90161442f1781b4d6bb6eeb705d7c6a0badfc8353b1e084b",
+    "reviews/event-chain-review.csv": "280f25a4c592251918e72dee67723bef21ff6ad4e3ebcad76922045b6e76eef4",
+    "reviews/event-chain-review.md": "d41633a6459f69fe8796030ecb40fef347ac225c88ef76e5e619a2c7d12921f2",
+    "reviews/mechanism-review.md": "f9d71cd0299f3863677bfae02646b1a2b1920f74699865c3bb8492884055bb22",
+    "reviews/model-independent-v0.md": "e943bdfc50bc72287058c3bfcf24d8b7efed8811939b914fd795afa543955bd7",
+    "reviews/model-root-v0.md": "9eac447ae89174a34ca5fca4318b628b36061cc7b710c30e39bbfa91308c8aff",
+    "reviews/next-design-boundary.md": "b21b149bf922dcf9465e39aca1e622037d2bf75abf3205234c14dca51022e8d6",
+    "reviews/raw-independent.md": "e67b3754a446cf94706123634411df4b7c662f85f7eae6a23f94706a903325ad",
+    "reviews/raw-root.md": "3ced80d605c8e44b440340968993a37bebec3ce920c64da18efd96026dd88cc4",
+    "reviews/review_event_chains.py": "a658726f2d38a3d97e1d6137dd0e23bada5d72514862db60b1bb64070cdfae82",
+    "reviews/supplemental/earliest_outcome_-1-UZZI000994-1.png": "474a092e1f2bf371dd33310699d91156629a3760830cb191f3a811ad5ba0bdf5",
+    "reviews/supplemental/earliest_outcome_0-HK03690-2.png": "2b0c9ef105f74c4154a641bae83202b9ada15a8da9ec94d70dfff80efed15f8c",
+    "reviews/supplemental/earliest_outcome_1-URFI881129-1.png": "e73affc092e1029d55a0267931a3ed5618ca5670dfe62247584d98eca8a7ca31",
+    "reviews/supplemental/longest_observed_pending-HK00700-6.png": "f689e76121d83302479db763f011438d76df84abb04b4053a2054c469f438fbc",
+    "reviews/theory-design-review.md": "1f52800f93c4e76e829d23b631d2f1656943dc8c25f2c6117ef6d679e87f4b4a",
+    "validation/independent-attempt1.json": "1de46c65089e94848b92e78b408ad67bf1b7a7cbf1004574c4fcaa02211f133a",
+    "validation/independent-attempt2.json": "7687937fae7afcde13cf9deeb411dbd686b514ae2a9c745b9f8066f58d29f45b",
+    "validation/independent.json": "f2f0aefc7eb959630ff74f59183d6e8fd3ed38dec6870620bc9c7bfe3030c45a",
+    "validation/real-attempt-1-diagnostics.json": "ee2d32d788b55bc72a452f10890a54914f3b7ed2916e28483f58cb9e815a2892",
+    "validation/real-attempt-1.json": "66fc367260058f7cf16785ad3209a2ca6590f8871f86e25f5157d52ff361b99c"
+  },
+  "next_question": "Causal event creation for high participation and later price response in a new price region; no lower volume threshold or locked-in profit target."
+}

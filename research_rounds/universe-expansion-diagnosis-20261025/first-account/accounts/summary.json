@@ -1,0 +1,17 @@
+{
+  "research_basis": "current_pool_historical_development",
+  "synthetic": false,
+  "historical_account_runs": 1,
+  "technical_accounts": 0,
+  "initial_capital_cny": 1000000,
+  "accounts": [
+    "FIRST__S0_base"
+  ],
+  "daily_rows": 1400,
+  "final_nav": {
+    "FIRST__S0_base": "332915.0395959934405"
+  },
+  "limitations": [],
+  "execution_basis": "explicit_daily_proxy_and_frozen_known_fx_settlement",
+  "final_positions_closed": false
+}

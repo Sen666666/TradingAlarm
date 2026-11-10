@@ -1,0 +1,12 @@
+{
+  "before_label_computation": true,
+  "candidate_freeze_SHA256": "9382105865a31bbfcc77df3801b05fe2e17f6c6576f37a19ccc818ed560a055e",
+  "code_SHA256": "5f46af8e46b059b394b0c35c1674edcbc9eed4ffc8f64ce62f611d7456bbc0e8",
+  "protocol_SHA256": "1b5e7623875955562a2219659d9b060286422611b17b0135bb168de93cb47d95",
+  "horizons": [
+    21,
+    63
+  ],
+  "MFE_tail": 0.3,
+  "new_account_paths": 0
+}

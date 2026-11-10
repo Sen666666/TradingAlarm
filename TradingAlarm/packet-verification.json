@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "receipts": [
+    {
+      "day": "2024-09-27",
+      "stock_eligibility_exact": 407,
+      "selected": [
+        "300735.SZ",
+        "300442.SZ",
+        "300184.SZ",
+        "002947.SZ",
+        "300738.SZ",
+        "002130.SZ"
+      ],
+      "budgets_and_quantities_exact": true
+    },
+    {
+      "day": "2025-10-20",
+      "stock_eligibility_exact": 407,
+      "selected": [
+        "688498.SH",
+        "603115.SH",
+        "301251.SZ",
+        "688048.SH"
+      ],
+      "budgets_and_quantities_exact": true
+    },
+    {
+      "day": "2026-07-17",
+      "stock_eligibility_exact": 407,
+      "selected": [],
+      "budgets_and_quantities_exact": true
+    },
+    {
+      "day": "2026-10-26",
+      "stock_eligibility_exact": 407,
+      "selected": [
+        "002439.SZ",
+        "603171.SH",
+        "301269.SZ",
+        "300017.SZ"
+      ],
+      "budgets_and_quantities_exact": true
+    }
+  ],
+  "new_fills": 0,
+  "new_backtests": 0
+}

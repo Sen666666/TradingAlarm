@@ -1,0 +1,17 @@
+父固定四项各.25的Hstar_static三日诊断已完成；0账户、0新CP、0回测，不宣称完整全市场/PIT或收益。
+
+2024-09-24：U_t=1532，N25valid=1621；2026-01-15：U_t=1641，N25valid=1644；2022-01-24：U_t=1425，N25valid=1437。各自均由原1709静态池筛25共同会话有效价/量/额和单segment，prior21median>=20m/prior5mean>=10m均排当日。
+U_T_STOCK_ELIGIBILITY全保1709×3=5127行，含不合格原因；可复用RS_stock20、drawdown20_prior_high、amount_change、one_price_up_T。未读取PVR、原合法Q或运行账户，后续需由父/semis准确连接原许可。
+
+HSTAR_STATIC_PANEL共270行业日，三日各90行业四项全known，四项同集合mid-percentile后各.25。流量分子/分母只用同一U_t的原CNY股票金额，recent5与prior20不重叠。三个daily行业sum减池总额最大差都为0；没有URFI或CSI300 amount入份额。
+4743个已有当日source价格与facts/CPinput close和segment exact；其余384股日是当时无source行，原资格表保留，不伪造0。15个确定性股票/日期前缀核验exact。
+
+完整Top10见三日TOP10与TOP10_ALL_DATES。focal原值、四p、分数及分母见FOCAL_INDUSTRIES：
+924软件开发rank4=.883333；通信设备rank33=.588889、通信服务rank20=.700000。
+Jan15半导体rank20=.691667，电子化学品rank24=.681944。半导体份额10.3942%→8.9699%，change=-13.7025%，四p=.838889/.727778/.761111/.438889；股价相对强但份额项较弱，RS5也非最前，不把排名单因归为份额。
+2022Jan24房地产rank6=.883333，5日RS为负但截面p=.872222。截面前排不等于绝对上涨或合法买入；原量/两腿绝对收益都保留在panel。
+
+数学同分处理：最初float mean使Jan15 IT服务和游戏在1e-16处被拆为rank2/3；现用midrank精确整数分子之和/(8N)，两者均.93055556/rank2。权重/原量/百分位不变，U parquet字节exact未变；旧source/hash/观察值和diff保留，见EXACT_MIDRANK_FIX_VERIFICATION。display_order仅行业代码稳定展示，不拆数学同分。
+
+所有formal Hstar_formal_PIT保持NaN，formal_PIT_known=False，静态代理与unknown原因逐行单列。小样本如教育Nliquid=1照父式保留并暴露分母，未为让半导体入前5改规则。
+source、冻结文件和最终输出SHA均保存。正式结果只读HSTAR_STATIC_PANEL与U_T_STOCK_ELIGIBILITY；准备阶段旧卡不是当前执行状态。

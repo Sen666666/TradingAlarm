@@ -1,0 +1,102 @@
+{
+  "purpose": "User requested subjective ex-post market segmentation; not signal rules or backtest",
+  "fixed_periods": [
+    {
+      "period": "P01",
+      "label": "2019春季普涨",
+      "start": "2018-12-28",
+      "end": "2019-04-19"
+    },
+    {
+      "period": "P02",
+      "label": "2019春后回撤",
+      "start": "2019-04-19",
+      "end": "2019-08-06"
+    },
+    {
+      "period": "P03",
+      "label": "2019下半年结构行情",
+      "start": "2019-08-06",
+      "end": "2020-01-14"
+    },
+    {
+      "period": "P04",
+      "label": "2020疫情冲击及剧烈反复",
+      "start": "2020-01-14",
+      "end": "2020-03-23"
+    },
+    {
+      "period": "P05",
+      "label": "2020春夏修复",
+      "start": "2020-03-23",
+      "end": "2020-07-13"
+    },
+    {
+      "period": "P06",
+      "label": "2020下半年至2021春节结构牛市",
+      "start": "2020-07-13",
+      "end": "2021-02-10"
+    },
+    {
+      "period": "P07",
+      "label": "2021春节后抱团回撤",
+      "start": "2021-02-10",
+      "end": "2021-03-09"
+    },
+    {
+      "period": "P08",
+      "label": "2021新能源资源第二波",
+      "start": "2021-03-09",
+      "end": "2021-09-13"
+    },
+    {
+      "period": "P09",
+      "label": "2021秋冬分化退潮",
+      "start": "2021-09-13",
+      "end": "2021-12-31"
+    },
+    {
+      "period": "P10",
+      "label": "2022初至4月普跌",
+      "start": "2021-12-31",
+      "end": "2022-04-26"
+    },
+    {
+      "period": "P11",
+      "label": "2022春夏修复与新能源延续",
+      "start": "2022-04-26",
+      "end": "2022-08-17"
+    },
+    {
+      "period": "P12",
+      "label": "2022夏末秋季回撤",
+      "start": "2022-08-17",
+      "end": "2022-10-31"
+    },
+    {
+      "period": "P13",
+      "label": "2022年末结构修复",
+      "start": "2022-10-31",
+      "end": "2022-12-30"
+    },
+    {
+      "period": "C01",
+      "label": "跨段科技完整观察",
+      "start": "2019-08-06",
+      "end": "2020-02-25"
+    },
+    {
+      "period": "C02",
+      "label": "跨段消费新能源完整观察",
+      "start": "2020-03-23",
+      "end": "2021-02-10"
+    }
+  ],
+  "boundaries": "Subjective reference endpoints selected using historical knowledge, not optimized bottoms/tops, not causally detectable signal dates",
+  "indices": "All 90 currently mapped THS industries; raw index close price returns, not dividend total return",
+  "membership": "1709 current static survivors/current industry mapping, NOT historical all-A/PIT denominator",
+  "metrics": "end/start-1; observed close chronological MDD=min(C/cummax(C)-1), max/min relative start; positive-sector and positive-member proportions; all unknown denominators retained",
+  "fat_tail": "Qualitative judgment for discussion, no numeric threshold or admission rule",
+  "new_account_runs": 0,
+  "parameter_searches": 0
+}

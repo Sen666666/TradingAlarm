@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "saved_books_only": true,
+  "baseline_not_rerun": true,
+  "common_market_mother": 9095,
+  "seconds": 12.793143457733095,
+  "analysis_sha256": "e947b0a1332cd43ca38177e539b34be482cf0684b17487404b59a2171842df1a",
+  "analysis_endpoint_only_corrected": true,
+  "no_account_replays": true
+}

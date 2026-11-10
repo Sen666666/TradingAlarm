@@ -1,0 +1,46 @@
+59条原MOBILE机会：拒绝、CORE跳过与冻结R交叉独立核查
+
+只读取主线程all59.csv原R及原case links/已存层净值，未重算R、斜率或指标，
+未运行账户、策略、资源分配或反事实收益。R单位为等效原价格观察数，不是自然天，
+也不是EMA实际追上价格的时间预测。小斜率诊断严格沿用FROZEN_DIAGNOSTIC.txt，
+没有自行选经济阈值、分段或按个股调参。
+
+59条逐一回核原链接：19实际MOBILE fill，38原OPEN拒绝，2 CORE先获资而MOBILE
+被done跳过。38拒绝中32含原资源失败项，6为industry_invalidated，不能把38
+统称现金或风险不足。2跳过单列：盈新2022/1/10 R20.25867073308501；航天2025/11/24
+R8.541665388274701。它们没有MOBILE资金拒绝记录。
+
+全部59条R定义且斜率为正；机器近零、1bp显示警示均0。最小S为山东2023/4/11
+0.3629213296628553%/观察（36.2921bp），不以警示线筛样本或更改分母。
+
+同一股票内的描述性交叉（不是新筛选阈值）
+11条资源拒单的R低于该股全部已买层：盈新1，山东2，海能达4，航天4。
+另有海能达10/11 R8.26155308低于两买成层，但原因为industry_invalidated，
+未混进“资源拒单”11条。9条资源拒单R高于该股全部原已买净亏层：盈新1、山东6、航天2。
+这些是原机会大小与原授资约束的交叉事实，不给未买到的标的加未来盈亏标签。
+
+代表性原CLOSE日期、R与原拒因：
+盈新2022/1/20 R5.918815812506953，cash_or_original_reserve,sector_capital；
+该股5个买成亏层R10.69537244—16.23557534。
+山东2023/4/3 R10.369715231513998、4/18 R10.043642128653376，均
+cash_or_original_reserve,sector_capital；已买层最低R10.40305677（3/28原亏层）。
+海能达2024/10/24 R8.49178030901941，sector_capital,sector_risk；10/31
+R7.593315971842025，cash_or_original_reserve,sector_capital,sector_risk；两原买成
+正层R8.76345594和8.81132976。不能由这些拒单R更小推出追加资金一定获利。
+航天2026/1/6 R7.951387171918154，cash_or_original_reserve,sector_capital,
+sector_risk；该股7个买成层R11.05063260—28.84029566。
+
+反向例：盈新2022/1/7 R27.226941058950022被cash_or_original_reserve,probe_risk
+拒，高于其全部5个买成亏层。航天2025/11/14 R29.20489470927711被
+cash_or_original_reserve,probe_risk,sector_capital拒；11/17 R25.893001514668647
+被cash_or_original_reserve,sector_capital拒；均高于该股3个已买亏层
+R13.51248080—20.55986792。山东4/12 R17.87830201251435被现金/行业资本拒，
+高于3/28原亏层R10.40305677；次日4/13买成正层R17.44764088也更高，不能据
+拒单与买成者的原结果将R强行解释成单调安全度。
+
+完整38条保留原日期、R/D/S、原拒因、原链接、主线程小斜率/敏感度原字段于
+ALL38_ORIGINAL_REJECTIONS_WITH_FROZEN_R.csv/json；CORE_PRIORITY_SKIP2...单列2次；
+ORIGINAL_FILLED19_REFERENCE_R_AND_SAVED_NET...保留已买原层结果（仅事后评价）。
+PER_STOCK_DESCRIPTIVE_CROSSINGS.json给逐股全部交叉；ALL_SAME_STOCK...给全部
+同股拒单/已买两两比较，未只挑代表性样本。R_REJECTION_COVERAGE...为分类/覆盖校核。
+输入/输出SHA已保存。原fill与层净值均为日线代理账本，非券商成交或被拒机会收益。

@@ -1,0 +1,76 @@
+2026-11-05｜原No60行业CORE拒单全母体，只读事件交付
+
+范围及来源
+原1709股/90行业，long连续2022–2024、strong独立2025Jul–2026Jun；只读已对旧No60
+完整恒等的两条OFF账。没有新Account/Runner/RiskBook、没有新策略或全市场marks准备。
+每个事件原CLOSE必须存在完整CORE intent，原op.core_Q=True、held=False、barriers空；
+原尺寸已过，原OPEN LR.preview也逐事件复核通过。没有把CLOSE合格当实际成交。
+
+母体
+raw CORE行业额度拒单33569=long18703+strong14866。
+  long: 单sector_capital443、仅两sector门74、capital+其他15618、两sector+其他2566、
+        risk+其他2；纯sector_risk单门0。
+  strong: 单capital266、仅两sector门119、capital+其他12058、两sector+其他2423；
+          纯risk单门0。
+拒因全集原样保留，sorted合并串不被包装成唯一第一原因。
+window×sid×原source/I epoch首拒8335=5264+3071。首拒仅行业门170：capitalonly153、
+两sector门17；另外8165有其它同时失败门。该distinct单位并非独立市场冲击。
+重复股票日、同OPEN共同资本和同一旧仓绝不相加成可实现资金缺口或利润。
+
+优先读取
+1 CORE_SECTOR_REJECT_EVENTS_WITH_PREFIX.jsonl.gz：全raw事件、首拒flag、冻结intent、
+  原Q/held/barriers、PVR/epoch、原OPEN preview、S0 snapshot引用和前排真实承诺。
+2 FIRST_SOURCE_I_EPOCH_REJECT_INDEX.json：主8335首拒与全部同段raw key。
+  FIRST_SOURCE_I_EPOCH_REJECT_WITH_LATER_BUYS.json加原同段后来实际CORE/MOBILE。
+3 ORIGINAL_EXISTING_LAYER_SNAPSHOTS.json：7634个window/signal/OPEN/sector快照。
+4 ACTUAL_SAMEOPEN_RESERVE_COMMITMENTS.json：3519笔原真实reservations与实际后续fill。
+
+金额与实际尝试量边界
+原i.cap/i.budget为CLOSE冻结最大股数/毛额；OPEN_preview_max_shares是原LR.preview在
+真实OPEN/rule/fee/factor下的申请上限；dated_minimum_shares及其毛额/买费/现金另列。
+拒单没有实际批准或提交股数，actual_rejected_order_quantity=None。
+不新造历史量：source maximum_quantity先检legal minimum，min不合法即返回0；原route
+再记录allowed(min,detail=True)的门全集。因此q_min是源码可推断的诊断受检量，
+不是已提交broker单，更没有一次按qmax真实申请失败。route为0时budget.request未调用。
+冻结CORE风险是含买/估卖费的0.25%风险；sector预算risk是q*(price-floor)名义风险，
+二者不同。qmax只作需求金额，不假称能获资，也不用于主要净标签。
+
+原有库存、同OPEN新承诺及锁
+S0旧库存取同OPEN后的保存层、排除当日所有真实新buy layer；这些剩余旧层数量已包括
+原00:00公司行为和既有保护卖出。previous CLOSE raw层也完整保留。
+CORE OPEN保护是前CLOSE last_core_line，MOBILE是前CLOSE floor；native split不改该
+adjusted保护，只在sync按新factor换raw单位。nextCLOSE新抬floor/reason/pool不偷作OPEN事实。
+unit_cost是原gross单位成本，不冒充含费剩余经济成本。
+raw cash是累计实际买卖现金，raw dividend是累计已确认净股息，不是未付AR；已知OPEN
+经济量可用nextCLOSE原层作起点，但后续比较必须扣掉起点值，不能重复计旧利润/股息。
+前CLOSE pending_sells、原层reason/pending_I_exit_reference保留；全日精确剩余ExitOrder/
+sell_layers/公司行为新股sellable buckets未全部序列化，不能凭opened较早称全部可卖。
+
+首拒中S0无旧库存1014：889已有原同OPEN前排同业新单，125既无旧库存也无同业前排。
+已有旧库存7321。原所有买fill在全部资金决策之后才咨询执行窗口；前排新单在候选时
+已提交未填，真实预留必须承担，不能假撤/复用。后续即使已fill，同OPEN新股T+1不可卖，
+不属于旧可卖赢家篮子。前排单已连接原reserve audit、real_reserve、真实后续fill/无fill。
+raw空S0且无同业前排186中184的最小单毛额本身>2%原decision NAV；有既存乐观S0
+NAV上界的117例，117均最小单自身超过2%上界。无需旧仓占用也可能行业额度不足。
+
+原同段后来参与
+long5264首组：后来CORE68、MOBILE744、两者28、没有同段实际buy4480；
+strong3071：CORE53、MOBILE358、两者17、没有2677。
+同OPEN CORE先拒后MOBILE实际fill分别236/79。MOBILE不消费CORE epoch，不可把这些
+称为完全没参与；这是原真实轨迹标签，不是新资金路径可得收益。
+
+sc释放量及缺口
+CORE新增走probe，行业2%比较sc包括confirmed旧资本；迁池不降低sc，卖外行业不释放它。
+当sc已超过2%，新最低单所需同业资本减少可能远大于新单本金；不是一进一出。
+原日志没有逐拒单pre-candidate sc/sr/nav，完整释放量保留UNKNOWN，不靠新RiskBook补造。
+15267 raw事件可以复用旧已审S0 scalar给乐观所需资本释放下界；851有13日期原exact S0
+原始引用。两者均是最早S0，不是该候选之前完整前排预留后的状态，更非可实际卖出量。
+13 S0所有lots.stock均有缓存prices，cost fallback从未触发；数值是原缓存float精度，
+不是另造精确Decimal重估。QUOTE_13_S0_PRICE_COVERAGE_CHECK.json留证。
+
+阶段成本与准入
+母体0.502秒；绑定4.779秒；目标原quote/preview18.878秒；前排链接3.953秒；
+同段后来实际buy轻标0.965秒。各阶段100秒以内，保存progress/partial边界；没有金融重跑。
+独审EVENT_MOTHER_SAVED_REVIEW.json已核33569/8335、原stream绑定、保存quote算术。
+新候选单股条件净标签由native_shadow_labels负责，旧篮子同期评价由root负责；本交付
+没有单股shadow账，更没有账户或轮动收益。行业单门只是可能作用范围，不能预称应卖旧赢家。

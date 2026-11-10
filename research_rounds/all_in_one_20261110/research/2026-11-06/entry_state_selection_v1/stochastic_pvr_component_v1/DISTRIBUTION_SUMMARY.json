@@ -1,0 +1,11 @@
+{
+  "known": 53075,
+  "unknown": 46,
+  "positive_score_change": 21871,
+  "negative_score_change": 31204,
+  "mean_score_change": -1.3584653536247617,
+  "mean_range_bias": 0.12338197475519563,
+  "mean_positive_discount": 0.11585800091266792,
+  "mean_negative_discount": 0.10100998835982963,
+  "max_identity_error": 2.220446049250313e-16
+}

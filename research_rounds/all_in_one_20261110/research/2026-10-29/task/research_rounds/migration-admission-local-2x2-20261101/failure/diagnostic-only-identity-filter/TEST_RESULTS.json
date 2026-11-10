@@ -1,0 +1,8 @@
+{
+  "tests": 10,
+  "failures": 1,
+  "errors": 0,
+  "passed": false,
+  "scope": "new policy synthetic budget/allocator regressions, native budget callbacks only; no real ledger or historical account",
+  "previous18_tests_not_claimed_as_new_policy": true
+}

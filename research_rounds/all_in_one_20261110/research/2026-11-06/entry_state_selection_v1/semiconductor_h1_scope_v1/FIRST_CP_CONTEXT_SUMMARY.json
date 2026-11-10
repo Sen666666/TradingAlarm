@@ -1,0 +1,324 @@
+{
+  "clock": "All values known by first stock CP date close, before future path. Explicit prior-close industry stages/returns also included. Stage at CLOSE must not be described as known before OPEN. Stock/sector past20 uses exact common-calendar anchor, missing anchor UNKNOWN. Relative return=(stock gross return)/(sector gross return)-1. Original I roots selected independently of future price; complete20 subset is descriptive maturity/coverage control, not eligibility.",
+  "not_strategy": "No thresholds, fitting, winner selection, financial simulation or causal claim about quarterly effects. Same-stock roots and forward windows overlap.",
+  "results": [
+    {
+      "domain": "all_first_CP",
+      "cohort": "born_Q1",
+      "roots": 65,
+      "stocks": 55,
+      "CP_calendar_quarters": {
+        "2026Q1": 57,
+        "2026Q2": 8
+      },
+      "sector_stage_at_close": {
+        "0": 17,
+        "1": 2,
+        "2": 2,
+        "3": 44
+      },
+      "sector_stage_prior_close": {
+        "0": 18,
+        "1": 1,
+        "2": 10,
+        "3": 36
+      },
+      "sector_E0_true_at_close": 51,
+      "sector_authorized_at_close": 48,
+      "distribution": {
+        "PVR_score": {
+          "n": 64,
+          "p25": 66.03429998440973,
+          "median": 75.24011751148261,
+          "p75": 80.09137323241096
+        },
+        "CP_lag_observations": {
+          "n": 65,
+          "p25": 2.0,
+          "median": 4.0,
+          "p75": 6.0
+        },
+        "stock_gain_since_I_root": {
+          "n": 65,
+          "p25": 0.0416899311371672,
+          "median": 0.0623244382022472,
+          "p75": 0.0999450027498625
+        },
+        "sector_gain_since_stock_I_root": {
+          "n": 65,
+          "p25": 0.0024863722020498358,
+          "median": 0.03886318441126657,
+          "p75": 0.059701617046466815
+        },
+        "relative_gain_since_I_root": {
+          "n": 65,
+          "p25": -0.004502134776950273,
+          "median": 0.037982569289098045,
+          "p75": 0.06516550078120487
+        },
+        "stock_past20_return": {
+          "n": 64,
+          "p25": 0.049589672121704786,
+          "median": 0.11669169019581649,
+          "p75": 0.17405304773571878
+        },
+        "sector_past20_return": {
+          "n": 65,
+          "p25": 0.004631586678178312,
+          "median": 0.09930409537898277,
+          "p75": 0.20295505200834607
+        },
+        "relative_past20_return": {
+          "n": 64,
+          "p25": -0.02201149388246454,
+          "median": 0.03174700747025627,
+          "p75": 0.09362941393996926
+        },
+        "sector_past20_return_prior_close": {
+          "n": 65,
+          "p25": 0.004631586678178312,
+          "median": 0.09977766857693071,
+          "p75": 0.15724395235055222
+        }
+      }
+    },
+    {
+      "domain": "all_first_CP",
+      "cohort": "born_Q2",
+      "roots": 141,
+      "stocks": 99,
+      "CP_calendar_quarters": {
+        "2026Q2": 141
+      },
+      "sector_stage_at_close": {
+        "0": 33,
+        "1": 53,
+        "2": 26,
+        "3": 29
+      },
+      "sector_stage_prior_close": {
+        "0": 38,
+        "1": 58,
+        "2": 30,
+        "3": 15
+      },
+      "sector_E0_true_at_close": 137,
+      "sector_authorized_at_close": 108,
+      "distribution": {
+        "PVR_score": {
+          "n": 137,
+          "p25": 65.51809723104958,
+          "median": 71.25913376554243,
+          "p75": 77.48373897765352
+        },
+        "CP_lag_observations": {
+          "n": 141,
+          "p25": 3.0,
+          "median": 5.0,
+          "p75": 9.0
+        },
+        "stock_gain_since_I_root": {
+          "n": 141,
+          "p25": 0.0562237356904795,
+          "median": 0.0815981992121552,
+          "p75": 0.1129814550641941
+        },
+        "sector_gain_since_stock_I_root": {
+          "n": 141,
+          "p25": 0.05311791736100546,
+          "median": 0.07724276034403021,
+          "p75": 0.11159186822379885
+        },
+        "relative_gain_since_I_root": {
+          "n": 141,
+          "p25": -0.03796935986017691,
+          "median": 0.0038789632276383657,
+          "p75": 0.0503251601004997
+        },
+        "stock_past20_return": {
+          "n": 141,
+          "p25": 0.04604897116306517,
+          "median": 0.12615473441108538,
+          "p75": 0.22923538230884555
+        },
+        "sector_past20_return": {
+          "n": 141,
+          "p25": 0.03396438058013862,
+          "median": 0.13335034454008343,
+          "p75": 0.27243501807062076
+        },
+        "relative_past20_return": {
+          "n": 141,
+          "p25": -0.08019275531206904,
+          "median": -0.005341542970773272,
+          "p75": 0.05504601300230738
+        },
+        "sector_past20_return_prior_close": {
+          "n": 141,
+          "p25": 0.02571556497496852,
+          "median": 0.1257807207370525,
+          "p75": 0.19383567539624647
+        }
+      }
+    },
+    {
+      "domain": "complete_forward_common20",
+      "cohort": "born_Q1",
+      "roots": 65,
+      "stocks": 55,
+      "CP_calendar_quarters": {
+        "2026Q1": 57,
+        "2026Q2": 8
+      },
+      "sector_stage_at_close": {
+        "0": 17,
+        "1": 2,
+        "2": 2,
+        "3": 44
+      },
+      "sector_stage_prior_close": {
+        "0": 18,
+        "1": 1,
+        "2": 10,
+        "3": 36
+      },
+      "sector_E0_true_at_close": 51,
+      "sector_authorized_at_close": 48,
+      "distribution": {
+        "PVR_score": {
+          "n": 64,
+          "p25": 66.03429998440973,
+          "median": 75.24011751148261,
+          "p75": 80.09137323241096
+        },
+        "CP_lag_observations": {
+          "n": 65,
+          "p25": 2.0,
+          "median": 4.0,
+          "p75": 6.0
+        },
+        "stock_gain_since_I_root": {
+          "n": 65,
+          "p25": 0.0416899311371672,
+          "median": 0.0623244382022472,
+          "p75": 0.0999450027498625
+        },
+        "sector_gain_since_stock_I_root": {
+          "n": 65,
+          "p25": 0.0024863722020498358,
+          "median": 0.03886318441126657,
+          "p75": 0.059701617046466815
+        },
+        "relative_gain_since_I_root": {
+          "n": 65,
+          "p25": -0.004502134776950273,
+          "median": 0.037982569289098045,
+          "p75": 0.06516550078120487
+        },
+        "stock_past20_return": {
+          "n": 64,
+          "p25": 0.049589672121704786,
+          "median": 0.11669169019581649,
+          "p75": 0.17405304773571878
+        },
+        "sector_past20_return": {
+          "n": 65,
+          "p25": 0.004631586678178312,
+          "median": 0.09930409537898277,
+          "p75": 0.20295505200834607
+        },
+        "relative_past20_return": {
+          "n": 64,
+          "p25": -0.02201149388246454,
+          "median": 0.03174700747025627,
+          "p75": 0.09362941393996926
+        },
+        "sector_past20_return_prior_close": {
+          "n": 65,
+          "p25": 0.004631586678178312,
+          "median": 0.09977766857693071,
+          "p75": 0.15724395235055222
+        }
+      }
+    },
+    {
+      "domain": "complete_forward_common20",
+      "cohort": "born_Q2",
+      "roots": 88,
+      "stocks": 88,
+      "CP_calendar_quarters": {
+        "2026Q2": 88
+      },
+      "sector_stage_at_close": {
+        "0": 21,
+        "1": 33,
+        "2": 14,
+        "3": 20
+      },
+      "sector_stage_prior_close": {
+        "0": 23,
+        "1": 35,
+        "2": 15,
+        "3": 15
+      },
+      "sector_E0_true_at_close": 88,
+      "sector_authorized_at_close": 67,
+      "distribution": {
+        "PVR_score": {
+          "n": 84,
+          "p25": 66.34460947885857,
+          "median": 71.50858921876232,
+          "p75": 77.5087556784369
+        },
+        "CP_lag_observations": {
+          "n": 88,
+          "p25": 4.0,
+          "median": 8.0,
+          "p75": 10.25
+        },
+        "stock_gain_since_I_root": {
+          "n": 88,
+          "p25": 0.0550590596920428,
+          "median": 0.07408695938987254,
+          "p75": 0.10255589691073566
+        },
+        "sector_gain_since_stock_I_root": {
+          "n": 88,
+          "p25": 0.050405056949408056,
+          "median": 0.07749017834216199,
+          "p75": 0.11108217251931346
+        },
+        "relative_gain_since_I_root": {
+          "n": 88,
+          "p25": -0.038272901728432535,
+          "median": -0.007532829123498452,
+          "p75": 0.0450016030864252
+        },
+        "stock_past20_return": {
+          "n": 88,
+          "p25": 0.05713412997558942,
+          "median": 0.1259065620889137,
+          "p75": 0.2442313694828514
+        },
+        "sector_past20_return": {
+          "n": 88,
+          "p25": 0.07361140038034586,
+          "median": 0.15980732798060648,
+          "p75": 0.27243501807062076
+        },
+        "relative_past20_return": {
+          "n": 88,
+          "p25": -0.0700514164163506,
+          "median": -0.005395282181427596,
+          "p75": 0.0427010235427317
+        },
+        "sector_past20_return_prior_close": {
+          "n": 88,
+          "p25": 0.036986164273905775,
+          "median": 0.1516549678954402,
+          "p75": 0.19383567539624647
+        }
+      }
+    }
+  ]
+}

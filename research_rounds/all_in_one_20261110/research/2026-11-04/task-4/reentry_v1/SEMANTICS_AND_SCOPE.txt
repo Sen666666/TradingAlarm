@@ -1,0 +1,15 @@
+主要局部高重入假说针对mobile fresh CP1+Q、成熟行业资金。core只作不同角色的对照。
+ALL_FEATURES_PRE_OUTCOME中的original_capital2pct为mobile原名义目标；对core行，这一
+数字仅是共同2%试探规模的说明性界限，不是原core预算。原core有独立含费0.25%风险
+及最高10%名义规模合同。core的feeless_quantity_upper_bound不可当原core可执行量。
+此字段命名范围澄清不改变任何特征、局部高判定、原actualfill分组或原资金结果。
+
+市场母体保留ACT暂停事件；BARRIER_STRATIFIED_COVERAGE另给原计划前无barrier子集。
+无barrier仍不代表尺寸/资金/下一OPEN可行，事件为重复股日/角色，不是独立订单。
+
+原actualfill净额：long原层到2024末/实际平仓，strong到2026Jun30；不能合计成连续财富。
+local-high FAIL表示原入场时点会被该门拒绝，不证明整个新路径永远漏该股或能省掉亏损。
+
+原min-first的两个层次分开：原前序confirmed超min直接释放量只是冻结原pool/role的
+数学能力，不是新政策总上界或实际解锁数；新状态反馈须用完整原序候选联合投影。
+任何私有reservation都不是实际成交，原日线执行窗口须在后续完整策略中另验。

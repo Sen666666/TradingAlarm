@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "financial_events": 0,
+  "rows": [
+    {
+      "window": "2022",
+      "completion_sha256": "a071d85289dfc1df85ce1538c03f7614c6646464809f3b9e0b91614bc2b5cfc5",
+      "final_NAV": "887171.7812830424260",
+      "same_process_terminal_restore_exact": true,
+      "all_analysis_source_files_unchanged": true,
+      "independent_process_audit_status": "separate independent-review receipt"
+    },
+    {
+      "window": "2025_26",
+      "completion_sha256": "d18400fbc81f679bdefeac8d460ebcbe1a6fe5e56b0190b5e54de70c3055c8fd",
+      "final_NAV": "993415.9230204756940",
+      "same_process_terminal_restore_exact": true,
+      "all_analysis_source_files_unchanged": true,
+      "independent_process_audit_status": "separate independent-review receipt"
+    }
+  ]
+}

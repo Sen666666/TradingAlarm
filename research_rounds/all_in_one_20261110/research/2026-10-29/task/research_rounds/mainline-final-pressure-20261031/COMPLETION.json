@@ -1,0 +1,133 @@
+{
+  "status": "completed",
+  "passed": true,
+  "finished_at_UTC": "2026-10-31T12:41:18.830525+00:00",
+  "new_paths": 4,
+  "normal_reused": 2,
+  "no_rule_changes": true,
+  "no_new_quarters": true,
+  "verdict": "retain risk/return menu only, not alpha, not promotion; material delay sensitivity and longer underwater",
+  "economics": {
+    "passed": true,
+    "paths": 4,
+    "pure_run_seconds": 247.39670283347368,
+    "output_checkpoint_seconds": 22.440990415867418,
+    "cache_load_seconds": 29.310943541117013,
+    "wall_since_cache_ready": 277.0605864999816,
+    "normal_reused": true,
+    "preflight_reused": true,
+    "progress": [
+      {
+        "path": "RAW_cost2",
+        "run_seconds": 61.44242741726339,
+        "NAV": "1436331.5076777021885",
+        "suffix_return": 0.12869928600193115,
+        "DD": 0.10967958072248529,
+        "pure_run_cumulative": 61.44242741726339,
+        "output_cumulative": 6.1454391670413315
+      },
+      {
+        "path": "ATT_cost2",
+        "run_seconds": 55.21550395805389,
+        "NAV": "1437324.0142954992865",
+        "suffix_return": 0.12947921842343102,
+        "DD": 0.09339767612228034,
+        "pure_run_cumulative": 116.65793137531728,
+        "output_cumulative": 9.175830209162086
+      },
+      {
+        "path": "RAW_delay1",
+        "run_seconds": 68.05663720797747,
+        "NAV": "1459615.3682255746925",
+        "suffix_return": 0.14699622973342596,
+        "DD": 0.11607539321789151,
+        "pure_run_cumulative": 184.71456858329475,
+        "output_cumulative": 18.507677500136197
+      },
+      {
+        "path": "ATT_delay1",
+        "run_seconds": 62.68213425017893,
+        "NAV": "1369273.1786656937865",
+        "suffix_return": 0.0760034510419978,
+        "DD": 0.08535278537531377,
+        "pure_run_cumulative": 247.39670283347368,
+        "output_cumulative": 22.440990415867418
+      }
+    ]
+  },
+  "verification": {
+    "passed": true,
+    "checks": {
+      "RAW_normal": {
+        "reused": true,
+        "source": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-forward-Q1-20261031/analysis/VERIFICATION.json",
+        "passed": true
+      },
+      "ATT_normal": {
+        "reused": true,
+        "source": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-forward-Q1-20261031/analysis/VERIFICATION.json",
+        "passed": true
+      },
+      "RAW_cost2": {
+        "account": "B0_RAW_cost2",
+        "passed": true,
+        "checks": {
+          "fills_causal_and_fee_components": 2791,
+          "daily_independent_nav_and_shares": 182
+        },
+        "max_absolute_nav_difference_cny": "0",
+        "campaign_pnl_reconciled": true,
+        "total_expenses": "0",
+        "max_stock_weight": 0.10752044299974627,
+        "max_sector_weight": 0.17913004542544594
+      },
+      "ATT_cost2": {
+        "account": "B0_ATT_cost2",
+        "passed": true,
+        "checks": {
+          "fills_causal_and_fee_components": 1408,
+          "daily_independent_nav_and_shares": 182
+        },
+        "max_absolute_nav_difference_cny": "0",
+        "campaign_pnl_reconciled": true,
+        "total_expenses": "0",
+        "max_stock_weight": 0.1084084023158646,
+        "max_sector_weight": 0.3721502193521085
+      },
+      "RAW_delay1": {
+        "account": "B0_RAW_delay1",
+        "passed": true,
+        "checks": {
+          "fills_causal_and_fee_components": 2024,
+          "daily_independent_nav_and_shares": 182
+        },
+        "max_absolute_nav_difference_cny": "0",
+        "campaign_pnl_reconciled": true,
+        "total_expenses": "0",
+        "max_stock_weight": 0.05471650731515905,
+        "max_sector_weight": 0.17299511763262393
+      },
+      "ATT_delay1": {
+        "account": "B0_ATT_delay1",
+        "passed": true,
+        "checks": {
+          "fills_causal_and_fee_components": 997,
+          "daily_independent_nav_and_shares": 182
+        },
+        "max_absolute_nav_difference_cny": "0",
+        "campaign_pnl_reconciled": true,
+        "total_expenses": "0",
+        "max_stock_weight": 0.0577667666230359,
+        "max_sector_weight": 0.23067274297141208
+      }
+    },
+    "normal_results_reused": true,
+    "mixed_historical_normal_and_pressure_suffix_slippage_verified": true,
+    "all_campaign_and_cashflow_bridges_exact": true,
+    "audit_seconds": 9.37583295814693,
+    "output_plus_audit_seconds": 31.816823374014348,
+    "within_60_second_output_audit_budget": true
+  },
+  "blockers": [],
+  "prior_240s_preflight_block_superseded_by_300s_approval": true
+}

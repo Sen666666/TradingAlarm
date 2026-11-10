@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "read_only": true,
+  "case_count": 4,
+  "rows": 29526,
+  "all_original_sectors_and_observations": true,
+  "cached_H1_only": true,
+  "industry_PVR_blocked": "no existing cache; source_index_amount_units not certified under original formula contract",
+  "OLD924_canonical_mobile_blocked": true,
+  "original_sources_unchanged": true,
+  "rank_hash_unchanged_after_future_evaluation": true,
+  "accounts_created": 0,
+  "account_restores": 0,
+  "financial_events": 0,
+  "orders": 0,
+  "new_indicators": 0,
+  "downloads": 0,
+  "seconds": 61.40919758286327
+}

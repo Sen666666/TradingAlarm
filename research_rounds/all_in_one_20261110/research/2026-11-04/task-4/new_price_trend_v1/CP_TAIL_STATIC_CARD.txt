@@ -1,0 +1,28 @@
+只读必要界，不是尾仓策略/账户准入；不改变正在运行的ENTRY_BB20合同。
+
+固定原No60 long2022–24与strong2025Jul–2026Jun全部实际MOBILE层的首次退出提案。
+只收第一原提案为CP1_add_protection者，重复锁单请求不算新机会。25半导体层只是子集。
+原ACT/I/source/初始hardline仍硬：S=max(该实际MOBILE买单冻结max(I,entryCP1),当日I)。
+未知不推断；原I/ACT失效、C<=S不软化，不撤已经锁定的卖单。
+
+候选趋势许可只作并列固定标签，绝不据结果择优：
+ E: C>EMA20>EMA60（当前真实CLOSE已知，原feature定义，非2R个人浮盈条件）。
+ B: C>SMA20>SMA60（布林中轨=SMA20，已知趋势位置；不是再调upper突破阈值）。
+每个提案按原当时真实qty q，最多保留q/2；卖出部分必须在当时dated SELL格点。
+retain=q−ceil((q/2)/sell_step)*sell_step，0<=retain<q且sell_floor(q−retain)一致。
+不能把buy_min套残股；retain可能1股，也必须报告保留资本/NAV而非层计数报喜。
+冻结提案后最多5个共同市场CLOSE才请求清尾仓，不能重复CP/EMA续期；实际T+1/跌停/
+容量可能延后成交，5期不是保证卖出期限。本表尚不模拟该路径，不把后来价当许可。
+
+逐提案报告C、旧CP线、S、实际股数、半仓合法残量、原完整贡献、可留gross/NAV及
+full qty改为S和trim后retain按S的名义暴露。CP已破原mark-to-CP可为0，留尾是新增
+风险，未通过预算前不能声称保留原风险。未卖前按full真实qty计，不能假设卖半已成交。
+当前只给价格/hardline/SELL单位的乐观必要界，不含行业/池/账户风险新授权、不含新
+买/卖费/滑点、真实下一OPEN重验及实际partial trim。若与同股其他硬退出混合，native
+FIFO可能留下必须硬退出的层，须另解层分摊合同；本表对此明确标记，不假设可执行。
+原core入口not held；尾仓不自动变core，也不承诺用原规则持尾时接续core。
+
+计算限60秒，复用原B/daily/facts与已审PRICE_FEATURES/dated执行规则，不运行Account。
+任何覆盖/原损益均为固定原路径关联，不是可避免亏损或新策略收益；保留所有失败/
+unknown/小额和同日竞争，不挑赢家、不据表改EMA/期限/比例。输出供独审后决定是否
+值得补齐动作合同，不能凭该表升级full尾仓账户。

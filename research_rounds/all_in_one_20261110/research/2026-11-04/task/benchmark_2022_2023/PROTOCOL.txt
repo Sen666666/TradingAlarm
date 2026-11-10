@@ -1,0 +1,70 @@
+Frozen before benchmark account simulation | 2026-11-04
+Purpose: absolute-loss and opportunity-cost reference for No60/oldPVR own
+continuous2022-2023 accounts. New benchmark simulation, not a strategy candidate
+or another No60/PVR economic path. No parameter scan, short, leverage or resets.
+
+Calendar: exactly No60242+242=484 close dates2022-01-04 through2023-12-29.
+Initial cash1,000,000 at Jan4 CLOSE. First possible fill Jan5 OPEN, matching the
+first Jan4 signal of No60. Full historical data warmup precedes Jan4 but cannot
+create a pre-start position. End at Dec29 CLOSE mark, no forced terminal sale;
+remaining quantities/claims/pending orders explicit. No annual capital reset.
+
+References, all same calendar and initial capital:
+1. HS300 price index USZI399300: non-tradable no-cost price index reference,
+   normalized to Jan5 OPEN after Jan4cash. Raw index OHLC/close retained for
+   phase diagnostics. Price index has no fund fee or distributable cash; not
+   an executable return or total-return index. Calendar-first-close price
+   change may be listed separately as a market label, not account gain.
+2. ETF510300 buy-and-hold: maximum affordable whole100 shares incl execution
+   costs, Jan4 decision/Jan5 open, subject to frozen participation and cash.
+   Retain original shares; cash distributions stay cash after payment, no DRIP
+   or daily rebalancing. Partial first buy retries while original intent lives.
+3. ETF510300 MA63 long/cash: causal total-return adjusted CLOSE > inclusive
+   last63 valid observation mean is ON (equal/unknown OFF). Use complete warmup
+   ending at each close; Jan4 state can create the initial intent, then only
+   OFF->ON starts a90% entry. ON->OFF exits all next open; persistent ON holds
+   shares naturally, no daily target resizing, no add from later dividends.
+   Entry cash budget incl costs=.90*signal-close NAV; fixed once, raw next-open
+   price determines whole100 qty, cash/participation may shrink/part-fill it.
+   A fresh OFF cancels unfilled buys; exiting retains original sell obligation
+   until completion. No short profits in falling market. MA63 is old ACT-scale
+   diagnostic baseline, not a selected optimal threshold.
+4. Zero-interest cash only as passive numerical reference, not a claimed fix.
+
+Data priority: local sources only. HS300 migration-copy THS canonical
+data/ths-index-history-20261018/canonical/USZI399300.csv +checkpoint+raw pages.
+ETF Tencent raw OHLCV and Eastmoney F10 actual ex/payment/amount; original
+portfolio_data.py causal total-return transform verified against9-asset frozen
+input. THS Q series is crosscheck only, never raw execution cashflow.
+Raw ETF currency CNY/share; Tencent volume hands x100 shares. Actual amount
+source not available in Tencent; liquidity uses volume only, never guesses
+turnover. HS300 index volume/amount are reference fields, not ETF liquidity.
+
+ETF execution reuses local portfolio-protocol:100-share lot, each-side15bp
+estimated cost, minimum5CNY/order assumption, no stock sell stamp duty;1% of
+strictly prior20session mean traded shares daily participation. Partial orders
+retry next observed session; same day's H/L/volume never improve eligibility
+or available capacity. Raw OPEN fill, costs separately debited, no extra
+unstated slippage atop the15bp contract. T+1 sellability enforced by buy lots.
+Dividend entitlement uses preceding-close inventory, receivable at ex-date,
+cash only at actual pay date (no early reuse). No splits in2022/23; unexpected
+events stop rather than silently adjust. Known future event records cannot
+affect pre-ex signal, target or trades; ex-date causal adjustment only.
+
+Important execution limitation frozen BEFORE results: local ETF portfolio
+contract has no dated historical limit/halt/queue file. It cannot pass the
+strict stock_execution historical-state guard. Indicative10% ETF bands are
+reconstructed from prior raw close minus actual ex distribution, tick.001;
+buy at indicative upper/sell at lower blocks and retries, outside bands stops.
+These are explicit execution proxies, not verified dated exchange states or
+auction fills. Positive observed OPEN permits proxy fill; do not claim actual
+executability, substitute generic stock tax, or treat missing state as proof.
+
+Audit: before computation source/data/protocol/code freeze hashes. Save daily
+cash/qty/rawmark/fees/dividend AR/accrual/pay NAV bridge, all signal/intent/fill
+logs, T+1/wholelot/participation checks and first/last states. Independently
+recompute every daily cash/quantity/equity and MA prefix; reviewer separate.
+Report full continuous return/DD,2022/2023 and fixed24months/8quarters without
+resetting global peak or deleting bad phases. Share inputs and benchmark daily
+paths with market_phase agent; retrospective phase labels never enter signals.
+Do not infer strategy success from beating oldPVR, DD<35, or cash staying0%.

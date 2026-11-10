@@ -1,0 +1,14 @@
+先读REPORT.txt和CONTRACT.txt。此目录只合成，没有历史金融事件。
+
+核心接线：rights_wiring.py。仅明确不认购类型；完整payload身份/幂等、前检、事务回滚、原生mirror核同。
+最小接入：integration.patch。只对未来新的month_runtime副本；不覆盖原运行文件，不运行原module。PATCH_CHECK.json记原source hash、修改后文本hash、唯一四处变更和原普通dispatcher body不变。需把rights_wiring.py与CONTRACT.txt复制到新版本，并另行建立新来源身份/旧证书与grant，不能直接重用旧权限。
+
+合成入口：在本目录执行
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B -m unittest -v test_rights.py
+生成行情/虚构SID，只构造新合成native账户。18测试PASS；TEST_STDERR.txt与synthetic-results含证据。synthetic_runner.py仅import原mixed-order engine，原ordinary loader方法只AST提取纯检查，不构造历史loader或runner。
+恢复入口restore_synthetic.py仅接受本目录synthetic-results中的生成checkpoint。两模式各独立进程恢复后重复事件不再作用；原金融历史pickle从未读取。
+
+只读交付核验：prepare_delivery.py。不导入native runner，只生成文本patch、核hash/AST/原源schema与已存测试结果。VERIFICATION.json为16项PASS。SOURCE_TERMS_SCHEMA_ONLY.json只验证原两条配股声明，绝未送金融分发。
+依赖：DEPENDENCIES.json（24原来源）；CODE_FREEZE.json（本版本模块/合同/patch）；PACKAGE_SHA256.json（整包）；FINAL_DELIVERY.json。
+
+关键未覆盖：真实历史版本升级与旧证书续接；混合rights/ordinary批；ACTION已有到期或未知settlement；认购/权利出售/价值补偿；一般零股和原未提交C Q普通送转。对未覆盖项原子拒绝，不猜补，见REPORT。

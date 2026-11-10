@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-31T08:49:45.061408+00:00",
+  "task": "bounded full-market mainline read-only inventory",
+  "economic_paths": 0,
+  "model_or_gate_changes": 0,
+  "L0_frozen": true,
+  "new_sector_matrix_not_computed": true,
+  "industry_price_coverage": 90,
+  "concept_scope": "not certified in unified dataset",
+  "earlier_data_task_checkpoint": "research_rounds/l0-operational-clock-drug-cache-20261031/CHECKPOINT.json",
+  "blocker": null
+}

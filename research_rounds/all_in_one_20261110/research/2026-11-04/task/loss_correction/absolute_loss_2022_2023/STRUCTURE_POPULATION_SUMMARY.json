@@ -1,0 +1,338 @@
+{
+  "2022_2023": {
+    "dimensions": {
+      "cached_E0_epoch": {
+        "groups": 1114,
+        "groups_multiple_flatcycles": 39,
+        "repeated_groups_negative": 29,
+        "repeated_group_layers": 110,
+        "repeated_group_buy_cash": "1235588.0166569269000",
+        "repeated_group_net": "50560.07631669547000000000000"
+      },
+      "cached_I_epoch": {
+        "groups": 1114,
+        "groups_multiple_flatcycles": 39,
+        "repeated_groups_negative": 29,
+        "repeated_group_layers": 110,
+        "repeated_group_buy_cash": "1235588.0166569269000",
+        "repeated_group_net": "50560.07631669547000000000000"
+      },
+      "financial_stock_industry_attempt": {
+        "groups": 1129,
+        "groups_multiple_flatcycles": 36,
+        "repeated_groups_negative": 27,
+        "repeated_group_layers": 107,
+        "repeated_group_buy_cash": "1019488.2759263497000",
+        "repeated_group_net": "-37230.93274946752258064516129"
+      },
+      "canonical_stock_industry_attempt": {
+        "groups": 1129,
+        "groups_multiple_flatcycles": 36,
+        "repeated_groups_negative": 27,
+        "repeated_group_layers": 107,
+        "repeated_group_buy_cash": "1019488.2759263497000",
+        "repeated_group_net": "-37230.93274946752258064516129"
+      },
+      "financial_E0_joint": {
+        "groups": 1147,
+        "groups_multiple_flatcycles": 19,
+        "repeated_groups_negative": 16,
+        "repeated_group_layers": 54,
+        "repeated_group_buy_cash": "621402.4205511732000",
+        "repeated_group_net": "-17393.15231281650000000000000"
+      },
+      "canonical_E0_joint": {
+        "groups": 1147,
+        "groups_multiple_flatcycles": 19,
+        "repeated_groups_negative": 16,
+        "repeated_group_layers": 54,
+        "repeated_group_buy_cash": "621402.4205511732000",
+        "repeated_group_net": "-17393.15231281650000000000000"
+      }
+    },
+    "reentry_same_structure_cohorts": {
+      "reentry_same_cached_E0": {
+        "layers": 39,
+        "stocks": 39,
+        "buy_cash": "400173.3799132339500",
+        "net": "-7115.84299633625933634992458",
+        "positive_net": "23806.64627924756117647058824",
+        "negative_net": "-30922.48927558382051282051282",
+        "negative_layer_buy_cash": "289578.2716158536000",
+        "positive_layer_buy_cash": "110595.1082973803500",
+        "net_per_turnover_buy_cash": "-0.01778189993017307786636462016",
+        "quantity_open_layers": 0,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "reentry_same_cached_I": {
+        "layers": 39,
+        "stocks": 39,
+        "buy_cash": "400173.3799132339500",
+        "net": "-7115.84299633625933634992458",
+        "positive_net": "23806.64627924756117647058824",
+        "negative_net": "-30922.48927558382051282051282",
+        "negative_layer_buy_cash": "289578.2716158536000",
+        "positive_layer_buy_cash": "110595.1082973803500",
+        "net_per_turnover_buy_cash": "-0.01778189993017307786636462016",
+        "quantity_open_layers": 0,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "reentry_same_financial_industry_attempt": {
+        "layers": 37,
+        "stocks": 36,
+        "buy_cash": "317117.8234544181500",
+        "net": "-8429.232551031229784552365199",
+        "positive_net": "12773.24104104459329237071172",
+        "negative_net": "-21202.47359207582307692307692",
+        "negative_layer_buy_cash": "232636.0021603308500",
+        "positive_layer_buy_cash": "84481.8212940873000",
+        "net_per_turnover_buy_cash": "-0.02658075935061035751009430072",
+        "quantity_open_layers": 0,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "reentry_same_canonical_industry_attempt": {
+        "layers": 37,
+        "stocks": 36,
+        "buy_cash": "317117.8234544181500",
+        "net": "-8429.232551031229784552365199",
+        "positive_net": "12773.24104104459329237071172",
+        "negative_net": "-21202.47359207582307692307692",
+        "negative_layer_buy_cash": "232636.0021603308500",
+        "positive_layer_buy_cash": "84481.8212940873000",
+        "net_per_turnover_buy_cash": "-0.02658075935061035751009430072",
+        "quantity_open_layers": 0,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      }
+    },
+    "repeat_mobile_price_protection_progress": {
+      "price_above_first=False|CP1_candidate_above_first=False": {
+        "layers": 16,
+        "stocks": 15,
+        "buy_cash": "125856.8683304624000",
+        "net": "-733.331989455567739281591273",
+        "positive_net": "4056.051749637251282051282052",
+        "negative_net": "-4789.383739092819021332873325",
+        "negative_layer_buy_cash": "86297.8897963013000",
+        "positive_layer_buy_cash": "39558.9785341611000",
+        "net_per_turnover_buy_cash": "-0.005826714101371550205972911230",
+        "quantity_open_layers": 0,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "price_above_first=False|CP1_candidate_above_first=True": {
+        "layers": 0,
+        "stocks": 0,
+        "buy_cash": "0",
+        "net": "0",
+        "positive_net": "0",
+        "negative_net": "0",
+        "negative_layer_buy_cash": "0",
+        "positive_layer_buy_cash": "0",
+        "net_per_turnover_buy_cash": null,
+        "quantity_open_layers": 0,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "price_above_first=True|CP1_candidate_above_first=False": {
+        "layers": 3,
+        "stocks": 3,
+        "buy_cash": "40552.7106677709000",
+        "net": "-73.2326614566500",
+        "positive_net": "1453.9577273282500",
+        "negative_net": "-1527.1903887849000",
+        "negative_layer_buy_cash": "26374.5128248781500",
+        "positive_layer_buy_cash": "14178.1978428927500",
+        "net_per_turnover_buy_cash": "-0.001805863535402365999391414149",
+        "quantity_open_layers": 0,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "price_above_first=True|CP1_candidate_above_first=True": {
+        "layers": 292,
+        "stocks": 183,
+        "buy_cash": "3498840.1961087003705",
+        "net": "-70183.7858540434589121660933",
+        "positive_net": "157553.5561643195861273367155",
+        "negative_net": "-227737.3420183630450395028090",
+        "negative_layer_buy_cash": "2620808.2174076928705",
+        "positive_layer_buy_cash": "878031.9787010075000",
+        "net_per_turnover_buy_cash": "-0.02005915729792393784479203530",
+        "quantity_open_layers": 0,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      }
+    },
+    "missing_id_counts": {
+      "cached_E0_epoch": 0,
+      "cached_I_epoch": 0,
+      "CP1_original_E0_episode": 358
+    },
+    "independent_CP1_ids": 1199,
+    "actual_mobile_layers": 1199,
+    "scope": "Grouping original cached states/receipt identities only; CP1 original_E0_episode uses original CP1 input e0_valid==cached i_target, distinct from raw facts e0_target; not recomputing numeric models or real-time gates"
+  },
+  "strong": {
+    "dimensions": {
+      "cached_E0_epoch": {
+        "groups": 826,
+        "groups_multiple_flatcycles": 36,
+        "repeated_groups_negative": 21,
+        "repeated_group_layers": 109,
+        "repeated_group_buy_cash": "1814040.0418607622500",
+        "repeated_group_net": "2054.14499005469000000000000"
+      },
+      "cached_I_epoch": {
+        "groups": 826,
+        "groups_multiple_flatcycles": 36,
+        "repeated_groups_negative": 21,
+        "repeated_group_layers": 109,
+        "repeated_group_buy_cash": "1814040.0418607622500",
+        "repeated_group_net": "2054.14499005469000000000000"
+      },
+      "financial_stock_industry_attempt": {
+        "groups": 839,
+        "groups_multiple_flatcycles": 33,
+        "repeated_groups_negative": 22,
+        "repeated_group_layers": 102,
+        "repeated_group_buy_cash": "1682616.5793789203500",
+        "repeated_group_net": "30706.56527786859000000000000"
+      },
+      "canonical_stock_industry_attempt": {
+        "groups": 839,
+        "groups_multiple_flatcycles": 33,
+        "repeated_groups_negative": 22,
+        "repeated_group_layers": 102,
+        "repeated_group_buy_cash": "1682616.5793789203500",
+        "repeated_group_net": "30706.56527786859000000000000"
+      },
+      "financial_E0_joint": {
+        "groups": 851,
+        "groups_multiple_flatcycles": 22,
+        "repeated_groups_negative": 13,
+        "repeated_group_layers": 68,
+        "repeated_group_buy_cash": "1259728.5492146286500",
+        "repeated_group_net": "-4119.18293141996000000000000"
+      },
+      "canonical_E0_joint": {
+        "groups": 851,
+        "groups_multiple_flatcycles": 22,
+        "repeated_groups_negative": 13,
+        "repeated_group_layers": 68,
+        "repeated_group_buy_cash": "1259728.5492146286500",
+        "repeated_group_net": "-4119.18293141996000000000000"
+      }
+    },
+    "reentry_same_structure_cohorts": {
+      "reentry_same_cached_E0": {
+        "layers": 37,
+        "stocks": 36,
+        "buy_cash": "487864.4188894738500",
+        "net": "-2251.5436650036600",
+        "positive_net": "27328.9659945136000",
+        "negative_net": "-29580.5096595172600",
+        "negative_layer_buy_cash": "317890.6740301518000",
+        "positive_layer_buy_cash": "169973.7448593220500",
+        "net_per_turnover_buy_cash": "-0.004615101199896583086304044909",
+        "quantity_open_layers": 2,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "reentry_same_cached_I": {
+        "layers": 37,
+        "stocks": 36,
+        "buy_cash": "487864.4188894738500",
+        "net": "-2251.5436650036600",
+        "positive_net": "27328.9659945136000",
+        "negative_net": "-29580.5096595172600",
+        "negative_layer_buy_cash": "317890.6740301518000",
+        "positive_layer_buy_cash": "169973.7448593220500",
+        "net_per_turnover_buy_cash": "-0.004615101199896583086304044909",
+        "quantity_open_layers": 2,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "reentry_same_financial_industry_attempt": {
+        "layers": 35,
+        "stocks": 33,
+        "buy_cash": "497769.6071434932000",
+        "net": "4109.2697038040400",
+        "positive_net": "36611.4922265881000",
+        "negative_net": "-32502.2225227840600",
+        "negative_layer_buy_cash": "322819.0476394775500",
+        "positive_layer_buy_cash": "174950.5595040156500",
+        "net_per_turnover_buy_cash": "0.008255364821057568676865845862",
+        "quantity_open_layers": 1,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "reentry_same_canonical_industry_attempt": {
+        "layers": 35,
+        "stocks": 33,
+        "buy_cash": "497769.6071434932000",
+        "net": "4109.2697038040400",
+        "positive_net": "36611.4922265881000",
+        "negative_net": "-32502.2225227840600",
+        "negative_layer_buy_cash": "322819.0476394775500",
+        "positive_layer_buy_cash": "174950.5595040156500",
+        "net_per_turnover_buy_cash": "0.008255364821057568676865845862",
+        "quantity_open_layers": 1,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      }
+    },
+    "repeat_mobile_price_protection_progress": {
+      "price_above_first=False|CP1_candidate_above_first=False": {
+        "layers": 10,
+        "stocks": 10,
+        "buy_cash": "134783.2640126248000",
+        "net": "-4885.8915272710500",
+        "positive_net": "1104.8613458510500",
+        "negative_net": "-5990.7528731221000",
+        "negative_layer_buy_cash": "108173.2722033960500",
+        "positive_layer_buy_cash": "26609.9918092287500",
+        "net_per_turnover_buy_cash": "-0.03624998669577701551999181690",
+        "quantity_open_layers": 0,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "price_above_first=False|CP1_candidate_above_first=True": {
+        "layers": 0,
+        "stocks": 0,
+        "buy_cash": "0",
+        "net": "0",
+        "positive_net": "0",
+        "negative_net": "0",
+        "negative_layer_buy_cash": "0",
+        "positive_layer_buy_cash": "0",
+        "net_per_turnover_buy_cash": null,
+        "quantity_open_layers": 0,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "price_above_first=True|CP1_candidate_above_first=False": {
+        "layers": 1,
+        "stocks": 1,
+        "buy_cash": "20600.6120941172000",
+        "net": "-2263.8139556792000",
+        "positive_net": "0",
+        "negative_net": "-2263.8139556792000",
+        "negative_layer_buy_cash": "20600.6120941172000",
+        "positive_layer_buy_cash": "0",
+        "net_per_turnover_buy_cash": "-0.1098906161300743348577492655",
+        "quantity_open_layers": 0,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      },
+      "price_above_first=True|CP1_candidate_above_first=True": {
+        "layers": 232,
+        "stocks": 139,
+        "buy_cash": "4932925.9485685954100",
+        "net": "521861.6747825560805221277169",
+        "positive_net": "797204.6071594160856470588235",
+        "negative_net": "-275342.9323768600051249311066",
+        "negative_layer_buy_cash": "3000471.3031990323420",
+        "positive_layer_buy_cash": "1932454.6453695630680",
+        "net_per_turnover_buy_cash": "0.1057915079657716188923036185",
+        "quantity_open_layers": 11,
+        "interpretation": "Net/buycash is descriptive turnover efficiency, not account return or causal avoidable loss"
+      }
+    },
+    "missing_id_counts": {
+      "cached_E0_epoch": 0,
+      "cached_I_epoch": 0,
+      "CP1_original_E0_episode": 304
+    },
+    "independent_CP1_ids": 867,
+    "actual_mobile_layers": 867,
+    "scope": "Grouping original cached states/receipt identities only; CP1 original_E0_episode uses original CP1 input e0_valid==cached i_target, distinct from raw facts e0_target; not recomputing numeric models or real-time gates"
+  }
+}

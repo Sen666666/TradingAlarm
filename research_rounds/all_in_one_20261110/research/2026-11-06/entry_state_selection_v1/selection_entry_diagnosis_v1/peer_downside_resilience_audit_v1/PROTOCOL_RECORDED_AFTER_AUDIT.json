@@ -1,0 +1,15 @@
+{
+  "status": "STOP; formula declared in parent message before inspection; this file saved after results",
+  "formula": "A=sum_{u=t-20..t-1,peer_u<0}(r_stock_u-r_peer_u); R=log(native_C_t/original_first_role_floor); Q=A/R",
+  "window": 20,
+  "no_current_signal_return": true,
+  "no_epsilon": true,
+  "no_clipping": true,
+  "missing": "unknown if any target or peer return missing in window",
+  "industry": "fixed future-selected original1709 roster; non-PIT; exclude own stock",
+  "paired_source": "existing frozen same-day matched pairs; not rematched using Q",
+  "account_runs": 0,
+  "new_candidate_reorders": 0,
+  "parameter_searches": 0,
+  "scope": "original selected first entries only; not counterfactual"
+}

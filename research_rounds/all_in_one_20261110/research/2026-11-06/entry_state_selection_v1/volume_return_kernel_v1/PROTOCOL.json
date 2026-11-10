@@ -1,0 +1,27 @@
+{
+  "status": "FIXED_BEFORE_NEW_FIT_ALREADY_SEEN_HISTORY_NOT_OOS",
+  "stock_estimation": true,
+  "industry_pooling": false,
+  "train_window": 504,
+  "min_samples": 252,
+  "ridge_pseudocount": 20,
+  "volume_proxy": "V=log(amount/median(previous21 amount)); NOT turnover or causal flow",
+  "y_main": "log(O[s+2]/O[s+1]), exact common trading dates, same source block",
+  "y_control": "log(C[s+1]/C[s])",
+  "freeze": "At original I start tau, only labels with maturity<tau; latest504 source rows strictly before tau. Main s+2<tau, control s+1<tau. Coefficients carried until next I start including non-I days; no historical e rewritten.",
+  "fit": "Training-only predictor centering/scaling. min sum((y-a-b*r-c*r*V)^2)+20*sum(standardized_predictor_coeff^2). Intercept unpenalized. AR-only same protocol is mechanism ablation.",
+  "kernel": "e_j=tanh((b_frozen+c_frozen*V_j)*r_j/s_j); nuisance intercept not used; E=sum original21 normalized .9^k e; score=50+50*tanh(2E). Each historical j uses its own then-frozen theta.",
+  "unknown": "Keep original queue slot, no new entry gate. Require all21 contributions and original PVR known; source invalid resets.",
+  "K": "min(20,N) same exact original legal empty MOBILE PVR account day, same candidate/permission/pending/holding state. Original_PVR baseline rank and unknown slots preserved.",
+  "horizons": [
+    5,
+    20,
+    60
+  ],
+  "major_periods": [
+    "2024-09-24..2024-10-31",
+    "2026-01-01..2026-03-31"
+  ],
+  "no_parameter_scan": true,
+  "no_accounts": true
+}

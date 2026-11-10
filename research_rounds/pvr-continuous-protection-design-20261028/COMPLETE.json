@@ -1,0 +1,20 @@
+{
+  "complete": true,
+  "scope": "design and literature only",
+  "local_sources_unchanged": true,
+  "old_frozen_overlap_exact": [
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-act-comparison-20261027/code/experiment.py",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/s-amount-confirmation-20261028/RULES.txt",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/ph1-cross-sector-20261028/code/phase_policy.py",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/intent-support-20261027/code/fast_kernel.py",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/strict-entry-fast-support-20261027/code/study.py"
+  ],
+  "new_backtests": 0,
+  "new_indicator_runs": 0,
+  "artifacts": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-continuous-protection-design-20261028/DESIGN.txt": "a8140ec2d24211938a097cfd48141e84372a678ba91f7ffa2a5e4d8b6174859d",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-continuous-protection-design-20261028/RECEIPT.json": "d866fa1f4f3765f60a42e225318a8c73a2d67ebbb2d610fe782b9b01736ce4e9",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-continuous-protection-design-20261028/REVIEW.txt": "19880dec4d0c4a890a55043d5e7d52e538a82f9f2770e76c57894a8497e98bfb",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-continuous-protection-design-20261028/SOURCES.txt": "d502c1690cbed120ee9995e1d2e20a65dacd9374b6daa2777f29b3dba1b78276"
+  }
+}

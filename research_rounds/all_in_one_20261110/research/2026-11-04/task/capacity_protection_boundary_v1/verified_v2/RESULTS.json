@@ -1,0 +1,13 @@
+{
+  "status": "PASS_FIXED_20_ORIGINAL_BOUNDARY_READONLY",
+  "seconds": 0.4256087918765843,
+  "cases": 20,
+  "firsthit_mark_gt_F": 20,
+  "firsthit_pending_stock_exit": 0,
+  "firsthit_breached": 0,
+  "sell_next_OPEN_after_request": 19,
+  "new_F_E_witness_runs": 0,
+  "new_accounts": 0,
+  "new_quotes": 0,
+  "old_firsthit_statistics_unchanged": true
+}

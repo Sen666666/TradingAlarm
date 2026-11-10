@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "account_events": 0,
+  "new_indicators": 0,
+  "known_risk_decomposition_complete_except_explicit_source_NAs": true,
+  "errors_preserved": [
+    "parse-error-v1",
+    "missing-source-observation-v2",
+    "ERROR_LAST_RESOLVED.json"
+  ],
+  "source_missing_not_forward_filled": true,
+  "financial_source_unchanged": true
+}

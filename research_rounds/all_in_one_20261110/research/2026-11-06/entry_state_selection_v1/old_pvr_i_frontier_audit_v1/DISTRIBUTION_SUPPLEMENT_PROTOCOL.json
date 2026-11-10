@@ -1,0 +1,28 @@
+{
+  "mode": "EXISTING_OLD_PVR_FILLED_ROUND_DESCRIPTIVE_ONLY_NOT_AB",
+  "management_end": "2026-05-15",
+  "windows": {
+    "2022_full": [
+      "2022-01-01",
+      "2022-12-31"
+    ],
+    "2024_full": [
+      "2024-01-01",
+      "2024-12-31"
+    ],
+    "2024_Sep_Dec": [
+      "2024-09-01",
+      "2024-12-31"
+    ]
+  },
+  "closed_only_for_outcome_metrics": true,
+  "mean_win": "Arithmetic mean of positive original round_pnl in CNY",
+  "mean_loss": "Arithmetic mean of negative original round_pnl in CNY; negative sign retained",
+  "payoff": "mean_win / abs(mean_loss), undefined without wins or losses",
+  "mean_net": "Arithmetic mean original round_pnl over all closed rounds",
+  "tail": "Original round_return_on_cumulative_cost >= 0.30; original cumulative buy gross plus fees denominator, includes all original layers; no new R denominator",
+  "empty_groups": "n=0 explicit; undefined means and sums remain null. For nonempty closed groups with no tail, tail_n=0 and tail_net=0.",
+  "quality": "Signal-source UNKNOWN, observed holding-facts gaps and financial certification are different axes. No CP today is an observed category, not UNKNOWN.",
+  "financial_contract": "Old proxy cash plus accrued dividends; every row remains NOT_NET80_CERTIFIED. No new financial validation.",
+  "original_artifacts": "Keep every prior artifact byte unchanged. New supplementary report is a footnote, not a replacement."
+}

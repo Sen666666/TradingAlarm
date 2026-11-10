@@ -1,0 +1,27 @@
+class Runner(BASE.Runner):
+    def __init__(self, *args, rank_mode='PVR_SLOT1', **kw):
+        assert rank_mode in ('H1', 'PVR_SLOT1') and SCORES is not None
+        super().__init__(*args, **kw)
+        self.rank_mode = rank_mode
+        self.integration_policy = POLICY+':'+rank_mode
+        self.rank_scores_manifest_sha256 = SCORES.manifest_sha256
+        self.rank_log = []
+        self.assert_native_wiring()
+
+    def assert_native_wiring(self):
+        assert self.integration_policy == POLICY+':'+self.rank_mode
+        assert SCORES is not None and self.rank_scores_manifest_sha256 == SCORES.manifest_sha256
+        assert self.opening.__func__ is J.Runner.opening
+        assert self.route.__func__ is BASE.Runner.route
+        assert self.planning.__func__ is Runner.planning
+        for a in self.accounts.values():
+            assert type(a) is J.Account and type(a.budget) is BASE.NoAccountBudget
+            for name in ('reserve_quantity', 'fill_buy', 'fill_exit', 'cancel_buy', 'split', 'sync', 'assert_budget_view'):
+                assert getattr(a, name).__func__ is getattr(J.Account, name)
+
+    def planning(self, at):
+        J.Runner.planning(self, at)
+        if self.rank_mode == 'H1': return
+        for a in self.accounts.values():
+            log = apply_priority(a, SCORES.at, str(at.date()))
+            self.rank_log.extend(dict(account=a.label, **r) for r in log)

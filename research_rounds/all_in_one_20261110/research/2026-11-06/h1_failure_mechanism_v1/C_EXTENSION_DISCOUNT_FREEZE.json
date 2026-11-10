@@ -1,0 +1,10 @@
+{
+  "candidate": "C_extension_discount",
+  "formula": "Z=max(0,(C_t-mean(C_(t-20)..C_(t-1)))/ATR_prior20); g=1/(1+Z^2); Cscore=H+g*(B-H)",
+  "ATR": "ATR_prior20=(1/20)*sum_{u=t-20}^{t-1} max(H_u-L_u,abs(H_u-C_(u-1)),abs(L_u-C_(u-1))). Current day excluded. Common-date clock; all21 required close and20 H/L observations finite, positive, coherent.",
+  "unknown_rule": "Unknown or nonpositive ATR disables new promotion and keeps H. Never replace missing ATR by epsilon.",
+  "constant_choice": "Unit ATR yields parameter-free attenuation beyond the frozen20 lookback. No threshold/window search; potentially very strong damping must be reported.",
+  "standing_H1_preservation": "Numeric score lower bound H; cross-stock ordinal can still move when others are promoted.",
+  "scope": "Same six dates and same mature252 i_buy candidates, same B and H frozen earlier. Exploration after named failures were already seen, explicitly not holdout or causal efficacy.",
+  "labels": "Same common-date horizon20 closes relative signal close; complete-path labels only, no backfill."
+}

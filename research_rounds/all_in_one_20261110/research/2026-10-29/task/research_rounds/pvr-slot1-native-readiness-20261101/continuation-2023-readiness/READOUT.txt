@@ -1,0 +1,10 @@
+2023数据/状态readiness已齐，尚未接线或运行账户。
+同1709身份/90行业、242日(1/3..12/29)；97身份无当年观察，保持N/A；source/payment/映射限制沿原。原canonical共20051=stock18781+industry1270，未重算I/E0/CP1/stage。
+原PVR完整暖机截至2023/12/29导出：413578格中ready377036、NA36542。与旧2022共413578格逐值exact，旧score文件/manifest字节保持；3个原物理/未来扰动前缀exact。准备45.42秒，source formula9328109b...ba8cb2，新增scores manifest4d764fb1c258110dd3d08c8e45c7e8aeabce88685b8f98b2a82577b25f8065bf。
+PVR自身12/30完整checkpoint/provenance/hash/账字段核同：NAV715009.34，available251181.30，inventory461834.20，分红应收1993.84；60只股票70层；ACT开、phase峰823220.34、episode1；201core锁、20588已消费receipt、record_only累计损耗483678.19。实际买/卖挂单0/0，未执行新意图79条全定于1/3 09:30。不可把尚未资金化意图当订单预留，也不可在接续时丢掉。
+继承持股没有全年无观察者，3只(002739/600373/603816)分别缺5/3/4个市场日；留原mark/信号缺行政策，不向前填当前强度。权益1365项原时点未知代理继续，不下载新资料。
+三个明确接线边界：①新score manifest变化会被原restore正确拒绝，需显式经审horizon输入身份导入，不关守卫/假回填；②旧episode_starts5425在扩展5906中逐项核同，须保留新增481项纯数据lookup，而非用旧checkpoint覆盖；③事件起点必须包含1/3开盘(及原midnight事件)，不是第一日收盘。经济/ACT/现金/层/订单/凭据/锁/损耗都不得重置。
+只读已完成：scores/old-prefix/state/schema检查。未做：新continuation类、实际horizon导入、1/3经济事件/物理prefix/restart、2023账户路径。现状态是可进入有界接线审查，不冒称可直接运行。
+下一问题与全母体资格→钱→保护→重入度量见CONTINUATION_CONTRACT_PROPOSAL.txt；原SC2023现账直接复用(年初667323.84与本臂不同，需报归一2023及原1m连续财富)。不加C1、不新年度筛选、不实际运行。
+
+12/30静态收盘资源：confirmed429066.20元，约等于60%×NAV429005.60；probe名义风险3775.46元，略高于0.5%×NAV3575.05。现金25.12万元不等confirmed可用容量；1/3实际开盘仍需原quote/资金/风险重验，此处不预测拒因或放大cap。

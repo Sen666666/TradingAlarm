@@ -1,0 +1,54 @@
+盈新1/27—2/8退出单、risk截零与实际授资：只读事实审计
+
+先回答恢复状态
+已实际读取并补齐上轮code_review静态源码包，以及盈新READOUT/全仓缺口、海能达READOUT。6项文件存在性和当前SHA见PRIOR_PACKAGE_RESTORATION_RECEIPT.json；上轮同名receipt在mobile_allocation_audit_v1/RESTORATION_RECEIPT.json。之前失败的写入没有被倒称成功，本次重新安全保存说明/静态摘录，未重跑原提取脚本、模型、指标或账户。
+
+事实1：退出请求与真正减股、回款是分开的
+1/27 15:10：原exit_request=exit:000620.SZ:600。先对Mobile113的5100股提出CP1_add_protection，再合并Mobile122至9800股；CORE68的100股未在目标中。
+1/28：原日历下一OPEN；未成交，收盘仍9900股并有pending_sell。原raw O=H=L=C=3.20、volume=13074300。
+2/7：原日历再下一OPEN；未成交；原raw O=H=L=C=2.88、volume=21473500。该日CLOSE原I_target才为0，目标合并为[68,113,122]共9900股，复用旧exit订单。
+2/8 09:30：fill:000620.SZ:638实际按同一exit:000620.SZ:600记录卖9900；raw OPEN2.77，代理价2.768615，gross27409.2885，费35.32235008995，净27373.96614991005，sale637同09:30结算。
+最终各层reason都是I，是2/7合并时覆盖reason，不代表CORE在1/27已经I退出。没有把累计目标5100和9800相加成14900。
+
+对应源码：J.planning225–240先I/ACT全层退出，再处理Mobile旧CP线；pilot.sell104–115为targets取并集、修改已有remaining_target，覆盖所选层reason。sector_account.request_exit570–583仅首次新建；fill_exit746–797在实际fill后减实物股数，pilot.fill_exit74–84再在目标逻辑层内分摊。
+FastMarket.window59在执行日H<=L且reject_flat_day时设sell=False，ledger._eligible_event666–675拒绝。故1/28、2/7两根已存flat日线构成原模型不卖的充分条件；没有逐attempt窗口对象/拒因日志，不声称唯一首因或真实交易所队列不能成交。positive volume也不能直接证明本账户排队可卖。
+最新原买入是1/25；按原lag1和日历可推到1/26已满足模型T+1年龄，非原物理lot快照认证。中间原日历无session不能当个股停牌证据。完整13日日历链、四收盘原字段、订单/成交原记录及缺失字段在order_chain目录。
+
+事实2：clip为0不等于仓位或现金清掉
+原resources106–117：capital=Σlive q*mark+Σopen/cancel_pending q*limit；risk=Σlive q*max(mark-floor,0)+Σpending q*max(limit-floor,0)；reserve=Σpending q*(limit+fee)。单位分别为元，q为股，price/floor为原价元/股。
+J.sync44–50把所有qty>0层放入lots，未因exit_pending或risk0删除。待退Mobile不再抬CP线（J235），但risk仍每次按当前mark和保留线重估，不是永久写入零；下个OPEN若回到线之上仍可再正。
+
+原CLOSE      总股数  全股mark     Mobile风险  CORE风险  Mobile当前pool
+1/27        9900    35145.00     0          约56      confirmed
+1/28        9900    31680.00     0          约21      confirmed
+2/7         9900    28512.00     0          0         confirmed
+
+Mobile为5100+4700=9800股，原保留保护线a4.296491617429432/raw约3.772437132553272；两层在这些价格下均按max被截0。全股未回收买入现金含费成本38110.41526363755，其中Mobile37804.2380515882。这里order_reserved=0，现金已在股票里，不是又冻结一笔同额待买现金。
+资本随股价跌而降低是估值下降，不是回款。对于这笔退出，实际卖出fill才减少其股数并形成净卖款结算，结算才把该卖款计入available；clip本身不改变股数或现金。全账户reserve/cancel/费用/分红等另可改变available，不能混成同一退出回款。若把保护距离risk当未能退出持股的预测损失，这个零不能代表未来损失为零；本轮不另造预测公式。
+
+事实3：本例未建立“clip为0让新单获资”的证据
+按pool筛选：probe层clip0会降低probe_R和本行业R；confirmed层不会直接降低probe_R，只影响本行业R约束。No60没有账户总风险3%准入或confirmed统一风险门。cash、当前mark资本与待买reserve不因clip本身释放。合法industry migrate另可改pool归属，不能与risk0混称。
+本案3个原CLOSE两Mobile均为confirmed；原journal无显式迁移事件，但日志不是逐次migrate调用记录，不声称所有瞬间均未迁移。
+地产URFI881153在1/27、1/28、2/7的市场action=observe，预算active=False/status=invalidated，残留level1且预算episode/attempt不变；残留level不等于活动授资权限，无新attempt记录。每个收盘21只地产原opportunity均roles=[]，本区间地产funding记录0，不能说63个机会都提交后被拒。
+退出前的后续OPEN只有1/28与2/7。19条原funding结果：15 industry_invalidated；1 probe_risk,sector_capital；1 sector_capital,sector_risk；2 reserved。1/28获资0笔；2/7两笔既reserved也有实际原代理buy fill：
+600113.SH，原行业URFI881158，CORE/probe，1600股，价6.983490，gross11173.584，费5.9910969008；现金11179.5750969008。
+000582.SZ，原行业URFI881148，CORE/probe，100股，价7.843920，gross784.392，费5.0695755704；现金789.4615755704。
+合计11969.0366724712。两行业来自原signal日opportunity.sector，不按名称猜。
+这些probe守卫读resources('probe')及各候选自身sector，盈新属于另一个sector的confirmed。代码依赖不支持“释放盈新confirmed风险即释放这两笔probe额度”。没有每次route前全仓状态，也未定义其它预测风险合同，不能推断换合同后它们会否获资或获利。
+2/8的原顺序是处理卖单/结算后再reserve，盈新已退出；当天6笔新买单列退出后，不能算作未卖risk0期间获益，更不能给它们逐笔归因于盈新卖款。
+全部19笔、完整214条日志、原流索引、两笔reserve/fill/entry-order及行业记录见funding_effect目录。
+
+收盘已知材料与缺口
+按原研究CLOSE口径，1/27该日raw O=H=L=C=3.55、volume28411900、amount100862245、原观测/价格/成交量质量标志为真；已有前一收盘3.94、当前持层/旧线/退出请求以及原CP/G1/I状态。它们可供以后人工定义预测问题；不需要也不能用1/28最终HLV提前证明次日不能卖。供应商实际历史收到时刻未认证，见下述时钟边界。
+1/28收盘才可加入该日3.20 flat；2/7收盘才可加入该日2.88 flat。其余原已完成日线、过去OPEN缺口/区间、原CP r/s/z/B/u/v/m、原持仓资本、现金、行业授权可作为已知输入。本轮只列存在的字段，不创建预测器/概率/压力阈值。
+原源码存在sellable_at、earliest_at、remaining_target等运行时字段，不等于本案每日快照已导出；T1_AND_MISSING_ORDER_FIELDS明确标NOT_SAVED。all pool/sector风险、pending fee及前排reserve的每单即时证书也未存，不能用日终汇总替代。
+实际配置1711个availability版本全部buy/sell=True，basis=explicit_research_proxy，proxy=A_availability_no_historical_ST_delisting_tag，不是历史官方停复牌/ST/退市标签。原源质量标志只说明数据观测，不认证可交易量。
+有效FastMarket断言conservative_hl_proxy，不使用基类external_columns的官方limit_up/down分支。历史逐日官方限制价、异常ST规则、公告收到时间、队列/盘口、开盘后累计成交量与本账户真实成交回执均未由当前路径建立。不能直接从缺bar判停牌，也不能拿执行日最终volume替代前收盘可预测容量。
+Date+15:05/原session09:30、决策15:10为研究时钟；供应商历史published_at/received_at未认证。原calendar为来源日期并集代理，非完整官方停复牌恢复。缺失不以未来行情或当前标签补造。
+源码/字段逐项表：code_review/READOUT.txt、CLOSE_KNOWN_FIELDS_AND_PROXY_GAPS.json、ACTUAL_RESTRICTION_CONFIG.json。
+
+未解决的问题
+1. 无每日内部ExitOrder和physical-lot快照，无法逐日打印真实earliest/delay/submitted/remaining_target序列；只能给请求目标、持续持股和实际成交链。
+2. 无每单审批前完整原prices/资源/费用证书，无法量化一个尚未定义的预测风险合同会改变多少授资、订单或收益。
+3. 官方历史限制/队列与真实可执行价量未恢复，原flat拒绝只是模型代理；不能认证真实无法卖出，亦不能推算改执行模型后的收益。
+本轮不新建策略、指标、Market/Account、回测或反事实金融路径；未更改原项目。

@@ -1,0 +1,257 @@
+ (https://www.hkex.com.hk/-/media/HKEX-Market/Services/Circulars-and-Notices/Participant-and-Members-Circulars/HKSCC/2025/HKSCC-Circular_Stock-Settlement-Fee-Restructure_20250220_f_clean.pdf)
+citeturn68view0 [wordlim: 200] Crawled: 3 days ago; Content type: application/pdf; Number of pages: 5; Source: click({"ref_id":"turn65view3","id":149}); Total lines: 167
+L0@P0: 香港中央結算有限公司
+L1@P0: (香港交易及結算所有限公司全資附屬公司)
+L2@P0: HONG KONG SECURITIES CLEARING COMPANY LIMITED
+L3@P0: (A wholly-owned subsidiary of Hong Kong Exchanges and Clearing Limited)
+L4@P0: 通告 CIRCULAR
+L5@P0: Subject: Change of Stock Settlement Fee Structure for Exchange Trades to Facilitate
+L6@P0: the Reduction of Minimum Spreads in the Hong Kong Securities Market
+L7@P0: Enquiry: CCASS Hotline: 2979 7111 / E-mail: clearingps@hkex.com.hk
+L8@P0: Reference is made to the SEHK circular (ref : CT/183/24) dated 17 December 2024 regarding the
+L9@P0: Consultation Conclusions on the Proposed Reduction of Minimum Spreads in the Hong Kong
+L10@P0: Securities Market.
+L11@P0: The structure of the existing stock settlement fee, specifically the minimum and maximum
+L12@P0: components, results in smaller trades being disproportionately more expensive than larger trades.
+L13@P0: To help facilitate a smooth implementation of the reduction of minimum spreads without increasing
+L14@P0: the cost to the market as a whole, the Hong Kong Securities Clearing Company Limited (“HKSCC”)
+L15@P0: is planning to change the Stock Settlement Fee structure for Exchange Trades
+L16@P0: 1
+L17@P0: to create a more
+L18@P0: equitable market where cost will be consistent across all trade sizes as follow:
+L19@P0: Existing Stock Settlement Fee Structure New Stock Settlement Fee Structure
+L20@P0: 0.0020% of gross value of an Exchange Trade,
+L21@P0: subject to a minimum fee of HK$2 and a
+L22@P0: maximum fee of HK$100 per side per trade
+L23@P0: 0.0042% of gross value of an Exchange Trade
+L24@P0: in the Eligible Currency of such Exchange
+L25@P0: Trade and removal of the minimum and
+L26@P0: maximum boundary per side
+L27@P0: An alternative rate 0.0020% of gross value of
+L28@P0: the eligible market making Exchange Trade2
+L29@P0: undertaken by Exchange Traded Product
+L30@P0: (“ETP”) Market Makers
+L31@P0: 3
+L32@P0: in the Eligible
+L33@P0: Currency of such Exchange Trade and removal
+L34@P0: 編號
+L35@P0: Ref. No.:PT/OES/HKSCC/008/2025
+L36@P0: 日期
+L37@P0-1: Date: 21/02/2025of the minimum and maximum boundary per
+L38@P1: side
+L39@P1: 0.0010% of gross value of a crossed Exchange
+L40@P1: Trade4, subject to a minimum fee of HK$1 and
+L41@P1: a maximum fee of HK$50 per side per trade
+L42@P1: 0.0021% of gross value of a crossed Exchange
+L43@P1: Trade in the Eligible Currency of such
+L44@P1: Exchange Trade and removal of the minimum
+L45@P1: and maximum boundary per side
+L46@P1: An alternative rate 0.0010% of gross value of
+L47@P1: the eligible market making crossed Exchange
+L48@P1: Trade2 undertaken by ETP Market Makers in
+L49@P1: the Eligible Currency of such Exchange Trade
+L50@P1: and removal of the minimum and maximum
+L51@P1: boundary per side
+L52@P1: 0.0020% of gross value of a Settlement
+L53@P1: Instruction (“SI”) transaction, subject to a
+L54@P1: minimum fee of HK$2 and a maximum fee of
+L55@P1: HK$100 per SI transaction
+L56@P1: Remain unchanged
+L57@P1: Important Note to Clearing Participants (“CPs”)
+L58@P1: The change in Stock Settlement Fee structure for Exchange Trades will come into effect in June
+L59@P1: 2025, subject to market readiness. The fee will continue to be collected through CCASS and CPs
+L60@P1: can refer to the Attachment for more details.
+L61@P1: CCASS Participants are advised to assess with their internal IT support units or system vendors
+L62@P1: whether changes need to be made to their internal systems to accommodate the changes in the
+L63@P1: Stock Settlement Fee structure.
+L64@P1: For any queries regarding the above information, please contact CCASS Hotline at 2979 7111 or
+L65@P1-2: email to clearingps@hkex.com.hk.Vicky Chan
+L66@P2: Head of Post Trade
+L67@P2: Operations Division
+L68@P2: This circular has been issued in the English language with a separate Chinese language translation. If there is any conflict in the circulars
+L69@P2: between the meaning of Chinese words or terms in the Chinese language version and English words in the English language version, the
+L70@P2: meaning of the English words shall prevail.
+L71@P2: 1 Under the definition of the HKSCC Operational Procedures, “Exchange Trade” means a trade in an Eligible Security (other than a
+L72@P2: China Connect Security) either reported to the Exchange by an Exchange Participant or effected on the Exchange.
+L73@P2: 2 Details will be published on ETP webpage when the change to the Stock Settlement Fee structure for Exchange Trades becomes
+L74@P2: effective.
+L75@P2: 3 ETP market maker are defined as either ‘Securities Market Maker’ (SMM) permit holder or registered ‘Designated Specialist’ (DS).
+L76@P2: 4
+L77@P2:  Under the definition of the HKSCC Operational Procedures, “Crossed Exchange Trade” means a trade where the buy and sell of an
+L78@P2-3: Exchange Trade is handled by the same Exchange Participant.香港中央結算有限公司
+L79@P3: (香港交易及結算所有限公司全資附屬公司)
+L80@P3: HONG KONG SECURITIES CLEARING COMPANY LIMITED
+L81@P3: (A wholly-owned subsidiary of Hong Kong Exchanges and Clearing Limited)
+L82@P3: 通告 CIRCULAR
+L83@P3: Attachment
+L84@P3: List of Money Ledger Transaction Code related to Stock Settlement Fee:
+L85@P3: Transaction
+L86@P3: code
+L87@P3: Existing
+L88@P3: Description
+L89@P3: New
+L90@P3: Description
+L91@P3: Changes under New Stock
+L92@P3: Settlement Fee Structure
+L93@P3: Exchange
+L94@P3: Trades
+L95@P3: 21 Billing - SEHK
+L96@P3: Trades Stock
+L97@P3: Settlement
+L98@P3: Remain
+L99@P3: unchanged
+L100@P3: 0.0042% of gross value of an
+L101@P3: Exchange Trade in the Eligible
+L102@P3: Currency of such Exchange
+L103@P3: Trade and removal of the
+L104@P3: minimum and maximum
+L105@P3: boundary per side
+L106@P3: 33 Billing - Options
+L107@P3: Trade Stock
+L108@P3: Settlement
+L109@P3: Remain
+L110@P3: unchanged
+L111@P3: 32 Billing - SEHK
+L112@P3: Cross Trades
+L113@P3: Stock Stm
+L114@P3: Remain
+L115@P3: unchanged
+L116@P3: 0.0021% of gross value of a
+L117@P3: crossed Exchange Trade in the
+L118@P3: Eligible Currency of such
+L119@P3: Exchange Trade and removal of
+L120@P3: the minimum and maximum
+L121@P3: boundary per side
+L122@P3: AM Billing – ETP Multi
+L123@P3: Asset Trades Stm
+L124@P3: Billing – ETP Auto
+L125@P3: MM Trades
+L126@P3: Settlement
+L127@P3: 0.0020% of gross value of the
+L128@P3: eligible market making
+L129@P3: Exchange Trade undertaken by
+L130@P3: Exchange Traded Product
+L131@P3: (“ETP”) Market Makers in the
+L132@P3: Eligible Currency of such
+L133@P3: Exchange Trade and removal of
+L134@P3: the minimum and maximum
+L135@P3: boundary per side
+L136@P3: AN Billing – ETP
+L137@P3: Equity Trades Stm
+L138@P3: Billing – ETP
+L139@P3: Manual Trades
+L140@P3: Settlement
+L141@P3: AO Billing – ETP
+L142@P3: Commodity
+L143@P3: Trades Stm
+L144@P3: Billing – ETP Auto
+L145@P3: MM Cross Trade
+L146@P3: Stm
+L147@P3: 0.0010% of gross value of the
+L148@P3: eligible market making crossed
+L149@P3-4: Exchange Trade undertaken by AP Billing – ETP L&I
+L150@P4: Product Trades
+L151@P4: Stm
+L152@P4: Billing – ETP
+L153@P4: Manual Cross
+L154@P4: Trade Stm
+L155@P4: ETP Market Makers in the
+L156@P4: Eligible Currency of such
+L157@P4: Exchange Trade and removal of
+L158@P4: the minimum and maximum
+L159@P4: boundary per side
+L160@P4: SI
+L161@P4: Transaction
+L162@P4: 25 Billing - SI Stock
+L163@P4: Settlement
+L164@P4: Remain
+L165@P4: unchanged
+L166@P4: Remain unchanged
+--------------------------------------------------------------------------------
+New SSF Structure Infosheet 30 Jun 2025 EN (https://www.hkex.com.hk/-/media/HKEX-Market/News/News-Release/2025/250221news/New-SSF-Structure-Infosheet-May-2025-EN.pdf)
+citeturn68view1 [wordlim: 200] Crawled: today; Content type: application/pdf; Number of pages: 2; Source: click({"ref_id":"turn65view3","id":150}); Total lines: 84
+L0@P0: 1
+L1@P0: Modernising HKEX’s securities market
+L2@P0: HKEX’s new Stock Settlement Fee structure for Exchange Trades adopts an updated
+L3@P0: basis point rate with no minimum or maximum thresholds, ensuring an equitable and
+L4@P0: deterministic fee.
+L5@P0: What is the Stock Settlement Fee?
+L6@P0: The fee is charged to participants of the Hong Kong Securities Clearing Company Limited for services relating to novation,
+L7@P0: settlement guarantee, risk management, and netting.
+L8@P0: What prompted the change?
+L9@P0: The fixed minimum and maximum components of the previous fee structure resulted in inconsistent costs, with higher
+L10@P0: cost for smaller value trades.
+L11@P0: Removing the minimum and maximum components creates a more equitable structure, where the fee is proportional to
+L12@P0: the total notional value traded.
+L13@P0: Fee rates
+L14@P0: Cost impact
+L15@P0: Minimum/
+L16@P0: maximum fees
+L17@P0: Previous fee structure
+L18@P0: 0.20 bps (0.0020%) with HK$2
+L19@P0: minimum and HK$100
+L20@P0: maximum fees
+L21@P0: Cost is higher for small trades
+L22@P0: HK$2 minimum and HK$100 maximum
+L23@P0: New fee structure
+L24@P0: Cost is consistent across all trade sizes
+L25@P0: No minimum or maximum fees
+L26@P0: 0.42 bps (0.0042%)
+L27@P0: for Exchange Trades
+L28@P0: 0.20 bps (0.0020%)
+L29@P0: for eligible market making
+L30@P0: trades for Exchange Traded
+L31@P0: Products (ETPs)
+L32@P0: New Stock Settlement Fee
+L33@P0: Structure for Exchange Trades
+L34@P0-1: Infosheet | June 2025How will this impact the overall cost of trading?
+L35@P1: The overall cost of trading will not change, but going forward the stock settlement cost will be more evenly distributed
+L36@P1: across all trade sizes.
+L37@P1: Average cost
+L38@P1: from 2019 to 20241 New fee rate bps 0.42 bps 0.42
+L39@P1: 1
+L40@P1:  Average e
+L41@P1: ective rate for all Exchange Trades, including those charged a minimum of HK$2, a maximum of HK$100, and a rate of 0.20 bps. Source: 2019-2024
+L42@P1:  HKEX trading data
+L43@P1: 2
+L44@P1:  Source: 2019-2024 HKEX trading data
+L45@P1: 3 Excluding eligible market making trades for ETPs
+L46@P1: DISCLAIMER:
+L47@P1: The information contained in this document is for general informational purposes only and does not constitute an o
+L48@P1: er, solicitation, invitation or
+L49@P1: recommendation to buy or sell any securities or other products or to provide any investment advice or service of any kind. This document is not directed at,
+L50@P1: and is not intended for distribution to or use by, any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or
+L51@P1: regulation or which would subject Hong Kong Exchanges and Clearing Limited, The Stock Exchange of Hong Kong Limited (“SEHK”) (together, the “Entities”,
+L52@P1: each an “Entity”), or any of their a
+L53@P1: liates, or any of the companies that they operate, to any registration requirement within such jurisdiction or country. No
+L54@P1: section or clause in this document may be regarded as creating any obligation on the part of any of the Entities. Rights and obligations with regard to the
+L55@P1: trading, clearing and settlement of any securities e
+L56@P1: ected on SEHK shall depend solely on the applicable rules of SEHK and the relevant clearing house, as
+L57@P1: well as the applicable laws, rules and regulations of Hong Kong. Although the information contained in this document is obtained or compiled from sources
+L58@P1: believed to be reliable, neither of the Entities guarantees the accuracy, validity, timeliness or completeness of the information or data for any particular
+L59@P1: purpose, and the Entities and the companies that they operate shall not accept any responsibility for, or be liable for, errors, omissions or other inaccuracies
+L60@P1: in the information or for the consequences thereof. The information set out in this document is provided on an “as is” and “as available” basis and may be
+L61@P1: amended or changed. It is not a substitute for professional advice which takes account of your specific circumstances and nothing in this document
+L62@P1: constitutes legal advice. Neither of the Entities shall be responsible or liable for any loss or damage, directly or indirectly, arising from the use of or reliance
+L63@P1: upon any information provided in this document.
+L64@P1: Since 2019, the average Stock Settlement Fee cost across all trades has been 0.42 bps. However, small trades paid more
+L65@P1: than the average, and large trades paid less than the average.
+L66@P1: Under the new structure, all Exchange Trades3 are charged the same rate of 0.42 bps, resulting in equitable costs across all
+L67@P1: trade sizes while still aligning with the historical average paid by the market. 77% of Exchange Trades made since 2019 would
+L68@P1: have seen reduced costs under the new structure.2
+L69@P1: To align the Stock Settlement Fee cost for ETP market makers with their historical Stock Settlement Fee cost of
+L70@P1: approximately 0.20 bps, which is lower than the market average, a separate provision of a 0.20 bps fee rate has been made for
+L71@P1: eligible ETP market making trades.
+L72@P1: HKEX is committed to the continual enhancement of our dynamic and liquid cash market. By restructuring the Stock
+L73@P1: Settlement Fee, we are taking another significant step to ensure a vibrant trading environment for all participants.
+L74@P1: For more information, please contact clearingps@hkex.com.hk
+L75@P1: Trades would cost more
+L76@P1: under the new structure 2
+L77@P1: 77%
+L78@P1: Trades would cost less
+L79@P1: under the new structure 2
+L80@P1: 23%
+L81@P1: Hong Kong Exchanges and Clearing Limited
+L82@P1: 8/F, Two Exchange Square, 8 Connaught Place, Central, Hong Kong
+L83@P1: info@hkex.com.hk (t) +852 2522 1122 I (f) +852 2295 3106 hkexgroup.com I hkex.com.hk
+

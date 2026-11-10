@@ -1,0 +1,12 @@
+{
+  "snapshot_only": true,
+  "result": "PREFIX_MISMATCH",
+  "usable_bounded_result": false,
+  "prefix_22_certified": false,
+  "raw_export_days": 20,
+  "raw_last_day": "2024-10-08",
+  "raw_orders": 612,
+  "certified_day": "2024-09-30",
+  "finished_at": "2026-11-10 04:01:21.054329+00:00",
+  "new_backtest_started": false
+}

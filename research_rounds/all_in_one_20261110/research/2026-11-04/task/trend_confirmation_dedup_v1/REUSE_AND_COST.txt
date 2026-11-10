@@ -1,0 +1,14 @@
+复用与成本：只读静态估计，尚未计算新指标
+
+输入可直接复用 /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json refs.facts及output_sha256。
+读者复用 risk_constraints/analyze_ma63_information.py::frame/snapshot 的完整原source_segment/CLOSE前缀、股票close/raw_close*factor一致性检查；不要import其main或运行会写旧目录的默认脚本。
+只需close/segment_id/raw_close/factor；MA/EMA/BB本假说不需要新OHLC/volume、高低价、canonical价量转换或新Stage，原volume机制仍在E0/I/CP1中。
+
+全部原1709股票身份必须保留；原complete/empty/unknown按manifest实际状态分别处理。不能只对已经买过的772/1205股计算，因为新尺寸会改变资金竞争并可能买入原未成交股。不可将22空域置0价格或确认True。
+native既有full-warm facts loader可在载入该股时一次计算少量A/B/known数组，留在内存按原decision CLOSE exact lookup；不是每个intent重新全前缀，也不需要另写全量宽feature面板。可只存紧凑布尔与来源/状态，原PVR/I数据不复制。
+
+预计原约4百万暖机股票观察的一次均线/EMA/滚动方差为线性成本、无新模型拟合；在已有本地pandas/numpy和已读facts的前提，纯计算预计秒到数十秒，连来源hash/读取保守预算2–5分钟。此为未实测估计，非承诺完成时间；若耗时主要新增loader/平台，即停止该扩建并复用原runtime reader。
+验证只需少量固定股票/源边界/缺值/等号/大跳/924截点的物理前缀和公式手算，之后才全域薄缓存。测试不镜像实现，而核真正易错项：inclusive窗口、fresh cross、EMA重启、原观察槽滞后、合法量不足、partial/retry一次倍率。
+新native映射预计只在原intent cap/budget形成后施加冻结m，原route/费用/原权益/排序保留；准确接线/运行时间应在成本额度首轮后由唯一native owner估计，本文不声称已完成。
+
+当前只完成排重/公式与复用卡。root已接受四消融，但未grant大特征导出或账户；成本额度首轮后再进入下一阶段。无脚本新增账户，无后台进程。

@@ -1,0 +1,31 @@
+{
+  "completed_at": "2026-10-31T11:50:51.377279+00:00",
+  "status": "complete_attention_main_rank_Top3_tradeoff_development_candidate_only",
+  "new_economic_paths": 1,
+  "two_existing_controls_reused": true,
+  "economic_seconds": 29.380116375163198,
+  "economic_budget_seconds": 60,
+  "prepare_off_seconds": 37.07654025033116,
+  "read_only_analysis_seconds": 3.1950917500071228,
+  "blockers": [],
+  "no_R21_K_attention_weight_or_member_filter_added": true,
+  "no_product_trading_or_external_service_changes": true,
+  "deliverables": {
+    "PROTOCOL.txt": "d06606b82eb383d14936be11a14c8c0f4f7b4a17c8888b2979b1a5eac4bc9ac9",
+    "attention.py": "afd49bdd9b50a786239e5894197c770cf1207f401d6184fc382a3210ec5ffe97",
+    "analyze.py": "93df808a3b573d0d6cb50a2e7ef639df30b8168e99f66fea21ba1f79927d46e6",
+    "GATE.json": "5f92afa4a5e3c434efd37777be33bc9198a7222cc48e97a5da91ebaa80f571ab",
+    "POST_IDENTITY.json": "bca41db9ee2d9c4283c2740eb8c4c5b388fe4b52872dd8525ff036b76b701f23",
+    "FINAL_REPORT.txt": "c1a85bcb2e642c701a27b02748647bdea1f692ddc39947925bcb337771045d2c",
+    "analysis/SUMMARY_3.csv": "42316f8e699b583a6961e544c92393dca799ecf53f87956fd6e27426b253db17",
+    "analysis/ORIGIN_CONTRIBUTIONS_3.csv": "2f7a90ab056230564bb4d0557229a29301122e3817837bbef415e25972700d21",
+    "analysis/TARGET_GAPS.json": "7d8770e00d8a1201b8fff530d10247f4d251f266dca5ff14bfbb570073669530",
+    "analysis/TARGET_MEMBER_COVERAGE.csv": "4eb8ec3a6144579878428d2c0d709377fa548cefd9f5c4b4347e680c86b1f342",
+    "analysis/R21_NEW_CYCLE_SPLIT.csv": "5b9f1a112f9baf5dde6e666cd863778289a69a122dd4bfae1ed0712a5bcf8abd",
+    "analysis/SMALL_INDUSTRY_ACTUAL_CYCLES.json": "065e0976d2d1f1de14069a379db9b31deadba8181b4804e4e62c67b3ce3f7549",
+    "analysis/WEEKLY_ENTRY_FUNDING.csv": "43777f64e9abeb2bffa60fc2aa2cdfd3ddad1a8fb917f07c140a619faf193ffb",
+    "analysis/FUNDING_FUNNEL.json": "8711c217e4cd2428077a3546cacf9c46ae9df3e23b52f8cf4605c1407df75133",
+    "analysis/DATA_QUALITY.json": "e03e341f151a6cf151ece5c505800186213554f79d5b709b18af0d7a45feedd6",
+    "analysis/VERIFICATION.json": "9154da21db8999bbc290bd42059f18abcd06191475f551922d1919e4b98777bb"
+  }
+}

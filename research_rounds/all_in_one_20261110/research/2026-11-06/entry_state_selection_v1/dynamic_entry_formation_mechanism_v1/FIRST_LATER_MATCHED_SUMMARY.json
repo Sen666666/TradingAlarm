@@ -1,0 +1,18 @@
+{
+  "signal_day": {
+    "groups": 124,
+    "date_or_sector_date_equal_win_diff": 0.0537825970769811,
+    "equal_mean_net_diff_cny": 211.84314419130885,
+    "first_count": 1499,
+    "later_count": 637,
+    "not_causal_or_predictive_test": true
+  },
+  "signal_day|sector": {
+    "groups": 191,
+    "date_or_sector_date_equal_win_diff": 0.06282722513089005,
+    "equal_mean_net_diff_cny": 170.88522671754887,
+    "first_count": 191,
+    "later_count": 191,
+    "not_causal_or_predictive_test": true
+  }
+}

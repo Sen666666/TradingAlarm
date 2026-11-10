@@ -1,0 +1,8 @@
+{
+  "domain": "Frozen economic_2022 and economic_2024 joint/RANKING_AUDIT.csv: all feasible original-state options after FLAT, same-stock legal AB precedence, industry facts and close sizing. This is conditional on the original state trajectory, not an unconstrained or counterfactual dynamic queue.",
+  "consumer": "Lock every AB original numeric slot. In each window/day/sector, sort only PRICE rows with finite d and original PVR_known and finite PVR_score by (-d,-PVR_score,sid), assign to their original PRICE numeric slots. All unknown rows retain exact original numeric slot. Select rank<=2. No positivity gate.",
+  "formula": "Wilder competitive DM, n=14, first14 changes SMA then RMA(1/14), d=(A-B)/(A+B); strict zero denominator is 0. Full common-date prefix from2013 through2026-05-15. Missing/invalid/source segment resets. No ADX use.",
+  "scope": "One frozen static priority consumer only. No economic engine imports, no new holdings/returns/fees, no parameter search. Old returns may be joined only after features and picks are sealed, as case descriptors, never projected into new PnL.",
+  "early": "Original AB identities and quotas fixed; no early d or ADX entry gate. Check changed PRICE early identities rather than claiming that absence of a gate guarantees preservation. 2026 has no reconstructed joint dynamic queue and remains market-only.",
+  "history": "Previously seen development data and named examples; not a blinded or out-of-sample validation."
+}

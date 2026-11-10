@@ -1,0 +1,43 @@
+原实际执行请求时钟薄补（2026-11-04）
+
+本补充未改原LAYERS、close峰、最大浮盈或MFE字段，只增加可按layer连接
+的REQUEST_CLOCK_JOIN。primary取原实际sell audit fill.order_id对应的
+exit_request.event_id创建时钟；早先pilot同理由请求从未被强配为primary。
+
+entry→primary request：只数原实际买入后、截至该request时真实仍持的
+原native CLOSE，包含request当日CLOSE（若时点相同）。同时保留request
+日期和market-date index步数，避免“当天1次持有观察”和“经历1天”混用。
+
+request→fill：原market-date index(fill)−index(request)。正常下一原
+session09:30 OPEN为1步、0个中间CLOSE。自然日/小时另列，周末与长假
+不当作额外交易观察。全部闭合层request均晚于本层entry、早于实卖。
+
+母体                   已平数  下一原session OPEN  延后层数及session步数
+2022—23                  1557                 1548   9层：6个2步、3个3步
+post303                    303                  301   2层：均2步
+三年全2265                2265                 2251  14层：11个2步、3个3步
+strong已平                1097                 1089   8层：7个2步、1个6步
+strong仍持                  74                   —   无actual executed request，保持未知
+
+按first/add/reentry的entry→actualrequest已持CLOSE中位：
+两年13/7/12，post6/4/8，strong已平13/6/12。strong全持有母体包括74未平
+时的中位是13/6/14，与已执行退出请求的条件母体不同，不能混写。
+
+延后组原全生命周期净贡献（不是等待造成的损失）：
+两年9层−6,298.76（正6,426.35/负−12,725.10）；post2层−4,099.95；
+strong8层+5,419.82（正12,837.11/负−7,417.30）。相应正常nextOPEN组
+两年净−248,274.29，post−108,357.65，strong已平+408,057.87。
+原主要亏损多数在正常下一OPEN执行的路径，并非大量request后长期等待。
+
+这些是原执行记录的关联分解，不认证每个OPEN合法可成交，也没识别
+22个延后层的具体原因。容量/限价/停牌/结算等待须读原逐订单状态，
+不能仅凭session延后就归因容量，不能把这些层原终生损益当等待损失。
+三年14层、strong8层全部原峰和parts/请求附在DELAYED_EXITS中供定位。
+
+REQUEST_CLOCK_VALIDATION核原actual order身份、所有entry→request观察
+确有native持仓。原close_peak仍可负，无观察本应未知；非负MFE仍只是
+另列max(0,峰)的次字段，不替换主峰或赋一个虚构日期。
+
+新增文件：*_REQUEST_CLOCK_JOIN.json、REQUEST_CLOCK_SUMMARY.json、
+REQUEST_CLOCK_VALIDATION.json、DELAYED_EXITS.json、EXIT_TIMING_MONEY.json。
+没有新模型、账户、事件或原数据改写。

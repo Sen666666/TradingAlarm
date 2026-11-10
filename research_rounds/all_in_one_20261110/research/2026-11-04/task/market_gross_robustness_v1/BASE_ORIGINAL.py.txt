@@ -1,0 +1,53 @@
+def window(self, sid, at, side, cost_multiplier):
+    market = self.lines[sid].market
+    if at not in self.sessions[market]:
+        return None
+    try:
+        self.source_available(sid, at)
+    except RuleUnavailable as exc:
+        self.notice(dict(at=at, sid=sid, side=side, reason=str(exc)))
+        return None
+    frame = self.raw.get(sid)
+    date = pd.Timestamp(at.astimezone(TZ).date())
+    if frame is None or date not in frame.index:
+        return None
+    row = frame.loc[date]
+    if not bool(row.valid_price) or not pd.notna(row.volume) or row.volume <= 0:
+        return None
+    prior = frame.loc[frame.index < date, 'volume'].dropna()
+    prior = prior[prior > 0].tail(20)
+    if len(prior) < 20:
+        return None
+    try:
+        market_identity_on(self.rules, sid, at.astimezone(TZ).date(),
+                           self.protocol['approved_proxy_ids'])
+        availability = self._version('availability_versions', sid, at)
+        buy, sell = availability.get('buy_allowed'), availability.get('sell_allowed')
+        policy = self.protocol['daily_execution'][market]
+        guard = policy['price_limit_policy']
+        if guard == 'external_columns':
+            if pd.isna(row.get('limit_up')) or pd.isna(row.get('limit_down')):
+                buy = sell = None
+            else:
+                buy = bool(buy and row.open < row.limit_up)
+                sell = bool(sell and row.open > row.limit_down)
+        elif guard not in ('no_price_limits', 'conservative_hl_proxy'):
+            raise ValueError('Unknown frozen price-limit policy')
+        if policy['reject_flat_day'] and row.high <= row.low:
+            buy = sell = False
+        capacity = int(min(prior.mean()*float(self.protocol['participation_rate']), row.volume))
+        slip = dec(policy['slippage_bps'])/10000
+        if cost_multiplier == 2 and policy['stress_slippage']:
+            slip *= 2
+        price = dec(row.open)*(1+slip if side == 'buy' else 1-slip)
+        return FillWindow(f'{sid}:{at.isoformat()}:{side}', sid, at, dec(row.open), price,
+            self.rate(self.currency(sid), at), self.quantity(sid, at), self.fees(sid, at),
+            capacity, True, buy, sell,
+            self.lag(market, at, self.protocol['sellable_lag_sessions'][market]),
+            self.lag(market, at, self.protocol['settlement_lag_sessions'][market]),
+            self.bundle.series[sid].record['raw']['sha256'],
+            'explicit_daily_bar_proxy_past20_capacity_same_day_hlv_postcheck',
+            self.rules.get('security_metadata', {}).get(sid, {}).get('par_value'))
+    except RuleUnavailable as exc:
+        self.notice(dict(at=at, sid=sid, side=side, reason=str(exc)))
+        return None

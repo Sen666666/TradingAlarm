@@ -1,0 +1,200 @@
+{
+  "created_utc": "2026-10-20T04:11:00.224761+00:00",
+  "hypothesis": "Only after a structural exit whose detector STILL points up after old event processing, reset detector to downward search with current price as initial trough. All other formulas/parameters unchanged. Prevent inherited up-leg state from blocking new upward evidence.",
+  "formula": {
+    "observations": "positive finite price and actual volume only, causal valid-observation clock",
+    "scale": "past63 log-return RMS excluding current, floor1e-8; prior21 volume median at each extreme",
+    "event": "start downward tracking from first warmed observation. A new extreme resets extreme date and anchored scale. Opposite excursion d*clip(sqrt(mean(volume AFTER extreme through now)/prior21median AT extreme),.5,2) >=sqrt5*sigma_at_extreme confirms pivot. Flat observations do not reset extreme. After confirmation direction changes, new extreme=current. Events timestamp confirmation date; pivot_age gives valid-observation distance to actual pivot.",
+    "structure": "upward confirmation creates state at confirmed low pivot if flat. Active state updates floor=max(old_floor,new_confirmed_low). Downward confirmation does not itself remove state. Current close <= existing floor invalidates before event processing; cannot reenter same observation. State independent of accounts. No volatility buffer added to pivot floor.",
+    "trade": "target follows market state; first valid state0; invalid rows retain target without events; next-tradable execution; no reentry until another upward-confirmation event",
+    "volume": "high activity makes either upward or downward excursion easier to confirm; low activity harder, factor bounded .5..2. Heuristic participation hypothesis, not causal proof or calibrated likelihood.",
+    "price_control": "factor=1, same valid clock",
+    "event_exit_control": "Not rerun. legacy_target is original structure model, recomputed with reset_on_exit=False.",
+    "reset": "After existing exit and event processing, if exited and leg_direction==+1 then set direction=-1, extreme=current; no same-day entry. Market-state reset, not execution-fill reset."
+  },
+  "difference": "Single post-exit state reset; no threshold, volume or budget changes. reset_on_exit=False must reproduce every saved original numerical column. Eight accounts, reusing original-account controls.",
+  "scope": "27 trajectories,15fixedcases,7synthetics,8accounts conditional on review",
+  "source": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results",
+  "cases": [
+    {
+      "id": "S1",
+      "intent": "slow advance",
+      "symbol": "USHJ518880",
+      "group": "etf17",
+      "start": "2025-01-01",
+      "end": "2026-03-31",
+      "checkpoint": "2025-09-01"
+    },
+    {
+      "id": "S2",
+      "intent": "slow advance hypothesis",
+      "symbol": "HK00002",
+      "group": "hk7",
+      "start": "2024-01-01",
+      "end": "2025-03-31",
+      "checkpoint": "2024-07-01"
+    },
+    {
+      "id": "F1",
+      "intent": "fast start",
+      "symbol": "USHJ512480",
+      "group": "etf17",
+      "start": "2024-08-01",
+      "end": "2024-12-31",
+      "checkpoint": "2024-09-30"
+    },
+    {
+      "id": "F2",
+      "intent": "fast start",
+      "symbol": "HK09618",
+      "group": "hk7",
+      "start": "2024-08-01",
+      "end": "2024-12-31",
+      "checkpoint": "2024-09-30"
+    },
+    {
+      "id": "R1",
+      "intent": "consolidation recovery hypothesis",
+      "symbol": "HK00700",
+      "group": "hk7",
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "checkpoint": "2025-05-01"
+    },
+    {
+      "id": "R2",
+      "intent": "consolidation recovery hypothesis",
+      "symbol": "USHJ518880",
+      "group": "etf17",
+      "start": "2024-01-01",
+      "end": "2024-12-31",
+      "checkpoint": "2024-06-03"
+    },
+    {
+      "id": "B1",
+      "intent": "breakdown",
+      "symbol": "USHJ512480",
+      "group": "etf17",
+      "start": "2026-04-01",
+      "end": "2026-10-16",
+      "checkpoint": "2026-07-01"
+    },
+    {
+      "id": "B2",
+      "intent": "breakdown",
+      "symbol": "HK03033",
+      "group": "etf17",
+      "start": "2022-01-01",
+      "end": "2022-12-31",
+      "checkpoint": "2022-04-01"
+    },
+    {
+      "id": "C1",
+      "intent": "range hypothesis",
+      "symbol": "USHJ510300",
+      "group": "etf17",
+      "start": "2023-01-01",
+      "end": "2023-12-31",
+      "checkpoint": "2023-07-03"
+    },
+    {
+      "id": "C2",
+      "intent": "range hypothesis",
+      "symbol": "HK00101",
+      "group": "hk7",
+      "start": "2023-01-01",
+      "end": "2023-12-31",
+      "checkpoint": "2023-07-03"
+    },
+    {
+      "id": "W1",
+      "intent": "weak market rebound",
+      "symbol": "HK03033",
+      "group": "etf17",
+      "start": "2023-01-01",
+      "end": "2023-12-31",
+      "checkpoint": "2023-07-03"
+    },
+    {
+      "id": "W2",
+      "intent": "weak market rebound",
+      "symbol": "HK03690",
+      "group": "hk7",
+      "start": "2022-03-01",
+      "end": "2022-12-31",
+      "checkpoint": "2022-07-01"
+    },
+    {
+      "id": "S3",
+      "symbol": "600919.SH",
+      "start": "2024-01-01",
+      "end": "2024-12-31"
+    },
+    {
+      "id": "C3",
+      "symbol": "600059.SH",
+      "start": "2024-01-01",
+      "end": "2024-12-31"
+    },
+    {
+      "id": "C5",
+      "symbol": "600917.SH",
+      "start": "2024-01-01",
+      "end": "2024-12-31"
+    }
+  ],
+  "code": {
+    "run_event_structure.py": "b5eacd1ef8ac83fff0489da80356fcbb415bfd9e3e492df3248b713483a9a3d7",
+    "trend_event_structure.py": "6a653497126f05884ab1acb28cc50a1ed8d293858a5845ead46438c215609500"
+  },
+  "inputs": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/HK09618-signals.csv": "aa0b87e57b944d5c8af8dbab6a24691894cd8ab2d8aee7603fd27666270ca0a9",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/USHJ515030-signals.csv": "5834ecfe2fcab1e018d0285de34892f12d327eb820301dd391c527c2ce108300",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/USHJ512980-signals.csv": "77db250b04bb5bd2d442028ffe97873570b912359f096ff4745d61e1d1a34be4",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/HK00883-signals.csv": "49dadb76e0511b705e1b6f13870c8455c5fa2fae34e81a3f5eb98869dc1b5d03",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/USHJ512660-signals.csv": "9a2634c8fd9aade07d6b2cdf2d06159fc8887104add246e45d0ddb2174c63f1b",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/HK00101-signals.csv": "28435e33f94cd46fe99d066d6d1034fecaf9ebb2b8db44e92d69e810980c1836",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/HK03690-signals.csv": "7afaef3bd02ad6cc9632cacc003af4f12ea4733436c738fed1c8e79d3276ceb2",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/HK02845-signals.csv": "76fa282e4a51894ee97dcffcbaded7d736f538e786ebc336e55c915618373e77",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/HK00700-signals.csv": "5727f527474bb735a21edd3fbce5428e434a86d97d675e798c05ea07b1dffdf0",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/HK02820-signals.csv": "dfb12106e3b32db547ac2c97ea4bd06ea50985d0a52edc5c66e4ad4be1c3feed",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/HK00005-signals.csv": "03982df8fcb862269b6eba806a5c6426d5e1f6bfa6f667b9c4fb1f238bf0c5a0",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/USHJ512480-signals.csv": "a6e472553926e7af13973ecad4204fd649a0c324afa3b06c3c9241ccee318301",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/USHJ512800-signals.csv": "39bce751e25c995ad09103d7fc038580ab4f0001582063cca0bbdaf709122e8b",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/600917.SH-signals.csv": "f34a33a3b2e95b5926621e71e5404e08544318e4088f2e296556eb0f8990157a",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/USHJ518880-signals.csv": "d739e165ece137f7b0f14c786cf85a85e8e970980bb6d79124cf6223ec8cc5c4",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/USHJ510300-signals.csv": "e66d9cbfea510436792ec3f92d3e9380f0fa72f2cfb4b07ae647b800b499c20d",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/HK03033-signals.csv": "289ce858006bf90b4e58a075a208397d42aaf89378145e561ce5e1b57720df7f",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/600919.SH-signals.csv": "5acd4e4421b8772e659f5a4d50ed440c7ae369234dde8c373c6d611dacbc6027",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/HK00002-signals.csv": "4f91c2cfccfcfd58da06f6ea7fad918fcd46ca5d882d9d8de4a6f0d433abb26c",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/USHJ512690-signals.csv": "0f61581bb05e180fa64879bfc6307e33d94e7eeea508ca8bb46ba045f23973dc",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/USHJ511010-signals.csv": "f18d373bccc2d85687977f27e97cba4429633daa16771fcb1d3b4d92098bc2d7",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/600059.SH-signals.csv": "88077ec4d8b600e7bc9c6b7343af07f0280ad9e59632b3ae24c6e2cff1271451",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/HK02800-signals.csv": "599b47d18939b7d86d8151b0c346ed1e8d1be6057d81f596e625b6a9a6bb4391",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/USHJ512400-signals.csv": "f7951961a8d979170e81cc7fe002b4aed150da4064ee9a0b8c5ff40b48435660",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/USHJ515220-signals.csv": "3241ed2fda8a1fd28090b2f2f97dc30ac730e8b20c2c16644f0870864ebdcee6",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/USHJ512010-signals.csv": "0876fa1e4d6199aad7829a2c9d7f3724e24d9794fc04effb36bc640fa7a4e6e5",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-event-structure-20261020/results/HK03110-signals.csv": "00d22dea2e6943cb542f54cbb3fb8d9175c7a8e08a955c02fc0653c5bfe50add"
+  },
+  "risks": [
+    "Old pivot floor can be stale; no new confirmed pullback may allow large giveback",
+    "Frequent small pivots can tighten floor and cause churn",
+    "Volume spikes may confirm transitory excursions early",
+    "Same prefixes cannot distinguish recovery/reversal futures",
+    "Market state can remain active on flat prices; no account return proof from held duration"
+  ],
+  "accounts": {
+    "period": [
+      "2022-01-01",
+      "2026-10-16"
+    ],
+    "initial": 1000000,
+    "entry_budget": "0.9/N, no daily rebalance",
+    "cases": "PV base/cost2/delay1 + price base, by ETF17/HK7 =8; saved original controls",
+    "fees": "15bps+FX10;cost2 doubles; existing repaired engine",
+    "tail": "closed net>=30%; ordinary all remaining closed; open/claims separate"
+  },
+  "stopping": "Review fixed15 cases, paired signals and mechanical checks; then original PV3+price1 by2 markets accounts if interpretable. No further parameters or filters.",
+  "history": "All data previously viewed development data",
+  "diagnostic": "Before new outputs: classify all original871 exits and subgroup36 up-detector exits using next5/21/63 signal-close log changes and min/max, missing future explicit; retrospective diagnostics NOT tradable PNL. Same universe, no selecting winners."
+}

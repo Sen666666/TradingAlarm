@@ -1,0 +1,24 @@
+本轮为现有2026静态池条件下的全部原CP信号母体审计，不是历史全市场样本。
+0账户、0模型重算、0新特征、0MFE/MAE/final20标签。本轮顺读原文件约57.7秒；源SHA与日期覆盖核验另耗约19秒。
+
+母体分母：1709只静态股票，1687只complete；22只原CP/facts为空且原raw首日均在2026-07后。期间有原CP的1664只；另23只complete但期间没有CP receipt。没有仅挑已买股票或盈利股票。
+时间窗2022-01-01—2026-06-30，原CP flag=true且ready共99031条，sid/date唯一。
+2022：16932条，1503股；2023：18781条，1589股；2024：25251条，1624股；2025：24971条，1641股；2026H1：13096条，1648股。
+开发2022—23共35713条；验证2024—2026H1共63318条。月度计数见COUNTS_BY_MONTH.csv。
+
+事件索引：CP_EVENT_INDEX_2022_2026H1.csv（34.84MB）。source_ref_id=sid关联SOURCE_REFS.csv，取原CP/facts/raw/manifest路径与原摘要；canonical_receipt_source_ref直接指原JSON。
+canonical ID：2022/2023/2024各年原保存出口，加2025-07起原refs.receipts。2025H1的9507条未在这些已查原出口保存ID，仍保留CP行及明确状态NOT_SAVED_IN_CHECKED_RECEIPT_EXPORTS，没有新造ID或丢弃该半年。其余89524条有原存ID。
+全部1709×3年的canonical原始输出映射与现行STOCK_MANIFEST精确相等，共5127绑定；全部CP/facts/raw各1709个物理文件SHA核平，共5127文件，无摘要不符。
+最初1197条路径告警只是筛选器误把CP限制在/CP1/目录，漏掉外部/signals/复用；按明确refs.CP1键核后为0错误。旧诊断保留，未改变任何CP flag或ID。
+
+价格与标签可得性（只盘点，不定义最终标签）：
+99031个信号当天的原facts close/raw_close、原raw open、eligible observed price和positive volume均存在；CP/facts索引全1709只相同。
+facts有效close尾不足20个后续观察共1177条（2026-05为2、2026-06为1175）；原raw价格延至2026-10-22（1只为10/20），全部事件能找到20个后续有效/正量raw观察。但原raw尾不是理论除权连续坐标，不能无说明拼接为复权标签。后续标签线程另按已冻结的原prepared连续价格源处理，不属于本轮计算。
+原raw在已存行范围内有效不等于没有缺日：固定沪深300参考日期、各股原raw首日后至2026H1，有256股合计2046个参考日缺eligible raw。689个CP事件在后20个共同参考交易日内至少缺1日；但更后日期仍可凑齐20个个股有效观察。不能将两种时钟混用或缺日填零/前填。
+字段open/volume/amount/price_eligible/observed_bar/source_invalid/synthetic_event_bar/quality_status在1709份原raw均存在；suspend_status/is_suspended/is_trading/limit_up/limit_down均不存在。缺行原因不能区分真实停牌与源缺，重复价格不能直接推断stale；有日线报价也不证明T+1、限价排队、流动性或实际下单成交。
+
+PIT与样本外边界：
+原bundle scope_date=2026-10-22，research_basis=current_pool_historical_development；股票与行业映射固定为2026快照。母体遗漏当年存在、后来不在该池的股票，行业归属亦未核PIT。因此只能叫“2026静态池内的条件性全原CP”；年份验证不是去除了存活/选择偏差的历史全市场验证，也不是未见过数据的真实样本外。
+没有按未来表现筛选信号、重构历史行业指数或使用未来行业成员。
+
+主要文件：SUMMARY.json；COUNTS_BY_YEAR.csv；COUNTS_BY_MONTH.csv；CP_EVENT_INDEX_2022_2026H1.csv；SOURCE_REFS.csv；STOCK_PRICE_COVERAGE.csv；REFERENCE_CALENDAR_DATE_COVERAGE.csv；CP_FUTURE_RAW_CALENDAR_AVAILABILITY.csv；CANONICAL_ORIGINAL_SOURCE_BINDINGS.json；ACTUAL_CP_FACTS_RAW_SOURCE_SHA256.json；READ_SOURCE_SHA256.json。

@@ -1,0 +1,39 @@
+C10 / C_BATCH20：最小原生接线与验收范围（仅计划，未运行账户）
+
+仅两个研究档，共用同一信号、provider、原生Decimal账本、费用/结算/日线窗口和调度，唯一档位差为C_BATCH20机会性D的整批20%计划毛市值约束。C10股10%目标及行业H1→业内PVR不变，不新造排序/额度/行业推进门，不叠C2、C1、R1、D1或cost压力。
+
+关键一：账户级budget持续存在，跨批显式绑定新snapshot
+现有c_batch20.solve_C20的guard将book.source_binding绑定单个snapshot digest，new_book仅适合已审静态分支。连续runner绝不能每close调用new_book(s)，也不能删guard或随手把source_binding改成新SHA。
+需要一个薄的账户预算envelope：固定account/mode/kernel身份；保存当前实际snapshot身份、batch状态、全部未完成计划/原生责任、已批未提交D、原批准数量/用途/deadline、carry/New、观察ID和来源。C10同样记录计划/责任但不受20%审批门，不可让硬20的approve拦C10。
+显式advance_snapshot必须核：旧绑定/原cursor→新cursor、其间原生成交/取消ACK/行动/支付事件链、原始层/订单股数责任守恒、实际provider当前commitments；成功才产生有证据的old→new绑定并进入下一batch。旧批New不补满，下一批只将真实残余责任按已知mark重估carry，所有历史/观察去重表保留。
+订单创建快照和当前执行快照分别留存；老订单回调先核其原native/order/receipt身份，再按当前已核snapshot送入预算观察器。重复原事件不再执行，改payload拒绝。缺事件/库存/mark/未知零股则停，不以空book清carry。checkpoint同时绑定实际module/class/函数来源+SHA、mode、输入manifest和原cursor；恢复必须与实际native责任核同。
+
+关键二：一套provider、证书和原生层/订单/回调唯一映射
+先补真实只读provider：总/可用/本金预留/费预留现金、应收/应付/分红、全部core/mobile与pool、指定层lot映射/实际floor/因子、T+1可卖量、所有buy/sell/cancel_pending、退出风险锁、已批未提交/覆盖资产、canonical与原source时钟。读原balance/journal，不以NAV残差充对账，不把预计卖款变现钱。
+JF2.verify_certificate当前直接调用旧solve(s,ds)重算A供资，因此不能给C结果改标签或仅去掉analysis_only。需隔离的策略验证dispatch：只认冻结C10/C_BATCH20算法与完整可信provider输入，重算并核(Q,D)/来源/receipt/clock/原预算依赖。复用原CertificateBook的数量守恒、一次凭据、原native订单/FillReceipt/撤ACK与外部实际commitments核验；固定源JF2不改。旧A的现金only供资/超额检测不能暗中否决C为真实risk/行业资本所需的合法D，但资金覆盖仍独占、不得双筹。
+同股一份聚合买单、每证书一个剩余Q上限；固定role/pool/use/priority，原生submit只能重验/缩量/取消，不在opening重跑全route换池或放大Q。G/S扩张mobile优先，T保留原core优先；成功预留即占同股slot，零fill也不回补第二角色。
+D逐层绑定原native退出责任/订单；卖出只能指定已合法可卖mobile，不借core库存或次日才可卖层顶替。原已审fill_exit_selected、capital_lot_id/inventory_map、风险锁、原聚合佣金/部分费累计继续使用。卖成才释相应股数/risk，结算才有现金；Book不直接改变cash/shares。
+买/卖实际回调更新一次原生账，再由同一已核receipt驱动证书和budget镜像；多原因退出按原稳定prefix责任并集，不叠卖。mandatory证据由原保护/ACT/真实价格支持失效在机会性规划前独立产生，排名/目标/筹资不能改名。
+行动先完整原子preflight，再复用原native split/dividend/payment及既有已应用事件去重；预算/证书/待单数量、单位限价、floor、责任和cost同域更新。原费用现金只记一次。native支持零股核销，但当前GS wrapper仍拒绝不能逐层归属的零股：若出现，必须在cursor任何变更前停；要继续需另补原生零股核销的指定lot/层成本损失分摊，不静默取整/删除股。未持有行动仍记录原source身份；未知分红到账沿原协议应收，不拿未来到账补资金。
+
+关键三：同一CLOSE/OPEN调度，仅budget off/on
+保留原序：actions/payments/settlement→当前可知mark与旧线快照→ACT cutoff→旧线/I失败退出→幸存层原规则更新→F1原ordinal/context/proof→严格ACT用途解锁（一次phase重置）→真实旧单/责任重验→冻结共同provider→C10目标/联合D或同一目标加20%约束→整批固定计划→下一原生OPEN。
+OPEN先原退出/实际结算，再实际资源/变价/费用/资格重验；全批真实预留完成后才咨询buy窗口，不能未成交回灌后排。决策NAV管冻结目标，开盘真实NAV管原费用/risk资源，原D1-v2局部open_nav和原子amend可复用，但不启用D1。
+两档都用C的H(合法旧mobile)并E(fresh扩张)唯一股票域及行业H1→业内原PVR子序列；无fresh旧可留不可加，unknown旧仓不置零。core/T-only不塞入扩张NA槽，仍走原独立小试分支并计共享资源。
+必须统一替换旧A的K/80÷K与S→G→T外圈对扩张排序的干扰：G/成熟S扩张合在同一C键中、用途固定；T/core用剩余资源。行业ceil集中一处：G20、成熟S80、S0试探2，无保证配额/不相加；T单次小目标及probe10/.5、core.25仍保留，成熟行业旧confirmed>2%不应把新T误拦成旧probe行业ALL2%。持有用A、新买用P；G真也须受原G备用数量/费用/deadline上限。
+旧Q替换沿已核manifest原样：替换common_ready INDUSTRY、sector_observed_today、sector_rs_ready_fresh、sector_up、旧budget/D1 active/episode/attempt授权；保留STOCK就绪、固定身份/市值/交易可用性、I/原core日事件、股票H1新鲜度、真实canonical CP1与原结构锁。旧行业事实仅归因，不留隐藏否决。F1不重算公式，原ACT peak/watermark/incident/原时钟持续；两账户以后因自身权益不同而ACT反馈不同是结果，不强行共用暂停日历。
+
+可先接／真阻断
+可先接：原HistoricalMarket/Facts/真实canonical registry、原价格/信号/优先键读取、原账资源/lot与原生成交组件、已审原子I/O和身份守卫；然后小型provider→联合计划→证书→预留→真实合成fill/部分fill/取消→持仓/现金/预算回调闭环。
+真阻断：C策略证书尚未绑定真实provider（旧JF2只认A）；预算尚无上述连续snapshot转换；旧K/用途外圈仍在真实调用链；买量缩小/期限失效后原D余量/已有覆盖尚需逐项对账，不能先卖足再靠buy guard拒绝；多待单G退化子集、一般零股/多层部分撤改等原实现显式unsupported事件。能够沿原明确规则薄接的先接；未支持事件原子停，不删股票/跳事件/伪造已撤单，不用“风险偏好未定”阻挡工程。
+
+分步验收与边界（本轮只列计划，仍需后续授权）
+1 原生合成：两档D0完整经济事件一致；现金/股数/费用/股息独立桥，真实partial/T+1/指定层/最低费；同单缩量与撤ACK、旧源receipt不复活；预算跨新snapshot不清零；multi目标/部分成/carry/送转/独立mandatory并集；同批零fill不回灌。先冻结源身份，未变组件复用已审结果。
+2 再各自全新1m起点：Jan4–5 2022、Jul1–2 2025，两档共四条技术前缀。只继承各起点前的真实F1完整市场State/source/proof/原ordinal和暖机I/结构；账户持仓、订单、损耗、core锁、股票收据消费、K激活为新账户空状态；ACT按新1m初态，不从旧A/SC/PVR账户切入。首OPEN无起点前意图。7/2原688608的1.40送转/现金/未知支付必须原生观察处理。
+物理截断/未来派生重建覆盖facts、结构metadata、canonical、H1/PVR、F1、raw、actions/payments，合法已知市场钟保留；截断侧与full侧在同cursor完整经济状态/所有流/冻结priority相同。逐事件可恢复并严格从已完成cursor之后续，不重放原生动作。两个mode可因预算首个binding事件前完全相同，不把全零或未触发20%称充分行为通过。
+3 首月仅作下一审批规划：2022Jan4–Jan28（原共同市场钟19观察）、2025Jul1–Jul31（23观察）。当前已核finance manifest只到Jan6/Jul3；需从原source补月内只读事件包/完整native会话，保留原前缀hash和固定1709/90，N/A不删，不重算指标。现在不补包/不运行。两日验收后按实测加载/逐close成本再给月度命令及预算，不擅自扩日期。
+
+预先行为验收（首月也不是只报NAV）
+逐日主动新买/实际卖款/费用/净迁移与被动涨价、probe/confirmed、core/mobile及行业/单股权重分开。许可→fresh最小合法机会→证书→预留→实际fill时点/拒因/终止或右删失分层，20/50/80仅能力报告刻度不是新买门；未触发强行情如实记无辨别力。
+同日OPEN买后CLOSE机会性退出请求、T+1真实卖出、重复进出及receipt计数分开。卖出前I/A/实际线仍有效且当时已知整层经济贡献为正的旧仓单列；其实际已实现/分红/未实现分别核，卖出后到固定月末价格路径只作后视镜，不冒充未卖反事实PnL。失败止损request→实卖/结算延迟、清仓后fresh重入与追加层损益不混算。
+同一份第一分歧包证明只有20%约束直接改变计划；其后持仓/现金/ACT/候选域反馈分开归因。保留快迁移错卖旧赢家与慢迁移错过快主线两种代价，不以低换手/高期末浮盈晋升。原snapshot非PIT、日线最终OHLCV执行代理限制原样披露，不能称实时开盘认证。

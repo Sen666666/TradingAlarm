@@ -1,0 +1,72 @@
+{
+  "symbol": "USHA688008",
+  "endpoint": "119.3.43.91:9602",
+  "sessionBefore": {
+    "state": "ready",
+    "source": "ths_preferences",
+    "expiresAt": "2026-12-11T12:00:00+08:00",
+    "remainingSeconds": 4724335,
+    "retryAfterSeconds": 0,
+    "nearExpiry": false,
+    "lastSuccess": null,
+    "generation": 1,
+    "message": null,
+    "expiryTimezone": "Asia/Shanghai",
+    "renewal": "同花顺正常登录并保存新票据后自动识别；不读取账户密码"
+  },
+  "success": true,
+  "quote": {
+    "5": "USHA688008",
+    "7": 166.26,
+    "8": 173.38,
+    "9": 165.66,
+    "10": 169.2,
+    "13": 35886794,
+    "19": 6073078400,
+    "55": "澜起科技",
+    "6": 163.0
+  },
+  "intradayRows": 241,
+  "dailyBars": 750,
+  "intradayFirst": {
+    "date": "2026-10-16",
+    "time": "09:30",
+    "price": 166.26,
+    "volume": 260832,
+    "amount": 43365928,
+    "cumulativeVolume": 260832,
+    "cumulativeAmount": 43365928
+  },
+  "intradayLast": {
+    "date": "2026-10-16",
+    "time": "15:00",
+    "price": 169.2,
+    "volume": 385283,
+    "amount": 65189900,
+    "cumulativeVolume": 35886794,
+    "cumulativeAmount": 6073078400
+  },
+  "firstDaily": "2023-09-06",
+  "lastDaily": {
+    "date": "2026-10-16",
+    "open": 166.26,
+    "high": 173.38,
+    "low": 165.66,
+    "close": 169.2,
+    "volume": 35886794,
+    "amount": 6073078400
+  },
+  "sessionAfter": {
+    "state": "ready",
+    "source": "ths_preferences",
+    "expiresAt": "2026-12-11T12:00:00+08:00",
+    "remainingSeconds": 4724335,
+    "retryAfterSeconds": 0,
+    "nearExpiry": false,
+    "lastSuccess": "2026-10-17T19:41:04.868694+08:00",
+    "generation": 1,
+    "message": null,
+    "expiryTimezone": "Asia/Shanghai",
+    "renewal": "同花顺正常登录并保存新票据后自动识别；不读取账户密码"
+  }
+}

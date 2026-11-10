@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-30T16:18:41.598176+00:00",
+  "before_new_economic": true,
+  "patch_same_as_first_freeze": true,
+  "sha256": {
+    "research_rounds/partial-action-delay-repair-20261030/run_repair.py": "93127857b83d0a0f38771e02c4af00ebc716f18a0570c408b1ffc1f436af79da",
+    "research_rounds/partial-action-delay-repair-20261030/PROTOCOL.txt": "568107f10b56fd2937eab87e7d31fd1e67cd82c93dde48cb78290b0b1a4ece0d",
+    "research_rounds/partial-action-delay-repair-20261030/HARNESS_CORRECTION.json": "c2f39f17c8ac34f3ab9d0db474215517b71414fd46c1eaf2a5844bdcaac09f0c",
+    "research_rounds/partial-action-delay-repair-20261030/OLD_CHAIN_EXPOSURE.json": "6a665c933e7a3f114c78d093cf5698e90e574830253a91b306dbd1dfacbbef14"
+  }
+}

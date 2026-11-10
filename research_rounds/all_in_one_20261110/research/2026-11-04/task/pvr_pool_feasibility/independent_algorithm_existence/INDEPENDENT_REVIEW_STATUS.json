@@ -1,0 +1,6 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "receipt": "/Users/bytedance/Documents/Codex/2026-11-04/task/independent_review/INDEPENDENT_BREAKOUT_EXISTENCE_AUDIT.json",
+  "sha256": "a588f6dc2d022de8f9cc408aaee0f86b1cb03d675e5776a28cb8b18626552189",
+  "scope": "24source SHA,10old cutoff rows,prior55HIGH/prior20volume/confirm_maFalse/source,shadow lacks volume; inspected-lineage absence only; no new economic execution"
+}

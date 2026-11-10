@@ -1,0 +1,28 @@
+{
+  "status": "FROZEN_BEFORE_DUAL_MEMORY_RANK_AND_FORWARD_COMPARISONS",
+  "scope": "Pure original-e memory/rank and fixed20-session price diagnostics; no account, order, execution, financing, E0/I/CP permission or holding change.",
+  "base_mother": "All133713 saved original legal unique-stock pending CLOSEs; original account-path-dependent, static1709-stock universe/nonPIT industry; not all A-shares.",
+  "clock": "Original PVR positive finite CLOSE/amount and original validity masks/source blocks. k=0 is current observation; only source-confirmed past/current observations, no carry through invalid row or source reset.",
+  "E_fast": "sum(k=0..4, 0.8^k * original e[t-k])/sum(k=0..4,0.8^k); needs5 finite original e in current block, independent of slow readiness.",
+  "E_slow": "mean(original e[t-5],...,e[t-62]),58 equal-weight terms. These are observations6..63 counting current as1, no overlap with recent5. All in current block, no future values.",
+  "history": "Sparse old event caches and484-day score-only files cannot supply63 consecutive original e. Reconstruct original e on original full source warmup with identical formula, validate against original exported e, source SHA and prefix. No new I/CP computation.",
+  "percentile": "(average rank-1)/(N-1) among same-date same-family eligible original candidates, across industries. No score positivity gate, regression or RS input.",
+  "families": {
+    "COMMON": "PVR, fast and slow all finite at CLOSE, N>=10. Compare native-PVR, independent FAST queue, SLOW-only diagnostic control, and CONT=.3*p_fast+.7*p_slow at equal K=ceil(N/10). The data-readiness common support is not an AND of trend/sign conditions.",
+    "FAST_ONLY": "All fast-ready original candidates, N>=10, no slow readiness requirement. Compare FAST with native original PVR slot order restricted to this pool at equal K=ceil(N/10). Native unknown PVR keeps original H1-derived slots rather than being silently dropped. Separate from COMMON, no mixing denominators."
+  },
+  "start_semantics": "FAST is an independent priority queue intended only for a probe, never conditioned on positive/ready slow or CONT selection. It does not fabricate an E0 event or override original E0/I/CP legality. No monetary probe contract is executed or proven here.",
+  "continuation_semantics": "CONT expresses memory-based priority, not independent permission to buy/add. Raw slow can be negative and still rank first in a weak relative cohort; report this, do not add sign gates after results.",
+  "ties": "Common CONT exact numerator3*A+7*B where A=2(N-1)*p_fast and B=2(N-1)*p_slow, denominator20(N-1). Native H1 key then sid breaks mathematical ties. FAST/SLOW ties use same H1/sid. Preserve native PVR slot order.",
+  "equal_count": "Within each family/day each arm independently selects exactly K original candidates, no AND/intersection. Report FAST/CONT overlap and union count; union has up to2K tickets and is NOT compared with a K-ticket baseline as a free improvement. No missing future label is replaced by another pick.",
+  "prelabel_seal": "Freeze day pool, percentiles, ranks and topK before loading existing forward labels.",
+  "future_labels": "Reuse independently audited complete native shared-calendar t+1..t+20 labels. nextOPEN price-reference terminal/MFE/MAE primary, decisionCLOSE secondary. Missing/tail censored stays UNKNOWN; no execution claim.",
+  "primary_fair_day_support": "For each family, evaluate all arms together on dates where the UNION of all fixed selected tickets has complete future paths. Equal source K per arm remains exact. Drop whole date from this matched comparison if any selected ticket is unknown; report attrition. Separate all-selected available-label diagnostics retain every source selected ticket and explicit missing counts.",
+  "tail_proxies": {"peak30": "future20 maximum close/nextOPEN-1 >=.30", "terminal30": "future20 terminal close/nextOPEN-1 >=.30"},
+  "tail_denominators": "Report source picks K, known labels L, missing K-L, tail precision lower=known selected tails/K and upper=(known selected tails+missing)/K. Capture versus known eligible-pool tails plus unknown-pool bound. These are20-session price-tail proxies, not realized lifetime fat-tail trade returns.",
+  "outcomes": "Per matched date selected mean,10/50/90th terminal quantiles, negative-terminal fraction, mean MFE/MAE, peak30 and terminal30 precision/capture, original-PVR tails gained/lost. Aggregate dates equally, not stock-days IID. Save per-date diagnostics and fixed20-native-session-block directions, no IID inference.",
+  "periods": {"DEV_2022_23": "Development chronology only; no coefficient/window/topfraction selection.", "DIAG_2024": "Fixed chronological later-date diagnosis, historically already consumed research.", "DIAG_2025H2_2026H1": "Original window2025-07..2026-06,2025H1 unavailable; fixed chronology, not genuinely unseen out-of-sample."},
+  "cases": {"000620.SZ": "all original candidate dates2022Jan", "300666.SZ": "all original strong-window candidate dates", "300085.SZ": "all original candidate dates2024Sep12-Oct31", "002583.SZ": "all original candidates2024Jan and Sep-Nov; missing raw-CP-only days stay no original candidate rank"},
+  "decision": "If scales are highly redundant or price-path/tail advantages are unstable across periods, report and do not promote. Do not choose new coefficients or widen source universe based on outcomes.",
+  "new_accounts": 0
+}

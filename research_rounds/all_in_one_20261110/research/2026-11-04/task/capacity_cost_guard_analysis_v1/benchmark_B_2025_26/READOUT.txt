@@ -1,0 +1,19 @@
+2025Jul—2026Jun强窗简单参照｜一次root授权，独审PENDING
+
+原1,000,000元fresh账户，2025-07-01 CLOSE初始现金，最早Jul2 OPEN；242原No60交易日到2026-06-30，不年重置，不称完整2025或2026自然年。两实际参照调用既存benchmark_2022_2023/run_benchmarks.py::simulate，函数全文和15bp/min5/lot100/priorADV20×1%/T+1/ex-pay/indicativeband协议不变。新candidate/native账户变化0。
+
+参照              末权益          累计收益        CLOSE最大DD     费用        fill数
+510300 BUY_HOLD    1288331.13625   +28.833113625%   7.438966227%   1497.36375   1
+510300 MA63_90     1136271.77440   +13.627177440%   9.904603095%   31188.82560 21
+CASH              1000000         0               0              0            0
+
+MA63不是强窗最优或现有策略的替代候选：No60原同窗+126.3281%，是native成本额度插件最主要的fat-tail承接对照。ETF参照持仓均值98.46%/75.09%，fees和asset universe与股票native不同。账户差是机会成本参考，不是MA/保护状态单因素alpha。
+BH分派30811.50、MA25756.20均已支付；无terminal dividend AR。BH最大DD日2026Mar23，MA Apr15。两参照期末实际库存和mark保留，不强制清算。
+
+源与时钟
+raw ETF本地2018Jul17–2026Oct16，本次cutoff只读至Jun30。窗内dividend ex2026Jan19/payJan27/0.123每股；无split。2025Jun18分派只在TR暖机，不给予新起点之前的持有权益。
+原2022–24 history文件原bytes完整保留在新history的前缀，原文件不改。1327/1569旧重叠rawpricevolume exact、MA on分类exact；TR/MA CSV十进制舍入max5.329e−15透明存INPUT_FREEZE，不为这个差重构公式或重跑旧账户。
+开盘只用先前CLOSE信号和strictly-priorADV；raw日线执行proxy、缺historical datedhalt/limit/queue/auction证明，全部execution_verified=false，不声称真实开盘成交证书。ETF15bp是原估计摩擦，不是当前券商报价，不混股票税费。
+
+交付 INPUT_FREEZE/GRANT_BINDING/RUNNING_ONCE/COMPLETED_ARMS/RESULTS/OUTPUT_SHA256，以及完整daily、fills/orders/signals/terminal、季度/月表。root一次授权两simulate+cash，实测0.2595s。没有下载/策略调参/新账户engine。
+新242日独立cash/qty/fees/AR/NAV及MA/执行proxy收据仍PENDING，已交root调度；不阻native guard小样本。通过后只追加审查绑定，不覆盖原RESULTS历史pending字段。

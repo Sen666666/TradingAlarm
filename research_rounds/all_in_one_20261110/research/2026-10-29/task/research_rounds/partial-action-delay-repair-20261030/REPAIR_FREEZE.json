@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-30T16:16:13.651612+00:00",
+  "before_new_historical_and_economic_runs": true,
+  "sha256": {
+    "research_rounds/partial-action-delay-repair-20261030/test_delay.py": "88f91b2d7a08b6c4b878f8fc3e509886147270be497c8da3e544c46c28093d72",
+    "research_rounds/partial-action-delay-repair-20261030/delay_patch.py": "0049087882859ca8fb319b493afa613591f716df08548a2f8502a6363140be59",
+    "research_rounds/partial-action-delay-repair-20261030/run_repair.py": "03c194a83997b478279da8156b5533c67e673163f067e7d276c3653b9d04c59e",
+    "research_rounds/partial-action-delay-repair-20261030/PROTOCOL.txt": "5568c70dd33e7fe3476084c8333f0223cb0f8f858d1434a9106938aa4e88a9a9",
+    "research_rounds/partial-action-delay-repair-20261030/TEST_RESULTS.json": "eef98e4a3932edef8891e6aac5a59fb310b93644a3382ecd5434c647fd6d3017"
+  },
+  "old_frozen_8_unchanged": true,
+  "economic_only": [
+    "TECH B delay1",
+    "DRUG B delay1"
+  ],
+  "no_budget_or_signal_change": true
+}

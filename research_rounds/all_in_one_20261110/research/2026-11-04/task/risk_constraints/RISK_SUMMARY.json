@@ -1,0 +1,98 @@
+{
+  "summaries": {
+    "C10_2025Jul": {
+      "observations": 20,
+      "first": "2025-07-04",
+      "last": "2025-07-31",
+      "equal_observation_risk_yuan_sum": {
+        "principal": "769032.0237586687324518698201",
+        "giveback": "227224.6743667076233654949263",
+        "line": "996256.6981253763558173647464",
+        "lock_extra": "47671.46123214517695380447076",
+        "risk": "1043928.159357521532771169217",
+        "pending_risk": "0",
+        "total_risk": "1043928.159357521532771169217",
+        "capital": "13021762.85",
+        "nav": "19391754.5953041701525"
+      },
+      "principal_share_of_line_pct": "77.19215591782029056784805424",
+      "giveback_share_of_line_pct": "22.80784408217970943215194576",
+      "lock_extra_share_total_pct": "4.566546155961944038555858216",
+      "days_risk_above_6pct": 5,
+      "mean_risk_pct": "5.368357590550290995737322685",
+      "mean_exposure_pct": "67.2470932862560846634946451"
+    },
+    "C10_2025Aug": {
+      "observations": 21,
+      "first": "2025-08-01",
+      "last": "2025-08-29",
+      "equal_observation_risk_yuan_sum": {
+        "principal": "540744.4799116698261192893900",
+        "giveback": "518462.4633166184335329756127",
+        "line": "1059206.943228288259652265003",
+        "lock_extra": "44915.04391280263330816140201",
+        "risk": "1104121.987141090892960426405",
+        "pending_risk": "0",
+        "total_risk": "1104121.987141090892960426405",
+        "capital": "12398947.87",
+        "nav": "19934046.5112544552140"
+      },
+      "principal_share_of_line_pct": "51.05182545948667391402430799",
+      "giveback_share_of_line_pct": "48.94817454051332608597569198",
+      "lock_extra_share_total_pct": "4.067942169062442316594992631",
+      "days_risk_above_6pct": 8,
+      "mean_risk_pct": "5.532837606134041412935184429",
+      "mean_exposure_pct": "62.30108535721162296790166743"
+    },
+    "C10_2022Jan_early": {
+      "observations": 4,
+      "first": "2022-01-07",
+      "last": "2022-01-12",
+      "equal_observation_risk_yuan_sum": {
+        "principal": "91291.00202667625267013711955",
+        "giveback": "10509.07375463805324473943612",
+        "line": "101800.0757813143059148765557",
+        "lock_extra": "13352.43215325121577342327053",
+        "risk": "115152.5079345655216882998262",
+        "pending_risk": "0",
+        "total_risk": "115152.5079345655216882998262",
+        "capital": "2454052.00",
+        "nav": "3866179.4968879879500"
+      },
+      "principal_share_of_line_pct": "89.67675252303984660890160680",
+      "giveback_share_of_line_pct": "10.32324747696015339109839317",
+      "lock_extra_share_total_pct": "11.59543321526147481374111139",
+      "days_risk_above_6pct": 0,
+      "mean_risk_pct": "2.985653492618180200288191388",
+      "mean_exposure_pct": "63.6147034998391704023477438"
+    },
+    "C10_R0_2022Jan_late": {
+      "observations": 19,
+      "first": "2022-01-04",
+      "last": "2022-01-28",
+      "equal_observation_risk_yuan_sum": {
+        "principal": "468906.4488283062494308825487",
+        "giveback": "129180.3503557003275629506883",
+        "line": "598086.7991840065769938332370",
+        "lock_extra": "95217.43488412175389897019309",
+        "risk": "693304.2340681283308928034301",
+        "pending_risk": "0",
+        "total_risk": "693304.2340681283308928034301",
+        "capital": "10253572.04",
+        "nav": "18261438.9662187031540"
+      },
+      "principal_share_of_line_pct": "78.40106978921016522640397159",
+      "giveback_share_of_line_pct": "21.59893021078983477359602841",
+      "lock_extra_share_total_pct": "13.73386028892549704477582943",
+      "days_risk_above_6pct": 3,
+      "mean_risk_pct": "3.766302426206575165439778726",
+      "mean_exposure_pct": "55.96447078789617767904751668"
+    }
+  },
+  "financial_events": 0,
+  "reads_saved_JSON_only": true,
+  "fees_excluded_from_cost_reference": true,
+  "cost_reference": "actual gross native unit_cost adjusted by actual splits",
+  "identity": "principal+giveback=line; plus execution lock excess and pending risk equals saved original bridge",
+  "sampling": "saved daily CLOSE observations, equal observation weights; not future counterfactual risk or avoidable loss"
+}

@@ -1,0 +1,168 @@
+{
+  "total_features": 1574,
+  "stocks": 1216,
+  "fixed42_gate": {
+    "UNKNOWN_KEEP_ORIGINAL": 21,
+    "ALLOW": 19,
+    "DENY": 2
+  },
+  "fixed6_gate": {
+    "ALLOW": 6
+  },
+  "original_filled_control_gate": {
+    "ALLOW": 12,
+    "UNKNOWN_KEEP_ORIGINAL": 10,
+    "DENY": 2
+  },
+  "original_positive_core_control_gate": {
+    "ALLOW": 4,
+    "UNKNOWN_KEEP_ORIGINAL": 4,
+    "DENY": 1
+  },
+  "original_nonpositive_core_control_gate": {
+    "ALLOW": 8,
+    "UNKNOWN_KEEP_ORIGINAL": 6,
+    "DENY": 1
+  },
+  "known_all": 407,
+  "unknown_reason": {
+    "WARMUP_CHANGE_adjustment_factor": 1051,
+    "WARMUP_CHANGE_adjustment_factor,volume_factor": 94,
+    "WARMUP_MISSING_OR_INVALID_BAR": 21,
+    "WARMUP_START": 1
+  },
+  "queue_summary": [
+    {
+      "window": "2022",
+      "signal_day": "2022-01-05 00:00:00",
+      "all_original_events": 81,
+      "I_qualified": 60,
+      "selected_pending": 30,
+      "selected_allow": 23,
+      "selected_deny": 2,
+      "selected_unknown": 5,
+      "events_known": 62,
+      "events_deny": 9
+    },
+    {
+      "window": "2022",
+      "signal_day": "2022-01-06 00:00:00",
+      "all_original_events": 56,
+      "I_qualified": 43,
+      "selected_pending": 24,
+      "selected_allow": 16,
+      "selected_deny": 5,
+      "selected_unknown": 3,
+      "events_known": 44,
+      "events_deny": 9
+    },
+    {
+      "window": "2022",
+      "signal_day": "2022-01-07 00:00:00",
+      "all_original_events": 17,
+      "I_qualified": 14,
+      "selected_pending": 11,
+      "selected_allow": 9,
+      "selected_deny": 1,
+      "selected_unknown": 1,
+      "events_known": 16,
+      "events_deny": 1
+    },
+    {
+      "window": "2024_924",
+      "signal_day": "2024-09-02 00:00:00",
+      "all_original_events": 173,
+      "I_qualified": 117,
+      "selected_pending": 42,
+      "selected_allow": 2,
+      "selected_deny": 1,
+      "selected_unknown": 39,
+      "events_known": 27,
+      "events_deny": 5
+    },
+    {
+      "window": "2024_924",
+      "signal_day": "2024-09-12 00:00:00",
+      "all_original_events": 47,
+      "I_qualified": 34,
+      "selected_pending": 10,
+      "selected_allow": 4,
+      "selected_deny": 0,
+      "selected_unknown": 6,
+      "events_known": 12,
+      "events_deny": 0
+    },
+    {
+      "window": "2024_924",
+      "signal_day": "2024-09-24 00:00:00",
+      "all_original_events": 32,
+      "I_qualified": 27,
+      "selected_pending": 22,
+      "selected_allow": 2,
+      "selected_deny": 0,
+      "selected_unknown": 20,
+      "events_known": 2,
+      "events_deny": 0
+    },
+    {
+      "window": "2024_924",
+      "signal_day": "2024-09-25 00:00:00",
+      "all_original_events": 157,
+      "I_qualified": 132,
+      "selected_pending": 64,
+      "selected_allow": 10,
+      "selected_deny": 0,
+      "selected_unknown": 54,
+      "events_known": 19,
+      "events_deny": 2
+    },
+    {
+      "window": "2024_924",
+      "signal_day": "2024-09-26 00:00:00",
+      "all_original_events": 680,
+      "I_qualified": 608,
+      "selected_pending": 131,
+      "selected_allow": 23,
+      "selected_deny": 0,
+      "selected_unknown": 108,
+      "events_known": 114,
+      "events_deny": 2
+    },
+    {
+      "window": "2024_924",
+      "signal_day": "2024-09-27 00:00:00",
+      "all_original_events": 27,
+      "I_qualified": 26,
+      "selected_pending": 23,
+      "selected_allow": 2,
+      "selected_deny": 1,
+      "selected_unknown": 20,
+      "events_known": 4,
+      "events_deny": 1
+    },
+    {
+      "window": "2024_924",
+      "signal_day": "2024-09-30 00:00:00",
+      "all_original_events": 86,
+      "I_qualified": 85,
+      "selected_pending": 50,
+      "selected_allow": 7,
+      "selected_deny": 0,
+      "selected_unknown": 43,
+      "events_known": 11,
+      "events_deny": 1
+    },
+    {
+      "window": "2024_924",
+      "signal_day": "2024-11-29 00:00:00",
+      "all_original_events": 212,
+      "I_qualified": 156,
+      "selected_pending": 48,
+      "selected_allow": 14,
+      "selected_deny": 7,
+      "selected_unknown": 27,
+      "events_known": 90,
+      "events_deny": 22
+    }
+  ]
+}

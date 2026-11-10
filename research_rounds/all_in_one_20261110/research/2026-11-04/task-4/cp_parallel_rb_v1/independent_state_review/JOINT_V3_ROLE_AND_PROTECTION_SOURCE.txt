@@ -1,0 +1,37 @@
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py
+SHA256 fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425
+225:     if not a.risk_state['on'] or not bool(row.i_target):
+226:      if not bool(row.i_target):
+227:       for x in a.live(sid):
+228:        if x['kind']=='core':a.jmeta[x['id']]['pending_I_exit_reference']=True
+229:      a.sell(sid,clock,quote,[x['id'] for x in a.live(sid)],'ACT_pause' if not a.risk_state['on'] else 'I_structure_exit');continue
+230:     for x in a.live(sid):
+231:      if x['kind']=='core':
+232:       known_floor=self.facts.floor(sid,at,'I')
+233:       if known_floor is not None:a.jmeta[x['id']]['last_core_line']=str(known_floor)
+234:       continue
+235:      if x['kind']!='add' or x['id'] in a.sell_layers.get(sid,set()):continue
+236:      if D(str(row.close))<=x['floor']:a.sell(sid,clock,quote,[x['id']],'CP1_add_protection')
+237:      else:
+238:       floor=self.facts.floor(sid,at,'I')
+239:       if floor is not None:x['floor']=max(x['floor'],floor)
+240:       if cp is not None and bool(cp.receipt):x['floor']=max(x['floor'],D(str(cp.candidate)))
+241:    a.sync(at);self.industry(a,at)
+242:    for rank,sid in enumerate(ordered):
+243:     cpr=self.receipts[sid].get(gidday(at));roles=[];why=[];held=bool(a.quantity(sid));epoch=self.global_watch.get(sid);sector=self.sector_by_sid[sid]
+244:     if event[sid].q is True and not held and a.core_epoch.get(sid)!=epoch:roles.append('core')
+245:     if cpr and continuing[sid].q is True:roles.append('mobile')
+246:     if not a.risk_state['on']:why.append('ACT_paused')
+247:     if sid in a.exits:why.append('exit_pending')
+248:     if sid in a.buys:why.append('buy_pending')
+249:     if event[sid].q is not True and not (cpr and continuing[sid].q is True):why.extend(event[sid].reasons or ['no_fresh_signal_or_Q'])
+250:     self.opportunities.append(dict(account=a.label,day=gidday(at),sid=sid,sector=sector,rank=rank,core_Q=event[sid].q,mobile_Q=continuing[sid].q,CP1_id=cpr['receipt_id'] if cpr else None,roles=roles,held=held,barriers=why))
+251:     if why or not roles:continue
+252:     q=self.market.quote(sid,at);floor=self.facts.floor(sid,at,'I')
+253:     if q is None or floor is None:continue
+254:     for role in roles:
+255:      fline=max(floor,D(str(self.cp[sid].loc[day,'candidate']))) if role=='mobile' else floor;budget=min(a.current_nav*D('.02'),max(Z,a.current_nav*D('.1')-a.quantity(sid)*q.raw_price));i=dict(sid=sid,clock=clock,quote=q,budget=budget,cap=q.quantity.buy_floor(int(budget/q.raw_price)),weight=1.,group=0,score=sd[sid].rank.read(clock),kind='add' if role=='mobile' else 'core',role=role,floor=fline,epoch=epoch,reason='fresh_CP1_mobile' if role=='mobile' else 'I_early_core',rank=rank,CP1_id=cpr['receipt_id'] if role=='mobile' else None,CP1_trace=cpr if role=='mobile' else None)
+256:      if role=='core':LR.resize_core(i,a.current_nav,self.facts.factor(sid,at))
+257:      if not i.get('size_reject') and i['cap']>0:a.pending.append(i)
+258:      else:self.funding.append(dict(account=a.label,at=at,sid=sid,role=role,result=i.get('size_reject','no_nominal_gap')))
+259:    a.decisions.append(dict(at=at,nav=a.current_nav,on=a.risk_state['on'],intents=[{k:v for k,v in i.items() if k not in ['quote','clock','CP1_trace']} for i in a.pending]));bal=a.sync(at);a.check();self.daily.append(dict(account=a.label,at=at,**bal,on=a.risk_state['on'],positions={s:p.shares for s,p in a.positions.items()},layers=[dict(x,**a.jmeta[x['id']]) for x in a.layers if x['qty']],pending_sells=tuple(a.exits),pending_intents=len(a.pending),counts=dict(a.counts),pool_probe=a.budget.resources('probe'),pool_confirmed=a.budget.resources('confirmed'),shared_loss=a.budget.shared_loss));self.daily_bridge(a,at,bal)

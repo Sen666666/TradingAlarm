@@ -1,0 +1,222 @@
+[
+  {
+    "query": "871110",
+    "rows": 1,
+    "exact_code_matches": [
+      {
+        "symbol": "UFIH871110",
+        "code": "871110",
+        "name": "能源[HK]",
+        "market": "UFIH",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:07:02.359831+08:00",
+    "response_sha256": "1ca14dbc3abd10fb8c554a3e5433787a7ab6ad2f3e1bccdc54d7bf3d0d3b65f9"
+  },
+  {
+    "query": "871111",
+    "rows": 1,
+    "exact_code_matches": [
+      {
+        "symbol": "UFIH871111",
+        "code": "871111",
+        "name": "材料[HK]",
+        "market": "UFIH",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:07:03.135387+08:00",
+    "response_sha256": "ba950e9fb9965a77f61a1800006d641465bd0e551efec7a3f675b32fc74effab"
+  },
+  {
+    "query": "871112",
+    "rows": 1,
+    "exact_code_matches": [
+      {
+        "symbol": "UFIH871112",
+        "code": "871112",
+        "name": "工业[HK]",
+        "market": "UFIH",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:07:03.223495+08:00",
+    "response_sha256": "a0f7de40f2218ce43900381fafc86014c6e89cc118480734abdaf59eb6ceef3e"
+  },
+  {
+    "query": "871113",
+    "rows": 1,
+    "exact_code_matches": [
+      {
+        "symbol": "UFIH871113",
+        "code": "871113",
+        "name": "可选消费[HK]",
+        "market": "UFIH",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:07:03.656911+08:00",
+    "response_sha256": "b1bf0bab7defd6bcaf82e4bcdb6c4ca14101f42254779ed7aff27567e6b9bf76"
+  },
+  {
+    "query": "871114",
+    "rows": 1,
+    "exact_code_matches": [
+      {
+        "symbol": "UFIH871114",
+        "code": "871114",
+        "name": "日常消费[HK]",
+        "market": "UFIH",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:07:04.022678+08:00",
+    "response_sha256": "b56b11ca97ba5e0901b0d38bd1388f72ddcb6a5473d32d3e2cbc9acd589243e7"
+  },
+  {
+    "query": "871115",
+    "rows": 1,
+    "exact_code_matches": [
+      {
+        "symbol": "UFIH871115",
+        "code": "871115",
+        "name": "医疗保健[HK]",
+        "market": "UFIH",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:07:04.434603+08:00",
+    "response_sha256": "e0801bfa0779d4b9752ff180614ddb56b1a02b9fb52379ad472c92623023166f"
+  },
+  {
+    "query": "871116",
+    "rows": 1,
+    "exact_code_matches": [
+      {
+        "symbol": "UFIH871116",
+        "code": "871116",
+        "name": "金融[HK]",
+        "market": "UFIH",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:07:04.854380+08:00",
+    "response_sha256": "7abbb53d635b2da5ad5b9318533735d2758b782304331eb9373871ce9a6eb15f"
+  },
+  {
+    "query": "871117",
+    "rows": 1,
+    "exact_code_matches": [
+      {
+        "symbol": "UFIH871117",
+        "code": "871117",
+        "name": "科技[HK]",
+        "market": "UFIH",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:07:05.568642+08:00",
+    "response_sha256": "8852914d75abf4a10bb5e37b82e8d8440241eb35b7a2176b344f67a43c457f6a"
+  },
+  {
+    "query": "871118",
+    "rows": 1,
+    "exact_code_matches": [
+      {
+        "symbol": "UFIH871118",
+        "code": "871118",
+        "name": "通讯[HK]",
+        "market": "UFIH",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:07:05.651421+08:00",
+    "response_sha256": "289ad8f1bfc811ad997cda579321877e58fd9a27e83f2a9fb46fc43b01581c61"
+  },
+  {
+    "query": "871119",
+    "rows": 1,
+    "exact_code_matches": [
+      {
+        "symbol": "UFIH871119",
+        "code": "871119",
+        "name": "公用事业Ⅰ[HK]",
+        "market": "UFIH",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:07:06.055185+08:00",
+    "response_sha256": "2f22b31461f9a09624e207572391761be62116dfc07798182e860669fcaf52f9"
+  },
+  {
+    "query": "871120",
+    "rows": 1,
+    "exact_code_matches": [
+      {
+        "symbol": "UFIH871120",
+        "code": "871120",
+        "name": "房地产[HK]",
+        "market": "UFIH",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:07:06.457078+08:00",
+    "response_sha256": "c4bd5a07a53f12deba31b84f1307efcb5cf18a5eeef66f5f8240c90576c913cc"
+  }
+]

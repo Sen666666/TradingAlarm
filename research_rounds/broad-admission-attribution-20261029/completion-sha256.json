@@ -1,0 +1,32 @@
+{
+  "recorded_at": "2026-10-29T16:03:29.453859+08:00",
+  "sha256": {
+    "ANALYSIS_SUMMARY.json": "82c9c655ed535d35faf8a601d5c0989bdf3548e616c6211d49ec1d3750288f33",
+    "REPORT.txt": "dbd3cb98e24451133941a78bd4153b843feb324b52be9e0aaeac135ba666b70c",
+    "SCOPE.txt": "0d32cfe2b1c66dafa323c61fb43ed44bf8aaf020670efd5ce3ffd0b3dab07691",
+    "SOURCES.json": "3acd17b886104b42e17f4d246dfbd9b19fc42585cb7149fd3f56f8a3ec7db993",
+    "STATUS.json": "8f99bf821b9129de870558cdb6112fe46d6a405826f93837090c3261cf6c24cd",
+    "SUMMARY.json": "69742bad781afb93c2e74dab08f9714d3494cedab64e7b328c1e6e1e92a54d98",
+    "VERIFICATION.json": "a6b1d5ac864cf641d3e1c80d5e9a38ff0236f9695211edca71c3544d128c38b1",
+    "cash-and-priority.png": "f7699730848268fbcba4b8e1e9c20876abb51ca453718b4ecb450e4b1343c2ab",
+    "code/diagnose.py": "c25ddbb86aeabea0b0391e7a9631954d8aa550b05ea64b58a9dfda50e826f57e",
+    "code/summarize.py": "60a49c1e8c49a31863825e143ed4fe89fb4639af46c09393347a0e9706873a6e",
+    "data/actual-funded-orders.csv": "a0a029c6dc651424a510be4a7de8554df7613a961864ed5be09baaa56b964c62",
+    "data/all-six-window-absences.csv": "71040df6ba375e09a615cde08c75784a75b82ebb1166abb9039e087ff154facd",
+    "data/case-competing-orders.csv": "356295655db33273562e10bfc368e03d66e8c8afb38960bd254da6fc64eab532",
+    "data/case-ownership.csv": "d20a3999ba50b2cdd82298b8e5d86dc8bb76459c01302abddda951b28b48c1ce",
+    "data/case-summaries.csv": "43f5b2ff03d119e07218b0bfb7c6a9a5213ead41eaa59753f3c4dcecc84582cc",
+    "data/daily-cash-bridge.csv": "eb4e041b72c6755b1b8e60e8f8cf23294edf1992fcb63edaf486f88e143277cf",
+    "data/miss-traces.csv": "9a13f413a24e3ed927a36a1fd9bc496b40ce1e109bcbfb95814e8756be331f2b",
+    "data/named-daily-gates.csv": "71f4b9c3b1f8e89dec4373280fc5c823edcf90b3fc9dd93045c4c7fc535f2415",
+    "data/pre-intent-budget-rejections.csv": "63a9a82c0713e5c7126ec87ee799336c32942c56ffa1be6c96181ccb3689a2b5",
+    "data/s0-eligibility-reasons.csv": "8fb62035cedf117193d0a7ab118571ce3f4b2ce73f1775fb782edfbab6ba2e9c",
+    "data/source-20251022-allocation-order.csv": "118b825097ee1214a95fb3f380a70633880831b97f590c0bfc6ba8bf2d69d8b9",
+    "data-v1-failed/actual-funded-orders.csv": "a0a029c6dc651424a510be4a7de8554df7613a961864ed5be09baaa56b964c62",
+    "data-v1-failed/daily-cash-bridge.csv": "eb4e041b72c6755b1b8e60e8f8cf23294edf1992fcb63edaf486f88e143277cf",
+    "diagnose-v1-failed.txt": "df053fee5dd951c5d80666a61c3826601235d4ce28d978f0d3b65b60ba39bd5a",
+    "diagnose-v1.log": "e68663a6dcf334971d8a900ea4e36cb8b982917260e36e7f49acba50eb21c60e",
+    "diagnose-v2.log": "4fa418343f990066e1f5344c96e02e5b162ad4df7d30fa9e625638dd0b623236",
+    "summarize.log": "7705f32fc0bc09fbe8e9e0afcb864553f33958a13a3c4ee282a5cf14e6826ffc"
+  }
+}

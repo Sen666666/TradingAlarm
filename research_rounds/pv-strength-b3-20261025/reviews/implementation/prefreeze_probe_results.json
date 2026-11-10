@@ -1,0 +1,390 @@
+{
+  "scope": "prefreeze artificial technical probes only; no real input or formal fixture outputs",
+  "candidate_sha256": "3a31cc352593aa21e5f657ac778e17462708cd8a557dd76a0f778df6e04c9d82",
+  "protocol_sha256": "ebd7fdadf86970d5ee953bd9660004f3fccab473f66ba9101210af23a933c1ef",
+  "reference_sha256": "96bfa455b19793b942b07cad38ad0b58137178e0f65961b891674e4e34563fea",
+  "checks": [
+    {
+      "name": "direction_boundary_45",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nine_normal_table_cells",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "table_monotone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "independent_joint_True_shape",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "independent_joint_True_phase",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "independent_joint_True_unknown",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "independent_joint_True_numeric",
+      "passed": true,
+      "detail": 1.7763568394002505e-15
+    },
+    {
+      "name": "journal_joint_True",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "name": "independent_joint_False_shape",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "independent_joint_False_phase",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "independent_joint_False_unknown",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "independent_joint_False_numeric",
+      "passed": true,
+      "detail": 1.7763568394002505e-15
+    },
+    {
+      "name": "journal_joint_False",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "name": "first_output_t64",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "current_close_excluded_from_sigma",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "current_volume_excluded_from_median",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unit_equivalence_shape",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unit_equivalence_phase",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unit_equivalence_unknown",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unit_equivalence_numeric",
+      "passed": true,
+      "detail": 6.750155989720952e-14
+    },
+    {
+      "name": "unit_journal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "physical_prefix_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "invalid_row_no_clock",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "multiple_events_reference_shape",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "multiple_events_reference_phase",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "multiple_events_reference_unknown",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "multiple_events_reference_numeric",
+      "passed": true,
+      "detail": 8.881784197001252e-16
+    },
+    {
+      "name": "multiple_events_journal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "second_event_does_not_replace_first",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "partial_anchor_recovery",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "age_21_expiry",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "recovery_beats_takeover_and_expiry",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "takeover_beats_expiry",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_shock_dominates_today",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "segments_reference_shape",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "segments_reference_phase",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "segments_reference_unknown",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "segments_reference_numeric",
+      "passed": true,
+      "detail": 8.881784197001252e-16
+    },
+    {
+      "name": "segments_journal",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "segments_new_warmup",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "segment_archive",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reject_duplicate_date",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reject_reverse_date",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reject_string_index",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reject_tz_index",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reject_nat_index",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reject_missing_segment",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reject_segment_reappearance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reject_int_validity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reject_null_validity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reject_close_0.0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reject_close_-1.0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reject_close_nan",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reject_close_inf",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reject_volume_0.0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reject_volume_-1.0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reject_volume_nan",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reject_volume_inf",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "empty_input",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_invalid",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "facts": {
+    "multiple_events": [
+      {
+        "segment": "A",
+        "observation": 121,
+        "date": "2000-05-01",
+        "kind": "freeze_created",
+        "event": 1,
+        "anchor": 0.0,
+        "close": -0.012000000000000023,
+        "shock": -1.200000000000015,
+        "activity": 4.0,
+        "effective_shock": -2.40000000000003
+      },
+      {
+        "segment": "A",
+        "observation": 124,
+        "date": "2000-05-04",
+        "kind": "freeze_created",
+        "event": 2,
+        "anchor": -0.012000000000000023,
+        "close": -0.023999999999999907,
+        "shock": -1.2151388809514747,
+        "activity": 4.0,
+        "effective_shock": -2.4302777619029494
+      },
+      {
+        "segment": "A",
+        "observation": 125,
+        "date": "2000-05-05",
+        "kind": "price_recovered",
+        "event": 2,
+        "birth": 124,
+        "low": -0.023999999999999907,
+        "anchor": -0.012000000000000023,
+        "close": -0.012000000000000023,
+        "age": 1,
+        "price_recovered": true
+      },
+      {
+        "segment": "A",
+        "observation": 142,
+        "date": "2000-05-22",
+        "kind": "outside_current_scale",
+        "event": 1,
+        "birth": 121,
+        "low": -0.023999999999999907,
+        "anchor": 0.0,
+        "close": -0.012000000000000023,
+        "age": 21,
+        "price_recovered": false
+      }
+    ],
+    "expiry_events": [
+      {
+        "segment": "A",
+        "observation": 121,
+        "date": "2000-05-01",
+        "kind": "freeze_created",
+        "event": 1,
+        "anchor": 0.0,
+        "close": -0.012000000000000023,
+        "shock": -1.200000000000015,
+        "activity": 4.0,
+        "effective_shock": -2.40000000000003
+      },
+      {
+        "segment": "A",
+        "observation": 142,
+        "date": "2000-05-22",
+        "kind": "outside_current_scale",
+        "event": 1,
+        "birth": 121,
+        "low": -0.012000000000000023,
+        "anchor": 0.0,
+        "close": -0.012000000000000023,
+        "age": 21,
+        "price_recovered": false
+      }
+    ]
+  },
+  "all_passed": true
+}

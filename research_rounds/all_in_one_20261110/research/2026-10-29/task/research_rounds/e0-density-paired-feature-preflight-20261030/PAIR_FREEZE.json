@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-30T09:30:15.269354+00:00",
+  "before_future_labels": true,
+  "labels_opened": false,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-density-paired-feature-preflight-20261030/PROTOCOL.txt": "8c84e748c9bcfc514952e432f1b0eeba0ebf801ed11059925bc54c9aeadac133",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-density-paired-feature-preflight-20261030/frozen-features.csv": "163f8a70557970cc687c62793dd21bcc6e335cde12856a49706ad3899bb2bb8c",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-density-paired-feature-preflight-20261030/frozen-pairs.csv": "998e55522095cce165c3feeb52b55e9cdc693dbcf22df820422df71c1a5b2411",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-density-paired-feature-preflight-20261030/all-mother-disposition.csv": "46b81d48ac5ee8cfd10311114bf5be14c32d05f7e5ec39250e3d12722fae1439",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-density-paired-feature-preflight-20261030/balance-before-after.csv": "b27e3b1b2f0d8d46657c5dae081bec6b6f1322ab77c80b97a29ccd746dcf25de",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-density-paired-feature-preflight-20261030/SUMMARY.json": "507c19fb8f1d2e5f29f3e81377db27fb25697450bcc6d813188039141fadae93"
+  }
+}

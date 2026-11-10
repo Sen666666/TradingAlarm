@@ -1,0 +1,97 @@
+{
+  "modes": {
+    "OFF": {
+      "Q": {
+        "300693.SZ": 100,
+        "002534.SZ": 6200,
+        "002518.SZ": 3200,
+        "002364.SZ": 4600,
+        "601727.SH": 10800,
+        "300593.SZ": 800,
+        "601137.SH": 1400,
+        "300017.SZ": 100
+      },
+      "D": {
+        "300570.SZ": 200,
+        "300308.SZ": 300,
+        "003031.SZ": 200,
+        "688668.SH": 808,
+        "000070.SZ": 9300,
+        "300620.SZ": 1100
+      },
+      "buy_gross_C_close_preview": "433662.723000",
+      "D_mark_gross": "385122.00",
+      "D_preview_net": "384632.3528946601000",
+      "projected_old_risk_release": "28093.93194668037133020552815",
+      "terminal_conditional_projection": {
+        "nav": "949308.9845952055030",
+        "available": "298034.3365952055030",
+        "capital": "650351.48",
+        "risk": "56749.01775454334342569394426"
+      },
+      "matching_states": 121,
+      "seconds": 0,
+      "mid_old300_retained": 0,
+      "old_guangku1100_retained": 0
+    },
+    "HARD": {
+      "Q": {
+        "300693.SZ": 100,
+        "002534.SZ": 1600,
+        "601727.SH": 100
+      },
+      "D": {
+        "003031.SZ": 200
+      },
+      "buy_gross_C_close_preview": "29086.536000",
+      "D_mark_gross": "11270.00",
+      "D_preview_net": "11253.0107717035000",
+      "projected_old_risk_release": "406.7924277975322077319004120",
+      "terminal_conditional_projection": {
+        "nav": "950092.2584330356030",
+        "available": "329339.6104330356030",
+        "capital": "619829.48",
+        "risk": "56977.37233392462633708629529"
+      },
+      "matching_states": 41,
+      "seconds": 0.06762879202142358,
+      "mid_old300_retained": 300,
+      "old_guangku1100_retained": 1100
+    },
+    "WEAK": {
+      "Q": {
+        "300693.SZ": 100,
+        "002534.SZ": 6200,
+        "002518.SZ": 3200,
+        "002364.SZ": 3800,
+        "601727.SH": 100,
+        "601137.SH": 1400
+      },
+      "D": {
+        "300570.SZ": 200,
+        "300308.SZ": 300,
+        "003031.SZ": 200,
+        "688668.SH": 808,
+        "000070.SZ": 9300,
+        "300620.SZ": 300
+      },
+      "buy_gross_C_close_preview": "306016.932000",
+      "D_mark_gross": "319522.00",
+      "D_preview_net": "319115.1703321801000",
+      "projected_old_risk_release": "20334.82183105243245163536280",
+      "terminal_conditional_projection": {
+        "nav": "949491.0534615286030",
+        "available": "360198.4054615286030",
+        "capital": "588369.48",
+        "risk": "56312.44706499547996173098868"
+      },
+      "matching_states": 89,
+      "seconds": 3.8176164999604225,
+      "mid_old300_retained": 0,
+      "old_guangku1100_retained": 800
+    }
+  },
+  "financial_events": 0,
+  "conditional_not_fills": true,
+  "not_counterfactual_PNL": true
+}

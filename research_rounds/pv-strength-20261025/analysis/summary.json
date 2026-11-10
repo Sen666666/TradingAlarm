@@ -1,0 +1,9 @@
+{
+  "recorded_at": "2026-10-25T03:06:11.366713+00:00",
+  "no_accounts": true,
+  "synthetic_checks_before_real_visual_review": true,
+  "real_cache_generated_before_synthetic_execution_disclosed": true,
+  "main_vs_total_disagreement_days": 409,
+  "thresholds_95_and0_descriptive_only": true,
+  "trade_signals_inferred": false
+}

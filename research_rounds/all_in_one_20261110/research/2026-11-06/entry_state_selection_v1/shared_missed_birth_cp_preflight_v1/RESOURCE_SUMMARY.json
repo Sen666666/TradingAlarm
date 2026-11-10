@@ -1,0 +1,24 @@
+{
+  "statuses": {
+    "MINIMUM_HARD_REJECT_ORIGINAL_PATH": 442,
+    "MINIMUM_POSSIBLY_FUNDABLE_ORIGINAL_PATH": 62,
+    "ORIGINAL_MINIMUM_LOT_OR_ROUND_RISK_NOFILL": 12,
+    "SOURCE_FACTOR_OR_FLAGS_UNKNOWN_AT_OPEN": 3,
+    "MISSING_NEXT_OPEN_UNKNOWN": 1
+  },
+  "primary_statuses": {
+    "MINIMUM_HARD_REJECT_ORIGINAL_PATH": 442,
+    "MINIMUM_POSSIBLY_FUNDABLE_ORIGINAL_PATH": 62,
+    "ORIGINAL_MINIMUM_LOT_OR_ROUND_RISK_NOFILL": 12,
+    "SOURCE_FACTOR_OR_FLAGS_UNKNOWN_AT_OPEN": 3,
+    "MISSING_NEXT_OPEN_UNKNOWN": 1
+  },
+  "all_remaining_slot_compatible": 305,
+  "primary_remaining_slot_compatible": 305,
+  "primary_spare_and_minimum_pass": 39,
+  "primary_spare_and_minimum_pass_unique_stocks": 38,
+  "original_nav_reconciliations": 6,
+  "no_new_reservations": true,
+  "no_new_fills": true,
+  "independent_checks_not_cumulative": true
+}

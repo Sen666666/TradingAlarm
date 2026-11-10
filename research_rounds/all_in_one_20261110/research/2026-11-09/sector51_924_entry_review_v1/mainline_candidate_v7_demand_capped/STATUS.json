@@ -1,0 +1,22 @@
+{
+  "status": "HISTORICAL_RUN_COMPLETED_ALPHA_FROZEN",
+  "run": {
+    "days": 20,
+    "orders": 733,
+    "blockers": [],
+    "last": {
+      "day": "2024-10-08",
+      "cash": "161177.7655649536940",
+      "receivable": "0.000",
+      "market_value": "1412279.15",
+      "NAV": "1573456.9155649536940",
+      "net_liquidation_NAV": "1571539.7593006589515",
+      "stocks": 71,
+      "shares": 73266,
+      "weight_pct": "89.75645510401011465168992664",
+      "fees_paid": "5611.2570150463060"
+    }
+  },
+  "account_reconstruction": "PASS",
+  "next": "Frozen post-10/8 extension, first 2024-10-31, then existing shared-signal ceiling subject to verified facts"
+}

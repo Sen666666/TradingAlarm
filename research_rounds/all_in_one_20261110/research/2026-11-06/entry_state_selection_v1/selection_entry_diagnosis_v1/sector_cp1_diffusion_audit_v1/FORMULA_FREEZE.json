@@ -1,0 +1,64 @@
+{
+  "status": "mechanism hypothesis frozen before new case feature inspection; development history, not OOS",
+  "score": "LDP=exp(tanh(Zrel20))*((1+B20_peer_t)/(1+B20_peer_tminus5))*exp(tanh(log(share5_peer/median_prior21_share_peer)))",
+  "Zrel20": "sum last20 residual daily log returns / (std residual prior20 excluding today * sqrt20); residual=stock log return - equal-weight mean peer log return; no annualization; zero denominator unknown",
+  "diffusion": "B20 and tminus5 on intersection of valid peer members at both dates; peers exclude candidate; denominator window exactly prior20 mean including that close; higher-level market no hard gate",
+  "amount": "daily peer sector CNY amount / total available fixed1709 CNY amount excluding candidate; share5=mean t-4..t; reference=median t-25..t-5, nonoverlapping prior21; exp(tanh(log ratio)) bounded (e^-1,e)",
+  "clock": "after close t only; rank existing legal empty MOBILE CP1 candidates descending LDP, then original PVR descending, sid; next independent common trading open. Unknown score retains original PVR slot; no changed eligibility, number of slots, budget, exits, or CP1 computation",
+  "limits": "fixed future-selected1709 stock pool and non-PIT industry roster; amount share is trading-activity share, NOT net capital inflow; changing availability counts disclosed; relative-return peer index uses available mean daily return; 20 residual observations required",
+  "cases": [
+    [
+      "600606.SH",
+      "2022-03-22"
+    ],
+    [
+      "002385.SZ",
+      "2022-03-04"
+    ],
+    [
+      "688582.SH",
+      "2024-07-29"
+    ],
+    [
+      "300182.SZ",
+      "2022-01-04"
+    ],
+    [
+      "600056.SH",
+      "2022-03-03"
+    ],
+    [
+      "601607.SH",
+      "2022-03-24"
+    ],
+    [
+      "300666.SZ",
+      "2026-01-05"
+    ],
+    [
+      "603061.SH",
+      "2026-01-05"
+    ],
+    [
+      "300666.SZ",
+      "2026-01-15"
+    ],
+    [
+      "603061.SH",
+      "2026-01-15"
+    ]
+  ],
+  "keydates": [
+    "2022-01-04",
+    "2022-03-03",
+    "2022-03-04",
+    "2022-03-22",
+    "2022-03-24",
+    "2024-07-29",
+    "2024-09-24",
+    "2026-01-05",
+    "2026-01-15"
+  ],
+  "account_runs": 0,
+  "grid_searches": 0
+}

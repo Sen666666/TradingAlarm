@@ -1,0 +1,36 @@
+MOBILE开盘名义风险守恒｜唯一待证命题，非原bug｜2026-11-04
+
+原mobile只冻结数量/nominal budget，没承诺信号参考风险。新规则不动
+2%名义上限、Q/I/CP1、排序、floor/持有/退出、原core、费用和全部原
+stock/行业/probe/cash风险检查；不是大亏完整解，也不是质量过滤门。
+
+原CLOSE冻结：c=原整张intent.cap；p=原raw_close×(1+该arm原SLIP)；
+F=原初始adjusted floor/已知因子；R=c×max(0,p−F)。R按原cap，不按
+实填q，不因后来分配/容量/结果改写。normal原SLIP5bps，无新比例参数。
+
+原OPEN preview后、原route前，只把最大可执行量向下限制到满足
+q×max(0,原OPEN含原滑点价−同单位冻结F)≤R，并仍≤原cap/原budget。
+不改floor凑预算，不足原合法minimum就不新买。可复用原LR.maximum_
+quantity的单调callback，只收紧x.maxq；不能调用resize_core、搬.25%
+或把nominal R塞含费LR.protection_risk。费用按原完整合同只计一次。
+
+同budget_order的partial累计承诺，不逐层重置R；余量遵原订单，不对
+已有partial余股再要求初始minimum。只用已发生OPEN，绝无fill日CLOSE。
+来源/因子/股数映射不完整、非正R或公司行动未验，明确UNKNOWN_NO_NEW_
+MOBILE，不退回原无参考守恒约束；已持仓/旧卖单不改。R不是实际止损
+损失保证；未来跳空/T+1/容量均仍存在。
+
+可作用范围：三年418单买607.10万，实际nominal风险63.56万，比冻结
+参考多11.71万，原净−16.96万；303新fill中78单净−4.44万，另171未超
+mobile仍净−5.54万。L04超参考类phase财富−2.49万/总−2.77万。不能把
+这些净额称可避损，更不能按缩量比例造NAV；未做任何静态新q/经济。
+
+强窗反证：187超参考单原净+36.65万。全部旧fixed-tail94层匹配No60
+67层，其中19层超参考、No60原净+40.77万，未平/股息分列。嘉美Dec5
+多nominal419元却赚66785；中船Apr30多597元却末值+110719。000620
+Jan24多39元却亏5820，直接说明gap额外风险并不等于整笔损失。
+
+判断：有规模但尾部代价明确，最多一个待证数量规则，不能直接采用。
+LR1已验core风险cap、明确mobile无此约束；R1/C2/C10/更快止损均非本
+规则，不借它们失败或局部优势宣称本规则有效。独审/接口通过后仍须
+root另授后续；不自动开账户、网格或补均线/斜率等第二机制。

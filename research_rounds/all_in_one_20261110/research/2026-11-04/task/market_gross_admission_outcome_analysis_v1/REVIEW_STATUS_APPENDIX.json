@@ -1,0 +1,14 @@
+{
+  "strong_financial": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_full_ledger_review_v1/STRONG_FINANCE_PVR_ATOMIC_REVIEW.json",
+    "sha256": "f0adc278aded1e3b75e001f45377cb014cecbb13ee8a4284e75a20f9ee762e8c",
+    "status": "PASS_STRONG_D_ONLY_FINANCE_ACTUAL_ATOMIC_PVR_ARCHIVE_SOURCE_REUSE"
+  },
+  "strong_ND_prefix": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_outcome_analysis_v1/STRONG_ND_PREFIX_FINANCIAL_EXACT.json",
+    "sha256": "7b2d4311741a213d6f08c0ca0be7eb6a68f13e46c58b57d49db16ded2ff7f2f9"
+  },
+  "long_financial": "PENDING",
+  "derived_grouping": "PENDING",
+  "historical_pending_fields_retained": true
+}

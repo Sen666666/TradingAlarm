@@ -1,0 +1,10 @@
+在全窗口比较结果暴露前固定ATT补充窗口：2025-07-01—2026-06-30，242个共同会话×90行业。
+源：/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/market-mainline-measurement-20261031/FEATURE_MATRIX_90.parquet。
+原表是before_future_labels的特征日表；仅读attention_ratio及当日元数据，不使用原研究未来标签。
+1709股票符号与本轮相同，逐股行业桥及90行业成员数量源核一致；cohort/金额资格算法仍不同，不混名。
+源实际min/max日期确定本窗口，不根据A/E表现选择；其余843研究会话ATT未知，不填0/ffill。
+主1085会话A/E-H1-D不变；此242会话四法全部用相同C_ATTcompare/实际N_t/相同future20尾集合评价。
+标签、周末、日换手与持续段仍按原冻结口径；该242会话窗口头尾重新标行政删失，首可观察周末无比较。
+不能将ATT242日均值直接对比2025—26H1主窗口359日均值，也不将本子窗口称2022—26完整ATT对照。
+源SHA由original_baselines的SOURCE_SHA256和独立源审输出绑定，下面本文件亦保留根直接核值。
+根直接核SHA256：4be2fe5842221099f4c0fe9fb6380bf4ec77a26cca786d0cb9ac3a25c3464598。

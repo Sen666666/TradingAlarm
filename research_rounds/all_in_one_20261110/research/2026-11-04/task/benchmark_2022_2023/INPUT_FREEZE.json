@@ -1,0 +1,80 @@
+{
+  "at_UTC": "2026-11-04T09:17:50.532158+00:00",
+  "before_benchmark_account_computation": true,
+  "calendar": [
+    "2022-01-04",
+    "2023-12-29"
+  ],
+  "rows": 484,
+  "first_possible_execution": "2022-01-05 OPEN",
+  "old_9_asset_raw_max_abs_difference": 0.0,
+  "old_9_asset_signal_max_abs_difference": 2.042810365310288e-14,
+  "index": {
+    "symbol": "USZI399300",
+    "kind": "HS300 price index; non-tradable",
+    "source_rows": 5288,
+    "unit": "index points"
+  },
+  "ETF": {
+    "symbol": "USHJ510300",
+    "raw_unit": "CNY/share",
+    "wire_volume_unit": "hands",
+    "volume_to_shares": 100,
+    "lot": 100,
+    "history": [
+      "2018-07-17",
+      "2023-12-29"
+    ],
+    "actions": [
+      {
+        "ex_date": "2023-01-16",
+        "pay_date": "2023-01-19",
+        "amount": 0.064,
+        "source": "local EastmoneyF10",
+        "entitlement": "previous-close inventory",
+        "known_for_signal": "ex-date close only"
+      },
+      {
+        "ex_date": "2022-01-19",
+        "pay_date": "2022-01-24",
+        "amount": 0.075,
+        "source": "local EastmoneyF10",
+        "entitlement": "previous-close inventory",
+        "known_for_signal": "ex-date close only"
+      }
+    ],
+    "splits": [],
+    "signal": "causal reinvested total return close; no event before ex clock",
+    "execution": "raw open; daily proxy, historical dated limit/halt states absent"
+  },
+  "sources": {
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/data/ths-index-history-20261018/canonical/USZI399300.csv": "16ed2b4c7e24a661d82956fb9a66d0a17288c6f479956e34468441f12c4ecce5",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/data/ths-index-history-20261018/checkpoints/USZI399300.json": "394acc254d06744f222f682015d4a10b50e9d609dfe4c28ab89552584bfb318c",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/data/ths-index-history-20261018/protocol.json": "e6dd15eb6cda38de6c58236f660bbd997cc70582c0832ef818eb0692bbed2190",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/data/tencent-sh510300-raw.json": "bf621228282fef12198c88ab98554e2864c83a4f0ed293160f918a345c6a7e66",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/data/eastmoney-fhsp-510300.html": "29f971e7f30f35767e510fe93a44528cacbeabb0b7c20be3fc6ceb9c396ef788",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/portfolio_data.py": "42a4a04901143eba47c61d1dd9ea9e8d701a027fc4bd191216ac4c9c1f1828a8",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/portfolio_engine.py": "4b66f00b8240ba5441d1244c86b3d152111317d49d086a3eed5f2fe1e8e42723",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/portfolio-protocol.json": "be2782f45674eb4ad830dc4ac4421a805780b9ce5724c0852e7c4a6b643014e3",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/stock_execution.py": "2c815f0b13c01b04d97c8521e4bfc7da8f9396c33fa82cc04e677e698a5b85a4",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/three-layer-prototype-20261024/inputs/USHJ510300.parquet": "87634d3f63fdbd0133e634cb6f00ad0567b48458e8930f269d5ca4cd8645a4a2",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/continuation2023/run-2023/pair/daily.jsonl.gz": "6734b6379c7a161132d5e4d55d4601d7a4374f725cf435b04c33afeb35480052",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/prepare_inputs.py": "f4bd71a7246ca0ae8a742a584fc0c53043d57c41718d0f769b065e435da0094b",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/PROTOCOL.txt": "98459bae26cbe7e03eebf2a75c6762949c50b7416bc048d2e33c56cd632d73de",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/data/ths-index-history-20261018/raw/USZI399300/page-01.bin": "56c680e42c9eec9a719be508e52da5d56e293d626cac7907653e1077cee2ae45",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/data/ths-index-history-20261018/raw/USZI399300/page-02.bin": "f976f359227b7a9badff56233c9b3164348fd6b2acc8c79562ce19b68e1de816",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/data/ths-index-history-20261018/raw/USZI399300/page-03.bin": "405ae7a6b8e990a93a281c8e48f1bed7f3ad1201fe7bca799c4bb31b93c40203",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/data/ths-index-history-20261018/raw/USZI399300/page-04.bin": "38570457496a5e77258bf7dd0b486ac5e8224d0965c8a60514426d8b5bd76497",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/data/ths-index-history-20261018/raw/USZI399300/page-05.bin": "35d0b9f8a4b258d0a85c9d95f3613e986b0113acb3179856c00161841ab48920",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/data/ths-index-history-20261018/raw/USZI399300/page-06.bin": "161d5cc774e91a3bdb3b7462abec6a7cd2e3d3b4899466f9f8b9ad6e3ee0366e",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/data/ths-index-history-20261018/raw/USZI399300/page-07.bin": "f497b968523a53d5880472ed64869d7505b61ead60eeb7cc9886dee2d7416b6d",
+    "/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/data/ths-index-history-20261018/raw/USZI399300/page-08.bin": "ed86d6449be704a4f63a16f953066d73ae33e1143b7e263fe42f56631f64e20d"
+  },
+  "inputs": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/inputs/HS300_daily.csv": "92ad618d231eef9e87485a58fd57d4e242f38fdc2029d9256ce7bbb06567898c",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/inputs/510300_actions.json": "e575c459095d9ffe60f7b47c4248e04399d295f55f324d17a9ea775d2fd2d58d",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/inputs/510300_daily.csv": "6578f021eef4a4d6db90e50ac983eb606268710774b5d095e56b527e409b06d8",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/inputs/calendar.csv": "c3d14e14f364cab4248e75a5ab5d9232502701b1a3a023a265e9f4737f52017d",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/inputs/510300_history.csv": "fb6754b16fbfecb02bdb2fc9ff7e34546640009d268fc6b7896fd511530b8e41"
+  }
+}

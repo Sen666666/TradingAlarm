@@ -1,0 +1,43 @@
+{
+  "id": "legacy_UZZI000994",
+  "group": "original_e0_price_adapter",
+  "rows": 5288,
+  "price_observations": 5288,
+  "strength_observations": 5288,
+  "events": 424,
+  "entries": 95,
+  "exits": 95,
+  "floor_updates": 117,
+  "memories": 0,
+  "ledger_records": 0,
+  "first": "2005-01-04",
+  "last": "2026-10-16",
+  "historical_b4_compared": false,
+  "historical_e0_compared": false,
+  "prefixes": [
+    {
+      "rows": 65,
+      "completed": false
+    },
+    {
+      "rows": 1762,
+      "completed": false
+    },
+    {
+      "rows": 3525,
+      "completed": false
+    },
+    {
+      "rows": 5287,
+      "completed": false
+    }
+  ],
+  "differences": 6,
+  "passed": false,
+  "sha256": {
+    "evidence.parquet": "12d3a01109dbcaa3f341170afbcee851f9bc04e442236ab1ccd0f2f22037bef0",
+    "journal.json": "f0ff5bfe2360e904e4f7075e93204c911b78374828ea22dd788d6ea9ccba467e",
+    "ledger.parquet": "e6810bb97b981f45378697d295612c2c6eefc6e6e6b74cea2af889529f2f73fd",
+    "state.parquet": "e58d7552069c7e642ef9c4b3aff48358cfc84ce933ec15fc4cadacd58a48b8fa"
+  }
+}

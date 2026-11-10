@@ -1,0 +1,25 @@
+One root-authorized pure necessary-event table; freeze before computation.
+Input only original frozen510300_history fullwarm signal_close X and inclusive
+ma63; shared pure MA DAILY/22market episodes; no native H/on/flat/NAV calendars.
+Do not recompute TR/MA. CERT=known X/MA/all20 prior observed X AND X>MA63 AND
+strict X>max(prior20 X), excluding today's X. Unknown never permits. No slope,
+B/breadth/21/oldBREAK63 or parameter changes. All484dates and all22episodes.
+
+Retain every certificate in each complete ON episode, including after UP day;
+first/last/all dates are potential price evidence, not restoration dates. Keep
+initial START_ON/carry separate from10genuine UP_CROSS episodes. OFF/unknown
+rows stay. There is no candidate Hepoch/realflat/ACK state in these inputs.
+Any actual future H->P use must occur after that candidate's realflat+allACK,
+after H, at first newly qualifying CLOSE per Hepoch once only, next execution;
+no preH cached certificate, no fullrisk/C grant. P renew/C feedback stay blocked.
+
+Diagnostic labels only AFTER event extraction: for every trueUP show duration,
+nextDOWN close X and sign of change from UP close to nextDOWN close; if cert
+exists also change from firstcert close to nextDOWN close. Nonpositive close
+progress is explicitly a price-only falseUP proxy, not transaction/account
+return or a new filter. Show every trueUP; never choose only successful cases.
+No event label/outcome is passed into CERT. START/left-censored and OFF separate.
+
+Outputs: one statisticsJSON,484dailyCSV,all-eventCSV,22episodeJSON+CSV,10trueUP
+diagnosticCSV. Source/script/card freeze before execute. Execution once<=3s,
+0Account/strategy/backtest/riskledger/Hcontroller. Source hashes rechecked.

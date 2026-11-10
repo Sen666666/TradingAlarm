@@ -1,0 +1,18 @@
+{
+  "scope": "Parent-requested descriptive supplement. Created after primary attribution results, before computing these features. No thresholds/strategy fitting.",
+  "signal_time": "First BUY trade.signal_at close, verified before opened; trade.floor is immutable original signal floor (not final layer.floor).",
+  "features": [
+    "log(close_t/close_t-1)",
+    "log(close_t/close_t-5)",
+    "log(close_t/close_t-21)",
+    "amount_t/median(amount_t-21..t-1)",
+    "log(adjusted_close_t/original_first_BUY_trade.floor)"
+  ],
+  "coordinate": "Frozen source signal adjusted close only for pre-entry descriptive log returns and floor distance; within each feature window all source_kind, source_path, segment_id must be same, fresh valid observations required. No claim of PIT adjusted feed. Prices/amount missing -> UNKNOWN, never zero.",
+  "calendar": "Use full date index of frozen 000001.SZ signal.parquet, truncated to study end; assert its dates from 2022-01-01 through end exactly equal original 1054 account dates. This permits 2021 lookback without truncating first entries.",
+  "comparison_groups": "STALLED20_FINAL_LOSS = full round CLOSED, PnL<0, round_progress20=STALLED20; BIG_WINNER30 = full round CLOSED and original all-BUY-cost return>=30%. All other/open rows retained in full feature table; comparisons ALL,2022,2024 by actual first BUY year. No crossed threshold search.",
+  "summaries": "Known/UNKNOWN counts, p10/25/50/75/90 per feature; IQR intersection over union and fraction of each group falling in other's p10..p90. Descriptive overlap only; no predictive/causal claim. Also first5 timing and initial-layer outcomes for both groups.",
+  "giveback": "Optional posthoc continuous descriptive extension only: peak close vs terminal actual sell price, same cumulative recorded split coordinate; closed layer uses last sale part for that layer, round final actual sale. For OPEN terminal is latest held close not a hypothetical sale. Report decline from peak and whether final loss coexists, not executable peak profit.",
+  "primary_outputs": "Do not modify existing definitions, primary tables or script.",
+  "frozen_at_utc": "2026-11-08T20:53:33.799213+00:00"
+}

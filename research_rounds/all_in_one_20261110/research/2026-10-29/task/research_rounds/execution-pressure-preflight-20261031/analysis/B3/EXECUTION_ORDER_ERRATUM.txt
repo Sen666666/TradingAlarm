@@ -1,0 +1,18 @@
+Execution-order correction from independent review; no economic path rerun.
+
+FIRST_DIVERGENCES.json sorts exported fill keys by stock code within a timestamp.
+Those examples are NOT the H1 execution/reservation order, and 000981 must NOT
+be called the first resource divergence or the sole cause of the NAV difference.
+
+First quantity/reservation divergence: 2025-07-02 fourth reservation, 002602
+core: normal200 versus cost100. Previous three probe risk:4537.93/4549.23.
+With200 the totals become4997.05/5009.47 against approximately4999.89 cap.
+cost2 therefore admits only100. Later 002354 acceptance precedes 000981.
+
+At 000981: normal core100 would make probe risk5033.17>4999.65 and is rejected,
+then mobile8200 is admitted. cost core100 gives4993.60<4999.50 and is admitted,
+so the same-stock mobile is skipped. This is discrete resources plus original
+core priority. It does not independently explain all80542.43 NAV deterioration.
+
+Independent original evidence is copied to cost-independent-evidence/
+FIRST_OPENING_RESOURCE_EVIDENCE.json. The original exports and code remain.

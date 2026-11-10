@@ -1,0 +1,66 @@
+from analyze import O,read,save,sha,D,Z,total
+def money(v):return f'{D(v):,.2f}'
+def main():
+ b=read(O/'EXACT_BRIDGES.json');ll=read(O/'ALL_JULY_ENTRY_LAYERS.json');signals=read(O/'COMMON_CANONICAL_SIGNAL_CHECKS.json')
+ lines=[
+ '旧PVR_SLOT1与原C10/C20：同2025 July原100万元实际路径只读归因',
+ '核心发现：主差额同时来自原正尾部参与不足及健康仓筹资退出、后来工程行业大额失败。三条主链共解释C10净差63.66%、C20净差76.18%；没有把整个差额单归PVR排序，也未运行任何删单/换仓反事实。',
+ '',
+ '可比与不可比：1709身份×23原市场日逐项核同、90行业映射核同；Jul1原现金100万元、股票0、股息应收0。两新C均为原版本，不含R0；不拼另一月份或重置。原价缓存与同一日线执行代理，所有actual fill的execution_basis一致。市场资格/资本政策并不相同：旧legacy Q/stage、probe10/confirmed60池、mobile每fresh2%、行业风险1%；新F1 G/S、行业H1→股票PVR、mobile补至单股10%、行业风险5%、整账6%及机会性筹资卖。',
+ '旧PVR真实July：NAV1,099,723.0674485623685，净+99,723.0674485623685；已实现交易−16,933.32836935335、月末未实现+115,435.6254179157185、已记股息应收+1,220.77040。不是已将9.97%全部兑现。',
+ '旧SC 9.1132%仅保留为已审背景；本次精确桥的旧基准是PVR_SLOT1，不混两个旧账。',
+ '',
+ '精确桥：新C−旧PVR（费用已含，元）：',
+ '项目 | C10−PVR | C20−PVR',
+ ]
+ for field,label in [('realized','已实现净差'),('unrealized','未实现净差'),('dividend','股息应收差'),('contribution','NAV净差'),('fees','显式费用增加（已含勿再减）'),('buy_gross','累计真实买款差')]:lines.append(f"{label} | {money(b['C10']['delta'][field])} | {money(b['C_BATCH20']['delta'][field])}")
+ lines += [
+ '旧PVR买款1,102,146.63、费用1,097.45；C10买款5,005,572.54、费用5,137.63；C20买款4,204,246.78、费用4,412.26。频繁大额再配置与价格损耗的差远超多出的4,040.19/3,314.81费用，不能仅怪费用。',
+ '权益口径：July旧PVR与两C均无实际持仓股份转换/配股认购，原股票物理股数用实际买卖回滚到7/31后与已存持仓逐股一致。普通现金分红全部未知支付日应收，不当现金再投；新C应收103.968/703.808与旧1,220.77040之差已入桥。复权因子不是新增股份。',
+ '',
+ '完整entry桥（股票+原signal_at+实际role+pool；跨策略配对仅描述，未假定资本/保护/用途相同）：',
+ '类别 | C10：entry键/净差 | C20：entry键/净差',
+ ]
+ for cat,label in [('paired','两边实际出现同键'),('C_only_entry','仅新C实际entry'),('PVR_only_entry','仅旧PVR实际entry，减原贡献')]:
+  counts={m:sum(z['category']==cat for z in read(O/(m+'-ENTRY_BRIDGE.json'))) for m in b}
+  lines.append(f"{label} | {counts['C10']}/{money(b['C10']['entry_category_deltas'][cat])} | {counts['C_BATCH20']}/{money(b['C_BATCH20']['entry_category_deltas'][cat])}")
+ lines += [
+ '旧117层/99股；C10 118层/98股，C20 125层/105股；两比较各164股并集，全部90行业含0参与行，entry并集227/231键。仅8/11键实际角色池同日配对，这不是一个只换排序的消融。',
+ '',
+ '最多三条主体链（互不重叠的股票/行业贡献，非三个独立政策因果）：',
+ '链 | 旧PVR贡献 | C10贡献/差 | C20贡献/差',
+ ]
+ for sid,label in [('688585.SH','1 上纬新材'),('301511.SZ','2 德福科技')]:
+  vals={m:next(z for z in read(O/(m+'-STOCK_BRIDGE.json')) if z['sid']==sid) for m in b};lines.append(f"{label} | {money(vals['C10']['PVR']['contribution'])} | {money(vals['C10']['C']['contribution'])}/{money(vals['C10']['delta']['contribution'])} | {money(vals['C_BATCH20']['C']['contribution'])}/{money(vals['C_BATCH20']['delta']['contribution'])}")
+ lines += [
+ '3 工程机械全行业 | 0 | −64,192.45/−64,192.45 | −51,396.05/−51,396.05',
+ f"三链合计差 | | {money(b['C10']['three_chains']['total'])} | {money(b['C_BATCH20']['three_chains']['total'])}",
+ f"全部其余股票差（保留） | | {money(b['C10']['three_chains']['rest'])} | {money(b['C_BATCH20']['three_chains']['rest'])}",
+ '',
+ '1）上纬：主要同时是晚/少参与与不同退出用途，不是市场算法没发现。',
+ '旧PVR earliest fresh/Q已见Jul9，roles core/mobile可用；新C同日规范CP1也在。旧早期资金也会拒绝，Jul10/11有probe_risk；Jul15/17/18/21虽有mobile预留但实际0fill、当日到期释放，原OHLC均平价，不能把预留当提前抓住。旧真实首次Jul22 OPEN，承接Jul21 CLOSE canonical139fc5…，confirmed mobile391股@47.873925；Jul23再买428@47.52375，7/31仍完整819股，原价92.07，净贡献36,333.9566514538325全为未实现。',
+ '新C Jul21/22同fresh/Q、同canonical、G/S均允许，股票原PVR都最高；原S目标Q=0。C10两日原trace均account_risk6；C20 Jul21 account_risk6、Jul22 cash_reserve10。Jul23 CLOSE两C仍Q0，原界限cash_reserve10。这里不是资格否决；行业优先、每股目标与前序资源消耗共同影响。没有单独放开上限验证，不能说仅改排序即可买同819股。',
+ '新C最终Jul24才由独立mobile/probe/T买352/362股@54.42720。Jul25 CLOSE原筹资D=346/362，Jul28 OPEN按actionable_S_funding实卖；C10余6股由Jul28 CLOSE筹资D=6、Jul29 OPEN实卖，月末两C均0股，净+3,425.45/+3,429.44。这些是真实健康筹资退出，不是CP1/I保护触发。',
+ '原Jul25目标正Q是优刻得/税友/宝信/汉得等，Jul28还有新产业/盛和等；全批Q/D及实际腿保留，不将一笔卖款唯一分给某接收股。机械大买发生在Jul23，早于新C首次买上纬Jul24；不能编成“卖上纬直接买机械”的资金链。',
+ '',
+ '2）德福：主要是confirmed资金量未获准，不能说整股被早卖。',
+ 'Jul1 CLOSE旧PVR与两C同规范CP1 7e88c6…、Q有效，旧PVR股票priority_rank=27，mobile获资900股、Jul2真实成交@21.51075；Jul2 CLOSE第二张839bba…，Jul3再买800@23.01150，7/31仍1700股，原价35.93，未实现净+23,299.7040151125。',
+ '新C Jul1/2均S/G可用、fresh/Q真，却S目标Q0，原trace明确account_risk6；Jul4新fresh仍Q0，原trace cash_reserve10。C两档实际仅Jul3 core/probe/T买300股（仍持有，未实现+3,870.107488855），Jul7又probe mobile/T买100股，Jul8 CLOSE原筹资D100、Jul9实卖，净+58.69455513965。整股净+3,928.80204399465，与旧差−19,370.90197111785。',
+ 'Jul8原新C正Q主要世纪华通（C20另恺英100），不是机械；旧与新角色/池/保护责任不同，不以股数比例直接计算假想换仓收益。',
+ '',
+ '3）机械：相同真实机会在旧PVR被资金池拒绝，在新C被行业优先和大目标接纳；随后原保护真实失败。',
+ 'Jul22 CLOSE柳工/徐工/铁建等两边mobile_Q/原stock_Q均有效，canonical逐项相同；旧行业原stage expanded、financial_level2，并不是旧算法没看见。Jul23 OPEN旧柳工/徐工/铁建的core拒因probe_risk、mobile拒因pool_capital,probe_risk；Jul24铁建仍如此，July整个工程行业0实际层。不要把政策表上的1%行业风险直接代替已存真实首拒因。',
+ '新C Jul22工程H1全90第1、行业F1成熟许可，Jul23实际C10买柳7800/徐10300/中联11800/三一4600/恒立1200，毛491,141.448；C20买柳7900/徐10400/中联11700，毛297,454.653。这里用原C连续账，不混R0的487,450.60/7股。',
+ '柳工/徐工Jul25 CLOSE原CP1真破线，Jul28 OPEN实际卖；C10净−11,806.15/−11,104.73，C20−11,957.51/−11,212.54。铁建Jul24首买、Jul28 CP1卖，Jul30合法新receipt再入、Jul31再次CP1卖，两轮合计C10−13,888.12、C20−14,290.86。不是漏执行已知退出或复用旧receipt。全行业后续鼎力/山推等所有层均保留，C10 9层/8股、C20 7层/6股。',
+ '机械的钱来自当时真实旧仓责任及可用现金，计划/成交有源记录；没有假设旧PVR拒绝的钱必然可按新C目标投向同一对象。',
+ '',
+ '反向贡献保留（不再增加主因链）：C10相对旧PVR的广生堂+13,458.58、千方+11,868.81、汇绿+9,325.18、税友+8,946.94；C20亦有对应正贡献。因此不是新C没有赢家。全股正差C10+106,263.56/负差−289,233.31，C20+111,949.27/负差−248,045.23；其余差额未强行归某单一机制。',
+ '',
+ '不可分离因素：资格生命周期、G/S权限与旧stage/pool、行业优先、10%目标、行业/账户风险、已有责任和资金池、健康仓筹资退出同时变化；只有主链原信号、原拒因与实际腿已逐值相接。不能据两整条路径给出“排序贡献X元”或把旧未平盈利当已兑现承诺。',
+ '方法：旧book虽含后续日期，本次所有交易/决策/权息均截到Jul31，qty由实际buy/sell重建并对July31保存positions；角色/池取首次实际当日日志，未用2026最终可变metadata或最终平仓标签。July原价库存、应收、成本和费用与原旧月报逐股核同。57个主链同日规范CP1/臂核同，剩余资格差保持原始日志，不回放算法/账户。',
+ '交付：EXACT_BRIDGES，两个完整STOCK/INDUSTRY/ENTRY_BRIDGE，ALL_JULY_ENTRY_LAYERS，COMMON_CANONICAL_SIGNAL_CHECKS，THREE_CHAIN_TIMESTAMPS_AND_REASONS，POLICY_AND_INITIAL_COMPARABILITY，PVR_DIVIDEND_ENTITLEMENTS，READ_INPUTS/CHECKS。金融事件0，原件不改。',
+ ]
+ (O/'REPORT.txt').write_text('\n'.join(lines)+'\n')
+ save('DELIVERY_SHA256.json',{str(p.relative_to(O)):sha(p) for p in sorted(O.rglob('*')) if p.is_file() and p.name!='DELIVERY_SHA256.json' and '__pycache__' not in p.parts})
+ print('REPORT',sha(O/'REPORT.txt'),'PACKAGE',sha(O/'DELIVERY_SHA256.json'))
+if __name__=='__main__':main()

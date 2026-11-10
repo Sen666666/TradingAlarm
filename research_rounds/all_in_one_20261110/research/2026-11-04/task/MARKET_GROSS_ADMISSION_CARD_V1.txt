@@ -1,0 +1,30 @@
+市场DOWN期新增买入的总市值准入上界：单因素审查卡v1
+状态 REVIEW_ONLY / NO_IMPLEMENTATION / NO_NATIVE_GO。
+UTC 2026-11-04T18:07:14.772595+00:00
+
+问题与依据
+MA/EMA/BB的个股计划1/.5插件失败；缩单后后候选继续补位，账户仍高资金暴露。全9 lagDOWN spell独审显示首段新fill期间财富−165778.88/总−212635.93，全部新fill合−176532.17；旧层−80876.21。新流量规模大，但新层正272738.70/负449270.87、Sep–Nov新层+56373.85，不能一刀切把新钱视作坏钱。详见ma63_down_replenishment_v1和审计915dc0b9…09a2b。
+
+本次只提交一个最小可证伪对象，尚未授权实施
+在市场DOWN时，增加一条“新买后组合总市值承诺不超过10%净权益”的准入条件。只限制新买，不产生任何卖出现有持仓的命令。原持仓高于新上界时可以继续持有，只是没有新买的额外余量；不伪称旧仓已降到10%。这个旧仓占满headroom会挡住强行业新龙头的代价必须保留，是候选的明确反例。
+10%只是沿现有probe gross规格的事前实验值，不选最优、不跑额度网格；不新增.5%nominal cap来混两个控制量。原全部原生nominal/stock/sector/pool/cash上界保留。
+它不是成本guard的F>=entry毕业或含费成本额度：所有现持仓都吃新增gross准入余量，不按保护/利润毕业。不做D-origin分量账、不按DOWN epoch发放/重置10%现金、不新增RiskBook/credit/新金融引擎。原No60实际有决策NAV现金留存：cap+fee<=min(a.available−.10*a.current_nav, book.cash−reserve)，不是currentNAV总gross90%硬cap。原probe池10%约束仍在、confirmed60%已No60删除，不能写成confirmed90%。本对象独立新增TOTALgross10%准入ceiling，允许旧仓在上界外按原结构自然退出，不依赖原90%硬cap的错误假定。
+
+精确定义和时钟
+背景仍唯一原510300因果TR X，MA63为原inclusive63；D_t=known[X_t<MA_t && MA_t<MA_(t−1)]。t为已完成CLOSE。只在该CLOSE及下一执行点使用最后已完成D，绝不读OPEN当天未来CLOSE。缺/未知新背景不得新授资，旧仓仍按原保护；full输入资格先独核，不默填或换源。
+在原合法计划/排序之后及原atomic reserve/fill时检验：
+ G_projected(q) + R_other_pending(q) <= .10 * N_projected(q), if D is true.
+ G为原生当前可得价计的实际持仓总市值，含本次拟买；R为真实未成交/cancel_pending买订单的原生gross承诺，不双计当前拟成交量/当前reserve。N为沿原账真实手续费/滑点后的原权益。估计/费用一律复用已经审过的原native quote/原resource数据，不能重算一个并行NAV。
+若可行量变小，只能原证券合法数量向下且不超过原cap/budget；最小量不足为0。原拒绝永远不被新规则变允许。优先序和原PVR不重排，不复制每股/每行业10%。
+真实已有pending不能在首次DOWN被grandfather免检；需要缩/撤时走原cancel/ACK，ACK前仍占资源，不能提前释放，原执行竞态按原proxy保留。不得把策略pending intent全当真实reserve。若当前pending责任使addedceiling已超，不能新增，不倒卖旧仓去满足新线。
+D=false时撤除附加ceiling，仍需全部原资格/资源/执行/退出锁；这是一个条件性的风险准入模块，不是新恢复状态机。不拿not-D绕原ACT20/BREAK63，不借旧历史H日历代替自身H。H暂停/强退/ACK/flat/原恢复完全保留，所以June2022早恢复等待仍未解决，不宣称此卡解决它。
+明确弱点：not-D可回原正常申请风险，短假恢复可能重新投入；旧winner吃headroom可能挡新leader；旧仓主亏不直接减少；above+MA_down的Dec2022不覆盖。这里只隔离弱背景的新增准入，不能冒称完整防守恢复方案。
+
+与刚才纸卡反驳的区别
+把全账户强制卖到10%与本候选不是同一行为；本候选只在新买时看总gross，允许legacyovercap，但确实让旧持仓占新增余量。不能用“旧仓不卖”宣称未影响已有股后续加仓。也不能把它误称“只有DOWN新批次占10%且旧仓不占”。后者需要新来源份额/跨regime身份和mixedpartial定义，本卡明确不走那条新增第二资源账路线。
+
+下一步仅逻辑/可复用成本审查，尚无计算或账户授权
+一位独立逻辑reviewer核定义是否内在矛盾、与旧近邻是否同义已败、9spell正反/Dec/Apr/强窗新龙头代价；一位原native owner只定位现有reserve/fill gross字段/quote与pending精确口径及最小改动成本（不写策略）。若做不到复用现有原资源方法，或要新NAV/资源账/epoch、变更退出、偷偷加恢复、调多参数才成立，立即STOP此实现。
+本卡必须通过上述审查和全长/strong市场info输入时钟核查，方可另冻结最小小样本技术/财务检验。只需验证其新增约束，不重做原E0/I/CP1/数据加载或新baseline基础设施；没有GO之前不跑账户。
+如获后续GO，经济检验预定同原连续2022—24及fresh2025Jul—2026Jun，保原No60/现金/已审ETF参考，完整日历和9spell正反，完整own-state；诊断924/H1semi不输入信号。先小技术账再完整，不阶段择最优参数。
+研究评价先绝对2022—23及三年损失、DD与费用，再比较强窗fat-tail/新leader/已有winner。仅少投入、仅比No60少亏或低于35%不算完整策略成功；不能因局部好就忽略2022Dec、反弹恢复、跨年代/PIT/OOS仍未验证。无效即停止本设定，不扫10到90或叠新的确认/行业例外救结果。

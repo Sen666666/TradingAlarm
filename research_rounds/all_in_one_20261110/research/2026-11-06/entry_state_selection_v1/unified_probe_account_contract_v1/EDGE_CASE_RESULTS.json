@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "count": 5,
+  "tests": [
+    "every_proof_precedes_any_commit_reverse_queue_exact_state_and_audit",
+    "confirmed_requires_current_attempt_explicit_real_confirmed_layer",
+    "promotion_receipt_dedup_but_native_buy_consumes_once",
+    "signal_min_unit_risk_failure_not_rescued_by_lower_next_open",
+    "proposed_industry_split_formula_is_separate_unvalidated_arm"
+  ],
+  "implementation_sha256": "755547e59cce871762523167bf21006033260291d6f0e613876d5c063aa5bc02",
+  "scope": "synthetic adverse state tests; proposed industry arm formulas only"
+}

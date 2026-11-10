@@ -1,0 +1,10 @@
+{
+  "status": "ONE_FROZEN_CMF_CLV_PVR_COMPARISON_COMPLETE",
+  "original_sources_unchanged": true,
+  "seal_unchanged": true,
+  "accounts": 0,
+  "parameter_searches": 0,
+  "through": "2026-05-15",
+  "not_oos": true,
+  "label_sha256": "0afce7b7e5f17091b6fc1ff19ca254fc0f5b0d35466e70d90b769be373a24fa8"
+}

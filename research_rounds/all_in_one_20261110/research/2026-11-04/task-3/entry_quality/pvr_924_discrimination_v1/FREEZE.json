@@ -1,0 +1,14 @@
+{
+  "status": "FIXED_EVALUATION_RULES_BEFORE_FUTURE_LABEL_ANALYSIS",
+  "day": "2024-09-24",
+  "population": "All2313 already-computed i_buy_research=True from full_local_signal_20240924_v1/FULL5517_CANDIDATES.parquet. No later availability/performance selection or replacement. Static old1709 intersection997 and outside1316.",
+  "prior_ranking": "Use already-frozen original PVR ranks, unchanged scores; exact ties sid ascending as original. All2313 have known PVR. Save cohort/each scope rank before loading future labels.",
+  "scopes": "ALL2313, OLD1709_STATIC997, OUTSIDE_OLD17091316. Primary each-scope PVR rank and denominators fixed beforehand; also cross-tab global frozen bands by static membership without rebalancing.",
+  "bands": "D1(best)..D10=floor((rank-1)*10/N)+1; TOP20/rank<=20 and REST20/rank>20; TOP100/rank<=100 and REST100/rank>100; ALL. No future-driven cuts. Decile sizes may differ by1. Top20 subset of top100, overlapping contrasts not additive.",
+  "price_clock": "Base C0=observed2024-09-24 canonical qfq close. Evaluate first5/20 subsequent valid positive finite close+amount observations with known unchanged source. Current day excluded. Explicit invalid/source transition stops block; missing dates not imputed, not certified market sessions or tradable days. Preserve nth actual dates/calendar span/source-tail and gap diagnostics.",
+  "outcomes": "terminal_h=C_h/C0-1; MFE_h=max(0,max_{j=1..h}(C_j/C0-1)); MAE_h=min(0,min_{j=1..h}(C_j/C0-1)). Only complete h observations yield fixed-h outcome, insufficient rows remain NA, not zero. Partial extrema may be saved separately, never compared as complete-h.",
+  "summary": "For every frozen scope/band/horizon report prior N, complete N, unknown/censor counts, actual endpoint spread; terminal mean/median/p10/p25/p75/p90/min/max and positive share; close-MFE/MAE mean/median/p10/p90; descriptive terminal/MFE>=20%,50%,100% and terminal<=-10%,-20%. Thresholds are label summaries, not a trading rule or selected by results.",
+  "tail_concentration": "For each complete horizon: shares of sum(max(terminal,0)) attributable to ex-post largest1/5/20 terminal paths; analogous MFE sum. Assess frozen PVR top20/100 coverage of ex-post top1%/5% terminal ranks using ceil on complete N, with labels only in evaluation. Call price-change concentration, never account profit contribution. Never rerank PVR or fill censored members from future winners.",
+  "limits": "No OPEN fill, cost, portfolio, account NAV, executable condition, future sector/ST/halt/limit or delisting classification assumed. Qfq-vintage/current survivor/local5517/239retired limitations remain. A single correlated-date cross section is descriptive, not iid samples, independent alpha, true OOS or causal result.",
+  "next_dates": "Only plan2022-01-24 and2026-01-15 signal-only source workload/time after this result; do not start those runs or any accounts."
+}

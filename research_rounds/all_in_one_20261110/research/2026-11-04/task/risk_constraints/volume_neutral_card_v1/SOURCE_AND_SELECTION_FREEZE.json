@@ -1,0 +1,102 @@
+{
+  "at_UTC": "2026-11-04T10:50:55.477227+00:00",
+  "design_only": true,
+  "fixture_execution_authorized": false,
+  "new_feature_algorithm_account_or_economic_runs": 0,
+  "fixture_count": 3,
+  "fixtures": [
+    {
+      "id": "F1",
+      "board_prefix_class": "MAIN",
+      "source_mode": "verified_case_reuse",
+      "selection": "lexicographically first symbol satisfying board-prefix and frozen source-mode; no return/feature consulted",
+      "sid": "000001.SZ",
+      "sector": "URFI881155",
+      "stock_warm_from": "2013-01-04",
+      "stock_rows": 3271,
+      "industry_warm_from": "2007-08-01",
+      "industry_rows": 4563,
+      "stock_refs": {
+        "facts": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stock-cp1-warmup-20261031/full-facts/000001.SZ.parquet",
+        "CP1_input": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stock-cp1-warmup-20261031/CP1-input/000001.SZ.parquet",
+        "CP1": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stock-cp1-warmup-20261031/CP1/000001.SZ.parquet",
+        "receipts": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/receipts/000001.SZ.json"
+      },
+      "industry_refs": {
+        "CP1_input": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/CP1-input/URFI881155.parquet",
+        "CP1": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/CP1/URFI881155.parquet",
+        "state": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/state/URFI881155.parquet",
+        "receipts": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/receipts/URFI881155.json"
+      }
+    },
+    {
+      "id": "F2",
+      "board_prefix_class": "CHINEXT",
+      "source_mode": "new_fixed_chain",
+      "selection": "lexicographically first symbol satisfying board-prefix and frozen source-mode; no return/feature consulted",
+      "sid": "300001.SZ",
+      "sector": "URFI881278",
+      "stock_warm_from": "2013-01-04",
+      "stock_rows": 3186,
+      "industry_warm_from": "2014-01-02",
+      "industry_rows": 3031,
+      "stock_refs": {
+        "facts": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/facts/300001.SZ.parquet",
+        "CP1_input": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/CP1-input/300001.SZ.parquet",
+        "CP1": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/CP1/300001.SZ.parquet",
+        "receipts": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/receipts/300001.SZ.json"
+      },
+      "industry_refs": {
+        "CP1_input": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/CP1-input/URFI881278.parquet",
+        "CP1": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/CP1/URFI881278.parquet",
+        "state": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/state/URFI881278.parquet",
+        "receipts": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/receipts/URFI881278.json"
+      }
+    },
+    {
+      "id": "F3",
+      "board_prefix_class": "STAR",
+      "source_mode": "new_fixed_chain",
+      "selection": "lexicographically first symbol satisfying board-prefix and frozen source-mode; no return/feature consulted",
+      "sid": "688001.SH",
+      "sector": "URFI881118",
+      "stock_warm_from": "2019-07-22",
+      "stock_rows": 1682,
+      "industry_warm_from": "2007-08-01",
+      "industry_rows": 4563,
+      "stock_refs": {
+        "facts": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/facts/688001.SH.parquet",
+        "CP1_input": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/CP1-input/688001.SH.parquet",
+        "CP1": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/CP1/688001.SH.parquet",
+        "receipts": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/receipts/688001.SH.json"
+      },
+      "industry_refs": {
+        "CP1_input": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/CP1-input/URFI881118.parquet",
+        "CP1": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/CP1/URFI881118.parquet",
+        "state": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/state/URFI881118.parquet",
+        "receipts": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/industry/receipts/URFI881118.json"
+      }
+    }
+  ],
+  "two_arm_feature_rows_upper_by_existing_manifest": 40592,
+  "time_estimate": "Unmeasured new adapter. Small compute30–120s and thin assembly30–60min; historical rawreference2.8–2.9s/3300stock rows; prior1799export709.7s with478reuse; fullneutral15–30min rough not a budget/grant.",
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/VOLUME_NEUTRAL_EXISTING_ALGORITHM_CARD.md": "45e9553b41482cb73ad166234d1d6910efc69b892107f538cdf05a956a684452",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/INDUSTRY_MANIFEST.json": "339c89777f488b3bbd5685cd93e38ad47748585b783808e7da35c685ad0775cd",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/inputs-v2/metadata.json": "36ec5a8358db213f96c9716d056fe6fab5d8fdca6b60e67693afbe72f2cb8a54",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/native-I-cache-interface-20261031/PILOT_GATE.json": "eee37ca3f6fb5368f5d326dc6f580b7d2e862cdbbfa484c22364f53c4ebb4097",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/COMPLETION.json": "317a835d6732dbbc27ff93af9db5105c2a605426e98956cd4aeef8e044f8da1b",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/desk/refresh.py": "6a144503d62891ae8856fe35b0475797226d2370b44ceb328d420dcc7084cdfc",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-b5-20261025/code/evidence.py": "c2d48324161628c18daee7e13717516049889d172081286ab06a4cfcb4eb6c38",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-b5-20261025/code/policy.py": "72f6785d9ee37df086b88963623569f046479a1934d420a15e2d141f8240b660",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-b4-20261025/code/model.py": "0beb0b16f2f2cac4f1aff23258b7c45722dc12f16e495be27bf5635c03888cf1",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-participation-response-20261020/code/numeric.py": "b07f92f309864ba1cfdb84f76adbf7c4d97d5eff6d90b6b25acd62577be0c2e3",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/grade.py": "faadd14be9ffbe79b5f92fceb92e480b9bf5eb4cce283b354e4dda7e0775b5c9",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/policies_g1.py": "079a70ac83aa98a3824aeaecc46186081d83f5148e9630a3ad0435cb01b05af1",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py": "85f21ad1622863645618f570b5f2e832558ebaca218ff2c71d0b4a0b545dd0bf",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-current-v3-information-capital-20261101/original_score_function.py": "9328109bada26c53b04cf0f3e84d719917cb528ff8608b3e9faa5d1c55ba8cb2",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-I-quarter-2025Q3-20261031/adapter.py": "2e9555d639c7db2a874e59c83cfa0df8889da0f41bf51e14313699292feea417",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/cp1-evidence-trace-20261031/trace.py": "bac0d77f7cc6aac767c24e70147d6d711e493ede57a30a8130eeeb0a122d00fe"
+  }
+}

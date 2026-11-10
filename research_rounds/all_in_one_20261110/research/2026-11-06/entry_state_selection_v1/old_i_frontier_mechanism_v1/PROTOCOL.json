@@ -1,0 +1,11 @@
+{
+  "status":"FROZEN_BEFORE_CASE_HIGH_WATER_CLASSIFICATION_NOT_UNSEEN_HISTORY",
+  "scope":"Reuse the identical22 cases/19stocks and pre63/post21 eligible-observation windows from the completed E0 frontier study. Read full original fact history to identify actual I0-to1 births. No new cases, economic replay, consumer, ranking, parameter grid or future outcome selection.",
+  "purpose":"Mechanism attribution only. Original fresh_up uses new E0 confirmation, S21/S63 confirmation, or local S21 frontier. Determine whether a pure continuing S21 frontier also advances the full surviving I epoch high-water mark; do not equate it with a reused order.",
+  "formula":"For known I birth b in an unchanged original fact segment, Hprev(t)=max(C_b..C_(t-1)); NEW_I_HWM iff C_t>Hprev+32*machine_eps*max(abs(C_t),abs(Hprev),1). I birth is FIRST_I_DAY. Active first-observed or gap/source-ambiguous lineage is UNKNOWN until a known false-to-true transition. No trading gate is created.",
+  "signal_classes":"No i_buy; first i_buy in known I epoch; later i_buy. CP first/later/no current CP independently. Pure S21 frontier iff original G up_reasons has only new_price_frontier_in_confirmed_up_structure; E0/S21/S63 confirmation or mixed reasons separate. Use old audited reconstructed G reason only when available in fixed daily window; no cause inferred from grade.",
+  "proposed_gate_status":"Do not promote whole-I-HWM requirement: it is a more distant recovery anchor, not new information, and known V2/V3/V5/E3.1 recovery families already cover higher-low/reclaim variants. Case classification may refute a stale-I explanation, cannot establish profitable admission.",
+  "clock":"All state depends only on current/past CLOSE and source identity; earliest possible trading action next common OPEN. Physically truncate facts and CP at each target cut and compare. Original source/future universe NON-PIT.",
+  "unknown":"Preserve original state/source and financial UNKNOWN separately. Mechanical fact high-water is not finance/entitlement-known certification. Original closed PRICE outcomes only context and never assigned to new market signals; 2026 Q0 remains no fill.",
+  "limits":"No new benefit, winrate or saved-loss estimate. Fixed known development cases are not a representative sample or OOS. Output includes all fixed cases and all available window days."
+}

@@ -1,0 +1,25 @@
+{
+  "result": "PASS",
+  "through": "2024-10-31",
+  "account_NAV": "1450585.6462602610105",
+  "pv_market": "684130.97",
+  "pv_weight_pct": "47.16239759877333485163996881",
+  "pv_stocks": 18,
+  "expansion_mobile_value": "658704.05",
+  "initial_frozen_value": "18444.00",
+  "locked_value": "6982.92",
+  "raw_close_to_floor_loss_before_fees_slippage": "110256.5418366959017982650092",
+  "pv_reference_target": "25426.92",
+  "cash": "524578.3562602610105",
+  "next_close_planned_mature_demand": "36215.9098652292500",
+  "next_financing_gap": "0",
+  "next_transfer_orders": 0,
+  "planned_PV_new_requests": 0,
+  "caveats": [
+    "Diagnostic only, not an alternate funded trading simulation.",
+    "M=-1 is unknown, not false. OPEN uses prior completed CLOSE decision.",
+    "Reference target is a funding ceiling, not mandatory rebalance.",
+    "Known floor risk is not guaranteed execution loss; gap, nontradability, tax, fees and slippage can worsen it.",
+    "No live orders; unchanged frozen M7 files."
+  ]
+}

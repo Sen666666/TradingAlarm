@@ -1,0 +1,20 @@
+{
+  "before_four_paths": true,
+  "paths": [
+    "RAW_cost2",
+    "ATT_cost2",
+    "RAW_delay1",
+    "ATT_delay1"
+  ],
+  "same_normal_boundary": true,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-final-pressure-20261031/PROTOCOL.txt": "4b59d676bd65af31cde7665e6bdbe87cb6aeb738fe3b45d8b60498cfa21dbf90",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-final-pressure-20261031/pressure.py": "d0444effc3669e62b242df980879e14e3c9dd03745bc7aad66e3a7d0891cf310",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-forward-Q1-20261031/continuation.py": "34fda506a24beadb183320b8cf0fff00cbadac05d6f0db94b147486d8cb45379",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-attention-top3-Q4-20261031/attention.py": "afd49bdd9b50a786239e5894197c770cf1207f401d6184fc382a3210ec5ffe97",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/seed.chk": "e9501163c403f5fa2a5910e84d1fcaed9a07448e78c9cf098f6a3b95836abca8",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-forward-Q1-20261031/FREEZE.json": "e70052185082758f2d326d083ce834300ef9ec1d778a83fd330bafb060f52e11",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-forward-Q1-20261031/RAW_MARKET_REFERENCES.json": "d7fb4444fd6b24d8b0cd21e0e65fffe5cbcf95b2489203a3bfcbe4a04df7a9d4",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/recovery.csv": "76599d9013946bc5fc501a57b046f36a2868ad61f147ef1a6c73c9575b35906a"
+  }
+}

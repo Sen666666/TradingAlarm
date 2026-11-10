@@ -1,0 +1,64 @@
+{
+  "created_utc": "2026-10-20T01:58:29.663534+00:00",
+  "status": "before candidate outputs; all history development",
+  "hypothesis": "High relative volume increases prior incidence of persistent level jumps and transient observation shocks equally; subsequent causal price distinguishes them. Continuous latent drift independent of positions.",
+  "state": "[log level, drift], F=[[1,1],[0,1]]. Nine branches reduced to three conditional moment-matched components each observation. Aggregate drift mean/std gives strength.",
+  "parameters": {
+    "scale": "previous63 return RMS, excludes current",
+    "activity": "sqrt(volume/prior21 median), clip [.5,2]",
+    "priors": "[1-.04*a,.02*a,.02*a]",
+    "level_Q": [
+      0.01,
+      9,
+      0.01
+    ],
+    "drift_Q": 0.0025,
+    "R": [
+      0.25,
+      0.25,
+      9
+    ],
+    "units": "variances multiplied by past RMS squared",
+    "entry": 1,
+    "exit": 0
+  },
+  "controls": [
+    "price activity=1",
+    "lag21 volume",
+    "pairwise",
+    "SMA63",
+    "buyhold"
+  ],
+  "difference": "Old Markov has fixed three return means and volume likelihood power; new continuous latent drift with persistent level versus transient observation interventions. No accumulation of overlapping intervals.",
+  "gates": "Prefix, scaling, sign symmetry; inspect bounded oscillation, jump then plateau, drift and common-prefix reversal/recovery. If interpretable despite tradeoffs, proceed to fixed accounts without retuning.",
+  "cases": [
+    [
+      "HK03033",
+      "2022-01-01",
+      "2026-10-16"
+    ],
+    [
+      "HK00700",
+      "2024-01-01",
+      "2026-10-16"
+    ],
+    [
+      "USHJ512480",
+      "2024-01-01",
+      "2026-10-16"
+    ]
+  ],
+  "accounts": "ETF17/HK7,2022-01-01..2026-10-16,initial1mCNY,.9/N entry,15bps+FX10; PV/price/lag21/pairwise/SMA63/buyhold base plus PVcost2(30+20) and delay1:16cases. Same engine and claims audit. ETF/stock common gate comparison separate followup after review.",
+  "interpretation": "Model weights not calibrated probabilities; volume prior a hypothesis, not established mechanism. No account eligibility on highest returns.",
+  "source_sha256": "c8312a5969fe3ef2132c48b82dbabcfec59fcb7168a5d362ba18de12a8032342",
+  "amendment": {
+    "time_utc": "2026-10-20T01:59:58.430375+00:00",
+    "reason": "Synthetic jump/plateau scaling exposed cancellation near zero covariance; centre log prices and set abs(strength)<1e-6 to numerical zero. Original code/protocol/failure preserved. No market parameters or historical returns viewed/changed.",
+    "synthetic_outputs_seen": [
+      "drift",
+      "range",
+      "jump scale assertion"
+    ],
+    "old_source": "3390a83264b790bdbf9b8bd0134b9b638e0f4b76de07471e1fd960609212b300"
+  }
+}

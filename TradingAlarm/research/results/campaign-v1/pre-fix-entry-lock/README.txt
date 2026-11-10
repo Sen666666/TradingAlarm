@@ -1,0 +1,1 @@
+Invalid preliminary results: at10% drawdown entries were forbidden,while restart required16% trigger,creating an unintended absorbing cash state. Retained for audit only. Corrected to halve initial-entry risk and forbid additions at10%; reran all cases.

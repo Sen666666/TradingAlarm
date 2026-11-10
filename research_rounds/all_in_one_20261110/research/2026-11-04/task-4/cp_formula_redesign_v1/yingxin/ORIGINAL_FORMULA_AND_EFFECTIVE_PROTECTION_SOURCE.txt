@@ -1,0 +1,96 @@
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py
+SHA256 85f21ad1622863645618f570b5f2e832558ebaca218ff2c71d0b4a0b545dd0bf
+1: """CP1 market-only receipt calculation. No account/trade engine imports."""
+2: import math
+3: import numpy as np
+4: import pandas as pd
+5: A=math.sqrt(5);K=math.sqrt(21);S_MIN=math.log1p(.001)
+6: EPS=4*2**-53/(1-4*2**-53)
+7: def ge(a,b):return a>=b or abs(a-b)<=EPS*max(abs(a),abs(b),1e-300)
+8: def gt(a,b):return a>b and not abs(a-b)<=EPS*max(abs(a),abs(b),1e-300)
+9: def features(f):
+10:  if not isinstance(f.index,pd.DatetimeIndex) or f.index.hasnans or not f.index.is_unique or not f.index.is_monotonic_increasing:raise ValueError('ordered unique daily index required')
+11:  if not f.index.normalize().is_unique:raise ValueError('daily only')
+12:  if not {'close','amount','segment_id','e0_valid','e0_down'}<=set(f):raise ValueError('required facts absent')
+13:  for k in ['close','amount']:
+14:   if not (np.isfinite(f[k]).all() and f[k].gt(0).all()):raise ValueError('no missing/nonpositive price or amount')
+15:  for k in ['e0_valid','e0_down']:
+16:   if not pd.api.types.is_bool_dtype(f[k]) or f[k].isna().any():raise ValueError('explicit Boolean facts required')
+17:  if f.segment_id.isna().any():raise ValueError('source identity required')
+18:  blocks=f.segment_id[f.segment_id.ne(f.segment_id.shift())]
+19:  if blocks.duplicated().any():raise ValueError('noncontiguous source')
+20:  out=pd.DataFrame(index=f.index,columns=['r','s','z','B','u','v','m'],dtype=float)
+21:  for _,g in f.groupby('segment_id',sort=False):
+22:   r=np.log(g.close).diff();s=r.abs().shift().rolling(63,min_periods=63).median().mul(1.4826).clip(lower=1e-8)
+23:   B=g.amount.shift().rolling(21,min_periods=21).median();u=np.tanh(r/s);v=np.tanh(np.log(g.amount/B))
+24:   out.loc[g.index]=pd.DataFrame(dict(r=r,s=s,z=s.clip(lower=S_MIN),B=B,u=u,v=v,m=1+.5*u.abs()*v),index=g.index)
+25:  return out
+26: def calculate(f,price_only=False):
+27:  z=features(f);out=[];phase=None;anchor=frontier=scale=None;credit=0.;segment=None
+28:  for day,row in f.iterrows():
+29:   q=z.loc[day];p=math.log(row.close);fresh=0.;receipt=False;candidate=math.nan;reason=None;disp=math.nan
+30:   if row.segment_id!=segment:
+31:    phase=None;segment=row.segment_id;reason='source_reset'
+32:   ready=math.isfinite(q.z)
+33:   if not ready or not row.e0_valid:
+34:    phase=None;anchor=frontier=scale=None;credit=0.;reason='unprepared' if not ready else 'E0_invalid'
+35:   elif phase is None or row.e0_down:
+36:    phase='SEEK';anchor=frontier=p;credit=0.;scale=float(q.z);reason='E0_down_reset' if row.e0_down else 'start'
+37:   elif phase=='SEEK' and gt(anchor,p):
+38:    anchor=frontier=p;credit=0.;scale=float(q.z);reason='lower_anchor'
+39:   else:
+40:    fresh=p-frontier if gt(p,frontier) else 0.
+41:    if fresh:
+42:     frontier=p;credit=math.fsum((credit,fresh*(1. if price_only else float(q.m))))
+43:    disp=frontier-anchor
+44:    receipt=bool(fresh and ge(disp,A*scale) and ge(credit,A*scale))
+45:    if receipt:candidate=float(row.close)*math.exp(-K*scale)
+46:   used_anchor,used_scale,used_credit=anchor,scale,credit
+47:   used_phase=phase
+48:   if receipt:
+49:    phase='UP';anchor=frontier=p;credit=0.;scale=float(q.z);reason='receipt_consumed'
+50:   out.append(dict(ready=ready,phase=used_phase,reset_reason=reason,anchor=used_anchor,frontier=frontier,scale=used_scale,credit=used_credit,delta_frontier=fresh,displacement=disp,receipt=receipt,candidate=candidate,next_anchor=anchor,next_scale=scale,next_credit=credit,next_phase=phase))
+51:  cols=['ready','phase','reset_reason','anchor','frontier','scale','credit','delta_frontier','displacement','receipt','candidate','next_anchor','next_scale','next_credit','next_phase']
+52:  result=pd.DataFrame(out,index=f.index,columns=cols)
+53:  for k in ['phase','reset_reason','next_phase']:result[k]=result[k].astype('string')
+54:  for k in ['ready','receipt']:result[k]=result[k].astype(bool)
+55:  for k in set(cols)-{'ready','receipt','phase','reset_reason','next_phase'}:result[k]=result[k].astype(float)
+56:  result=result.join(z)
+57:  result['e0_valid']=f.e0_valid;result['e0_floor']=f.i_floor if 'i_floor' in f else np.nan
+58:  return result
+
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/common.py
+SHA256 966cd8aed9a205152cfdeb7a63fa96b3484fad8073ad89454bca9ebfa94d2a79
+17: def frame(sid,cut=None):
+18:  f=pd.read_parquet(PREP/'facts'/f'{sid}.parquet').loc[:cut]
+19:  raw=pd.read_parquet(PREP/'signals'/f'{sid}.parquet').reindex(f.index)
+20:  ev=pd.read_parquet(PH/'events/TECH'/f'{sid}.parquet').reindex(f.index)
+21:  assert (f.close==raw.close).all() and set(raw.amount_unit)=={'CNY'}
+22:  out=f[['close','segment_id','i_target','i_floor']].copy()
+23:  out['amount']=raw.amount;out['e0_down']=ev.event.eq(-1);out['e0_valid']=f.i_target.astype(bool)
+24:  return out
+
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py
+SHA256 fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425
+225:     if not a.risk_state['on'] or not bool(row.i_target):
+226:      if not bool(row.i_target):
+227:       for x in a.live(sid):
+228:        if x['kind']=='core':a.jmeta[x['id']]['pending_I_exit_reference']=True
+229:      a.sell(sid,clock,quote,[x['id'] for x in a.live(sid)],'ACT_pause' if not a.risk_state['on'] else 'I_structure_exit');continue
+230:     for x in a.live(sid):
+231:      if x['kind']=='core':
+232:       known_floor=self.facts.floor(sid,at,'I')
+233:       if known_floor is not None:a.jmeta[x['id']]['last_core_line']=str(known_floor)
+234:       continue
+235:      if x['kind']!='add' or x['id'] in a.sell_layers.get(sid,set()):continue
+236:      if D(str(row.close))<=x['floor']:a.sell(sid,clock,quote,[x['id']],'CP1_add_protection')
+237:      else:
+238:       floor=self.facts.floor(sid,at,'I')
+239:       if floor is not None:x['floor']=max(x['floor'],floor)
+240:       if cp is not None and bool(cp.receipt):x['floor']=max(x['floor'],D(str(cp.candidate)))
+302:  def opening(self,a,at):
+303:   C.activate(a)
+304:   for sid in sorted(a.exits):
+305:    win=self.market.window(sid,at,'sell',1)
+306:    if win:a.fill_exit(sid,win)
+307:   a.settle_due(at);a.sync(at);funded=[];done=set()

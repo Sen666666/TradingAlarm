@@ -1,0 +1,262 @@
+[
+  {
+    "industry": "油气开采及服务",
+    "at": "2026-01-07 09:30:00+08:00",
+    "candidate": "海油发展",
+    "candidate_H1": 26.187538556447,
+    "NAV": 1144733.9506206694,
+    "cash": "823443.8306206695585",
+    "inventory": 320677.96,
+    "risk": 49928.49534856429,
+    "principal": 14358.806492755351,
+    "giveback": 35569.68885580894,
+    "pending": 0,
+    "without_account_only": [
+      5800,
+      "probe"
+    ],
+    "top3": [
+      {
+        "stock": "300475.SZ",
+        "risk": 6784.999999999999,
+        "principal": 0.0,
+        "giveback": 6784.999999999999,
+        "value": 19000.0,
+        "qty": 100,
+        "lots": [
+          "116"
+        ],
+        "name": "香农芯创",
+        "industry": "其他电子",
+        "posthoc_full_window_top10_positive": false,
+        "roles": [
+          "core"
+        ],
+        "known_H1": 99.16718075262183,
+        "all_known_I_valid": true,
+        "all_current_layer_economic_PnL": 9909.67598858985
+      },
+      {
+        "stock": "600343.SH",
+        "risk": 5681.585509325112,
+        "principal": 0.0,
+        "giveback": 5681.585509325112,
+        "value": 52800.0,
+        "qty": 1200,
+        "lots": [
+          "173"
+        ],
+        "name": "航天动力",
+        "industry": "通用设备",
+        "posthoc_full_window_top10_positive": true,
+        "roles": [
+          "mobile"
+        ],
+        "known_H1": 99.59901295496607,
+        "all_known_I_valid": true,
+        "all_current_layer_economic_PnL": 31302.882443566
+      },
+      {
+        "stock": "000408.SZ",
+        "risk": 4157.967780159627,
+        "principal": 0.0,
+        "giveback": 4157.967780159627,
+        "value": 27543.0,
+        "qty": 300,
+        "lots": [
+          "169"
+        ],
+        "name": "藏格矿业",
+        "industry": "农化制品",
+        "posthoc_full_window_top10_positive": true,
+        "roles": [
+          "mobile"
+        ],
+        "known_H1": 96.57618753855645,
+        "all_known_I_valid": true,
+        "all_current_layer_economic_PnL": 9257.693307446501
+      }
+    ],
+    "major_contributor_risk": 14741.553289484738,
+    "all_current_positive_economic_layer_risk": 40457.96085580894,
+    "giveback_fraction_of_risk": 0.7124125933995678,
+    "currently_positive_layer_risk_fraction": 0.8103180473066733,
+    "old_attempt_probe_risk": 1943.9999999999998,
+    "old_attempt_probe_capital": 12280.0
+  },
+  {
+    "industry": "能源金属",
+    "at": "2025-07-04 09:30:00+08:00",
+    "candidate": "天齐锂业",
+    "candidate_H1": 43.32298136646,
+    "NAV": 1001968.5563850927,
+    "cash": "679930.3763850926080",
+    "inventory": 322038.18,
+    "risk": 33388.43504738507,
+    "principal": 24664.18669776385,
+    "giveback": 8724.248349621226,
+    "pending": 0,
+    "without_account_only": [
+      600,
+      "probe"
+    ],
+    "top3": [
+      {
+        "stock": "002384.SZ",
+        "risk": 3374.557494626899,
+        "principal": 1558.607494626898,
+        "giveback": 1815.9500000000007,
+        "value": 17924.0,
+        "qty": 400,
+        "lots": [
+          "13"
+        ],
+        "name": "东山精密",
+        "industry": "元件",
+        "posthoc_full_window_top10_positive": false,
+        "roles": [
+          "mobile"
+        ],
+        "known_H1": 93.88198757763975,
+        "all_known_I_valid": true,
+        "all_current_layer_economic_PnL": 1809.9174739949995
+      },
+      {
+        "stock": "688520.SH",
+        "risk": 3279.9798496212225,
+        "principal": 0.0,
+        "giveback": 3279.9798496212225,
+        "value": 23913.600000000002,
+        "qty": 318,
+        "lots": [
+          "15"
+        ],
+        "name": "神州细胞",
+        "industry": "生物制品",
+        "posthoc_full_window_top10_positive": false,
+        "roles": [
+          "mobile"
+        ],
+        "known_H1": 96.30434782608695,
+        "all_known_I_valid": true,
+        "all_current_layer_economic_PnL": 4086.0237543046314
+      },
+      {
+        "stock": "603256.SH",
+        "risk": 2946.5202150562864,
+        "principal": 1305.8702150562879,
+        "giveback": 1640.6499999999983,
+        "value": 20350.0,
+        "qty": 1100,
+        "lots": [
+          "5"
+        ],
+        "name": "宏和科技",
+        "industry": "电子化学品",
+        "posthoc_full_window_top10_positive": true,
+        "roles": [
+          "mobile"
+        ],
+        "known_H1": 99.09937888198758,
+        "all_known_I_valid": true,
+        "all_current_layer_economic_PnL": 1634.4507306650012
+      }
+    ],
+    "major_contributor_risk": 10623.492569035929,
+    "all_current_positive_economic_layer_risk": 16487.644528246965,
+    "giveback_fraction_of_risk": 0.26129551556518654,
+    "currently_positive_layer_risk_fraction": 0.49381303750378236,
+    "old_attempt_probe_risk": 0,
+    "old_attempt_probe_capital": 0
+  },
+  {
+    "industry": "军工电子",
+    "at": "2025-10-17 09:30:00+08:00",
+    "candidate": "火炬电子",
+    "candidate_H1": 60.809141445337,
+    "NAV": 1095231.7793512682,
+    "cash": "810855.6693512679615",
+    "inventory": 283798.75,
+    "risk": 35273.21604386213,
+    "principal": 9209.61921597605,
+    "giveback": 26063.596827886082,
+    "pending": 0,
+    "without_account_only": [
+      500,
+      "probe"
+    ],
+    "top3": [
+      {
+        "stock": "600629.SH",
+        "risk": 10014.201445915249,
+        "principal": 0.0,
+        "giveback": 10014.201445915249,
+        "value": 37770.00000000001,
+        "qty": 1000,
+        "lots": [
+          "105",
+          "107"
+        ],
+        "name": "华建集团",
+        "industry": "建筑装饰",
+        "posthoc_full_window_top10_positive": false,
+        "roles": [
+          "mobile"
+        ],
+        "known_H1": 99.90735021618283,
+        "all_known_I_valid": true,
+        "all_current_layer_economic_PnL": 12299.645095855703
+      },
+      {
+        "stock": "000506.SZ",
+        "risk": 4127.999999999993,
+        "principal": 0.0,
+        "giveback": 4127.999999999993,
+        "value": 35976.0,
+        "qty": 2400,
+        "lots": [
+          "28",
+          "106",
+          "113",
+          "117"
+        ],
+        "name": "招金黄金",
+        "industry": "贵金属",
+        "posthoc_full_window_top10_positive": false,
+        "roles": [
+          "core",
+          "mobile"
+        ],
+        "known_H1": 99.28968499073503,
+        "all_known_I_valid": true,
+        "all_current_layer_economic_PnL": 7329.8601820495
+      },
+      {
+        "stock": "301345.SZ",
+        "risk": 2990.680939930928,
+        "principal": 0.0,
+        "giveback": 2990.680939930928,
+        "value": 24559.0,
+        "qty": 100,
+        "lots": [
+          "9"
+        ],
+        "name": "涛涛车业",
+        "industry": "汽车服务及其他",
+        "posthoc_full_window_top10_positive": true,
+        "roles": [
+          "mobile"
+        ],
+        "known_H1": 98.23965410747375,
+        "all_known_I_valid": true,
+        "all_current_layer_economic_PnL": 12367.061175785
+      }
+    ],
+    "major_contributor_risk": 3853.6809399309277,
+    "all_current_positive_economic_layer_risk": 30771.734224170435,
+    "giveback_fraction_of_risk": 0.7389061659553834,
+    "currently_positive_layer_risk_fraction": 0.8723824384458135,
+    "old_attempt_probe_risk": 0,
+    "old_attempt_probe_capital": 0
+  }
+]

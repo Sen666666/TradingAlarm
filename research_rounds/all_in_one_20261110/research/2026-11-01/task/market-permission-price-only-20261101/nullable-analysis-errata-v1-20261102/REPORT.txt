@@ -1,0 +1,26 @@
+2026-11-02隔离分析勘误已收口：只修原静态分析sector_states→extra_cases的nullable失败时间读取和下游2026市场视图，没有账户bug，没有改金融loader、F1/指标、原目标或任何原文件。当天推进门仍不晋升。
+
+根因是旧g-s-static-capital-competition-v1/analyze_static.py:242使用pending_failure_at is None。Arrow/pandas读入的某些无pending列为空NaN，误判ACTIVE无支持。这是5条行业日期状态、涉及3行业：4/30其他电子、能源金属；5/7其他电子、通信服务、能源金属。其他电子4/30与通信服务5/7仍未成熟；真正补入扩张名单的是4/30能源金属6股、5/7其他电子力源信息1股。全球两日仍ENDED、无许可，没有改全局判定。
+
+| 固定收盘 | 原扩张名单→完整名单 | 同日推进覆盖 | C行业先序纠正 | B个股序纠正 |
+|---|---:|---:|---|---|
+| 2026-04-30 | 8→14 | 0/14 | 前6能源金属；电子化学品7–10 | 化学品4股由旧1/4/5/7改为1/4/7/12 |
+| 2026-05-07 | 61→62 | 54/61→55/62 | 力源信息C31；首只严格半导体C31→32 | 力源信息B19；首只半导体B6不变；前20半导体6→5 |
+
+Apr30补入的6只均来自原能源金属URFI881267，按原C顺序为：天齐锂业002466.SZ（B5/C1）、融捷股份002192.SZ（B6/C2）、盛新锂能002240.SZ（B8/C3）、腾远钴业301219.SZ（B10/C4）、博迁新材605376.SH（B11/C5）、永兴材料002756.SZ（B13/C6）。原已存H1行业排序使能源金属先于化学品，并未新造行业指标或调分数。完整14只构成为能源金属6、电子化学品4、元件2、电池2；当日均无行业新advance。严格半导体仍未成熟，原19条股票Q通过的canonical fresh不因本次勘误获S扩张许可。
+
+May7新增力源信息300184.SZ/URFI881123，原canonical收据b23986ab3a6ad2f0afcb5a2ebe5fbc2fb545596ba37e3025abd18c63ef9c21f3，PVR81.56411542802958，B19/C31。严格半导体仍21股，首只安路科技688107.SH B6/C32；原B前10仍3只，前20改5只。蘅东光920045.BJ的真实PVR NA仍保留原slot，B7/C24，未删除NA或用0补分。其他原入选股票的价格、保护、最小量、最小费用、原生收据等逐值核同。
+
+May7完整推进归因为55/62：严格半导体21、电子化学品9、元件14、消费电子10、其他电子1；其余7条无当日推进，通信设备6、电池1。其他电子当天确是当前context首次推进，并有力源信息fresh；旧“当天推进但无fresh”断言撤回。能源金属May7当日仍无fresh，虽H1第一且前一观察5/6推进，不由排名或历史推进造机会。全90行业，包括无机会/无许可/UNKNOWN，都保留在attribution/MAY7_ALL90_MARKET_DIRECTIONS.json。
+
+统一读取规则在nullable_analysis.py：字段存在且None/标量NaN/pandas NA/NaT规范为ABSENT；合法原ISO日期/日期对象为PENDING；缺字段、错误类型/日期、bool、0、集合等为UNKNOWN。真实PENDING和UNKNOWN都拒绝支持与新增许可，不当ABSENT，不抹失败。其他资格/价格/保护/因子各自检查，未知不补0；原facts的I标志只解码已知0/1，其他值仍UNKNOWN。16项合成测试覆盖这些边界，含None/NaN等价、真实pending、缺字段、未知保护/因子/资格、线价拒绝，以及0/1原缓存读取。
+
+原B/PVR_SLOT1只AST提取冻结priority_plan，NA槽与12位小数tie均原样；C仅沿原prepare.py的90行业既有H1先序、行业内B序。金融loader/账户/选择器求解器均未导入或调用，未重跑Jan6/Jul3或任何账户。仅为保存已有市场元数据，AST提取原纯日期规则及费用数据类片段；没有调用Account/Runner、金融事件、资金目标、现金/风险/仓位容量计算。两日真实G/S库存和实际下一开盘可成交性继续UNKNOWN。
+
+原B73文件、C62文件、旧静态稿、旧推进归因、完整覆盖诊断都保留原hash。Jan6/Jul3目标未重算；旧接收归因28行、15个行业×政策组及全部接收行业当天无advance的事实不变。旧8/61名单的字节忠实复用证明仍有效，但“完整市场覆盖”的断言撤回，不能再据旧名单重复作完整性背书。本包31项逐原文件替代映射明确区分：纠正市场内容、只补绑定或完整性审计范围、原日志保留；旧哈希本身没有失效。
+
+全部写入本隔离目录，未覆盖主工程使用产物。正式替代市场视图：static/两日ALL1709_DISPOSITIONS、ALL_SECTOR_FRESH_COMPETITION、SECTOR_OPPORTUNITY与SUMMARY；C-market-2026/两日INDUSTRIES、STOCK_ORDER及COVERAGE；attribution/May7原可见集与全90方向表、计数。三个REPORT与AUDIT_ENTRY是另版，保留原Jan6/Jul3正文并仅改2026相关段。ORIGINAL_FILE_REPLACEMENTS.json逐项列原文件路径/hash、新路径、正确值及适用范围。
+
+初次新适配因原I_valid以int64 0/1编码而触发完整性断言，未产生市场列表；错误版本与冻结记录保留于attempts/guard-int-flag-v1。修正只在读原已知0/1的边界解码，补测后重建完成，原股票信号没有变化。成功重建8.74秒；没有金融或指标重算。
+
+输入hash：SOURCE_SHA256.json、PUBLISH_SOURCE_SHA256.json、OLD_FROZEN_SNAPSHOT.json；输出及代码hash：PACKAGE_SHA256.json。可复用入口AUDIT_ENTRY.txt；nullable测试记录TEST_STDERR.txt和SYNTHETIC_RESULTS.json，完整核验VERIFICATION.json。

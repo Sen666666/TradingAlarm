@@ -1,0 +1,39 @@
+from pathlib import Path
+import json,hashlib,shutil
+old=Path(__file__).resolve().parent;P=old.parent;N=P/'joint51_candidate_v11_suspension_accounting';sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest();read=lambda p:json.loads(Path(p).read_text());save=lambda p,x:Path(p).write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
+assert not N.exists();assert all(sha(p)==h for p,h in read(old/'FREEZE.json')['hashes'].items());assert all(sha(old/'full_20241031_once'/p)==h for p,h in read(old/'full_20241031_once/OUTPUT_HASHES.json').items())
+fpath=P/'joint_equity_evidence_v1/002064_suspension_v1/SUSPENSION_FACT_002064_V1.json';assert sha(fpath)=='6a33945b5190bfe0a7e6d0eb4bb4a1e346db0edde57a52ce54de7ac32fa4303c';fact=read(fpath);assert all(sha(p)==h for p,h in fact['evidence_hashes'].items());notice=next(x for x in fact['official_sources'] if x['notice_number']=='2024-042')
+N.mkdir()
+for name in ['CLASSIFICATION_ALL1709.csv','EXCLUDED_UNCLASSIFIED.csv','MAPPING_SOURCE_HASHES.json','MAPPING_QA.json','synthetic_joint.py','ADDITIONAL_REVIEWED_EVENTS.json','build_extension.py','analyze_endpoint.py','summarize_run.py']:shutil.copyfile(old/name,N/name)
+shutil.copyfile(__file__,N/'prepare_v11.py')
+new=dict(schema='explicit_suspension_accounting_v1',sid='002064.SZ',known_from_date='2024-10-29',covered_dates=['2024-10-29','2024-10-30','2024-10-31'],mark_source_day='2024-10-28',raw_mark='8.11',factor='2.277636261313823',source_path='/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/prepared-v2/000232/signal.parquet',source_sha256='02565da2bc6c351c4b0a83d9c9b3fb81e0200d548ce1d5b498a456be6f6ced29',notice_number='2024-042',official_notice_path=notice['path'],official_notice_sha256=notice['sha256'],official_text_path=notice['text_path'],official_text_sha256=notice['text_sha256'],fact_envelope_path=str(fpath),fact_envelope_sha256=sha(fpath),future_notices_or_resume_date_used_for_decisions=False)
+policies=[read(old/'SUSPENSION_POLICY.json'),new];save(N/'SUSPENSION_POLICY.json',dict(schema='explicit_suspension_policy_registry_v2',policies=policies))
+contract=(old/'FROZEN_CONTRACT.md').read_text()+'''
+
+## v11 explicit additional scope (latest scope; supersedes v10's single-symbol limit only)
+Old v10 is sealed through 2024-10-28. This version retains the 300277 policy object unchanged and adds only 002064.SZ for 2024-10-29, 30, 31 under official 2024-042 effective 10/29 OPEN. The notice is signed 10/28 and displayed as disclosed 10/29; exact historical intraday availability is not certified. November's resumption evidence is archived only and cannot control October decisions. No future resumption field occurs in the operational policy.
+
+002064 uses its last observed 10/28 raw CLOSE 8.11 solely as stale/nontradable quantity-based valuation. At the prior checkpoint it holds 100 shares, so 811 CNY combines with the existing 1202 CNY in 300277 to make 2013 CNY stale assets. This is NAV and stock/sector capital occupancy, not cash, sale proceeds or liquidation value. All v10 restrictions on prices, CP, I, M3, execution, locked exits, action/bridge checks and unknown gaps remain unchanged. The prior alpha rules and all cash-event inputs are identical. This does not import any separate candidate's zero-share retained-ticket policy. No other security or date gains an exception.
+
+Implementation changes are limited to a unique-symbol registry of the two explicit policies and the next exact-prefix checkpoint. Each policy validates only its historical anchor, official initial notice and existing raw UNKNOWN source. The accounting/queue functions are unchanged. Both policy objects have independent start dates and bounded date membership. First run all synthetic checks and exact prior 34 sessions through 10/28, including nine account families and the two suspension/preflight audit families. Independent approval precedes 10/29–31 extension. New actual held/pending blockers still stop and roll back the whole day.
+''';(N/'FROZEN_CONTRACT.md').write_text(contract)
+save(N/'FACT_REVISION.json',dict(kind='EXPLICIT_ADDITIONAL_SUSPENSION_SCOPE',economic_alpha_rule_changes=0,additional_covered_sid='002064.SZ',previous_directory=str(old),previous_certified_through='2024-10-28',previous_freeze_sha256=sha(old/'FREEZE.json'),previous_engine_sha256=sha(old/'engine.py'),previous_output_hashes_sha256=sha(old/'full_20241031_once/OUTPUT_HASHES.json'),old_policy_unchanged=True,unchanged_cash_adapter_sha256=sha(N/'ADDITIONAL_REVIEWED_EVENTS.json'),new_fact_envelope_sha256=sha(fpath),requires_exact_prior_prefix=True))
+s=(old/'engine.py').read_text().replace("O/'build_extension.py']:hashed(p)","O/'build_extension.py',O/'prepare_v11.py']:hashed(p)")
+a=s.index("  self.suspension_policy=read(");b=s.index('  core=pd.read_csv(',a);oldblock=s[a:b];lines=oldblock.splitlines();assert 'self.suspension_policy' in lines[0]
+s=s[:a]+"  self.suspension_policies=read(hashed(O/'SUSPENSION_POLICY.json'))['policies']\n  assert len({p['sid'] for p in self.suspension_policies})==len(self.suspension_policies)\n  for pol in self.suspension_policies:\n"+'\n'.join(' '+x for x in lines[1:])+'\n'+s[b:]
+s=s.replace("  p=self.suspension_policy\n  return p if s==p['sid'] and day(d) in p['covered_dates'] else None","  for p in self.suspension_policies:\n   if s==p['sid'] and day(d) in p['covered_dates']:return p\n  return None")
+s=s.replace("day(d)=='2024-10-25'","day(d)=='2024-10-28'").replace('replay_20241025','replay_20241028').replace('joint51_candidate_v9_facts/full_20241031_once','joint51_candidate_v10_suspension_accounting/full_20241031_once').replace("certified_through='2024-10-25'","certified_through='2024-10-28'")
+s=s.replace("'ATTEMPTS','PENDING_AT_END']:","'ATTEMPTS','PENDING_AT_END','SUSPENSION_EVENTS','PREFLIGHT_CHECKS']:")
+compile(s,str(N/'engine.py'),'exec');(N/'engine.py').write_text(s)
+s=(old/'synthetic_suspension.py').read_text().replace("fake.suspension_policy=dict(sid='a',covered_dates=['2024-10-28'],future_resume_date='2099-01-01')","fake.suspension_policies=[dict(sid='a',covered_dates=['2024-10-28'],future_resume_date='2099-01-01')]").replace("fake.suspension_policy['future_resume_date']","fake.suspension_policies[0]['future_resume_date']")
+s=s.replace(' return checks',""" fake=object.__new__(Data);fake.suspension_policies=[dict(sid='a',covered_dates=['2024-10-28','2024-10-29'],raw_mark='12.02'),dict(sid='b',covered_dates=['2024-10-29'],raw_mark='8.11')];assert fake.suspension('a',DT)['raw_mark']=='12.02' and fake.suspension('b',DT) is None;assert fake.suspension('b',pd.Timestamp('2024-10-29'))['raw_mark']=='8.11' and fake.suspension('other',DT) is None;checks.append('independent_policy_symbols_and_dates_no_widening')
+ class TwoSusp(Susp):
+  def suspension(self,s,d):
+   if day(d)!='2024-10-29':return super().suspension(s,d)
+   return dict(self.policy,raw_mark='12.02' if s=='a' else '8.11',sid=s) if s in ['a','b'] else None
+ e=Engine(TwoSusp());a=attempt('a');b=attempt('b');e.active={'a':a,'b':b};e.archive={a['id']:a,b['id']:b};d2=pd.Timestamp('2024-10-29');assert e.nav(d2,'raw_open')==INITIAL+D('2013');assert e.liquidation_value(d2) is None;oldcash=e.cash;e.exit_open(d2);assert e.cash==oldcash and not e.orders;checks.append('two_suspended_holdings_sum_2013_NAV_only_no_cash')
+ return checks""")
+compile(s,str(N/'synthetic_suspension.py'),'exec');(N/'synthetic_suspension.py').write_text(s)
+s=(old/'diagnose_blocked_day.py').read_text().replace("pol=read(O/'SUSPENSION_POLICY.json');covered=s==pol['sid'] and when in pol['covered_dates'];valuation_note=None","pol=next((p for p in read(O/'SUSPENSION_POLICY.json')['policies'] if p['sid']==s and when in p['covered_dates']),None);covered=pol is not None;valuation_note=None")
+(N/'diagnose_blocked_day.py').write_text(s)
+print('CREATED',N,'engine',sha(N/'engine.py'))

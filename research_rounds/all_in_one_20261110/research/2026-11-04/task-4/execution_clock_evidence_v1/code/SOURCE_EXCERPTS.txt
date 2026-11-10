@@ -1,0 +1,709 @@
+静态原样摘录；未导入或调用Market/Account/window。行号是原文件行号。
+
+======================================================================
+A_effective_market_protocol_binding
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-I-quarter-2025Q3-20261031/adapter.py
+SHA256 2e9555d639c7db2a874e59c83cfa0df8889da0f41bf51e14313699292feea417
+
+LINES 58-65
+   58  def context(cut=None,ids=None):
+   59   b=BP.C.load_bundle(BP.C.OLD/'inputs-v2/input-manifest.json');allids=read(IC/'FREEZE.json')['stocks'];keep=set(ids or allids);b.lines=tuple(l for l in b.lines if l.security_id in keep);assert {l.security_id for l in b.lines}==keep
+   60   sectors={l.sector_id for l in b.lines};b.series={s:v for s,v in b.series.items() if s in keep|sectors};b.sector_series={s:v for s,v in b.sector_series.items() if s in sectors};records={r['series_id']:r for r in read(P/'manifest.json')['series']};frames={}
+   61   for sid,item in b.series.items():
+   62    item.record=records[sid];path=(O/'industry-facts' if sid.startswith('URFI') else IC/'facts')/f'{sid}.parquet';f=pd.read_parquet(path).loc[:cut or END];frames[sid]=f
+   63    item.states=f[['e0_ready','e0_target','segment_id']].rename(columns={'e0_ready':'ready','e0_target':'target'})
+   64   h=np.load(P/'h1.npz');dates=pd.DatetimeIndex(h['dates']);mask=dates<=pd.Timestamp(cut or END);b._h1_cache=(dates[mask],{str(s):j for j,s in enumerate(h['symbols'])},h['score'][mask].copy())
+   65   rules=read(RR/'pvr-act-comparison-20261027/execution-rules-v2.json');m=E.FastMarket(b,rules,[],read(BP.C.OLD/'inputs-v2/economic-protocol.json'))
+
+LINES 125-136
+  125   def run(self,end=END,begin=START,max_seconds=None):
+  126    t=time.monotonic();start=N.iso(begin+'T15:10:00+08:00');finish=N.iso(end+'T15:10:00+08:00');cutoffs={x for x in self.market.cutoffs if start<=x<=finish};opens={x for x in self.market.sessions['A'] if start<=x<=finish};acts={datetime.combine(datetime.fromisoformat(d).date(),dt.min,N.TZ) for d in self.actions_by_date};events=sorted(cutoffs|opens|{x for x in acts if start<=x<=finish});assert finish in cutoffs
+  127    E.risk_policy.RECOVERY=pd.read_csv(O/'recovery.csv',index_col=0,parse_dates=True).loc[:end if self.facts.f[next(iter(self.market.lines))].index.max()<=pd.Timestamp(end) else END]
+  128    for at in events:
+  129     if max_seconds and time.monotonic()-t>max_seconds:raise TimeoutError('frozen120s economic budget; partial state retained by caller')
+  130     for a in self.accounts.values():a.settle_due(at)
+  131     self._actions(at)
+  132     for a in self.accounts.values():self._payments(a,at)
+  133     if at in opens:
+  134      for a in self.accounts.values():self.opening(a,at)
+  135     if at in cutoffs:
+  136      self.planning(at)
+
+======================================================================
+B_J_opening_exact
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py
+SHA256 fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425
+
+LINES 302-324
+  302   def opening(self,a,at):
+  303    C.activate(a)
+  304    for sid in sorted(a.exits):
+  305     win=self.market.window(sid,at,'sell',1)
+  306     if win:a.fill_exit(sid,win)
+  307    a.settle_due(at);a.sync(at);funded=[];done=set()
+  308    for i in sorted([i for i in a.pending if i['clock'].earliest_execution_at==at],key=lambda x:(x['rank'],x['role']!='core')):
+  309     sid=i['sid']
+  310     if sid in done or sid in a.buys or sid in a.exits:continue
+  311     raw=self.market.raw[sid];day=pd.Timestamp(at.date())
+  312     if day not in raw.index or not np.isfinite(raw.loc[day].open) or raw.loc[day].open<=0:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='missing_open'));continue
+  313     x,why=LR.preview(i,D(str(raw.loc[day].open)),self.facts.factor(sid,at),self.market.quantity(sid,at),self.market.fees(sid,at))
+  314     if why:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result=why));continue
+  315     x['known_open']=D(str(raw.loc[day].open))
+  316     route,why=self.route(a,i,x,at)
+  317     if why:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result=why));continue
+  318     q,pool=route;a.reserve_quantity(i,q,x['price'],x['schedule'],at);a.sync(at);done.add(sid);funded.append((sid,i,x,q));self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='reserved',pool=pool,shares=q,price=x['price'],CP1_id=i.get('CP1_id')))
+  319    # Execution proxies are consulted only after all H1-ranked funding decisions.
+  320    for sid,i,x,q in funded:
+  321     win=self.market.window(sid,at,'buy',1)
+  322     if win:assert win.execution_price==x['price'];a.fill_buy(sid,win)
+  323     else:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='no_execution_window_after_reservation'))
+  324    a.settle_due(at);a.sync(at);a.minimum_available=min(a.minimum_available,a.available);a.check()
+
+======================================================================
+C_FastMarket_lag_and_HLV_window
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/temperature-sizing-20261026/code/fast_market.py
+SHA256 55f9ccf4085ace9f476afde4d29f250f7317dea405cbd9dffa69f5d7e366f36a
+
+LINES 17-21
+   17   def lag(self,market,at,count):
+   18    if count==0:return at
+   19    j=bisect_right(self.session_days[market],at.date())+count-1
+   20    if j>=len(self.sessions[market]):raise RuleUnavailable('Calendar does not cover settlement')
+   21    return self.sessions[market][j]
+
+LINES 45-67
+   45   def window(self,sid,at,side,cost_multiplier):
+   46    self._cache(at);key=(sid,side,cost_multiplier)
+   47    if key in self.wc:return self.wc[key]
+   48    self.wc[key]=None;market=self.lines[sid].market
+   49    if at not in self.sessions_set[market]:return None
+   50    try:self.source_available(sid,at)
+   51    except RuleUnavailable:return None
+   52    a=self.arr[sid];day=pd.Timestamp(at.date()).value//86400000000000;p=np.searchsorted(a['days'],day)
+   53    if p>=len(a['days']) or a['days'][p]!=day or not a['valid'][p] or not np.isfinite(a['volume'][p]) or a['volume'][p]<=0:return None
+   54    j=np.searchsorted(a['positive'],p)
+   55    if j<20:return None
+   56    try:
+   57     market_identity_on(self.rules,sid,at.date(),self.protocol['approved_proxy_ids']);availability=self._version('availability_versions',sid,at);buy,sell=availability.get('buy_allowed'),availability.get('sell_allowed');policy=self.protocol['daily_execution'][market]
+   58     assert policy['price_limit_policy']=='conservative_hl_proxy'
+   59     if policy['reject_flat_day'] and a['high'][p]<=a['low'][p]:buy=sell=False
+   60     prior=a['volume'][a['positive'][j-20:j]];capacity=int(min(prior.mean()*float(self.protocol['participation_rate']),a['volume'][p]));slip=D(policy['slippage_bps'])/10000
+   61     if cost_multiplier==2 and policy['stress_slippage']:slip*=2
+   62     op=D(str(a['open'][p]));price=op*(1+slip if side=='buy' else 1-slip)
+   63     w=ledger.FillWindow(f'{sid}:{at.isoformat()}:{side}',sid,at,op,price,self.rate('CNY',at),self.quantity(sid,at),self.fees(sid,at),capacity,True,buy,sell,self.lag(market,at,self.protocol['sellable_lag_sessions'][market]),self.lag(market,at,self.protocol['settlement_lag_sessions'][market]),self.bundle.series[sid].record['raw']['sha256'],'explicit_daily_bar_proxy_past20_capacity_same_day_hlv_postcheck',self.rules.get('security_metadata',{}).get(sid,{}).get('par_value'))
+   64    except RuleUnavailable:return None
+   65    if key not in self.window_verified:
+   66     assert w==super().window(sid,at,side,cost_multiplier),(sid,at,'window identity');self.window_identity_checks+=1;self.window_verified.add(key)
+   67    self.wc[key]=w;return w
+
+======================================================================
+D_protocol_A_exact
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/inputs-v2/economic-protocol.json
+SHA256 fc0d87436cae4c18019da7049979057903419682916afd287e9757dd46d8d339
+
+LINES 6-33
+    6    "approved_proxy_ids": [
+    7      "A_daily_hl_liquidity",
+    8      "A_same_day_sell_cash_reuse",
+    9      "A_historical_nonBJ_identity_from_source",
+   10      "A_quantity_rules_research_mapping",
+   11      "A_availability_no_historical_ST_delisting_tag",
+   12      "A_par1_before20150801",
+   13      "BSE_partial_fee_allowances",
+   14      "A_dividend_net80_unknown_paydate",
+   15      "A_bonus_next_session_fraction_floor",
+   16      "A_source_union_calendar"
+   17    ],
+   18    "fx_max_age_days": 0,
+   19    "participation_rate": ".01",
+   20    "daily_execution": {
+   21      "A": {
+   22        "price_limit_policy": "conservative_hl_proxy",
+   23        "reject_flat_day": true,
+   24        "slippage_bps": "5",
+   25        "stress_slippage": true
+   26      }
+   27    },
+   28    "sellable_lag_sessions": {
+   29      "A": 1
+   30    },
+   31    "settlement_lag_sessions": {
+   32      "A": 0
+   33    },
+
+======================================================================
+E_calendar_A_exact
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-act-comparison-20261027/execution-rules-v2.json
+SHA256 e54d23fb4be1740415364e757d300231c3871a99de43a328773cbe391eadb614
+
+LINES 2375-2379
+ 2375      "2024-10-08T15:10:00+08:00",
+ 2376      "2024-10-09T15:10:00+08:00",
+ 2377      "2024-10-10T15:10:00+08:00",
+ 2378      "2024-10-11T15:10:00+08:00",
+ 2379      "2024-10-14T15:10:00+08:00",
+
+LINES 5245-5249
+ 5245        "2024-10-08T09:30:00+08:00",
+ 5246        "2024-10-09T09:30:00+08:00",
+ 5247        "2024-10-10T09:30:00+08:00",
+ 5248        "2024-10-11T09:30:00+08:00",
+ 5249        "2024-10-14T09:30:00+08:00",
+
+======================================================================
+F_native_calendar_and_lag
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/ix-a-share-entry-20261025/code/multi_runner.py
+SHA256 8272c400fcee074a3902db9430dcf22d7ea3f0e0b3abb3caed3dc1e2a344d285
+
+LINES 70-75
+   70      def __init__(self, bundle, rules, fx_rows, protocol):
+   71          self.bundle, self.rules, self.protocol = bundle, rules, protocol
+   72          self.lines = {x.security_id: x for x in bundle.lines}
+   73          self.cutoffs = tuple(sorted(iso(x) for x in rules['decision_cutoffs']))
+   74          self.sessions = {m: tuple(sorted(iso(x) for x in times)) for m, times in rules['calendars'].items()}
+   75          validate_calendar(self.cutoffs, self.sessions)
+
+LINES 245-256
+  245      def lag(self, market, at, count):
+  246          if type(count) is not int or count < 0:
+  247              raise ValueError('Explicit nonnegative session lag required')
+  248          if count == 0:
+  249              return at
+  250          # Corporate actions can occur before this market's open; a session lag
+  251          # counts later trading dates, not a later opening on the same date.
+  252          later = [x for x in self.sessions[market]
+  253                   if x.astimezone(TZ).date() > at.astimezone(TZ).date()]
+  254          if count > len(later):
+  255              raise RuleUnavailable('Execution calendar does not cover settlement/sellability')
+  256          return later[count-1]
+
+======================================================================
+G_actual_OPEN_funding_and_reserve
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/lot-risk-allocation-20261029/code/study.py
+SHA256 2e7cfbdded269ae5430c9146d0b1f5c2b2281e5a5c774fdffb088b620d72bff4
+
+LINES 56-66
+   56  def preview(i,op,factor,rule,schedule):
+   57   p=op*(ONE+SLIP);floor=i['floor']/factor;cap=i['cap'];budget=i['budget'];par=i['quote'].par_value
+   58   if op<=floor:return None,'open_at_or_below_protection'
+   59   def allowed(q):return D(q)*p<=budget and (i['kind']!='core' or protection_risk(q,p,floor,schedule,par)<=i['risk_budget'])
+   60   maxq=maximum_quantity(rule,min(cap,int(budget/p)),allowed)
+   61   if not maxq:return None,'open_minimum_exceeds_frozen_contract'
+   62   cache={}
+   63   def cost(q):
+   64    if q not in cache:cache[q]=D(q)*p+fees(q,p,schedule,'buy',par)
+   65    return cache[q]
+   66   return dict(sid=i['sid'],i=i,price=p,floor=floor,rule=rule,schedule=schedule,maxq=maxq,minq=rule.buy_minimum,cost=cost,weight=D(str(i['weight'])),qty=0),None
+
+LINES 93-103
+   93  class Account(BP.Account):
+   94   def reserve_quantity(self,i,q,p,schedule,at):
+   95    """Lock known-open cash under a past frozen contract; execution stays in old ledger."""
+   96    sid=i['sid'];clock=i['clock'];quote=i['quote'];gross=D(q)*p;fee=fees(q,p,schedule,'buy',quote.par_value);quote.read_price(clock.decision_at);self._time(at)
+   97    assert clock.decision_at<at and clock.earliest_execution_at==at
+   98    assert 0<q<=i['cap'] and gross<=i['budget'] and gross+fee<=self.available
+   99    assert sid not in self.buys and sid not in self.exits
+  100    oid=self._id('buy',sid);order=L.BuyOrder(oid,quote,clock.decision_at,clock.earliest_execution_at,i['budget'],gross,fee,q,q,0,'annual_rebalance');order.candidate_id='LR1:'+i['reason'];self.buys[sid]=order;self.available-=gross+fee;self.order_meta[oid]=i
+  101    self.audit_log.append(dict(kind='reserve',at=at,decision_at=clock.decision_at,sid=sid,order_id=oid,gross_budget_cny=gross,fee_reserved_cny=fee,target_shares=q,purpose='annual_rebalance',candidate_id=order.candidate_id,quote_source=quote.source_id,fee_schedule=schedule.schedule_id,frozen_max_shares=i['cap'],frozen_max_gross=i['budget'],known_open_funding=True))
+  102    self.log('lot_risk_funded',at,sid=sid,order_id=oid,layer_kind=i['kind'],signal_at=clock.decision_at,shares=q,gross=gross,fees=fee,risk_budget=i.get('risk_budget'),floor=i['floor'])
+  103    return oid
+
+======================================================================
+H_ledger_order_fields
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py
+SHA256 48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb
+
+LINES 197-223
+  197  class FillWindow:
+  198      event_id: str
+  199      security_id: str
+  200      at: datetime
+  201      raw_open: Decimal
+  202      execution_price: Decimal  # Explicit protocol slippage already applied.
+  203      fx: FXQuote
+  204      quantity: QuantityRule
+  205      fees: FeeSchedule
+  206      capacity_shares: int
+  207      market_open: bool | None
+  208      buy_allowed: bool | None
+  209      sell_allowed: bool | None
+  210      sellable_at: datetime
+  211      cash_due_at: datetime
+  212      source_id: str
+  213      execution_basis: str  # e.g. observed_open or explicit_daily_bar_proxy.
+  214      par_value: Decimal | None = None
+  215  
+  216      def validate(self):
+  217          for t in (self.at, self.sellable_at, self.cash_due_at):
+  218              aware(t)
+  219          if (not self.event_id or not self.source_id or not self.execution_basis
+  220                  or type(self.capacity_shares) is not int or self.capacity_shares < 0
+  221                  or self.sellable_at < self.at or self.cash_due_at < self.at):
+  222              raise ValueError('Invalid execution event/availability/settlement facts')
+  223          positive(self.raw_open); positive(self.execution_price); self.fx.read(self.at)
+
+LINES 227-279
+  227  class BuyOrder:
+  228      order_id: str
+  229      quote: DecisionQuote
+  230      created_at: datetime
+  231      earliest_at: datetime
+  232      budget_cny: Decimal
+  233      remaining_budget_cny: Decimal
+  234      fee_reserved_cny: Decimal
+  235      target_shares: int
+  236      remaining_shares: int
+  237      delay_remaining: int
+  238      purpose: str
+  239      candidate_id: str = ''
+  240      filled_shares: int = 0
+  241      local_notional: Decimal = ZERO
+  242      fees_local: dict[str, Decimal] = field(default_factory=dict)
+  243      fee_accrued_local: dict[str, Decimal] = field(default_factory=dict)
+  244      paused: bool = False
+  245      submitted_remaining: int = 0
+  246  
+  247  
+  248  @dataclass
+  249  class InventoryLot:
+  250      shares: int
+  251      sellable_at: datetime
+  252  
+  253  
+  254  @dataclass
+  255  class Position:
+  256      security_id: str
+  257      issuer_id: str
+  258      sector_id: str
+  259      currency: str
+  260      lots: list[InventoryLot] = field(default_factory=list)
+  261  
+  262      @property
+  263      def shares(self) -> int:
+  264          return sum(lot.shares for lot in self.lots)
+  265  
+  266  
+  267  @dataclass
+  268  class ExitOrder:
+  269      event_id: str
+  270      quote: DecisionQuote
+  271      requested_at: datetime
+  272      earliest_at: datetime
+  273      delay_remaining: int
+  274      local_notional: Decimal = ZERO
+  275      fees_local: dict[str, Decimal] = field(default_factory=dict)
+  276      fee_accrued_local: dict[str, Decimal] = field(default_factory=dict)
+  277      submitted_remaining: int = 0
+  278      remaining_target: int | None = None
+  279      purpose: str = 'structure_exit'
+
+======================================================================
+I_ledger_event_and_actual_buy
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py
+SHA256 48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb
+
+LINES 666-743
+  666      def _eligible_event(self, order, window: FillWindow, side):
+  667          window.validate(); self._time(window.at)
+  668          earliest = order.earliest_at
+  669          if window.security_id != order.quote.security_id:
+  670              raise ValueError('Order and execution security mismatch')
+  671          if order.quote.currency == 'CNY' and dec(window.fx.cny_per_local) != ONE:
+  672              raise ValueError('CNY execution FX must equal one')
+  673          if window.at < earliest or window.market_open is not True:
+  674              return False
+  675          return (window.buy_allowed if side == 'buy' else window.sell_allowed) is True
+  676  
+  677      def _consume_event(self, order, window):
+  678          identity = order.order_id if isinstance(order, BuyOrder) else order.event_id
+  679          key = identity, window.event_id
+  680          if key in self.used_events:
+  681              return False
+  682          self.used_events.add(key)
+  683          if order.delay_remaining:
+  684              order.delay_remaining -= 1
+  685              return False
+  686          return True
+  687  
+  688      def fill_buy(self, sid, window: FillWindow) -> FillReceipt | None:
+  689          order = self.buys.get(sid)
+  690          if order is None or order.paused or not self._eligible_event(order, window, 'buy'):
+  691              return None
+  692          price, fx = dec(window.execution_price), window.fx.read(window.at)
+  693          cap = min(order.remaining_shares, int(order.remaining_budget_cny/(price*fx)))
+  694          # The original order satisfied buy_minimum. Its continuing partial fills
+  695          # obey explicit matching granularity, not a fresh minimum on every fill.
+  696          step = window.quantity.fill_step
+  697          low, high = 0, cap//step
+  698          while low < high:
+  699              mid = (low+high+1)//2
+  700              costs = self._fee(order, window.fees, 'buy', mid*step*price,
+  701                                shares=mid*step, par_value=window.par_value)
+  702              if sum(costs.values(), ZERO)*fx <= order.fee_reserved_cny+self.available:
+  703                  low = mid
+  704              else:
+  705                  high = mid-1
+  706          affordable = low*step
+  707          # First actual submission must still satisfy today's order minimum after
+  708          # a gap. A committed partial remainder then uses fill granularity only.
+  709          submitted = (order.submitted_remaining if order.submitted_remaining
+  710                       else window.quantity.buy_floor(affordable))
+  711          count = min(submitted, affordable, window.capacity_shares)//step*step
+  712          if not count or not self._consume_event(order, window):
+  713              return None
+  714          local = count*price
+  715          components = self._fee(order, window.fees, 'buy', local, shares=count, par_value=window.par_value)
+  716          fee = sum(components.values(), ZERO)*fx
+  717          gross = local*fx
+  718          topup = max(ZERO, fee-order.fee_reserved_cny)
+  719          self.available -= topup
+  720          order.fee_reserved_cny += topup-fee
+  721          order.remaining_budget_cny -= gross
+  722          order.remaining_shares -= count
+  723          order.submitted_remaining = submitted-count
+  724          order.filled_shares += count
+  725          self._remember_fees(order, window.fees, 'buy', local, components,
+  726                             shares=count, par_value=window.par_value)
+  727          pos = self.positions.setdefault(sid, Position(sid, order.quote.issuer_id,
+  728                                order.quote.sector_id, order.quote.currency))
+  729          pos.lots.append(InventoryLot(count, window.sellable_at))
+  730          settlement_id = self._id('pay', sid)
+  731          self.settlements[settlement_id] = Settlement(settlement_id, gross+fee, True,
+  732                          window.cash_due_at, local+sum(components.values(), ZERO), fx, window.fx.source_id)
+  733          receipt = FillReceipt(self._id('fill', sid), sid, 'buy', count, gross, fee, window.at,
+  734                                 settlement_id, window.execution_basis)
+  735          self.fills.append(receipt); self.fees_cny += fee
+  736          self.audit_log.append(dict(kind='fill', receipt=receipt, order_id=order.order_id,
+  737                                    raw_open=window.raw_open, price=price, fx_rate=fx,
+  738                                    fx_source=window.fx.source_id, source=window.source_id,
+  739                                    fee_schedule=window.fees.schedule_id, fee_components=components,
+  740                                    gross_budget_remaining=order.remaining_budget_cny,
+  741                                    share_cap_remaining=order.remaining_shares))
+  742          if not order.remaining_shares or not order.remaining_budget_cny:
+  743              self.cancel_buy(sid)
+
+======================================================================
+J_ledger_actual_sell_and_cash_settle
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py
+SHA256 48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb
+
+LINES 746-809
+  746      def fill_exit(self, sid, window: FillWindow) -> FillReceipt | None:
+  747          order = self.exits.get(sid)
+  748          if order is None or not self._eligible_event(order, window, 'sell'):
+  749              return None
+  750          pos = self.positions[sid]
+  751          available = sum(lot.shares for lot in pos.lots if lot.sellable_at <= window.at)
+  752          target = pos.shares if order.remaining_target is None else order.remaining_target
+  753          available = min(available, target)
+  754          additional_available = max(0, available-order.submitted_remaining)
+  755          additional_order = window.quantity.sell_floor(additional_available,
+  756                                                         pos.shares-order.submitted_remaining)
+  757          submitted = order.submitted_remaining+additional_order
+  758          count = min(submitted, available, window.capacity_shares)//window.quantity.fill_step*window.quantity.fill_step
+  759          if not count:
+  760              return None
+  761          price, fx = dec(window.execution_price), window.fx.read(window.at)
+  762          local = count*price
+  763          components = self._fee(order, window.fees, 'sell', local, shares=count, par_value=window.par_value)
+  764          fee = sum(components.values(), ZERO)*fx
+  765          net = local*fx-fee
+  766          if net < 0 and self.available < -net:
+  767              return None
+  768          if not self._consume_event(order, window):
+  769              return None
+  770          order.submitted_remaining = submitted-count
+  771          if order.remaining_target is not None:
+  772              order.remaining_target -= count
+  773          remaining = count
+  774          for lot in pos.lots:
+  775              if lot.sellable_at <= window.at:
+  776                  sold = min(remaining, lot.shares); lot.shares -= sold; remaining -= sold
+  777          pos.lots[:] = [lot for lot in pos.lots if lot.shares]
+  778          self._remember_fees(order, window.fees, 'sell', local, components,
+  779                             shares=count, par_value=window.par_value)
+  780          settlement_id = self._id('sale', sid)
+  781          if net < 0:
+  782              self.available += net  # Lock only the excess fee; no borrowed cash.
+  783          self.settlements[settlement_id] = Settlement(settlement_id, abs(net), net < 0,
+  784                          window.cash_due_at, abs(local-sum(components.values(), ZERO)), fx, window.fx.source_id)
+  785          receipt = FillReceipt(self._id('fill', sid), sid, 'sell', count, local*fx, fee,
+  786                                 window.at, settlement_id, window.execution_basis)
+  787          self.fills.append(receipt); self.fees_cny += fee
+  788          self.audit_log.append(dict(kind='fill', receipt=receipt, order_id=order.event_id,
+  789                                    raw_open=window.raw_open, price=price, fx_rate=fx,
+  790                                    fx_source=window.fx.source_id, source=window.source_id,
+  791                                    fee_schedule=window.fees.schedule_id, fee_components=components))
+  792          if not pos.shares:
+  793              del self.positions[sid]; del self.exits[sid]
+  794              self.completed.append(admission.ExitCompletion(sid, order.event_id, window.at))
+  795          elif order.remaining_target == 0:
+  796              del self.exits[sid]
+  797          return receipt
+  798  
+  799      def settle_due(self, at) -> tuple[str, ...]:
+  800          self._time(at)
+  801          done = []
+  802          for key, item in list(self.settlements.items()):
+  803              if item.due_at <= at:
+  804                  if not item.debit:
+  805                      self.available += item.cny_amount
+  806                  # Debit cash was already locked, never available for another buy.
+  807                  del self.settlements[key]; done.append(key)
+  808                  self.audit_log.append(dict(kind='settle', at=at, settlement=item))
+  809          return tuple(done)
+
+======================================================================
+K_ledger_partial_fees
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py
+SHA256 48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb
+
+LINES 115-139
+  115      def incremental(self, side: str, local_notional: Decimal, paid: Mapping[str, Decimal],
+  116                      accrued: Mapping[str, Decimal], multiplier: int, *, shares=None,
+  117                      par_value=None) -> dict[str, Decimal]:
+  118          if multiplier not in (1, 2):
+  119              raise ValueError('Only base and frozen cost2 are supported')
+  120          result = {}
+  121          for c in self.components:
+  122              if c.side not in ('both', side):
+  123                  continue
+  124              rate = dec(c.rate) * (multiplier if c.stress_rate else 1)
+  125              minimum = dec(c.minimum_local) * (multiplier if c.stress_minimum else 1)
+  126              base = self.amount(c, local_notional, shares, par_value)
+  127              if c.basis == 'order':
+  128                  total = max(minimum, accrued.get(c.name, ZERO)+base*rate)
+  129              else:
+  130                  total = max(minimum, base*rate)
+  131              if c.maximum_local is not None:
+  132                  maximum = dec(c.maximum_local)*(multiplier if c.stress_maximum else 1)
+  133                  total = min(total, maximum)
+  134              if c.rounding_unit is not None:
+  135                  unit = dec(c.rounding_unit)
+  136                  rounding = ROUND_CEILING if c.rounding_mode == 'ceil' else ROUND_HALF_UP
+  137                  total = (total/unit).to_integral_value(rounding=rounding)*unit
+  138              result[c.name] = max(ZERO, total-paid.get(c.name, ZERO)) if c.basis == 'order' else total
+  139          return result
+
+LINES 461-472
+  461      def _fee(self, order, schedule, side, local, *, shares=None, par_value=None):
+  462          return schedule.incremental(side, local, order.fees_local,
+  463                                      order.fee_accrued_local, self.cost_multiplier,
+  464                                      shares=shares, par_value=par_value)
+  465  
+  466      def _remember_fees(self, order, schedule, side, local, components, *, shares=None, par_value=None):
+  467          order.local_notional += local
+  468          for name, value in components.items():
+  469              order.fees_local[name] = order.fees_local.get(name, ZERO)+value
+  470          for name, value in schedule.rate_accrual(side, local, self.cost_multiplier,
+  471                                                 shares=shares, par_value=par_value).items():
+  472              order.fee_accrued_local[name] = order.fee_accrued_local.get(name, ZERO)+value
+
+======================================================================
+L_day_expiry_and_exit_latch_API
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py
+SHA256 48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb
+
+LINES 537-602
+  537      def expire_day_buys(self, at):
+  538          """End the one-session order lease, including days without a stock bar.
+  539  
+  540          Return only zero-fill attempts to re-arm. Partly bought shares stay held.
+  541          Stress delay credit conveys waiting already spent, no capital or priority.
+  542          """
+  543          self._time(at)
+  544          self.daily_delay_credit = set()
+  545          unfilled = []
+  546          for sid, order in tuple(self.buys.items()):
+  547              if at.date() < order.earliest_at.date():
+  548                  continue
+  549              if not order.filled_shares and not self.quantity(sid):
+  550                  unfilled.append(sid)
+  551                  if self.delay_events and not order.delay_remaining:
+  552                      self.daily_delay_credit.add(sid)
+  553              self.audit_log.append(dict(kind='buy_day_expiry', at=at, sid=sid,
+  554                  order_id=order.order_id, created_at=order.created_at,
+  555                  valid_session=order.earliest_at.date().isoformat(),
+  556                  filled_shares=order.filled_shares, rearm=sid in unfilled,
+  557                  delay_credit=sid in self.daily_delay_credit))
+  558              self.cancel_buy(sid)
+  559          return set(unfilled)
+  560  
+  561      def cancel_buy(self, sid):
+  562          order = self.buys.pop(sid, None)
+  563          if order:
+  564              self.available += order.remaining_budget_cny+order.fee_reserved_cny
+  565              self.audit_log.append(dict(kind='release_buy', at=self.as_of, sid=sid,
+  566                                        order_id=order.order_id,
+  567                                        gross_released=order.remaining_budget_cny,
+  568                                        fee_released=order.fee_reserved_cny))
+  569  
+  570      def request_exit(self, quote: DecisionQuote, clock: admission.Clock):
+  571          self._time(clock.decision_at)
+  572          sid = quote.security_id
+  573          if sid in self.positions:
+  574              pos = self.positions[sid]
+  575              if (quote.issuer_id, quote.sector_id, quote.currency) != (pos.issuer_id, pos.sector_id, pos.currency):
+  576                  raise ValueError('Exit identity/currency disagrees with existing inventory')
+  577          self.cancel_buy(sid)
+  578          if self.quantity(sid) and sid not in self.exits:
+  579              quote.read_price(clock.decision_at)
+  580              self.exits[sid] = ExitOrder(self._id('exit', sid), quote, clock.decision_at,
+  581                                          clock.earliest_execution_at, self.delay_events)
+  582              self.audit_log.append(dict(kind='exit_request', at=clock.decision_at, sid=sid,
+  583                                        event_id=self.exits[sid].event_id))
+  584  
+  585      def request_reduction(self, quote: DecisionQuote, clock: admission.Clock, shares: int):
+  586          """B0's frozen annual sell delta; never used for a strategy trend exit."""
+  587          if type(shares) is not int or shares < 0 or shares > self.quantity(quote.security_id):
+  588              raise ValueError('Annual sell delta must fit actual integer inventory')
+  589          if not shares:
+  590              return
+  591          if quote.security_id in self.exits:
+  592              raise ValueError('Cancel the old annual reduction before replacing its target')
+  593          self.request_exit(quote, clock)
+  594          order = self.exits[quote.security_id]
+  595          order.remaining_target, order.purpose = shares, 'annual_rebalance'
+  596  
+  597      def cancel_reduction(self, sid):
+  598          order = self.exits.get(sid)
+  599          if order is not None:
+  600              if order.purpose != 'annual_rebalance':
+  601                  raise ValueError('A structural exit is irrevocably latched')
+  602              del self.exits[sid]
+
+======================================================================
+M_native_targeted_layers
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/probe-pyramid-pilot-20261029/code/pilot.py
+SHA256 38ac36ba3b9da599c66307451f4173249efc229f54dfb6a0d8469517431f94b4
+
+LINES 59-89
+   59   def fill_buy(self,sid,w):
+   60    order=self.buys.get(sid)
+   61    if order is None:return
+   62    meta=self.order_meta[order.order_id];f=self.facts.factor(sid,w.at)
+   63    if w.raw_open*f<=meta['floor']:
+   64     self.counts['open_at_or_below_protection']+=1;self.log('pilot_buy_rejected',w.at,sid=sid,reason='open_at_or_below_protection',intent=meta);self.cancel_buy(sid);return
+   65    receipt=super().fill_buy(sid,w)
+   66    if receipt:
+   67     self.layer_seq+=1
+   68     z=dict(id=self.layer_seq,sid=sid,kind=meta['kind'],qty=receipt.shares,initial_qty=receipt.shares,opened=w.at,signal_at=meta['clock'].decision_at,epoch=meta['epoch'],floor=meta['floor'],cash=-receipt.gross_cny-receipt.fees_cny,dividend=ZERO,closed=None,reason=None)
+   69     self.layers.append(z);self.last_buy[sid]=w.execution_price*f
+   70     if z['kind']=='core':self.core_epoch[sid]=meta['epoch']
+   71     self.trades.append(dict(**asdict(receipt),layer=z['id'],kind=z['kind'],signal_at=z['signal_at'],raw_open=w.raw_open,price=w.execution_price,floor=meta['floor'],pvr=meta['score'],reason=meta['reason'],epoch=meta['epoch']))
+   72     self.counts['buy_fills']+=1
+   73    self.check();return receipt
+   74   def fill_exit(self,sid,w):
+   75    receipt=super().fill_exit(sid,w)
+   76    if receipt:
+   77     left=receipt.shares;targets=self.sell_layers[sid];parts=[]
+   78     for z in self.live(sid):
+   79      if z['id'] not in targets:continue
+   80      take=min(left,z['qty']);z['qty']-=take;left-=take;cash=(receipt.gross_cny-receipt.fees_cny)*D(take)/receipt.shares;z['cash']+=cash
+   81      if not z['qty']:z['closed']=w.at
+   82      parts.append(dict(layer=z['id'],kind=z['kind'],shares=take,net_cash=cash,reason=z['reason']))
+   83      if not left:break
+   84     assert not left,(sid,receipt,'sale allocation')
+   85     self.trades.append(dict(**asdict(receipt),parts=parts,raw_open=w.raw_open,price=w.execution_price,reason=','.join(sorted({p['reason'] for p in parts}))))
+   86     if sid not in self.exits:self.sell_layers.pop(sid,None)
+   87     if not self.quantity(sid):self.last_buy.pop(sid,None)
+   88     self.counts['sell_fills']+=1
+   89    self.check();return receipt
+
+LINES 104-115
+  104   def sell(self,sid,clock,quote,ids,reason):
+  105    ids=set(ids)
+  106    for z in self.live(sid):
+  107     if z['id'] in ids:z['reason']=reason
+  108    ids|=self.sell_layers.get(sid,set());self.sell_layers[sid]=ids
+  109    shares=sum(z['qty'] for z in self.live(sid) if z['id'] in ids)
+  110    if not shares:return
+  111    if sid not in self.exits:super().request_reduction(quote,clock,shares)
+  112    else:
+  113     ex=self.exits[sid];ex.remaining_target=shares
+  114     if shares==self.quantity(sid):ex.purpose='structure_exit';ex.remaining_target=None
+  115    self.log('pilot_layer_exit',clock.decision_at,sid=sid,layers=sorted(ids),shares=shares,reason=reason)
+
+======================================================================
+N_native_pending_and_cancel_sync
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py
+SHA256 fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425
+
+LINES 92-103
+   92   def cancel_buy(self,sid):
+   93    real=self.buys.get(sid);bid=self.order_bridge.get(real.order_id) if real else None
+   94    if getattr(self,'_buy_filling',None)==sid:
+   95     if bid:self._deferred_buy_cancels.append(bid)
+   96     return super().cancel_buy(sid)
+   97    if bid:self.budget.cancel(bid)
+   98    result=super().cancel_buy(sid)
+   99    if bid:self.budget.cancel_ack(bid);self.pools_from_model();self.journal.append(dict(kind='cancel_ack',at=self.as_of,sid=sid,budget_order=bid))
+  100    return result
+  101   def reserve_quantity(self,i,q,p,schedule,at):
+  102    bid=i['budget_order'];assert self.budget.orders[bid].qty==q
+  103    oid=super().reserve_quantity(i,q,p,schedule,at);self.order_bridge[oid]=bid;self.journal.append(dict(kind='real_reserve',at=at,sid=i['sid'],order=oid,budget_order=bid,receipt=i.get('CP1_id'),pool=i['pool'],role=i['role'],shares=q,price=p));return oid
+
+LINES 222-249
+  222     C.activate(a);a.expire_day_buys(at);a.current_nav=a.balance(at,self.market.marks(at,a.positions))['nav'];M.E.risk_policy.step(a,at,'ACT20_BREAK');a.pending=[]
+  223     for sid in tuple(a.positions):
+  224      row=self.facts.row(sid,at);cp=self.cp[sid].loc[day] if day in self.cp[sid].index else None;quote=self.market.quote(sid,at);assert quote
+  225      if not a.risk_state['on'] or not bool(row.i_target):
+  226       if not bool(row.i_target):
+  227        for x in a.live(sid):
+  228         if x['kind']=='core':a.jmeta[x['id']]['pending_I_exit_reference']=True
+  229       a.sell(sid,clock,quote,[x['id'] for x in a.live(sid)],'ACT_pause' if not a.risk_state['on'] else 'I_structure_exit');continue
+  230      for x in a.live(sid):
+  231       if x['kind']=='core':
+  232        known_floor=self.facts.floor(sid,at,'I')
+  233        if known_floor is not None:a.jmeta[x['id']]['last_core_line']=str(known_floor)
+  234        continue
+  235       if x['kind']!='add' or x['id'] in a.sell_layers.get(sid,set()):continue
+  236       if D(str(row.close))<=x['floor']:a.sell(sid,clock,quote,[x['id']],'CP1_add_protection')
+  237       else:
+  238        floor=self.facts.floor(sid,at,'I')
+  239        if floor is not None:x['floor']=max(x['floor'],floor)
+  240        if cp is not None and bool(cp.receipt):x['floor']=max(x['floor'],D(str(cp.candidate)))
+  241     a.sync(at);self.industry(a,at)
+  242     for rank,sid in enumerate(ordered):
+  243      cpr=self.receipts[sid].get(gidday(at));roles=[];why=[];held=bool(a.quantity(sid));epoch=self.global_watch.get(sid);sector=self.sector_by_sid[sid]
+  244      if event[sid].q is True and not held and a.core_epoch.get(sid)!=epoch:roles.append('core')
+  245      if cpr and continuing[sid].q is True:roles.append('mobile')
+  246      if not a.risk_state['on']:why.append('ACT_paused')
+  247      if sid in a.exits:why.append('exit_pending')
+  248      if sid in a.buys:why.append('buy_pending')
+  249      if event[sid].q is not True and not (cpr and continuing[sid].q is True):why.extend(event[sid].reasons or ['no_fresh_signal_or_Q'])
+
+======================================================================
+O_dated_quantity_grid
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py
+SHA256 48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb
+LINES 57-85
+   57  class QuantityRule:
+   58      rule_id: str
+   59      buy_minimum: int
+   60      buy_step: int
+   61      sell_step: int
+   62      allow_full_exit_odd: bool
+   63      fill_step: int  # Matching granularity, distinct from original order minimum.
+   64  
+   65      def __post_init__(self):
+   66          if not self.rule_id or any(type(v) is not int or v <= 0
+   67                                    for v in (self.buy_minimum, self.buy_step, self.sell_step, self.fill_step)):
+   68              raise ValueError('Explicit positive integer quantity rules required')
+   69  
+   70      def buy_floor(self, maximum: int) -> int:
+   71          return (0 if maximum < self.buy_minimum else
+   72                  self.buy_minimum + (maximum-self.buy_minimum)//self.buy_step*self.buy_step)
+   73  
+   74      def sell_floor(self, maximum: int, entire_holding: int) -> int:
+   75          if self.allow_full_exit_odd and maximum >= entire_holding:
+   76              return entire_holding
+   77          return maximum//self.sell_step*self.sell_step
+   78  
+   79  
+   80  @dataclass(frozen=True)
+   81  class FeeComponent:
+   82      name: str
+   83      rate: Decimal
+   84      minimum_local: Decimal = ZERO
+   85      side: str = 'both'

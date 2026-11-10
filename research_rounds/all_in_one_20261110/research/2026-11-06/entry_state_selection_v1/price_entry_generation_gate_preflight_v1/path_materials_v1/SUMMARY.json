@@ -1,0 +1,74 @@
+[
+  {
+    "window": "2022",
+    "scope": "ALL",
+    "rounds": 117,
+    "has_later_same_parent_generation": 66,
+    "has_later_same_parent_allowed_receipt_within_window": 62,
+    "has_any_later_parent_allowed_receipt_within_window": 102,
+    "has_hypothetical_unstarted_close_pass": 100,
+    "has_hypothetical_unstarted_open_pass": 100,
+    "next_parent_birth_observed": 117,
+    "parent_unknown": 0
+  },
+  {
+    "window": "2022",
+    "scope": "OLD_FULL_WIN",
+    "rounds": 21,
+    "has_later_same_parent_generation": 21,
+    "has_later_same_parent_allowed_receipt_within_window": 19,
+    "has_any_later_parent_allowed_receipt_within_window": 19,
+    "has_hypothetical_unstarted_close_pass": 19,
+    "has_hypothetical_unstarted_open_pass": 19,
+    "next_parent_birth_observed": 21,
+    "parent_unknown": 0
+  },
+  {
+    "window": "2022",
+    "scope": "OLD_FULL_LOSS",
+    "rounds": 96,
+    "has_later_same_parent_generation": 45,
+    "has_later_same_parent_allowed_receipt_within_window": 43,
+    "has_any_later_parent_allowed_receipt_within_window": 83,
+    "has_hypothetical_unstarted_close_pass": 81,
+    "has_hypothetical_unstarted_open_pass": 81,
+    "next_parent_birth_observed": 96,
+    "parent_unknown": 0
+  },
+  {
+    "window": "2024_924",
+    "scope": "ALL",
+    "rounds": 50,
+    "has_later_same_parent_generation": 38,
+    "has_later_same_parent_allowed_receipt_within_window": 38,
+    "has_any_later_parent_allowed_receipt_within_window": 42,
+    "has_hypothetical_unstarted_close_pass": 39,
+    "has_hypothetical_unstarted_open_pass": 39,
+    "next_parent_birth_observed": 50,
+    "parent_unknown": 0
+  },
+  {
+    "window": "2024_924",
+    "scope": "OLD_FULL_WIN",
+    "rounds": 27,
+    "has_later_same_parent_generation": 27,
+    "has_later_same_parent_allowed_receipt_within_window": 27,
+    "has_any_later_parent_allowed_receipt_within_window": 27,
+    "has_hypothetical_unstarted_close_pass": 26,
+    "has_hypothetical_unstarted_open_pass": 26,
+    "next_parent_birth_observed": 27,
+    "parent_unknown": 0
+  },
+  {
+    "window": "2024_924",
+    "scope": "OLD_FULL_LOSS",
+    "rounds": 23,
+    "has_later_same_parent_generation": 11,
+    "has_later_same_parent_allowed_receipt_within_window": 11,
+    "has_any_later_parent_allowed_receipt_within_window": 15,
+    "has_hypothetical_unstarted_close_pass": 13,
+    "has_hypothetical_unstarted_open_pass": 13,
+    "next_parent_birth_observed": 23,
+    "parent_unknown": 0
+  }
+]

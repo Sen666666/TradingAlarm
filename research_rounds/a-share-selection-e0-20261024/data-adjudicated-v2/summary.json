@@ -1,0 +1,34 @@
+{
+  "recorded_at": "2026-10-24T22:48:25.384949+08:00",
+  "raw_roster": 5576,
+  "with_bars": 5576,
+  "rows": 12379806,
+  "raw_original_summary": {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/data-finalized-v1/summary.json",
+    "sha256": "33d2c260586307a970743f80a4cbcb31e1ecf2c46dbfb4d25f4f20785d2adaaf"
+  },
+  "original_conflict_cells_retained": 2600,
+  "source_records_with_conflict": 203,
+  "unique_conflict_securities": 200,
+  "source_conflicts_resolved_by_uniform_source": 200,
+  "unresolved_securities": 1,
+  "start_status_counts": {
+    "reaches_start": 2186,
+    "requested_start_covered_first_observation_later_not_listing_claim": 60,
+    "available_source_start_verified": 3329,
+    "source_origin_unconfirmed_empty_response_disagrees_with_cached_date": 1
+  },
+  "tail_status_counts": {
+    "end_reached": 5569,
+    "latest_source_bar_before_end_suspension_or_source_limit": 7
+  },
+  "rights_status_counts": {
+    "received_current": 5576
+  },
+  "data_collection_complete": false,
+  "exact_pay_date_ledger_complete": false,
+  "account_ready": false,
+  "algorithm_changes": 0,
+  "account_runs": 0,
+  "caveat": "Current survivors; current classification. Source boundaries not listing/suspension certificates; BSE actual listing dates handled separately. Source-volume convention chosen, not externally certified equivalent."
+}

@@ -1,0 +1,25 @@
+{
+  "remaining_focus": 14,
+  "remaining_focus_OPENs": 12,
+  "complete_mother_OPENs": 13,
+  "complete_intents": 4172,
+  "all13_S0_carried_real_live_or_cancel_pending_orders": 0,
+  "individual_zero_extra_buffer_minimum_necessary_counts": {
+    "OFF_native": 12,
+    "ON_private_first_pass": 11
+  },
+  "shared_focus_confirmed_minimum_necessary_max_counts": {
+    "OFF_native": 12,
+    "ON_private_first_pass": 11
+  },
+  "individual_bounds_not_additive": true,
+  "no_submitted_order_cancelled": true,
+  "no_inventory_liquidation": true,
+  "no_dynamic_reserve_parameter_selected": true,
+  "zero_extra_buffer_is_only_an_optimistic_bound_after_existing_available_balance_obligations": true,
+  "full4172_cash_floor_projection_started": false,
+  "seconds": 1.939783750101924,
+  "new_accounts": 0,
+  "new_restores": 0,
+  "new_policy_paths": 0
+}

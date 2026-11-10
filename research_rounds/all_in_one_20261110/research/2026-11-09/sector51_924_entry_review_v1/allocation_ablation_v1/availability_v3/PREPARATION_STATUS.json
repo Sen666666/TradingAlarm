@@ -1,0 +1,22 @@
+{
+  "status": "PREPARED_AND_PAUSED_BY_PARENT_MAINLINE_PRIORITY",
+  "new_semantics_not_fact_only": true,
+  "new_integration_tests": 27,
+  "prior_integration_tests": 19,
+  "prior_policy_tests": 60,
+  "prior_baseline_tests": 16,
+  "synthetics_result": "PASS",
+  "historical_Data_loaded": false,
+  "historical_accounts_run": 0,
+  "old_prefix_replay": "NOT_RUN",
+  "independent_contract_review": "PRINCIPLE_ACCEPTED",
+  "independent_engine_historical_admission": "NOT_COMPLETED",
+  "C": "DISABLED",
+  "old_fact2_unchanged": true,
+  "next_steps_if_reactivated": [
+    "Independent engine/static review",
+    "Freeze and exact old-prefix replay",
+    "Only then approved B/D through10/8"
+  ],
+  "parent_priority": "Mainline M semiconductor/baijiu score, queue, tradability, funding and prospective relay formula"
+}

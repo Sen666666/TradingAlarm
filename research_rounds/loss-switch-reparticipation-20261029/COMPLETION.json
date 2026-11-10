@@ -1,0 +1,18 @@
+{
+  "status": "completed",
+  "verdict": "unidentified: no CP-only selected or filled under frozen ranking",
+  "paths": 8,
+  "CP_only_full_pool": 30,
+  "CP_only_flat_encounters_per_path": 2,
+  "CP_only_selected": 0,
+  "CP_only_filled": 0,
+  "all_pair_deltas": 0,
+  "sample_seconds": 5.541579792276025,
+  "full_seconds": 4.200170375406742,
+  "input_hashes_unchanged": 11,
+  "blockers": [],
+  "product_changes": 0,
+  "accounts": 0,
+  "trades": 0,
+  "report": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/loss-switch-reparticipation-20261029/FINAL_REPORT.txt"
+}

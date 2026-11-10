@@ -1,0 +1,29 @@
+盈新000620.SZ：2022-01-27—02-08原退出单链（仅已保存原数据+静态源码）
+
+结论：exit:000620.SZ:600于1/27 CLOSE为两层Mobile创建，先5100再9800股；CORE100股直到2/7 CLOSE的I退出才加入同一订单。2/8 OPEN唯一成交9900股。最终全部层reason=I_structure_exit是2/7合并时重写，不能把聚合订单创建日说成CORE1/27已被I退出。
+
+逐日/时钟：
+1/27 OPEN09:30：没有该退出单；当天原raw O/H/L/C全3.55，但首个退出决定在CLOSE之后，不能说本单当日OPEN已被阻挡。
+1/27 CLOSE15:10：原audit exit_request(event_id=exit:000620.SZ:600)；pilot_layer_exit [113],5100,CP1_add_protection，随后同CLOSE [113,122],9800,CP1_add_protection。原I_target=1，CORE68尚无退出reason且不在target。全股9900股/市值35145；Mobile原mark-to-floor风险0，CORE风险55.99999999999998946367184640。daily.pending_sells含000620.SZ。
+1/28 OPEN：旧Mobile请求已存在，未成交。原raw O/H/L/C全3.2，FastMarket reject_flat_day=true在high<=low时sell=False；若window更早因别的条件返回None也同样无成交。原未逐次保存返回原因，故这里是可证充分阻挡，不能称唯一已记录first cause。CLOSE仍I=1，9900股，pending sid，CORE风险20.99999999999998946367184640，Mobile0。
+1/29—2/6：原A calendars没有OPEN；没有伪填逐日snapshot或重新观察价格。
+2/7 OPEN：原Mobile9800请求仍待执行；原raw O/H/L/C全2.88，同flat规则足以阻卖，原没有逐次no-fill原因日志。
+2/7 CLOSE15:10：原I_target=0；pilot_layer_exit [68,113,122],9900,I_structure_exit。没有第二条exit_request；沿用exit:000620.SZ:600。CORE新增pending_I_exit_reference=true，原层113/122的reason也改为I。全股仍9900/市值28512，三层原风险均0。
+2/8 OPEN09:30：原fill audit绑定order_id=exit:000620.SZ:600；receipt fill:000620.SZ:638，9900股，raw_open2.77，execution_price2.768615，gross27409.288500，费35.3223500899500，净27373.9661499100500。实际parts：CORE68/100股净276.5047085849500；Mobile113/5100净14101.7401378324500；Mobile122/4700净12995.7213034926500。原settle记录sale:000620.SZ:637，同09:30现金到账27373.9661499100500，符合原settlement_lag0。CLOSE无该股且不再pending。此前未部分成交。
+
+T+1与FIFO边界：原协议sellable_lag.A=1；本股最后实际买入1/25，按原calendar+1为1/26 OPEN。此后直到2/8没有新买，因此本轮等待不能归因同日新买T+1。此为实际买票+冻结日历/协议推导；物理InventoryLot.sellable_at快照未存，不能将logical CORE68 opened时间直接当剩余物理lot的归属。ledger physical FIFO与pilot logical target分层不同：前者按已可售物理lot减股，后者只在sell_layers集合内分配成交；本例无中途partial。
+
+精确源码：
+1. /Users/bytedance/Documents/ChatGPT/money/research_rounds/probe-pyramid-pilot-20261029/code/pilot.py:104–115：只先给本次ids写reason，再与已有sell_layers并集；首次request_reduction创建订单；已存在则更新remaining_target，若已覆盖全股改purpose='structure_exit'/remaining_target=None。因此2/7保留原event_id及requested_at，不是CORE早已触发。
+2. 同pilot.py:74–89：native物理成交后，仅targets内逻辑层分摊卖出净额，卖空清掉targets；不是逻辑层无条件全live FIFO。
+3. /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py:225–240：I_target=0/ACT先对所有live提出退出并continue；否则Mobile close<=旧floor才CP退出，已pending层跳过再更新；CORE持续则更新last_core_line。:302–307在OPEN先遍历已有exits取sell window并fill_exit。
+4. /Users/bytedance/Documents/ChatGPT/money/research_rounds/temperature-sizing-20261026/code/fast_market.py:45–67，尤其59：全天high<=low且reject_flat_day时buy=sell=False。HLV是原日线执行代理，非真实逐笔排队证据。
+5. /Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py:570–595创建带requested_at/earliest_at的ExitOrder；666–675在sell_allowed=false时先拒；746–758之后才核可售物理lot、target、整手和capacity；788–791保存本次实际fill与order_id；792–796填完删除；799–809实现金结算。
+
+未存字段与能证明的范围：
+- 没有逐日ExitOrder完整snapshot：各时刻earliest_at、delay_remaining、submitted_remaining、remaining_target、累计fee状态不能冒充原保存值；表中target shares明确是保存提案/源码合并链推导，不是snapshot。
+- 没有每次window/eligible返回日志；flat日原OHLC+已冻结规则足够解释无法成交，但不能凭这些排除更早的availability/capacity等门或声称真实交易所排队必不成交。
+- 原汇总clipped风险0时，股票仍在账上且订单未成，不能据此当现金释放或已封顶亏损。
+- 只读原case JSON、B/daily账、协议/日历及源码；未反序列化checkpoint、未构建Market/Account、未运行features或回测。
+
+交付：ORIGINAL_BOOK_EVENTS.json保留6条原audit、1条journal及1条trade；FOUR_SAVED_CLOSE_ORIGINAL_FIELDS.json保留四个原CLOSE；CALENDAR_DAY_CHAIN.csv/json逐日列13个日历日；T1_AND_MISSING_ORDER_FIELDS.json标注推导与缺失；SOURCE_EXCERPTS.txt与SOURCE_SHA256.json给原样片段/绝对路径/行号/来源哈希。

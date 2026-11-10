@@ -1,0 +1,10 @@
+{
+  "status": "ONE_FROZEN_DIAGNOSTIC_COMPLETE_NOT_STRATEGY",
+  "opportunities": 53121,
+  "known": 47709,
+  "monthly_fits": 280,
+  "accounts": 0,
+  "parameters_scanned": 0,
+  "original_inputs_unchanged": true,
+  "label_sha256": "0afce7b7e5f17091b6fc1ff19ca254fc0f5b0d35466e70d90b769be373a24fa8"
+}

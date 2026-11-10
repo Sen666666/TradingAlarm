@@ -1,0 +1,39 @@
+{
+  "full_cache_complete": true,
+  "cache_seconds": 709.662580832839,
+  "stocks": 1709,
+  "nonempty": 1687,
+  "no_local_history": 22,
+  "no_account_window_observations": 36,
+  "industries": 90,
+  "v3_pure_tests": 13,
+  "v3_real_bridge_tests": 14,
+  "v3_historical_account_paths": 0,
+  "v2_deliverables_unchanged": {
+    "joint.py": true,
+    "run_pair.py": true,
+    "INTEGRATION_CONTRACT.txt": true,
+    "FINAL_REPORT.txt": true,
+    "KEY_ADAPTER_FUNCTIONS.txt": true,
+    "SIX_CASE_BEHAVIOR.json": true,
+    "FINAL_ACCOUNT_VERIFICATION.json": true,
+    "EXIT_REQUEST_TO_ACTUAL_FILL.json": true,
+    "ACTUAL_REENTRY_FUNNEL.json": true,
+    "ACCOUNT_MECHANISM_SUMMARY.json": true
+  },
+  "independent_review_pending": true,
+  "blockers": [],
+  "remaining_gate": "independent revised bridge/split review; v3 historical prefix before CASE comparison; universe context not yet activated",
+  "source_sha256": {
+    "research_rounds/case-stage-ledger-20261031/v3/joint_v3.py": "c60c3edbaa03490b29646b2508d434f2b4cc4ac0ecc7c02bea9ebda8cef56c31",
+    "research_rounds/case-stage-ledger-20261031/v3/test_bridge.py": "510d5570d12b30fe4214725e661a2305bc1ebd9483a0bcb5decd534cc549df03",
+    "research_rounds/case-stage-ledger-20261031/v3/BRIDGE_GATE.json": "67e027d0c2751f5cb41c6e8b75209921d37f9dde253c46f362931020893fc932",
+    "research_rounds/case-stage-ledger-20261031/v3/KEY_V3_FUNCTIONS.txt": "dc6ed8d7c68abcd117d5779a5c51ad0e5baa2cad82b291b35bdb0177d1906b44",
+    "research_rounds/case-stage-ledger-20261031/v3/CHECKPOINT.txt": "afb971271629dd62dd51aacf1e779a681296462f6f34c460685439c72478a1e8",
+    "research_rounds/case-stage-ledger-20261031/budget_v3/model.py": "c4e61fc6f12eb47aeaa9bfb7faea82f29467a2fb2627875c39308ef9f642af26",
+    "research_rounds/case-stage-ledger-20261031/budget_v3/test_contract.py": "78615eed907661a21c179ebd18d78dfac4a0669a0fb46d3161192ef04a431b72",
+    "research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0",
+    "research_rounds/universe-cp1-inputs-20261031/INDUSTRY_MANIFEST.json": "339c89777f488b3bbd5685cd93e38ad47748585b783808e7da35c685ad0775cd",
+    "research_rounds/universe-cp1-inputs-20261031/READINESS_SUMMARY.json": "d67d0facd8cf969483a509216080ac0ee5bb899f965661fe1ed288724bb1fe4c"
+  }
+}

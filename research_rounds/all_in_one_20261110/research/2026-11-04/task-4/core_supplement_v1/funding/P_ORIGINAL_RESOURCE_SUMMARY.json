@@ -1,0 +1,162 @@
+{
+  "events": 35699,
+  "groups": {
+    "long|C_original_i_buy": {
+      "events": 4735,
+      "G1_warm_fresh": 4735,
+      "original_held": 162,
+      "ACT_on": 3184,
+      "CORE_epoch_consumed": 98,
+      "CP_same_day": 3559,
+      "B_flat_ACT_S0_epoch_pending_intersection": 0
+    },
+    "long|B_I_on_no_i_buy": {
+      "events": 20075,
+      "G1_ready_below_warm": 19529,
+      "original_held": 722,
+      "ACT_on": 14074,
+      "CORE_epoch_consumed": 365,
+      "CP_same_day": 1693,
+      "B_flat_ACT_S0_epoch_pending_intersection": 11675,
+      "intersection_CP_same_day": 973,
+      "intersection_no_same_CP": 10702,
+      "intersection_next_CP_same_I_epoch": 8033,
+      "intersection_signal_minimum_pass": 10829,
+      "intersection_OPEN_minimum_necessary_pass": 10829,
+      "intersection_isolated_S0_cash_minimum_pass": 8627,
+      "intersection_certified_sector_capital_failure": 3739,
+      "G1_warm_no_fresh": 546
+    },
+    "long|A_I_never_started_in_E0": {
+      "events": 874,
+      "G1_ready_below_warm": 874,
+      "original_held": 0,
+      "ACT_on": 675,
+      "CORE_epoch_consumed": 0,
+      "CP_same_day": 0,
+      "B_flat_ACT_S0_epoch_pending_intersection": 0
+    },
+    "strong|B_I_on_no_i_buy": {
+      "events": 7677,
+      "G1_ready_below_warm": 7528,
+      "original_held": 363,
+      "ACT_on": 7677,
+      "CORE_epoch_consumed": 251,
+      "CP_same_day": 856,
+      "B_flat_ACT_S0_epoch_pending_intersection": 6550,
+      "intersection_CP_same_day": 716,
+      "intersection_no_same_CP": 5834,
+      "intersection_next_CP_same_I_epoch": 5038,
+      "intersection_signal_minimum_pass": 6122,
+      "intersection_OPEN_minimum_necessary_pass": 6094,
+      "intersection_isolated_S0_cash_minimum_pass": 4843,
+      "intersection_certified_sector_capital_failure": 2174,
+      "G1_warm_no_fresh": 149
+    },
+    "strong|C_original_i_buy": {
+      "events": 2001,
+      "G1_warm_fresh": 2001,
+      "original_held": 73,
+      "ACT_on": 2001,
+      "CORE_epoch_consumed": 50,
+      "CP_same_day": 1564,
+      "B_flat_ACT_S0_epoch_pending_intersection": 0
+    },
+    "strong|A_I_never_started_in_E0": {
+      "events": 337,
+      "G1_ready_below_warm": 337,
+      "original_held": 0,
+      "ACT_on": 337,
+      "CORE_epoch_consumed": 0,
+      "CP_same_day": 0,
+      "B_flat_ACT_S0_epoch_pending_intersection": 0
+    }
+  },
+  "exact_S0_13_checks": [
+    {
+      "day": "2026-02-09",
+      "units_exact": true,
+      "capital_difference": "0.00",
+      "NAV_upper_above_exact": "-3.65E-11"
+    },
+    {
+      "day": "2026-02-10",
+      "units_exact": true,
+      "capital_difference": "0.00",
+      "NAV_upper_above_exact": "1.35E-11"
+    },
+    {
+      "day": "2026-02-11",
+      "units_exact": true,
+      "capital_difference": "0.00",
+      "NAV_upper_above_exact": "-8.65E-11"
+    },
+    {
+      "day": "2026-02-13",
+      "units_exact": true,
+      "capital_difference": "0.00",
+      "NAV_upper_above_exact": "6.35E-11"
+    },
+    {
+      "day": "2026-02-26",
+      "units_exact": true,
+      "capital_difference": "0.00",
+      "NAV_upper_above_exact": "1.635E-10"
+    },
+    {
+      "day": "2026-05-12",
+      "units_exact": true,
+      "capital_difference": "0.00",
+      "NAV_upper_above_exact": "-8.45E-11"
+    },
+    {
+      "day": "2026-05-13",
+      "units_exact": true,
+      "capital_difference": "0.00",
+      "NAV_upper_above_exact": "-8.45E-11"
+    },
+    {
+      "day": "2026-05-14",
+      "units_exact": true,
+      "capital_difference": "0.00",
+      "NAV_upper_above_exact": "-8.45E-11"
+    },
+    {
+      "day": "2026-05-21",
+      "units_exact": true,
+      "capital_difference": "0.00",
+      "NAV_upper_above_exact": "-2.450E-10"
+    },
+    {
+      "day": "2026-05-26",
+      "units_exact": true,
+      "capital_difference": "0.00",
+      "NAV_upper_above_exact": "-7.80E-11"
+    },
+    {
+      "day": "2026-06-25",
+      "units_exact": true,
+      "capital_difference": "0.00",
+      "NAV_upper_above_exact": "-9.45E-11"
+    },
+    {
+      "day": "2026-06-26",
+      "units_exact": true,
+      "capital_difference": "0.00",
+      "NAV_upper_above_exact": "1.055E-10"
+    },
+    {
+      "day": "2026-06-30",
+      "units_exact": true,
+      "capital_difference": "0.00",
+      "NAV_upper_above_exact": "-1.445E-10"
+    }
+  ],
+  "original_CORE_fill_epoch_identity_checks": 802,
+  "S0_quantity_method": "saved same-CLOSE quantities minus actual same-OPEN buys; original actions/protection exits retained",
+  "sector_failure_scope": "certified lower-bound obstruction against optimistic NAV upper, not all native gates or final permission",
+  "seconds": 136.61647074995562,
+  "new_accounts": 0,
+  "new_orders": 0,
+  "new_reserve_projections": 0
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "year": 2022,
+    "roots": 4022,
+    "complete60": 3943,
+    "big": 285,
+    "base": 125,
+    "fused": 126,
+    "lost": 3,
+    "added": 4
+  },
+  {
+    "year": 2023,
+    "roots": 2489,
+    "complete60": 2466,
+    "big": 202,
+    "base": 96,
+    "fused": 91,
+    "lost": 6,
+    "added": 1
+  },
+  {
+    "year": 2024,
+    "roots": 3089,
+    "complete60": 3049,
+    "big": 694,
+    "base": 228,
+    "fused": 228,
+    "lost": 9,
+    "added": 9
+  },
+  {
+    "year": 2025,
+    "roots": 3564,
+    "complete60": 3519,
+    "big": 718,
+    "base": 252,
+    "fused": 251,
+    "lost": 8,
+    "added": 7
+  },
+  {
+    "year": 2026,
+    "roots": 1995,
+    "complete60": 766,
+    "big": 94,
+    "base": 14,
+    "fused": 13,
+    "lost": 2,
+    "added": 1
+  }
+]

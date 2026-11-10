@@ -1,0 +1,36 @@
+{
+  "status": "COMPLETED_BOTH_R0_JULY_ACCOUNTS",
+  "C10": {
+    "source": "../g-s-C-R0-continuous-july-v1-20261102",
+    "independent_audit": "/tmp/R0-continuous-independent-20261102/FINAL_AUDIT.json",
+    "not_rerun": true
+  },
+  "C_BATCH20": {
+    "started": "2026-11-02T18:12:47.730030+00:00",
+    "completed": "2026-11-02T18:19:02.074917+00:00",
+    "remaining_financial_run_seconds": 374.3387196669355,
+    "final_checkpoint": {
+      "checkpoint": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/runs/C_BATCH20/2025-07-31-CLOSE.pkl",
+      "sha256": "d7cc056adc99629ae2d4f01eb73afb9b5519e9b1e4dc66c12eac6fa0e74c05db",
+      "cursor": "2025-07-31 15:10:00+08:00",
+      "phase": "CLOSE"
+    },
+    "original_failure_preserved": true,
+    "explicit_optional_source_recovery": true,
+    "source_hashes": {
+      "budget250.py": "4c50b9c0ae667ab573c913895c9f30363d83af5e665a951c797b1a10b0e49081",
+      "recover_c20.py": "d06264249a8e8b8b649251865bfda1f3c3c4186100086086bda5b86b0eef979c",
+      "complete_restore_gate.py": "04c38db9f070972749086eecf654ebe1571b3807e3eda1f493ecb601563fb228",
+      "SOURCE_TRANSITION_AUTHORIZATION.json": "de7900dbad9158de360e17742b807a7c923af8385949ffa485bdb136f6d7d5b2"
+    },
+    "technical_ceiling": 250000,
+    "exact_failed_batch_native_checks": 190889,
+    "old_completed_batch_identity_count": 15,
+    "new_remaining_account_events": 21,
+    "recovered_close_records": 1
+  },
+  "financial_events_outside_July": 0,
+  "other_economic_variants": 0,
+  "latest_audit_entry": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/AUDIT_ENTRY.txt",
+  "prior_generation_RUN_STATUS_is_immutable_historical_failure_record": true
+}

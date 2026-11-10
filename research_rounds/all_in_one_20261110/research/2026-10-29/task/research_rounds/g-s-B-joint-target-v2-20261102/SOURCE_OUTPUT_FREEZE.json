@@ -1,0 +1,34 @@
+{
+  "contract_sha256": "d228e5f7e447c799b8ba5c5ca11a945ce98cffb8d64592700fdd64b67d6bec5d",
+  "minimality_sha256": "494e580343ffd50357a6ef0b24d88da9cefcad930a13cedf8a731848cf467d75",
+  "selector_sha256": "44e7345ef2b3fc494e9854216579aa5faa0e0557b4ecbc207b1027b102e401a8",
+  "joint_guard_sha256": "b76660a053a09a4e394b32b9ccc61f709cdc98ac6bf900a425f476700c7771cf",
+  "rank_sha256": "5ec91c2323b2d3b8fa5c99df504139e2ac7af9b5b84359222c3d6353d0cd697c",
+  "code": {
+    "inputs.py": "200127fc950b6be954028cfb46225b62c7d03977e7ee36aaa09ebc23e21792d5",
+    "report.py": "6fde6f80c9a4a0723e064fcd089f3291c9e37480c7e0f8d2df046da31954e977",
+    "restore.py": "c9a35552b85104e290993f02e465f39aeb4cfd6f41da6b4050949b35516cce20",
+    "run.py": "a2d681aff1e66ded0a18d95de874ee4835fb280e90e6d08caaa390087a3e3111",
+    "selector.py": "44e7345ef2b3fc494e9854216579aa5faa0e0557b4ecbc207b1027b102e401a8",
+    "test_selector.py": "5d239a26b0c58fbdf615350ac18f795b52df1dd93296d030cb77bb7e96a484f9"
+  },
+  "post_run_io_smoke_fix": {
+    "restore.py": {
+      "executed": "a80771238d3ed684ec76a95a4921680b68514e1cdb26f823ad8322788b8826da",
+      "current": "c9a35552b85104e290993f02e465f39aeb4cfd6f41da6b4050949b35516cce20"
+    },
+    "test_selector.py": {
+      "executed": "4fd35022ebf19e52f7fee5d223c207af04744e6e821adc794bd15cfa302e5c5b",
+      "current": "5d239a26b0c58fbdf615350ac18f795b52df1dd93296d030cb77bb7e96a484f9"
+    }
+  },
+  "input_files": {
+    "2025_26": "fc5f53b78b6a07e81f8dab272a00cf6919e1ee18536033da3468af8359f3cc28",
+    "2022": "3cde4348a9cf495eb75a43e8fa3ebd3f63bc6414ebde38fbdc4dd675674f170b"
+  },
+  "tests": 14,
+  "real_input_crossprocess_exact": true,
+  "old_financial_checkpoints_unchanged": true,
+  "old_JF2_package_unchanged": true,
+  "financial_events": 0
+}

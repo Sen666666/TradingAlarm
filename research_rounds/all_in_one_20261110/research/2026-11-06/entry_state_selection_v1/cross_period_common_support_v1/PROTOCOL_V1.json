@@ -1,0 +1,90 @@
+{
+  "status": "FIXED_BEFORE_NEW_FEATURES_MATCHES_OR_LABEL_ATTACHMENT_ALREADY_SEEN_HISTORY_NOT_OOS",
+  "purpose": "Assess descriptive common support of the same selected pre-entry features across 2022Q1/Q3/2024 autumn. No new strategy, filter, fit, account, trading or causal identification.",
+  "scope": {
+    "source": "m3_q1_entry_path_strata_v1/ENTRY_FEATURES_PRELABEL.csv",
+    "windows": {
+      "Q1": [
+        "2022-01-01",
+        "2022-03-31"
+      ],
+      "Q3": [
+        "2022-07-01",
+        "2022-09-30"
+      ],
+      "AUTUMN": [
+        "2024-09-02",
+        "2024-12-31"
+      ]
+    },
+    "expected_original_permits": {
+      "Q1": 569,
+      "Q3": 494,
+      "AUTUMN": 1354
+    },
+    "all_statuses": "Keep all original permits; outcome never influences feature support, matching or replacement.",
+    "definition": "Previously issued SELECTED_PENDING A_UNION_B permits in independent-stock simulations, not all feasible/PASS_NOT_TOP2 candidates and not actual shared-capital orders. Retain later NOFILL, entry UNKNOWN, holding UNKNOWN and financial UNKNOWN; no prior outcome eligibility."
+  },
+  "features": [
+    "PVR_score",
+    "z5",
+    "z21",
+    "DMI14",
+    "CMF21",
+    "ret21",
+    "distance_I_log",
+    "log_amount_ratio",
+    "log_vol_ratio",
+    "log1p_I_age",
+    "log1p_sector_M3_age"
+  ],
+  "feature_definitions": {
+    "PVR_score": "Exact original A_UNION_B decision PVR from financial-file identity columns only. Formula not substituted.",
+    "z5_z21": "Read original G native z5,z21 only, original readiness and source-coordinate checks. Native z=sqrt(h)*EMA_h(log return)/original scale. Preserve original publication and source clock, not strict-reset replacement. Existing upstream native caches reused; no claim of regenerating G.",
+    "DMI14": "Same prior frozen strict Wilder14 implementation: competitive +/-H/L differences, first14 SMA then RMA alpha1/14, (RMAplus-RMAminus)/sum; exact immediate common calendar. Invalid/absent/source/segment/factor/volume-factor change resets. H=L invalid; zero sum UNKNOWN.",
+    "CMF21": "21 immediate common sessions, sum(raw shares*(2rawC-rawH-rawL)/(rawH-rawL))/sum(raw shares). Same source/path/segment, adjustment/volume factor; all valid positive OHLC/amount/shares, CNY/shares, mean price within original fixed numerical tolerance .5/V+1e-8. Missing/H=L/factor/source invalid UNKNOWN. No compressed calendar.",
+    "old_features": "Use previously sealed point-known ret21,distance_I_log,amount_ratio,vol_ratio,I_root_age_n,sector_M3_age_n. Natural log positive ratios; log1p known nonnegative ages. Unknowns not zero. Age origin remains original cache-known root, not full prehistory or PIT."
+  },
+  "exact_match": [
+    "sector",
+    "entry_type",
+    "i_buy_today",
+    "CP_root_context"
+  ],
+  "unknown": "Require all11 continuous and all exact-match fields known. Unknown CP/root/sector age or any source/feature gap excludes from matching but remains full-denominator coverage table. No imputation, dropping a feature, alternative fallback or later label-based replacement.",
+  "scaling": {
+    "training": "All feature-complete Q1 permits only. median and linear-quantile IQR/1.349 independently per feature. No outcome use, winsorizing, clipping, industry-specific fit or future-period scale.",
+    "clock": "Scale is retrospectively learned after Q1 and applies unchanged to later Q3/2024. It was not available at early Q1 dates and is not claimed to be an early-Q1 tradable algorithm. All underlying features are signal-close prefix values.",
+    "zero_scale": "If any required scale is nonfinite or <=0, STOP entire matching. No epsilon, deletion or substitute scale.",
+    "quantile_method": "pandas quantile(interpolation='linear'); equal weight per feature-complete original Q1 permit, not unique stock/date. Report repeated-stock/date weights, not independent sample count."
+  },
+  "matching": {
+    "unit": "Triplet: one Q1 anchor, one Q3, one autumn event, all exact fields equal. Every pair within triplet must obey every-coordinate |delta standardized feature|<=1.0.",
+    "distance": "RMS of 11 standardized coordinate differences. No covariance fitting or weights. Single robust-SD caliper is a fixed research comparability design, not optimized economic threshold.",
+    "choice": "Enumerate feasible triplets. Deterministic greedy sort ascending maximum pair RMS, then total pair RMS, then Q1/Q3/autumn round_id. Accept only if no member event cluster previously used. No alternative algorithms or calipers after seeing support.",
+    "event_cluster": "(window,signal_day,sector,entry_type) used at most once globally across accepted triplets, including all stocks of same sector-birth invitation. Record original round_id,event_id,sid,known I root. Same stock may appear across periods, but no duplicated original permit or sector/date/entry-type event; report sid/root reuse explicitly.",
+    "time": "Only window membership, Q1 before Q3 before autumn. No future returns, distance-in-days optimization, calendar-phase matching or selecting best subperiod. Multi-year industry labels are current static mapping and NON-PIT.",
+    "limitations": "Greedy is maximal under selected order, not maximum cardinality or optimal transport; unmatched does not prove absence of all feasible global matchings. Full candidate edge/triplet counts and constraint losses retained."
+  },
+  "sequence": "Save protocol/code/identity scope before computing features. Then save features, scales, all feasible matches, selected identities and hash seal BEFORE opening outcome columns. Source filenames may contain financial data but preseal reads only explicit identity/PVR columns. Historical labels already known from prior work, not blind/OOS.",
+  "outcomes": {
+    "sources": [
+      "m3_stock_birth_during_sector_v1/relative_priority_equity_run_2022_v1/report/CORE_AND_FULL_ROUNDS.csv",
+      "m3_stock_birth_during_sector_v1/cash_equity_baseline_2024_v1/report/CORE_AND_FULL_ROUNDS.csv"
+    ],
+    "contract": "Only exact A_UNION_B round_id, original financial evidence_usable_closed and COMPLETE_CONDITIONAL_STOCK_ROUND with finite net amounts/returns. No FAST/PRICE/shared cohort mixing. Signal-origin windows, full lifecycle may end later.",
+    "primary": "All selected triplets reported with every unknown. Fully financial-known triplets form common comparison, never replace an unavailable member. CORE and FULL separately: count,wins,win rate,mean net,mean win/mean loss,cash payoff,return payoff,final fee-net return>=30% tail count/amount. No MFE substitute.",
+    "diagnostics": "Original whole window and feature-complete and matched coverage; same selection/whole denominator bias; within-triplet deltas and win/loss concordance; direction across industry/date clusters; leave-one industry and leave-one signal date and 20-common-session block. Equal-trade and equal-industry descriptions both retained.",
+    "legacy_differences": "Reuse original terminal snapshots exactly; no common fixed holding horizon, no forced exit, labels can finish after source signal window. Both are corrected cash/equity/NET80 reporting sources, but source coverage/unknown and rights-handling paths are not proved identical just by matching features. Report status,financial_coverage_status,coverage_reasons,exit_day and all_fees/NET80 separately. No extra economic rerun or missing label repairs."
+  },
+  "inference": {
+    "support_gate": "No new significance test. Report only coverage, pairwise feature balance/distances, label denominators, paired descriptive contrasts and cluster/leave-one sensitivity. Treat signal dates, industries, sid/I-root and three fixed regimes as correlated; no p-value or independent-N claim.",
+    "uncertainty": "No iid t-test, bootstrap confidence claim or label permutation. If parent asks significance, state this selected three-regime descriptive design does not establish statistical significance/general transportability. Matching cannot control unmeasured market shocks or repair label-policy differences.",
+    "decision": "If no/low common support, report chosen design cannot identify transportability; do not infer daily information inherently insufficient or modify caliper. If clear differences within observed support, call descriptive conditional historical contrast, not causal or new tradable gain."
+  },
+  "validation": "Source hashes before/after; original identifiers unique; raw/native/G source coordinates; selected feature-prefix calculations on deterministic fixed samples; DMI/CMF independent formulas and boundary cases; exact scale training rows; no event reuse, all pair calipers; matching seal stable after financial attachment.",
+  "single_run": true,
+  "no_parameter_scan": true,
+  "no_accounts": true,
+  "created_utc": "2026-11-09T07:27:21.560385+00:00"
+}

@@ -1,0 +1,16 @@
+{
+  "approved": true,
+  "engine_sha256": "6b7c9c2dd8c8fccc27da99d67c47faf7cecac011e2863c1359b05b46b96fdb04",
+  "contract_sha256": "d94b25ec7f40c29a5da963cec8141aa0519bdd1449f9f925cd411c5fb40ebcb6",
+  "fact_sha256": "627a13e0975d7afdc1890a77cf3da051ee01e32b5a4b8fb53b042ccbd3a06130",
+  "scope": "One frozen M7 extension through 2024-10-31, appending only reviewed 600535.SH and 600750.SH ordinary cash events dated 2024-10-10. Preserve all inherited alpha, ordinary NET80 accounting, Q0 split guard and atomic boundaries. Require exact economic prefixes at 10/8 and 10/9 before later trading. No live trades or suspension changes.",
+  "author_tests_independently_repeated": 26,
+  "independent_checks": 39,
+  "audit_files": {
+    "independent_cash_admission.py": "72790c664a60a73554b23e73351c24db7912d4d2d5e4e88097a50b58ac1b33a7",
+    "INDEPENDENT_QA.json": "d60991a223714217e612cadfd8fa57e41a79abbe7681c04790a8a18c29b5bcec",
+    "synthetic_cash.py": "3bdad651bde75156c43f13e4fdb148af6e88e32c4cf4e4884a668c09f336f8c3",
+    "SYNTHETIC_QA.json": "1779a1dc3d1d096c4f6cf5a1e93aa1f618548d399d8a13ed0dac3946cf5f947c"
+  },
+  "timestamp_utc": "2026-11-09T21:17:05.441649+00:00"
+}

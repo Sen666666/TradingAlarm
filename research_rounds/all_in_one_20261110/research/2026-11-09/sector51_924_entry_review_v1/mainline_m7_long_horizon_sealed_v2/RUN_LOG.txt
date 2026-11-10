@@ -1,0 +1,50 @@
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_m7_long_horizon_sealed_v2/engine.py", line 83, in <module>
+    data=Data();save(O/'FROZEN_INPUTS.json',dict(hashes=data.hashes,base_engine_sha256=BASE_SHA,engine_sha256=sha(O/'engine.py'),contract_sha256=sha(O/'CONTRACT.md'),end=END,new_fact_admissions=0))
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_m7_long_horizon_sealed_v2/engine.py", line 38, in __init__
+    super().__init__(end)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_m7_downturn_cash_batch_v6/engine.py", line 19, in __init__
+    super().__init__(end)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_m7_downturn_cash_v4/engine.py", line 40, in __init__
+    super().__init__(end)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_m7_downturn_q0_split_v3/engine.py", line 35, in __init__
+    super().__init__(end)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v7_demand_capped/engine.py", line 32, in __init__
+    super().__init__(end)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v6_mature_round_cap/engine.py", line 19, in __init__
+    super().__init__(end)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v5_expansion_competition/engine.py", line 10, in __init__
+    super().__init__(end)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v4_known_sector_fix_v2/engine.py", line 16, in __init__
+    super().__init__(end)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v3_core_reference/engine.py", line 28, in __init__
+    super().__init__(end)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v2_pending_quote_pause/engine.py", line 18, in __init__
+    super().__init__(end)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v1/engine.py", line 58, in __init__
+    super().__init__(end)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/joint51_candidate_v9_facts/engine.py", line 56, in __init__
+    k=pd.read_parquet(hashed(Q/'KNOWN3.parquet'))[self.ids].loc[:self.end];r=pd.read_parquet(hashed(Q/'RIGHT3.parquet'))[self.ids].loc[:self.end]
+      ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bytedance/Library/Python/3.13/lib/python/site-packages/pandas/io/parquet.py", line 668, in read_parquet
+    impl = get_engine(engine)
+  File "/Users/bytedance/Library/Python/3.13/lib/python/site-packages/pandas/io/parquet.py", line 68, in get_engine
+    raise ImportError(
+    ...<7 lines>...
+    )
+ImportError: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - `Import pyarrow` failed. pyarrow is required for parquet support. Use pip or conda to install the pyarrow package.
+ - `Import fastparquet` failed. fastparquet is required for parquet support. Use pip or conda to install the fastparquet package.

@@ -1,0 +1,21 @@
+{
+  "task": "AB/PRICE single-role-slot static audit",
+  "baseline": "independent_channel_joint_economic_v1 original PVR arm, NOT DMI arm",
+  "rule": "Given a saved day-sector legal, stock-deduplicated queue ordered by original rank_key: if both lanes exist, select first AB and first PRICE; otherwise select original first two.",
+  "eligible_input": "Original same-close FLAT, AB-priority per stock, original industry/PVR/size legality. No new candidate, state, threshold, market gate or OPEN fallback.",
+  "role_order": "Original known finite PVR descending then sid; unknown PRICE after known then sid. AB unknown is ineligible. Preserve relative original order among selected.",
+  "mechanical_examples": [
+    "2022 first date-sector with old PP top2 and some legal AB",
+    "2022 first date-sector with old AA top2 and some legal PRICE",
+    "Prior named loss: 浪潮信息 2022-01-05, exact own sector queue",
+    "2024-09-23 communications exact queue including 海能达",
+    "2024-09-25 wind power exact queue including 电气风电"
+  ],
+  "fixed_case_scope": "All saved offers for 海能达002583 and 电气风电688660 during 2024-09-20..2024-10-08, plus complete legal sector queues on their offered dates; no invented daily row where no offer exists.",
+  "boundary": "Frozen old joint state only. Gross swaps are not new fills, state paths or economics. Old outcomes are posterior labels only. 2026江丰 has no dynamic queue in these birth windows and is NOT_EVALUABLE.",
+  "economics_calls": 0,
+  "consumer_calls": 0,
+  "strategy_imports": 0,
+  "parameter_search": 0,
+  "explicit_unknown_consequence": "When both lanes exist, select top PRICE even if all PRICE PVR is unknown. This overrides cross-lane known-first priority. No new exception is added."
+}

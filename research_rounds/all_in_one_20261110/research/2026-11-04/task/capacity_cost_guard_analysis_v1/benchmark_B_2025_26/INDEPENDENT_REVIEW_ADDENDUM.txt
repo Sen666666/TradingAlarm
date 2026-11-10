@@ -1,0 +1,6 @@
+强窗简单基准独审已完成PASS_WITH_SCOPE
+independent_review/capacity_benchmark_B_v1/BENCHMARK_B_2025_26_INDEPENDENT_AUDIT.json
+SHA f5ce805768bb23bcbd1dbc8556cafa37c08c4ab3e7dc3cb29a8a570d590a4227。
+242×2日cash/qty/AR ex-pay/fee/NAV/globalDD及22笔fill的nextOPEN/ADV/T+1/lot/band proxy、1327/1569旧byteprefix+classification和1928warm signal已核。
+RESULTS/READOUT历史PENDING标记保留，不覆盖；现行审查绑定INDEPENDENT_REVIEW_STATUS.json。
+execution_verified=false和不同资产/费用合同限制不变，未新运行任何candidate/native账户。

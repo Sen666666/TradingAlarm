@@ -1,0 +1,12 @@
+{
+  "completed_windows": 2,
+  "new_C1_normal_paths": 2,
+  "baseline_paths_rerun": 0,
+  "no_additional_policy_or_pressure": true,
+  "decision": "risk_menu_only_not_unified_promotion",
+  "wiring_audit": "independent-wiring-audit/EVIDENCE.json",
+  "final_verification": "FINAL_VERIFICATION.json",
+  "original_2022_same_process_resumed_not_replayed": true,
+  "execution_blockers": [],
+  "unidentified": "exclusive probe rejection count unavailable from merged reasons"
+}

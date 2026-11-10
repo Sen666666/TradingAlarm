@@ -1,0 +1,35 @@
+{
+  "completed": true,
+  "at_UTC": "2026-11-04T08:51:45.171359+00:00",
+  "scope": "ONE_No60_PVR_D1v2_strong_2025July_2026June_from_own_July3",
+  "status": {
+    "completed": true,
+    "scope": "ONE_No60_PVR_D1v2_strong_2025July_2026June_from_own_July3",
+    "full_path": [
+      "2025-07-01",
+      "2026-06-30"
+    ],
+    "retained_prefix_through": "2025-07-03T15:10:00+08:00",
+    "prefix_replayed": false,
+    "source_and_horizon_unchanged": true,
+    "input_seconds": 44.465404791757464,
+    "remaining_run_seconds": 196.0155543750152,
+    "total_seconds": 244.79181645903736,
+    "ending_NAV": "2104124.0750195029105",
+    "daily_count": 242,
+    "fills": 1809,
+    "old_control_replayed": false,
+    "other_full_paths": 0
+  },
+  "raw_return_pct": "110.4124075019502910500",
+  "read_only_control": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-d1-v2-composition-preflight-20261101/run-PVR-D1",
+  "old_control_NAV": "1636843.3953941586540",
+  "raw_wealth_delta_to_same_pressure_PVR": "467280.6796253442565",
+  "parent_prefix_fills": 49,
+  "new_continuation_fills": 1760,
+  "artifact_count": 28,
+  "source_and_external_and_own_parent_SHA_rechecked": true,
+  "no_failure_or_resume_or_replay": true,
+  "financial_and_campaign_audits": "handed to risk_constraints/loss_correction/independent_review; pending",
+  "other_full_pressure_paths": 0
+}

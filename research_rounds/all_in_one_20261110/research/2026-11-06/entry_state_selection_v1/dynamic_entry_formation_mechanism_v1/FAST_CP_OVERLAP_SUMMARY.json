@@ -1,0 +1,44 @@
+{
+  "all825": {
+    "n": 825,
+    "same_day_i_buy": 825,
+    "same_day_CP": 0,
+    "same_day_CP_unknown": 0,
+    "later_CP_within_same_I": 683,
+    "same_day_or_later_CP_same_I": 683,
+    "later_CP_while_S_M3_continuously_true": 152,
+    "median_first_later_CP_lag": 8.0,
+    "later_i_buy_same_I": 736,
+    "old_legal_CORE_same_day": 432,
+    "old_legal_empty_MOBILE_same_day": 0,
+    "old_actual_CORE_first_same_day": 2,
+    "old_actual_MOBILE_first_same_day": 0,
+    "old_legal_CORE_same_root_any": 718,
+    "old_legal_empty_MOBILE_same_root_any": 605,
+    "old_actual_first_same_root_any": 124
+  },
+  "residual_close_proxy": {
+    "n": 515,
+    "same_day_i_buy": 515,
+    "same_day_CP": 0,
+    "same_day_CP_unknown": 0,
+    "later_CP_within_same_I": 418,
+    "same_day_or_later_CP_same_I": 418,
+    "later_CP_while_S_M3_continuously_true": 81,
+    "median_first_later_CP_lag": 8.0,
+    "later_i_buy_same_I": 449,
+    "old_legal_CORE_same_day": 271,
+    "old_legal_empty_MOBILE_same_day": 0,
+    "old_actual_CORE_first_same_day": 2,
+    "old_actual_MOBILE_first_same_day": 0,
+    "old_legal_CORE_same_root_any": 460,
+    "old_legal_empty_MOBILE_same_root_any": 378,
+    "old_actual_first_same_root_any": 86
+  },
+  "limits": [
+    "825/515 are market/old-baseline slot probes, not orders or fills.",
+    "Old legal and actual intersections use previous PVR account state, industry E0/stage/H1 and budgets, with old rights coverage. Not counterfactual execution of new C.",
+    "Future same-root CP/i_buy dates are descriptive clock-overlap labels only, never trigger inputs.",
+    "C_I is a strict subset of existing market i_buy; no new alpha or underlying evidence."
+  ]
+}

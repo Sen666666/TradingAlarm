@@ -1,0 +1,51 @@
+{
+  "status": "FROZEN_BEFORE_MODEL_AND_COMPARISON_RESULTS",
+  "purpose": "Five-session continuation probability, not 0-to-0 account win probability",
+  "new_account_runs": 0,
+  "parameter_grid": false,
+  "random_selection": false,
+  "training_year_start": 2021,
+  "evaluation_start": "2022-01-04",
+  "evaluation_end": "2026-05-15",
+  "population": "Original fixed future-selected 1709 stock identities; original same-day CP1 receipt and ready, I target=1, E0/G ready, positive finite same-day close and factor, valid max(I floor,CP candidate) below close. No portfolio holdings, ACT, cap, industry stage or current cap gate.",
+  "PIT_limit": "1709 identities are future-selected; historical availability/ST/delist and adjustment publication time not certified. No claim of all historical A-share legal candidates.",
+  "event_id": "sid plus signal day; root is original segment plus I-on episode, not account holding",
+  "label": "Gross adjusted C[t+5]/adjusted raw O[t+1]-1 > 0. Five common sessions, all observations valid, same source segment. No inferred filling.",
+  "features": [
+    "protected_distance_over_prior_sigma",
+    "z5",
+    "prior_sigma20",
+    "log_amount_relative21",
+    "market_breadth20",
+    "market_delta5",
+    "original_i_buy"
+  ],
+  "feature_clock": "Signal close only; sigma and amount reference exclude signal day; market breadth same fixed pool, paired intersection for delta.",
+  "training": "First signal day each month; trailing 252 common calendar days of signals, restricted to 2021 onward, maturity5 < first day index; all label horizons capped at 2026-05-15.",
+  "fit": "Unit weight per signal; logistic negative log likelihood sum plus 2*sum(beta[1:]**2). Intercept unpenalized. Standardization from training only, standardized inputs clipped +/-5. No class rebalance, no interactions, no posthoc features.",
+  "minimum_fit": {
+    "rows": 500,
+    "positive": 50,
+    "negative": 50,
+    "signal_dates": 60
+  },
+  "missing": "Nonfinite input => unknown; original PVR slot preserved. No imputation or dropping unknown candidates from daily K.",
+  "ranking": "PVR descending, H1 descending, sid baseline; reorder only slots with finite probability and PVR, probability descending then original PVR then sid; K=min(20,N) identical.",
+  "calibration": "Forward predictions only; report Brier/logloss and fixed probability bins; do not refit calibration on evaluated data.",
+  "evaluation_horizons": [
+    5,
+    20,
+    60
+  ],
+  "cost_proxy_roundtrip": [
+    0.0,
+    0.003,
+    0.006
+  ],
+  "execution_proxy": "Next open/validity, zero volume and one-price next bar reported only after ranking. Not tradability proof.",
+  "big_root": "First candidate per segment/I-on episode; complete60, close MFE>=30% and terminal60>=20%; early capture selected within first six common signal dates; lost and added separately.",
+  "correlation": "Paired daily differences, 20-common-session block approximate CI, stock/date dependency caveat; no claim of independent 100k trials.",
+  "original_rounds": "Join original PVR actual first entries to signal predictions; report unmatched, first kind, complete versus year-end complete; descriptive original-policy selected sample only.",
+  "consumed_history": "2022-2026 previously inspected. Temporal forward diagnostic, not genuinely untouched out of sample.",
+  "stop_rule": "Never promote to account from this experiment. No tuning after results; failures retained."
+}

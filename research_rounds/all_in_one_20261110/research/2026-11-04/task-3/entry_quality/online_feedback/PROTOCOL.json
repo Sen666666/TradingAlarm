@@ -1,0 +1,13 @@
+{
+  "question": "Does completed mobile trading loss feedback within the current original industry attempt cover broad initial/add/reentry losses without excluding the strong-window winners?",
+  "status": "frozen before new feedback classification; exploratory historical research, no unseen claim",
+  "definition": "At actual decision CLOSE, take all previously fully sold mobile layers in the same sector and original industry probe identity. Sum actual sell.parts net_cash minus full original buy gross and buy fee. Negative iff this completed trading cash sum <0; no observations is a distinct class.",
+  "identity": "sector + original industry probe_day in saved causal probe_progress; original fixed tails use exact original state attempt at decision and original probe day",
+  "clock": "Each observation's final actual sell timestamp must be strictly earlier than decision_at. Partial-only realizations, dividend AR, open marks and future terminal labels never enter the feedback.",
+  "mothers": ["all 2265 No60 2022-2024 actual fills", "all 1171 No60 2025Jul-2026Jun actual fills", "strict 303 actual fills opened after 2024-10-08 and through 2024-12-31", "all pre-existing original fixed tail cohorts 83 and 94 with unmatched explicit"],
+  "comparisons": ["no completed mobile evidence", "completed mobile trading cash sum negative", "completed mobile trading cash sum zero or positive"],
+  "diagnostics": ["action and role coverage", "same-stock versus other-stock completed evidence", "feedback lag and prior layer/stock counts", "observed original net positive and negative contributions including open/unpaid separately", "negative group exact matched and unmatched original fixed tails", "old attempt completed losses omitted by reset", "partial mobile realizations omitted by completion-only definition"],
+  "decision": "One classification only. No windows, thresholds or new alternative chosen after outcomes. If coverage is small or strong winner injury is material, stop before account engineering. A promising association is at most grounds for a separate bounded causal-account experiment.",
+  "precedents": "Existing budget_v3 already has losses and exhausted-policy modes, current native record_only; this is a completed-net-feedback scope diagnostic, not a claim of a new loss-budget idea.",
+  "prohibited": ["new account", "new signal export", "policy return computed by deleting old PnL", "faster exits", "outcome-based exemptions", "live trading", "external sharing"]
+}

@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-10-24T23:08:10.709535+08:00",
+  "cutoffs": [
+    "2017-12-31",
+    "2020-12-31",
+    "2023-12-31"
+  ],
+  "base_policies": [
+    "T0",
+    "T1",
+    "S0",
+    "S1"
+  ],
+  "main_economic_accounts_unchanged": 13,
+  "technical_replay_accounts": 12,
+  "source_ref": {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/code/prefix_live.py",
+    "sha256": "2fb97ca2b81c40bfb2f55f8d3369d96fe4492e52a46e1301b4195a4a29c35ff2"
+  },
+  "reason": "Same predeclared truncation check with bounded reading of the live main stream, no edit of frozen source or strategy decisions"
+}

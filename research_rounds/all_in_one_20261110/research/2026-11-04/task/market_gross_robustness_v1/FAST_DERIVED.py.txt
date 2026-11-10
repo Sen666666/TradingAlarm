@@ -1,0 +1,23 @@
+def window(self,sid,at,side,cost_multiplier):
+ self._cache(at);key=(sid,side,cost_multiplier)
+ if key in self.wc:return self.wc[key]
+ self.wc[key]=None;market=self.lines[sid].market
+ if at not in self.sessions_set[market]:return None
+ try:self.source_available(sid,at)
+ except RuleUnavailable:return None
+ a=self.arr[sid];day=pd.Timestamp(at.date()).value//86400000000000;p=np.searchsorted(a['days'],day)
+ if p>=len(a['days']) or a['days'][p]!=day or not a['valid'][p] or not np.isfinite(a['volume'][p]) or a['volume'][p]<=0:return None
+ j=np.searchsorted(a['positive'],p)
+ if j<20:return None
+ try:
+  market_identity_on(self.rules,sid,at.date(),self.protocol['approved_proxy_ids']);availability=self._version('availability_versions',sid,at);buy,sell=availability.get('buy_allowed'),availability.get('sell_allowed');policy=self.protocol['daily_execution'][market]
+  assert policy['price_limit_policy']=='conservative_hl_proxy'
+  if policy['reject_flat_day'] and a['high'][p]<=a['low'][p]:buy=sell=False
+  prior=a['volume'][a['positive'][j-20:j]];capacity=int(min(prior.mean()*float(self.protocol['participation_rate']),a['volume'][p]));slip=D(policy['slippage_bps'])/10000
+  if cost_multiplier!=1 and policy['stress_slippage']:slip*=cost_multiplier
+  op=D(str(a['open'][p]));price=op*(1+slip if side=='buy' else 1-slip)
+  w=ledger.FillWindow(f'{sid}:{at.isoformat()}:{side}',sid,at,op,price,self.rate('CNY',at),self.quantity(sid,at),self.fees(sid,at),capacity,True,buy,sell,self.lag(market,at,self.protocol['sellable_lag_sessions'][market]),self.lag(market,at,self.protocol['settlement_lag_sessions'][market]),self.bundle.series[sid].record['raw']['sha256'],'explicit_daily_bar_proxy_past20_capacity_same_day_hlv_postcheck',self.rules.get('security_metadata',{}).get(sid,{}).get('par_value'))
+ except RuleUnavailable:return None
+ if key not in self.window_verified:
+  assert w==_original_stress_reference(self,sid,at,side,cost_multiplier),(sid,at,'window identity');self.window_identity_checks+=1;self.window_verified.add(key)
+ self.wc[key]=w;return w

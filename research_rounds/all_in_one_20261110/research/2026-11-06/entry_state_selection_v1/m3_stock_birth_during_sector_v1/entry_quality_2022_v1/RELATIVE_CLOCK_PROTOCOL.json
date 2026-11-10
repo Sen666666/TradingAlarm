@@ -1,0 +1,13 @@
+{
+  "name": "RELATIVE_DIRECTIONAL_CHANGE_V1",
+  "frozen_before_relative_event_outputs": true,
+  "status": "UNPROVEN clock hypothesis; diagnostic signals only, no economics, no fitted thresholds",
+  "input": "x_i,t=log(C_i,t/C_sector,t); epsilon_t=x_t-x_(t-1). Original adjusted stock and official same-industry index daily closes. Beta fixed1 by ratio definition, not regression. No claim residual isolates causality or institutional money.",
+  "threshold": "At each newly recorded strict relative extreme e, freeze sigma_e=sqrt(mean(epsilon_(e-63)..epsilon_(e-1)^2)), delta_e=sqrt(5)*sigma_e. Require63 immediate valid residual returns; missing/source segment reset => UNKNOWN until warm. sigma=0 unknown, no epsilon.",
+  "state": "NEUTRAL after warm; keep causal low/high. First rise from low by frozen delta emitsUP and switchesUP; first decline fromhigh by delta emitsDOWN and switchesDOWN. UP tracks strict newrelativehigh and confirmsDOWN after drawdown>=delta_peak. DOWN tracks strict newrelativelow and confirmsUP after rebound>=delta_low. Recompute entire relative extreme chain, never reuse absoluteE0 pivot dates. Equalleveldoesnotreset.",
+  "event": "NEW_INITIAL_INVITATION = freshRelativeUP_t AND originalIqualified_t AND originalM3_t==1 AND originalSectorS_t==1. Only contemporaneous close flags, no replay if qualification arriveslater. Does not require oldA/B,i_buy orCP receipt. Held/pending/UNKNOWN gates must apply in future lifecycle, event study doesnotpretendfill.",
+  "consumer": "If later tested, replace opportunity clock only, retain originalPVR amongsame-dayindustryeligible invitations, original protection/fees/size/exit/add logic. This run does not change actual trades or score original closed outcomes as candidate results.",
+  "reason": "Common industry uplift alone cancels fromx; stock must newly reverse its relative downside. Uses nonlinear relative pivot timing, not subtracting industry fromfixedwindowstockreturn (whichcannotchange sameindustryranking). Independent lifecycle canemitwhen absoluteM3 andsectoralreadytrue.",
+  "counterexamples": "A relative rebound canstillbeabsolute bear bounce; allstocksfollowindustryidentically xflat=>nocandidate, maymiss broad bull market; previousrelativeleadershipcanreversewithoutnewUP andB mustwait; beta1 is modelnotestimatedtruth. AbsoluteI/M3/S conditions do not certify futureprofit.",
+  "scope": "All2022 union selected stock symbols, fullhistorythrough2022-12-31, produceevents and frozen16caseprefix descriptors. Prefix invariance and common-factor/range-loop synthetictests. No forward performance labels fornewclock, no thresholdsweeps."
+}

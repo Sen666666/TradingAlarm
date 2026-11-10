@@ -1,0 +1,23 @@
+{
+  "approved": true,
+  "engine_sha256": "9baffff7e98013df8d6b2673c61476d102baa9ee5b7bf55600da635e52886f94",
+  "contract_sha256": "19934a5711f17c32208f772a6315107c9a2a0b6ddfc8cf9476b318d72737a86b",
+  "test_sha256": "3fa761e925f811c18a65db6b3788e7b0e99b039ed6c4afd877a31b5da04b0de5",
+  "runner_sha256": "18e399a99bebced41251ee1b0466a8a0f40625b0c510722f83be009ac1444b33",
+  "evaluation_plan_sha256": "f6114d54a6e227d3a4bf5d450d832f2baace89f53d943bf730491dade4393394",
+  "reviewer": "independent_parent_review",
+  "reviewed_utc": "2026-11-09T22:31:24.139766+00:00",
+  "scope": "One historical M10 single-factor versus M7 Sep2-Nov6, Oct31/Nov6 matched endpoints; observed development window, not out of sample; no M9 stacking and no live trades",
+  "checks": [
+    "Independent 85 synthetic/static tests PASS",
+    "CURRENT valid postseed CP; net_close and net_at_CP positive; no stale CP revival",
+    "INITIAL-only monotonic signal-space floor; I/account/ADD/EXPANSION-SEED rules unchanged",
+    "Prior locked floor checked before new close receipt; not available to same-day OPEN",
+    "Existing lot exit priority bug independently identified and fixed with regressions",
+    "Same-symbol grouped sales retain baseline exit quantity/fees; only newly added qty goes through legal floor",
+    "Per-lot effective protection and layered pressure fields exported without rewriting baseline fields",
+    "Immutable dependencies verified; atomic loop unchanged; rollback tested",
+    "Predeclared evaluation before historical results; static floor not promised execution"
+  ],
+  "sealed_dependencies": 500
+}

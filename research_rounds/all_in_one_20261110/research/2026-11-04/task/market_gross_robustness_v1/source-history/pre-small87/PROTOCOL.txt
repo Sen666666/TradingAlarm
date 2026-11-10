@@ -1,0 +1,48 @@
+PRE-FIXED LIMITED ROBUSTNESS; IMPLEMENT/PURE CHECKS/SMALL PREPARATION ONLY, NO FULL GO.
+All original sources/outputs read-only. Same known development windows, NOT OOS.
+Each arm/window original CNY1m,1709stocks/90sectors; long726 Jan2022–Dec2024 continuous own
+state; strong242 Jul2025–Jun2026 independent fresh. Original H/BREAK/exit/fees/resources intact.
+
+Exactly fixed arms, no cross-grid/no best selection:
+cost1 family: MA63_G05, MA63_G20, MA62_G10, MA64_G10.
+cost1.5 family: NO60_C15 and MA63_G10_C15; one independent cost1.5 process per window.
+Archived MA63_G10 cost1 and No60 cost1 are exact original read-only references, NEVER rerun.
+All other combinations absent. All outcomes/failures must be retained.
+
+Gross guard is the existing reviewed TOTAL marked inventory+true pending remaining principal
+new-admission guard; only account alpha .05/.20 or provider MA62/64 differs. No new nominal
+cap, source cohort, cost/protection ledger or global forced selling. Pending/current remainder/
+cancelACK/fees+slippage projected native NAV same as reviewed single10. ND original rules.
+
+MA neighbours: same stored causal ETF X, same inclusive rolling(N,min_periods=N).mean as
+original benchmark; same original observation/warm/last-completed CLOSE and independent native
+calendar. N=62/64 only. Before any account, recompute63 and compare D strictly against original
+storedMA63 on entire history AND all prescribed OPEN/CLOSE/warm. Differences preserved, no tol
+or silent substitution. Primary63 arms always use original storedMA63, never rederived63.
+Mismatch must be reported/reviewed before neighbour economic admission. No source rebuilding.
+
+Cost1.5 means the ORIGINAL NATIVE STRESS FLAGS scaled to1.5, NOT blanket totalfees×1.5:
+FeeComponent.stress_rate true: multiply rate once; false (stamp_duty): unchanged.
+stress_minimum true: multiply minimum once; current default false keeps5CNY brokerage minimum.
+stress_maximum true: multiply cap once; default false unchanged; rounding unit/mode unchanged.
+Keep original order cumulative fee/accrual/minimum and partial accounting; never multiply final
+fee a second time. Slippage base5bp ×1.5=7.5bp once where original stress_slippage=true.
+Original rules/source side/basis/rate dates preserved. No native fee/body rewritten from scratch.
+Original ledger/FeeSchedule only allow1/2 and old window stress only==2; private source-derived
+compatibility must narrowly admit Decimal1.5 and generalize original stress branches, preserving
+all other body tokens. Native J.opening hardcodes window1, so private original-body copy must
+pass actual arm cost multiplier; preview LR.SLIP and executed window must agree.
+No monkeypatch public native modules. Cost1 stays original opening/market/fee classes. Cost1.5
+pair in isolated process, no mixed multiplier family, explicit per-account activation/reset.
+
+Minimum technical preparation proposed (not full): same legacy9/fresh_DOWN6/strong9 domains.
+Cost1 main four arms exercise .05/.20 and neighbour clocks; archived old63/10+No60 not rerun.
+Cost1.5 pair needs real native buy/sell/fee/window evidence, min-fee and cumulative partial
+algebra checks using original schedule; no newly fabricated finance engine or broad fixtures.
+Pure inverse-source-diff/provider prefix/63-classification/fee component checks come first.
+Small Account runs require root acceptance of these actual interface/cost definitions.
+
+Expected cost: pure input/fee/source checks minutes; thin adapter+driver about20–30min; old
+input loads once per family/window (no new loader/cache), small/account/independent audit
+roughly additional10–20min depending original source hashing. Full excluded and separately
+grant-gated. Stop/report concrete blockers rather than building new framework.

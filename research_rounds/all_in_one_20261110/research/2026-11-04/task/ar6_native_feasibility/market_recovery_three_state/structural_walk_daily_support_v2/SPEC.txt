@@ -1,0 +1,6 @@
+Unique root-authorized support-update PAPER difference only,<=10min,0Account/risk/n. Originalv1 frozen and readonly.
+All original20/63/sqrt5/RMS/P/C/marker/init/no-reentry rules unchanged.
+Only precheck: existingP/C eachday if PRIOR20 prices known and L20 known then S_eff=max(S_old,L20_t), before checking knownM<S_eff. L20_t uses t-20..t-1 only, no currentM in support statistic. Unknownprior20 retains oldS; knownM breach still before B/requiredwindowunknown; no samebar reentry.
+Keep original post-confirmation max(S,L20) unchanged (now redundant under known daily support), no new horizon/threshold/loader.
+Add S_effective_precheck/prior20_support_known/support_raised_before_check as diagnostics, S_before remains true prior state support; clear liveS onD asv1.
+One3273-row walk after pool/reviewer source review. Same windows compared regardless result, no funds/holdings/PnL or subsequent automatic execution.

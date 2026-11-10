@@ -1,0 +1,27 @@
+条件释放四臂执行完成：52个pure OPEN，105.383秒，整组180秒预算内。
+
+A0原greedy cash10、B0原min-first cash10的26个完整旧输出先全部exact，才执行A1/B1。
+A1/B1仅在原ACT_on且冻结signal行业stage为confirmed/expanded时将额外buffer降至已知U=0。
+1170行业许可行/4172候选均已冻结：2908候选eligible，1264不eligible仍按10%走原门。
+false是保持原缓冲，没有新购买过滤；所有风险/股票/CP1/epoch/最小单位/费用/旧订单不变。
+
+A0 50单→A1 135单；新增91、丢6、缩2、增9。
+B0 161单→B1 451单；新增294、丢4、缩3、增17。
+剩余14目标：A1仅新增珂玛6月29日信号→6月30日OPEN100股confirmed；B1在B0之外新增
+江丰2月9日、2月12日、2月25日信号及金海通5月12日信号，共4次。B1−B0与A1−A0
+分别输出，AB交互单列；不能把B1−A0叫单因素改善。
+
+跨13个独立S0的预留毛额加总：A0 805311.274410→A1 3047640.658800元；
+B0 804647.412645→B1 3053919.846825元。预留买费F(q)：333.085760494→1003.085725591；
+865.980642677→2499.048474487元。这些不是半年累计资本、不是实际支付费用或真实成交。
+逐OPEN starting_available、10%buffer、最终可用减少、风险和费用见CONDITIONAL_CASH_BUFFER_COST_BY_OPEN.json。
+
+固定比较文件：A_NATIVE_ALL4172_COMPARISONS.json、B_MINFIRST_ALL4172_COMPARISONS.json。
+每条含key/sid/role/CP1_id、完整原新order/数量差/毛额差/费用差、冻结ACT/stage/eligibility及余拒因。
+AB_INTERACTION_ALL4172.json、CONDITIONAL_ALL16_FOCUS.json保留完整交互与目标，不subset。
+52个A0/A1/B0/B1_日期.json保留全订单/attempts/拒因/迁池/固定组合/最终私有资源，供独审。
+
+无fallback、无新Account/Runner、无恢复、无成交、无新价格或收益标签；输入与冻结源不变。
+final_state.available_exact仍是旧State的S0锚点；实际最终私有可用读结果available。
+已有2022/2026不利标签不进入许可条件或参数，本次独立S0静态结果不能证明经济可取。
+根agent接既有PRICE_LABELS和原路径；本线停止追加策略、标签或连续账户，交独立结果审查。

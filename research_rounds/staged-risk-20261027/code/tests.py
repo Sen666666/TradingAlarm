@@ -1,0 +1,26 @@
+from pathlib import Path
+import sys,json
+O=Path(__file__).resolve().parents[1];ROOT=O.parents[1]
+sys.path.insert(0,str(ROOT/'research_rounds/tech-finite-compound-20261026/code'));sys.path.insert(0,str(O/'code'))
+import engine
+from risk_policy import *
+from test_sector_account import quote,window,CLOCK,T,admission,timedelta
+s=dict(on=True,peak=D(1000000),saw_off=False,previous_fast=True,episode=0)
+x,_,e=advance_staged(s,D(890000),False,True,False,False);assert e=='reduce' and x['phase']=='defensive'
+y,_,e=advance_staged(x,D(880000),False,True,False,False);assert e is None and y['phase']=='defensive'
+y,_,e=advance_staged(x,D(790000),False,True,False,False);assert e=='pause'
+z,_,e=advance_staged(y,D(790000),False,True,True,True);assert e is None
+z,_,e=advance_staged(y,D(790000),True,True,True,True);assert e=='resume' and z['peak']==D(790000)
+z,_,e=advance_staged(x,D(900000),False,False,True,True);assert e is None
+z,_,e=advance_staged(x,D(900000),False,True,True,True);assert e=='resume'
+x,_,e=advance_staged(s,D(890000),False,True,True,False);assert e is None
+# Integer partial sell uses original ledger, does not release complete-exit slot.
+a=engine.Account(initial_cash=10000);a.protect=False;a.reserve_budget(quote=quote(),clock=CLOCK,gross_budget_cny=8000);a.fill_buy('A',window());assert a.quantity('A')==800
+clock=admission.Clock(T+timedelta(days=1,hours=1),T+timedelta(days=2),T.date());a.request_reduction(quote(),clock,400);a.exits['A'].purpose='risk_reduction'
+a.request_exit(quote(),clock);assert a.exits['A'].remaining_target==400 # Latched order repeated isn't a full sell.
+r=a.fill_exit('A',window(at=T+timedelta(days=2),eid='sell-1'));assert r.shares==400 and a.quantity('A')==400 and not a.completed
+# Actual structure deterioration upgrades outstanding target.
+a.request_reduction(quote(),admission.Clock(T+timedelta(days=2,hours=1),T+timedelta(days=3),T.date()),200);a.exits['A'].purpose='risk_reduction';a.normal_exits={'A'}
+a.request_exit(quote(),admission.Clock(T+timedelta(days=2,hours=2),T+timedelta(days=3),T.date()));assert a.exits['A'].remaining_target is None
+r=a.fill_exit('A',window(at=T+timedelta(days=3),eid='sell-2'));assert r.shares==400 and not a.quantity('A') and len(a.completed)==1
+(O/'synthetic-tests.json').write_text(json.dumps({'passed':True,'checks':12,'partial_ledger_and_upgrade':True},indent=2));print('state/partial ledger contracts passed')

@@ -1,0 +1,23 @@
+{
+  "mother": 69,
+  "CR_selected": 35,
+  "CR_changed_from_C": 0,
+  "CR_later": 0,
+  "CR_original_C_but_no_entry": 0,
+  "D_selected": 46,
+  "D_unknown21": 4,
+  "D_all57_identity_exact": 57,
+  "CR_changes": [],
+  "sample_ids": [
+    "600845.SH|2024-01-02",
+    "601138.SH|2024-01-19",
+    "605118.SH|2024-01-02",
+    "301486.SZ|2024-03-27",
+    "688143.SH|2026-06-03"
+  ],
+  "original_reserve_days_exact": 681,
+  "common_project_function": true,
+  "D_paths": 0,
+  "CR_paths": 0,
+  "seconds": 5.056531459093094
+}

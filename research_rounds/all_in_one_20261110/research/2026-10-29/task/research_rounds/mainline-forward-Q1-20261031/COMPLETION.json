@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "finished_at_UTC": "2026-10-31T12:23:20.729542+00:00",
+  "new_Q1_paths": 2,
+  "original_Q4_restored_for_state_only": 2,
+  "economic_done": {
+    "passed": true,
+    "new_paths": 2,
+    "quarter": "2026Q1",
+    "seconds": 74.26667641708627,
+    "progress": [
+      {
+        "policy": "RAW",
+        "seconds": 29.798189041670412,
+        "end_NAV": "1443075.9280713456690"
+      },
+      {
+        "policy": "ATT",
+        "seconds": 31.09959283284843,
+        "end_NAV": "1437631.6092944604645"
+      }
+    ],
+    "own_boundary_states_preserved": true,
+    "no_more_quarters": true
+  },
+  "independent_verification": {
+    "passed": true,
+    "own_12_31_boundaries": true,
+    "independent_original_audit": {
+      "RAW": {
+        "account": "B0_RAW",
+        "passed": true,
+        "checks": {
+          "fills_causal_and_fee_components": 2795,
+          "daily_independent_nav_and_shares": 182
+        },
+        "max_absolute_nav_difference_cny": "0",
+        "campaign_pnl_reconciled": true,
+        "total_expenses": "0",
+        "max_stock_weight": 0.10765684395250971,
+        "max_sector_weight": 0.17745636931202213
+      },
+      "ATT": {
+        "account": "B0_ATT",
+        "passed": true,
+        "checks": {
+          "fills_causal_and_fee_components": 1405,
+          "daily_independent_nav_and_shares": 182
+        },
+        "max_absolute_nav_difference_cny": "0",
+        "campaign_pnl_reconciled": true,
+        "total_expenses": "0",
+        "max_stock_weight": 0.10870587359768494,
+        "max_sector_weight": 0.38100518668848693
+      }
+    },
+    "all_cycle_and_cashflow_bridges_exact": true,
+    "missing_close_mark_proxy_positiondays": 59,
+    "seconds": 5.848847666755319
+  },
+  "conclusion": "Q4 lead reversed slightly by Q1; lower drawdown tradeoff retained; no promotion, no parameter change",
+  "missing_close_proxy_positiondays_by_policy": {
+    "RAW": 48,
+    "ATT": 11
+  },
+  "no_blockers": true,
+  "remaining_limitations": [
+    "historical consumed snapshot universe and survivor bias",
+    "daily execution/company-action proxies",
+    "Q1 own initial states differ; not pure ranking information effect"
+  ],
+  "deliverables": [
+    "FINAL_REPORT.txt",
+    "PROTOCOL.txt",
+    "FREEZE.json",
+    "Q4_RECOVERY_GATE.json",
+    "GATE.json",
+    "boundary-2025-12-31.chk",
+    "end-2026-03-31.chk",
+    "analysis/SUMMARY.json",
+    "analysis/ORIGIN_CONTRIBUTIONS.json",
+    "analysis/MONEY_BRIDGE.json",
+    "analysis/STABILITY.json",
+    "analysis/VERIFICATION.json"
+  ]
+}

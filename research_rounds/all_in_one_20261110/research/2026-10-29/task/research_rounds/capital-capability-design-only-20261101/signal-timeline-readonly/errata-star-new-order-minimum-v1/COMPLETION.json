@@ -1,0 +1,16 @@
+{
+  "completed": true,
+  "seconds": 3.6215247502550483,
+  "main_nodes": 11,
+  "old_appendix_nodes": 11,
+  "daily_candidate_rows": 2016,
+  "financial_runs": 0,
+  "new_indicator_runs": 0,
+  "ready_for_independent_review": true,
+  "limits": [
+    "raw_CP1 is broad optimistic mother; original_Q is restrictive old-sector-gated subset",
+    "OLD407 CP1 counts unknown",
+    "fixed1m/2% close-price minimum-unit preview, no future opening price",
+    "capacity is optimistic slots not actual allocations or profit"
+  ]
+}

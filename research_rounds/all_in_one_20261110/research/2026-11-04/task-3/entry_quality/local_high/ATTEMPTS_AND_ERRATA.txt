@@ -1,0 +1,5 @@
+v1 was frozen before new local-high classification. All v1 files remain in superseded_v1_mobile_exit_only/.
+v2 corrected exit identity to include completed full-stock campaigns (including core-only), in addition to mobile-only subcycles, and checked each already-live mobile old floor before new proof. Preserved in superseded_v2_trial_restart_identity/.
+v3 corrected trial restart identity: an actual core layer held now must have opened before the previous mobile-flat timestamp. Presence of an unrelated old completed campaign is insufficient for a new trial. This matches the existing strict same-core definition. No price window, threshold or case was changed.
+Only final root RESULTS/ROWS and run_v3.log are current. The final protocol wording reflects these identity corrections; it is not an unseen pre-registered strategy experiment.
+One read-only print helper first compared a JSON string cut to integer; it stopped without modifying data. Corrected to Decimal for reporting.

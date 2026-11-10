@@ -1,0 +1,3 @@
+def paired(left,right):
+ days=sorted(set(left['daily'])&set(right['daily']));delta=[left['daily'][d]['mean_pct']-right['daily'][d]['mean_pct'] for d in days]
+ return dict(common_dates=len(days),left_date_equal_mean_pct=float(np.mean([left['daily'][d]['mean_pct'] for d in days])) if days else None,right_date_equal_mean_pct=float(np.mean([right['daily'][d]['mean_pct'] for d in days])) if days else None,mean_same_day_difference_pct=float(np.mean(delta)) if delta else None,median_same_day_difference_pct=float(np.median(delta)) if delta else None,days_left_mean_higher_fraction=float(np.mean(np.array(delta)>0)) if delta else None)

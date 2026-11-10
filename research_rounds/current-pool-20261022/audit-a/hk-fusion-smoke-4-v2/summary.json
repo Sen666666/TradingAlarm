@@ -1,0 +1,26 @@
+{
+  "selected": 4,
+  "with_bars": 4,
+  "raw_observation_rows": 12945,
+  "price_eligible_rows": 12668,
+  "missing_volume_rows": 3094,
+  "invalid_price_rows": 277,
+  "parser_dropped_recovered": 14,
+  "source_conflict_cells": 0,
+  "start_status_counts": {
+    "reaches_start": 4
+  },
+  "tail_status_counts": {
+    "end_reached": 4
+  },
+  "rights_status_counts": {
+    "received_current": 4
+  },
+  "unresolved_securities": 0,
+  "network_requests": 0,
+  "account_runs": 0,
+  "data_collection_complete": false,
+  "algorithm_usable_pool_complete": false,
+  "account_ready": false,
+  "caveat": "Raw source collection and price/volume/action usability are separate; no silent security exclusion; no official unit certification from arithmetic alone."
+}

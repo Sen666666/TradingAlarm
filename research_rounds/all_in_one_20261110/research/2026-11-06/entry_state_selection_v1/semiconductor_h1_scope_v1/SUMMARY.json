@@ -1,0 +1,129 @@
+{
+  "status": "COMPLETE_EXACT_SIGNAL_STUDY_NO_ACCOUNT",
+  "seconds": 75.69640954164788,
+  "universe": 126,
+  "H1_observed": 120,
+  "no_H1": [
+    {
+      "sid": "301583.SZ",
+      "name": "托伦斯",
+      "first_source": "2026-07-10"
+    },
+    {
+      "sid": "301660.SZ",
+      "name": "粤芯半导-U",
+      "first_source": "2026-10-13"
+    },
+    {
+      "sid": "301717.SZ",
+      "name": "超纯应材",
+      "first_source": "2026-08-11"
+    },
+    {
+      "sid": "688801.SH",
+      "name": "燧原科技",
+      "first_source": "2026-09-11"
+    },
+    {
+      "sid": "688825.SH",
+      "name": "长鑫科技",
+      "first_source": "2026-07-27"
+    },
+    {
+      "sid": "920138.BJ",
+      "name": null,
+      "first_source": "2026-08-12"
+    }
+  ],
+  "new_H1": [
+    {
+      "sid": "301666.SZ",
+      "name": "大普微-UW",
+      "first_source": "2026-04-16",
+      "H1_rows": 47
+    },
+    {
+      "sid": "688785.SH",
+      "name": "恒运昌",
+      "first_source": "2026-01-28",
+      "H1_rows": 99
+    },
+    {
+      "sid": "688797.SH",
+      "name": "臻宝科技",
+      "first_source": "2026-06-24",
+      "H1_rows": 5
+    },
+    {
+      "sid": "688820.SH",
+      "name": "盛合晶微",
+      "first_source": "2026-04-21",
+      "H1_rows": 47
+    },
+    {
+      "sid": "920186.BJ",
+      "name": null,
+      "first_source": "2026-04-29",
+      "H1_rows": 41
+    }
+  ],
+  "exact_endpoint": 112,
+  "established_with_stale_dates": 115,
+  "H1_all_established": {
+    "n": 115,
+    "positive": 102,
+    "over50pct": 85,
+    "over100pct": 53,
+    "min": -0.5488197424892705,
+    "p10": -0.019935144877141382,
+    "p25": 0.4431161956823755,
+    "median": 0.9268101420231767,
+    "p75": 1.725385316206652,
+    "p90": 2.337903291105406,
+    "max": 5.027978117970104,
+    "mean": 1.132345693227883
+  },
+  "H1_exact_endpoints": {
+    "n": 112,
+    "positive": 99,
+    "over50pct": 83,
+    "over100pct": 51,
+    "min": -0.5488197424892705,
+    "p10": -0.022932504168003385,
+    "p25": 0.4507456605292519,
+    "median": 0.9253902874846612,
+    "p75": 1.7439489507739485,
+    "p90": 2.363195324596461,
+    "max": 5.027978117970104,
+    "mean": 1.1339762525778405
+  },
+  "after_May15_established": {
+    "n": 115,
+    "positive": 100,
+    "over50pct": 41,
+    "over100pct": 10,
+    "min": -0.23417801047120412,
+    "p10": -0.032343345331439406,
+    "p25": 0.12687716631709434,
+    "median": 0.32974976830398517,
+    "p75": 0.6359139751678234,
+    "p90": 0.908641095878583,
+    "max": 1.4657534246575343,
+    "mean": 0.40648763911955216
+  },
+  "sector": {
+    "H1": 0.9110042873955657,
+    "through_May15": 0.4478539511025055,
+    "after_May15": 0.31988746927159517,
+    "state_full_and_prefix_exact": true
+  },
+  "signal_counts": {
+    "old": 1220,
+    "new": 1124,
+    "both": 980,
+    "old_only": 240,
+    "new_only": 144
+  },
+  "sources_unchanged": true,
+  "source_hashes": 882
+}

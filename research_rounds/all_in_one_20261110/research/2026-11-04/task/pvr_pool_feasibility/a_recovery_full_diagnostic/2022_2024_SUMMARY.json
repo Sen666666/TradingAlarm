@@ -1,0 +1,19 @@
+{
+  "original_closes": 726,
+  "all_opportunity_stock_days": 1240734,
+  "actual_pause_episodes": 3,
+  "incremental_A_days": 31,
+  "all_A_days": 33,
+  "incremental_Q_freshCP1_counts": {
+    "all_stock_days": 52979,
+    "core_Q_true": 10941,
+    "mobile_Q_true": 39731,
+    "raw_fresh_CP1": 4641,
+    "fresh_CP1_mobile_Q_true": 4552,
+    "original_core_role": 10919,
+    "original_mobile_role": 4552,
+    "non_ACT_barrier_free_role_events": 15471
+  },
+  "complete_21": 31,
+  "complete_63": 31
+}

@@ -1,0 +1,17 @@
+PVR η排序独审｜源码与必要作用域通过，经济有效性未知
+
+η不是原E已有的同义表达。原PVR按E=Σwe/Σw排序，新η=Σwe/Σw|e|=2P/(P+M)−1按正负方向质量占比排序，存在E相等而η不同、以及明确反向排序的合法数值例。它不是持续天数或未来趋势概率；微涨/单正脉冲均可η=1，V恢复可低分。同价量信息不构成冗余证明。
+
+排重：repo真实旧KAMA实验已有10bar量加权绝对净/绝对路径→自适应基线，旧trend_path_shape有63bar raw-log signedER→持有投影，两者皆有负结果。新候选属于旧效率归一化家族，不能宣称新原理；但原标准化/tanh/金额调制e、21指数权、仅替换全球eligible股票槽位排序，和旧入场/持有经济干预不同。限定检索未见同一slot-only完整账户，不能拿旧KAMA负结果直接当本干预已测，也不能用“效率”概念本身作正证据。
+
+已独立完成：
+1. 12项纯代数、有效域、85观察预热、3前缀/未来扰动、source/无效量重置、股票槽/双角色/NA/H1 tie反例。
+2. 全1709源4,049,899行→1,654,312输出cell重算：原E和original_score逐位精确，A/η独立group点积最大差4.44e−16/3.33e−16；全部NA/segment同，rawη round12全cell差0。18个真实股票前缀/未来价格、金额、source突变均同。全部原79892/53821个query的旧/新rank独立重算同。
+3. 全部pair与原funding背景、3436真实entry字段及全部固定83/94、No60对应45/67及金额薄核。换序反转1566507/934373对，其中真正η不等分1564047/934019，rounded tie0/0，NA固定槽2460/354。当前pending的η=+1仅弱2/强0、η=−1均0；全输出0分母0，所以理论tie反例没有主导本母体。
+4. 原OPEN资源拒绝且跨越原已预留股票的必要背景9840/7947行，7727/5968个被拒stockday、378/197日；这不是可互换资金证明。不同stock/sector/role/最小单位等仍会阻止替换。producer matched/unmatched funding总数还含CLOSE size日志，不能称纯OPEN漏斗；本审重建的资源背景全部09:30，CLOSE资源行0。
+5. root launcher静态保持原A.Runner与全部交易方法，只在构造前替换N.SCORES一次；原H1唯一股票槽、round12、NA原H1槽和H1 tie复用，CORE/mobile目标与保护/ACT不改。进程global source不可在仍运行的旧对象中换；manifest与兼容字段语义、原input别名、fresh1m和全sourcehash已明确。
+
+不能据此承诺改善。strong固定67对应赢家有42降位，原路径贡献713673.36；其余16提前、9同位。原净贡献不能当η会失去的利润。排序换位也不是已经成交替代；真实短prefix由另一独审员负责，完整经济仍须两窗同起点、有限现金/原费用/ACT的真实路径判别。无参数、tie、首仓、退出、行业白名单救参。
+
+收据：FORMULA_AND_DEDUP_REVIEW.json；FEATURE_ARRAY_AND_RANK_AUDIT.json；RANK_SCOPE_AND_TAIL_ANNEX_AUDIT.json；LAUNCHER_STATIC_AUDIT.json。
+本目录0新账户/金融事件/生产模块，未改任何原源或已封版输出。真实native短prefix不在本收据内，禁止称完整金融审计已通过。

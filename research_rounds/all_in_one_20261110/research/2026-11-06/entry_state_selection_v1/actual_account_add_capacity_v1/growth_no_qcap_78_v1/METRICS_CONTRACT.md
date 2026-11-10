@@ -1,0 +1,12 @@
+# Performance reporting contract, fixed before reading growth output
+Window 2023-01-03 through 2023-04-28. Both arms inherit the same 2022-12-30 NAV. Return is ending NAV / inherited NAV - 1. Window max drawdown uses inherited NAV followed by each CLOSE NAV, includes dividend receivables as the native account does, and does not use earlier peak NAV.
+
+A position round is stock quantity zero -> positive -> zero using actual journal. Buys include actual gross+buyfees, sales actual net cash. Dividend entitlement is the sum of native dividend allocations on the round's actual layers, separate from cost and whether paid or still receivable. Closed-round net PnL includes these known net dividends. Also report net PnL excluding dividends. No hypothetical exit fee is added to already closed rounds.
+
+Main exit-cohort metrics cover rounds that actually close during this 78-day window. Split by inherited entry before 2023 and entry during the window. Separately report new-entry cohort closed and still-open counts, so open positions are not counted as losses or silently dropped. Win rate = positive closed rounds / all closed rounds, including exact zero in denominator. Payoff ratio = mean positive PnL / abs(mean negative PnL). Profit factor = sum positive / abs(sum negative). If either side has no observations, report null rather than inventing a ratio.
+
+Right-tail diagnostic: closed-round net return = round net PnL / all actual buy cash in that round, including additions. Count >=30% closed rounds as a descriptive fixed threshold. List the five largest original-account closed-round net profits, and all growth rounds on those same stocks in this window; do not imply a one-to-one causal pairing if entry/exit differs. Still-open rounds have no final return or win/loss label. This is not the older original-I event/MFE definition and not 924 participation.
+
+Report window fee cash, flat-to-held and held-add fills, actual cash/NAV/holdings changes, H>0 and P>0 at candidate clocks, negative add/seed part loss amounts, end live H/H_all, Δ signs and U_avg/U_layer sign disagreement. H_all is diagnostic only, never silently substituted in the formula. Single fixed path, no tuning or parameter scan.
+
+新实验三臂同窗口，旧两臂复用封存输出。青岛港5月事件明确排除。

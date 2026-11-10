@@ -1,0 +1,15 @@
+{
+  "status": "COMPLETE_SIGNAL_LAYER_NOT_STRATEGY",
+  "stock_rows": 1854265,
+  "industry_rows": 97650,
+  "candidate_onsets": 2982,
+  "complete20": 2950,
+  "right_censored20": 32,
+  "changed_days_v1_v2": 2045,
+  "changed_sectors_v1_v2": 13,
+  "synthetic_checks": 9,
+  "score_manifest_identity_files": 5127,
+  "original_CP_and_fast_channel_unchanged": true,
+  "signal_timing": "after signal close, earliest next common day only; no execution or account simulation",
+  "no_profit_or_win_rate_claim": true
+}

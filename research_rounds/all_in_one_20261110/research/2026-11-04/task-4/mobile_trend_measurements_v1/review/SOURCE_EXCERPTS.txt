@@ -1,0 +1,372 @@
+B4
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-b4-20261025/code/model.py
+SHA256 0beb0b16f2f2cac4f1aff23258b7c45722dc12f16e495be27bf5635c03888cf1
+   15 SCALES = (21, 63)
+   16 PACE_SPANS = (5, 21)
+   17 INPUT_COLUMNS = ['close', 'volume', 'segment_id', 'valid_strength_observation']
+   18 CANDIDATE_FIELDS = [
+   85 def _log_prices(close):
+   86     # Ratios remove the arbitrary price unit before log. Use differences of
+   87     # logs only where extreme but finite positive inputs overflow/underflow.
+   88     with np.errstate(over='ignore', under='ignore', invalid='ignore', divide='ignore'):
+   89         p = np.log(close / close[0])
+   90     exceptional = ~np.isfinite(p)
+   91     if exceptional.any():
+   92         p[exceptional] = np.log(close[exceptional]) - math.log(float(close[0]))
+   93     return p
+   94 
+   95 
+   96 def run_valid(f, joint=True):
+   97     """Compute one already validated, contiguous source segment.
+   98 
+   99     joint=False is the explicit price ablation: both structure-credit and
+  100     acute-event volume multipliers are one. Valid positive volume is still
+  101     required by strength_frame. Candidate columns are end-of-day states;
+  102     structure_confirmed journal entries retain the consumed candidate receipt.
+  103     """
+  104     if not isinstance(joint, (bool, np.bool_)):
+  105         raise ValueError('Scalar Boolean joint mode required')
+  106     if len(f) == 0:
+  107         out = pd.DataFrame(index=f.index, columns=FIELDS + DATE_FIELDS + ['phase'])
+  108         out.attrs['terminal'] = None
+  109         return out, []
+  110     close = f.close.to_numpy(float)
+  111     p = _log_prices(close)
+  112     r = np.r_[np.nan, np.diff(p)]
+  113     v = f.volume.to_numpy(float)
+  114     dates = [str(date.date()) for date in f.index]
+  115     rows, journal = [], []
+  116     states = {}
+  117     mu = {h: None for h in PACE_SPANS}
+  122     def fresh_candidate(t, anchor_t, h, direction, scale, vref, reason, prior=None):
+  123         candidate = dict(
+  124             direction=int(direction), anchor=float(p[anchor_t]),
+  125             anchor_price=float(close[anchor_t]), anchor_observation=int(anchor_t),
+  126             anchor_date=dates[anchor_t], created_observation=int(t),
+  127             threshold=float(math.sqrt(h) * scale), scale_at_anchor=float(scale),
+  128             volume_reference=float(vref), frontier=0., credit=0.,
+  129             x=float(direction * (p[t] - p[anchor_t])), new_frontier=0.,
+  130             frontier_increment=0., credit_increment=0., volume_weight=1.,
+  131         )
+  132         emit(t, 'candidate_reset', horizon=h, reason=reason,
+  133              previous_candidate=copy.deepcopy(prior), candidate=copy.deepcopy(candidate))
+  134         return candidate
+  135 
+  136     def advance_candidate(t, h, candidate):
+  137         direction = candidate['direction']
+  138         x = float(direction * (p[t] - candidate['anchor']))
+  139         old_frontier, old_credit = candidate['frontier'], candidate['credit']
+  140         extension = gt(x, old_frontier)
+  141         weight = (float(np.clip(math.sqrt(float(v[t] / candidate['volume_reference'])), .5, 2.))
+  142                   if joint else 1.)
+  143         eligible = extension and direction * r[t] > 0.
+  144         # F and Q describe the same accepted frontier. Updating F for tiny
+  145         # sub-tolerance moves while leaving Q fixed would break .5F <= Q.
+  146         frontier = x if eligible else old_frontier
+  147         frontier_increment = float(frontier - old_frontier)
+  148         credit_increment = float((x - old_frontier) * weight) if eligible else 0.
+  149         candidate.update(
+  150             x=x, frontier=float(frontier), credit=float(old_credit + credit_increment),
+  151             new_frontier=float(eligible), frontier_increment=frontier_increment,
+  152             credit_increment=credit_increment, volume_weight=weight,
+  153         )
+  154         if extension:
+  155             emit(t, 'frontier_extended', horizon=h, direction=direction,
+  156                  prior_frontier=float(old_frontier), prior_credit=float(old_credit),
+  157                  direction_return=float(direction * r[t]), eligible_for_credit=bool(eligible),
+  158                  r=float(r[t]), volume=float(v[t]), candidate=copy.deepcopy(candidate))
+  159         confirmed = (eligible and ge(x, candidate['threshold'])
+  160                      and ge(candidate['credit'], candidate['threshold']))
+  163     for t in range(len(f)):
+  164         if t >= 1:
+  165             for h in PACE_SPANS:
+  166                 alpha = 2. / (h + 1.)
+  167                 mu[h] = float(r[t]) if mu[h] is None else float(alpha * r[t] + (1. - alpha) * mu[h])
+  168         row = _blank_row()
+  169         if t < 64:
+  170             rows.append(row)
+  171             continue
+  172 
+  173         # Exactly the preceding 63 returns and 21 volumes; never today's data.
+  174         scale = max(1.4826 * float(np.median(np.abs(r[t - 63:t]))), 1e-8)
+  175         vref = float(np.median(v[t - 21:t]))
+  176         activity = float(v[t] / vref)
+  177         q = float(r[t] / scale)
+  178         qeff = float(q * math.sqrt(float(np.clip(activity, 1., 4.)) if joint else 1.))
+  179         row.update(
+  180             r=float(r[t]), r_bp=float(1e4 * r[t]), s=scale,
+  181             volume_reference=vref, activity=activity, q=q, qeff=qeff,
+  182             acute_down=float(le(qeff, -2.)), acute_up=float(ge(qeff, 2.)),
+  183         )
+  184         for h in PACE_SPANS:
+  185             row.update({
+  186                 f'mu{h}': mu[h], f'mu{h}_bp': 1e4 * mu[h],
+  187                 f'mu{h}_direction': float(np.sign(mu[h])),
+  188                 f'mu{h}_magnitude_bp': float(1e4 * abs(mu[h])),
+  232             if confirmations:
+  233                 direction = confirmations[0]
+  234                 receipt = copy.deepcopy(candidates[direction])
+  235                 emit(t, 'structure_confirmed', horizon=h, previous_direction=before,
+  236                      direction=direction, r=float(r[t]), volume=float(v[t]),
+  237                      s=scale, lag_volume_reference=vref,
+  238                      close=float(close[t]), log_close=float(p[t]), joint=bool(joint),
+  239                      receipt=receipt)
+  240                 state['direction'] = direction
+  241                 row[f'confirmed_{h}'] = 1.
+  242                 row[f'confirmed_direction_{h}'] = float(direction)
+  243                 state['candidates'] = {
+  244                     -direction: fresh_candidate(
+  245                         t, t, h, -direction, scale, vref, 'direction_confirmed',
+  246                         candidates.get(-direction))
+  247                 }
+  248                 # On confirmation discard the old structure's extreme. The
+  249                 # new direction starts its running high/low at today's close.
+  250                 if direction == 1:
+  251                     state.update(high=float(p[t]), high_observation=t,
+  252                                  low=None, low_observation=None)
+  253                 else:
+  254                     state.update(low=float(p[t]), low_observation=t,
+  255                                  high=None, high_observation=None)
+  256             row[f'S{h}'] = float(state['direction'])
+  257             for direction, side in ((1, 'up'), (-1, 'down')):
+  258                 candidate = state['candidates'].get(direction)
+  259                 row[f'{side}_active_{h}'] = float(candidate is not None)
+  260                 if candidate is not None:
+  261                     for field in CANDIDATE_FIELDS:
+  262                         if field != 'active':
+  263                             row[f'{side}_{field}_{h}'] = candidate[field]
+  264                     row[f'{side}_anchor_date_{h}'] = candidate['anchor_date']
+  265             if state['direction'] != 0:
+  266                 extreme = 'high' if state['direction'] == 1 else 'low'
+  267                 extreme_t = state[f'{extreme}_observation']
+  268                 row[f'running_extreme_{h}'] = state[extreme]
+  269                 row[f'running_extreme_price_{h}'] = float(close[extreme_t])
+  270                 row[f'running_extreme_observation_{h}'] = float(extreme_t)
+  271                 row[f'running_extreme_date_{h}'] = dates[extreme_t]
+  284 def strength_frame(f, joint=True):
+  285     """Return a causal indicator frame and journal, restarting per source segment.
+  286 
+  287     Invalid observations remain entirely unknown, and do not advance the valid
+  288     clock. A later valid close bridges their price gap. Missing/invalid source
+  289     identities are rejected; a new explicit segment restarts all warm-up and
+  290     structure state and archives the old state as a source discontinuity.
+  291     """
+  292     if not isinstance(joint, (bool, np.bool_)):
+  293         raise ValueError('Scalar Boolean joint mode required')
+  294     if not isinstance(f.index, pd.DatetimeIndex) or f.index.tz is not None:
+  295         raise ValueError('Naive DatetimeIndex required')
+  296     if not f.index.is_unique or not f.index.is_monotonic_increasing or f.index.hasnans:
+  297         raise ValueError('Ordered unique dated observations required')
+  298     if any(column not in f for column in INPUT_COLUMNS):
+  299         raise ValueError('close, volume, segment_id and valid_strength_observation required')
+  300     if f.segment_id.isna().any():
+  301         raise ValueError('Explicit source segment required')
+  302     if any(isinstance(segment, str) and not segment.strip() for segment in f.segment_id):
+  303         raise ValueError('Nonempty source segment identity required')
+  304     blocks = f.segment_id.loc[f.segment_id.ne(f.segment_id.shift())]
+  305     if blocks.duplicated().any():
+  306         raise ValueError('Noncontiguous segment identity')
+  307     if (not pd.api.types.is_bool_dtype(f.valid_strength_observation)
+  308             or f.valid_strength_observation.isna().any()):
+  309         raise ValueError('Non-null Boolean validity required')
+  310     out = pd.DataFrame(np.nan, index=f.index, columns=FIELDS)
+  311     for column in DATE_FIELDS:
+  312         out[column] = pd.Series(None, index=f.index, dtype=object)
+  313     out['phase'] = 'unknown'
+  314     journal, terminal, previous = [], None, None
+  315     for segment, group in f.groupby('segment_id', sort=False):
+  316         if terminal:
+  317             journal.append(dict(
+  318                 segment=str(segment), date=str(group.index[0].date()), observation=None,
+  319                 kind='source_discontinuity', previous_segment=previous,
+  320                 unresolved=terminal,
+  321             ))
+  322         good = group.loc[group.valid_strength_observation]
+  323         if len(good):
+  324             a = good[['close', 'volume']].to_numpy(float)
+  325             if not np.isfinite(a).all() or not (a > 0).all():
+  326                 raise ValueError('Finite positive valid price/volume required')
+  327             frame, events = run_valid(good, joint)
+  328             out.loc[good.index, frame.columns] = frame
+  329             journal.extend(dict(segment=str(segment), **event) for event in events)
+  330             terminal = frame.attrs['terminal']
+  331         else:
+  332             terminal = None
+  333         previous = str(segment)
+  334     out.attrs['terminal'] = terminal
+  335     out.attrs['model'] = 'PVS-B4'
+  336     out.attrs['pace_units'] = 'mu5/mu21: log return per valid observation; *_bp: log bp per valid observation'
+  337     return out, journal
+
+G1
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/grade.py
+SHA256 faadd14be9ffbe79b5f92fceb92e480b9bf5eb4cce283b354e4dda7e0775b5c9
+   19         if not bool(r.valid_strength_observation) or not np.isfinite(r.strength_mu21):rows.append(out);continue
+   20         a,b=int(r.strength_S21),int(r.strength_S63);m5=float(r.strength_mu5);m21=float(r.strength_mu21);scale=float(r.strength_s)
+   21         z5=math.sqrt(5)*m5/scale;z21=math.sqrt(21)*m21/scale
+   22         down=bool(r.strength_acute_down);up=bool(r.strength_acute_up)
+   23         reasons=[]
+   24         if int(r.event)==1:reasons.append('new_E0_price_volume_up_event')
+   25         for h in [21,63]:
+   26             if float(r[f'strength_confirmed_direction_{h}'])==1:reasons.append(f'new_S{h}_up_confirmation')
+   27         ext=float(r.strength_running_extreme_price_21)
+   28         if a==1 and prior_s21==1 and np.isfinite(prior_extreme) and ext>prior_extreme+32*np.finfo(float).eps*max(abs(ext),abs(prior_extreme),1):reasons.append('new_price_frontier_in_confirmed_up_structure')
+   29         fresh=bool(reasons)
+   30         if a==0 and b==0:g=0;why='structure_unconfirmed'
+   31         elif m21<0 and m5<=0:g=-3 if a==b==-1 else -2;why='both_paces_negative'
+   32         elif m21<0 and m5>0:g=1 if a==1 else -1;why='local_repair' if a==1 else 'countertrend_rebound'
+   33         elif m21>0:
+   34             if a==b==1:g=3;why='up_structure_and_positive_medium_pace'
+   35             elif a==1:g=2;why='local_up_with_positive_medium_pace'
+   36             elif m5>0:g=1;why='pace_recovery_not_locally_confirmed'
+   37             else:g=-1;why='local_support_missing'
+   38         else:g=1 if m5>0 else -1 if m5<0 else 0;why='medium_pace_zero'
+   39         if a==b==1 and z5>=1 and z21>=1:g=4;why='two_scale_pace_expansion'
+   40         launch=up and int(r.event)==1 and m5>0
+   41         if launch and g<2:g=2;why='acute_up_and_new_volume_price_up_event'
+   42         if z5<=-1 and g>-2:g=-2;why='fast_adverse_displacement'
+   43         if down:g=min(g,-3);why='acute_down_overrides_old_structure'
+   44         proposal=g;old=previous_grade
+   45         blocked=old is not None and proposal>old and not fresh
+   46         if blocked:g=old
+
+original_prepare_signal
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/code/current_pool_bridge.py
+SHA256 f5d228529662dfe364d2465a8f6f2adad86ba521ca5bff05bb41d67da5de4cf4
+  145 def prepare_signal(raw, record, events, cutoff=None):
+  146     """Prefix-causal signal coordinates, not shareholder total-return accounting.
+  147 
+  148     Theoretical ex-price uses prior raw close; total-return uses the event's
+  149     close, matching the existing two declared signal conventions. Factor changes
+  150     only on a supported action. Shares use source-origin units for volume.
+  151     """
+  152     method = record['adjustment']['method']
+  153     source = raw if cutoff is None else raw.loc[:pd.Timestamp(cutoff)]
+  154     if source.empty:
+  155         raise ValueError('Empty source prefix')
+  156     start, end = source.index[0], source.index[-1]
+  157     active = {}
+  158     for event in events:
+  159         date = pd.Timestamp(event['effective_date'])
+  160         if date == start and (decimal(event['cash_per_old_share']) != 0
+  161                               or decimal(event['split_ratio']) != 1):
+  162             raise ValueError('Origin-date action requires an explicit prior price/state')
+  163         if start < date <= end:
+  164             active[date] = event
+  165     full = source.reindex(source.index.union(pd.DatetimeIndex(active))).sort_index()
+  166     full.index.name = 'date'
+  167     observed = set(source.index)
+  168     # Input observation flags survive. Merely appearing in a source is not proof
+  169     # of a real traded bar, and ordinary missing volume is not a price exclusion.
+  170     declared_observed = boolean_column(source, 'observed_bar', True)
+  171     full['observed_bar'] = declared_observed.reindex(full.index).fillna(False).astype(bool)
+  172     full['synthetic_event_bar'] = ~full.index.isin(observed)
+  173     full['raw_volume'] = full.volume
+  174     for col in OHLC:
+  175         full['raw_' + col] = full[col]
+  176     output = {x: [] for x in OHLC + ('volume', 'adjustment_factor', 'volume_factor')}
+  177     with localcontext() as context:
+  178         context.prec, context.rounding = 40, ROUND_HALF_EVEN
+  179         factor, share_units, previous = Decimal(1), Decimal(1), None
+  180         for date, row in full.iterrows():
+  181             event = active.get(date)
+  182             cash = decimal(event.get('signal_cash_per_old_share', event['cash_per_old_share'])) if event else Decimal(0)
+  183             split = decimal(event.get('signal_split_ratio', event['split_ratio'])) if event else Decimal(1)
+  184             volume_split = decimal(event.get('volume_split_ratio',event['split_ratio'])) if event else Decimal(1)
+  185             is_observed = date in observed
+  186             prices = ({k: decimal(row[k]) if pd.notna(row[k]) and np.isfinite(float(row[k])) else None
+  187                        for k in OHLC} if is_observed else None)
+  188             if event:
+  189                 if method == 'unadjusted_index':
+  190                     raise ValueError('Index cannot receive stock distribution terms')
+  191                 if method == 'theoretical_ex_price':
+  192                     if previous is None or previous <= cash:
+  193                         raise ValueError('Invalid prior raw price for theoretical ex-price')
+  194                     ex_price = (previous - cash) / split
+  195                     factor *= previous / ex_price
+  196                     if not is_observed:
+  197                         prices = {k: ex_price for k in OHLC}
+  198                 elif method == 'total_return':
+  199                     if not is_observed:
+  200                         raise ValueError('Total-return event requires observed close or reviewed prepared source')
+  201                     if prices['close'] is None or prices['close'] <= 0:
+  202                         raise ValueError('Total-return event needs a positive finite close')
+  203                     if cash != 0 and split != 1:
+  204                         raise ValueError('Combined cash/split outside frozen total-return preparation convention')
+  205                     factor *= split + cash / prices['close']
+  206                 share_units *= volume_split
+  207             if prices is None:
+  208                 raise ValueError('Synthetic price requires supported explicit event')
+  209             for k in OHLC:
+  210                 output[k].append(float(prices[k] * factor) if prices[k] is not None else np.nan)
+  211             v = (decimal(row.volume) if is_observed and pd.notna(row.volume)
+  212                  and np.isfinite(float(row.volume)) else None)
+  213             output['volume'].append(float(v / share_units) if v is not None else np.nan)
+  214             output['adjustment_factor'].append(float(factor))
+  215             output['volume_factor'].append(float(1 / share_units))
+  216             if prices['close'] is not None and prices['close'] > 0:
+  217                 previous = prices['close']
+  218     for key, values in output.items():
+  219         full[key] = values
+  220     # A synthetic action row is never a market observation or executable price.
+  221     return full
+
+previous_EMA_definition
+PATH /Users/bytedance/Documents/Codex/2026-11-04/task-4/new_price_trend_v1/build_price_features.py
+SHA256 88911c270650ee5ef3aeaaaa889110cbc0915455cf8682a41b1cb0be887f2741
+   11 def compute(f):
+   12  c=f.close.astype(float);valid=np.isfinite(c)&c.gt(0)&f.segment_id.notna()
+   13  # Invalid observations are boundaries; do not silently compress over them.
+   14  block=(f.segment_id.ne(f.segment_id.shift())|~valid|~valid.shift(fill_value=False)).cumsum()
+   15  out=pd.DataFrame(index=f.index)
+   16  out['close']=c;out['source_segment']=f.segment_id
+   17  for n in [20,60]:
+   18   out['sma'+str(n)]=c.where(valid).groupby(block,sort=False).transform(lambda s:s.rolling(n,min_periods=n).mean())
+   19   out['ema'+str(n)]=c.where(valid).groupby(block,sort=False).transform(lambda s:s.ewm(span=n,adjust=False,min_periods=n).mean())
+   20  sd=c.where(valid).groupby(block,sort=False).transform(lambda s:s.rolling(20,min_periods=20).std(ddof=0))
+   21  upper=out.sma20+2*sd
+   22  out['bb20_prior_upper']=upper.groupby(block,sort=False).shift()
+   23  previous_c=c.groupby(block,sort=False).shift()
+   24  previous_u=out.bb20_prior_upper.groupby(block,sort=False).shift()
+   25  out['bb20_cross_known']=valid&out.bb20_prior_upper.notna()&previous_c.notna()&previous_u.notna()
+   26  out['bb20_cross']=out.bb20_cross_known&c.gt(out.bb20_prior_upper)&previous_c.le(previous_u)
+   27  out['ema_trend_known']=valid&out.ema20.notna()&out.ema60.notna()
+   28  out['ema_trend']=out.ema_trend_known&c.gt(out.ema20)&out.ema20.gt(out.ema60)
+   29  out['bb_trend_known']=valid&out.sma20.notna()&out.sma60.notna()
+   30  out['bb_trend']=out.bb_trend_known&c.gt(out.sma20)&out.sma20.gt(out.sma60)
+   31  return out
+
+I_consumer
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/policies_g1.py
+SHA256 079a70ac83aa98a3824aeaecc46186081d83f5148e9630a3ad0435cb01b05af1
+    6 def project(e,base,g,kind):
+    7     if kind not in ['G1_I','G1_X','G1_IX']:raise ValueError(kind)
+    8     use_i=kind in ['G1_I','G1_IX'];use_x=kind in ['G1_X','G1_IX']
+    9     active=False;floor=math.nan;segment=None;rows=[]
+   10     for dt,r in e.iterrows():
+   11         b=base.loc[dt];a=g.loc[dt]
+   12         if r.segment_id!=segment:active=False;floor=math.nan;segment=r.segment_id
+   13         valid=bool(r.valid_price_observation)
+   14         if not valid:
+   15             rows.append(dict(date=dt,target=np.nan,entered=0,exited=0,floor=np.nan,exit_line=np.nan,buy_event=False,entry_kind='',exit_reason='',grade=a.grade));continue
+   16         shadow=bool(b.target);ready=bool(a.ready);entered=exited=0;reason='';entry_kind=''
+   17         fresh=bool(a.fresh_up) if ready else False
+   18         warm=ready and a.grade>=2
+   19         cold=ready and (a.grade<=-2 or bool(a.acute_down))
+   20         if active:
+   21             if not shadow or float(r.close)<=floor:reason='E0_structure_boundary'
+   22             elif use_x and cold:reason='G1_cold_or_acute'
+   23             if reason:active=False;exited=1
+   24             elif np.isfinite(b.floor):floor=max(floor,float(b.floor))
+   25         # Entry-only is a new-evidence gate and restoration channel, while
+   26         # exit-only preserves E0's new-cycle entry stream. An exit-only entry
+   27         # is first checked by the extra exit rule on the next observation,
+   28         # matching the original sensitive-policy ordering.
+   29         opportunity=shadow and warm and (bool(b.entered) or fresh) if use_i else bool(b.entered)
+   30         if not active and not exited and opportunity:
+   31             active=True;entered=1;floor=float(b.floor)
+   32             entry_kind='G1_fresh_warm_evidence' if use_i else str(b.entry_kind)
+   33         buy=bool(active and opportunity) if use_i else bool(active)
+   34         rows.append(dict(date=dt,target=int(active),entered=entered,exited=exited,floor=floor if active or exited else np.nan,exit_line=floor if active or exited else np.nan,buy_event=buy,entry_kind=entry_kind,exit_reason=reason,grade=a.grade))
+   35     return pd.DataFrame(rows).set_index('date')
+

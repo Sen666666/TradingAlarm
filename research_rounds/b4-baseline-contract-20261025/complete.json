@@ -1,0 +1,53 @@
+{
+  "recorded_at": "2026-10-25T05:38:32.791491+00:00",
+  "completed": true,
+  "algorithm_aliases": [
+    "B4",
+    "PVS-B4"
+  ],
+  "model_revisions": 0,
+  "new_accounts": 0,
+  "new_downloads": 0,
+  "compatibility_test": "native_B4_only_cannot_reproduce_all_E0_paths",
+  "counterexample_rows_per_path": 67,
+  "new_synthetic_pairs": 1,
+  "physical_prefix_checks": 6,
+  "reviews": [
+    "reviews/compat-proof.md",
+    "reviews/spec-audit.md"
+  ],
+  "sha256": {
+    "research_rounds/b4-baseline-contract-20261025/E0_COMPATIBILITY.md": "9bee5b974be7de8e21f8ea4135cc0e5d0ac5b5ec6c79106911b60de4282bce09",
+    "research_rounds/b4-baseline-contract-20261025/README.md": "71444f0423092411534d7e9574471d25f47f87f0801fdc20692821eb3cbb85dd",
+    "research_rounds/b4-baseline-contract-20261025/output-contract.json": "e1daaae4d9241592dedffc6a649451c56f8d26ed8716d63d985228de9ada3528",
+    "research_rounds/b4-baseline-contract-20261025/registry.json": "5747dd3c6878d8a8fde2c428dde211a4f571d3c5593990143a39a3e2e3866612",
+    "research_rounds/b4-baseline-contract-20261025/reviews/compat-proof.md": "6e26a353ce5ab9842deb81880a6259cd8faad6dcac8ac206310a7b923eab6e14",
+    "research_rounds/b4-baseline-contract-20261025/reviews/spec-audit.md": "69592373e785c99e2386a75b08dc9d26a9e88b99b9520fb35211879cfe9cba18",
+    "research_rounds/b4-baseline-contract-20261025/validation/after-identity.json": "1217e4d6fd5e596bcd3e80a693d7a016d09df2968cd0b3a6aec7f35ddcdb02f0",
+    "research_rounds/b4-baseline-contract-20261025/validation/before-identity.json": "4f9d5bd07a5e91ec1bf646367942939a9ea2c5f307f95f68f653e256a7e5da22",
+    "research_rounds/b4-baseline-contract-20261025/validation/compat-independent-review.json": "2dea0765874006abb9aa3abea20396b7e21c9bb5494f438c61c250829db500df",
+    "research_rounds/b4-baseline-contract-20261025/validation/compat-output-v1/b4-native-attrs-shared.json": "d6f31665c1fbab55d81a775bfcc1653454243e27723b9b0d13177fcd4245e908",
+    "research_rounds/b4-baseline-contract-20261025/validation/compat-output-v1/b4-native-journal-shared.json": "1f87001e538bc2f693f1214c89c4a92f2685316807fadc8512c062ab75fdc7e9",
+    "research_rounds/b4-baseline-contract-20261025/validation/compat-output-v1/b4-native-shared.csv": "32e7cbabb92ab7b63955fcd107cebe2a7039d0d6f80a33f3a87862ba2b04a3ee",
+    "research_rounds/b4-baseline-contract-20261025/validation/compat-output-v1/e0-a.csv": "d17e88cdc94b52ac8320eec850e048a9f44e367cd5a0772a0d4c117e6c1a6cc8",
+    "research_rounds/b4-baseline-contract-20261025/validation/compat-output-v1/e0-b.csv": "5ba45dbc769619906a2e5ba73da910d4f12f74e82bbd6b36a1fade5c1fc24781",
+    "research_rounds/b4-baseline-contract-20261025/validation/compat-output-v1/e0-memory-ledger-a.csv": "0b44ba52f2838d051d04dd84746ec814532b55fe023411f4ff3a4c5f255151f9",
+    "research_rounds/b4-baseline-contract-20261025/validation/compat-output-v1/e0-memory-ledger-b.csv": "f971f4660283692b58fe86062b085ae80aa35fdb589f717f9c697089f791b690",
+    "research_rounds/b4-baseline-contract-20261025/validation/compat-output-v1/input-a-low98.csv": "8fa48873225ce4ac2fa3d2029139dbb2e07ad62efdea39bdd681ab19eb967efc",
+    "research_rounds/b4-baseline-contract-20261025/validation/compat-output-v1/input-b-low94.csv": "fc4c4173ce1dd4d872d002beb52856143b7830059bbe41bbe7d7c1c5e3383a75",
+    "research_rounds/b4-baseline-contract-20261025/validation/compat-output-v1/input-manifest.json": "c55f1bf6764da555933beb9942a240f7ff3a8ffa8f736db752688bc6c24c2366",
+    "research_rounds/b4-baseline-contract-20261025/validation/compat-output-v1/source-hashes-before.json": "d1fabad581d47018f9340c80e6accc2eae6f95c6a8295d5ce152a441ef601548",
+    "research_rounds/b4-baseline-contract-20261025/validation/compat-output-v1/upstream-event-shared-not-e0.csv": "058439387ddee6835eb17c3be70ae8af5c2f3e79a1860c12a6acb834e3e5c86d",
+    "research_rounds/b4-baseline-contract-20261025/validation/compat-output-v1/verification.json": "b67501fc6197630b592fada6539e67c56c9a7104e497eb044f81e168d5956bb1",
+    "research_rounds/b4-baseline-contract-20261025/validation/compat-output-v1/witness-last-four.csv": "17426d4d86d77cca17878f990dc74a8cc104ac6efb84958582bc4d963c68954c",
+    "research_rounds/b4-baseline-contract-20261025/validation/compat-protocol.json": "86a89f7233659ccc8c8a6d42f19003b3989694c8745a05c4a7ed2fd54246eeb3",
+    "research_rounds/b4-baseline-contract-20261025/validation/prove_b4_e0_information_loss.py": "a48417fb19b156ea138e58f06863ce0593d1b19f522b59d768940a2f9d1c7bcd",
+    "docs/ALGORITHM_B4.md": "df9bfd98455974b604a866cf423c24119bd5d1bf567716be5cd63243f36616d5"
+  },
+  "handoff_files_at_completion": {
+    "AGENTS.md": "4119e0a8068c1cff49e5a0d8c01fd464496282b1257475d4527f0beec1bbfbe1",
+    "README.md": "b27d5e1c34146b4a33d18b29736a80026d84b0683b601c2809f59450c9d83b83",
+    "docs/HANDOFF.md": "cf6d164a3e6ef623feee0e4f2c65127c07663fc7a19a58c18643e1a0e83b596b",
+    "docs/NEXT_RESEARCH_TASKS.md": "171ef72edf2fd4cb97898c30c652c637fbbcbddcccc53ec43cc9d4f613e9277f"
+  }
+}

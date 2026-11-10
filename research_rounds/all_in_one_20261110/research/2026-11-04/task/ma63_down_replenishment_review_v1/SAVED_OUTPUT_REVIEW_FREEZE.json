@@ -1,0 +1,20 @@
+{
+  "source_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_down_replenishment_review_v1/audit_saved_spells.py": "07434580f13b20970a5a3cd9ec453b48265ad973297cb9fad50f2906ad7cd949",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_down_replenishment_review_v1/AXIS_RECONSTRUCTION.json": "ad96c06cb95e8bedf870968291a819a115af543056f28b97fafb3f1678c7c921",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_down_replenishment_review_v1/PROTOCOL_AND_BOUNDARY_GATE.json": "4b19fbdeca773771bf95cf08bfa5f5537f39fed6c3a2aa91c840876cac426b98",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_down_replenishment_v1/PROTOCOL.txt": "16a3248bb832fcc9057173b528fe161af355ee1df0eea74540db4c487e8cbced",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_down_replenishment_v1/ALL_SPELLS_FROZEN.json": "b80b2645ff3852879d479b3d4a37a4300ff5c44ab55942949b62b6bf9cbc09dd",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_down_replenishment_v1/ORIGIN.json": "58db1f11b1852b741c014539eadbc779fa4817c67cc15b6ea15a8a67aba681a0",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_down_replenishment_v1/INPUT_FREEZE.json": "e7f2b6e8fe68845631fbb51f8882e56a84cafc14f3f13203c1f7aabe069d7b14",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_down_replenishment_v1/analyze_saved_spells.py": "fea82a369b9aefc1f452004f95c561c2905ebe4e00027b02bc290f1e3c1fee12",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_down_replenishment_v1/analyze_saved_spells_v2.py": "a45792c868a4ec153efd3accabe8c10e4ac88e97b1e1e710fb0167e2273e1b30",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_down_replenishment_v1/analyze_saved_spells_v3.py": "bfacc1166d8b02c71bcb0564a33b5c3f087fe3ce97d929d1a63c521e4e378116",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_down_replenishment_v1/ROUNDING_ADDENDUM_V2.json": "37656a07951ae32aa9bcbfd0c1748b0c494a291f14efc3b8d7da5d12facc45d4",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_down_replenishment_v1/ROUNDING_ADDENDUM_V3.json": "ec4d7aa3c00e2dacbedcc751703cdefae76c7bed3f1813f19a57171924c5320c",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_down_replenishment_v1/SUMMARY.json": "e0be8316703de9b006fa5a74373e383ec543c1b1312d948dd5dbebb8cb478c0a",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_down_replenishment_v1/ALL_SPELL_RESULTS.json": "61ab1b2860f9e5f6474791c6132e82f14ca5167dc6af77266e6eabc88130d6a6",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_down_replenishment_v1/ALL_LAYER_PERIOD_WEALTH.json": "eabfc65f096c75580436f596b0f89223eaf40a140df462b3bb0a782f4278d2e0",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/ma63_exposure_axis_v1/DAILY_ALIGNED.json": "53c47f8ce6f732271a12ce0cff5fe3cc40517960096ef3dd36f6c0edf609c5a8"
+  }
+}

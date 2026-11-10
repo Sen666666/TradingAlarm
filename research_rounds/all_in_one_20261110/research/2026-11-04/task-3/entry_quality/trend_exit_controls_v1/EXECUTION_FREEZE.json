@@ -1,0 +1,29 @@
+{
+  "source_freeze": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/trend_exit_controls_v1/PROTOCOL.txt": "c95b4f5207c34e3fef613377488ed9a8523871e24429ea72d6e2b1e50381b120",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/trend_exit_controls_v1/STATE_MACHINE_FREEZE.json": "f5b2646ef68eaa45d2c2d9fd47b2dff48ea9d72c9ff2e9bc7081b440e5d5ba30",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/trend_exit_controls_v1/load_inputs.py": "3f6943d0243212f9cd1751c74e97b58a2a4b2c30196b7c96445602ed9eac49a6",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/trend_exit_controls_v1/run_control.py": "a17594afda666d0aa404f672543e298a2cfecf57d753f3a51a016db3be0455bd",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/trend_exit_controls_v1/indicator_provider.py": "e07151b22464f2cdf72e524cd61914c3d0b07e71f0e6536688085a4ec232930e",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/trend_exit_controls_v1/indicators/MANIFEST.json": "01060edae399821cffe29eed9c86ebb0cd1fef5932b9819c1381ff8870401dd6",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/trend_exit_controls_v1/native_adapter/trend_exit_adapter.py": "22ab39fea5ce380d9a40942d21c7a47a5f10ae5b3b127d60c029e75cc90b9df6",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/trend_exit_controls_v1/native_adapter/PURE_ADAPTER_CHECKS.json": "1f670bab60ee6b51c70d493f6244fd37e9c08b1bf231e3c36f1b9e5f598b013f",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/trend_exit_controls_v1/independent_review/INDICATOR_PREFIX_AUDIT.json": "66e0d3d508164dcb70b9c9450c5e2a279b4991167caac034daed5329babf5dcf",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/trend_exit_controls_v1/independent_review/INDICATOR_DATA_AUDIT.json": "30e28fd6e2bc829158cbe36be6399457693f979967e70c070ea426f124692a58",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/trend_exit_controls_v1/independent_review/LOADER_AUDIT.json": "59c062b8d0b7b2ea42baf07721724c696c7d5eefd14da4d73fdcbe03f45bdc0c",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/trend_exit_controls_v1/independent_review/NO_SOFT_GRACE_AUDIT.json": "fe9c510cbb0f007d2215fd5191bce59a72679110590454b2b626b8ffe9b6ebdd",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/trend_exit_controls_v1/independent_review/ADAPTER_NATIVE_PREFIX_AUDIT.json": "5865300491222397b8998c754ebec804cc656501e2687713e08b90f84aa527d8"
+  },
+  "active_arm_count": 5,
+  "alternative_arms": [
+    "EARLY_EMA20",
+    "EARLY_EMA60",
+    "EARLY_BOLL20_MID",
+    "EARLY_BOLL20_LOWER"
+  ],
+  "grace_stopped_no_first_eligible_event": true,
+  "parameters_selected_before_alternative_outcome": true,
+  "baseline_repro_required": "full726/242 exact before final conclusions",
+  "native_positive_request_prefix_audit": "running parallel; no live risk; complete before interpreting account results",
+  "no_live_trading": true
+}

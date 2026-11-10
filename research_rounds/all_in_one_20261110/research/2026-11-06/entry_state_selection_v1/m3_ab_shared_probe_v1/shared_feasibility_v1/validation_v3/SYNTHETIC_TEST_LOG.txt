@@ -1,0 +1,17 @@
+test_01_cash_retention_uses_daily_not_round_nav (test_limits_v3.LimitsTests.test_01_cash_retention_uses_daily_not_round_nav) ... ok
+test_02_sector_one_percent_risk_is_separate (test_limits_v3.LimitsTests.test_02_sector_one_percent_risk_is_separate) ... ok
+test_03_probe_industry_all_includes_confirmed (test_limits_v3.LimitsTests.test_03_probe_industry_all_includes_confirmed) ... ok
+test_04_confirmed_ten_percent_not_two_or_twenty (test_limits_v3.LimitsTests.test_04_confirmed_ten_percent_not_two_or_twenty) ... ok
+test_05_exact_post_fee_probe_risk_boundary (test_limits_v3.LimitsTests.test_05_exact_post_fee_probe_risk_boundary) ... ok
+test_06_pending_and_cancel_pending_fees_stay_reserved (test_limits_v3.LimitsTests.test_06_pending_and_cancel_pending_fees_stay_reserved) ... ok
+test_07_new_reservations_do_not_debit_or_fill (test_limits_v3.LimitsTests.test_07_new_reservations_do_not_debit_or_fill) ... ok
+test_08_unknown_blocks_all_new_risk (test_limits_v3.LimitsTests.test_08_unknown_blocks_all_new_risk) ... ok
+test_09_closed_old_round_claim_is_in_wallet_not_new_round (test_limits_v3.LimitsTests.test_09_closed_old_round_claim_is_in_wallet_not_new_round) ... ok
+test_10_unknown_archive_qty_is_not_released (test_limits_v3.LimitsTests.test_10_unknown_archive_qty_is_not_released) ... ok
+test_11_nav_uses_open_gross_not_net_liquidation (test_limits_v3.LimitsTests.test_11_nav_uses_open_gross_not_net_liquidation) ... ok
+test_12_decimal_invalid_and_global_probe_cap (test_limits_v3.LimitsTests.test_12_decimal_invalid_and_global_probe_cap) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.002s
+
+OK

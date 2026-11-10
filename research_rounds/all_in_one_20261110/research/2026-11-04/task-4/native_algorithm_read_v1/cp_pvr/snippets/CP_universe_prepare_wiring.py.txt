@@ -1,0 +1,41 @@
+O=Path(__file__).resolve().parent;W=O.parent;RR=Path('/Users/bytedance/Documents/ChatGPT/money/research_rounds');BEGIN='2025-07-01';END='2026-06-30';REQUIRED_END='2026-03-31';CUT='2025-12-31';BUDGET=900
+def load(n,p):
+ s=importlib.util.spec_from_file_location(n,p);m=importlib.util.module_from_spec(s);sys.modules[n]=m;s.loader.exec_module(m);return m
+G=load('universe_existing_case_generator',W/'case-stock-cp1-warmup-20261031/generate.py');N,M,C=G.N,G.M,G.C;T=load('universe_original_CP1_trace',W/'cp1-evidence-trace-20261031/trace.py');S=load('universe_frozen_industry_stage',W/'industry-mobile-stage-20261031/stage.py');T.BEGIN=BEGIN;T.END=END
+def read(p):return json.loads(Path(p).read_text())
+def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def save(p,x):
+ p=Path(p);p.parent.mkdir(exist_ok=True,parents=True);temp=p.with_name(p.name+'.tmp');temp.write_text(json.dumps(T.norm(x),ensure_ascii=False,indent=2,allow_nan=False)+'\n');temp.replace(p)
+def source_paths(sid):
+ r=N.RECORDS[sid];return {k:N.OLD/r['files'][k]['path'] for k in ['signal','events','states']}|{'IX_G1':N.IX/'signals'/f'{sid}.parquet'}
+def compact(rows):
+ keys=['canonical_series','scale_id','source_segment','original_E0_episode_id','confirmed_day','receipt_id','decision_evidence_key','formation_start_exclusive','formation_end_inclusive','anchor_observation_id','confirmation_observation_id','previous_market_receipt_id','original_candidate','original_scale','scale_frozen_at','new_advance_price_event_ids','new_log_price_displacement','original_credit','evidence_signature','trace_unknown']
+ return [{k:r[k] for k in keys} for r in rows]
+def outputs_valid(r):
+ return r.get('contract_signature')==SIGNATURE and all(Path(p).exists() and sha(p)==h for p,h in r.get('output_sha256',{}).items())
+def emit_stock(sid,case,prefix_sample):
+ start=time.monotonic();refs={};checks={};old_source_status=None;CP_reuse=False;facts_reuse=False
+ if case is not None:
+  assert all(sha(p)==h for p,h in case['source_sha256'].items())
+  assert all(sha(W/'case-stock-cp1-warmup-20261031'/p)==h for p,h in case['output_sha256'].items())
+  root=W/'case-stock-cp1-warmup-20261031';refs=dict(facts=str(root/'full-facts'/f'{sid}.parquet'),CP1_input=str(root/'CP1-input'/f'{sid}.parquet'),CP1=str(root/'CP1'/f'{sid}.parquet'));f=pd.read_parquet(refs['facts']).loc[:END];q=pd.read_parquet(refs['CP1_input']).loc[:END];z=pd.read_parquet(refs['CP1']).loc[:END];source_hash=case['source_sha256'];CP_reuse=facts_reuse=True;checks['previous_case_full_chain_verified']=True;mode='verified_case_reuse'
+ else:
+  f,receipt=N.derive(sid,END);paths=source_paths(sid);source_hash={str(p):sha(p) for p in paths.values()};native=pd.read_parquet(W/'native-I-cache-interface-20261031/facts'/f'{sid}.parquet').loc[BEGIN:END];G.exact(f.loc[BEGIN:END],native);checks['native_I_export_all_fields_exact']=True;q=G.frame(sid,f,END);z=M.calculate(q);old=C.O/'signals'/f'{sid}.parquet';mode='new_fixed_chain'
+  if old.exists():
+   try:
+    G.exact(q,C.frame(sid,END));G.exact(z,pd.read_parquet(old).loc[:END]);refs['CP1']=str(old);CP_reuse=True;old_source_status='full_input_and_CP1_exact';checks['old_CP1_current_source_exact']=True
+    oldfacts=C.PREP/'facts'/f'{sid}.parquet';ff=pd.read_parquet(oldfacts)
+    if set(N.COLS)<=set(ff):G.exact(f,ff.loc[:END,N.COLS]);refs['facts']=str(oldfacts);facts_reuse=True
+   except (AssertionError,ValueError,FileNotFoundError) as e:old_source_status='incompatible_or_unavailable:'+str(e)[:350]
+  if 'facts' not in refs:
+   path=O/'facts'/f'{sid}.parquet';f.to_parquet(path);refs['facts']=str(path)
+  path=O/'CP1-input'/f'{sid}.parquet';q.to_parquet(path);refs['CP1_input']=str(path)
+  if 'CP1' not in refs:
+   path=O/'CP1'/f'{sid}.parquet';z.to_parquet(path);refs['CP1']=str(path)
+  if sid in prefix_sample and not f.empty:
+   short,_=N.derive(sid,CUT);G.exact(short,f.loc[:CUT]);G.exact(M.calculate(G.frame(sid,short,CUT)),z.loc[:CUT]);checks['physical_I_CP1_prefix_exact']=True
+ if f.empty:rs=[];status='not_applicable_no_local_observation_by_end'
+ else:
+  events_path=next(p for p in source_hash if p.endswith('/events.parquet'));ev=pd.read_parquet(events_path).reindex(q.index);rs,_,_=T.trace(sid,q,z,ev,f.e0_target.reindex(q.index).astype(bool));status='complete';checks['trace_unknown_receipts']=sum(bool(r['trace_unknown']) for r in rs)
+ rpath=O/'receipts'/f'{sid}.json';save(rpath,compact(rs));refs['receipts']=str(rpath);checks['old_cache_source_compatibility']=old_source_status
+ audit=f.loc[BEGIN:END];zz=z.loc[BEGIN:END];required=f.loc[BEGIN:REQUIRED_END];r=dict(symbol=sid,status=status,mode=mode,CP1_reused=CP_reuse,facts_reused=facts_reuse,contract_signature=SIGNATURE,refs=refs,source_sha256=source_hash,output_sha256={p:sha(p) for p in refs.values()},warm_from=str(f.index.min().date()) if len(f) else None,cache_through=END,required_account_end=REQUIRED_END,full_warm_observations=len(f),audit_observations=len(audit),audit_CP1_ready=int(zz.ready.sum()),audit_CP1_unready=int(len(zz)-zz.ready.sum()),audit_CP1_receipts=int(zz.receipt.sum()),required_account_observations=len(required),required_account_CP1_receipts=int(z.loc[BEGIN:REQUIRED_END,'receipt'].sum()),checks=checks,seconds=time.monotonic()-start)

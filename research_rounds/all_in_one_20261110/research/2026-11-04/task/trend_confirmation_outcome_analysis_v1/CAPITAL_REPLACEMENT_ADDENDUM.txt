@@ -1,0 +1,12 @@
+补位的实际订单证据（新增薄join，尚待独审）
+
+2022Jan5为long首个真实fill日。原B实际53个buyfill、gross899637.523965元；UNIFORM50实际102个buyfill、gross899399.545035元，几乎相同投入而买单翻倍。U50当日资助53只原B当日未买的股票。strong首fill日2025Jul2，B55个buyfill/gross895349.741145元，U5087个/gross764234.566320元；U50当日资助42只B当日未买的股票。真实逐笔原始字段保存在NATIVE_REPLACEMENT_EVIDENCE.json。
+
+minlot0日志不能直接当独立错失机会。将U50原日志的完整signal时间、sid、role和CP1连接原B真实层的budget_order（仅account前缀规范化）及receipt：
+long有8653条此类计划事件，但只与89个原B真实买层相连；strong有6030条，只与57个原B真实买层相连。这些精确同订单在U50实际fill都为0；但long6例/strong14例中，同股同fill日U50存在另一role等实际buy。因此“某一计划被最小单位归零”也不等于该股票完全未买。
+
+这89/57个原B实际层的全寿命原路径贡献分别−41206.72元/+180910.51元。该关联不能当U50可实现省损/失去利润：其资金会重分配，后续状态和订单不同；strong组原本总体盈利说明不能把6030事件称为剔除了坏单。
+
+资金/市值暴露未减半与名义风险分别报告。strong原daily平均mark-floor风险U50为8.1231%/B8.5855%；long为4.2820%/B4.2030%。实际每次buy初始名义风险/原decision NAV均值，strong U50为0.06208%/B0.10631%，long为0.06078%/B0.10817%。逐单缩小但更多订单周转，逐单风险不等于同时账户风险或最大损失；风险线、缺口、滑点及费用不提供保证。
+
+方法边界：只读现成modifier事件和实际buy/journal/metadata，不计算新feature，不运行账户或执行反事实。实际初始名义风险只调用已存独立finance reader的因果factor函数，未实现新的CA/估价模型。原财务PASS认证底层真实账；这里的join和名义风险派生统计仍PENDING独审。

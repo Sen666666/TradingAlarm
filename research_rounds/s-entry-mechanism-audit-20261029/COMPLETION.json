@@ -1,0 +1,27 @@
+{
+  "status": "complete_not_promoted",
+  "completed_at": "2026-10-29T09:26:16.569085+00:00",
+  "new_global_portfolio_backtests": 0,
+  "light_mechanism_scenarios": [
+    "I/S x base/cost2"
+  ],
+  "common_events": 5349,
+  "all_events_in_primary": true,
+  "economic_runs": 1,
+  "economic_replays": 0,
+  "parameter_changes_after_results": 0,
+  "sample_failure_preserved": true,
+  "source_inputs_unchanged": true,
+  "economic_freeze_files_unchanged": true,
+  "cache_prepare_seconds": 58.99867362482473,
+  "sample_seconds": 1.4278763751499355,
+  "full_compute_seconds": 58.554760416038334,
+  "report_cash_audit_seconds": 1.8186641251668334,
+  "development_and_coordination_wall_seconds_approx": 1307.6511864588201,
+  "timing_definition": "Protocol creation to completion wall time minus receipted computation; includes integration, tool waits, reading and communication, not CPU engineering time.",
+  "main_report": "FINAL_REPORT.txt",
+  "mean_delta_per_1m_shadow_unit": "-3314.237669327596215647784633",
+  "actual_account_access": false,
+  "product_changes": 0,
+  "next_experiment_started": false
+}

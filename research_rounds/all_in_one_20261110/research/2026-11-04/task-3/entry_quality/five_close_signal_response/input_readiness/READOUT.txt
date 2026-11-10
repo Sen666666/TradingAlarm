@@ -1,0 +1,75 @@
+原全市场首次合格信号：输入资格、唯一I-root与覆盖
+2026-11-04。只读原机会日志、原缓存结构身份；零新模型、零新账户、零新5日结果。
+
+唯一母体已按父线程明确确认冻结，CONFIRMED_UNIQUE_MOTHER.json：
+当日core_Q is True，或当日mobile_Q is True且原CP1_id非空。root=(sid,原source_segment,原I_target连续有效真实起日)，每root只取最早合格market signal。root真实起点早于该源连续机会日志首日者为left-censored，排主母体并单列，不把窗内第一次看到当历史首次。原E0 root只保留旁证，不切换去重单位。
+
+一、可直接读取的原全母体来源
+2022→2024：
+/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/cycle2024/no60/run-2024/pair/opportunities.jsonl.gz
+2025Jul→2026Jun strong：
+/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/runs/2025_26/pair/opportunities.jsonl.gz
+
+原schema：account/day/sid/sector/rank/core_Q/mobile_Q/CP1_id/roles/held/barriers。
+本母体只使用day、sid、sector、core_Q、mobile_Q、CP1_id；不看rank、roles、held、barriers、ACT、财务池、intents或是否实填。日志存放在原账户输出中，并不因此成为已买样本：源码joint_v3.planning先在accounts循环外计算event/continuing Q，随后才在账户循环里加held、ACT/待买/待卖等责任和角色。Q是纯市场资格；roles/barriers才混入资金/持仓状态，不能用它们筛本母体。
+
+Core与mobile不同输入：Facts.packet(I)将stock trend_up替换原I_target，core buy_allowed还要求原当日I_buy；continuing_Q把buy_allowed还原为当时market_buyable，仍保留原I方向/行业方向/数据/上市公司市值与RS新鲜就绪等资格；再与当日原fresh CP1合取形成mobile信号。原合格首次并不等于I第一次开态，也可能结构先开而当时行业/RS/交易条件尚不满足，后来才首次Q真。
+同日core和fresh mobile都合格时只有一个market事件，保留union_signal_kind=core_and_fresh_mobile，不按角色重复加权。同root后续独立CP1是新凭证，但本任务按已确认的first-root单位去重，不能称它们是假凭证。
+
+二、结构根语义与独立性
+原STOCK_MANIFEST的facts包含完整warm的i_target/e0_target/segment_id。读取已有布尔状态，按source段内false→true识别真实I起日；无重新拟合。全部union事件逐点精确映射原facts，合格却I false=0，lineage unknown=0。
+I root独立于账户资金、持仓、flat/reentry和实际买入，适合作为本任务同一可用股票结构的唯一信号单位；它不是统计独立试验，股票/行业及前向窗口仍相关。
+native metadata.stock_structure原本使用E0_target root；CP1输入中名为e0_valid的字段实际绑定股票I_target。二者不应因E0字样相似合并。本清单显式给original_I_root和original_E0_root两个字段，主母体只用I root。
+
+三、全源覆盖及未知（非已买名册）
+                           2022→2024                 strong
+连续记录边界               2022-01-04→2024-12-31    2025-07-01→2026-06-30
+市场会话                   726                       242
+原stock-day行              1240734=1709×726          413578=1709×242
+每个会话股票数             1709，无缺股/重复         1709，无缺股/重复
+Q未知stock-day             118703                    16947
+合格union事件              137387                    59504
+其中core-only              81072                     32689
+core+fresh-mobile           47294                     23176
+fresh-mobile-only           9021                      3639
+有union事件的股票数         1624                      1667
+
+固定1709股manifest中1687 complete、22 no_local_observation_by_end；22仍保留在每个会话的全日志分母，没有静默从股票池删除。资格未知不并作False；逐日core/mobile True/False/None计数均保留在DAILY_INPUT_COVERAGE。Q未知stock-day与“合格事件lineage未知0”是不同分母，后者不能被表述为整个股票日资格没有未知。
+本轮只读取1667个至少在一源有合格事件股票的原facts做身份连接；未把无合格事件股票补成虚拟信号。
+
+四、唯一去重后的全量清单
+                           2022→2024                 strong
+有合格事件的独立I roots    19939                     7399
+主母体完整root首次          19299                     6108
+left-censored首次可见       640                       1291
+同root后续事件排除数        117448                    52105
+合格事件身份未知            0                         0
+主first core-only           17817                     5779
+主first core+mobile         1051                      261
+主first mobile-only         431                       68
+守恒：137387=19299+640+117448；59504=6108+1291+52105。
+
+SIGNALS.jsonl共25407行，是两源全部完整root first，包含评价与warmup，不是25407个评价信号。父确认评价窗用evaluation_window标记：
+2022_weak：2022全年，5847个完整root first。
+2024_sep_recovery：2024-09-02至2024-11-29，1629个完整root first。
+strong2025_26：2025-07-01至2026-06-30，6108个完整root first。
+warmup_only：2022→24源中另11823个first，保留用于父线程截至时点的历史成熟批输入，不倒贴评价窗。
+2024没有从Sep重置seen：先完整扫2022→2024再选窗，Sep前同root首次合格的后续信号不会在Sep重新变成first。强窗源在2025Jul前缺机会资格日志，所以其继承I roots1291单列，不能仅凭warm价格已齐就声称知道窗前first Q。
+
+LEFT_CENSORED_FIRST_OBSERVED.jsonl共1931行：2022源640、strong1291；first_status明确为first_observed_only_historical_first_unknown。主母体相应字段为first_qualified_signal_in_complete_original_I_root。UNKNOWN_LINEAGE_EVENTS.jsonl为空但文件保留。完整stock-day Q未知仍见上一节，不因此消失。
+
+实际买入仅在完成母体选择后旁注：主first中同决策日实际有填单43/19299和15/6108；其余19256/6093同样全在清单。actual_fill_annotation_not_selection只有layer/role/receipt/fill_at/pool，不含收益、金额，不筛样本、不推断没有市场机会。
+
+五、最小消费schema
+SIGNALS每行：window/day/sid/sector/core_Q/mobile_Q/CP1_id/union_signal_kind、original_I_root/start、source_segment、original_E0_root/start、first_continuous_opportunity_day、left_censored_root、first_status、evaluation_window、signal_id，以及原facts路径/SHA和源日志路径。
+DAILY_SIGNAL_INPUT_COHORTS.json包含全部726+242会话，即使当天first为0也保留；逐日原union数量、Q未知数量、主first数量/IDs、left首次可见数量齐全。不要以“未来有5日可标”反向筛此表。
+本轮不读取close来标收益，不计算新5日方向/均值/胜率/回撤。强窗末端是否足5个后续同源观察、停牌/缺行情/公司行动与固定年龄终点的可得性应由后续标签阶段逐条标记unknown并保留本母体分母，不能删末端信号后重定义母体。
+
+六、旧库存为何不能直接当本清单
+opportunity-asof-weekly-20261031复用opportunity-quality-ranking的CANDIDATES，限定fresh CP1+mobile_Q真+行业confirmed/expanded授权可用，first key=(sid,行业attempt)，left判据为行业probe日。它不含本次core初次信号/行业probe及2024，去重也非股票I root。旧2022 first3098/strong3546只作近邻与左截断做法参考，未读/迁移其21日标签来生成本次5日结果，也未把换5天包装成未见验证。
+
+验证和限制
+每会话1709覆盖/无重复、全部合格union的I=true与root start、source SHA、唯一signal_id、每完整I root恰一个first、left严格边界、事件数量守恒全部核过；selection后的actual旁证不影响选择。SOURCE_MANIFEST绑原全日志/1667股facts；SIGNAL_SELECTION_VALIDATION另绑唯一协议、union输入与选择脚本。
+所有历史已消费、当前存续股/当前行业与市值快照回看、原日线资格/执行代理限制不变。Q合格是原S0信号资格，不保证任何次开盘可成交，也不是账户策略收益。原I结构root是本轮唯一预定研究单位，不以结果换成E0或CP1 receipt单位。
+
+交付：SIGNALS.jsonl；LEFT_CENSORED_FIRST_OBSERVED.jsonl；DAILY_SIGNAL_INPUT_COHORTS.json；SIGNAL_MOTHER_COUNTS.json；SOURCE_COVERAGE.json；SOURCE_MANIFEST.json；SIGNAL_SELECTION_VALIDATION.json；唯一协议和两份准备/选择脚本。select.log保留一次仅末尾验证SHA helper参数类型错误，信号和计数已完整写出；修正后独立核全25407/1931行，无母体或输出重选。

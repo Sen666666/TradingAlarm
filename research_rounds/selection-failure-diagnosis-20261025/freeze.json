@@ -1,0 +1,14 @@
+{
+  "recorded_at": "2026-10-25T02:01:50.588706+00:00",
+  "no_new_accounts": true,
+  "code": "747f46523b7bf048180bfdd47d00a8dd3eb7729d4a4bdaf1696903596def94fc",
+  "protocol": "c25b79754e9405f9d407ae644215ef90a34ab90992495c46f607efa612e0f193",
+  "sources": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/complete.json": "bb721afdf7863891da1e6f7bf04c383c9ca8a5dfaffdbcc46a20d19e6cd58846",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/analysis-v2/campaigns.json": "eb93fe4bac09964652df3ae50f3f5a395d862d6a1ed3e8310a3faab99277a70a",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/analysis-v2/curves.csv": "8d4d8ed2da5bf4361cb7da978630fca8f28a78c94d44050faba57046cf45ac59",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/entry-profiles/profiles.json": "4ff8c9a91aef4abde49b2a2d46e3944e6ee2b138b0f4ea3dfdeef818ac4c1440",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/strategy-switching-20261024/engine.py": "fdc4c9754de3fefc5ec3a06c709844f1ec111510bc8f5d9b91d17cdfe0d24673",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/strategy-switching-20261024/results/v0/summary.csv": "f7c5f7634a506fac2c83a6d7ab40db144163976ce0e29603953863b22e32e6cf"
+  }
+}

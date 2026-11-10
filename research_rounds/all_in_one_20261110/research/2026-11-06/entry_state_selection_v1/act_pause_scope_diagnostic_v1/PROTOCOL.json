@@ -1,0 +1,54 @@
+{
+  "scope": "Saved continuous PVR/E31 1200000 accounts only; no Account or Runner initialization or economic replay",
+  "window": [
+    "2022-01-04",
+    "2026-05-15"
+  ],
+  "fixed_pool": 1709,
+  "case_windows": [
+    [
+      "688248.SH",
+      "2022-04-18",
+      "2022-06-24"
+    ],
+    [
+      "002583.SZ",
+      "2024-09-02",
+      "2024-10-16"
+    ],
+    [
+      "688660.SH",
+      "2024-09-02",
+      "2024-10-16"
+    ],
+    [
+      "605488.SH",
+      "2024-09-02",
+      "2024-10-16"
+    ],
+    [
+      "600396.SH",
+      "2024-09-02",
+      "2024-10-16"
+    ],
+    [
+      "002241.SZ",
+      "2024-09-02",
+      "2024-10-16"
+    ],
+    [
+      "601336.SH",
+      "2024-09-02",
+      "2024-10-16"
+    ]
+  ],
+  "pause_day": "Post-transition CLOSE, includes trigger close and excludes resume close",
+  "only_ACT": "saved roles nonempty, saved barriers exactly ACT_paused; before price/floor sizing, industry route and funding",
+  "industry_active": "source same-day E0_valid and attempt_id nonnull and stage>=1; necessary, not sufficient",
+  "not_claimed": [
+    "counterfactual account",
+    "fill",
+    "missed profit",
+    "new final PVR queue during pause"
+  ]
+}

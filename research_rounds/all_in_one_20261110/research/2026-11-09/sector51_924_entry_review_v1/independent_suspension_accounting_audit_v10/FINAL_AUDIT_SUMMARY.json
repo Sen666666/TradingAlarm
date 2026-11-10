@@ -1,0 +1,44 @@
+{
+  "status": "PASS_ONE_DAY_SUSPENSION_ACCOUNTING_EXTENSION",
+  "certified_through": "2024-10-28",
+  "days": 34,
+  "old_prefix_days": 33,
+  "new_days": 1,
+  "planned_end": "2024-10-31",
+  "completed_horizon": false,
+  "independent_checks": {
+    "admission_prefix": 8683,
+    "account": 67980,
+    "causality": 59432,
+    "extension_and_new_stop": 38374
+  },
+  "independent_synthetic_groups": 10,
+  "reviewed_engine_sha256": "0e6c1ee198d4841befd0fb4585a235af60c4291cbc554ddaed61c371afb52a8f",
+  "last": {
+    "day": "2024-10-28",
+    "cash": "223785.7342073324445",
+    "receivable": "0.0000",
+    "market_value": "1182639.33",
+    "NAV": "1406425.0642073324445",
+    "net_liquidation_NAV": null,
+    "stocks": 242,
+    "shares": 70041,
+    "weight_pct": "84.08832863530776871175149315",
+    "fees_paid": "11585.6629376675555",
+    "valuation_basis": "MARKED_NAV_INCLUDES_NONTRADABLE_STALE_ASSET",
+    "stale_market_value": "1202.00",
+    "nontradable_stocks": 1,
+    "tradable_subset_net_liquidation_value": "1402740.3846520113710",
+    "whole_account_liquidation_available": false
+  },
+  "next_blocker": {
+    "day": "2024-10-29",
+    "reason": "2024-10-29 002064.SZ OPEN_MISSING",
+    "partial_orders": []
+  },
+  "new_day_actual_targets": 344,
+  "next_day_actual_targets": 250,
+  "old_prefix_byte_exact": true,
+  "no_historical_strategy_rerun_by_auditor": true,
+  "report_sha256": "877681e2bc00fd2107a043adb67e49e46e4e04a5f669abcd0dfb661d5625fb9b"
+}

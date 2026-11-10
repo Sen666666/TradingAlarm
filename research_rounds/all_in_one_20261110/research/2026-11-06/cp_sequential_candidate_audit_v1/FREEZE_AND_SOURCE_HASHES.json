@@ -1,0 +1,94 @@
+{
+  "formula": "r=ln(C/Cprev); z=max(1.4826*median(abs(previous63returns)),ln(1.001)); A=max(0,Sprev+0.5*r/z-0.125); receipt iff I=1 and A>=1; Safter=0 on receipt else A",
+  "missing_rule": "At any common-calendar absent/invalid price/unknown I or native segment boundary, clear S and history and emit no signal; require63 prior returns to restart. Normal holidays not inserted.",
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/inputs-v2/input-manifest.json": "eba972e5d1292e2872b2f1e47abe5b5b589d557e8b6e3616724d65ad43381d41",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/selection_entry_diagnosis_v1/ALL_FIRST_ENTRIES.csv": "93c41796cca62a2022348ca2e84473efd0d3b4395fc1030b9e62863819b9cf63",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/facts/000620.SZ.parquet": "24bfb38404ce81d937626c3a8e75bf27c60a4505a958fd86ba52b6a727be7956",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/CP1/000620.SZ.parquet": "f87950e0c5510ff369cdaa2a511a6c595db609cac3a76b461be8264e806ae47a",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/data-adjudicated-v2/bars/000620.SZ.parquet": "56a0401290b9987104fd384a78dea001790d955d6623a1135684d865f5553787",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/facts/002385.SZ.parquet": "626ab3c50fa8371383003f170cc126ad9c054bc11b36553ee8f2bec6e5b98eef",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/CP1/002385.SZ.parquet": "629de7a38ef4f360b09fe1e57c7476490ea3f05c425f47ab84b5926b53b4bf25",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/data-adjudicated-v2/bars/002385.SZ.parquet": "2813893d657fbc61a7ca63b1ff21756dd53725b4458374bbeff371231f6be643",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/facts/300182.SZ.parquet": "161a4e7abb3963894423c58c5ac5ed531e2c3be7764ad065f06a133db56a93fe",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/CP1/300182.SZ.parquet": "2c0cb14ba01a5c4dde1d377924fabf714d6e2ece79b3041f49e41d24e97bc89d",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/data-adjudicated-v2/bars/300182.SZ.parquet": "9f5f0149bcd999d7c9cc3b1f1e69a86d4fc507e3ad7e7762cf71bb3c96b0a160",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/facts/600606.SH.parquet": "198cb88e88538a3a5df05c7986d074985ff867ba547617caf716af0e7e702fff",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/CP1/600606.SH.parquet": "ea7aaa7b3e79c3dbd84869564c75f12c4e9fe130b245133d54425c6017b38dc0",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/data-adjudicated-v2/bars/600606.SH.parquet": "236d1579ed067bfaa8113bc6f2a03bbdd0ec08c7e7eddb37e387b02df33704d8",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261027-153013-2ffe04/prepared/facts/688582.SH.parquet": "f0bc4664397bdbf20f70e15439fbbcbf5841cd7a868b540bfcc46149f075aef7",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/signals/688582.SH.parquet": "e17bde41ed039f49615b8073091722650027fe56175ebcafc4551d9ba0de3aaf",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/data-adjudicated-v2/bars/688582.SH.parquet": "df9fa2110842c557c1105c35a739649b494f67c9d3338becdf9584c34161be0a",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/facts/000987.SZ.parquet": "c3b1aaf04f4710eb35807b34198bb1d70d3ba9882fee96c50232a782c0707281",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/CP1/000987.SZ.parquet": "68505f5a6f5a87d1f05999c98e4c8e8c9ae13766bf4e19935f1fe9cca9a544d6",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/data-adjudicated-v2/bars/000987.SZ.parquet": "d2f384c837da99635d1dac84c5a9de39d24d605d2c4b71b1379027152ac744a0",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261027-153013-2ffe04/prepared/facts/300672.SZ.parquet": "021d22bc3db017f1d5e3560ae8b3175397ddfead113b33aabf59ace775b84f1b",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/signals/300672.SZ.parquet": "111a3e2fa603acbdcb77dd08a6f8ca8a70e0bbf059b500685d9bdc753d079031",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/data-adjudicated-v2/bars/300672.SZ.parquet": "5be8d233fb2e7fe4d3fa6eb44a49738f7b0a88104ec225cd2846502c4daaf634",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261027-153013-2ffe04/prepared/facts/300666.SZ.parquet": "e420034a0be9e28fb2a069a0789e7534de06b25cda013b02563c4841e49652ac",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/signals/300666.SZ.parquet": "c33c49a2c0bf32bbd2eb7663c82fa81602646577fd0a732ee1e4b7f7cff7201d",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/data-adjudicated-v2/bars/300666.SZ.parquet": "9e3456ccadbeb2ccd2ca008963cf05f9c1ff6eef3e49f073cba3b60559eadd33"
+  },
+  "calendar_source": "native H1 dates from update-20261030-153010-c551af/prepared/h1.npz",
+  "calendar_value_sha256": "5a9128270107eb3fb1cca5260811d54dbd9828d733ba0c95c21dbc1ac1204c0a",
+  "selected_sids": [
+    "000620.SZ",
+    "002385.SZ",
+    "300182.SZ",
+    "600606.SH",
+    "688582.SH",
+    "000987.SZ",
+    "300672.SZ",
+    "300666.SZ"
+  ],
+  "selected_case_pairs": [
+    [
+      "000620.SZ",
+      "2022-01-11"
+    ],
+    [
+      "002385.SZ",
+      "2022-01-04"
+    ],
+    [
+      "002385.SZ",
+      "2022-03-04"
+    ],
+    [
+      "300182.SZ",
+      "2022-01-04"
+    ],
+    [
+      "600606.SH",
+      "2022-03-22"
+    ],
+    [
+      "688582.SH",
+      "2024-07-29"
+    ],
+    [
+      "000987.SZ",
+      "2024-09-24"
+    ],
+    [
+      "300672.SZ",
+      "2026-01-16"
+    ],
+    [
+      "300666.SZ",
+      "2026-01-15"
+    ]
+  ],
+  "endpoint": "2026-05-15",
+  "no_parameter_grid": true,
+  "no_account_run": true,
+  "no_orders": true,
+  "no_random_control": true,
+  "receipt_consumed_independent_of_selection_or_fill": true,
+  "formula_prior_to_case_calculation": true,
+  "python": "/Library/Frameworks/Python.framework/Versions/3.13/bin/python3",
+  "python_version": "3.13.7",
+  "pandas": "3.0.1",
+  "numpy": "2.4.3"
+}

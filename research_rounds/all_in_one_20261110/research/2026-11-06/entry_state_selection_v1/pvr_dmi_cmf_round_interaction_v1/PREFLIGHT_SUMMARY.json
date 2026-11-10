@@ -1,0 +1,30 @@
+{
+  "status": "PREFLIGHT_COMPLETE_NO_MODELS_FIT",
+  "total": 2693,
+  "roles": {
+    "add": {
+      "n": 1814,
+      "features": 1557,
+      "I_roots": 1811,
+      "mature": 1555
+    },
+    "core": {
+      "n": 879,
+      "features": 773,
+      "I_roots": 879,
+      "mature": 773
+    }
+  },
+  "known_mature_U": 15,
+  "all_mature_U": 16,
+  "months": 41,
+  "support_months": 41,
+  "binary_possible_months": 11,
+  "PVR_mismatch": 0,
+  "prefix_checks": 13,
+  "elapsed_seconds": 41.194546333979815,
+  "model_fits": 0,
+  "account_runs": 0,
+  "parameter_searches": 0,
+  "original_sources_unchanged": true
+}

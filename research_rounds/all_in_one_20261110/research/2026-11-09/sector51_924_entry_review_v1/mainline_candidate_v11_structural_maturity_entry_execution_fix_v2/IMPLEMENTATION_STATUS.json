@@ -1,0 +1,14 @@
+{
+  "status": "READY_FOR_INDEPENDENT_REVIEW_NOT_RUN",
+  "history_run": false,
+  "original_run_classification": "INVALID_IMPLEMENTATION_NOT_CANDIDATE_PERFORMANCE",
+  "only_change": "canonical_numpy_bool_type_recognition",
+  "q0_guard_changed": false,
+  "original_artifacts_modified": false,
+  "synthetic_groups": 27,
+  "synthetic_assertions": 166,
+  "input_type_assertions": 33,
+  "python": "/Users/bytedance/.cache/uv/environments-v2/b2d53c07a5e2321f/49580a0fa3b048c7/bin/python",
+  "numpy": "2.4.5",
+  "pandas": "3.0.3"
+}

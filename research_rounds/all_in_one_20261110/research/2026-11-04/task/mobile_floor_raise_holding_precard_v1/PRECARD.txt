@@ -1,0 +1,47 @@
+mobile后续CP1抬线限幅：仅预卡，未GO数值
+
+裁决
+未发现所核旧LR1/CP1_ADD、负event额外退出、RMS恢复、CP1/PRICE保护对照中有同义“持有后CP1candidate被EMA20上限截断”的已失败经济实验；它们不能直接当本假说的等价反例，也不能因此宣布新假说有效。排重仅限SOURCE_BINDING列出的实际源码/报告，不宣称遍历了所有历史。
+当前不GO EMA计算、影子持仓或账户。全母体严格“后续CP1主导”规模仍UNKNOWN；只具备做一个有界原路径归属检查的字段条件。若其覆盖很小/I-floor或初始floor已主导，应STOP，不搭新loader或basis。
+
+冻结待反驳假说与作用点
+初始原I/CP1入场保护不改，core/入场/新买单初始floor/资金公式/ACT/结构失效退出不改，不叠D。
+仅对已实际持有且尚无该层退出责任的mobile，在原先允许接受当日新CP1 receipt的分支，候选F_new=max(F_prev,I_floor,min(CP1_candidate,EMA20_t))。
+EMA未知回原max(F_prev,I_floor,CP1candidate)；F_prev始终是候选自身已生效的线，不能偷用原账户后来/未来floor。无新CP1时只沿原I/旧线；I_floor缺失按原规则不新增该项，不能填0。不得下调已生效F；EMA本身下降也不能下调。不得凭当日浮盈亏筛选层。
+这里是CP1提线的EMA水平上限，不是严格限制每日抬升金额/速度。I_floor仍可能独立跳升且超过EMA。只有CP1candidate>max(F_prev,I_floor)且EMA20<CP1candidate时，这个分支才可能与原规则不同；历史已锁定F_prev若已更高也不能事后松回。
+EMA20的adjust/min_periods/观察槽、初始化、source/segment重置及调整坐标合同还未冻结。未来如获数值GO，必须同原CLOSE价格/原source坐标，原warm history，不按持仓日或重启重seed；此卡没有计算任何EMA数。
+
+原源码顺序（J.planning:222–240）
+1 每个CLOSE原NAV/ACT先更新。ACT off或原I_target false先对实际持有层发原退出，之后不走保护更新。
+2 core只沿原I更新last_core_line；本假说不碰core。
+3 mobile/add若本层已在sell_layers则跳过；否则先用当天CLOSE检验此前已生效x.floor。CLOSE<=旧floor即发CP1_add_protection，不能用当天更低的新候选撤销它。
+4 只有未退出才先max旧floor与当前已知I-floor，再在当日CP1 receipt真时max CP1candidate。新线本日不倒灌重判旧线退出。原next合法OPEN执行不变。
+原逐层已退出与股票级pending职责不可混同；必须保留原层选择/撤单/退出锁，不偷偷把任何一层pending扩成全股新退出或取消已有退出。core不动。新mobile当日初始floor仍是原max(I,CP1)，即旧持有层可能较宽、新增层仍较紧，是可接受但必须展示的批次差异。
+
+reason标签不能直接归因
+CP1_add_protection并不表示“后续CP1抬线导致退出”。它可能是：初始max(I,CP1)已较紧、后续I-floor抬高、后续CP1抬高、或这些线并列。所有都是mobile跌破其旧floor时的同一标签。
+真正必要原路径证据须区分初始buy.floor与实际持有期间后续updates，并证明原有效线严格高于初始和所有实际接受的I-floor，且来自后来CP1。没有新证据前，标签母体只是上界，不能叫可省损/可多赚/早卖赢家。
+
+现成字段与一个原路径见证
+原实际buy有frozen floor/时钟；逐CLOSE daily.layers有真实mobile.floor、id/role/qty/epoch与pending；manifest已有facts.i_floor/i_target/close/segment/factor及原CP1 receipt/candidate/receipt source。没有floor_raise来源/时间事件，不能只看期末floor或陈旧mobile.last_core_line。现成audit_lines_capacity.py已有同坐标原线重建方法，无需新价格或金融模型。
+只读父指定上海电影601595.SH的8个原No60 mobile、原实际held path（未跑影子持仓/EMA）：7个first CP1_add_protection退出的生效floor由后续CP1严格主导，1个入场当日即退出层仍是初始floor，候选不能帮助它。所有request日原I_target真，source segment各为1，原request有效floor逐值接原initial/I/CP1的max。
+例如1149层：初始17.0521108442、原接受I-floor最高12.6902923354、后续CP1最高38.4920725109，2023Apr13退出时生效线38.4920725109，原全窗贡献+12811.76元。1277层后续CP1主导但原净−738.50；1278层初始44.0156213040当日退出、原净−2452.57，不属后续抬线覆盖。故I-floor并非恒定压住CP1，但这个单股不是全母体规模，也未证明任何退出错误；没有用之后峰值当信号。
+
+全母体必要标签规模（非严格覆盖）
+long原No60全部mobile1767层，正533/负1234，原全窗口净−305625.82元；first退出标签CP1_add_protection1083层，正366/负717，正贡献624661.36/负贡献−703314.87，净−78653.51元。
+strong原No60全部mobile867层，正326/负541，原全窗口净+1197156.99元；first标签CP1_add_protection666层，正249/负417，正1106552.06/负−675557.31，净+430994.74元。
+这些净额含原实际mark/AR及资金路径，不能由放宽保护直接实现。NECESSARY_LABEL_ENVELOPE保各reason；FROZEN_TAIL_AND_ALL_MOBILE_MOTHERS保全部正/负/零/未清母体及旧83/94尾单原名单，不按结果删反例，也不强迫旧尾单与No60一一匹配。
+
+排重与相邻失败的意义
+LR1(RULES)只改core初始定量/现金整单分配，明确不改I/E0/ADD保护；不是持有后CP1限幅。后续L0/ADD两池实验有ADD竞争核心、收益/回撤代价，警告不能只看ADD自己赚而忽略全户；不是EMA上限同义证据。
+continuous-protection-lines的CP1/PRICE以市场位移/量信用对照，并用原max(initial,I,CP1)投影；没有EMA20截断。原4284段1778早触线不等于错误卖出，更不能将事后新高当额外利润。
+negativeevent/RMS相关旧卡针对负警报后增加止损边界或市场恢复尺度（部分为几何纸面检查），不是减慢mobile正向CP1保护上移；源中不存在本次同义EMA20 cap。若后续发现真正同义经济失败，直接STOP，不改名复活。
+
+逻辑缺点和必须支付的代价
+更弱的后续线可能多持赢家，也可能更晚纠错/少锁利润，跳空与执行限制仍在。初始CP1保护过紧不在覆盖内；I-floor主导/ACT/结构先退出同样不在覆盖内。EMA滞后有趋势/波动切换反例，未知fallback也可能突然恢复原大幅上移，不能视作经济优势。
+floor还进入原budget.sync的Lot风险字段；较低线提高占用、可能挡之后的新机会。虽然不改资金公式，全户资金路径仍可能改变，不能称单因素“持有多几天”的固定持仓收益，也不能把原层后来最高价差当alpha。
+
+最小下一步及成本准入（均待root另GO）
+先只做原路径归属，不算EMA：用现成fact/cpline只读缓存与daily，将全mobile标签母体按后续CP1严格主导/初始/I主导/并列/已有exit/来源或CA不可核UNKNOWN分开，原83/94尾单及全部正负保留；不计算未来持仓收益。新basis或新loader才可接上则STOP。
+实施应是一段原字段join与同原线复核，预计分钟级而非接新平台；现成上海电影一股原max核对已可完成。完整全母体I/CP1归属实际耗时尚未运行，不能伪报。它若不覆盖重要赢家尾部或大多数只是初始/I主导，不应为EMA搭任何系统。
+只有规模与正反通过逻辑审查，才考虑freeze EMA20数值合同、最小同日旧线优先/entry不改/未知fallback/source重启前缀核查；若还需要独立新指标/loader基础设施须重新算成本。最终经济验证必需完整账户和资金联动核账，不能拿原尾单影子利润替代。本卡未批准或运行这一阶段。

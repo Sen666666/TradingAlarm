@@ -1,0 +1,59 @@
+2026-11-04 冻结卡：原ACT+原信号行业成熟条件下额外现金缓冲消融。
+准备阶段；未执行任何本卡projection。不是新信号算法，不推荐取消现金缓冲。
+
+固定母体：现存13个原No60 own S0、完整4172原意图/1213股。全部日期和候选保留。
+S0为原保护退出/结算/sync后首个新准入前；库存不变现，原真实submitted/cancel-pending
+订单不可改/不可假定撤ACK。13 S0虽已核无live carry，接口仍逐字段保留全部旧订单。
+
+释放条件（per-candidate）
+decision_at是原frozen intent的signal CLOSE；ACT_on取原B.decisions.on；sector取原
+sector_by_sid；industry stage取原INDUSTRY_MANIFEST refs.state该signal day的stage_name。
+全部13 dates×90 sectors精确匹配，禁止用变化的financial level、OPEN日CLOSE、未来状态、
+event稀疏日志猜补；UNKNOWN/missing/non-bool即停。阶段成熟仅为缓冲释放条件，
+不是新增购买资格：observe/probe、ACT_false仍走原合法性和原10%buffer，不额外禁单。
+ cash_release_eligible = ACT_on AND frozen_signal_stage in {confirmed,expanded}
+ required_buffer = 已审计已知U=0（eligible时）；否则原0.1*decisionNAV。
+U=0依据LEDGER_RECONSTRUCTION_AUDIT.known_extra_U_zero_under_original_book=true；
+已预留F(q)、已锁付款和新候选本单买费不重复计入U，不拟造未来买点/高开/卖费负债。
+任何不同U证据或UNKNOWN必须停止当前推断，不拟合必要现金参数。
+
+比较矩阵与身份门
+A0: 原native greedy + reference_cash10。
+A1: 原native greedy + 上述ACT+成熟阶段条件释放。A1−A0是主单因素比较。
+B0: 已审confirmed-only min-first + reference_cash10。
+B1: 同一个min-first + 相同条件释放。B1−B0只解释剩余14目标的组合反馈。
+交互[(B1−B0)相对(A1−A0)]单列，不能把B1−A0叫单因素改进。
+先完整复现A0对旧13 OFF、B0对旧13 ON：全部池/数量/价格/费用/拒因序、输入digest、
+最终固定组合/迁池必须相符，才执行A1/B1。一个差异即保存并停，不fallback。
+每臂全部13 OPEN、4172意图；不subset三股/半导体/原cash拒绝，不增持有期或新账户。
+
+实现
+仍用原No60 request/migrate/route、dated units/fees、原CP1/epoch/ACT/pending/顺序与
+pool full-maxq比较。只把现金谓词、独立现金验证和补量现金上界接到同一个callback。
+false仅还原10%，不改变原role/probe/core合法性；probe保留原full策略。
+min-first二遍仍固定角色/池/保护/凭据、不挤掉后排已选min，最终费F(q)单笔聚合一次。
+条件buffer混合时不能用final_available−本单buffer作补量hi（可能错误限量）。改用当前
+已验证固定组合中“本单及后续每个已选单after-reserve available−该单冻结buffer”的
+最小slack作为必要现金上界；F(q)非降，最后仍完整fixed replay，未改分配政策。
+invalid final/迁池/费用必须保存原invalid并停止；不得删后排、换pool或降格fallback。
+
+预算
+四臂共52个完整OPEN规划，整组计算墙钟180秒，从第一臂第一plan开始累计，不按日
+或臂重置；source/JSON准备单列，不加载完整market，不新Runner/Account/恢复/成交。
+超限保存partial/timeout并停止，不追加预算。参数/阈值不搜索、不调优。
+
+固定输出
+逐意图固定schema：opening,key,sid,role,CP1_id,rank,sector,signal_day,ACT_on,
+frozen_signal_industry_stage,cash_release_eligible,U_cny,old_order,new_order,
+quantity_delta,gross_delta,fee_delta,old_result,new_result,required_buffer_old/new。
+每臂保留完整orders/attempts/rejections/migrations/fixed validation/fees/available/digest；
+总览按role/industry/pool、已有库存ADD/真实flat重入/首次参与、全部16目标及剩余14分层。
+新增/丢失/缩量/增量、原50单机会成本均保留，指标不只订单数。
+不在本线追加价格标签；根agent接既有PRICE_LABELS与原路径。不得按旧PnL比例制作
+新收益，也不得称预留为真实成交。13独立S0不carry新仓到后续日期。
+
+解释边界
+固定prefix逐笔必要界12/11不能当新共享分配数量；完整条件端点也不是所有动态buffer
+规则的全局上界。前序原greedy可能先增量、后排未必改善；必须报告反向代价。
+当前只准备ACT+原CP1成熟条件。F1 global AND industry只是未执行的更严格解释，
+不混入本卡或看到结果后改OR/AND。

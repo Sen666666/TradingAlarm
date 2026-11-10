@@ -1,0 +1,46 @@
+{
+  "status": "ORIGINAL_ANNUAL_ATTRIBUTION_AND_TRADE_CHAINS_COMPLETE",
+  "completed_at_utc": "2026-11-05T07:34:31.467906+00:00",
+  "original_baseline": "new_price_trend_v1/funding/runs/long_OFF/pair/B.json.gz",
+  "2022": {
+    "begin_NAV": "1000000",
+    "end_NAV": "704487.8470098769005",
+    "NAV_change": "-295512.1529901230995",
+    "negative_stocks": 440,
+    "positive_stocks": 120,
+    "stock_contribution_sum_exact": true
+  },
+  "2023": {
+    "begin_NAV": "704487.8470098769005",
+    "end_NAV": "745426.9583780900535",
+    "NAV_change": "40939.1113682131530",
+    "negative_stocks": 285,
+    "positive_stocks": 130,
+    "stock_contribution_sum_exact": true,
+    "peak_to_trough_change": "-197169.0540109203355"
+  },
+  "original_CLOSE_quantity_days_exact": 726,
+  "price_inventory_concentration_days_exact": 484,
+  "initial_protection_contracts": 1557,
+  "independent_decimal_comparisons": 11202,
+  "independent_max_absolute_residual": "1.802E-22",
+  "new_accounts": 0,
+  "new_backtests": 0,
+  "parameter_search": 0,
+  "strategy_or_indicator_model_runs": 0,
+  "original_strategy_modified": false,
+  "economic_repair_proven": false,
+  "minimal_contract": "Paper only: all new inventory roles share original CORE .25% signal-NAV risk comparator; original roles/guards/nominal/industry/cash restrictions remain. No new quantities or orders computed. Not claimed novel or main repair.",
+  "remaining_unknowns": [
+    "Causal performance of proposed sizing and aggregate admission changes",
+    "Full intraday pre-route resource snapshots and precise execution quote/queue availability",
+    "Historical universe/industry and raw/action data vintage point-in-time certification",
+    "Portfolio recovery budget contract without permanent lockout or suppression of real trends"
+  ],
+  "review": {
+    "financial_and_classification": "code_review/INDEPENDENT_ANNUAL_NUMBERS_REVIEW.json",
+    "source_contract_and_readout": "code_review/FINAL_READOUT_REVIEW.json",
+    "status": "PASS_FACTS_CLASSIFICATION_AND_CONTRACT_CLOCK_ONLY",
+    "economic_performance": "NOT_TESTED_OR_APPROVED"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "completed_at": "2026-10-31T09:59:02.773195+00:00",
+  "status": "native_I_cache_complete_action_contract_draft_only",
+  "stocks": 1709,
+  "rows": 508438,
+  "native_I_buy_stock_days": 70533,
+  "grade_unknown_rows": 3542,
+  "empty_before_cut": [
+    "001246.SZ",
+    "301569.SZ",
+    "301660.SZ",
+    "301716.SZ"
+  ],
+  "calculation_seconds": {
+    "pilot": 10.622923708055168,
+    "full_cache": 109.26817091694102,
+    "raw_prefix_recheck": 9.594629083760083
+  },
+  "full_cache_budget_seconds": 180,
+  "new_economic_paths": 0,
+  "source_hashes_unchanged": true,
+  "pending_gates": [
+    "common full-market ACT market-input domain",
+    "90-industry Q same-version projection",
+    "minimal unused-read adapter and L0-off event identity"
+  ],
+  "deliverables": {
+    "PROTOCOL.txt": "9929e02dee63a20f148e1fb874ad361bda88a35a5277bf5f04c6b2d84037dce9",
+    "cache.py": "fe800283edacb57d1581b50b2bcfdb800ffe4d5f0a22114d0180d3836f6ec969",
+    "PILOT_GATE.json": "eee37ca3f6fb5368f5d326dc6f580b7d2e862cdbbfa484c22364f53c4ebb4097",
+    "FREEZE.json": "ab8b86fae4bcfdbbf9b2a7f92bb605a97fbe3dc7a38289548999a3d6de592537",
+    "VERIFICATION.json": "a445b5b2bd28491c128a457f21bd1a088d768737ed9719069524ef67ab5c2558",
+    "RAW_PREFIX_CHECK.json": "a7df083e8d1533d98f267f139e112012ef40c78c859afec061a2d78c1963046c",
+    "COVERAGE_1709.csv": "642872222982b227135db8b31f1a216df2dc8ad590854d92875726f022020bb7",
+    "NEXT_ACTION_CONTRACT.txt": "f3050a51b336ba1a53d61ad37670dbadeab670629dd4574de020aad34f6034ab",
+    "FINAL_REPORT.txt": "fb15eae2db95eb73418fb87222f7b8ffc2924522e72621c9dabd658031236e20"
+  }
+}

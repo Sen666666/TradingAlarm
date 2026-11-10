@@ -1,0 +1,95 @@
+{
+  "window": "2024",
+  "model": "CONDITIONAL_PER_STOCK_PROXY_NOT_SHARED_CASH_ACCOUNT",
+  "fixed_stocks": 1709,
+  "common_comparable_stocks": 1578,
+  "old_net_common": 2840709.603539066,
+  "new_net_common": 2762823.966386321,
+  "common_delta": -77885.63715274492,
+  "common_lane_deltas": {
+    "AB": 43720.67746954658,
+    "PRICE": -121606.3146222914
+  },
+  "unknown": {
+    "old": 113,
+    "new": 111,
+    "newly_unknown": [],
+    "no_longer_unknown": [
+      "601801.SH",
+      "688205.SH"
+    ]
+  },
+  "retained_ab_path_exact": {
+    "retained_events": 721,
+    "mismatch_count": 0,
+    "mismatches": [],
+    "action_columns": [
+      "day",
+      "economic_role",
+      "fee",
+      "price",
+      "prior_round_net",
+      "q",
+      "reason",
+      "sid",
+      "side",
+      "signal_day",
+      "window"
+    ],
+    "claim_economic_columns": [
+      "sid",
+      "economic_event_id",
+      "evidence_version",
+      "record_date",
+      "inventory_snapshot_day",
+      "snapshot_kind",
+      "state",
+      "record_q",
+      "core_record_q",
+      "exitpending",
+      "amount",
+      "core_amount",
+      "recognized",
+      "settled",
+      "ex_date",
+      "pay_date",
+      "d_cash"
+    ],
+    "exit_columns": [
+      "status",
+      "exit_day",
+      "exit_price",
+      "exit_reason"
+    ],
+    "comparison": "Exact native values after missing-key omission and literal calendar-day normalization; only arm/round identities excluded"
+  },
+  "unknown_round_stock_mismatch": {
+    "baseline": [],
+    "joint": []
+  },
+  "unknown_status_vs_stock": {
+    "baseline": [],
+    "joint": []
+  },
+  "changed_requests": 194,
+  "changed_request_reasons": {
+    "AB|NEWLY_SELECTED_DYNAMIC_PATH": 34,
+    "AB|SECTOR_SLOT_RANK": 18,
+    "AB|BLOCKED_HELD_AB": 1,
+    "PRICE|DENY_ENTRY_GENERATION_INACTIVE": 56,
+    "PRICE|NEWLY_SELECTED_DYNAMIC_PATH": 55,
+    "PRICE|BLOCKED_HELD_AB": 7,
+    "PRICE|SECTOR_SLOT_RANK": 14,
+    "PRICE|BLOCKED_HELD_PRICE": 9
+  },
+  "entry_gate_counts": {
+    "reads": 3884,
+    "statuses": {
+      "ALLOW": 3738,
+      "DENY_ENTRY_GENERATION_INACTIVE": 146
+    },
+    "new_initial_only": true
+  },
+  "adapter_blockers": [],
+  "new_economic_executions_by_this_report": 0
+}

@@ -1,0 +1,15 @@
+{
+  "recorded_at": "2026-10-25T07:34:40.840182+00:00",
+  "status": "analysis_complete_execution_not_started",
+  "new_accounts": 0,
+  "new_models": 0,
+  "frozen_G1_policy_changes": 0,
+  "local_descriptive_examples": 4,
+  "dates": "2026-10-22",
+  "source_identity_verified": true,
+  "proposed_full_market_accounts_not_run": true,
+  "sha256": {
+    "research_rounds/ix-market-selection-design-20261025/local-examples.json": "2ad9ded279a1e45d807447da963afbea6a96c63b50faa9f7783500658b10e8b0",
+    "research_rounds/ix-market-selection-design-20261025/README.md": "55af6c4ac05a39e2e4dc3280330df17d1cb923ebbf7b477ba177576c1596e45b"
+  }
+}

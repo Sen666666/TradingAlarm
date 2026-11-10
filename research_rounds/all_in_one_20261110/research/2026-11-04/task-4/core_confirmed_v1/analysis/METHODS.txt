@@ -1,0 +1,109 @@
+Confirmed CORE fallback: prepared saved-book analysis only
+
+Inputs
+OFF: new_price_trend_v1/funding/runs/{long_OFF,strong_OFF}.
+ON:  core_confirmed_v1/funding/runs/{long_ON,strong_ON}.
+Long is one fresh1m continuous2022-2024 path; strong is fresh1m Jul2025-Jun2026.
+No annual reseed, no importing OFF account state into ON. The producer/root runs
+accounts. This directory only reads completed saved books after root notification.
+
+Run policy
+--prepare records code/input identities and expected outputs, without importing
+the financial reader or running account analysis. --execute requires all four
+DONE records and native B/daily/balances streams. Root invokes it only after ON
+completion. No Account, RiskBook, strategy Runner, order, new indicator, complete
+market preparation or data refresh is constructed by this analysis.
+
+Authoritative financial bridge
+Reuse unchanged new_price_trend_v1/analyze_saved_accounts.py::analyze and its
+native_mark_reader.price. Redirect its OUT to this directory; old files remain
+read-only. Mark means original FrozenMarket.latest_mark, including stale
+theoretical ex-action references. Never replace it with facts.raw_close.
+Actual trade consideration/fees plus once-recognized dividends plus actual
+saved shares times native raw mark must equal every saved NAV. Native quantity,
+cash, pool and NAV certificates remain checked. No residual plugs or deletion-PnL.
+
+Periods and attribution
+Full windows, own2022/2023/2024, Sep24-Dec2024, Sep24-Oct8 rally, Oct9-Dec2024,
+Jul-Dec2025 and Jan-Jun2026. Each period uses its own preceding actual NAV;
+global full-window DD never resets annually. DD/water are close-based. Turnover
+is actual buy+sell gross divided by period mean NAV, not mechanical annualization.
+Every period has all90 industries, including zero exposure. Semiconductor means
+the fixed metadata industry group of all126 stocks, never the25 previously bought
+layers. H1 wealth includes Dec31 carry stock; new buy cost and actual fills are
+reported separately. H1 stock/industry/layer sums bridge actual period NAV change.
+
+Risk and cash
+Saved actual quantity and current last_core_line (CORE) or native mobile floor
+are converted by the original facts.factor to raw units; native marks give held
+nominal mark-to-line drawdown. Unknown lines remain unknown; a crossed line is
+not called risk-free. Budget probe/confirmed risk includes original view/pending
+responsibilities and is reported separately from independently read held risk.
+Report total, probe and confirmed actual risk, cash availability/receivables,
+order reserves and ACT changes. Retain a sparse active-industry daily panel of
+held capital, current-line risk and probe/confirmed risk. Daily probe0.5% and
+industry1% reference exceedances use actual CLOSE NAV/current lines, not entry
+limits or initial quantity alone. They exclude pending obligations and are not
+asserted to prove a request-time contract failure; the exact request-time gates
+remain in the literal mechanism stream. Missing current line/factor stays
+unknown and does not become zero. New confirmed CORE does not face probe0.5%/2%
+constraints; industry1%, original I0.25% entry sizing and cash10% remain separate
+contracts. Do not claim total risk is unchanged or that an initial size cap is a
+guaranteed loss bound. Known pending-risk decomposition gaps are not plugged.
+
+Mechanism identity and trajectories
+Direct new confirmed CORE entry is real_buy_fill role=core AND pool=confirmed
+in the immutable journal, not daily layer.pool (old CORE may migrate pools).
+Use budget_order/layer links to entry, actual shares, I line, exits, net lifecycle
+contribution and later same-stock actual buys after exit. core-confirmed.jsonl.gz
+is an evidence/attempt stream; retain raw rows and link only explicit identities.
+Check actual entry CP1_id against the successful attempt receipt_id, retaining
+any missing/nonmatching links rather than inventing a successful association.
+Unknown schema is declared rather than guessed. Native journal fills remain
+the source of truth for actual mechanism adoption.
+
+Opportunity and incumbent effects
+Match actual filled cohorts by sid+normalized signal timestamp+role+original
+source/I epoch(+canonical CP receipt for MOBILE), never cross-policy layer IDs.
+Show common/lost/new actual cohorts and changed old MOBILE events, including
+new-path same-signal confirmed CORE, current holdings/barriers and literal native
+OFF/ON funding outcomes. Common cohorts with different size, net or entry pool
+remain in the change context. These are actual path differences, not proof every change was
+directly caused by one refusal. Old positive winners/top10 are evaluation cohorts
+only. Report overlap of original holding windows, capital weights, first entries
+and actual stock contribution. Do not use future returns in the live rule.
+
+Conservation and limitations
+Sum all-stock and all-event contribution deltas exactly equals ON-OFF terminal
+NAV difference for each whole window. Period layer/stock/industry wealth deltas
+equal differences in actual period wealth, not return percentages on a common
+invented H1 principal. New CORE cohort profit alone is not strategy increment:
+other CORE/MOBILE/industry/ACT paths and opportunity costs remain in the bridge.
+Current survivor/industry snapshots and daily execution/queue proxies are kept;
+no PIT/OOS/live claim. Analysis source and input hashes are saved with output.
+
+Primary output index (generated only by later explicit --execute)
+ACCOUNT_COMPARISONS.json: OFF/ON metrics for both whole windows/all periods and
+terminal_NAV_delta with both stock and filled-event exact conservation flags.
+{window}_{mode}_PERIODS.json: return, own-period close DD, cost/turnover,
+exposure, risk, cash and ACT, on the exact own-period prior NAV.
+{window}_{mode}_RISK_CASH_DAILY.json and _HELD_INDUSTRY_RISK_DAILY.json:
+current held/budget/pool risk and actual cash bridge; sparse industry risk rows
+mean omitted industries have zero held positions that close.
+{window}_{mode}_ALL90_INDUSTRY_PERIODS.json and _ALL1709_STOCK_PERIODS.json:
+zero-inclusive industry/stock wealth, exposure, fills, cash and carry inventory.
+SEMICONDUCTOR_ALL126_H1_PARTICIPATION.json / SEMICONDUCTOR_H1_COMPARISON.json:
+all126 H1 evaluation and exact industry/exposure checks, not the old25 subset.
+{window}_{mode}_DIRECT_CONFIRMED_CORE_TRAJECTORIES.json:
+actual entry, receipt/budget link quality, current I line, actual qty, mark,
+cash/dividend, exit proposal/fill, later stock-flat close and later actual buy.
+{window}_{mode}_CORE_CONFIRMED_ATTEMPT_STREAM.json: original grant/proof rows.
+{window}_ALL_FILLED_EVENT_DELTAS.json / _STOCK_DELTAS.json /
+_ALL_PERIOD_STOCK_WEALTH_DELTAS.json: complete contribution bridges.
+{window}_ORIGINAL_MOBILE_PATH_CHANGES.json / _CHANGED_EVENT_{OFF,ON}_CONTEXT.json:
+same original signal/source epoch comparisons and literal original barriers;
+new CORE does not imply that selling an incumbent was allowed or necessary.
+{window}_ORIGINAL_TOP10_WINNER_RETENTION.json: fixed original winner cohort,
+original held-day overlap, own-NAV capital participation and actual outcomes.
+SOURCE_SHA256.json / SCOPE.json / NATIVE_DERIVED_EX_MARK_REFERENCES.json:
+actual source/data hashes, no new-account claim, native stale-action mark scope.

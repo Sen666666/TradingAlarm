@@ -1,0 +1,12 @@
+Research-only output usage for subsequent authorized runners. No new account is run by this file.
+
+Load runner and output modules by explicit absolute file/spec identifiers; do not import a same-name run_one from a mutated sys.path. Assert planning/opening/route identities before restore and after restore.
+
+with output_io.atomic_runner_outputs(runner, launch_module, output_root, canonicalize=J.W.canon):
+    runner.run_prepared(output_root, budget_seconds, resume_after=verified_event)
+
+Apply the same context to a separate prefix-side runner. The wrapper preflights full-prefix, physical-prefix, checkpoint, final and failure destinations; stages original dump/checkpoint outputs privately; atomically publishes completed files; and atomically writes JSON/failure reports. It overrides only checkpoint/dump boundaries and temporarily wraps save in a serial context. Do not use concurrently with another runner sharing the save module. Per-file atomicity does not replace DONE/manifest/hash completeness checks.
+
+Current valid R1 outputs were already completed when this requirement arrived; their frozen trading files were preserved. All output target families were checked and the wrapper was success/error smoke-tested in a fresh /tmp directory. Completion/report files now use shared atomic writes. No economic replay was added for this I/O work.
+
+New checkpoints additionally publish *.provenance.json at generation: actual runtime/trading module/class/file SHA, bound planning/opening/route defining owner and code SHA. Restore inside the same atomic_runner_outputs context rejects absent/mismatched identity before loading and rechecks after loading. Legacy historical checkpoints have no such generation-time identity fields and were NOT backfilled; do not claim otherwise. Correct identity checks supplement, not replace, original source_freeze/input SHA and manifest validation.

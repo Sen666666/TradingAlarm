@@ -1,0 +1,40 @@
+{
+  "recorded_at": "2026-10-25T06:07:09.783412+00:00",
+  "model": "B5",
+  "version": "PVS-B5-evidence-policy-v1-20261025",
+  "status": "frozen_compatibility_prototype",
+  "strength_definition": "unchanged_PVS-B4-20261025",
+  "policies": {
+    "E0-compatible": {
+      "enhancements": false,
+      "implemented": true
+    },
+    "strength_enhanced": {
+      "implemented": false,
+      "behavior": "NotImplementedError"
+    }
+  },
+  "production_legacy_policy_calls": 0,
+  "account_runs": 0,
+  "new_downloads": 0,
+  "old_E0_and_B4_preserved": true,
+  "validated_series": 15,
+  "validated_price_observations": 35587,
+  "real_prefixes": 60,
+  "technical_checks": 184,
+  "exact_differences": 0,
+  "change_rule": "Changes to evidence, strength, participation or adapter semantics require a separately identified version; retain this baseline.",
+  "sha256": {
+    "research_rounds/pv-strength-b5-20261025/code/arithmetic.py": "bee04c1ff88fd7a1c7571eada45380bafbbff524494f493c4a245dd9d19cafb2",
+    "research_rounds/pv-strength-b5-20261025/code/evidence.py": "c2d48324161628c18daee7e13717516049889d172081286ab06a4cfcb4eb6c38",
+    "research_rounds/pv-strength-b5-20261025/code/policy.py": "72f6785d9ee37df086b88963623569f046479a1934d420a15e2d141f8240b660",
+    "research_rounds/pv-strength-b5-20261025/code/api.py": "a9467eb8221d088451d349b7890d71b641be049931ad17325c841f87e2474065",
+    "docs/ALGORITHM_B5.md": "bd8b45e070d3406ca8ea9e00e860f6d061816a617f751abbca734cfe0cb5ef39",
+    "research_rounds/pv-strength-b5-20261025/PROTOCOL.md": "b178d6f35f90a0f901f48fa1ebd364d1739fd072eb15c747c00b656eff46d12c",
+    "research_rounds/pv-strength-b5-20261025/SCOPE.md": "74c7d381939c6f15ae0b70c570d11242ff34e7fda54797463452a5027b4509e1",
+    "research_rounds/pv-strength-b5-20261025/output-contract.json": "3aabef88933dc36b3c4ca489dbfa19317cd95788c9c1548047f66f1926bd8e59",
+    "research_rounds/pv-strength-b5-20261025/freeze.json": "a26ecc36e603885da1fc3482e3ef799bf956343a324f2593b6492e30db104a7e",
+    "research_rounds/pv-strength-b5-20261025/freeze-validation-v2.json": "e347495e631d2ec0b7c8b98c7990c9c202e4586a769140d17bf72fd5e752055c",
+    "research_rounds/pv-strength-b4-20261025/code/model.py": "0beb0b16f2f2cac4f1aff23258b7c45722dc12f16e495be27bf5635c03888cf1"
+  }
+}

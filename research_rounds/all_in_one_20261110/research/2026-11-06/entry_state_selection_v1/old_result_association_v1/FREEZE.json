@@ -1,0 +1,8 @@
+{
+  "created_utc": "2026-11-08T08:00:55.645274+00:00",
+  "protocol_sha256": "d9c42419d03086550b6c73609715588315e5f4451d32869cd369576fc552ae5a",
+  "frozen_gate_key_sha256": "7798799d4cedbf10c87d9253d223d612fd5aae781d5c4afc2ae311b0145518d0",
+  "registered_source_sha256": "d613051ea9e004420859c25d493d542305d773604be4221451fb0617578cbfe4",
+  "frozen_before_pnl_column_read": true,
+  "economic_runs": 0
+}

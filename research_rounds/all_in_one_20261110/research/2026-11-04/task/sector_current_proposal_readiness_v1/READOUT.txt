@@ -1,0 +1,57 @@
+行业current raw proposal：源码/现存字段准备度裁决
+状态 STOP_CURRENT_IMPLEMENTATION / SOURCE_AND_SCHEMA_ONLY。
+0信号、0字段数值/分组、0G1重跑、0账户、0策略源码修改。
+
+关键结论
+原mobile sector Q没有current g_proposal条件，因此“已用proposal，重复加门”不是
+本次STOP理由。但题设的“行业暖grade靠晋升记忆、raw proposal已非暖”混了三套
+状态：当前行业packet是E0，financial confirmed是CP1阶段，均不是G1 grade。
+现成native90行业授权缓存没有proposal字段，不能直接薄读；按root门槛停止此
+实现，不为此重建G1/行业特征/loader，也不准入一个新proposal门。
+
+原路径精确定义
+1. mainline-I-quarter adapter.context给行业series.states只映射e0_ready/e0_target/
+   segment_id为ready/target/segment_id。行业事实由原e0_policy（decline_candidate=False）
+   得到，不是行业G1_I项目。
+2. Bundle.at_decision从行业row.ready/row.target构造Sector.trend_up，另有原RS rank。
+3. Facts.packet(at,'I')只把stock historical trend_up替成stock i_target、stock buy_allowed
+   加当日stock i_buy；返回inputs.sectors原封，不把行业改成I_target/current grade。
+4. S0 eligibility的sector_up只读Sector.trend_up，也就是上述行业E0；没有g_proposal。
+   mobile continuing只是把股票buy_allowed换回market_buyable，仍沿这一sector Q。
+5. J.industry/budget的confirmed/expanded来自行业CP1收据和financial stage/attempt/
+   E0有效性；新mobile再受原active、fresh股票CP1、pool/sector/cash等约束。
+   不能把financial level或state.stage当G1 grade >=2。
+
+grade与proposal的源码方向（不计算任何实例）
+grade.py先算raw proposal；只有proposal>previous_grade且没有fresh证据时，才
+把grade保留在旧较低值；下降立即使用proposal。因此在ready/known时grade<=proposal。
+已知grade>=2而proposal<2由这段规则不成立；反方向grade<2但proposal>=2可以发生，
+就是旧宏和科技反例的方向。旧I_target的确可以在最初暖证据后沿E0/floor存续，
+但那是stock G1_I activation记忆，不等于本行业packet或CP1 financial授权机制。
+行业E0/CP1仍有效而原G1 proposal非暖在逻辑上未被原Q排除；数量和损益未知，
+不能据此宣称是主要失败根因。
+
+实际90缓存仅schema核查，未读价格/grade数值
+INDUSTRY_MANIFEST列90条，逐项读取Parquet footer并绑定原文件SHA：
+— industry-facts：close/segment_id/e0_ready/e0_target/e0_floor/factor/raw_close；
+— industry CP1-input：close/segment_id/amount/e0_valid/e0_down/i_floor；
+— industry state：E0_valid/episode/floor、CP1 receipt/attempt/stage、authorization等。
+全部实际refs都没有proposal/g_proposal，industry-facts也没有g_grade或i_target。
+原IX signals manifest虽存stock G1 grade等，但其1711条索引不含URFI行业，不能拿
+stock数据或另两条ETF当90行业proposal。desk.refresh/native I cache的keep字段也
+不保留g_proposal；grade.classify临时结果中有proposal，不等于行业现成落盘。
+详见NATIVE_90_SCHEMA_READINESS.json（全90/全部路径、字段及SHA，0numeric rows）。
+这只限定本次直接源/实际native refs，不断言磁盘所有历史副本绝无行业G1文件。
+当前没有可核实直接来源，补全需另做数据来源审或模型重建；本任务不继续扩搜/重算。
+
+旧研究排重
+mobile_current_grade_quickcheck_v1明确用STOCK_MANIFEST按stock sid读g_grade/g_ready，
+不是行业proposal；旧g1-current-state-readonly的grade/proposal分组也是股票mobile。
+sector LOCAL20/strict-new20是行业价格结构状态/新高事件，非G1 proposal。
+synthetic D/P/C是组合市场结构，非本原行业证据。没有把这些STOP冒称exact行业
+rawproposal经济试验；本方向目前STOP主要是语义对象不成立/直接字段缺失与实现成本，
+不是经过新数值证明它无效，也不据warm enum2自行冻结新门。
+
+下一权限边界
+本次只交字段/逻辑发现，没有薄覆盖或full特征授权。原2仅枚举暖级边界。
+不加载三年账户，不运行G1，不新增行业授权、退出或恢复接口，不为维持研究建管线。

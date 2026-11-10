@@ -1,0 +1,133 @@
+Independent read-only audit — migration/admission ORIGINAL SINGLEPASS economics
+Audited 2026-11-01. Main files unchanged. New economic/history account paths: 0.
+
+Decision: FINANCIAL / ENGINE PASS; WAIT-ENDPOINT REPORTING REQUIRES CORRECTION.
+The saved financial comparison is valid within the declared historical/proxy scope.
+The competing-endpoint labels in the current analysis are materially wrong; re-export
+saved-book analysis only. There is no reason to rerun either account for this issue.
+
+1. Material reporting defect
+Main analyze.py:65–75 unconditionally prioritizes a later attempt end over an earlier
+actual layer exit, unless migration was observed. RESULTS.txt:34–39 therefore overstates
+attempt-ended-first outcomes. First-event ordering must compare actual exit timestamp
+with attempt end at that date's close; a 09:30 exit precedes same-day 15:10 failure.
+
+Correct statuses, in order migrated / exited-first / attempt-ended-first / right-censored:
+2022 SC:     85 / 36 / 33 / 0  (154 layers)
+2022 SD:     63 / 27 / 34 / 1  (125 layers)
+2025_26 SC: 123 / 83 / 34 / 3  (243 layers)
+2025_26 SD:  78 / 38 / 15 / 2  (133 layers)
+
+Changed labels: 32 / 26 / 82 / 38, respectively. Of these, 0 / 3 / 6 / 1 are
+same-day open exits before the attempt-ending close. Strictly earlier-date counts
+are 32 / 23 / 76 / 37, as first reported. These are competing outcomes, not active
+right-censoring. Example strong SD layer69 (600606.SH): first eligible probe close
+2025-07-15, actual exit 07-17 09:30, attempt end 09-23; currently labeled ended-first.
+
+Observed-migration conditional median/max and stale/inactive probe amount are correct:
+2022 SC 4/32; SD 3/19. Strong SC 4/30; SD 3.5/43 account-close observations.
+Strong max SD layer433 (603162.SH): 12/22 first eligible probe, 03/03 first confirmed
+close = 43 intervals; attempt ends 03/04 and actual exit 03/19. No after-end migration
+was found. Some migration and failure appear in the same day-end snapshot; this does
+not establish their intraday order and is compatible with migration before that close.
+The lags apply to the observed-migrated subset, not all eligible probe layers.
+
+Strong stale/inactive held-probe mean: SC 24016.09644628099173553719008 vs
+SD 37199.24066115702479338842975 CNY.
+These amount calculations use held probe lots, marked at original raw closes, across
+all 242 closes including zeros; they do not include pending orders or fees.
+
+2. New-permission cohort semantics
+47 / 33 unique (stock, signal_day, receipt) SD confirmed reservations have actual native
+fills and 47 / 33 actual layers. Causes: pending probe 36 / 20; whole-old-transfer
+capacity shortfall 11 / 13. Each joins actual reserve and real_buy_fill with matching
+quantity, price, pool, receipt, and layer. Full-life layer contribution:
+2022 -12664.553647020585... CNY; strong +24918.927410890701... CNY.
+Whole-policy terminal wealth differences have opposite signs:
+2022 +35236.500176773907; strong -78293.599298146794 CNY.
+
+They are locally used SD permissions, not 47 / 33 net-new participants relative to SC.
+13 / 14 of these same receipts were also actually filled by SC; SC pools are 3 probe
++10 confirmed / 5 probe+9 confirmed. SC follows a different preceding resource path.
+Do not infer that every cohort receipt was absent in SC, or treat the cohort's full net
+as the policy's marginal profit. Current RESULTS already disclaims total causal PnL;
+retain that wording and explicitly clarify local versus SC-difference counts.
+Source: runner.py:39–52, analyze.py:166–173, actual NEW_PERMISSION and native journal.
+
+Opportunity denominator is canonical fresh market receipts without resource/ACT
+filtering: 10580 / 19358. Actual confirmed-mobile filled receipts SC→SD 576→591 /
+602→634. All are members of the frozen candidate set. Last-close authorizations
+with the next open outside the window are 14 / 54, explicitly separate. 2022 ACT-paused
+candidates SC 1965 / SD 1943 remain in the common denominator. Strong-window pauses 0.
+
+3. Strong-window contribution explanation
+Longfly 601869 SC 45590.6256989858 → SD 1186.8375961497;
+Defu 301511 SC 43134.46104225175 → SD 10377.44926056355 CNY.
+Combined difference -77160.7998845243 = closed difference -824.9935553861 plus
+open-layer difference -76335.8063291382. Thus 98.93% of the signed difference is the
+two SC still-open layers absent from SD, not realized loss in new SD permission layers.
+Those actual SC fills were 2025-12-19 (Longfly layer528, 100 shares remaining,
+open net 43578.79454745) and 2026-04-22 (Defu layer803, 400 remaining,
+open net 32757.0117816882). SD total marked-open contribution 257211.58339377713.
+Actual SD route logs on these opens show the stated union of gates; they do not prove
+one exclusive blocking cause or that those two losses explain the entire policy delta.
+Source: RESULTS.txt:28–30, TWO_LARGE_WINNER_DIFFERENCES, raw books and layer journals.
+
+4. Financial reconstruction and engineering
+From actual trade journals, actual splits, dividend accruals, and original raw close
+facts, independently rebuilt SD 484 close cash-flow NAV, raw inventory, stock shares,
+layer share totals, cumulative fees, and explicit available/reserved/receivable/
+settlement/payable equity sum. Rebuilt the same 484 baseline closes for comparison.
+All exact Decimal financial bridges passed; native pool/budget mirror differences
+remain below 1e-6. SD 1490+1434=2924 actual fills; 2+4=6 actual split events.
+All 2924 actual fill fee-component schedules (minimum commission/incremental order
+accrual included) and normal ±5bps raw-open slippage independently match, without
+initializing historical market context or replaying account events.
+
+Return / global DD / mean exposure:
+2022 SC -33.2676158453 / 33.2676158453 / 51.9209778059;
+2022 SD -29.7439658276 / 30.1399950928 / 52.4219755260;
+strong SC +51.5350204328 / 13.1795070691 / 63.6814518216;
+strong SD +43.7056605030 / 15.0897764326 / 63.9500970020 (%).
+Layer and stock contribution sums equal actual terminal profit; open values remain
+marked, not realized. Per-layer >=30% net/cost tail layers are not independent trades.
+
+All eight quarter checkpoint PKLs match provenance SHA and frozen Runner identity,
+original opening/planning and diagnostic route fingerprints. Independently exercised
+actual guarded restores into empty native fixture shells, executing no historical
+events; every saved native account and runner field restores exactly. Each is native
+DecoupledBudget / normal ACT / multiplier1 / delay0 / ADD false / initialcash1m;
+no C1/grants. Source/input freezes all unchanged. Full/physical prefixes match every
+native account field, known-at-cut episode lookup, remaining strategy fields, and the
+seven saved streams; the prefix is the actual cumulative final stream prefix.
+
+run.py:31–80 constructs one SD account per fixed window and continues the restarted
+same prefix. It never executes SC; SC is loaded from the old 2022/Q2 result books.
+Native adapter's exact two source substitutions still assert equality to original
+model/route. runner.py:39–60 adds read-only diagnostics and calls the original route/
+daily bridge; opening and planning remain original. The two observational wrapper
+unit tests were independently rerun by import (2/2), not __main__, avoiding a rewrite
+of LOGGING_GATE. Prior native 16-test source remains frozen.
+
+16,202 declared input/source SHA targets and 167 result artifact SHA targets all match.
+No existing source, result, manifest, or gate was changed by this audit.
+
+Source SHA256:
+native adapter 879579695da6b8b28fb9d411400836eea6f375dc1698b51b0502621ffd714b30
+runner 99de9c09b3091b306fe9e492c3598cebf531187d35d415abf42bef5a1d414392
+run    1e31f694dc7d7c56b38eac2dbc71280e1cb9a5361a58e2d78d0322112b2c2855
+analysis 111e948be1dc67d6f1bf9f838565dd60f6a23663e864bef213571e131d845bcf
+
+Conclusion: weak-window loss improves, strong-window wealth/DD worsens; this supplies
+no consistent performance reason to promote SD. It does not refute the logical
+coherence of independently funding a legal new confirmed order while old probe
+inventory cannot migrate. No future winner should supersede legal earlier allocation
+by hindsight. Existing non-PIT snapshot / daily HLV execution / corporate-action and
+market data proxies remain; there was no new live or execution-pressure validation.
+
+Private evidence: FINANCIAL_CHECKPOINT_EVIDENCE.json, FEES_EVIDENCE.json,
+BEHAVIOR_EVIDENCE.json, four WAIT_CORRECTIONS.json, INPUT_HASH_EVIDENCE.json,
+FINAL_ARTIFACT_EVIDENCE.json, independent scripts/logs. The first private behavioral
+assertion incorrectly required migration snapshot date strictly before attempt end;
+it was corrected to allow a same-day snapshot (all 20 such records are same-day,
+none after). Original failed log is retained; this was not a product defect.

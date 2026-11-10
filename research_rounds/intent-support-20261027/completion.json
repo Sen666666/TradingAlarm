@@ -1,0 +1,22 @@
+{
+  "status": "complete_not_adopted",
+  "valid_paths": 35,
+  "calendar_repair_replayed_paths": 35,
+  "parameter_changes_after_results": 0,
+  "platform_changed": false,
+  "sha256": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/intent-support-20261027/CONCLUSION.txt": "8390cfc8e4738afe36e690a8ddf87652975ace0568d9e7bdf6f159cac9f72023",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/intent-support-20261027/RULES.txt": "778af3337bd3e15a0fe4c14881528b02d3a5363e3c7266c8e25e5911ad5a15aa",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/intent-support-20261027/evaluation.json": "e74dbd8a25782dc31e3cf15a0c108e71f375828f1304ba6dc30fb1506d2b3457",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/intent-support-20261027/summary.csv": "2b53275cb2f39c2fee19a585805f2abb2fae15582a026353fd029e04a8c20f89",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/intent-support-20261027/extra-entry-contribution.csv": "96866aa788ca118f330f1220be4f6bacac13826e0bca0bfd7907846c01c0b776",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/intent-support-20261027/winner-participation.csv": "c55ceca50a1eb21e334e75ee8e8b0502a15af8b669c3203da0ad2f7117bb8128",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/intent-support-20261027/stock-difference.csv": "ead9a9cea08be37b10732673ca8520cb725551e93a234103e40333a2358521ce",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/intent-support-20261027/verification.json": "4eeb164d617dd6cae6991ef635e8633f4b837e1a2e118217e085ca240990827b",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/intent-support-20261027/freeze.json": "9887d79627b1bb77a07dba3d930afb5d09d0dd7f512e1e42ce7961d9eef255af",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/intent-support-20261027/repair-freeze.json": "df51c6f00b73b71e2b6cac7d1886fbbdd510b67aee5676f4760c26400cc14d3a",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/intent-support-20261027/technical-failures.json": "9fe342aab99cb57fbcda1fa897c07057aeaf9d47e415e8769f4f543767904722",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/intent-support-20261027/actual-support.png": "02a582eacd60ce0133621372c40055161f0ffdd2942009eb75dc1a8a2dd487d9",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/intent-support-20261027/paths.png": "250b2c3b45f1267d33d0640143aa72a556d074d6344da81222d49fad3f944a52"
+  }
+}

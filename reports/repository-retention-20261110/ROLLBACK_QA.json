@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "exact_copy_and_independent_inode": true,
+  "editing_independent_copy_does_not_modify_canonical": true
+}

@@ -1,0 +1,1 @@
+首轮正式合成在价格/量单位缩放处停止，checkpoint未知掩码在bear_rebound第185观察不同。对应log反弹与2sigma理论均.008，浮点尾差导致原版当日确认、缩放版次日确认。没有生成真实B2；17路径先前输出保留。将比较精度修复作为numerical-v1另冻，原code/freeze/validation不改。

@@ -1,0 +1,13 @@
+{
+  "status": "EVENT_DIAGNOSTIC_COMPLETE_NOT_STRATEGY",
+  "actual_first_entries": 2693,
+  "fixed_date_opportunities": 664,
+  "scored_root_events": 1136,
+  "prefix_checks": 12,
+  "source_files": 3950,
+  "all_sources_unchanged": true,
+  "account_runs": 0,
+  "original_models_run": 0,
+  "parameter_searches": 0,
+  "seconds": 136.05110695771873
+}

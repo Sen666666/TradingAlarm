@@ -1,0 +1,54 @@
+CAPACITY 688126.SH 2026-06-11 2038372
+CAPACITY 688126.SH 2026-06-26 2145384
+CAPACITY 605358.SH 2026-06-11 732659
+CAPACITY 605358.SH 2026-06-26 889519
+HASHES [
+  {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/prepared-v2/001514/signal.parquet",
+    "sha256": "ea5fca3307253f76c46db95bf45ca9db9cef382962d64d44f1ec93e4ee9a8221"
+  },
+  {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261027-153013-2ffe04/prepared/facts/688126.SH.parquet",
+    "sha256": "210bc0b41f668b3be036f19e608554640dddb749d89c6b2293602c914f733af0"
+  },
+  {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/signals/688126.SH.parquet",
+    "sha256": "9f783eea5bd91f31c193040a1d1003bda13b95351a43bfdee521481c7faa9945"
+  },
+  {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/prepared-v2/001460/signal.parquet",
+    "sha256": "efea84d89bcc1c8b4cc9444645e8231783a2220622faa22edbcd26404d84ca9a"
+  },
+  {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261027-153013-2ffe04/prepared/facts/605358.SH.parquet",
+    "sha256": "41e7d5e08e4df758a387d7d399ddafaabfa35862926ecfc76b2f3ede8a1b6f10"
+  },
+  {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/signals/605358.SH.parquet",
+    "sha256": "ae16e8d21ed126407690a14df708946f99e04dfb87ea95ec64399bed557917c1"
+  },
+  {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/prepared-v2/000338/signal.parquet",
+    "sha256": "27f6adcf9b1e0c94ae51df481d58a8d9fa9770e6dedab1213213046588912b29"
+  },
+  {
+    "path": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/facts/002408.SZ.parquet",
+    "sha256": "80d7ed6a87396b2426c7be1e29ae0e4085db6070695c4ec374069e3a98083b18"
+  },
+  {
+    "path": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/CP1/002408.SZ.parquet",
+    "sha256": "47280d84e73041c1fc5368bcfff6fd6e37401e540ec349d262fecc34d0b542ca"
+  },
+  {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/prepared-v2/000389/signal.parquet",
+    "sha256": "c5ff26cc972d662f0b1535a9a9658406701d878ea91834879bb642d29cc12352"
+  },
+  {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261027-153013-2ffe04/prepared/facts/002583.SZ.parquet",
+    "sha256": "5616966ea1df4066d5b9ffdc5a2b57d253821a0510d57c436fed942b9e64a2c3"
+  },
+  {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/signals/002583.SZ.parquet",
+    "sha256": "b4cad5de21b784a6118f2f05fb32806a57b5bfe18ea2bf91ca52d0a7ae7a1725"
+  }
+]

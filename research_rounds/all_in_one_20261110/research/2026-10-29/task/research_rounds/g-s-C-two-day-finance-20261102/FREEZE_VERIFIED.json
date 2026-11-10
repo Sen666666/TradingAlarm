@@ -1,0 +1,7 @@
+{
+  "frozen_mixed_sha256": "236b6caea999afec115a9d09caa21a49c297330f007c30b29353315e74e520dd",
+  "original_R2_entry_sha256": "898b83852464396e505bbba38c5a7d41f9ae06762e3429351bf71c8e1094486c",
+  "provider_fix_sha256": "54f55ea685759bb80952016814c99a258544df4dd7da4f821d08b62cd81814e7",
+  "all_input_R4_F1_contract_guards": true,
+  "financial_events_executed": 0
+}

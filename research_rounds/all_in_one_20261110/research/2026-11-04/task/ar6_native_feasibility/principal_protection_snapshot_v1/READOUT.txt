@@ -1,0 +1,31 @@
+1557原层保护线到入场价：只读可证伪见证已完成并独审。
+
+结论限于事实：507层曾在已知同单位的CLOSE快照见到真实生效保护线>=该层实际入场执行价。这个条件能区分部分后续结果，但不是无风险本金保证、永久毕业或可消费信用，也不能仅凭everhit counts判策略质量：持有更久者获得更多随访/升线机会。
+原初新增风险/加仓/预算/策略收益均未计算；本轮1557层2023末全已关闭，last_snapshot是最后活跃CLOSE，不是2023cutoff仍可用容量。
+
+范围与时钟
+原No60 own2022→23共同2023Dec29截止，1557层(core358/mobile1199)，484日原native snapshots，25469活层日。原层cost/net/closed来自原2023cutoff（无2024future）；每个同sid新层独立entry/epoch/attempt，绝不继承旧层保护状态。
+entry=原actualfill执行gross/qty价（含原滑点，不含买卖费）；core取真实last_core_line，mobile取实际更新floor，再/当日原facts.factor转raw，与原entry价比较。只samefactor/source、入场后无原canonical action且current nativeunitcost一致时known；否则保UNKNOWN，不造CA转换。初始frozenfloor到entry的情况独列，所有actual initialhit均0，未把首日CLOSE升线说成开盘已有保护。
+partialqty仅剩余股数的线价关系，不宣称全部初始本金；ANY_STOCK_PENDING_EXIT为保守退出责任旗，不冒充层级ACK；有命中也不释放资本。现事实本轮507层均曾有非pending命中，不代表后续不会挂退出。
+
+完整正反与金额（全部为共同cutoff原net事后关联，非phase收益/新策略回报）
+原全部：454正层+599857.41，1103负层−854430.45，合−254573.04。
+everknownhit507：398正层+560368.31，109负层−36875.67；总体原net+523492.64。负层中18层合−116.99加回原买卖费后非负，91层合−36758.67加回仍负；不能主要归咎手续费。最差曾hit层000620.SZ layer113，入场后1session已hit，但原终net−4886.43、原买卖费24.88、无unknown；线价>=entry无法保证未来执行价/跳空/延迟/费用不亏。
+<=5session firsthit240：177正层+332601.93，63负层−29357.91；负63中58层加回费仍负合−29324.75。
+同入场CLOSE firsthit53：34正层+84689.91，19负层−6526.15；这19加回原买卖费后仍全为负，不是首日保护就稳赚。
+454正层中56没有已知hit，原贡献+39489.10；其中23层有unknown，贡献+27664.30，不能把未知当未保护或过滤为失败。其余33原正层+11824.80也完整保留。
+所有上述everhit/neverknownhit都是事后随访结果，不输入实时信号。未知92层，其中21层在firsthit后又变unknown；已知域见到后续revert0，不等于永久不回落。先前source指出coreline可变的可能性仍保留，原规则未知会重新判必要条件而非授资永久标记。
+
+固定完整cohort：不是择优个股，所有成员ID/时点均有表
+June20'22真实恢复首批56层：24层有knownhit，hit中位延迟12.5个原交易session。最早当日CLOSE是300660.SZ layer435 mobile，raw有效线25.09384307>=entry24.562275、qty600、无pendingexit，原initialhitFalse，属于事后CLOSE原生升线见证；可见时间不是当天OPEN，也不是加仓许可。到Jun27仅6层hit，到Jun28共10层；后续hit最晚延伸至Sep26，不能把这24全部视为六月已保护。全56原正27层+56084.78/负29层−24261.88，原net+31822.90，17层某时unknown。
+Nov'22全56层：27hit，中位5session；Dec'22全122层：33hit，中位23session。
+Apr'23全99层：43hit，中位2session；May'23全131层：30hit，中位1session。中位都仅hit条件子组，不把未hit或unknown作0天，不能用于证明不延迟原赢家。
+旧pool_at_fill/命中时pool可能已confirmed，不能直接当新候选“所有新层初trial”的记账标签；新slot尚未实现。
+
+全部MA真/假up横向时钟也保留（原decisionCLOSE分母，原net仍全2023cutoff）
+POSTHOC_NET_AND_FIXED_COHORTS.json含全部22 ON/OFF段母体成员，不只成功UP。例Aug11'22短2观察UP的9层有2层后来hit，但分别直到Aug16/23，已经过Aug15下穿；不能反向说该假UP内有成熟反馈。Aug17短1观察UP的2层有1层直到Sep7 hit，也已过下穿。Jun16'23原实际新层0，Jul13短2观察UP3层无hit；Jul25/Sep4 No60因原H无新层，明确不能借其他状态下交易补造反馈。长ON Jun6→Aug2的158原层56hit；Nov29→Mar8的256层97hit但部分直到后来Apr/May，不能全部提前归为原ON内可用。
+完整firsthit时间比everhit组更重要，后续协议只能读取当时已知current condition；禁止用everhit标签回填到entry或延长原UP。
+
+审查与交付
+source1552项(772sid原facts与已审canonicalactions等)先冻结/末SHA全核，薄scan4.60765秒，无新价格/CA模型。ALL_1557_LAYERS.json保全部层first/current(lastlive)/knownunknown/q/pending/epoch/entry与原net；DAILY_SNAPSHOT_WITNESSES.jsonl.gz保25469原样本；SUMMARY原count/完整delay直方图；POSTHOC_NET_AND_FIXED_COHORTS原金额/fee加回/五个固定entrycohort/全部22MA段/June20全56成员。fee加回只是同一原net算术，不重算任何成交或新PnL。
+独审SNAPSHOT_AND_FIRST_HIT_AUDIT.json SHA6363bb08f613c19c9f96c608ce7a20aed1e6216e51e2e39cd808f29cecdb342a已对1552源/25469状态/1557入场/first时点核同，PASS_WITH_SCOPE。事后金额补充为原net/fee读表关联，另送快核。未建立receipt消费账、保护毕业状态机、新riskcap或额外金融路径。

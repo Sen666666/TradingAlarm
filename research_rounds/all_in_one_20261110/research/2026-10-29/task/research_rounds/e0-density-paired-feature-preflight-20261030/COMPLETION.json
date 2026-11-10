@@ -1,0 +1,24 @@
+{
+  "completed_at": "2026-10-30T09:31:24.056933+00:00",
+  "status": "stopped_at_feature_only_preflight",
+  "verdict": "minimum_coverage_failed_and_material_residual_state_imbalance",
+  "mother": 918,
+  "pairs": 34,
+  "dates": 19,
+  "industries": 8,
+  "stocks": 64,
+  "labels_opened": false,
+  "new_models_or_economic_paths": 0,
+  "follow_on_started": false,
+  "feature_and_pair_hashes_unchanged": true,
+  "wall_minutes_since_protocol": 2.676485705375671,
+  "sha256": {
+    "PROTOCOL.txt": "8c84e748c9bcfc514952e432f1b0eeba0ebf801ed11059925bc54c9aeadac133",
+    "FEATURE_ONLY_FREEZE.json": "4fb630d172339ad98d7754ebe98fee3039dd53cacdea041597321dcdb3d5f377",
+    "frozen-features.csv": "163f8a70557970cc687c62793dd21bcc6e335cde12856a49706ad3899bb2bb8c",
+    "frozen-pairs.csv": "998e55522095cce165c3feeb52b55e9cdc693dbcf22df820422df71c1a5b2411",
+    "PAIR_FREEZE.json": "0a5591f623846d909f9ff492f3f6d439a105cda049fe00783ddc31541e9f11c1",
+    "balance-before-after.csv": "b27e3b1b2f0d8d46657c5dae081bec6b6f1322ab77c80b97a29ccd746dcf25de",
+    "FINAL_REPORT.txt": "5bbca9d2466307d8e62a0cd986a177638f159134c79d9f40a8c66f756b3db078"
+  }
+}

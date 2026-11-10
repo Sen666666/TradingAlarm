@@ -1,0 +1,17 @@
+{
+  "scope": "fixed old L01-L05 account/price/risk and fixed3 winner context; no D/P/C state, parameter sweep, model or account",
+  "source_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/market_phase_2022_2023/HS300_ALL_LEGS.json": "49686ccf17e453280e7e29a109aa09dc3b49d628033baa101de6d548a740c243",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/market_phase_2022_2023/DAILY_ALIGNED.json": "7209534ebf5599140e083b232b1153ef4f44bcfdff0e32d78375aa58c3a38fa5",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/market_phase_2022_2023/ALL_PERIODS.json": "d40033c64fa7f0db48895ea458eb06bc48009eb166dfee4d43c150d800d52418",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/market_phase_2022_2023/ALL_PHASE_STOCK_WEALTH.json": "8aafa833a0cb0438571c9d560f70d4f278906f38ed0e1c7bb90dd972de3e1b2b",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/market_phase_2022_2023/PHASE_STOCK_WEALTH_BRIDGES.json": "f6fdb223f40cd97e32d45a29e6070007289e5a49e6c0fbb285518a1bff4e9202",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/market_phase_2022_2023/PHASE_SECTOR_CONTRIBUTIONS.json": "48c35d88bdd2139f5a877cbbf95d87434081359f5a2548de3db27a1eea1223aa",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/recovery.csv": "76599d9013946bc5fc501a57b046f36a2868ad61f147ef1a6c73c9575b35906a",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/market_regime_risk/analyze_saved.py": "5c8e7d5de80de5b7220953de545b1aac594c04c3b7455b117a13f883470df73e",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/pvr_pool_results_2022/PVR_NO_CONFIRMED60_DAILY.json": "b439cd7ecda9a1f3668788483be7b7d5a5f3f86a3b4e1d5f0da9bc963552700a",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/no60_continuation2023_finance/PVR_NO_CONFIRMED60_2023_DAILY.json": "9e48e2ea3ef91293dba4b2d63ba3c9e6722eeee4425cc3c26322370fa6426f76",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/absolute_loss_2022_2023/NO60_STRONG_DAILY.json": "20b6e9e607e684947499e05f72b5786d947658b3c4b73d8d94c0bef2cb0b70b2"
+  }
+}

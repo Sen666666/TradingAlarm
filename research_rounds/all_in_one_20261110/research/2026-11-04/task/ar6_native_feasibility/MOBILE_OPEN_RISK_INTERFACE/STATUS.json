@@ -1,0 +1,13 @@
+{
+  "status": "SOURCE_ONLY_FEASIBLE_WITH_SCOPE_NOT_RUNTIME_READY",
+  "new_account_objects": 0,
+  "new_candidate_quantity_calculations": 0,
+  "implementation": 0,
+  "ledger_schema_change_needed": false,
+  "new_strategy_metadata_needed": true,
+  "old_checkpoint_direct_resume_permitted": false,
+  "corporate_action_support": "same source/factor primary; independent action interval coverage still pending loss-agent audit",
+  "readout": "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/MOBILE_OPEN_RISK_INTERFACE/READOUT.txt",
+  "readout_sha256": "fc8f8ca96d37d97066dca4930e5bfd5e406141b0741a9c1065d15c1d4cdfa0b6",
+  "source_record_sha256": "7ec27d94c01da9f7035df7288a0a628ba524e2127d271f0f90ba8bd707dbbfe4"
+}

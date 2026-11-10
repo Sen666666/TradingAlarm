@@ -1,0 +1,52 @@
+{
+  "status": "COMPLETE_BOUNDED_SIGNAL_AND_ADJUSTMENT_CLOSEOUT_NOT_FULL_S0",
+  "previous_full_score_audit": "PASS",
+  "fixed_day": "2024-09-24",
+  "fixed35": {
+    "total": 35,
+    "hold": 34,
+    "fresh_core": 32,
+    "old_inside": 20,
+    "old_hold": 19,
+    "old_fresh": 17,
+    "outside": 15,
+    "outside_hold": 15,
+    "outside_fresh": 15
+  },
+  "outside_current_cap_necessary_gate": {
+    "total": 3836,
+    "knownpass": 0,
+    "knownfail": 3817,
+    "unknown_cap": 2,
+    "no_current_roster": 17
+  },
+  "all5517_E0I_recomputed": false,
+  "complete_S0_qualified_ranks_claimed": false,
+  "stopped_full_run_complete_partial_rows": 72,
+  "no_full_run_claim": true,
+  "new_accounts": 0,
+  "forward_labels_loaded": false,
+  "active_experimental_processes_owned_by_study": 0,
+  "remaining_tool_blocks": [],
+  "limits": [
+    "Current cap/industry snapshot are not2024PIT",
+    "Limited35stock signal sample not global postqualification top20",
+    "Complete H1/market/CP role eligibility not rebuilt",
+    "Source comparisons not all-stock pure CA intervention"
+  ],
+  "files_sha256": {
+    "READOUT.md": "f05f59adecbe893163e21eb40011c91015455673cada707aad7a7ddd6e85ca11",
+    "FIXED35_FREEZE.json": "39e8615a4bd15c5da076ac0448feb5bc3666b58228df07c930f193a290139b77",
+    "FIXED35_SAMPLE_BEFORE_NEW_SIGNAL_RESULTS.csv": "ead54fcca95411c07a1ed5d545525d24a10553615445ab5db1c013b498073f5d",
+    "FIXED35_CONSOLIDATED_COUNTS.json": "eeee6f7c40a1fffe03ceec33fb2b4d783919ce0cb87ec0082db271cc55c13526",
+    "FIXED35_SIGNAL_AND_ORIGINAL_NECESSARY_GATES.csv": "8d1541ce2422f386e7c91af28833c7e42059228c33ec1b7b1d29c80c08854885",
+    "FIXED35_FRESH_SIGNAL_PVR_RANKING.md": "09478a9a74cdbfafa5b62d6d0e922f655b3f58fc0a9c67c6af85ecb5cc014530",
+    "adjustment_review/SEAL_RECEIPT.json": "154b320a4d6cd6908a47301a87f025a2adc822fd9718f5c9ec46e49f496148d1",
+    "universe_gate_data/DELIVERABLE_SHA256.json": "56d536e56bba8a4bdf1242b01a62ac91b302a7aed0b1dc5fe203b25830a38929",
+    "eligibility_source/STOP_SEAL.json": "df3b8231e9c6e3b84e12e847b84d8925e27f0bf151ed3a977a474b339135aa1b",
+    "eligibility_source/fixed35/SEAL.json": "dfb89663e732d1b99d7fca6a8c5ac3b6ef948ff337b988d0a9b9e981e2d0363c",
+    "dual_same_pool/SEAL.json": "c6f32ff25886c02def6e819d0e68fd13c3e6a83026447f32ba378e3474839d28",
+    "final_review/SEAL_RECEIPT.json": "1202d5123d108a2fdd3723703c05a153fd831896f63e1ccf7ce84b7b44c042e7",
+    "final_review/DUAL_QUEUE_OUTPUT_AUDIT.json": "8b04add7b905688fcb3fd2cb7a479145a68099f527c41d54024675fa8d23cd9c"
+  }
+}

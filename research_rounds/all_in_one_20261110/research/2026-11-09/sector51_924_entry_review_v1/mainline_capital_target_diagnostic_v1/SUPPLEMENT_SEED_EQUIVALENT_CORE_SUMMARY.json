@@ -1,0 +1,46 @@
+[
+  {
+    "day": "2024-09-20",
+    "all_held_rounds": 39,
+    "current_winner_rounds": 0,
+    "current_winner_rounds_with_surviving_ADD": 0,
+    "old_whole_layer_core": "0",
+    "new_seed_equivalent_core": "0",
+    "core_capital_difference": "0",
+    "different_rounds": 0,
+    "released_to_mobile_qty": 0
+  },
+  {
+    "day": "2024-09-23",
+    "all_held_rounds": 102,
+    "current_winner_rounds": 1,
+    "current_winner_rounds_with_surviving_ADD": 1,
+    "old_whole_layer_core": "1814.00",
+    "new_seed_equivalent_core": "1814.00",
+    "core_capital_difference": "0.00",
+    "different_rounds": 0,
+    "released_to_mobile_qty": 0
+  },
+  {
+    "day": "2024-09-26",
+    "all_held_rounds": 411,
+    "current_winner_rounds": 115,
+    "current_winner_rounds_with_surviving_ADD": 115,
+    "old_whole_layer_core": "341680.00",
+    "new_seed_equivalent_core": "341680.00",
+    "core_capital_difference": "0.00",
+    "different_rounds": 0,
+    "released_to_mobile_qty": 0
+  },
+  {
+    "day": "2024-09-27",
+    "all_held_rounds": 300,
+    "current_winner_rounds": 135,
+    "current_winner_rounds_with_surviving_ADD": 95,
+    "old_whole_layer_core": "543944.00",
+    "new_seed_equivalent_core": "543944.00",
+    "core_capital_difference": "0.00",
+    "different_rounds": 0,
+    "released_to_mobile_qty": 0
+  }
+]

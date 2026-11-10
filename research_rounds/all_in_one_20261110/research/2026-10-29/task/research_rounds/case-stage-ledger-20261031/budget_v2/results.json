@@ -1,0 +1,18 @@
+{
+  "version": "v2",
+  "scope": "pure synthetic attempt/grant/budget contract, no historical PnL",
+  "revision": "probe-mobile equal-opportunity interface added after original 13-test review",
+  "tests": 15,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "v1_tests_not_claimed_as_v2": 31,
+  "remaining_external_inputs": [
+    "industry protection events",
+    "E0 episode identities",
+    "canonical CP1 evidence and original core eligibility/lock",
+    "stock protection and exit decisions",
+    "legal order execution deadlines",
+    "grant request maxima and actual execution inputs"
+  ]
+}

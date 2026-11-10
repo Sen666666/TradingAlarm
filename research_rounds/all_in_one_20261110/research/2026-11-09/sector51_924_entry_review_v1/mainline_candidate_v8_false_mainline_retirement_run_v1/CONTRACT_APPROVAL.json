@@ -1,0 +1,17 @@
+{
+  "approved": true,
+  "engine_sha256": "0e9a3358c126ed0b9b4143c8dae44770c05bd9324f56a63bff160a7cd32c049f",
+  "contract_sha256": "5392a375eb7dfd1652f6d11073a004f0df6da8a2003a758e934aee9121be143a",
+  "reviewer": "independent_parent_review",
+  "scope": "One historical M8 single-factor comparison from Sep2 to Oct31; no live trades, shared trial-risk pools, new alpha, or limit changes",
+  "checks": [
+    "Parent independent 68 synthetic/static checks PASS",
+    "Grouped sell quantity fixes repeated minimum commissions and combinable odd-lot remainder",
+    "Original INITIAL lots preserved; prior I/CP protective orders execute first",
+    "Markers and actual exits rolled back on atomic block",
+    "Existing financing estimates unchanged; new actual retirement cash reduces original OPEN funding gap",
+    "All immutable baseline/dependency hashes verified",
+    "New isolated run directory; original candidate build remains unchanged"
+  ],
+  "runner_sha256": "acb0b2033a8840f11167abf56ee6f4efb19acce07903087355fd824d627ddae9"
+}

@@ -1,0 +1,1 @@
+Analysis-only duplicate ACT_paused keyword when joining old actual flags. Ranks already frozen, no new statistics emitted before error; reuse rank artifacts and original PVR cache on resume, no account replay.

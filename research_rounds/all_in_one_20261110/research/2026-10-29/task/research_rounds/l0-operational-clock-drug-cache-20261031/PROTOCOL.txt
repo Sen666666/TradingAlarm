@@ -1,0 +1,12 @@
+L0研究操作钟v2与创新药派生缓存，2026-10-31。
+只写本目录；策略I/E0/0.25%风险/10%现金reserve/epoch锁/排序/ACT公式均不变，旧15:10历史账不可重写。无API/网络/券商/生产/调度。
+
+新操作钟：仅新版本未来观察，交易日d决策实际提交时刻t_commit必须不早于d16:00、全部必需输入实际available_at和派生缓存落盘/校验完成时刻；且必须在本地已核下一合法开盘前。缺包/晚到跨下个开盘则不提交，不延长过期意图，不造成交。16:00是研究最早时刻，不是永远准时保证。订单仅面向下一合法交易时点。
+历史三天演练分列market_day=10/28,29,30、源observed/published时刻、缓存本次created/validated时刻、真实rehearsal_commit_at。它们是在10/31以后才准备的已发生日期演练，不伪装曾在10/28..30提交，不生成可执行的历史订单。反事实原日next_session仅标签，不是当前可提交订单。真正前瞻尚未启用。
+
+补齐药池48+4：新快照原价及权息→原current_pool_bridge.prepare_signal/source_segments→原TradingAlarm.desk.refresh.prepare_facts（run_b5/G1_I/e0_policy，参数不变）；52全部与旧药prepared的signals和facts截至10/27逐值一致才接受。新增本池market由原market组件公式+原local recovery.calculate(min_stocks5,min_sectors3)产生，使用相同H1参照与原日历，不借TECH时钟。先对旧market returns/momentum共同前缀和recovery前缀核验。为保证原全历史市场日历，旧全参照r/m仅借其行索引，不借其他股票值。
+缓存需重现原暖机，不从10/28截断后造状态；不跑交易引擎、收益矩阵、选参数。工程目标180秒，先52样本生成进度，超出说明实测原因，不扩大股池。
+日期10/28的物理截断校验固定000513、300601（代码顺序首股及唯一药池新增现金分红）；不看经济结果挑样例。
+
+三次现金分红仅取证：300601/10-28/0.027，300604/10-30/0.10，688409/10-30/0.20元/旧股；保留effective_date、rawsource、received_at；公告首次可知/支付日未知不填。应收不可花；本次不消费权益未知来构造持仓净值或fill。
+通过缓存后只准备数据包、输入快照与时钟闸门。无10/27完整账户检查点，未获新要求前不造假状态；模拟意图若不能承接真实账户则明确未生成，不以市场输入快照冒充账户快照。已过未来开盘的历史包只能historical_rehearsal而非prospective。

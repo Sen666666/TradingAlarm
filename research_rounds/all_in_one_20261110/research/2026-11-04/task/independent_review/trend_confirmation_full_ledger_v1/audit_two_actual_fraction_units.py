@@ -1,0 +1,13 @@
+"""Only the two observed native fraction-floor unit cases; no account/CA engine."""
+from pathlib import Path
+from decimal import Decimal as D
+import importlib.util,json
+O=Path(__file__).resolve().parent;N=Path('trend_confirmation_native_v1/full-long-v1/pair')
+s=importlib.util.spec_from_file_location('saved_native_generic',O/'generic_saved_finance_reader.py');R=importlib.util.module_from_spec(s);s.loader.exec_module(R)
+proof=[]
+for arm,sid,day in [('A_ONLY','920808.BJ','2023-05-31'),('UNIFORM50','688028.SH','2023-05-26')]:
+ b=R.book(N/(arm+'.json.gz'));ix=next(i for i,e in enumerate(b['audit'])if e['kind']=='split_fraction_floor_proxy'and e['sid']==sid and str(e['at']).startswith(day));e=b['audit'][ix];layers={l['id']:l for l in b['layers']};v=R.prefix(b,ix);before={lid:q for lid,q in v['q'].items()if q and layers[lid]['sid']==sid};old=sum(before.values());ratio=D(e['ratio']);exact=D(old)*ratio;whole=int(exact);fraction=exact-D(whole);assert 0<fraction<1 and fraction==D(e['fractional_shares_written_off']);cash=v['cash'];fees=v['fees'];div=v['divincome'];pending={k:dict(x)for k,x in v['pending'].items()};w=R.prefix(b,ix+1);after={lid:q for lid,q in w['q'].items()if q and layers[lid]['sid']==sid};assert sum(after.values())==whole;assert w['cash']==cash and w['fees']==fees and w['divincome']==div and w['pending']==pending
+ f=R.raw(sid);date=R.pd.Timestamp(day);assert date in f.index and bool(f.loc[date,'observed_bar'])and not bool(f.loc[date,'synthetic_event_bar']);R.factor(sid,e['at']);assert date in R.factcache[sid].index
+ proof.append(dict(arm=arm,sid=sid,at=e['at'],native_event_id=e['event_id'],before_actual_units=before,ratio=str(ratio),exact_aggregate_units=str(exact),native_floor_whole_units=whole,recorded_fraction_written_off=str(fraction),after_units_under_original_native_rule=after,trade_cash_fees_and_dividend_unchanged=True,no_new_cash_claim_invented=True,current_observed_raw_and_factor_row=True,native_new_shares_sellable_at=e['new_shares_sellable_at']))
+x={'status':'PASS_TWO_OBSERVED_NATIVE_FRACTION_FLOOR_UNIT_BRIDGES','cases':proof,'scope':'Only original native declared floor_position_fraction_writeoff unit rule and existing actual cash/quantity audit; whole-day cash+quantity+rawmark+AR bridges are in full_long_finance/AUDIT.json. No new account, matching, financial replay, or issuer-treatment research.','not_certified':'Actual issuer entitlement, cash-in-lieu economics, or exchange fillability.','source_sha256':R.SRC,'checker_sha256':R.sha(__file__)}
+p=O/'TWO_ACTUAL_FRACTION_UNIT_AUDIT.json';p.write_text(json.dumps(x,indent=2)+'\n');print(str(p),R.sha(p))

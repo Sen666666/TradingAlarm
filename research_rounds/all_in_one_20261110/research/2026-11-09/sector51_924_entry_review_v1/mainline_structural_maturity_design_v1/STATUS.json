@@ -1,0 +1,23 @@
+{
+  "status": "DESIGN_ONLY_NOT_FROZEN",
+  "gate": "original_MATURE_SEED_domain AND tri_or(original_F, valid_latest_entry_CP_since_original_signal_inclusive)",
+  "receipt_date_boundary": ">= original_signal_day",
+  "boundary_fixed_before_new_gate_results": true,
+  "history_run": false,
+  "new_gate_historical_screening_by_this_worker": false,
+  "synthetic_tests_executed": false,
+  "parameter_scan": false,
+  "frozen_engine_modified": false,
+  "external_reads": false,
+  "pdf_reads": false,
+  "design_sha256": "79ebeb73457914656eb70e4ecb59a58008e57d7cb92dd1296dd86d3577efbe12",
+  "source_file_count": 17,
+  "created_at_utc": "2026-11-09T23:40:14.405773+00:00",
+  "finalized_at_utc": "2026-11-09T23:42:11.190065+00:00",
+  "semantic_clarifications_only_after_initial_write": [
+    "F bypass is a fast-start tradeoff, not higher win-rate claim",
+    "UP frontier may require prior peak recovery unless original CP resets",
+    "fixed startup cohorts and post-SEED ADD timing opportunity cost",
+    "M7 capped allocation identity and pre-demand integration; no absolute E threshold"
+  ]
+}

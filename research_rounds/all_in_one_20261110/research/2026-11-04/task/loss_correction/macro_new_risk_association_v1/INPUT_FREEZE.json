@@ -1,0 +1,18 @@
+{
+  "before_join": true,
+  "frozen_at_UTC": "2026-11-04T13:08:44.566828+00:00",
+  "source_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/ma63_information_diagnostic_v1/2022_2024_ENTRIES.json": "f0b83639daed99b0e594753608b2314506455d4b9beec885065ca7ac0944d830",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/ma63_information_diagnostic_v1/strong_ENTRIES.json": "a4a18f1b31b9bfe5ae5b1dc5ca248c2fb67d3b7185f9510e2d4191672cbf438d",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/ma63_information_diagnostic_v1/ORIGINAL_FIXED_TAIL_COHORT_PRE_FEATURE.json": "c9f6290120e51ab6be894452c5618e64bdce54b69f79cfe1e4bb4d8df1c8eb6f",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/market_recovery_three_state/structural_walk_daily_support_v2/DAILY.json": "96915ee67401d4af230617d2bcbb1d8b07c94c6fa580874e75c0c3f0871bac19",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/market_recovery_three_state/structural_walk_daily_support_v2/WINDOWS.json": "c19284a74690441917676ee5ecc507b611ca7af75852f1f99652fe0c91a908c9",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/market_recovery_three_state/market_new_risk_only/DAILY.json": "0154c390f5861d22a0c87e7f8175f5ebbab517fd49f0205d44c1edb267222b2c",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/macro_new_risk_association_v1/PROTOCOL.txt": "e1f71a7bb85cb35f84c60f0fd0be05f4969199e72e505ad44d8c7708eae9f0da",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/macro_new_risk_association_v1/join_saved.py": "f86127fd53416e4943889de9bc27fd81ebc45053b8869e9891a953d3cc6ca0a3",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/continuation2024_finance/PVR_NO_CONFIRMED60_DAILY.json": "a1d51bdd22bea1db1d9779464e873dd7741aa48d4519c465c203f2cef1a4ee1f",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/absolute_loss_2022_2023/NO60_STRONG_DAILY.json": "20b6e9e607e684947499e05f72b5786d947658b3c4b73d8d94c0bef2cb0b70b2"
+  },
+  "source": "original saved v2 and ar6 rights labels, no recomputed macro",
+  "new_model_or_account_events": 0
+}

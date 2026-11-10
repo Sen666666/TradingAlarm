@@ -1,0 +1,30 @@
+{
+  "status": "SOURCE_AND_BOUND_INPUT_AUDIT_COMPLETE_EXECUTABILITY_NOT_ESTABLISHED",
+  "conclusion": "Full execution-date H/L/V control fills recorded at09:30; sell proceeds feed sameOPEN funding before buy reservations; no postopen quote/minute input consumed by this path.",
+  "independent_review": "CONFIRMED by /root/upside_logic; actual import and identical protocol-copy paths cross-checked",
+  "root_excerpt_verification": "PASS",
+  "readout": "READ_FIRST.txt",
+  "scope": {
+    "code_source_records": 15,
+    "code_ranges": 24,
+    "schema_source_samples": 2,
+    "parquet_inputs_inspected": 6,
+    "data_verbatim_snippets": 13,
+    "repo_wide_minute_data_absence_claim": false
+  },
+  "no_new_work": {
+    "Market_Account_instances": 0,
+    "backtests": 0,
+    "models_indicators": 0,
+    "parameter_tests": 0,
+    "new_quotes": 0,
+    "original_source_edits": 0
+  },
+  "unresolved": [
+    "Actual postopen order and fill chronology is not saved in the inspected consumed inputs.",
+    "No estimate of net return/risk bias or repaired execution performance.",
+    "15:05/09:30 declared clocks are not provider timestamp certification."
+  ],
+  "prior_V_example_addendum": "../native_algorithm_read_v1/v_reversal_counterexample/RESTORED_READOUT.txt",
+  "created_at_utc": "2026-11-05T04:34:03.048984+00:00"
+}

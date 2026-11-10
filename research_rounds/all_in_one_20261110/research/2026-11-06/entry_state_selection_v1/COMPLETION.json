@@ -1,0 +1,11 @@
+{
+  "status": "COMPLETE_BOUNDED_CASE_EXECUTION_NO_WHOLE_MARKET_PERFORMANCE_CLAIM",
+  "stocks": 37,
+  "case_rows": 150,
+  "events": 422,
+  "account_runs": 0,
+  "parameter_searches": 0,
+  "original_signal_reruns": 0,
+  "source_cache_unmodified": true,
+  "code_sha256": "38e17ba22a1842b121d2a674f4164dbf325c026c29a62ee6a99ca0726a8f43db"
+}

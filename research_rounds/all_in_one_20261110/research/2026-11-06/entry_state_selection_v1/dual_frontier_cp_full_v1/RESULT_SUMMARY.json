@@ -1,0 +1,82 @@
+{
+  "status": "COMPLETE_NO_ACCOUNT_BACKTEST",
+  "cutoff": "2026-05-15",
+  "initial_state": "Signals and qualification complete; subsequent analysis interrupted with no matching running process.",
+  "resumed_only_unfinished": true,
+  "signal_reruns": 0,
+  "qualification_reruns": 0,
+  "account_backtests": 0,
+  "full_signals": {
+    "old": 96006,
+    "new": 89249,
+    "both_day": 78401,
+    "old_only_day": 17605,
+    "new_only_day": 10848
+  },
+  "original_account_conditioned_presize": {
+    "old": 55882,
+    "new": 52309,
+    "both_day": 46478,
+    "old_only_day": 9404,
+    "new_only_day": 5831
+  },
+  "original_legal": {
+    "old": 53121,
+    "same_day_retained": 44244,
+    "old_day_absent": 8877
+  },
+  "known_2022_plus_roots": {
+    "all": 29363,
+    "old_any": 21163,
+    "new_any": 20775,
+    "both": 20773,
+    "old_only": 390,
+    "new_only": 2,
+    "neither": 8198,
+    "mature60": 27036,
+    "big60": 4373
+  },
+  "first_raw_receipt_timing_same_known_root": {
+    "same": 18019,
+    "new_later": 2735,
+    "new_earlier": 19
+  },
+  "original_first_mobile": {
+    "all": 1814,
+    "closed": 1773,
+    "positive": 465,
+    "historical_net_winrate": 0.2622673434856176,
+    "retained_closed": 1521,
+    "retained_positive": 406,
+    "retained_historical_net_winrate": 0.2669296515450362,
+    "old_day_absent_closed": 252,
+    "old_day_absent_positive": 59,
+    "old_day_absent_historical_net_winrate": 0.23412698412698413,
+    "absent_all": 257,
+    "absent_with_earlier_new_same_root": 216,
+    "absent_with_earlier_qualified_new_same_root": 184
+  },
+  "conclusions": [
+    "没有证据表明本版已接近35%净闭环胜率。26.23%→26.69%仅是旧历史闭环的当日新证保留分组，不能称新策略胜率。",
+    "新公式整体减少发证，重复事件更多移后；重大价格行情原始信号覆盖在5/20/60日均略降。新日期大多在旧有同根里，不是新增趋势来源。",
+    "新公式不是严格子集：每日m不同，延后记账的均价前沿增量可以获得更高权重。19个更早首证和2个新独有根均由此产生，非q无效重置。",
+    "19个病例窗口中，中国医药3月3日新证保留，3月30日新证整根无；粤传媒12月18日缺席但12月17日已合资格；众生10月14日缺席不等于整根漏掉。",
+    "保持研究候选，不凭当前事件、价格路径或旧闭环分组晋升为已验证交易改进。"
+  ],
+  "outputs": [
+    "EVENT_COUNTS.csv",
+    "KNOWN_2022_PLUS_ROOT_COUNTS.csv",
+    "ROOT_FIRST_TIMING_SUMMARY.csv",
+    "DESCRIPTIVE_PAIR_SUMMARY.json",
+    "FIXED_I_ROOT_COMPARISON.parquet",
+    "FIXED_ROOT_PRICE_PATH_SUMMARY.csv",
+    "ORIGINAL_CAMPAIGN_ASSOCIATION.csv",
+    "ORIGINAL_FIRST_MOBILE_CAMPAIGNS.csv",
+    "FIXED19_CASE_COMPARISON.csv",
+    "BIG60_ROOT_COVERAGE_CHANGES_BY20.csv",
+    "2026Q1_SEMICONDUCTOR_ROOTS.csv",
+    "INDEPENDENT_AUDIT.json",
+    "ANALYSIS_INPUT_SHA256_POSTRUN.json",
+    "ANALYSIS_SEAL.json"
+  ]
+}

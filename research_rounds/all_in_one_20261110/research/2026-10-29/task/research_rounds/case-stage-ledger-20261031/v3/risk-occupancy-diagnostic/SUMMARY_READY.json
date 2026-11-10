@@ -1,0 +1,8 @@
+{
+  "complete_main_readonly_aggregation": true,
+  "global_unique_eligible": 21411,
+  "global_unique_routed": 20361,
+  "risk_closing_snapshots": 182,
+  "fixed_stage_and_peak_snapshots": 9,
+  "no_new_replay": true
+}

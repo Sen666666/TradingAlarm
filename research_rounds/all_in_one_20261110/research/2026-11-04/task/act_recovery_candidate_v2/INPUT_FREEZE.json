@@ -1,0 +1,74 @@
+{
+  "static20": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/market_recovery_three_state/diagnostic_v2/FULL_ORIGINAL_INPUT_PLUS_STATIC20.csv",
+    "sha256": "25e82c99df78479af01b285f75f1cd2a6d5b2460031950e0e951198dd346e0d0"
+  },
+  "B_book": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_v1/runs/long-v1/arms/B/pair/B.json.gz",
+    "sha256": "d007fb6d0bb4ea283a02d75aa31900270531dccd7674bcc5df123af685159f63"
+  },
+  "D_book": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1/pair/D_GROSS10.json.gz",
+    "sha256": "25d1c4b0281ca82d3fbc4f03ee47ef921fe0b151c1f22b2eb971d47ba9ea1690"
+  },
+  "D_opportunities": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1/pair/opportunities.jsonl.gz",
+    "sha256": "3a916f670e3c03bf67635ec5ba0137922352690a32b8cfacb10677ccdd438276"
+  },
+  "own_wait": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_outcome_analysis_v1/full_long_v1/OWN_ACT_RECOVERY_WAIT_PATH.json",
+    "sha256": "0aa02de62730acf956fdef0806b3cdfcbbdff93673105f1a618de8e7ff37e0b6"
+  },
+  "old_cycles": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/market_recovery_three_state/diagnostic_v2/ALL_ORIGINAL_PAUSE_CYCLES.json",
+    "sha256": "c1219ce4959fbb7a776992a26e295bb511f70eb7a244033708f0d897c6066e54"
+  },
+  "old_recovery_results": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/a_recovery_full_diagnostic/OLD_RECOVERY_NEGATIVE_CONTROLS.json",
+    "sha256": "97b4854d1bf5a164cd8e112958c5187aa3f609c7069bcd8306b03a90821c6d74"
+  },
+  "A_readout": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/a_recovery_full_diagnostic/READOUT.txt",
+    "sha256": "825985e5e6ec79cb5dbea170ffdbc87be627d7cb851706972bf76c1ca8c4c215"
+  },
+  "three_state_readout": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/market_recovery_three_state/READOUT.txt",
+    "sha256": "d1f375f524d058cbae1c05eab73810a4bc499563f229214dde6972ecabe3417e"
+  },
+  "daily_support_readout": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/market_recovery_three_state/structural_walk_daily_support_v2/READOUT.txt",
+    "sha256": "e5af7d2e42c36bd0106c138656fcf0e4efc812a6de372a11e0e96a68d34e2211"
+  },
+  "rms_readout": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/market_recovery_three_state/noise_rms63_single_check/READOUT.txt",
+    "sha256": "d72b0190184784fb0cc98a24c7b689c0b88cebcc4b309ea54859455b48930109"
+  },
+  "prior_H_card": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/ma63_incremental_rights_card_v1/H_RECOVERY_MA63_NEW20_NECESSARY_CARD.txt",
+    "sha256": "56f180b0a88e92cc97bad625ffb9d7dce703fdd7edbfa64e83f3a4769ff12713"
+  },
+  "H_boundary": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/ma63_incremental_rights_card_v1/H_TRIP_AND_RECOVERY_BOUNDARY.txt",
+    "sha256": "b51ac66ddda7206203e66bcf0e5c9e9da34bb2b723be284aeaf102ffe941e6a8"
+  },
+  "risk_policy": {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/actual-risk-recovery-20261027/code/risk_policy.py",
+    "sha256": "b0f38e5813b56d52cf15cae06fb6370cc55f2930ecff9ced4d8eefe793c1518d"
+  },
+  "joint_source": {
+    "path": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py",
+    "sha256": "fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425"
+  },
+  "compute_recovery": {
+    "path": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/market-proof-lifecycle-readonly-20261101/ORIGINAL_COMPUTE_RECOVERY.py",
+    "sha256": "bed5adeeda4fec93ecaf63f8680cf451615879f1d67a60e32dca8c64da7adc78"
+  },
+  "REC_prepare": {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/recovery-only-20261027/code/prepare.py",
+    "sha256": "a32a2e625a711aed71521e3a6182b64b62bc3a3ca3d168c9f409b84771fab195"
+  },
+  "REC_protocol": {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/recovery-only-20261027/PROTOCOL.md",
+    "sha256": "fe58c41bfb94656c5803613b7ab2c600cf656702d353481b8b3712ebc1be8bf7"
+  }
+}

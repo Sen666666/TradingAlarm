@@ -1,0 +1,10 @@
+SRP-v3最小数学合同已落：MINIMUM_MATH_CONTRACT.md。
+初值明确，可按真实输入求单次q；不是UNIDENTIFIED整卡，也不是已实施/经济PASS。
+
+B=.0025×同真实E0机会首个成功reserve的signalNAV；逐层正部κ与mark回吐g分开、logicalorder费用一次分配。G1/G2每sid唯一b=min(knownraw基准,全部真实计划线)，再共同乘.8/.64；只把这些20%称初始压力proxy，不冒充历史涨跌幅/概率/最坏界。退出逐情景request锁Λ与同期经济Φ_market分开，未成交/ACK前责任持续。
+
+grant统一做全部拟fill/pending的postfill book+cash+mark投影，已付entry成本从pending移除、转D/NAV一次；Aproj=Vproj−.8ACTpeak、全部sectorT=(旧sectorcap/.9)Aproj重算，不漏其它行业分母下降。原legacy门保原native分母。新I源严格对齐task4最新MINIMUM：已知无CP/真实fresh_I/confirmed-only/I持有，不沿旧EMA/档位/次数。
+
+明确代价：新高时G2已使gross必要上界约55.56%NAV，远线/费用更紧。父线程7个原OPEN只读桥全部.36inventory>A，最终新增0；不推荐这组初值直接用于扩张，不改参数救7例。该桥不是本策略连续新账户，不等于完整收益回测否决。
+
+0模型、0新账户、0回测、0参数搜索；本目录仅纸面公式、只读source绑定。v2/其它线封版不改。

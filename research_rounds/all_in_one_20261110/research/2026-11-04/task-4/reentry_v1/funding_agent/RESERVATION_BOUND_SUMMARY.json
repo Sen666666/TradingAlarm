@@ -1,0 +1,11 @@
+{
+  "original_open_targets": 15,
+  "classes": {
+    "cash_prerequisite_only_could_be_met_by_reducing_prior_confirmed_excess_no_allocation_or_profit_claim": 9,
+    "existing_holdings_cash_reserve_already_leave_less_than_minimum_before_first_new_candidate": 6
+  },
+  "existing_sector_risk_insufficient_before_any_new_candidate": 0,
+  "source": "saved exact S0 and original admission orders only; no proposed account/path/route evaluation",
+  "new_policy_paths": 0,
+  "new_replays": 0
+}

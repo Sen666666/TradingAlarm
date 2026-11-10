@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "events": 8335,
+  "windows": {
+    "long": 5264,
+    "strong": 3071
+  },
+  "old_completed3879_exact_bytes_preserved": true,
+  "new_continuation_events": 4456,
+  "worker_compute_seconds": [
+    25.68497887486592,
+    25.649132125079632,
+    26.120107917115092,
+    26.021020583808422
+  ],
+  "additional_compute_seconds": 103.47523950086907,
+  "additional_compute_limit_seconds": 360,
+  "original_compute_seconds": 120.10009508393705,
+  "total_label_compute_seconds": 223.57533458480611,
+  "single_asset_shadow_paths": 8335,
+  "label_attempts": 8336,
+  "new_portfolio_policy_accounts": 0,
+  "merge_seconds": 0.9919677921570837,
+  "output_sha256": "d9d880729e94cc23cf7c4ed893717dc65f467ef74518d22df30e02f403b201b9",
+  "source_freeze_sha256": "fa024fdd4fdb683381d2dc03130f92717e99f0c055fb23a38952c6b4adca7dc8",
+  "scope": "Complete unchanged first-reject isolated native labels, not common-capital rotation returns"
+}

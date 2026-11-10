@@ -1,0 +1,6 @@
+C=load('mainline_frozen_L0',W/'lr1-cp1-add-preflight-20261031/adapter.py')
+BP,LR,N,E,R,D=C.BP,C.LR,C.N,C.E,C.R,C.D
+save,read,sha=C.save,C.read,C.sha
+IC=W/'native-I-cache-interface-20261031';P=ROOT/'TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared'
+F=W/'market-mainline-measurement-20261031/FEATURE_MATRIX_90.parquet'
+START='2025-07-01';END='2025-09-30'

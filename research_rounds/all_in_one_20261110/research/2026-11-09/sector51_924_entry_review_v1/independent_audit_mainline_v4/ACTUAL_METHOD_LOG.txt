@@ -1,0 +1,198 @@
+ATOMIC_BLOCK INDEPENDENT_FORCED_M4_ATOMIC_FAILURE
+{
+  "status": "PASS",
+  "engine_sha256": "7d79b0ddb230ec8f2e50c754c83db86a8d1021cd6d4a9af350bc6328e283527f",
+  "actual_method_tests": 27,
+  "passed": 27,
+  "failed": 0,
+  "tests": [
+    {
+      "name": "actual_fill_debits_all_in_and_consumes_priority",
+      "status": "PASS",
+      "detail": {
+        "q": 800,
+        "spent": "8009.00000"
+      }
+    },
+    {
+      "name": "low_OPEN_same_frozen_q_not_rejected_by_fee_ratio",
+      "status": "PASS",
+      "detail": {
+        "day": "2024-09-04",
+        "sid": "a",
+        "qty": 800,
+        "frozen_econ_q": 800,
+        "open_surcharge": "7.600000000",
+        "open_slippage_comparator": "6.00000",
+        "excess": "1.600000000",
+        "not_an_OPEN_gate": true
+      }
+    },
+    {
+      "name": "high_OPEN_same_q_not_capped_by_CLOSE_cost",
+      "status": "PASS",
+      "detail": "8809.40000"
+    },
+    {
+      "name": "actual_cash_reject_consumes_priority_without_spend",
+      "status": "PASS",
+      "detail": {
+        "day": "2024-09-04",
+        "phase": "OPEN",
+        "sid": "a",
+        "round_id": null,
+        "event": "SEED",
+        "signal_day": "2024-09-03",
+        "plan_day": "2024-09-03",
+        "decision": "MIN_LOT_CAPITAL_REJECT:cash_reserve",
+        "allocation_rank": 1,
+        "M": 1,
+        "E": "1",
+        "M_streak": 2,
+        "cp_id": null,
+        "close_net": null,
+        "open_net": null,
+        "planned_q": 800,
+        "executed_q": 0,
+        "violated_caps": [
+          "cash_reserve"
+        ],
+        "reference_close_q": 800,
+        "reference_close_rank": 1,
+        "allocation_phase": "EVENT",
+        "event_id": "A|2024-09-03",
+        "frozen_econ_q": 800,
+        "attempt_budget": "24000",
+        "stock_cap": "320000.00",
+        "cash_reserve": "0",
+        "reference_cap": "Infinity",
+        "event_cap": "24000.000"
+      }
+    },
+    {
+      "name": "below_frozen_econ_capacity_cancels_whole_seed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "actual_event_remaining_cap_not_CLOSE_price_cap",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "same_priority_batch_multiple_representatives_stay_EVENT",
+      "status": "PASS",
+      "detail": 2
+    },
+    {
+      "name": "empty_J_event_seed_can_execute",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "actual_reservation_deducted_before_lambda",
+      "status": "PASS",
+      "detail": "8009.00000"
+    },
+    {
+      "name": "cold_start_UNKNOWN_chain_not_invented",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "cold_start_old_birth_and_TRUE_B_identity",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "existing_request_event_id_not_reassigned",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "unobservable_OPEN_does_not_consume_priority",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "used_priority_old_ticket_cannot_reenter_EVENT",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "event_plus_attempt_failure_not_retainable",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "zero_reference_real_attempt_consumes_priority_retains_identity",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "high_OPEN_under_true_caps_no_quantity_increase",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "real_run_loop_restores_all_new_state_and_logs",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "insufficient_core_budget_never_forces_core_sale",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "larger_economic_seed_core_equivalent_exact_not_entire_ADD",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "confirmed_nonM_seed_current_role_mobile_but_UNKNOWN_frozen",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "actual_T1_lot_excluded_from_new_mobile_role",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "receivable_not_donor_cash_or_reference_budget",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "higher_OPEN_cannot_expand_CLOSE_donor_qty_to_fund_seed",
+      "status": "PASS",
+      "detail": {
+        "maxq": [
+          10800
+        ],
+        "sold": [
+          10800
+        ],
+        "buy_reason": "MIN_LOT_CAPITAL_REJECT:cash_reserve"
+      }
+    },
+    {
+      "name": "historically_confirmed_now_seed_only_known_FALSE_exit",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "unknown_event_cannot_enter_via_MATURE_seed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "M_TRUE_E_zero_cannot_enter_via_EVENT",
+      "status": "PASS",
+      "detail": null
+    }
+  ],
+  "historical_runs": 0,
+  "limitations": "Fabricated bounded market inputs. Actual Engine methods called, not a historical run or full suite substitute."
+}

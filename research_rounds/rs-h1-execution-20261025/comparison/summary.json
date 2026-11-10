@@ -1,0 +1,10 @@
+{
+  "recorded_at": "2026-10-25T02:35:21.373727+08:00",
+  "paired_accounts": 12,
+  "annual_winner_windows": 240,
+  "old_results_read_only": true,
+  "formula_revisions_after_results": 0,
+  "component_attribution": "Joint repair only; no RS-only or TTL-only causal effect estimate",
+  "delay_comparison": "Delay1 requires daily fresh reranking; old persistent-order wait clock differs",
+  "source": "2026-10-24T18:08:22.871351+00:00"
+}

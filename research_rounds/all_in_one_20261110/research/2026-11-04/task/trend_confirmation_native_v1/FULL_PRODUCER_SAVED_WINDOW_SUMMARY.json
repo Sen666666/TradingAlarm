@@ -1,0 +1,181 @@
+{
+  "scope": "Producer saved daily/result/timing read only; no rerun, not independent financial or formula verification",
+  "runs": {
+    "long": {
+      "actual_end": "2024-12-31",
+      "actual_days_each": {
+        "B": 726,
+        "UNIFORM50": 726,
+        "A_ONLY": 726,
+        "A_OR_B": 726
+      },
+      "annual_actual_days": {
+        "2022": {
+          "B": 242,
+          "UNIFORM50": 242,
+          "A_ONLY": 242,
+          "A_OR_B": 242
+        },
+        "2023": {
+          "B": 242,
+          "UNIFORM50": 242,
+          "A_ONLY": 242,
+          "A_OR_B": 242
+        },
+        "2024": {
+          "B": 242,
+          "UNIFORM50": 242,
+          "A_ONLY": 242,
+          "A_OR_B": 242
+        }
+      },
+      "year_end_NAV": {
+        "2022": {
+          "B": {
+            "day": "2022-12-30",
+            "NAV": "704487.8470098769005"
+          },
+          "UNIFORM50": {
+            "day": "2022-12-30",
+            "NAV": "732699.2583246682885"
+          },
+          "A_ONLY": {
+            "day": "2022-12-30",
+            "NAV": "680929.3292694790700"
+          },
+          "A_OR_B": {
+            "day": "2022-12-30",
+            "NAV": "700793.6950052336315"
+          }
+        },
+        "2023": {
+          "B": {
+            "day": "2023-12-29",
+            "NAV": "745426.9583780900535"
+          },
+          "UNIFORM50": {
+            "day": "2023-12-29",
+            "NAV": "717124.4123031470135"
+          },
+          "A_ONLY": {
+            "day": "2023-12-29",
+            "NAV": "669203.3435434917855"
+          },
+          "A_OR_B": {
+            "day": "2023-12-29",
+            "NAV": "708077.7813791077550"
+          }
+        },
+        "2024": {
+          "B": {
+            "day": "2024-12-31",
+            "NAV": "637989.6123510238600"
+          },
+          "UNIFORM50": {
+            "day": "2024-12-31",
+            "NAV": "635944.2056851491210"
+          },
+          "A_ONLY": {
+            "day": "2024-12-31",
+            "NAV": "570660.6838694761625"
+          },
+          "A_OR_B": {
+            "day": "2024-12-31",
+            "NAV": "599709.0349108736675"
+          }
+        }
+      },
+      "ending_NAV": {
+        "B": "637989.6123510238600",
+        "UNIFORM50": "635944.2056851491210",
+        "A_ONLY": "570660.6838694761625",
+        "A_OR_B": "599709.0349108736675"
+      },
+      "source_post_exact": true,
+      "timing": {
+        "completed": true,
+        "input_seconds": 121.74372562486678,
+        "total_seconds": 1641.1018357500434,
+        "event_loop_seconds": 1463.0598520422354
+      },
+      "raw_path": "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_native_v1/full-long-v1",
+      "source_manifest_SHA256": "5b1ff5e1408703e15e8c9725e12050f82c53557544beb87fa6f4a0874ac9cc57"
+    },
+    "strong": {
+      "actual_end": "2026-06-30",
+      "actual_days_each": {
+        "B": 242,
+        "UNIFORM50": 242,
+        "A_ONLY": 242,
+        "A_OR_B": 242
+      },
+      "annual_actual_days": {
+        "2025": {
+          "B": 126,
+          "UNIFORM50": 126,
+          "A_ONLY": 126,
+          "A_OR_B": 126
+        },
+        "2026": {
+          "B": 116,
+          "UNIFORM50": 116,
+          "A_ONLY": 116,
+          "A_OR_B": 116
+        }
+      },
+      "year_end_NAV": {
+        "2025": {
+          "B": {
+            "day": "2025-12-31",
+            "NAV": "1409216.4623292796085"
+          },
+          "UNIFORM50": {
+            "day": "2025-12-31",
+            "NAV": "1298210.6666525690755"
+          },
+          "A_ONLY": {
+            "day": "2025-12-31",
+            "NAV": "1417289.1668393610565"
+          },
+          "A_OR_B": {
+            "day": "2025-12-31",
+            "NAV": "1354103.8113352133745"
+          }
+        },
+        "2026": {
+          "B": {
+            "day": "2026-06-30",
+            "NAV": "2263281.2309753297565"
+          },
+          "UNIFORM50": {
+            "day": "2026-06-30",
+            "NAV": "1866047.4522510267130"
+          },
+          "A_ONLY": {
+            "day": "2026-06-30",
+            "NAV": "2179473.5231704846035"
+          },
+          "A_OR_B": {
+            "day": "2026-06-30",
+            "NAV": "2129649.0201846255770"
+          }
+        }
+      },
+      "ending_NAV": {
+        "B": "2263281.2309753297565",
+        "UNIFORM50": "1866047.4522510267130",
+        "A_ONLY": "2179473.5231704846035",
+        "A_OR_B": "2129649.0201846255770"
+      },
+      "source_post_exact": true,
+      "timing": {
+        "completed": true,
+        "input_seconds": 40.94163679191843,
+        "total_seconds": 539.7860619588755,
+        "event_loop_seconds": 462.27688324963674
+      },
+      "raw_path": "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_native_v1/full-strong-v1",
+      "source_manifest_SHA256": "924f855a3589a5860c2ddc7011eed9defe5987439ae106c0bf154eafe686455b"
+    }
+  }
+}

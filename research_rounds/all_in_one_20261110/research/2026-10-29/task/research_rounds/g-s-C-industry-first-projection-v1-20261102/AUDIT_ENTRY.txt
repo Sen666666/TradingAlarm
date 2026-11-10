@@ -1,0 +1,11 @@
+审计入口：C_INDUSTRY_FIRST，只有合成与两个固定快照条件目标，0金融事件。
+先读REPORT.txt、AUTHORIZATION_AND_FREEZE.json、COMPLETION.json。
+C仅深拷贝并替换lots.rank_key/demands.priority；同一冻结B.solve_B和JF2.validate，原保护/费用/资源/receipt完全不变。c_selector.transform有逐字段回原断言；原B73文件完整SHA复核。
+合成命令：/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B test_c_selector.py（在本目录）。17/17；原失败与仅fixture修复保留。
+两个原C投影的跨进程复算结果在results/*/RESTORED.json；不可把run.py当新经济路径，它拒绝覆写已完成C结果。
+如独立复算：python -B c_selector.py inputs/<window>.json <该文件AUTHORIZATION中SHA> results/<window>/C.json <新的审计结果路径>，window仅2025_26/2022。这是纯目标重算，不创建账户。
+完整fresh分母94/29见report/*-FULL_FRESH_B_C；逐股净目标/减量见ALL_MOBILE_TARGETS，行业分解见INDUSTRY_WEIGHTS，逐阶段全部限制残差见results/*/C.json.validation.checks。
+A仅CLOSE参考在report/SUMMARY.json中单列。真实原A9/16退出未改；Jan6创维实际待卖100与C新增100冲突，因此投影不可提交。
+2026两日保留全部90行业及8/61只原市场扩张候选顺序。无本G/S账户/完整费率与日期化数量规则，C/B数值容量均未计算，不伪造空户或来源。
+断线prepare未重跑：落盘成功标记/原子freeze/所有input及源SHA已核；旧session无法重挂不等于重新执行。报告导出一次generic prepare模块误导入已单独保留，未重跑C。
+本轮不读未来评价选目标，不新增阈值/参数，不接金融runner；结果待独审，不能当收益或策略晋升。

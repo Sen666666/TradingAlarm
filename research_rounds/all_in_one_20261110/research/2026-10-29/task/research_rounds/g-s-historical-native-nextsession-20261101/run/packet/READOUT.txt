@@ -1,0 +1,31 @@
+2025_26 2025-07-03
+  Opening inherited intents 245; actual reservations/buy fills 7/7; no reservation 238.
+  Actual sells 3; net settled sale cash 130029.6656863279500; all old duties CP1_old_line_exit.
+  Buy gross by role {'mobile': '153994.959000', 'core': '136.068000'}; by authorization purpose {'S': '151499.712000', 'G': '2495.247000', 'T': '136.068000'}; total cash incl fees 154191.1373065307000.
+  Close NAV 998033.5626206666500; available 183062.5626206666500; exposure 81.6577%; max industry 7.1908%.
+  Purpose weights {'S': '81.3492%', 'G': '0.2949%', 'T': '0.0136%'}; S is multi-industry, not one-theme 80%.
+  Passive overnight old inventory 5526.00; active bought/sold opening mark value 154054.00/130199.00; passive open-to-close 2560.00.
+  Outstanding next-session funding exits 16; future unreserved intents 243. Same-day new stocks requested for partial/full funding reduction: [{'sid': '600331.SH', 'layer': 25, 'remaining_shares': 200, 'reasons': ['actionable_S_funding'], 'earliest_at': '2025-07-04 09:30:00+08:00'}, {'sid': '600888.SH', 'layer': 26, 'remaining_shares': 100, 'reasons': ['actionable_S_funding'], 'earliest_at': '2025-07-04 09:30:00+08:00'}, {'sid': '000737.SZ', 'layer': 21, 'remaining_shares': 200, 'reasons': ['actionable_S_funding'], 'earliest_at': '2025-07-04 09:30:00+08:00'}, {'sid': '600901.SH', 'layer': 23, 'remaining_shares': 700, 'reasons': ['actionable_S_funding'], 'earliest_at': '2025-07-04 09:30:00+08:00'}].
+  Source actions 17, positive pre-action held quantities 0, declared cash payments 0.
+
+2022 2022-01-06
+  Opening inherited intents 136; actual reservations/buy fills 2/2; no reservation 134.
+  Actual sells 0; net settled sale cash 0; all old duties CP1_old_line_exit.
+  Buy gross by role {'mobile': '58511.241000'}; by authorization purpose {'S': '58511.241000'}; total cash incl fees 58528.1331952767000.
+  Close NAV 998252.7829094260500; available 122047.7829094260500; exposure 87.7739%; max industry 4.1079%.
+  Purpose weights {'S': '84.9115%', 'T': '2.8624%'}; S is multi-industry, not one-theme 80%.
+  Passive overnight old inventory -4989.00; active bought/sold opening mark value 58482.00/0; passive open-to-close 9565.00.
+  Outstanding next-session funding exits 9; future unreserved intents 155. Same-day new stocks requested for partial/full funding reduction: [].
+  Source actions 0, positive pre-action held quantities 0, declared cash payments 0.
+
+Scope and remaining coverage:
+- Exactly one new financial session per saved account. No old two-day finance replay; no Jul4 or Jan7-or-later event.
+- All 9 new buy fills are first actual participation; no add or actual-flat reentry is demonstrated.
+- Financial checks use the original Decimal/native inventory/fees/settlement ledger and designated layer exit interface. Close bridges and lot mapping are checked, not forced equal through an arbitrary NAV residual.
+- Capacity mainly uses inherited market-warm mature S permissions; this does not prove account-funded trial-to-maturity. Origin purpose and current holding support are separate fields in report-v2.
+- No positive held split/dividend entitlement or declared payment occurred. Source action identities (including zero-position split events) are retained; unknown pay/sellability dates retain original research proxy.
+- ACT incident/unlock, pending buy support fallback, partial exit, repeated unfilled funding, and unsupported fractional or multi-layer funding cases are not newly exercised by these added real sessions.
+- The 4 same-day new buys subsequently requested for allocation funding are an actual turnover concern, not silently corrected. Their requested quantities are explicit and no next-session sale is assumed.
+- Existing raw daily-window H/L/C/volume proxy and current-snapshot stock universe limitations remain; no live executability or profitability claim.
+- Analysis v1 failed on duplicate eid keyword while serializing locks; source and stderr retained. Only the read-only analysis was fixed; financial checkpoint SHA stayed unchanged.
+- Pending next-session intents and funding requests are unexecuted, not failed trades. Stop for independent audit.

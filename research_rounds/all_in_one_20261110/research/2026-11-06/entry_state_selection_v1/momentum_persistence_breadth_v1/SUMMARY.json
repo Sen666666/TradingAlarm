@@ -1,0 +1,16 @@
+{
+  "status": "COMPLETE_SIGNAL_BREADTH_ONLY",
+  "seconds": 17.93992366688326,
+  "stocks": 1709,
+  "industries": 90,
+  "dates": 1085,
+  "stockdays": 1854265,
+  "known3": 1692953,
+  "right3": 439602,
+  "native_sign_checks": 3942029,
+  "native_sign_differences": 0,
+  "exact_physical_prefixes": 5127,
+  "account_runs": 0,
+  "parameter_searches": 0,
+  "sources_unchanged": true
+}

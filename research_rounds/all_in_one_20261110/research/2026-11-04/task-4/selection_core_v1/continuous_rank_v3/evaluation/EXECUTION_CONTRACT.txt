@@ -1,0 +1,13 @@
+执行根 ../FROZEN_DESIGN.txt 与 ../ATT_ORIGINAL_BASELINE_ADDENDUM.txt。此处不新增排名、权重、K、资格门或资金方案。
+准备阶段只读旧97,650行业日/1085共同会话及已存future5/20标签；未读取v3新排名结果。得到根冻结与正式ranking文件后才执行评价。
+70/30资金方案撤回。A5/E3并集与同日同C_t同实际N的旧H1、新探索D比较；ATT只在源可用2025-07-01..2026-06-30的242会话补充窗，不能跨分母与主359会话窗混比。
+C_t只由T时A/E/D/H1输入known决定，不用未来标签重选。C外共同排名flag保持unknown，不能伪造资格退出；原生/共同母体名单分别保留和解释。
+主未来尾是在T的C_t里future20相对MFE known者的midpercentile>=.90且MFE>0；absMFE与relative FINAL同式辅诊断。按冻结保所有数学ties，不使用fraction边界或sid挑未来赢家。
+H为空，coverage未知；precision分母“已选且该labelknown”>0时可为0，另列tail_empty。每日coverage均值与sum(hits)/sum(H)同时列，precision亦单列，不混分母。
+相对/绝对final、MFE、MAE的主期限20，5日为既有辅助；不重算价格，不将价格路径/期望尾部当可实现收益、行业组合、总回报或账户净收益。
+absolute/relative final<=0暴露同时给已选known行业日比例与每日比例均值；不根据未来标签补足名单或删掉难例。
+周末依据完整CSI真实会话日历确定每ISO周末日。2024Dec31不是当周实际周末，不能以行政阶段最后一天冒充；2026Jun30所在周真正周末榜不在decision窗，单列行政窗末周右删失。
+每主阶段首个可观察真实周末比较unknown。周换手=symdiff/(Nold+Nnew)，两名单均空unknown；同时列Jaccard/进入/离开。每日同式辅助，不把名单变化解释成实际交易成本。
+日名单True段沿固定阶段截取，头True左删失、末True右删失、unknown止段为数据删失，A/E换标签但并集仍True不重入。完整段报<=1/3/5段比例及有效日质量，原生/共同母体分开。
+按2022–23、2024、2025–26H1及自然年/月全列，不看后挑行情。后两段只是时间外探索，非真正盲样本。不做IID推断。
+纯评价helper evaluation_core.py导入无I/O、无排名/模型/账户计算；正式runner待ranking schema落地。

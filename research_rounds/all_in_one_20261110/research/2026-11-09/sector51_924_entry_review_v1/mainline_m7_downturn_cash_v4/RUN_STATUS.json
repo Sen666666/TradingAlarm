@@ -1,0 +1,23 @@
+{
+  "days": 22,
+  "orders": 812,
+  "blockers": [
+    "2024-10-11 301087.SZ UNADMITTED_EQUITY_EVENT"
+  ],
+  "last": {
+    "day": "2024-10-10",
+    "cash": "183750.6778122347440",
+    "receivable": "0.00000",
+    "market_value": "1242360.26",
+    "NAV": "1426110.9378122347440",
+    "net_liquidation_NAV": "1424373.4105595720770",
+    "stocks": 73,
+    "shares": 47866,
+    "weight_pct": "87.11526060559337720268993232",
+    "fees_paid": "6351.3292677652560"
+  },
+  "prefix_1008_pass": true,
+  "prefix_1009_pass": true,
+  "planned_end": "2024-10-31",
+  "completed_horizon": false
+}

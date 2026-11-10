@@ -1,0 +1,41 @@
+FEATURE_PROGRESS 300 7.1
+FEATURE_PROGRESS 600 13.9
+FEATURE_PROGRESS 900 20.4
+FEATURE_PROGRESS 1200 27.0
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/closed_price_supervised_pilot_support_v1/run_pilot.py", line 210, in <module>
+    {"prepare":prepare,"fit":fit,"evaluate":evaluate}[sys.argv[1]]()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/closed_price_supervised_pilot_support_v1/run_pilot.py", line 90, in prepare
+    r.to_parquet(O/"ALL_ORIGINAL_PRICE_ROWS.parquet",index=False)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bytedance/Library/Python/3.13/lib/python/site-packages/pandas/core/frame.py", line 3135, in to_parquet
+    return to_parquet(
+        self,
+    ...<7 lines>...
+        **kwargs,
+    )
+  File "/Users/bytedance/Library/Python/3.13/lib/python/site-packages/pandas/io/parquet.py", line 490, in to_parquet
+    impl.write(
+    ~~~~~~~~~~^
+        df,
+        ^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/bytedance/Library/Python/3.13/lib/python/site-packages/pandas/io/parquet.py", line 191, in write
+    table = self.api.Table.from_pandas(df, **from_pandas_kwargs)
+  File "pyarrow/table.pxi", line 4777, in pyarrow.lib.Table.from_pandas
+  File "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/lib/python3.13/site-packages/pyarrow/pandas_compat.py", line 658, in dataframe_to_arrays
+    arrays = [convert_column(c, f)
+              ~~~~~~~~~~~~~~^^^^^^
+  File "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/lib/python3.13/site-packages/pyarrow/pandas_compat.py", line 643, in convert_column
+    raise e
+  File "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/lib/python3.13/site-packages/pyarrow/pandas_compat.py", line 637, in convert_column
+    result = pa.array(col, type=type_, from_pandas=True, safe=safe)
+  File "pyarrow/array.pxi", line 414, in pyarrow.lib.array
+  File "pyarrow/array.pxi", line 97, in pyarrow.lib._ndarray_to_array
+  File "pyarrow/error.pxi", line 92, in pyarrow.lib.check_status
+pyarrow.lib.ArrowInvalid: ("Could not convert '2024_924' with type str: tried to convert to int64", 'Conversion failed for column window with type object')

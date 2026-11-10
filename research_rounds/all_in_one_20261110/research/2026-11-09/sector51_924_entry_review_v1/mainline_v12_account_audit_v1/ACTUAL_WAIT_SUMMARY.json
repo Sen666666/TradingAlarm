@@ -1,0 +1,11 @@
+{
+  "events": 1839,
+  "unique_original_opportunities": 699,
+  "outcomes": {
+    "FUNDING_NONDISPLACEMENT_WAIT": 1826,
+    "MIN_LOT_CAPITAL_REJECT:attempt_budget": 13
+  },
+  "eventually_filled_by_end": 1,
+  "eventually_filled_actual_PnL": "-1181.174577170000",
+  "never_filled_by_end": 698
+}

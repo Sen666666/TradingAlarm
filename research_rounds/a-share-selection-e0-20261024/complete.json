@@ -1,0 +1,24 @@
+{
+  "completed_at": "2026-10-25T00:52:26.829706+08:00",
+  "state": "complete",
+  "valid_economic_accounts": 13,
+  "prior_invalid_incomplete_accounts_started": 13,
+  "technical_prefix_replays": 12,
+  "account_days_independently_reconciled": 37258,
+  "algorithm_changes": 0,
+  "new_live_trades": 0,
+  "automatic_next_accounts": 0,
+  "report_url": "http://127.0.0.1:8781/",
+  "verdict": "reject_current_S0_extension; no promotion S1; T1 limited clue only",
+  "files": {
+    "README.md": "a723843d5002a04e544f5866a08f5b3c7a96ed8836c073471fd1e90acc00156e",
+    "RUN_STATE.md": "02c8717d4ee02044848574b8d7dc0e031a1ed62b75a25d83d8beaaf3f27d4691",
+    "audit/data-closeout-v2.json": "f949ee8954a61629ad3f428e2a4f272019b3b57fe65c77efbfbadd29af34513e",
+    "analysis-v2/summary.json": "67d15ab9425e03cf66d0f7d7098b249023db627c6215e69c67f6ed81af021589",
+    "analysis-v2/independent-accounting.json": "d904f5be8e076c9c9877b547aaba26d5b4b6ebdbe79d58bfb3a16e49a305f355",
+    "analysis-v2/conclusion.json": "017a3b2bd13452cfaadf39902f07164696f5f3d2910096451c3ccbfe2f4bc39a",
+    "accounts-v2/provenance.json": "b60a68407d91ba24054c2288b2a6378e938950f359fc7da6e187b52e38778294",
+    "report-v2/provenance.json": "91d7721ee817c5343c40d4c375bccbd7b1ba786f2fda5715fd429f3a665ac707",
+    "audit/report-final-qa.json": "8d4b4d9f136b4215df545a0bcfce864ad49d8aa0a043aed1e66cb79f073e519d"
+  }
+}

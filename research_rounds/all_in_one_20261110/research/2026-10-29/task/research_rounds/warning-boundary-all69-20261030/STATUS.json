@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-30T11:02:09.492213+00:00",
+  "status": "paused_before_economics_by_latest_user_instruction",
+  "completed": "all69 coverage and current-rule lifecycle review",
+  "economic_calculation_started": false,
+  "economic_calculation_completed": false,
+  "economic_result_files": [],
+  "pending_economic_work": "原A复用/局部B实际成交/normal-cost2差额均未运行，现暂停",
+  "new_version_or_threshold_change": false,
+  "follow_on_started": false,
+  "lifecycle_audit_completed": true,
+  "audit_path": "research_rounds/warning-boundary-all69-20261030/DESIGN_LIFECYCLE_AUDIT.txt",
+  "remaining_design_decisions": [
+    "risk_target_vs_trend_failure",
+    "first_warning_only_lifecycle",
+    "frozen_RMS63_sqrt5_scope",
+    "execution_and_missing_data_contract_scope"
+  ],
+  "audit_sha256": "c69f5d7fbac10d6b529ecc35ce939f1b5b585a3108b3a0d12d6a7532d8075093",
+  "execution_or_connection_blocker": false
+}

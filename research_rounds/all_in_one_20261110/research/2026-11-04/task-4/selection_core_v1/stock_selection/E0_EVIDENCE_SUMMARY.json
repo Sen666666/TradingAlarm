@@ -1,0 +1,14 @@
+{
+  "rows": 5127,
+  "source_native_comparable": 4743,
+  "source_native_target_segment_mismatch": 0,
+  "START_saved_evidence": 711,
+  "event_types": {
+    "NO_START_EVIDENCE_TODAY": 4032,
+    "FIRST_DOMAIN_START_NATIVE_TARGET_0_TO_1": 514,
+    "UNKNOWN_SOURCE_OR_NATIVE_EQUIVALENCE": 384,
+    "IN_VALID_DOMAIN_POSITIVE_STRUCTURE_EVENT": 197
+  },
+  "seconds": 14.499564083758742,
+  "model_account_runs": 0
+}

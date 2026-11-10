@@ -1,0 +1,15 @@
+{
+  "scope": "pure potential necessary price certificates only",
+  "before_event_extraction": true,
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/inputs/510300_history.csv": "fb6754b16fbfecb02bdb2fc9ff7e34546640009d268fc6b7896fd511530b8e41",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/INPUT_FREEZE.json": "f61be5667fcde7d695662d44f64546b7e006f5369470aee9712af9cdf98fb825",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/ma63_recovery_chain_v1/DAILY.csv": "2bd8ecec4dffee68e89b16d899f5f44a9b38d654bffb1ffe3239c8c8edc91f72",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/ma63_recovery_chain_v1/ALL_EPISODES.json": "ab44f8949e23ff11fc0a2a7f2881f8e5104aa1239e24468364c9628af51c9c88",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/ma63_incremental_rights_card_v1/H_RECOVERY_MA63_NEW20_NECESSARY_CARD.txt": "56f180b0a88e92cc97bad625ffb9d7dce703fdd7edbfa64e83f3a4769ff12713",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_h_certificate_events_v1/build_events.py": "2983b29d4039fbac13cee500b18767e6af1a2c9eec9b4948bd329c2b19f172bc",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ma63_h_certificate_events_v1/CARD.txt": "0bb891e33b729af5328be17fc8916eec63b803015f3288e559d0f8f04edfae1c"
+  },
+  "account_or_riskledger_or_H_calendar_inputs": false,
+  "TR_or_MA_recomputed": false
+}

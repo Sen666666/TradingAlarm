@@ -1,0 +1,7 @@
+当前任务完成，主研究继续。两条唯一成功连续机制路径A/B已落盘；不是被挑选股池策略绩效。
+真实机制：能源/军工Q4/油气实际可扩张，新资金进入；银行也扩仓后亏，军工Q1旧仓回吐，无主线识别未证明。A/B收益2.57/12.53%，DD1.04/3.33%，平均曝险4.56/23.86%，不能称预测alpha。
+工程：原三SHA/15纯测试、原off/prefix、6ledger及10joint通过。364账户日NAV/现金/股数/占用严格对账，退出43/98、同股票原E0 mobile再入0/3。模型fill/sell未用，ledger权威一次成交。
+已修接口：满成native cancel回调须defer到fill镜像后ack；core开盘只用上一决策known floor，I失效待卖显式last reference。失败产物保留，不属于有效政策结果。v2源不改。
+风险与数据边界：5行业77股事后fixture、当代snapshot历史污染；日线HL量能成交后验代理；应收分红unknown paid_at不花；实际无split，合成镜像split已验；ACT本段零暂停，不能称暂停交互历史验证。旧probe跨attempt仍占用，不以新阶段洗掉损耗。
+产物FINAL_REPORT、KEY_ADAPTER_FUNCTIONS、PAIR_FREEZE/DONE、JOINT_GATE、FINAL_ACCOUNT_VERIFICATION、SIX_CASE_BEHAVIOR、pair逐日/交易与3checkpoint。
+不自动加门槛/新阶段/新策略/全市场矩阵或实盘，交主审决定下一证据门。

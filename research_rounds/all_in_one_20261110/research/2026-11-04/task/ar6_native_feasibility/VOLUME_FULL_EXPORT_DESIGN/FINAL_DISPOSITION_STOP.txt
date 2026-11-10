@@ -1,0 +1,27 @@
+最终状态：停止本同池全1799导出/接线方向，不列待自动GO。
+root于2026Nov4约11:38 UTC按parent最新指令停止：full worker/controller后续开发、1799批量、ACT neutral续跑、为1e-16解析差异写v2/重跑均不执行。旧卡60分钟/6worker只是未执行预算提案，不是保留中的运行许可。现存pure assembler、输入、代码、strict停点、CSV和失败记录全部保留，不覆盖。
+
+已完成范围
+1 三固定fixture（000001/300001/688001及其原行业）全warm真量facts/I/q/CP1逐值核旧缓存，中性薄装配及18次NEUTRAL物理前缀通过独审。PVR核所有存在的13/21/21八字段点和每股968策略日score；其余warm没有旧8列输出参考。未执行REAL额外物理前缀。
+2 独立F1原函数真实冷算（同fixture，不是第4样本）6.836秒，股票3271/银行4563行及现存PVR点精确；与ownerF1原始表只读核同。
+3 仅同3行业的pureStage技术门通过：真量旧state/已有receipt身份、neutral自身E0 episode和3次Sep23物理前缀；没有90行业批量。第一次漏标准库collections失败与获准依赖修复保留。
+4 完整1799薄卡/来源/元数据清单准备；原1709+90输入齐，4,414,361warm观察及22空域NA明确。薄worker只有受future grant锁定的单item入口，controller仅ACT入口，未提供或启动1799调度。模型/scoremanifest/grant等原本full前的binding缺口不再为本分支继续扩工程。
+5 唯一ACT真实共享门23.35秒，原compute_recovery/原1709顺序与输入。原运行时默认CSV parser相对raw cold存在M272/priorhigh187/breadth899行1e-16差，按strict门停止；fast/br零差。冷算写出CSV与原文件字节完全相同，round_trip读值也全同。没有tolerance、没有拷旧M、没有将首NOT_PASSED改PASS，没有中性ACT或自动retry。
+
+耗时必须分开
+小卡设计约10:50→root正式停止约11:38，活动墙钟约48分钟；包括源阅读、薄装配、失败定位、独审协作/归档，不可冒充模型CPU。已记录计算/检查进程墙钟求和：三fixture69.01953秒，3Stage首失败+依赖修复4.55137秒，ACT首门23.34976秒，共96.92066秒；另独立F1 6.83592秒，合约103.75658秒。没有精确逐秒记录全部人工式准备/工具/独审耗时，不伪造拆分。模型秒数小而接线工作占主导，且主亏损覆盖尚无新证据，是停止扩工程的原因。
+
+真正的缺口
+没有raw/manifest下载缺口，不能以“还缺全1799数据”解释研究未完成。当前A-only存续快照/PIT/执行和权益代理限制不变，港股未覆盖。
+尚缺的是全母体证据：1799 neutral输出未生成，2265+1171原买入/重入和原fixed83/94在neutral完整日期流上的许可保留/新增/撤回/赢家误伤没有量化；3样本信号改变不能证明量提供买入质量或减少L03/L04/Oct后主损耗。ACT neutral与90行业neutral Stage未全域验证。以上是未验证范围，不是必须继续接线的授权或算法已失败的证明。
+本分支保留可复用pure assembler和语义证据，返回主损耗直接算法检验；不能因代码存在或旧预算提案自动启动big批。
+
+现存产物/审查入口
+risk_constraints/volume_feature_fixtures_v1及verification_fix_v2：两版冻结、失败、6REAL/6NEUTRAL、18NEUTRAL prefix、mechanical readout。
+independent_review/VOLUME_THREE_FIXTURE_COMPLETED_AUDIT.json；VOLUME_FULL_EXPORT_DESIGN_AUDIT.json为0执行卡审，非fullgrant。
+ar6_native_feasibility/VOLUME_SOURCE_READINESS/F1_REAL_COLD：独立原函数冷算及scope/owner raw核同。
+risk_constraints/industry_stage_interface_v1：3行业技术门/依赖修复，非90批量。
+ar6_native_feasibility/VOLUME_ACT_SHARED_GATE_V1：首strict门完整CSV/parquet/解析差异/roster/源后SHA收据；neutral0/fullworkers0。
+ar6_native_feasibility/VOLUME_FULL_FEATURES_V1_CODE：冻结的未完成薄controller/guarded worker/ACT输入manifest，不修改、不宣称full ready。
+
+停止后只补本说明、耗时metadata与现存文件hash交独审；没有新模型、代码或金融事件。

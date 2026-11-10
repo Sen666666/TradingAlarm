@@ -1,0 +1,49 @@
+Completed and stopped: ONLY the two original 2025 C10 / C_BATCH20 accounts through Jul31.
+2022 accounts remain Jan12. No Aug1 event or rights-issue event was executed.
+
+Financial invocation actually executed once per account:
+  python -B run_month.py --window 2025_26 --mode C10 --grant grants/003_2025_July_end.json
+  python -B run_month.py --window 2025_26 --mode C_BATCH20 --grant grants/003_2025_July_end.json
+The source run_month/month_runtime and original policy/input identity stayed unchanged.
+Own Jul9 checkpoints retained all inventory, duties, cash, budget, goals, receipts and ACT;
+execution_grant_history explicitly binds the new permission without resetting economic state.
+The 12 old mutable 2025 endpoint metadata files were archived before advancing, under
+../archives/grant002/ARCHIVE_MAP.json. Old event checkpoint/provenance files remain immutable.
+
+Do NOT rerun financial commands or continue beyond the authorized cutoff.
+Read-only reproduction from the parent month directory:
+  python -B analyze_july.py
+  python -B read_market_chain.py
+  python -B report_july.py
+These read saved states/sources and restore/check existing terminal checkpoints only.
+No indicator recomputation, new selection parameters, or account events.
+
+REPORT.txt: complete July results and limitations, includes unfavorable tradeoffs.
+RESULTS.json: net actual sales, net remaining inventory, dividends, closed/open contributions,
+role/pool/first-add-reentry denominators, ACT, funding turnover and same-open roundtrips.
+ALL_LAYERS / ALL_SALE_PARTS: every actual buy-to-sell/reentry path, no sample removal.
+ALL_STOCKS / ALL_SECTORS: every funded identity, actual capital, realized/unrealized and peak weight.
+DAILY: every original Jul1-Jul31 close, NAV/DD/exposure, active buys/sells vs valuation changes.
+EVENTS: saved-event flows, original carry/new budget and cash available before/after.
+MARKET_SECTORS: all90 original sector reference prices Jul1 close to Jul31 close;
+this is NOT June30 month-start return, PIT market universe, or a future allocation rule.
+ENGINEERING_PRICE_CHAIN: source price/breadth and actual as-of F1 states at fixed case checkpoints.
+ACCOUNTING_DIFFERENCES: all-stock/all-sector C20-C10 sums exactly to NAV difference,
+not individual-trade counterfactual causality.
+VERIFICATION: 96 new states x 7 checks plus 24 hash-identical reused audited states; two
+terminal complete observable restorations including source/grant identity.
+CONTINUATION_CHECKPOINTS: exact immutable Jul31 endpoints, require a later explicit grant/import.
+PRIOR_PREFIX_VERIFICATION: original214 artifact hashes preserved (mutable metadata via archive),
+both2022 endpoint hashes unchanged. No earlier paths rerun.
+
+Financial semantics: actual sale PNL allocates original buy fees and actual sell fees;
+residual unrealized is mark less remaining buy cost, without hypothetical exit fees.
+Booked unpaid dividends remain receivables and never become spendable cash.
+Open-layer contribution includes realized partial sales/dividends; it is NOT unrealized PNL.
+Inventory valuations reuse original native as-of marks; journal checks are independent cashflow
+reconstructions, not independent market-price feeds.
+
+No live/production changes. Current-snapshot non-PIT mappings, daily OHLC/volume execution proxy,
+unknown payment/sellability proxies and still-unsupported rare branches remain research limits.
+Both accounts lost money despite 82/90 reference industries rising under this descriptive interval.
+Do not promote C20 solely because it lost less, or retroactively filter the engineering case.

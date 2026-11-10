@@ -1,0 +1,19 @@
+{
+  "status": "isolated_new_policy_2x2_complete",
+  "new_policy_not_bugfix": true,
+  "tests": 11,
+  "tests_passed": true,
+  "old_18_not_claimed": true,
+  "old_cells_verified": 4,
+  "original_43_artifacts_unchanged": true,
+  "allocation_only_dates": [
+    "2023-01-20",
+    "2022-06-29"
+  ],
+  "cells_per_date": 4,
+  "no_financial_paths": true,
+  "no_real_submissions_or_fills": true,
+  "no_native_Account_progression": true,
+  "no_future_returns": true,
+  "full_ledger_execution_not_certified": true
+}

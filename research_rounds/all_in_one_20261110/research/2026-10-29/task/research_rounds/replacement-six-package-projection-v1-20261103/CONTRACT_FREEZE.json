@@ -1,0 +1,8 @@
+{
+  "contract_sha256": "1a7d09eee9e2ab4b0d262658f23f26e5d6c3b02c3bcf755d21c4b7404ac94515",
+  "matching_source_sha256": "5fa84554fd95e0b57c1f694db3d8424a2d25f09078882c09b201af07283c7817",
+  "input_manifest_sha256": "3f5c98d00df41d21c3511512d0fd9560655f7b2c8aee69a0b1f7505ab4b6f0af",
+  "financial_events": 0,
+  "six_package_projections_started": false,
+  "preflight_correction": "Explicit original C20 persistent budget guard handled separately; contract and inputs unchanged, no new package projections yet."
+}

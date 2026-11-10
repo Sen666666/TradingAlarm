@@ -1,0 +1,509 @@
+[
+  {
+    "window": "2022",
+    "arm": "ORIGINAL",
+    "original_ticket_count": 30,
+    "reserved_names": 4,
+    "reserved_sectors": 3,
+    "reserved_gross": "33452.718000",
+    "reserved_cash": "33475.6852560866000",
+    "nominal_risk": "5996.717999999998371472459037",
+    "fee_inclusive_risk": "6083.289657612998374058814249",
+    "buy_fees": "22.9672560866000",
+    "planned_stop_sell_fees": "49.87640152640000177209144490",
+    "weighted_buy_fee_pct": "0.06865587449904668433817545109",
+    "mean_order_buy_fee_pct": "0.4379407724404956353493193402",
+    "max_order_buy_fee_pct": "1.570589140429785107446276862",
+    "minimum_quantity_selected": 1,
+    "quota_below_minimum_count": 0,
+    "unfunded_count": 26,
+    "original_fee_adjusted_headroom": "3.167163719568628527540963",
+    "nominal_unspent_before_fee_adjustment": "3.282000000001628527540963",
+    "unused_cash": "1166524.3147439134000",
+    "unchanged_preallocation_NAV": "1200000",
+    "selected": [
+      {
+        "sid": "000876.SZ",
+        "name": "新 希 望",
+        "q": 1000,
+        "nominal_risk": "2608.389999999998217541735240"
+      },
+      {
+        "sid": "002100.SZ",
+        "name": "天康生物",
+        "q": 600,
+        "nominal_risk": "807.5159999999998431323854380"
+      },
+      {
+        "sid": "000810.SZ",
+        "name": "创维数字",
+        "q": 800,
+        "nominal_risk": "2564.652000000000310798338359"
+      },
+      {
+        "sid": "000592.SZ",
+        "name": "平潭发展",
+        "q": 100,
+        "nominal_risk": "16.16000"
+      }
+    ],
+    "all_original_q_exact": true,
+    "fills": 0
+  },
+  {
+    "window": "2024_924",
+    "arm": "ORIGINAL",
+    "original_ticket_count": 42,
+    "reserved_names": 5,
+    "reserved_sectors": 5,
+    "reserved_gross": "23756.782455",
+    "reserved_cash": "23783.3052647553655",
+    "nominal_risk": "5999.662455000001012334823100",
+    "fee_inclusive_risk": "6070.075607751670511257883146",
+    "buy_fees": "26.5228097553655",
+    "planned_stop_sell_fees": "35.01178299630399942922745533",
+    "weighted_buy_fee_pct": "0.1116431057345618986095985615",
+    "mean_order_buy_fee_pct": "0.8704790479730844552212983094",
+    "max_order_buy_fee_pct": "2.767460414019509582225461855",
+    "minimum_quantity_selected": 3,
+    "quota_below_minimum_count": 0,
+    "unfunded_count": 37,
+    "original_fee_adjusted_headroom": "0.204930951222160165176900",
+    "nominal_unspent_before_fee_adjustment": "0.337544999998987665176900",
+    "unused_cash": "1176216.6947352446345",
+    "unchanged_preallocation_NAV": "1200000",
+    "selected": [
+      {
+        "sid": "603626.SH",
+        "name": "科森科技",
+        "q": 600,
+        "nominal_risk": "2966.978999999999836186489169"
+      },
+      {
+        "sid": "688819.SH",
+        "name": "天能股份",
+        "q": 629,
+        "nominal_risk": "2844.900955000001117216254554"
+      },
+      {
+        "sid": "601222.SH",
+        "name": "林洋能源",
+        "q": 100,
+        "nominal_risk": "103.3505000000000421506249985"
+      },
+      {
+        "sid": "002636.SZ",
+        "name": "金安国纪",
+        "q": 100,
+        "nominal_risk": "78.34150000000000258868560610"
+      },
+      {
+        "sid": "300185.SZ",
+        "name": "通裕重工",
+        "q": 100,
+        "nominal_risk": "6.090500000000014192768771500"
+      }
+    ],
+    "all_original_q_exact": true,
+    "fills": 0
+  },
+  {
+    "window": "2022",
+    "arm": "FROZEN_PVR_NOMINAL_RISK_QUOTA",
+    "original_ticket_count": 30,
+    "reserved_names": 21,
+    "reserved_sectors": 14,
+    "reserved_gross": "69596.781000",
+    "reserved_cash": "69707.9542344747000",
+    "nominal_risk": "3470.871000000002376695328571",
+    "fee_inclusive_risk": "3792.062472052593872920766458",
+    "buy_fees": "111.1732344747000",
+    "planned_stop_sell_fees": "176.9552825778914974137855499",
+    "weighted_buy_fee_pct": "0.1597390466589252166705813592",
+    "mean_order_buy_fee_pct": "0.242121227464645748261409999",
+    "max_order_buy_fee_pct": "0.5251407902247223495690171443",
+    "minimum_quantity_selected": 6,
+    "quota_below_minimum_count": 9,
+    "unfunded_count": 9,
+    "original_fee_adjusted_headroom": "2528.573133827624123304671429",
+    "nominal_unspent_before_fee_adjustment": "2529.128999999997623304671429",
+    "unused_cash": "1130292.0457655253000",
+    "unchanged_preallocation_NAV": "1200000",
+    "selected": [
+      {
+        "sid": "002100.SZ",
+        "name": "天康生物",
+        "q": 100,
+        "nominal_risk": "134.5859999999999738553975730"
+      },
+      {
+        "sid": "600346.SH",
+        "name": "恒力石化",
+        "q": 100,
+        "nominal_risk": "229.1880000000003328487845890"
+      },
+      {
+        "sid": "002157.SZ",
+        "name": "正邦科技",
+        "q": 100,
+        "nominal_risk": "117.5100000000000115314167388"
+      },
+      {
+        "sid": "600720.SH",
+        "name": "中交设计",
+        "q": 100,
+        "nominal_risk": "119.5315000000000859733271726"
+      },
+      {
+        "sid": "002244.SZ",
+        "name": "滨江集团",
+        "q": 200,
+        "nominal_risk": "170.4840000000000199630585262"
+      },
+      {
+        "sid": "600820.SH",
+        "name": "隧道股份",
+        "q": 400,
+        "nominal_risk": "173.0880000000001550128417388"
+      },
+      {
+        "sid": "000034.SZ",
+        "name": "神州数码",
+        "q": 300,
+        "nominal_risk": "200.4479999999997291299066850"
+      },
+      {
+        "sid": "600777.SH",
+        "name": "新潮能源",
+        "q": 700,
+        "nominal_risk": "196.784000"
+      },
+      {
+        "sid": "000592.SZ",
+        "name": "平潭发展",
+        "q": 1200,
+        "nominal_risk": "193.92000"
+      },
+      {
+        "sid": "600339.SH",
+        "name": "中油工程",
+        "q": 600,
+        "nominal_risk": "204.9389999999999410310351952"
+      },
+      {
+        "sid": "600015.SH",
+        "name": "华夏银行",
+        "q": 1300,
+        "nominal_risk": "198.6790000000001643143329009"
+      },
+      {
+        "sid": "600528.SH",
+        "name": "中铁工业",
+        "q": 300,
+        "nominal_risk": "175.2390000000001374905276616"
+      },
+      {
+        "sid": "002458.SZ",
+        "name": "益生股份",
+        "q": 200,
+        "nominal_risk": "147.1220000000001255993837520"
+      },
+      {
+        "sid": "601916.SH",
+        "name": "浙商银行",
+        "q": 1600,
+        "nominal_risk": "194.8240000000002277735064928"
+      },
+      {
+        "sid": "600511.SH",
+        "name": "国药股份",
+        "q": 100,
+        "nominal_risk": "139.5664999999994867645629070"
+      },
+      {
+        "sid": "002797.SZ",
+        "name": "第一创业",
+        "q": 800,
+        "nominal_risk": "170.9199999999996844286224152"
+      },
+      {
+        "sid": "600598.SH",
+        "name": "北大荒",
+        "q": 100,
+        "nominal_risk": "101.7545000000000231453210980"
+      },
+      {
+        "sid": "688009.SH",
+        "name": "中国通号",
+        "q": 2287,
+        "nominal_risk": "165.8075000000027792937417605"
+      },
+      {
+        "sid": "002429.SZ",
+        "name": "兆驰股份",
+        "q": 800,
+        "nominal_risk": "145.9599999999997346914355560"
+      },
+      {
+        "sid": "002701.SZ",
+        "name": "奥瑞金",
+        "q": 300,
+        "nominal_risk": "154.0304999999999870010448074"
+      },
+      {
+        "sid": "601099.SH",
+        "name": "太平洋",
+        "q": 900,
+        "nominal_risk": "136.4894999999997768470810016"
+      }
+    ],
+    "all_original_q_exact": false,
+    "fills": 0,
+    "retained_original_names": [
+      "000592.SZ",
+      "002100.SZ"
+    ],
+    "lost_original_names": [
+      "000810.SZ",
+      "000876.SZ"
+    ],
+    "added_names": [
+      "000034.SZ",
+      "002157.SZ",
+      "002244.SZ",
+      "002429.SZ",
+      "002458.SZ",
+      "002701.SZ",
+      "002797.SZ",
+      "600015.SH",
+      "600339.SH",
+      "600346.SH",
+      "600511.SH",
+      "600528.SH",
+      "600598.SH",
+      "600720.SH",
+      "600777.SH",
+      "600820.SH",
+      "601099.SH",
+      "601916.SH",
+      "688009.SH"
+    ]
+  },
+  {
+    "window": "2024_924",
+    "arm": "FROZEN_PVR_NOMINAL_RISK_QUOTA",
+    "original_ticket_count": 42,
+    "reserved_names": 26,
+    "reserved_sectors": 21,
+    "reserved_gross": "54066.019500",
+    "reserved_cash": "54199.4851318499500",
+    "nominal_risk": "2978.019500000003106998286816",
+    "fee_inclusive_risk": "3295.833463279553103693006267",
+    "buy_fees": "133.4656318499500",
+    "planned_stop_sell_fees": "158.8043314295999982482185952",
+    "weighted_buy_fee_pct": "0.2468567745216568051583675399",
+    "mean_order_buy_fee_pct": "0.3039264085806704982495937580",
+    "max_order_buy_fee_pct": "0.7193203066155937723007255288",
+    "minimum_quantity_selected": 8,
+    "quota_below_minimum_count": 16,
+    "unfunded_count": 16,
+    "original_fee_adjusted_headroom": "3021.313171840747143001713184",
+    "nominal_unspent_before_fee_adjustment": "3021.980499999996893001713184",
+    "unused_cash": "1145800.5148681500500",
+    "unchanged_preallocation_NAV": "1200000",
+    "selected": [
+      {
+        "sid": "601222.SH",
+        "name": "林洋能源",
+        "q": 100,
+        "nominal_risk": "103.3505000000000421506249985"
+      },
+      {
+        "sid": "002468.SZ",
+        "name": "申通快递",
+        "q": 100,
+        "nominal_risk": "155.4914999999999411906468542"
+      },
+      {
+        "sid": "603115.SH",
+        "name": "海星股份",
+        "q": 100,
+        "nominal_risk": "129.5409999999999719848879773"
+      },
+      {
+        "sid": "002636.SZ",
+        "name": "金安国纪",
+        "q": 200,
+        "nominal_risk": "156.6830000000000051773712122"
+      },
+      {
+        "sid": "603328.SH",
+        "name": "依顿电子",
+        "q": 100,
+        "nominal_risk": "102.3900000000001004123495065"
+      },
+      {
+        "sid": "000158.SZ",
+        "name": "常山北明",
+        "q": 600,
+        "nominal_risk": "152.1720000000007085376871380"
+      },
+      {
+        "sid": "601208.SH",
+        "name": "东材科技",
+        "q": 200,
+        "nominal_risk": "108.6710000000000895668437976"
+      },
+      {
+        "sid": "003006.SZ",
+        "name": "百亚股份",
+        "q": 100,
+        "nominal_risk": "151.1345000000004034409488950"
+      },
+      {
+        "sid": "600366.SH",
+        "name": "宁波韵升",
+        "q": 400,
+        "nominal_risk": "133.1319999999999689510490268"
+      },
+      {
+        "sid": "600718.SH",
+        "name": "东软集团",
+        "q": 200,
+        "nominal_risk": "146.8230000000001867356973046"
+      },
+      {
+        "sid": "002024.SZ",
+        "name": "ST易购",
+        "q": 1200,
+        "nominal_risk": "144.7980000000002016136625544"
+      },
+      {
+        "sid": "603638.SH",
+        "name": "艾迪精密",
+        "q": 100,
+        "nominal_risk": "122.7560000000000965559070390"
+      },
+      {
+        "sid": "002249.SZ",
+        "name": "大洋电机",
+        "q": 400,
+        "nominal_risk": "124.9419999999999223727200728"
+      },
+      {
+        "sid": "002831.SZ",
+        "name": "裕同科技",
+        "q": 100,
+        "nominal_risk": "81.14350000000024146659429900"
+      },
+      {
+        "sid": "603663.SH",
+        "name": "三祥新材",
+        "q": 200,
+        "nominal_risk": "83.46600000000037273101564600"
+      },
+      {
+        "sid": "600623.SH",
+        "name": "华谊集团",
+        "q": 600,
+        "nominal_risk": "121.8150000000002733199553544"
+      },
+      {
+        "sid": "601216.SH",
+        "name": "君正集团",
+        "q": 400,
+        "nominal_risk": "100.7680000000000246688895044"
+      },
+      {
+        "sid": "600392.SH",
+        "name": "盛和资源",
+        "q": 200,
+        "nominal_risk": "78.78500000000012970796893600"
+      },
+      {
+        "sid": "000969.SZ",
+        "name": "安泰科技",
+        "q": 200,
+        "nominal_risk": "82.83300000000004740839159460"
+      },
+      {
+        "sid": "300459.SZ",
+        "name": "汤姆猫",
+        "q": 500,
+        "nominal_risk": "110.8650000000000897651798630"
+      },
+      {
+        "sid": "301286.SZ",
+        "name": "侨源股份",
+        "q": 100,
+        "nominal_risk": "106.3834999999999387311515460"
+      },
+      {
+        "sid": "002174.SZ",
+        "name": "游族网络",
+        "q": 300,
+        "nominal_risk": "91.09949999999963301276787980"
+      },
+      {
+        "sid": "300185.SZ",
+        "name": "通裕重工",
+        "q": 1700,
+        "nominal_risk": "103.5385000000002412770691155"
+      },
+      {
+        "sid": "600426.SH",
+        "name": "XD华鲁恒",
+        "q": 200,
+        "nominal_risk": "98.22600000000046639482967000"
+      },
+      {
+        "sid": "002402.SZ",
+        "name": "和而泰",
+        "q": 200,
+        "nominal_risk": "86.93399999999992740382652400"
+      },
+      {
+        "sid": "002183.SZ",
+        "name": "怡 亚 通",
+        "q": 900,
+        "nominal_risk": "100.2780000000000824202505062"
+      }
+    ],
+    "all_original_q_exact": false,
+    "fills": 0,
+    "retained_original_names": [
+      "002636.SZ",
+      "300185.SZ",
+      "601222.SH"
+    ],
+    "lost_original_names": [
+      "603626.SH",
+      "688819.SH"
+    ],
+    "added_names": [
+      "000158.SZ",
+      "000969.SZ",
+      "002024.SZ",
+      "002174.SZ",
+      "002183.SZ",
+      "002249.SZ",
+      "002402.SZ",
+      "002468.SZ",
+      "002831.SZ",
+      "003006.SZ",
+      "300459.SZ",
+      "301286.SZ",
+      "600366.SH",
+      "600392.SH",
+      "600426.SH",
+      "600623.SH",
+      "600718.SH",
+      "601208.SH",
+      "601216.SH",
+      "603115.SH",
+      "603328.SH",
+      "603638.SH",
+      "603663.SH"
+    ]
+  }
+]

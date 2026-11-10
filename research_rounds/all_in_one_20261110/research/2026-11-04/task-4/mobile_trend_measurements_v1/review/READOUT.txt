@@ -1,0 +1,19 @@
+四股EMA描述指标：最终源码、算式与时钟独审
+
+结论
+固定四股的16个预先指定信号/退出日，独立标量递推及列表窗口共432项核对通过，0错误。最大绝对差6.750155989720952e-14，按abs1e-10/rel5e-13容差通过，记录真实残差而非声称二进制逐位相同。
+独立程序未import根metrics脚本；仅对四股原manifest绑定facts/signal/events历史前缀手递推EMA20/60、五价格观察变化/坡、偏离、排当日前20 H/L与C区间，按原event=-1确认时钟找最近已知峰，并核种子、预热观察数和显式ready。检查日期在读取指标值前保存于SPOT_CHECK_PLAN。原输入SHA、CSV SHA和逐项值/残差见INDEPENDENT_SCALAR_REVIEW、SELECTED_SCALAR_DETAILS、SELECTED_SCALAR_CHECKS。
+根脚本的12个四股prefix checks均保存exact=True；我读取并核绑定，不冒称重跑了全市场1709或任何E0/G1/I/CP模型。
+
+源码关系
+G1的mu5/21是EW对数收益净速度，EMA20/60是调整价水平平滑，周期、量纲及有效观察钟不同，不能称完全等价；同源close/return也不能称独立外生证据。S21/S63是带成交量加权credit、冻结结构门槛和anchor的方向状态，不是价格均线。原G1还使用急变、归一强度和新证据升级门，EMA正坡不等于grade必暖。完整源码见SOURCE_RELATION_READOUT与SOURCE_INDEX。
+价格EMA采用源完整facts预热、每个有效块首C种子、adjust=False；分别满20/60个价格观察显示。五观察坡为百分比变化除5，是算术均摊，不是自然日率、几何日率或回归坡。两个shift20区间排当前H/L或C，零宽缺失、不裁0–100；已确认峰按confirmation_day更新，峰发生日不回填，允许保留同source旧E0峰但不跨source。
+显式ready列已补入。后增G1_up_reasons/phase/z5/z21仅复制原G1缓存字段，根script76–78对case共同日期核g_grade/fresh同native事实；out原I_target仍取native facts，不使用IX_target。此附列接线已静态审阅，未重跑G1，数值spot review也未将其当新增独立证明。
+
+因果与覆盖范围
+原prepare_signal145–218的theoretical_ex_price只用当前prefix内effective action与先前raw close向前累计factor，不改以前输出；这是冻结数学坐标，不是外部公告/供应商received_at已认证，也不是股东总回报。
+本轮使用原facts有效价格观察钟；已在eligible阶段过滤的raw无效日没有重建，不能将原facts日序号说成完整raw/calendar日序号。G1 strength钟还可能因价格有效而volume无效不推进，不能与价格EMA观察钟混同。
+所有指标为t CLOSE输入，之后原OPEN记录仅供连接评价；协议15:10不是历史供应商实际收到时钟，原fill是日线代理。未来执行日HLV、未来最高点或后来盈利均未进入这些指标/峰的定义。
+
+未验证
+此通过只覆盖固定公式、已绑定源码、四股少量日期的独立数值和时钟。没有证明EMA增量预测价值、入场/持有改进、任何阈值或收益，不评估机会/意图/资金连接表的完整性；后者由其他原账数据线核。没有新增策略、账户、参数拟合或全市场计算；仅授权的四股描述运算。

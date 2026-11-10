@@ -1,0 +1,6 @@
+唯一15min只读关联：原No60三年2265与strong1171新买层，按budget_order实际decision CLOSE连接已冻v2宏观D/P/C及ar6派生risk-only权限标签。0新模型/账户/中性导出/资金反馈平台。不强卖旧仓，不按当日盈亏分类退出，不用此前G1门。
+D仅下一计划OPEN禁止新开/追加、未成余单待原cancelACK；P仅一份试探意向、参数未定；C仅条件恢复意向、条件/额度未定。三者不是原订单必拒/必成，也不是新ACT/H状态；旧ACT只历史context，原signal_at保留，禁止改用fill日或signal_at连接宏观状态。
+全3436层及fixed original tail83/94全部保留known/NA；按role/core-mobile/first-add-reentry/fill pool分组。钱账为各原book共同cutoff（2024Dec31/2026Jun30）的含费cost、原net及正负/strictreal/unreal/divAR；不是该state内财富、可避损、删单新NAV或新政策收益。原tail钱账缺split字段保NA，不能填0。
+固定窗口：全3年/其中2年；2022Jan4–Apr26、Apr27–Jul4、Jul5–Oct31；既定2023Apr1–Jun30 AI反例与Jul1–Sep29假恢复；2024preJan2–Sep23、Sep24–Oct8六close、Oct9–Dec31 post；strong全期与2025Q3/Q4、2026Q1/Q2。主表按decision进入的cohort；实际fill进入的cohort另列，strict303=actualfill>Oct8CLOSE且<=Dec31（包括Oct8decision→Oct9fill），仍按自身decision state连接。
+可直接复用的唯一阶段新层wealth为已核strict303至原Dec31：其边界前尚未买、期末为同cutoff，原lifetime贡献等于此段新层wealth。其它窗口只报告cutoff贡献关联，不新造按层日财富writer，明确未计算当期新层财富。不得将全phase原账户wealth归给入场state。
+D内原正/原负完整保留；如展示真实赢家/失败只从全D母体按原net最大正/负各固定前三作事后描述，并保fixed83/94全部同clock，结果不回填信号。原价、费用、持有/退出/资金路径未改，不推断省下资本怎样重投。宏观若不能区分主要损耗与盈利机会，明确仍需sector/stock动态risk研究，不搭C反馈账。

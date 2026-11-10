@@ -1,0 +1,38 @@
+完整strong_ON固定目标追踪（原25/18、原11=9+2、新126全覆盖）
+
+原静态前缀最小量见证不能搬成新完整路径9点必填。9个原机会在新账4点真CORE填、3点有现金联合门、1点行业风险联合门、1点因新NAV原I最小风险尺寸拒。
+原2个行业风险对照在新账1点CORE填、1点仍拒；1/28新洁能新probe拒集已变为probe_risk+sector_capital，再沿新state的原1%行业风险检查通过，并非修改1%门。
+
+sid 名称 原signal 原分层 | 新实际分支 | 本点CORE真填 | 新CORE OPEN联合结果
+688362.SH 甬矽电子 2026-01-15 原机会9 | new_CORE_reserved_and_filled | 230 | reserved
+605111.SH 新洁能 2026-01-28 原风险对照2 | new_CORE_reserved_and_filled | 100 | reserved
+300623.SZ 捷捷微电 2026-02-03 原机会9 | new_CORE_OPEN_rejected | 0 | cash_or_original_reserve,sector_capital
+605358.SH 立昂微 2026-05-08 原机会9 | new_CORE_OPEN_rejected | 0 | cash_or_original_reserve
+688107.SH 安路科技 2026-05-20 原机会9 | new_CORE_CLOSE_minimum_I_fee_risk_exceeds_quarter_pct_NAV | 0 | None
+600584.SH 长电科技 2026-05-20 原机会9 | new_CORE_reserved_and_filled | 200 | reserved
+688352.SH 颀中科技 2026-05-26 原机会9 | new_CORE_OPEN_rejected | 0 | probe_risk,sector_capital,sector_risk
+002185.SZ 华天科技 2026-05-27 原机会9 | new_CORE_reserved_and_filled | 700 | reserved
+605111.SH 新洁能 2026-05-27 原风险对照2 | new_CORE_OPEN_rejected | 0 | sector_capital,sector_risk
+600206.SH 有研新材 2026-06-26 原机会9 | new_CORE_reserved_and_filled | 100 | reserved
+688469.SH 芯联集成-U 2026-06-29 原机会9 | new_CORE_OPEN_rejected | 0 | cash_or_original_reserve,sector_capital
+
+新真实前排后的现金，逐点共用原账资源，不能相加作资金需求/收益：
+捷捷微电 2026-02-03：物理可用138666.78，10%线后84.75，最小手含费3315.87，差3231.12；其余联合门仍按原行保留。
+立昂微 2026-05-08：物理可用150145.38，10%线后469.71，最小手含费5155.90，差4686.19；其余联合门仍按原行保留。
+芯联集成-U 2026-06-29：物理可用173784.01，10%线后671.71，最小手含费2034.14，差1362.43；其余联合门仍按原行保留。
+
+安路5/20新NAV1512685.78，.25%预算3781.71小于同日到I最小含费风险4363.14；CORE未产生intent，实际仍Mobile624股，不能把现金够当Core可买。
+原25点的完整新事实：7点同signal CORE真填、6点CORE OPEN拒、9点真实CLOSE最小I含费风险超过.25%新NAV、2点仅MOBILE已持仓挡CORE、1点更早同I CORE已持有。
+更早持有者为长电5/26：5/20新CORE200股已存在，不能叫该点没有买入所以未修复。6个原held分支不会在新路径机械保持原样。
+
+新固定126半导体身份全部保留，H1实际18层/18买fill/18订单=8 CORE+10 MOBILE，13股；13股有CLOSE实持，8股有CORE实持。
+前2025-12-31原生CLOSE半导体carry0，与首H1close的0交叉，因此本次未漏旧CORE带入。
+新18层完整native买入—日级qty/保护线/ACT/锁卖—退出提案—真实卖出—期末状态已在NEW_H1_SEMICONDUCTOR_LAYER_PATHS。15已平、3未平。
+已平只存native cash+应计dividend净额（不都可立即用）；未平cash+dividend明确不是收益，估值/政策经济差额接root原价源财务结果，本脚本不造marks。
+
+证据边界：当原生fallback日志存在时保存before/after全部sector/global resources与原I预算；其它非fallback拒只保存完整联合门和真实前排订单，SC/SR数值UNKNOWN，未造RiskBook。
+Cash独立审计242日及ending全部对账；CLOSE未结义务0，reserve先于buy fill/release，卖净额先结，6个native fallback.before.available逐点exact。
+raw字段new_signal_CORE_size_funding保留该股信号日所有role原日志；精确CORE过滤及已验证尺寸原因在ALL25_OPEN_CASH_CONTEXT.new_CORE_CLOSE_size_rows。
+native fallback.after.available记录route返回、Ledger reserve前的物理available，不当作已扣新单后的现金；真实前缀及最终账户现金按已核native记录。
+
+运行成本：主saved join 1.533秒、纯cash/carry 0.880秒、18层路径 0.342秒；不含源模块导入。无新Account/Market/RiskBook/marks/交易。

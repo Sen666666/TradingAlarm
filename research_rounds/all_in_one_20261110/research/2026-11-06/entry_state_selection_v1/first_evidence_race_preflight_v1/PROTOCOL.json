@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-11-08T01:27:02.915733+00:00",
+  "stage": "development hypothesis after fixed-case inspection; preflight only; no economic run",
+  "mother": "cross_window_entry_mechanism_v1/BASELINE_EXISTING_CONTEXT.csv, both corrected A_UNION_B windows; no FAST mother",
+  "initial": "same actual conditional entry, actual positive fill starts TRIAL; no initial selection change",
+  "positive": "first canonical fresh CP after signal close and at/after actual entry-day close; entry-signal-day CP excluded; pre-entry credit explicitly allowed and disclosed; no CP recomputation",
+  "priority": "unknown relevant market source prevents known race; existing I invalid/old structural exit first, then native E0 DOWN, then CP; same-day DOWN wins; old exit irrevocable",
+  "negative": "native event=-1 confirmed at current close while I remains valid and before first post-entry CP; TRIAL requests full exit at next legal open; no fixed days or cost/R gate",
+  "confirmed": "CP first changes to original I holding policy; later DOWN alone does not invoke this trial exit; no permanent market-success claim",
+  "reentry_contract": "only after complete actual exit and later newly born original event.Q or continuing.Q+freshCP; one receipt identity once, no live/unresolved orders; same original I root ledger persists; no recycled old intent; not simulated in this preflight",
+  "campaign": "all attempts within same source-continuous original I root count once; end at original I-off environment, with actual pending sale and rights resolved; any source break UNKNOWN not a free new campaign; root left boundary/unknown explicit",
+  "computation": "reindex original common calendar; consecutive full source lineage required; no dropping missing dates; distinguish original I exit first, CP first, DOWN first, UNKNOWN and censored; keep all permits/no-fill/unknown",
+  "label_policy": "freeze feature rows and hashes before attaching existing initial/FULL labels; labels describe old paths only; no new win rate or profit implied",
+  "economics": "none: no new orders, shares, sale proceeds, account, parameter search or source modification",
+  "novelty": "consumer first-hit race, not new raw information; differs from unconditional DOWN transfer, half-risk partial-action, cost-qualified F/CP handoff and E3.1 price anchors"
+}

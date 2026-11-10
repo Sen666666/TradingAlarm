@@ -1,0 +1,65 @@
+{
+  "cost1_OFF": {
+    "days": 3,
+    "fills": 50,
+    "OPEN": 2,
+    "CLOSE": 3,
+    "NAV": "1003726.5413635724660",
+    "saved_identity": {
+      "daily": 3,
+      "funding": 751,
+      "opportunities": 5127,
+      "stage_events": 35,
+      "balance_audit": 3,
+      "rank_log": 749,
+      "trades": 50,
+      "journal": 98,
+      "audit_log": 254,
+      "decisions": 3
+    }
+  },
+  "D1_OFF": {
+    "days": 3,
+    "fills": 34,
+    "OPEN": 2,
+    "CLOSE": 3,
+    "NAV": "1012380.4618311976540",
+    "saved_identity": {
+      "daily": 3,
+      "funding": 750,
+      "opportunities": 5127,
+      "stage_events": 35,
+      "balance_audit": 3,
+      "rank_log": 744,
+      "trades": 34,
+      "journal": 92,
+      "audit_log": 215,
+      "decisions": 3
+    }
+  },
+  "cost2_OFF": {
+    "days": 3,
+    "fills": 51,
+    "OPEN": 2,
+    "CLOSE": 3,
+    "NAV": "1000807.4589117201580"
+  },
+  "cost2_ON": {
+    "days": 3,
+    "fills": 66,
+    "OPEN": 2,
+    "CLOSE": 3,
+    "NAV": "1005797.3737343988940",
+    "physical_and_sameprocess_state_exact": true,
+    "wrong_policy_rejected": true
+  },
+  "D1_ON": {
+    "days": 3,
+    "fills": 49,
+    "OPEN": 2,
+    "CLOSE": 3,
+    "NAV": "1015666.5807029049455",
+    "physical_and_sameprocess_state_exact": true,
+    "wrong_policy_rejected": true
+  }
+}

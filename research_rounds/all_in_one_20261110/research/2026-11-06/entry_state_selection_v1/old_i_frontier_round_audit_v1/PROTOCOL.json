@@ -1,0 +1,43 @@
+{
+  "version": "old_i_frontier_round_audit_v1",
+  "frozen_before_economic_values_read": true,
+  "scope": "Read sealed original A_UNION_B baseline_regression_2022 and baseline_regression_2024 only; no consumer, no economic run, no counterfactual; PRICE excluded",
+  "market_clock": "Full original STOCK_MANIFEST facts and raw lineage plus CP1, from first history through signal. Reproduce existing old_i_epoch on native common calendar, never reset at window. Strict known birth requires adjacent exact same-lineage I 0-to-1; missing observations/source boundary make lineage unknown until fresh known birth.",
+  "i_groups": [
+    "I_BUY_FIRST",
+    "I_BUY_REPEAT",
+    "OTHER_NOT_I_BUY",
+    "I_EPOCH_UNKNOWN_OR_LEFT_TRUNCATED",
+    "I_OFF",
+    "MARKET_STATE_UNKNOWN"
+  ],
+  "extra_dimensions": [
+    "prior_i_buy_count_in_epoch before signal",
+    "CP_FIRST_IN_I",
+    "CP_REPEAT_IN_I",
+    "NO_CP_TODAY",
+    "CP_TRACE_OR_EPOCH_UNKNOWN",
+    "A_or_B_birth",
+    "actual prior same-I full exit known at signal",
+    "financial coverage and full action path"
+  ],
+  "interpretation": "A/B consumer uses births, not i_buy. Market ordinal is association only, never order ordinal. Count actual initial entries only from ACTIONS buy_core, distinguish same-I reentry only after prior same-I sell_all.",
+  "outcomes": "Full saved net_pnl, net_return_on_buy_cash; closed and financially covered only for W/L/zero and tails. W>0,L<0,zero=0 exactly; mean W/L, payoff meanWin/abs(meanLoss), full net sum. Tail >=30% saved full return. >3R = full net_pnl > 3 * original entry_risk, explicitly initial planned-risk denominator, no ADD risk synthesis.",
+  "financial_groups": [
+    "CLOSED_COVERED_ORDINARY_NO_ACTION",
+    "CLOSED_COVERED_NONORDINARY_ACTIONS",
+    "CLOSED_FINANCIAL_COVERAGE_UNKNOWN",
+    "EXECUTION_PATH_UNKNOWN",
+    "CENSORED",
+    "NO_BUY_NOFILL",
+    "NO_BUY_OTHER"
+  ],
+  "unknown_policy": "Any execution UNKNOWN or financial coverage UNKNOWN remains separate, even if saved net available. All signal decisions retained including unselected and no-buy. No common-stock/survivor filter.",
+  "verification": "Source hashes before/after, exact original baseline regression file seals, registration/decision conservation, all action inventory/fee/buycash and cashflow+recognized-dividend reconciliation, mutual-exclusion/full population totals, overlap epoch comparison.",
+  "parameters_frozen": {
+    "net_tail": 0.3,
+    "risk_multiple_strict": 3,
+    "no_tuning": true
+  },
+  "descriptive_HWM_frozen_before_amounts": "FIRST_I_DAY / NEW_I_HWM / BELOW_OR_EQUAL / UNKNOWN: strict close > maximum close in same native I epoch before t; no selection, no counterfactual; raw floating strict comparison; require known epoch lineage"
+}

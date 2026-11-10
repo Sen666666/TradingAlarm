@@ -1,0 +1,28 @@
+{
+  "created_at": "2026-10-22T23:08:47.029001+08:00",
+  "plan_sha256": "5d67f86e7976d0dcb80dd7e2e956d6adbbb3d20c5bc5c153d174bfcb8dc5f3f2",
+  "code_sha256": "5f20a386759dca9eab9d0dc8a73a538c84f50f19bc58de59da3b0c316365c4bf",
+  "credentials_used": false,
+  "requests": [
+    {
+      "sequence": 1,
+      "url": "http://static.cninfo.com.cn/finalpage/2026-04-23/1225154869.PDF",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 516107,
+      "response": "01.body",
+      "sha256": "efe4c62153276aec44ebf3f101e4196a094b83998e29446f4cef1ab5768b9b55",
+      "redirects": 0
+    },
+    {
+      "sequence": 2,
+      "url": "https://static.sse.com.cn/disclosure/listedinfo/announcement/c/new/2026-08-21/601318_20260821_9DJ8.pdf",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 7373,
+      "response": "02.body",
+      "sha256": "ed6a79db202189807b240fd352c057669bac21459354df379a7b7c03528e9f77",
+      "redirects": 0
+    }
+  ]
+}

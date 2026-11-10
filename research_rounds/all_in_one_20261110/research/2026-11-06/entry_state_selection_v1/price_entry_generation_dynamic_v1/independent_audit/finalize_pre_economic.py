@@ -1,0 +1,31 @@
+"""Publish technical review only; this is never an economic authorization."""
+from pathlib import Path
+import json,hashlib,datetime
+O=Path(__file__).resolve().parent.parent;A=O/'independent_audit'
+def read(p):return json.loads(Path(p).read_text())
+def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+assert not (O/'ROOT_ENTRY_GATE_AUTHORIZATION.json').exists()
+assert not list(O.glob('ENTRY_GATE_RUN_ONCE_*.json'))
+b=read(A/'BASELINE_REUSE_AUDIT.json');v=read(A/'ADAPTER_MARKET_AUDIT.json');g=read(A/'RELEASE_GUARD_AUDIT.json')
+assert b['status']=='PASS_INDEPENDENT_ORIGINAL_JOINT_SAVED_BASELINE_REUSE' and b['economic_calls']==0
+assert v['status']=='PASS_INDEPENDENT_FROZEN_ADAPTER_AND_COMPLETE_MARKET_TAPE' and v['economic_calls']==0
+assert g['status']=='PASS_INDEPENDENT_RELEASE_GUARD_MATRIX' and g['economic_calls']==0
+code=read(O/'FREEZE_CODE_SHA256.json');inputs=read(O/'FREEZE_INPUT_SHA256.json')
+assert v['reviewed_code_sha256']==code and v['code_manifest_sha256']==sha(O/'FREEZE_CODE_SHA256.json') and v['input_manifest_sha256']==sha(O/'FREEZE_INPUT_SHA256.json')
+for n,h in code.items():assert sha(O/n)==h
+for p,h in inputs.items():assert sha(p)==h
+assert g['release_sha256']==sha(O/'release.py')
+assert b['script_sha256']==sha(A/'verify_baseline_reuse_v2.py')
+assert v['script_sha256']==sha(A/'verify_frozen_adapter_v2.py')
+qa=read(O/'REPORT_PREFLIGHT_QA.json')
+assert qa['passed'] and qa['sidecar_denial_attribution_exact'] and qa['other_original_denial_preserved']
+for n,h in qa['code_sha256'].items():assert sha(O/n)==h
+rights=read(O/'REUSED_REPORT_RIGHTS_QA.json');assert rights['passed'] and rights['economic_runs']==0
+for p,h in rights['unchanged_source_sha256'].items():assert sha(p)==h
+assert read(O/'TEST_QA.json')['passed'] and read(O/'TEST_QA.json')['code_sha256']==sha(O/'test_gate.py')
+evidence={n:sha(A/n) for n in ['BASELINE_REUSE_AUDIT.json','ADAPTER_MARKET_AUDIT.json','RELEASE_GUARD_AUDIT.json','AUDIT_SETUP_FAILURE.json','ADAPTER_AUDIT_SETUP_FAILURE.json','verify_baseline_reuse_v2.py','verify_frozen_adapter_v2.py','verify_release_guards.py']}
+out=dict(status='PASS_INDEPENDENT_PRE_ECONOMIC_ENTRY_GATE_AUDIT',pre_economic_checks_passed=True,economic_run_permitted=False,release_owner='Explicit parent authorization only. This review cannot start either new arm.',checked_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),protocol_sha256=sha(O/'PROTOCOL.md'),reviewed_code_sha256=code,reviewed_input_sha256=inputs,market_tape_seal_sha256=sha(O/'market_tape/SEAL.json'),code_manifest_sha256=sha(O/'FREEZE_CODE_SHA256.json'),input_manifest_sha256=sha(O/'FREEZE_INPUT_SHA256.json'),evidence_sha256=evidence,baseline_reuse=dict(windows=['2022','2024'],all_8_csv_and_9_json_audit_groups_exact=True,all_columns_rows_nan_masks_and_no_tolerance_numeric_exact=True,original_code_count=b['original_code_count'],original_input_count=b['original_input_count'],original_output_seal_count=b['original_sealed_output_count'],no_economic_replay_required=True),adapter=dict(single_gate_block_removed_ast_exact=True,all_original_loop_class_import_global_bindings_exact=True,all_allow_and_actual_allow_original_outputs_exact=True,strict_sidecar_only=True,synthetic_tests=v['synthetic_tests'],reused_report_rights_tests=rights['tests_run'],release_guard_cases=len(g['cases']),full_domain=v['full_domain'],full_lifecycle_counts=v['full_lifecycle_counts'],stocks=1628,receipts=37456,physical_prefix_checks=1628),economic_calls_by_auditor=0,new_arm_economic_runs=0,original_production_files_and_saved_ledgers_unchanged=True,resolved_findings=['Preflight omitted parent terminal states. Full original lifecycle now gives parent FAIL/UNKNOWN precedence before entry-generation logic.','Gate metadata is checked against the complete frozen candidate domain using root, receipt, source lineage, factor and raw close. Missing or inconsistent metadata hard-stops UNKNOWN.','Gate denials now live only in ENTRY_GATE_AUDIT. Posterior attribution joins the full receipt identity; original OFFER_AUDIT is not extended by the gate.','Legacy original-authorization tests were unsafe once original authorization existed. The old O_EXCL lock prevented economic iteration, and interrupted setup plus all old locks/ledgers were preserved. Replacement tests isolate old authorization and reject new unauthorized entry before engine or lock creation.','Datetime precision mismatch was a representation-only pure-market setup failure. Saved 153-stock outputs and failure sides compare exactly after explicit datetime normalization.','Auditor setup-check failures were preserved and corrected in new audit scripts without modifying frozen production code or inputs.'],limitations=['Two fixed development windows, not untouched out-of-sample validation.','Historical execution is original next-common-OPEN +/-5bp full-fill conditional per-stock proxy. All actual ACK/fill remain NOT_PROVIDED, tradability UNKNOWN; this is not a live broker or shared-cash account result.','Zero/partial/live-leaves/ACK behavior is tested at the original ExecutionBook interface with gate non-interference; no historical partial fills are manufactured.','Initial registrations stay within 2022 and 2024-09 through 2024-12; later market tape facts are diagnostic, while original holdings and liabilities continue through 2026-06-30.','Post-economic saved ledgers, unknown liabilities, financial coverage, independent CORE/FULL and complete common-stock path results still require posterior review. Old denied profitable or losing cohorts cannot determine the new dynamic economics.'],audit_script_sha256=sha(__file__))
+with (O/'INDEPENDENT_PRE_ECONOMIC_AUDIT.json').open('x') as f:json.dump(out,f,ensure_ascii=False,indent=2,allow_nan=False);f.write('\n')
+brief=dict(status=out['status'],pre_economic_checks_passed=True,economic_run_permitted=False,audit_sha256=sha(O/'INDEPENDENT_PRE_ECONOMIC_AUDIT.json'),evidence_sha256=evidence,stocks=1628,receipts=37456,synthetic_tests=v['synthetic_tests'],reused_report_rights_tests=rights['tests_run'],full_lifecycle_counts=v['full_lifecycle_counts'],economic_calls=0)
+with (A/'FINAL_AUDIT_BRIEF.json').open('x') as f:json.dump(brief,f,ensure_ascii=False,indent=2);f.write('\n')
+print(json.dumps(brief,ensure_ascii=False),flush=True)

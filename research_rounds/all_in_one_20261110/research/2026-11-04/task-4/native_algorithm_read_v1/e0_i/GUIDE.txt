@@ -1,0 +1,36 @@
+最短阅读指南：原样源码在SOURCE_EXCERPTS.txt，字母是其中的段号。
+
+E0（G/H/I段）：同source的正且有限C/V观察，r_t=log(C_t/C_(t-1))；
+sigma_t=sqrt(mean(r_(t-63)..r_(t-1)的平方))，下限1e-8，量基线是此前21量中位数。
+running extreme e随当前leg的新低/新高更新；在t>e时，以反向log位移乘
+clip(sqrt(mean(V_(e+1)..V_t)/量基线_e),.5,2)，再除sqrt(5)*sigma_e，>=1才确认反转。
+确认在今日t发event，pivot_price=C_e、pivot_date可在历史；不能在pivot_date回填许可。
+E0先用今日C检查旧floor破坏，再用今日已确认up pivot启动/抬floor；同日已退出不重开。
+现行refresh.py57把decline_candidate=False，源码pending/reclaim分支未启用。
+入口：evidence.py92–157、policy.py79–114；compare/log_ratio原样在arithmetic.py13–42。
+
+S21/S63和G1（J/K段）：它们是两种h=21/63阈值尺度的结构方向状态，不是均线。
+B4的s=1.4826*此前63收益绝对值中位数（不同于E0的RMS）；mu5/mu21从r1以
+alpha=2/(h+1)递推，公开值从第65个有效strength观察起。候选创建时冻结
+Delta=sqrt(h)*s与量基线。方向位移创新frontier且当日同方向收益>0才累积
+credit += 新frontier位移*clip(sqrt(当前量/冻结量基线),.5,2)；位移和credit均过Delta
+才在今日确认S_h，S_h持续至反向确认。grade原if/elif与覆盖顺序看grade.py30–46；
+warm=ready且最终grade>=2。fresh_up只取当日E0新up、S21/S63新确认或原up结构新frontier；
+confirmed_direction每观察先清0，不能把持续S_h=+1叫每日新确认。source重置、未预热/
+无效strength为unknown，不填0。入口：model.py122–182、195–271；grade.py9–63。
+
+I（L段）：当前明确project(...,'G1_I')，use_i=True、use_x=False。
+opportunity=E0_target && G1_warm && (当日E0_entered || G1_fresh_up)。
+先检旧I：E0失效或C<=旧I floor才关；否则I floor=max(旧I floor,当前E0 floor)。
+not active且当日未退出且opportunity才启动；i_target=active，i_buy=active&&opportunity。
+故i_target可以持续True而i_buy=False；冷G1本身不会关闭当前I。旧IX是use_x=True的
+另一投影，只是cache复用其已核同G1/price字段的来源，不是实际No60 I输出。
+实际facts只保存i_target/i_floor/i_buy等列；I_entered、I_exited、I_exit_reason未导出，
+E0_entered/exited也未导出，不能拿旧E0/IX同名列填充当前投影；
+日表应标NOT_SAVED，不能用旧IX同名字段冒充。入口：policies_g1.py6–35、refresh.py47–66。
+
+时钟/实际文件：所有含当日C/V的确认只在当日CLOSE可知，下一共同交易OPEN才可下单。
+同source内有效观察计数，不补假期/停牌零；缺量不一定删除有效价，但停止strength/event
+推进。无效价/缺来源/未预热不当作新许可。海能达2024直接消费的full facts路径与SHA
+见READ_FIRST.txt；不是BEGIN2025缓存目录。公式实现与实际消费文件已明确分列，未现场
+运行project、模型、指标、账户或回测。

@@ -1,0 +1,80 @@
+{
+  "scope": "FIVE_PRE_FIXED_ARMS_TWO_COMPLETE_OWN_STATE_NATIVE_WINDOWS",
+  "initial_cash_each": 1000000,
+  "new_numeric_models": 0,
+  "ACT20_and_BREAK63_unchanged": true,
+  "cost_parameters_changed_after_results": false,
+  "records": {
+    "long": {
+      "run": "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_v1/runs/long-v1",
+      "completed": true,
+      "source_post_exact": true,
+      "source_count": 44,
+      "arms": {
+        "B": {
+          "NAV": "637989.6123510238600",
+          "return_pct": "-36.20103876489761400"
+        },
+        "G10": {
+          "NAV": "882090.8183863680560",
+          "return_pct": "-11.790918161363194400"
+        },
+        "G20": {
+          "NAV": "747107.0878057032685",
+          "return_pct": "-25.2892912194296731500"
+        },
+        "G40": {
+          "NAV": "769153.5975192959770",
+          "return_pct": "-23.084640248070402300"
+        },
+        "NR20": {
+          "NAV": "791022.2791037506570",
+          "return_pct": "-20.897772089624934300"
+        }
+      },
+      "timing": {
+        "completed": true,
+        "input_seconds": 113.1717462092638,
+        "total_seconds": 1621.588727958966,
+        "event_loop_seconds": 1444.380422166083
+      },
+      "view_index_sha256": "782ef7d5279cd8a3af0b3d49d3aeb6e4417f6834bd840104cfe97622b08245db"
+    },
+    "strong": {
+      "run": "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_v1/runs/strong-v1",
+      "completed": true,
+      "source_post_exact": true,
+      "source_count": 40,
+      "arms": {
+        "B": {
+          "NAV": "2263281.2309753297565",
+          "return_pct": "126.3281230975329756500"
+        },
+        "G10": {
+          "NAV": "1106101.7903460699940",
+          "return_pct": "10.610179034606999400"
+        },
+        "G20": {
+          "NAV": "1454837.5752337262420",
+          "return_pct": "45.483757523372624200"
+        },
+        "G40": {
+          "NAV": "1991830.9687532910880",
+          "return_pct": "99.183096875329108800"
+        },
+        "NR20": {
+          "NAV": "1218463.1624108510005",
+          "return_pct": "21.8463162410851000500"
+        }
+      },
+      "timing": {
+        "completed": true,
+        "input_seconds": 44.93285800004378,
+        "total_seconds": 619.4577223341912,
+        "event_loop_seconds": 539.8780733328313
+      },
+      "view_index_sha256": "083e16c20f2261be3a80bcf76e7398ecf62ab178a6592478d7983492fb8a14ef"
+    }
+  },
+  "original_completed_financial_outputs_not_overwritten": true
+}

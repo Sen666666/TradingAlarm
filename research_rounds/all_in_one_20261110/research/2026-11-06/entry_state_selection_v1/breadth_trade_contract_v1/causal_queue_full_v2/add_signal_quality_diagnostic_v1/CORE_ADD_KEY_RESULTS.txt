@@ -1,0 +1,51 @@
+WINDOW 2022 N 479
+STATES {"('closed', 'closed')":419,"('unknown', 'closed')":10,"('unknown', 'unknown')":50}
+ALL_CLOSED_LAYERS {"n": 429, "wins": 127, "losses": 302, "zero": 0, "winrate": 0.29603729603729606, "net": -51129.30922460345, "winning_net": 202689.05135530105, "losing_net": -253818.36057990446, "mean_win": 1595.9767823252052, "mean_loss": -840.4581476155777, "dollar_payoff": 1.898936653601458, "profit_factor": 0.7985594536668382, "mean_return": -0.013637356541587807, "mean_win_return": 0.11091278625785302, "mean_loss_return": -0.06601440334797518, "return_payoff": 1.6801301024143087, "buycash": 5891565.551734991}
+CLOSED_ROUND_LAYERS {"n": 419, "wins": 122, "losses": 297, "zero": 0, "winrate": 0.2911694510739857, "net": -91076.9286537031, "winning_net": 160155.90352067156, "losing_net": -251232.83217437466, "mean_win": 1312.7533075464883, "mean_loss": -845.9017918329113, "dollar_payoff": 1.5518980101720756, "profit_factor": 0.6374799907104148, "mean_return": -0.018750968283126425, "mean_win_return": 0.09699287742064792, "mean_loss_return": -0.06629557830285865, "return_payoff": 1.463036900855658, "buycash": 5742421.139484242}
+CORE_BASIS core_net core_wins 219 core_losses 200 core_net 293106.17750639806 round_wins 186 round_net 202029.248852695
+core_win_to_round_loss {"n": 39, "core": 18471.6690813196, "add_alloc": -45640.89565590555, "increment": -45640.89565590555, "round": -27169.226574585948}
+core_loss_to_round_win {"n": 6, "core": -3861.52965183945, "add_alloc": 8099.51942344585, "increment": 8099.5194234458495, "round": 4237.9897716064}
+both_win_add_help {"n": 109, "core": 349019.67647263163, "add_alloc": 150402.9678149619, "increment": 150402.9678149619, "round": 499422.6442875935}
+both_win_add_hurt {"n": 71, "core": 152390.32173654053, "add_alloc": -29317.44124884798, "increment": -29317.441248847972, "round": 123072.88048769257}
+both_loss {"n": 194, "core": -222913.96013225423, "add_alloc": -174621.07898735732, "increment": -174621.07898735732, "round": -397535.03911961155}
+CORE_BASIS core_standalone core_wins 218 core_losses 201 core_net 292891.3123581701 round_wins 186 round_net 202029.248852695
+core_win_to_round_loss {"n": 38, "core": 18426.455171146095, "add_alloc": -44112.01690906105, "increment": -44067.64193585505, "round": -25641.18676470895}
+core_loss_to_round_win {"n": 6, "core": -3861.52965183945, "add_alloc": 8099.51942344585, "increment": 8099.5194234458495, "round": 4237.9897716064}
+both_win_add_help {"n": 110, "core": 350350.70650410134, "add_alloc": 150402.1894659282, "increment": 150425.61051089058, "round": 500776.31701499183}
+both_win_add_hurt {"n": 70, "core": 151002.7380139322, "add_alloc": -29316.662899814248, "increment": -29283.5302536379, "round": 121719.20776029427}
+both_loss {"n": 195, "core": -223027.05767917, "add_alloc": -176149.9577342018, "increment": -176036.02125031856, "round": -399063.07892948855}
+SHARED 225 FEE_CORE_ALLOC_MINUS_STANDALONE 214.86514822798682 max 3.9865069999999605 classification_flips 1
+AUDIT {"identity_error":0.0,"cash_error":0.0,"fee_error":0.0,"nadd":1.0}
+CLUSTER ['sid'] unique 264 duplicate_groups 121 extra_rows 215 top {"600028.SH":9,"002517.SZ":7,"000425.SZ":6,"601006.SH":6,"000001.SZ":5}
+CLUSTER ['signal_day', 'sid'] unique 479 duplicate_groups 0 extra_rows 0 top {"('2022-01-05', '000876.SZ')":1,"('2022-01-05', '601766.SH')":1,"('2022-01-05', '601800.SH')":1,"('2022-01-06', '000157.SZ')":1,"('2022-01-06', '000425.SZ')":1}
+CLUSTER ['add_day', 'sid'] unique 384 duplicate_groups 72 extra_rows 95 top {"('2022-08-16', '002517.SZ')":5,"('2022-09-13', '600028.SH')":5,"('2022-06-23', '603883.SH')":4,"('2022-11-07', '600029.SH')":4,"('2023-01-11', '000425.SZ')":4}
+CLUSTER ['add_day'] unique 156 duplicate_groups 98 extra_rows 323 top {"2022-11-07":22,"2022-12-06":17,"2022-08-12":13,"2022-10-18":12,"2022-06-01":11}
+CLUSTER ['industry'] unique 74 duplicate_groups 67 extra_rows 405 top {"\u516c\u8def\u94c1\u8def\u8fd0\u8f93":21,"\u533b\u836f\u5546\u4e1a":19,"\u5de5\u7a0b\u673a\u68b0":16,"\u670d\u88c5\u5bb6\u7eba":14,"\u94f6\u884c":14}
+CLUSTER ['event_id'] unique 389 duplicate_groups 90 extra_rows 90 top {"2022|M3|2022-01-06|URFI881268":2,"2022|M3|2022-01-07|URFI881108":2,"2022|M3|2022-01-20|URFI881149":2,"2022|M3|2022-02-08|URFI881149":2,"2022|M3|2022-02-09|URFI881107":2}
+LARGEST_ABS_PNL_STOCK {"000425.SZ":16197.959609038,"600201.SH":10162.9011593296,"600528.SH":7733.2552957748,"300144.SZ":7455.5233321898,"601139.SH":6995.0418844868}
+WINDOW 2024_924 N 251
+STATES {"('closed', 'closed')":221,"('unknown', 'closed')":16,"('unknown', 'unknown')":14}
+ALL_CLOSED_LAYERS {"n": 237, "wins": 92, "losses": 145, "zero": 0, "winrate": 0.3881856540084388, "net": 37889.556167521616, "winning_net": 155089.84190559326, "losing_net": -117200.28573807166, "mean_win": 1685.7591511477528, "mean_loss": -808.2778326763563, "dollar_payoff": 2.085618438360353, "profit_factor": 1.3232889402010515, "mean_return": 0.007802284974507092, "mean_win_return": 0.14879885656566874, "mean_loss_return": -0.0816576087247127, "return_payoff": 1.8222289250142656, "buycash": 2693588.81492267}
+CLOSED_ROUND_LAYERS {"n": 221, "wins": 78, "losses": 143, "zero": 0, "winrate": 0.35294117647058826, "net": 25137.13031261667, "winning_net": 141319.3081439075, "losing_net": -116182.17783129084, "mean_win": 1811.7860018449678, "mean_loss": -812.4627820369989, "dollar_payoff": 2.2299926124646294, "profit_factor": 1.2163596067988887, "mean_return": 0.0019146699058988725, "mean_win_return": 0.15459115861978429, "mean_loss_return": -0.08136341484712954, "return_payoff": 1.9000082397013378, "buycash": 2563236.3654938918}
+CORE_BASIS core_net core_wins 123 core_losses 98 core_net 294738.00868096313 round_wins 113 round_net 319875.1389935798
+core_win_to_round_loss {"n": 18, "core": 7081.34818119682, "add_alloc": -20729.69119544092, "increment": -20729.69119544092, "round": -13648.343014244101}
+core_loss_to_round_win {"n": 8, "core": -4180.96158244895, "add_alloc": 8933.701810642, "increment": 8933.701810642, "round": 4752.74022819305}
+both_win_add_help {"n": 67, "core": 306771.09321614774, "add_alloc": 131676.1740837127, "increment": 131676.1740837127, "round": 438447.2672998605}
+both_win_add_hurt {"n": 38, "core": 90680.06653200302, "add_alloc": -21772.692389098713, "increment": -21772.692389098713, "round": 68907.3741429043}
+both_loss {"n": 90, "core": -105613.5376659355, "add_alloc": -72970.36199719843, "increment": -72970.36199719843, "round": -178583.8996631339}
+CORE_BASIS core_standalone core_wins 123 core_losses 98 core_net 294650.58875635633 round_wins 113 round_net 319875.1389935798
+core_win_to_round_loss {"n": 18, "core": 7065.93936495555, "add_alloc": -20729.69119544092, "increment": -20714.28237919965, "round": -13648.343014244101}
+core_loss_to_round_win {"n": 8, "core": -4180.96158244895, "add_alloc": 8933.701810642, "increment": 8933.701810642, "round": 4752.74022819305}
+both_win_add_help {"n": 67, "core": 306761.28917622555, "add_alloc": 131676.1740837127, "increment": 131685.97812363497, "round": 438447.2672998605}
+both_win_add_hurt {"n": 38, "core": 90670.175064232, "add_alloc": -21772.692389098713, "increment": -21762.800921327704, "round": 68907.3741429043}
+both_loss {"n": 90, "core": -105665.85326660775, "add_alloc": -72970.36199719843, "increment": -72918.04639652614, "round": -178583.8996631339}
+SHARED 95 FEE_CORE_ALLOC_MINUS_STANDALONE 87.41992460678041 max 3.888888888888914 classification_flips 0
+AUDIT {"identity_error":0.0,"cash_error":0.0,"fee_error":0.0,"nadd":1.0}
+CLUSTER ['sid'] unique 189 duplicate_groups 47 extra_rows 62 top {"300144.SZ":4,"600710.SH":4,"600887.SH":4,"000429.SZ":3,"000625.SZ":3}
+CLUSTER ['signal_day', 'sid'] unique 251 duplicate_groups 0 extra_rows 0 top {"('2024-09-02', '002120.SZ')":1,"('2024-09-02', '002352.SZ')":1,"('2024-09-02', '002475.SZ')":1,"('2024-09-02', '300209.SZ')":1,"('2024-09-02', '600406.SH')":1}
+CLUSTER ['add_day', 'sid'] unique 222 duplicate_groups 26 extra_rows 29 top {"('2024-12-13', '300144.SZ')":4,"('2024-12-13', '000625.SZ')":3,"('2024-09-27', '002032.SZ')":2,"('2024-10-23', '300693.SZ')":2,"('2024-10-23', '300972.SZ')":2}
+CLUSTER ['add_day'] unique 66 duplicate_groups 45 extra_rows 185 top {"2024-09-25":25,"2024-11-08":19,"2024-12-13":13,"2024-11-06":11,"2024-12-12":11}
+CLUSTER ['industry'] unique 70 duplicate_groups 58 extra_rows 181 top {"\u516c\u8def\u94c1\u8def\u8fd0\u8f93":8,"\u94f6\u884c":8,"\u96f6\u552e":7,"\u996e\u6599\u5236\u9020":7,"\u4fdd\u9669":6}
+CLUSTER ['event_id'] unique 205 duplicate_groups 46 extra_rows 46 top {"2024_924|M3|2024-09-02|URFI881152":2,"2024_924|M3|2024-09-02|URFI881177":2,"2024_924|M3|2024-09-02|URFI881268":2,"2024_924|M3|2024-09-03|URFI881156":2,"2024_924|M3|2024-09-19|URFI881131":2}
+LARGEST_ABS_PNL_STOCK {"300059.SZ":19397.5286733135,"000158.SZ":16446.0010448609,"300251.SZ":11260.9034067086,"300779.SZ":9073.279769578,"300315.SZ":5885.050838377}
+CROSS_WINDOW_STOCKS 84

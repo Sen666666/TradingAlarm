@@ -1,0 +1,51 @@
+{
+  "created_at": "2026-10-22T15:46:43.008045+00:00",
+  "scope": "current-pool cache inventory only; not historical qualification audit",
+  "network_requests": 0,
+  "raw_rows": 15739264,
+  "raw_symbols": 5517,
+  "market_symbols": {
+    "SZ": 2891,
+    "SH": 2313,
+    "BJ": 313
+  },
+  "raw_earliest": "1995-04-06",
+  "raw_latest": "2026-05-15",
+  "source_row_counts": {
+    "tushare": 15739264
+  },
+  "missing_symbol_or_date_cells": 0,
+  "old_security_snapshot_rows": 5519,
+  "coverage_union_symbols": 5519,
+  "ths_checkpoint_records": 1600,
+  "ths_checkpoint_status": {
+    "signal_window_checked": 1532,
+    "quarantined": 68
+  },
+  "ths_raw_files_read": 1580,
+  "ths_rights_files_existing": 1580,
+  "invalid_cache_files": [],
+  "previously_checked_latest_distribution": {
+    "2026-10-16": 1530,
+    "2026-04-27": 2,
+    "2026-09-03": 1,
+    "2026-05-15": 3963,
+    "2026-05-14": 1,
+    "2026-04-13": 1,
+    "": 2,
+    "2026-05-13": 1,
+    "2026-04-30": 5,
+    "2026-04-29": 8,
+    "2026-05-11": 1,
+    "2026-09-28": 1,
+    "2026-05-08": 1,
+    "2026-04-28": 1,
+    "2026-05-12": 1
+  },
+  "overlap_symbols": 1580,
+  "overlap_OHLC_equal_1e6": 1580,
+  "volume_ratio_median_across_symbols": 100.0,
+  "amount_ratio_median_across_symbols": 1000.0,
+  "current_20261022_survivor_or_cap_filter_certified": false,
+  "note": "Join today frozen stock/cap/industry snapshot. Old security snapshot alone is not today universe. Calendar days are descriptive, not missing trade days."
+}

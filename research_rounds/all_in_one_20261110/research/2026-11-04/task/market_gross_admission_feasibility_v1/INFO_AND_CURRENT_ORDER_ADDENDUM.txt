@@ -1,0 +1,50 @@
+现成info与current订单转移补充（仍仅纸面，0策略代码/0signal/0Account）
+
+fill的pending不双计/不漏余量
+实际post numerator = I_before + q_actual*mark + P_current_after + P_other_after，
+其中每张未ACK取消单继续在P相应项占用，current已fill principal只扣actual gross，
+未fill余量不因“正在fill”整张被剔除。原fullfill/ACK释放何时发生由native决定。
+旧costadapter仅对current的NAV drag换保守界，并未授权删掉current整张P。
+本纸卡fill用I_before+P_before的保守gross承诺上界，故连未成余量一起保留；
+原正买入滑点scope内，用执行成本预留换为rawmark库存不会增加这个上界。
+不能用I_before+qmark+P_other却忘掉current_rem_after。
+pre-D大pending已经超新增cap时，缩本次q通常仍有原剩余承诺，不能凭缩q假解限；
+沿原cancel/ACK处理责任，等待释放前不新增。q=0/旧库存被动overcap是合法持有
+状态，不对全账户每日无条件assert gross<=10%。实际正q fill才须过原子门。
+若原native没有可合法部分缩单接口，fill守卫就沿原取消整单，不创造新modify协议。
+
+已存在的唯一同源ETF TR/MA63历史，无须新计算rolling/TR或新loader
+1) benchmark_2022_2023/inputs/510300_history.csv
+   1327行，2018Jul17–2023Dec29，SHA fb6754b16fbfecb02bdb2fc9ff7e34546640009d268fc6b7896fd511530b8e41。
+2) benchmark_2022_2023/continuation2024/inputs/510300_history.csv
+   1569行，2018Jul17–2024Dec31，SHA e7efde38b82a77f488ccbfd4436d602021e9d66ac02d2d5b7b4b568c4b111785。
+   完整long2022–24可直接用这份已存历史。原2022–23是其serialized exact前缀。
+3) capacity_cost_guard_analysis_v1/benchmark_B_2025_26/inputs/510300_history.csv
+   1928行，2018Jul17–2026Jun30，SHA 7870713bedb3f3f243b451c1c8de8ae27eddf4791b3fc6be91a2e91ea0a39959。
+   strong2025Jul–2026Jun可直接用这份已存历史；前两份都是其serialized exact前缀。
+
+可用字段是原CSV date、signal_close（原因果TR X）、ma63（原inclusive63），
+读取前一原观察行的已存ma63即可定义斜率；不是重算均线，也不取on作DOWN。
+on只包含X>MA，不含本卡斜率，不能直接复用on或benchmark previous_on当本股账户状态。
+2022Jan4首OPEN的warm两行是2021Dec30/Dec31；2024Jan2跨年是2023Dec28/Dec29；
+strong2025Jul1首OPEN的warm两行是2025Jun27/Jun30。以上只是原存储行/字段存在核对，
+本任务没有计算D，也没形成新时序map或加载器。只含执行窗的signals logs首日没有
+必要的preOPEN warm行，不能仅拿logs第一行作为首OPEN已知状态。
+
+既有收据（full SHA/字段/全部路径见EXISTING_ETF_INFO_LOCATOR.json）
+independent_review/BENCHMARK_2022_2023_INDEPENDENT_AUDIT.json 6bdc26c6…6b203。
+independent_review/BENCHMARK_2024_CONTINUATION_INDEPENDENT_AUDIT.json 30f4a0dc…bb25。
+independent_review/capacity_benchmark_B_v1/BENCHMARK_B_2025_26_INDEPENDENT_AUDIT.json
+f5ce805768bb23bcbd1dbc8556cafa37c08c4ab3e7dc3cb29a8a570d590a4227。
+强窗收据独核全history TR/MA与两份原CSV前缀exact，无新金融事件。基准真实历史
+halt/limit/auction执行未验证的限制仍在；此处只复用市场info，不把ETF收益移植策略。
+原MA轴07a4a932…43fb已审2022–23因果标签/clock；不是全窗口新插件D绑定收据。
+
+可复用与剩余核查
+数据现成、warm现成、同源前缀已有receipt，未发现要新resource/NAV/basis/loader的阻碍。
+仍须在任何small前冻结一次简单as-of观察时钟：CLOSE使用完成日、OPEN用之前完成CLOSE，
+并对原全部726/242交易日/首warm/未知给独审；本定位没有冒称已验证这些未来gate绑定。
+费用/滑点投影实际复用出处是capacity_cost_guard_v1/guard.py::context的pending_drag，
+以及capacity_adapter.py::capacity_allowed/reserve_quantity/fill_buy的原LR/_fee和保留
+partial pending buffer；不是复用其cost numerator、layer basis或保护释放逻辑。
+逻辑收据cec317df…19228的currentR余量要求已完整纳入；无native实现授权。

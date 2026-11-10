@@ -1,0 +1,51 @@
+{
+  "scope": "FROZEN_EXPERIMENT_NOT_DEPLOYABLE_STRATEGY",
+  "planned_end": "2024-10-31",
+  "completed_horizon": false,
+  "certified_through": "2024-10-28",
+  "days": 34,
+  "orders": 1985,
+  "blockers": [
+    "2024-10-29 002064.SZ OPEN_MISSING"
+  ],
+  "last": {
+    "day": "2024-10-28",
+    "cash": "223785.7342073324445",
+    "receivable": "0.0000",
+    "market_value": "1182639.33",
+    "NAV": "1406425.0642073324445",
+    "net_liquidation_NAV": null,
+    "stocks": 242,
+    "shares": 70041,
+    "weight_pct": "84.08832863530776871175149315",
+    "fees_paid": "11585.6629376675555",
+    "valuation_basis": "MARKED_NAV_INCLUDES_NONTRADABLE_STALE_ASSET",
+    "stale_market_value": "1202.00",
+    "nontradable_stocks": 1,
+    "tradable_subset_net_liquidation_value": "1402740.3846520113710",
+    "whole_account_liquidation_available": false
+  },
+  "prior_prefix_replay": {
+    "result": "PASS",
+    "certified_through": "2024-10-25",
+    "economic_alpha_rule_changes": 0,
+    "exact_records": {
+      "ORDERS": 1852,
+      "CANDIDATES": 14337,
+      "CP_EVENTS": 2291,
+      "DAY_LEDGER": 33,
+      "HOLDINGS": 5069,
+      "EQUITY_EVENTS": 67,
+      "SECTOR_DAILY": 1650,
+      "ATTEMPTS": 1044,
+      "PENDING_AT_END": 23
+    },
+    "byte_exact": true
+  },
+  "FALSE_sector_ADD_plans": [],
+  "FALSE_sector_actual_ADDs": [],
+  "economic_alpha_rules_unchanged": true,
+  "accounting_boundary_extension": true,
+  "stale_nontradable_not_liquidation": true,
+  "no_PIT_or_real_fill_certification": true
+}

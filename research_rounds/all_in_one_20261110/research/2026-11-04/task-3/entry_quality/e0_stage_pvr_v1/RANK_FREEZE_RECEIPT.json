@@ -1,0 +1,37 @@
+{
+  "status": "NEW_STAGE_RANKS_SAVED_BEFORE_OUTCOME_JOIN",
+  "rows": 3269,
+  "stage_rank_sha256": "7c4ddf045f1a8fc06a16bc8e516618b0003499810d5e06e1dc1179a9c7b07ed4",
+  "freeze_sha256": "11ae7c4becbdc144c550e8fbd08c64a4d85a7f1d3c26a22784904b059b7aee91",
+  "code_sha256": "3ff3ae89bb326ce01e570ae3f14eec3dc6ba52f32f0d2e723370edbcc3daf106",
+  "by_date": {
+    "2022-01-24": {
+      "N": 177,
+      "known_PVR": 175,
+      "phases": {
+        "BREAKOUT": 90,
+        "START": 86,
+        "RETRACED": 1
+      }
+    },
+    "2024-09-24": {
+      "N": 2313,
+      "known_PVR": 2313,
+      "phases": {
+        "START": 1554,
+        "BREAKOUT": 757,
+        "RETRACED": 2
+      }
+    },
+    "2026-01-15": {
+      "N": 779,
+      "known_PVR": 779,
+      "phases": {
+        "BREAKOUT": 496,
+        "START": 282,
+        "RETRACED": 1
+      }
+    }
+  },
+  "future_labels_loaded": false
+}

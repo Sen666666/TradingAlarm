@@ -1,0 +1,18 @@
+{
+  "frozen_at_utc": "2026-11-08T20:59:49.096206+00:00",
+  "requested_extension": "Add EXIT_BEFORE20_FINAL_LOSS vs BIG_WINNER30 using exactly the previously frozen five features. No feature or threshold change.",
+  "group": "round_status=CLOSED, round_pnl<0, round_progress20=EXIT_BEFORE20",
+  "periods": [
+    "ALL",
+    "2022",
+    "2024"
+  ],
+  "inference": "All overlaps are univariate marginal only, not joint separability or prediction/model performance.",
+  "sources": {
+    "PREENTRY_FEATURES_ALL.csv": "12f6381c81e9d2153f75fab3380bff356cc66136850c8540a119130651a2a059",
+    "PREENTRY_DISTRIBUTIONS.csv": "838f87b98e0df63c6089719cc7ba002fa4488532246d7336fc57b64c67d869d3",
+    "PREENTRY_OVERLAP.csv": "8490aece654de21d7299f20bd034ffef138c3b57b1ce62af2c14dcba14b29c01",
+    "PREENTRY_GROUP_OUTCOMES.csv": "37c42a30f47a003ae9c239dab44857e04deb5143a515f917f10d27594b6166a4",
+    "REPORT.md": "4d38f13a556094c4e967f74b0229c7429aea4bcd2b698026534eda927ac58491"
+  }
+}

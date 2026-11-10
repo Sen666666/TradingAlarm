@@ -1,0 +1,14 @@
+{
+  "status": "COMPLETE_FIXED22_MECHANISM_STOP_NO_PROMOTION",
+  "completed_utc": "2026-11-08T21:00:42.759839+00:00",
+  "case_n": 22,
+  "stock_n": 19,
+  "strict_computational_supported": 18,
+  "lineage_UNKNOWN": 4,
+  "all_original_sources_unchanged": true,
+  "no_new_outcomes": true,
+  "account_runs": 0,
+  "ranking_runs": 0,
+  "consumer_changes": 0,
+  "parameter_searches": 0
+}

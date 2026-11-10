@@ -1,0 +1,47 @@
+既存55high＋原量确认：唯一独立股票策略参照的薄卡／接线成本裁决
+2026-11-04。只设计与源码复核，0新信号、0新账户／策略事件。不授权原型、少样本资金或经济回测。
+
+先给裁决
+选择“完整独立股票策略参照”，包括原入场、持有与退出；不选择“在No60里仅多加/替换一条入场门”。后者仍借I/CP1持有、角色和金融升级，不能回答CP1／角色资本架构之外的简单量价策略是否可比。
+原55/20/ATR/退出不变。旧5426母体在2022/23/24累计meanR已经为负，量确认增量近零，必须前置作为反证，不能预设会胜过原I。已有存在性独审收据另绑定。
+原生接线不是一处route修改：J.Runner／J.Account把I保护、freshCP1、industry receipt level、attempt、migrate、pool reserve相互耦合。建议本轮不立即启动原生经济。若主审认为独立对照的信息价值足够，先授权一个有限信号及财务接口技术点，再决定完整账户；不得为此新造引擎或平台。
+
+唯一股票算法（直接复用既存家族，不设计新参数）
+入场：已完成收盘C_t > max(此前55观察adjusted high)，且真实股数V_t > mean(此前20 positive observed V)；原SMA200与ATR20须可算。旧volume分支confirm_ma=False，因此不增加C>MA200。收盘后下一合资格OPEN执行，无同日信号买入。
+持有：无加仓、无CP1、无角色升迁、无每日再平衡，不因当前不再突破便卖。原初始stop=该次实际入场adjusted OPEN−4×信号日ATR20；不能偷改成信号CLOSE−4ATR、2ATR、跟踪ATR或每次收盘更新ATR。
+退出：上一已知收盘严格低于上述固定stop，或连续两个已知收盘低于MA200；下一可成交OPEN卖。退出sticky、缺成交继续等、不在实际卖出同日重入。无跟踪锁盈／股票原I/E0/CP1保护。
+复用旧campaigns函数的时钟与volume_confirmation定义，数据适配／原生代理差异另记；不把55改63，不加股／行业MA、斜率、persistence或新冷却。
+
+最少路径与已存结果复用
+既有5426逐股volume／priceonly完整campaign、五截止、15／30bp、source parity／信号测试是旧开发证据，可只读复用，不重跑、不转成当前账户收益。
+若后续获准，唯一新主路径是“55high＋原volume”在当前固定数据／原生执行下的完整独立参照。原No60自身完整账只读比较。
+必要去量消融最多再1路径：仅删除volume_confirmation，不更换entry/exit/资金。旧priceonly与volume只在旧5426合成合同内可直接配对；若要评价当前native量增量，需要这条当前同合同路径，不能拿旧影子账户当当前priceonly。
+因此新经济上限先考虑1主路径（若确需量增量则2），不是2×2、不是窗口／阈值／排名扫描。当前均未获准；年份必须连续自身状态，不能每年重置。
+
+执行／共享资金：现成底座能复用什么
+底座下移到money/research_rounds/lot-risk-allocation-20261029/code/study.py的LR.Account／BP.Account／L.SectorAccount：实际现金预留、整手、买卖股数、费用、T+1、权益／分红AR、split、partial fill、sticky sell、trade/layer账与check。同source市场clock、rawOPEN、native fee schedule、既有不利滑点、dated quantity rules、可成交代理、公司行为日事件顺序沿本轮原生合同。
+LR.maximum_quantity、fees以及known-OPEN reserve_quantity可复用；不直接复用resize_core（硬编码原.25%风险和10%cap）或默认preview的原CLOSE保护定仓含义。4ATR的初始线在实际known OPEN才落定；该价可用于执行定仓，不能倒填前日CLOSE为趋势凭据。费用影响真实可用现金，不能沿旧合成price无限资金买入。
+最少新的内容是一个独立strategy CLOSE状态／意图投影、一个现有old-shadow资金规则到整手的适配，以及自己的checkpoint字段；不是重写会计、市场、事件clock或权益系统。与原生PreparedRunner接续／observer绑定需另测，因为现有J.Runner class／policy守卫不能假装接线已自动支持。
+
+资金规则唯一来源与可比边界
+若完整独立参照继续，保留已有shadow的默认lowvol_all共享资金规则为研究对照：每新仓上一NAV的.5%／4ATR目标风险、总4%距离stop风险、新买gross90%及单股35%、最多8股票、无加仓；原默认lowATR/price排序、代码破同。它们是旧有比较合同，不是新增永久推荐参数，不取best-quintile／strength组事后赢家。
+禁止偷偷沿No60的confirmed2／10／20行业层、probe10／.5、freshCP1 token／migrate／epoch来获得更好资金路径：这些正是被比较的架构。保这些就不再是完整独立股票策略。
+上述旧资本合同与No60不同，因此总账户差只评价独立完整政策的取舍，不能称价格突破入场的单因素因果优势。若主审要求同一No60资金／保护纯入场对照，必须另卡改称conditional-entry comparison，不可同时声称完整独立。
+
+保原行业两级／ACT时的显式借用，不藏在Facts.packet里
+为了保用户板块→个股研究边界，最小条件参照可沿原行业当日E0有效、known/fresh行业RS-H1与分类／市值／可买执行资格；行业按原H1排序，再用固定lowvol_all排序个股。这明确仍借原行业模型与排序，不是行业趋势也独立的全算法检验；不读取行业CP1 financial stage／收据来发成熟资本。
+原ACT20_BREAK可作为共同账户最后fuse：只使用本策略自己的NAV／peak／flat，市场synthetic BREAK与原量价breadth照旧；这是另一份明确共用的市场风险假设，绝不复制No60的on/off日期。若保它，就关闭old-shadow的10%减半／16%清仓／20flat冷却，不能双叠两个风险闸；由此该原生参照不是旧shadow原结果复现。
+原stock I必须完全移出股票准入／持有：Facts.packet(mode I)包含stock trend_up、i_buy；原eligibility S0也含stock_up，不能只替buy_event还暗用I过滤。应显式保留执行／身份／市值／RS事实与原行业Q，股票trend_up／buy_event来自本55策略，stock floor来自固定4ATR／MA200策略。不得用I epoch／core_epoch阻止独立breakout合法重入；同仓只一周期、真实全平后原规则再判断。
+原PVR stock分数、G1grade、S21/S63、stock CP1 receipts/candidate、I.floor、industry CP1 level等可以加载供只读对照但不得被新策略执行路径消费。只有实测接口隔离和可追踪日志能支持这句话，当前未实现。
+若想行业也用相同55＋量算法，必须另定义行业volume／价格源与全域缺失语义；真实行业指数并无自然可解释的股票股数成交量。当前不假装复用股票量确认即可，也不为独立性扩大成新行业算法。
+
+实际输入与未决机械边界
+原完整signal已含同源OHLCV／rawOHLC／factor／volume_factor／unit／observed／synthetic／segment，1709股票＋90行业／2022–24 warm现成，不补行情。简化facts只有close/factor等，不足high／V。
+需要核旧家族的adjusted high／ATR坐标与本轮causal signal factor，以及真实股数V在拆股前后／来源段／positive-observed clock的恒等；不能把amount当shares、把synthetic dividend行当真实成交量。
+partial fill／缺成交需要固定初始stop锚：建议保一次已发entry的known OPEN锚，后续未成交不按新OPEN重置4ATR，实际分批仍同一周期；这与旧一笔全成交合成假设的机械扩展必须经技术审查，不借机提高策略信号。
+old-shadow按连续市场日循环，旧campaign函数遇非成交观察会保留pending exit；两者跨非观测／暂停的入场重验并非完全相同。确切选择应在实际小样本接口卡冻结，不允许无新信号无限追单。当前未解决就不得宣称原生策略已可运行。
+
+成本／推进建议
+可复用主要是原行情＋会计执行底座；原J策略主体不能直接复用。静态审查估计需要约2–4小时完成隔离策略状态、旧资金整手适配与最小CLOSE→OPEN／权益／独立进程恢复验收，非已有单差分接线的几分钟；这是工程估计，不是已发生运行或保证时耗。
+旧大母体负meanR、量确认增量很弱，使完整原生账户的预期新增价值有限；主要价值只剩检验当前I／CP1局部重锚假说是否比简单窗口突破更差，不能当寻找已知赢家。建议不直接投入完整native／全年经济；若主审认为此问题仍优先，可先给有限0账户信号／原生单次资金接口授权，测明确互异对象与实际最小整手，不制作全新平台。
+如果要求同时保持No60所有资金层又完全独立，两个目标在定义上冲突，应停止这条接线而不是伪装薄改。没有本卡之外的新候选或运行。

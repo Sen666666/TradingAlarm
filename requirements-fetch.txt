@@ -1,0 +1,6 @@
+-r requirements-research.txt
+akshare==1.18.40
+baostock==0.9.4
+beautifulsoup4==4.14.3
+lxml==6.0.2
+curl_cffi==0.14.0

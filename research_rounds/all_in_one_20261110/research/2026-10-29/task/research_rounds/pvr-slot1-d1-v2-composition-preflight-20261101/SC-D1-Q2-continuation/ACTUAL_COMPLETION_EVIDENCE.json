@@ -1,0 +1,29 @@
+{
+  "scope": "one SC own April1 -> June30 continuation",
+  "recorded_start": {
+    "at_UTC": "2026-11-01T15:01:33.480959+00:00",
+    "authorization_sha256": "b8328db1e9a08c672eaf761c2231a5b138a53bef0a5d3fc8deacfd519481ecac",
+    "scope": "ONE_SC_Bdiag_D1_v2_Q2_continuation_after_April1"
+  },
+  "execution_status": {
+    "completed": true,
+    "scope": "ONE_SC_Bdiag_D1_v2_Q2_continuation_after_April1",
+    "input_seconds": 39.83560154074803,
+    "remaining_path_and_export_seconds": 56.067998042330146,
+    "total_seconds": 106.98237208276987,
+    "old183_days_append_only": true,
+    "original_initial_cash_not_repeated": true,
+    "Apr1_prefix_reexecuted": false,
+    "ending_NAV": "1510396.4054562225250",
+    "daily_count": 242
+  },
+  "completion_status_file_publication_UTC_from_filesystem": "2026-11-01T15:03:20.461922+00:00",
+  "note": "controller did not record a separate completion wall timestamp; publication evidence is labeled rather than backfilled",
+  "source_authorization_sha256": "b8328db1e9a08c672eaf761c2231a5b138a53bef0a5d3fc8deacfd519481ecac",
+  "terminal_checkpoint_sha256": "e6f0b695a3988b6709c280a22d0635a157e125ead4f329a57cbdd23c4c96abbb",
+  "terminal_provenance_sha256": "ec07cc3d4525e815cef3c4299e5b4af982e2084fb83650512a79579913b04ced",
+  "new59_session_return_pct": "20.44461778511898995621038750",
+  "full_Q2_return_pct": "20.19835176253412356687263330",
+  "full_Q2_includes_already_verified_April1": true,
+  "new_financial_paths": 1
+}

@@ -1,0 +1,33 @@
+Read actual source only; no synthetic signal calculation or account executed.
+
+pv-strength-b5-20261025/code/evidence.py:_event_facts, lines123-151:
+  if direction==1 and current>extreme: ext=t
+  if t>ext: confirmation=(-direction)*log(current/extreme)*activity/(sqrt5*sigma)
+  crossing changes direction to event=-direction.
+Strict monotonic UP always has ext=t; plateaus have zero confirmation.
+
+pv-strength-b5-20261025/code/policy.py:e0_policy, lines105-124:
+  active close<=floor exits first; only price_event==1 raises floor via pivot.
+  Active/pending cannot coexist; volume memory cannot ratchet an active floor.
+
+b5-g1-20261025/code/policies_g1.py:project, lines19-31:
+  I's use_x=False excludes cold exit; floor=max(existing,base.floor).
+
+current v3 joint_v3.py:Runner.planning, lines226-240:
+  core: last_core_line=facts.floor(I); continue
+  only add/mobile reaches old-floor check and max(CP1 candidate) update.
+Account.sync lines48-50 uses core last_core_line, mobile actual layer.floor.
+
+continuous-protection-lines-20261028/code/model.py:calculate, lines26-58:
+  Fresh frontier accumulates displacement/credit; receipt reanchors at current
+  price; continued UP can issue fresh receipts without E0 down/up reversal.
+  candidate=C*exp(-sqrt21*frozen_scale) can rise while core support stays fixed.
+
+lot-risk-allocation-20261029/code/study.py:preview, lines56-65:
+  opening<=new intent floor rejects. A legal new lot starts with entry above
+  its own floor, thus cannot initially pay an old core's negative floor deficit.
+
+This proves a permitted path class, not its empirical frequency. No market
+profit credit, CP1-to-core shadow substitution, revived trial allowance or
+old dividend transfer is allowed to rescue the contradiction. Joint actual
+protection changes would be a different contract and are not implemented.

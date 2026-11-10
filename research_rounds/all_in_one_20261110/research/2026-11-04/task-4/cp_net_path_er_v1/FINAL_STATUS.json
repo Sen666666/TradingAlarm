@@ -1,0 +1,21 @@
+{
+  "status": "CORE_MATH_AND_ORIGINAL_PATH_DIAGNOSTICS_COMPLETE",
+  "completed_at_utc": "2026-11-05T08:50:35.211514+00:00",
+  "main_candidate": "G=A*abs(A)/L when L>0; no fixed ER cutoff, no amount hard gate",
+  "anchor_contract": "Only new G accepted confirmation or explicit source/I domain boundary resets main net path; never unaccepted original receipt/down/local low/old protection failure",
+  "candidate_new_G_state_runs": 0,
+  "new_accounts": 0,
+  "new_backtests": 0,
+  "new_orders": 0,
+  "parameter_grid_search": 0,
+  "original_financial_evaluation_pool": 19,
+  "financial_rows_per_anchor": 817,
+  "financial_original_receipts": 153,
+  "financial_defined_previous_original_receipt_ER": 147,
+  "financial_nonpositive_ER_original_receipts": 24,
+  "nonpositive_receipts_with_original_next_OPEN_buy": 1,
+  "simple_ER_monotone_quality_gate_recommended": false,
+  "candidate_G_economic_improvement_claimed": false,
+  "pending": "Candidate-own accepted-confirmation sequence and explicit separate local repair permission have not been implemented or tested; do not borrow original receipt resets",
+  "independent_review": "logic_review/FINAL_ROOT_READOUT_REVIEW.json; limited raw finite substitutions, not full new-G validation"
+}

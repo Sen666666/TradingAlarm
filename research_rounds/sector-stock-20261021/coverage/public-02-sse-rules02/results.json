@@ -1,0 +1,18 @@
+{
+  "created_at": "2026-10-22T23:03:07.375912+08:00",
+  "plan_sha256": "a5ccfeaa9138a6af79db4f7597e3ee57762b1bad351758aefce02a2c34243e7a",
+  "code_sha256": "5f20a386759dca9eab9d0dc8a73a538c84f50f19bc58de59da3b0c316365c4bf",
+  "credentials_used": false,
+  "requests": [
+    {
+      "sequence": 1,
+      "url": "https://www.sse.com.cn/services/hkexsc/home/",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 42842,
+      "response": "01.body",
+      "sha256": "2169cb425253480734c38a847daad9eebd1a73c8a1b47d210ef9f5d3b861a267",
+      "redirects": 0
+    }
+  ]
+}

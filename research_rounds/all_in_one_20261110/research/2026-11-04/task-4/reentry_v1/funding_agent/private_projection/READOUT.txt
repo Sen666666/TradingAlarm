@@ -1,0 +1,17 @@
+仅原 No60 single-pass 私有 OFF：13个预定完整 OPEN，已通过。
+
+母体为原B.decisions中13个signal CLOSE的全部4172 intents，涉及1213股，无删股/挑选好日期。原planning每天重置pending；从原S0 JSON重建Lot/Order/Sector与Decimal，原frozen intent补Clock、仅par_value的quote读取面，mobile证据按receipt_id取原receipt。仅原facts.factor与manifest raw.open列用于原LR.preview，使用原dated quantity/fee版本。
+
+全13个OPEN均调用原component.P.plan(remove_confirmed60=True)，仅加候选前只读观察器。完整原OPEN资金序列逐笔exact，包括sid/role/池/数量/价格/CP1/拒因；每个实际原订单的毛额和买费又与原audit.reserve核对exact。15个目标的native候选前全部预算读取字段及preview完整价/线/规则/费表/min/max逐项exact。输入digest不变、原源SHA不变。无Runner/Account、无新恢复、无金融事件、无ON。
+
+准备7.694秒；OFF+ON共180秒的预算目前使用48.421秒（含首次错误比较器的保守3.2005秒上界），剩131.579秒。这个剩余预算不能按OPEN重复使用。
+
+首轮比较器误按日期选原funding，纳入同日15:10 CLOSE的17条sizing记录，出现130对147；原09:30的前130条全部逐字段相同。FIRST_COMPARISON_CLOCK_DIAGNOSIS.json保留原时间戳与全17条尾项，FIRST_DIFFERENCE_CLOCK_SCOPE.json保留双方。修复为规范时区后的完整OPEN时间戳比较后，13组均通过。此前nullable epoch为None的JSON准备错误也保留日志；没有修改原策略或删除不明候选。
+
+OFF_IDENTITY.json：每OPEN序列与15个目标state/preview身份。
+OFF_YYYY-MM-DD.json：原私有订单、全attempt序列、原迁池诊断、保留约束验证。
+PREVIEWS_YYYY-MM-DD.json：全部4172个恢复后intent+原preview视图，供复用；可以重建route实际读取面，不必再加载完整market。
+INPUT_SOURCES_SHA256.json：原S0、native候选前快照、原账本/资金、manifest、原receipt/facts/raw及冻结引擎源。
+COMPLETION.json：预算、完整母体、无新账户/恢复/金融事件。
+
+只证明原OFF可准确重建。confirmed min-first替代仍需独立OFF审查通过后才能做私有预留投影，不支持任何收益、持有期或泛化主张。

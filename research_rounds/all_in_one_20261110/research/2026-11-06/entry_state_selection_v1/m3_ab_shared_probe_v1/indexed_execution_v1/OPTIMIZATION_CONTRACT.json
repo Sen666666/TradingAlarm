@@ -1,0 +1,7 @@
+{
+  "baseline_engine_sha256": "206e421576b3de9d865622bc075af2e5f7dacb1b71646067851fa644c9a8d742",
+  "indexed_engine_sha256": "2a9a85117f7a7359513893448421b32a9b2beab7656d9fd4f7120229d197ae2d",
+  "change": "Only ephemeral active layer quantity aggregation inside reconcile, no persistent cache",
+  "old": "        live_by_stock={}\n        for rid,st in self.s.archives.items():\n            for kind in ('core','add'):\n                q=sum(x.qty for x in self._active_layers(rid) if x.kind==kind)\n",
+  "new": "        live_by_stock={}\n        # Ephemeral aggregation: same positive active layers and same Decimal/cash paths.\n        # No cached index survives this reconciliation call.\n        active_qty_by_round_kind={}\n        for layer in self.layers:\n            if layer.qty>0:\n                key=(layer.round_id,layer.kind)\n                active_qty_by_round_kind[key]=active_qty_by_round_kind.get(key,0)+layer.qty\n        for rid,st in self.s.archives.items():\n            for kind in ('core','add'):\n                q=active_qty_by_round_kind.get((rid,kind),0)\n"
+}

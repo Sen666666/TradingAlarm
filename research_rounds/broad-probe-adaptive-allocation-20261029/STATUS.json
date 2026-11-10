@@ -1,0 +1,24 @@
+{
+  "completed": true,
+  "stage": "feasibility_research_only",
+  "verdict": "conditionally feasible and worth a separate finite study; not validated or adopted",
+  "new_backtests": 0,
+  "new_historical_indicator_runs": 0,
+  "new_historical_chart_annotations": 0,
+  "new_market_data_downloads": 0,
+  "strategy_implementation": 0,
+  "frozen_executable_rules": false,
+  "parameter_search": 0,
+  "platform_live_and_paper_changes": 0,
+  "new_static_arithmetic_only": true,
+  "primary_external_sources": 12,
+  "local_sources": 11,
+  "important_boundaries": [
+    "past strength is not proof of future continuation",
+    "prior unlimited-funding sizing studies are not finite pooled reallocations",
+    "sensitive exits should be isolated by phase and allocation layer",
+    "cash, lot size, T+1 and correlated risk still constrain breadth",
+    "a shadow-only confirmation control is necessary to establish probe value",
+    "all old strategies and studies retained; no automatic next queue"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "verdict": "explicit_tradeoff_not_promoted",
+  "slots": 8,
+  "computed_new_full_paths": 5,
+  "reused_original": 1,
+  "hash_reused_aliases": 2,
+  "not_run_slots": [],
+  "next_experiment_started": false,
+  "remaining_budget_used_seconds": 421.58930392423645,
+  "report": "FINAL_REPORT.txt",
+  "active_paths": [],
+  "accounting_passed": true,
+  "perturbation_candidate_initial_selection_identified": false
+}

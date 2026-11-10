@@ -1,0 +1,25 @@
+新增风险only行为标签已完成；只映射现成v2，0新模型/0递推/0资金账。
+
+本轮不沿宏观D强卖任何原持仓，不按浮盈/亏损选择清仓。宏观状态只描述新增OPEN/ADD风险类别：D为0新风险许可，并请求撤销所有未填买意图、等待ACK/原执行对账；P为原试探unit类别、C为conditional增risk类别，两者实际额度/可执行许可都保持null（尚未冻结资金合同）。未知输入不产生新授资。所有core/mobile/ADD/reentry角色使用同一宏观标签，原策略I/CP1/单股/行业/费用/执行约束不被此标签代替。
+这与旧v2纸面“退D若强制卖旧仓”的经济行为不同，不能直接把旧强卖反例当此新候选的实际结果；当前标签也没有证明买入质量改善、可避免损失或新账户收益。
+
+真实时钟与join
+DAILY.json/CSV全3273行保留原v2所有字段；新增decision_close/asof=原15:10+08。macrostate_before/after是此CLOSE前后结构标签，作用时钟列next_market_planned_OPEN=同原M计划日历下一观察日09:30+08；这只是市场计划钟，不证明单股未停牌、可买、T+1或实际成交。源最后2026Jun30的nextOPEN为null/endpoint_censored，未猜后续交易日。
+loss reader以原budget_order decisionCLOSE精确等值join，不能借fill-day/最近邻/未来日。待ACK买单仍可能实际填入：D零新许可不等于原成交量已变0；不能把原记录简单删除后称新策略利润。全2265+1171原层/买入记录及fixed83/94名单由loss reader维持原完整母体/既定窗口。本输出不自行去重成订单或将静态删交易损益造NAV。
+
+原H与未来H
+old_ACT_context、historical_H_context_only仅原No60 on/flat/event的历史旁注，未输入macrostate、未重置锚点或产生新ACT日历。H_ABSTRACT_CONTRACT_NOT_A_PATH.json只写抽象若新H发生：新增风险0、排原全仓退出；真flat+cancelACK后仅postH新20证据可提出P，不能用当时raw v2 C/旧anchor直接恢复；后续C还需未实装的postH试探归属反馈。因此post_H_permission_path明确BLOCKED_NOT_SIMULATED，不把旧H日历叠成新路径或新ACT_on。
+全部旧持仓macro行为字段固定NO_MACRO_FORCED_SELL_USE_ORIGINAL_I_CP1_EXIT；这不免除原native I/CP1退出和独立ACT H义务。current floating PnL完全未读，也未用正负浮盈分类。
+
+标签解释
+macro_new_risk_category/new_risk_label：ZERO_NEW_OPEN_ADD、PROBE_CATEGORY_UNSIZED、CONDITIONAL_INCREMENT_CATEGORY_UNSIZED；暖机null为NA_NO_MARKET_STATE。
+macro_zero_new_risk_permission仅D=True；非D不是False许可，而是null待合同。
+macro_P_C_cap_or_executable_permission始终null。
+cancel_unfilled_buy_intents_asof_CLOSE仅D为REQUEST_CANCEL_AWAIT_ACK，其他没有由macroD引发的撤单请求；不代表原策略不能撤单。
+fresh_evidence_grant_status描述输入已知/未知，不能覆盖明确D=0，也不把已知P/C变成可执行许可。
+S_before/S_effective_precheck/S_after、anchor/sigma、marker、new20high、price/B/64prior准备与原event/reason逐字段原样保留；本轮不重复计算任何feature或市场状态。
+
+固定摘要保留6个原窗口：L01 Jan4-Apr26、L02 Apr27-Jul4、L03 Jul5-Oct31'22，2023Jul1-Sep29假恢复（最后实际计划Sep28），2024Sep2-Oct31重大行情背景，strong2025Jul1-2026Jun30。WINDOWS_AND_KEY_TURNS含每窗首行继承状态与所有结构事件；全DAILY额外完整覆盖Q2AI/2024pre/post等loss既定窗口，不被这6个摘要限制。
+
+交付与审查
+SPEC/SCHEMA/labels.py及9源SHA在运行前冻结；源末核未变。单次标签计算0.100345秒，3273行，原v2文件完全未改；labels.py SHA723f6c0bbbb7acde786c3c1a5457646f33f4418cf93969d15058fee9583537be。已发loss reader真实decision join；独审轻核待回执。没有下单/撤单、真实ACK、风险额度、本金cap或任何外部写入。当前仅交接关联诊断，不自动运行后续账户。

@@ -1,0 +1,8 @@
+未门控同版原生I缓存：只研究目录，无账户/策略变更。
+同版参照为TradingAlarm.desk.refresh.prepare_facts：完整已存在因果OHLCV暖机、run_b5(enhancements=False)、classify、decline_candidate=False后的原e0_policy、project(G1_I)。不使用行业Q/账户/名额筛选。
+快路径只复用不受IX持仓退出影响的原生events、price facts和G1分类输出；不把ix_target/ix_entered重命名I。调用原e0_policy与原project(G1_I)，仍从可用源第一观察开始运行，输出仅2025-07-01..2026-09-28。
+e0_policy所需event/pivot来自原prepared events；ready/volume_ratio/high_effort/declined来自旧state的逐日输入记录；G1的grade/ready/fresh_up/acute_down来自原classify缓存。previous_close/price_observation/volume_baseline按原价有效时钟同公式构造。当前合同已明确关闭decline_candidate，故candidate_lower/reclaim保留NaN且pending必须始终0，不能伪造候选值。原函数的退出优先、gamma4比较、保护不下降及I恢复保持。
+原numeric target不可直接当E0状态：有价格但缺有效量的行，仍需原policy检查保护。完整价格有效日不能因事件量缺失被删除。
+pilot固定三个非科技/药行业URFI881153房地产、881155银行、881281电池，各取1709中代码最小股：000002/000001/000009。直接原价完整参照链、复用链的全部历史字段与四季度保护/I事件逐值核；并做2026-06-30物理前缀。没有未来盈利选择。
+实测快路径预计全1709用原6个独立序列worker不超过180秒才全量；超过则停于pilot和分块计划。小样本不证明全量每股都无缺；全量输入身份逐股验证，NA/未暖机/研究期前无行情分别保留。无新warm起点，无全池交易回放。
+下一行动合同仅准备：相同P价格资格和同一候选股数预算，H1 vs关注排序，关注<=1也参与；原行业Q保留（增量层，不替换），原生I先于Q完整记录。既持股按原L0退出，行业失格不强平，不增加CP1/ADD或解锁。预算档由主审固定，本轮不选20/25%冠军、不跑行动经济结果。

@@ -1,0 +1,28 @@
+{
+  "version": "v1",
+  "frozen_before_F_economic": true,
+  "question": "Same original I opportunity and one independent initial cash balance: E0/I hold versus F sell, wait and legally repurchase the SAME stock. No cross-stock reinvestment.",
+  "common": "All experiment-one 5349 E0 epochs and 407 stocks; Dec29 2023 decisions through Oct27 2026 terminal. Equal events, stock-equal sensitivity, all no-fill/open/rights retained.",
+  "initial": "Read-only I units/audits. Exact same actual first decision/fill/quantity/gross/fees per cost. Earlier zero-fill I attempts have no economic charges. After that no external funding.",
+  "F": "Original INTENT-SUPPORT F: half sqrt5 reversal threshold, unchanged 63/21 share-volume participation clipped .5..2. At each close check old protection first. If not broken, max old protection/original i_floor/new F up-pivot, whose pivot_date >= actual buy date. New protection effective next observation.",
+  "reentry": "After fully sold, next original full-Q I event observed after actual sale may reserve only own available cash. Same-day close after open sale allowed. Next eligible open/day-expiry, original gap support rejection. F alone never buys. Unlimited natural retries until frozen E0/source boundary.",
+  "reset": "Each actual repurchase resets protection to i_floor frozen on its decision; old holding F line discarded, market F observer never reset. No carry to another E0 epoch. Pending exit persists until executable.",
+  "cash": "Native A-sale settlement lag0 cash and buy-lot sellability lag1 are distinct. No invented day idle; no proceeds borrowing or principal resets. Whole-share quantities, minimum order/fees and capacity inherited.",
+  "terminal": "All actual incurred fees and terminal raw marks/claims included. Estimated liquidation separately, not a fill. Frozen E0/source end forbids new buys; legal exit may settle later.",
+  "costs": [
+    1,
+    2
+  ],
+  "primary": "Delta=sum(P_F-P_I), P=terminal NAV-1m; tail partition fixed to each cost original I net_return>=.30, realized/terminal separately. Tail retention plus ordinary Delta, continuous/top-I contributions. Win rate descriptive.",
+  "accounting": "Daily close Delta increments in initial_hold, idle, repurchased_hold, pending_exit or mixed_trade_action. Sum equals terminal Delta. Fees and raw-open slippage are memo only, never deducted twice. Idle/reentry attribution is accounting not causal.",
+  "verdict": "Positive total with nonnegative ordinary and tail is sufficient, not necessary. Mixed signs report tradeoff; negative total cannot pass on lower drawdown. Cost/weight reversal or limited cases inconclusive. No after-outcome rule change.",
+  "correctness": "Exact initial control receipt; independent Decimal shares/fees/cash/NAV; daily I reconstruction equals existing terminal; daily Delta decomposition; no external cash; causal protection/entry/exit; prefix samples; sample/full consistency.",
+  "budget": "Sample first, then full F computation <=300 seconds; input identity/development separate. No whole portfolio or scans.",
+  "boundaries": [
+    "Removed original ACT, ranking, six-slot/industry competition and 15% account budget only as authorized mechanism diagnostic.",
+    "Common independent E0 epoch ends and first I actual participation inherited from experiment one; not original whole-account strategy reproduction.",
+    "Original F code initializes its private fast_floor on first held close; this diagnostic explicitly starts original frozen entry support and applies original I guard, then F max; separately audited.",
+    "Original F entry-date inference scans fills after last sale date; diagnostic tracks actual fully-flat cycles to support partial fills without mislabelling a partial sale as a new holding.",
+    "Original I full Q retained including stock/sector readiness, sector E0/current availability, G1 and frozen snapshot identities; no ACT/cash/rank competition."
+  ]
+}

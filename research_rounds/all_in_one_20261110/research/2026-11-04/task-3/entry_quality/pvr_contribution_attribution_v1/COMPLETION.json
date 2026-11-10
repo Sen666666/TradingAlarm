@@ -1,0 +1,17 @@
+{
+  "status": "COMPLETE_DESCRIPTIVE_DIAGNOSTIC_NOT_ALPHA_OR_EXECUTION_VALIDATION",
+  "stocks": 5517,
+  "cache_observed_rows": 5424843,
+  "buy_days": 666900,
+  "episodes_started": 95389,
+  "left_censored_buy_days": 8004,
+  "boundary_attribution_excluded": 9229,
+  "reconstructed_rows": 5243825,
+  "max_E_error": 4.440892098500626e-16,
+  "max_e_formula_error": 0.0,
+  "attributed_buy_rows": 654686,
+  "event_cohort_rows": 243509,
+  "unique_episodes": 94320,
+  "matched_pairs": 363048,
+  "elapsed_seconds": 89.26297616958618
+}

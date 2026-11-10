@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-30T16:09:12.507272+00:00",
+  "status": "fixed_matrix_completed_with_unresolved_delay_restore_contract_gap",
+  "result_cells": 18,
+  "new_economic_paths": 12,
+  "reused_original_results": 6,
+  "candidate_promoted": false,
+  "next_experiment_started": false,
+  "product_modified": false,
+  "remaining_blocker": {
+    "action": "validate delayed execution of risk_restore under retained core",
+    "target": "sector_account.Account.expire_day_buys daily_delay_credit semantics, research role integration",
+    "reason": "original credit requires entire stock flat, which never holds while core remains; 73 TECH and 77 DRUG restoration orders expired without fill/credit",
+    "state": "unresolved_execution_contract_gap; not permission denial; no change or rerun attempted",
+    "completed": "normal/cost2 restored trades, all financial account audits, full fixed matrix and physical prefixes complete"
+  },
+  "deliverables": [
+    "FINAL_REPORT.txt",
+    "SUMMARY_18.csv",
+    "STRUCTURE_TRIALS.csv",
+    "ROLE_OPERATIONS.jsonl.gz",
+    "COMPETITION.jsonl.gz",
+    "DIVERGENCE.jsonl.gz",
+    "ACT_EVENTS.jsonl.gz",
+    "UNKNOWN.jsonl.gz",
+    "DELAY_RESTORE_EXECUTION_GAP.json",
+    "VERIFICATION.json",
+    "POST_MATRIX_GATE.json"
+  ]
+}

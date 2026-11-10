@@ -1,0 +1,58 @@
+只读覆盖完成；以下是可复用接口与尚未实现的合同，不是新adapter/路由或账户准入。
+
+精确原源
+1 /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py
+  Runner.planning 213起：原Facts.packet(I)→S0 core_Q、flat、原实际CORE epoch锁及pending门；
+  CORE沿LR.resize_core原I定量，MOBILE另max(I,CP)。opening先所有funding预留后所有buy fills。
+  industry 196起：原金融level更新/失效及attempt；无变更日不发industry日志。
+2 /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/route_without_account_check.py
+  route仅mobile绑定stock_cp1 token并添加confirmed；CORE始终probe。allowed(min)集合
+  是联合数值门，不是唯一firstcause。q=0时不调用request，不提交订单或消费stock token。
+3 /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/model_without_account_check.py
+  Contract.valid 119起；migrate 187起；request 210起。confirmed要求mobile_role_required；
+  CORE epoch核验仅probe_request分支；stock token校验/consume仅mobile分支。
+  原request先consume再最终数字门，原route预验成功并assert request reserved才保持一致；
+  新typed CORE不能照抄后省略预验，非法尝试不得吃token。migrate会实际换旧同attempt
+  probe层pool/更新状态，不能把它说成无副作用的读。迁池不改总SC/SR/NAV/cash。
+4 /Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/component.py
+  NEW_MODEL/NEW_ROUTE严格只删confirmed60三谓词；MOD.Contract及ROUTES[True]是No60身份。
+5 /Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/native_adapter.py
+  NoConfirmed60Budget.request=P.MOD.Contract.request、migrate；Runner.route=P.ROUTES[True]。
+  assert_native_wiring约束planning/opening/account原执行；不能偷回有confirmed60原route。
+6 /Users/bytedance/Documents/ChatGPT/money/research_rounds/lot-risk-allocation-20261029/code/study.py
+  maximum_quantity 23起：先min合法才向上二分；resize_core 42起：.25%含买卖费风险/10%名义；
+  preview 56起：实际OPEN、dated规则、冻结cap/budget/risk全部再验。
+
+后续最薄技术接口（未实现）
+由上述No60冻结源薄派生，原probe成功结果逐字保持；仅probe q0且非空拒集subset固定两门
+才读取原同日canonical receipt和原行业active/level/attempt进行typed CORE fallback。
+route和Contract.request须共同显式区分typed许可，保持role=core和原I floor/risk/cap；
+CORE epoch核验移到两池共同条件，token全role共一消费集合，成功预留后同股done不再Mobile。
+不能改成mobile伪装、改成双池max、先消费后失败、改成功probe的数量或假取消前排probe单。
+独立OFF必须用原全账户输出恒等、原源身份；本覆盖数据不能替代技术恒等或真实路径检验。
+可复用new_price_trend_v1/funding/input_loader.py的完整lookup/年度canonical receipts；
+fresh两窗原No60 runner及native account/成本/执行皆现成，不能导入旧财务checkpoint当新起点。
+
+覆盖时钟和可知界
+完整CORE intent+op及原source控制流证明原i_buy/flat/S0/尺寸已过；本轮没有重算1709 facts。
+原CORE epoch以同账真实CORE buy trades按signal CLOSE前的原epoch逐次断言，不用MOBILE冒充。
+90行业完整暖机state只作原启动前的金融level bootstrap；之后严格原industry.jsonl金融事件
+前向，不用市场stage替代financial level。numeric route结果本身证明actual OPEN active
+已过原guard；原industry_invalidated留完整母体不入候选。
+原close已有买单预留全0复用已核cash审计；同OPEN真实前排probe在全部买成交前仍open，
+同attempt会挡migrate。本轮明确排157，不假可撤/可卖。全前排原预留订单单独保存，可按
+window/OPEN/funding_stream_index还原原prefix；不存在新Account/RiskBook。
+
+最小手存在性（1374/1536，其中H1半导体9/9）
+后验见证不参与选样：原CORE拒行与同股原Mobile reserved funding index紧邻、CP相同，
+后者confirmed、原真实reserved q>=CORE dated min，费用按原dated schedule精确且非降。
+原CORE probe在min没有sector_risk失败，个股含费I风险已过原OPEN preview；迁池不改
+行业总资本/风险/现金。于是原Mobile更大量通过可见证confirmed资本/现金/stock的最低
+CORE量必要存在，原CORE的I风险不能用Mobile较近的CP风险替代。1374都逐条保存checks。
+剩余162不是不可行结论，只是缺相邻真实confirmed预留见证，仍需技术路线校准/数字state。
+见证不推出原max、未来成交窗口、改变前序量后仍有钱、交易收益或账户提升。
+
+仍未知
+各候选完整actual pre-candidate SC/SR/NAV及保护/订单全state未重建；无原日志的CORE
+actual OPEN maxq/quote留未知。signal reference上的I/CP/min fee-risk只是冻结标量说明，
+不可当actual OPEN风险算式。新路由、组合资金/ACT/退出反馈及经济优劣均尚未计算。

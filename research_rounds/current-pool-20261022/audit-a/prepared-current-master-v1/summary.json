@@ -1,0 +1,12 @@
+{
+  "selected": 5576,
+  "with_bars": 5500,
+  "rows": 11950884,
+  "source_errors_or_rejections": 0,
+  "conflict_cells": 0,
+  "tail_requests": 5576,
+  "head_requests": 3314,
+  "network_requests": 0,
+  "current_pool_data_complete": false,
+  "phase": "offline_preparation_not_collection_closeout"
+}

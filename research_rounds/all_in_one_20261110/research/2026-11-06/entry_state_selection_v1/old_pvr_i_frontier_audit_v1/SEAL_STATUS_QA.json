@@ -1,0 +1,13 @@
+{
+  "authoritative_final_seal": "AUTHORITATIVE_FINAL_SHA256.json",
+  "initial_process_seal_status": "SUPERSEDED_NOT_CURRENT_MATCH",
+  "initial_process_seal_expected_mismatches": [
+    "SOURCE_SHA256.json",
+    "SUMMARY_QA.json",
+    "audit_old_pvr.py"
+  ],
+  "corrected_base_seal_current_mismatches": [],
+  "distribution_seal_current_mismatches": [],
+  "pre_supplement_artifact_mismatches": [],
+  "financial_status": "OLD_PROXY_ONLY_NOT_NET80_CERTIFIED"
+}

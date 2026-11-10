@@ -1,0 +1,18 @@
+{
+  "research_start": "2024-06-01",
+  "research_end": "2026-10-22",
+  "frozen_before_reading_B1": true,
+  "n_cases": 20,
+  "n_stocks": 10,
+  "selection": "first and lower-median code among fixed research sector members with all 63 common industry sessions observed/valid through2024-05-31; no future performance selection",
+  "coverage": "five sectors only; illustrative mechanism cases, not random/population performance sample",
+  "case_dates": "existing hindsight map anchors; not entry permit or features",
+  "B0": "as defined by owner: original M3 A/B common-known birth, I/PVR and industry top2",
+  "B1": "only add same-birth-ticket independent original E0-NR1 both-way-confirmation scale1.5 up-active; never wait/reissue; owner implementing",
+  "known_gaps": [
+    "current frozen M3 matrices end2026-06-30; gold2026-07-22 deliberately outside",
+    "no new B0/B1 shared account or cash funnel yet",
+    "current membership and adjusted prices NON-PIT"
+  ],
+  "old_account_diagnostic_only": "2024 autumn cohort can be traced separately, never substitute as new B0/B1 execution"
+}

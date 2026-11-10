@@ -1,0 +1,26 @@
+{
+  "name": "joint_innovation_fixed_cases_v1",
+  "status": "FROZEN_BEFORE_NEW_J_FEATURES; PREVIOUSLY_SEEN_DEVELOPMENT_HISTORY_NOT_OOS",
+  "created_utc": "2026-11-07T16:26:44.201Z",
+  "scope": "Fixed existing25 cases and the existing two2024Sep-Oct/five2026H1 startup windows. Signal/event diagnostic only. No account/order/portfolio/replay, threshold scan, ranking changes or new consumer.",
+  "formula": {
+    "r": "ln(C_t/C_(t-1)) on consecutive common dates",
+    "s": "max(1.4826*median(abs(r[t-63:t-1])),1e-8)",
+    "z": "r/s",
+    "a": "ln(amount_t/median(amount[t-21:t-1]))",
+    "rank": "U_x(t)=(count of previous63 x < x_t +0.5*count of previous63 x == x_t)/63. All64 x values known. Raw consecutive-source support retained; no compressed missing-date clock.",
+    "q_plus": "1[r>0 and a>0]*max(0,2*min(Uz,Ua)-1)",
+    "q_minus": "1[r<0 and a>0]*max(0,2*min(1-Uz,Ua)-1)",
+    "J": "((sum q)^2-sum q^2)/(N*(N-1)); fixed industry sample excluding target. N<2 UNKNOWN. Not independent pair evidence.",
+    "bounds": "Known S=sum q,T=sum q^2,M=N-K. L=(S^2-T)/(N*(N-1)); U=((S+M)^2-(T+M))/(N*(N-1)). Known-only point uses K*(K-1) and is NOT full-population value.",
+    "event": "At close t, Jplus>max previous63 Jplus AND Jplus>Jminus. DEFINITE_TRUE if Lplus>max prior Uplus AND Lplus>Uminus. DEFINITE_FALSE if Uplus<=max prior Lplus OR Uplus<=Lminus. Otherwise UNKNOWN. Strict comparison, no epsilon thresholds.",
+    "price_control": "qPplus=1[r>0]*max(0,2Uz-1), qPminus=1[r<0]*max(0,1-2Uz). Main ablation matches joint knowledge mask. Natural price-only coverage separately described.",
+    "M3_control": "Unchanged canonical COMMON_K_COMPARISON.M3_candidate and member RIGHT3/KNOWN3. Also LOO member positive fraction/bounds; no new M3 threshold or re-fit.",
+    "participation": "Known qplus>0 fixed current-date contributors. Subsequent dates new/continuing/left/unknown identity changes only, no survivor substitution or prior-cohort reanchoring."
+  },
+  "data_clock": "Original adjusted close and CNY amount; true common trading calendar from original h1.npz. Valid current/prior prices, positive real volume and amount; same segment/source_kind/source_path and raw flags. Scale requires previous63 valid returns. Rank requires64 valid z/a in same uninterrupted source. Missing/changed source restarts warmup. All t information only.",
+  "universe": "Fixed1709 snapshot/90 mapping; only389 members of12 sectors needed. Not historical PIT. Compare to current2026-10-22 full-A industry snapshot counts; outside sample treated UNKNOWN for full-snapshot bounds, not automatically no participation. Native industry index is distinct from sampled members; no full-industry/PIT claim.",
+  "evaluation": "Freeze identities:25 exact fixed dates plus each fixed case's previous63 common days and seven startup windows (300085/002583:2024-09-01..2024-10-31;300623/300666/301611/603061/688498:2026-01-01..2026-06-30). No outcome-selected days. Existing19 labels joined only after feature seal;6 input-only stay unlabeled.",
+  "validation": "Scalar midrank/bounds checks; exhaustive unknown completions; pair-product identity; price/amount unit scaling; unchanged-prefix recomputation; check missing/source restart; preserve source/output hashes. Current-vs-history interval event condition is sufficient/conservative, not exact probabilistic identification with cross-date constraints.",
+  "interpretation": "Mechanical changed dates/identities is not predictive increment. Compare J/price-only record statuses and ordinaryM3. No claim35percent or preserved trading tail without actual authorized downstream policy."
+}

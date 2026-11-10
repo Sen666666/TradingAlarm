@@ -1,0 +1,11 @@
+test_bad_OHLC_rejected (__main__.CacheTests.test_bad_OHLC_rejected) ... ok
+test_conflicting_source_not_silently_spliced (__main__.CacheTests.test_conflicting_source_not_silently_spliced) ... ok
+test_duplicate_date_rejected (__main__.CacheTests.test_duplicate_date_rejected) ... ok
+test_no_overlap_is_explicit_bridge_gap (__main__.CacheTests.test_no_overlap_is_explicit_bridge_gap) ... ok
+test_units_avoid_false_volume_jump (__main__.CacheTests.test_units_avoid_false_volume_jump) ... ok
+test_unverified_units_rejected (__main__.CacheTests.test_unverified_units_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.042s
+
+OK

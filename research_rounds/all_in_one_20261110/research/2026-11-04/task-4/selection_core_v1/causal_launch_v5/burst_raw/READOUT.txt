@@ -1,0 +1,27 @@
+v5固定原量诊断：168行完整交付（不实施新门、排名、账户）
+
+主84+辅助21+预定反例63；76个唯一会话，5个真实行业指数。窗口锚是事先指定日历/旧研究日期，不是算法识别launch；窗口后15行属于随后才可见的观察，不是锚日已知输入。
+完整数值：RAW_PATHS_COMPLETE.parquet/csv；锚日8行：ANCHOR_RAW_COMPLETE.csv。与feature_paths的case_id映射见CASE_ID_MAPPING.csv。
+同T U掩码：U_T_MASK_ALL_FIXED_DATES.parquet，129884=76×1709；全部90行业×76日原NU/Nup/Nup5精确核平，share5/20重建误差0。金额薄提取最终耗时7.63秒；无账户、CP模型或新资格运行。
+
+锚日连续原量（r1、R5均为log return；s为原prior63稳健尺度；倍数为行业CNY金额/同cohort prior21聚合中位数）：
+main_semis_924 2024-09-24: NU=100/126static，Nup5→now=10→55；a_own=0.469192, a_pair=0.470202；ln份额比=-0.092259；行业额倍数=1.727754, 子池额倍数=1.963386；r1/s=2.302033；20/60above=False/False、crossup=False/False。
+main_software_924 2024-09-24: NU=32/34static，Nup5→now=13→31；a_own=0.531250, a_pair=0.531250；ln份额比=0.344480；行业额倍数=2.740905, 子池额倍数=1.963386；r1/s=1.454878；20/60above=True/True、crossup=False/True。
+main_comms_924 2024-09-24: NU=40/43static，Nup5→now=12→35；a_own=0.518902, a_pair=0.525000；ln份额比=-0.015831；行业额倍数=2.049612, 子池额倍数=1.963386；r1/s=1.514464；20/60above=True/False、crossup=True/False。
+main_semis_2026jan5 2026-01-05: NU=107/126static，Nup5→now=88→97；a_own=-0.195310, a_pair=-0.202925；ln份额比=-0.020447；行业额倍数=1.473870, 子池额倍数=1.399887；r1/s=2.535521；20/60above=True/False、crossup=True/False。
+aux_semis_2026jan15 2026-01-15: NU=110/126static，Nup5→now=105→104；a_own=-0.176041, a_pair=-0.167969；ln份额比=-0.147370；行业额倍数=1.396303, 子池额倍数=1.399984；r1/s=1.069858；20/60above=True/True、crossup=True/True。
+counter_realestate_2022jan24 2022-01-24: NU=21/21static，Nup5→now=13→15；a_own=0.428571, a_pair=0.428571；ln份额比=0.214685；行业额倍数=0.964244, 子池额倍数=0.847047；r1/s=0.119156；20/60above=False/False、crossup=False/False。
+counter_software_2024oct8 2024-10-08: NU=33/34static，Nup5→now=32→33；a_own=-0.531250, a_pair=-0.532197；ln份额比=0.110110；行业额倍数=6.243732, 子池额倍数=6.451670；r1/s=6.477712；20/60above=True/True、crossup=False/False。
+counter_multifinance_2024oct8 2024-10-08: NU=15/15static，Nup5→now=15→15；a_own=-0.666667, a_pair=-0.666667；ln份额比=0.742657；行业额倍数=12.652899, 子池额倍数=6.451670；r1/s=5.693776；20/60above=True/True、crossup=False/False。
+
+可复核含义及边界：
+1. 924三个行业广度加速度均正；2026Jan5/Jan15半导体均负。正加速度不能凭这些已知例子直接当必需启动门。
+2. 924半导体/通信相对份额下降，尽管行业CNY成交额较自身前21日放大。份额和绝对成交扩张是不同量，份额不是净流入。
+3. Oct8软件/多元金融的r1/s与成交倍数很大，且已在20/60高点之上，但crossup均False；价格冲击大不等于首次启动。反例是探索性已知风险窗口，不是未用测试集，也不能将窗口内每一天统称错误信号。
+4. PREDECLARED_924_CUTOFF_SAMPLE_SIZE_COMPARISON.csv另列原T第3厨卫电器。其当前静态子池仅1股，合格1股的Nup5→now=0→1与软件32股中13→31共同进入分位比较；不是说历史全行业只有1股。a_own/a_pair同样受人数与成员变化影响。本次不后验加入minimumN门。
+5. s、旧z、冻结scale已分列；oldCP.z是尺度而非r/s。共有会话r1与原CP.r最大差1.56e-15，仅浮点形式差异。r1/s与原CP价格冲击同源，不是独立新增信息。
+6. 原静态1709、当前市值筛选和2026行业桥非PIT，广度与金额是该条件子池；指数为原价格指数，未认证TR。日线CLOSE输入不能证明当日OPEN或次日涨停可成交。
+7. 同Tcohort金额分母是21个每日聚合值的中位数，不是个股中位数求和。行业指数amount单位未用于跨行业求和。
+8. 首次短calendar提取在守卫处停止，原始失败原因与修正见EXTRACTION_HISTORY.txt；最终严格复用原v2日历前缀，不改公式、阈值或母体。
+
+本包仅提供固定正反例连续原量与因果时钟，不能证明至少2/3门、某系数、选中名单或账户收益。

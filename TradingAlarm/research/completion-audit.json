@@ -1,0 +1,73 @@
+{
+  "status": "superseded_by_user_scope_change_2026-10-17",
+  "requirements": [
+    {
+      "requirement": "Reference established trend methods",
+      "evidence": [
+        "protocol.json",
+        "results/research-report.html"
+      ],
+      "status": "supported"
+    },
+    {
+      "requirement": "Design and iterate a trend change indicator",
+      "evidence": [
+        "trend_engine.py",
+        "results/ablation-v1.json",
+        "results/revision-v2.json"
+      ],
+      "status": "implemented; no superiority demonstrated"
+    },
+    {
+      "requirement": "Semiconductor historical backtest",
+      "evidence": [
+        "data/USHJ512480.json",
+        "results/cross-market.json"
+      ],
+      "status": "ETF proxy complete; exact index comparison not established"
+    },
+    {
+      "requirement": "Compare with Trend Animal historical indicator changes",
+      "evidence": [
+        "../../artifacts/trend-animal-analysis-20261017/findings.json"
+      ],
+      "status": "missing authorized historical prices and labels; cannot calculate agreement"
+    },
+    {
+      "requirement": "Evaluate whether revised algorithm is better",
+      "evidence": [
+        "results/cross-market.json",
+        "results/walk-forward.json"
+      ],
+      "status": "not better than simple baselines in examined sample; comparison to Trend Animal unproven"
+    },
+    {
+      "requirement": "Transfer to other sectors and financial assets",
+      "evidence": [
+        "results/cross-market.json",
+        "results/yearly-stability.csv"
+      ],
+      "status": "11 selected ETFs tested; prospective and full-market claims not established"
+    },
+    {
+      "requirement": "Guide A-share and HK trading",
+      "evidence": [
+        "cash_ledger.py",
+        "results/research-report.html"
+      ],
+      "status": "research supports retaining baseline; insufficient evidence to deploy custom trading alerts"
+    }
+  ],
+  "remaining_critical_input": "Trend Animal same-underlying dated prices and temperature history, with source, price basis and point-in-time/retrospective vintage",
+  "blocker_audit": {
+    "status": "removed_by_user_scope_change"
+  },
+  "decision": "Do not tune new parameters to already observed outcomes or fabricate reference labels. Resume comparison when authorized reference data is available.",
+  "limits_not_resolved": [
+    "Exact proprietary index construction",
+    "Full official corporate action audit",
+    "Actual broker fees and execution",
+    "Prospective evidence"
+  ],
+  "superseding_protocol": "independent-strategy-protocol.json"
+}

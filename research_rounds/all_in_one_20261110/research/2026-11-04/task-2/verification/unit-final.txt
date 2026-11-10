@@ -1,0 +1,25 @@
+test_code_drift_blocks_before_execution (test_research_flow.FlowAcceptance.test_code_drift_blocks_before_execution) ... ok
+test_concurrent_run_guard (test_research_flow.FlowAcceptance.test_concurrent_run_guard) ... ok
+test_data_drift_blocks_completed_stage_reuse (test_research_flow.FlowAcceptance.test_data_drift_blocks_completed_stage_reuse) ... ok
+test_enabled_true_is_not_an_accounting_receipt (test_research_flow.FlowAcceptance.test_enabled_true_is_not_an_accounting_receipt) ... ok
+test_existing_attempt_is_never_refrozen (test_research_flow.FlowAcceptance.test_existing_attempt_is_never_refrozen) ... ok
+test_existing_output_inside_attempt_not_overwritten (test_research_flow.FlowAcceptance.test_existing_output_inside_attempt_not_overwritten) ... ok
+test_false_audit_stops_report_and_preserves_failure (test_research_flow.FlowAcceptance.test_false_audit_stops_report_and_preserves_failure) ... ok
+test_missing_phase_receipt_invalidates_completion (test_research_flow.FlowAcceptance.test_missing_phase_receipt_invalidates_completion) ... ok
+test_native_manifest_tamper_is_rejected (test_research_flow.FlowAcceptance.test_native_manifest_tamper_is_rejected) ... ok
+test_old_output_and_existing_attempt_are_refused (test_research_flow.FlowAcceptance.test_old_output_and_existing_attempt_are_refused) ... ok
+test_old_summary_cannot_be_attached_to_new_run (test_research_flow.FlowAcceptance.test_old_summary_cannot_be_attached_to_new_run) ... ok
+test_optimized_native_checks_are_refused (test_research_flow.FlowAcceptance.test_optimized_native_checks_are_refused) ... ok
+test_relative_entry_is_resolved_against_project (test_research_flow.FlowAcceptance.test_relative_entry_is_resolved_against_project) ... ok
+test_resume_skips_verified_stages_and_cannot_complete_before_audit (test_research_flow.FlowAcceptance.test_resume_skips_verified_stages_and_cannot_complete_before_audit) ... ok
+test_saved_import_is_explicitly_posthoc_and_readonly (test_research_flow.FlowAcceptance.test_saved_import_is_explicitly_posthoc_and_readonly) ... ok
+test_spec_drift_blocks (test_research_flow.FlowAcceptance.test_spec_drift_blocks) ... ok
+test_summary_tamper_invalidates_completion (test_research_flow.FlowAcceptance.test_summary_tamper_invalidates_completion) ... ok
+test_tampered_completed_output_blocks_resume (test_research_flow.FlowAcceptance.test_tampered_completed_output_blocks_resume) ... ok
+test_timeout_preserves_failed_phase (test_research_flow.FlowAcceptance.test_timeout_preserves_failed_phase) ... ok
+test_uncertain_phase_is_not_automatically_rerun (test_research_flow.FlowAcceptance.test_uncertain_phase_is_not_automatically_rerun) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 1.951s
+
+OK

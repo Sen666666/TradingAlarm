@@ -1,0 +1,45 @@
+{
+  "status": "completed_stop",
+  "at": "2026-10-30T12:00:59.020548+00:00",
+  "judgment": "not_supported_as_universal_exit_risk_return_tradeoff",
+  "only_economic_experiment_completed": true,
+  "normal_delta": "-494551.0083370666045",
+  "cost2_delta": "-494173.0616614394180",
+  "known68_normal_delta": "-525647.0562771651025",
+  "conditional_missing": [
+    "688143.SH|2026-06-03"
+  ],
+  "blockers": [],
+  "source_or_product_changes": 0,
+  "new_portfolio_paths": 0,
+  "new_buys": 0,
+  "parameters_changed": 0,
+  "seconds": {
+    "stage_a": 3.123655583243817,
+    "sample": 0.8642371250316501,
+    "full": 1.988456167280674,
+    "aggregation": 0.20263862516731024,
+    "successful_compute": 6.178987500723451,
+    "wall_since_freeze": 627.956014,
+    "preparation_fix_verification_reporting_remainder": 621.7770264992765,
+    "failed_sample_process_seconds": "not_separately_measured"
+  },
+  "sha256": {
+    "research_rounds/rearm-risk-boundary-all69-20261030/FINAL_REPORT.txt": "b8df43f0929352ca253e58f336329ece64eb191860594ae812f9825ac9058235",
+    "research_rounds/rearm-risk-boundary-all69-20261030/RESULTS.json": "59dda949404f01cb6fe31c9cdf21412d29fc8cc540b795da92906faf82b45832",
+    "research_rounds/rearm-risk-boundary-all69-20261030/FINAL_VERIFICATION.json": "0fe07057639fcdebc2c8580549d023d0d85dd138a7e5bcdc75ea92da5a0beeb9",
+    "research_rounds/rearm-risk-boundary-all69-20261030/group-summary.csv": "2f316fdca6961d67225bcaecc5ae17157a82c9bea9a721b1e269f991a8c2e72c",
+    "research_rounds/rearm-risk-boundary-all69-20261030/cycle-differences.csv": "2afc88e12ecd74630efd9d32b27582d8a2a4121b58e48eba97d1027b4ee9f91e",
+    "research_rounds/rearm-risk-boundary-all69-20261030/mechanism-accounting.csv": "ea8d3851194df15820c9f5d711f47f3c599c150f8da4eb7dda5490fa3fe8f0d3",
+    "research_rounds/rearm-risk-boundary-all69-20261030/postrequest-first-repair.csv": "bf3315bbc1df9e30c43a978aa27ee910a89921daa1b8988443c944bb8f7c3cd4",
+    "research_rounds/rearm-risk-boundary-all69-20261030/stage_b.py": "c1adb6a87e0a63391cd471ff9f4b587c39d7022401e1c8af9cddace2a528afb1",
+    "research_rounds/rearm-risk-boundary-all69-20261030/finish.py": "af905a8244eccc80b6c9ef133ee309cbc1d38085816f33007d9b04a8a8a89f82",
+    "research_rounds/rearm-risk-boundary-all69-20261030/CASE_RESULTS.csv": "8795ecdf9962fc993d035ef910ce2dd85226f5df58c00ff76bb505f09c3ec25c",
+    "research_rounds/rearm-risk-boundary-all69-20261030/STAGE_A_GATE.json": "235d7a3e93cc125296b7306e6445b013bbed57716cf3c203fe9c6ffeb5d6f10f",
+    "research_rounds/rearm-risk-boundary-all69-20261030/full/unit-ledgers.csv": "a0e238cdff3fad41173720d541f8b45719b85eae5d5fc52aecb7ae1715098b08",
+    "research_rounds/rearm-risk-boundary-all69-20261030/full/exit-execution.csv": "99c5710308eb946002dc9556505ce82c387e59988c2b2411ded948228c70396b",
+    "research_rounds/rearm-risk-boundary-all69-20261030/full/VERIFICATION.json": "35ab472ec3a1453450cf14b0d505d241d1850283f2d91f36210c6fb703a6e78a",
+    "research_rounds/rearm-risk-boundary-all69-20261030/sample/VERIFICATION.json": "329ec00c1557eda4106f144744ed7e223b5561b32baa50cf72f1a994d9b338e0",
+    "research_rounds/rearm-risk-boundary-all69-20261030/BEHAVIOR_EXECUTION_BRIDGE.json": "6b89b567743c9e9c6e991bbb9b8d44804c3f689d6066658b37c3a7f561f8d88d"
+  }
+}

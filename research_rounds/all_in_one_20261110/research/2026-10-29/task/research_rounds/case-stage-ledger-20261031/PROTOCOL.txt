@@ -1,0 +1,6 @@
+批准范围：77有当期数据案例股、5行业，2025-07-01..2026-03-31，A仅probe/B原冻结v2扩张，两臂各1m全现金连续起步，无季度重置。事后fixture非选股绩效。行业市场状态完整暖机继承，账户前不造grant/持仓。行业失效撤未用授权并真实取消未成交买单，原core/mobile退出不改；ACT各自内生、恢复外部钟固定原1709/90域。无P、Top3、attention或原rawhalf名单门。
+本地已准备原ledger harness及77完整暖机输入。原core .25%风险、stock10%原preview可直接复用；mobile用内部add层复用原分层会计/保护，无core也可，不受core_epoch。原P1额外PVR/G1/lastbuy门不属于新mobile入口。预算pool不等于role；两臂同probe内原I core/stockCP1 mobile机会。
+关闭新功能5日真实恒等/物理前缀及6项ledger-only测试已完成，见OFF_PREFIX_GATE/LEDGER_ONLY_TESTS。不把这些成绩当已接v2：joint_enabled路径显式拒绝无预算成交，未生成A/B收益。
+本地没有主审已验v2纯预算源码/15测试文件。当前只有消息中的合同和阶段trace，不足以声称跨池路由/迁移/grant/风险续用已复用经审实现。预算适配需该模块或完整源码，收到后接入现有ledger；不另写一套预算算法并借用主审15/15成绩。
+保留路由要求：先核合法数量及probe/confirmed选择再原子消费canonical stockCP1；B无grant时也可走合法probe，不能先消费后失败；同凭据不能跨池/首次/ADD/reentry重用。旧attempt未confirmed的core仍占旧probe池，只迁当前attempt probe；行业全部承诺2%不随迁池/换股票重领。行业撤销未实际cancel之前真实预留不释放。损耗/费用record_only跨attempt及E0持续，不能新加亏损禁入。
+只有与v2核同并通过真实接线所有闸门后才跑2条连续机制路径，纯回放及必要审计120秒，先短段吞吐再一次全段。当前没有执行A/B经济回放，无参数或策略结果选择。

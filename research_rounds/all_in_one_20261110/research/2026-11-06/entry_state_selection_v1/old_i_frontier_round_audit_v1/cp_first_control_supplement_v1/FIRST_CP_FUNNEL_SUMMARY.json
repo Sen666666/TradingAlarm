@@ -1,0 +1,55 @@
+[
+  {
+    "year": 2022,
+    "all_first_CP_decisions": 405,
+    "feasible": 331,
+    "selected": 194,
+    "pass_not_top2": 137,
+    "selection_rate_of_feasible": 0.5861027190332326,
+    "n_dates": 110,
+    "n_industries": 77,
+    "n_stocks": 355,
+    "max_day_signals": 28,
+    "max_day_share": 0.0691358024691358,
+    "selected_mean_queue_rank": 1.402061855670103,
+    "pass_mean_queue_rank": 6.510948905109489,
+    "selected_mean_PVR": 70.48051946514903,
+    "pass_mean_PVR": 62.41469326270655,
+    "pass_not_top2_with_two_other_selected": 137,
+    "unselected_assigned_PnL": false,
+    "decision_counts": {
+      "SELECTED_PENDING": 194,
+      "PASS_NOT_TOP2": 137,
+      "BLOCKED_HELD": 45,
+      "CLOSE_MINIMUM_LOT_OR_RISK_REJECT_AT_CLOSE": 18,
+      "BLOCKED_UNKNOWN": 9,
+      "PVR_UNKNOWN": 2
+    }
+  },
+  {
+    "year": 2024,
+    "all_first_CP_decisions": 332,
+    "feasible": 314,
+    "selected": 107,
+    "pass_not_top2": 207,
+    "selection_rate_of_feasible": 0.34076433121019106,
+    "n_dates": 36,
+    "n_industries": 72,
+    "n_stocks": 324,
+    "max_day_signals": 219,
+    "max_day_share": 0.6596385542168675,
+    "selected_mean_queue_rank": 1.3925233644859814,
+    "pass_mean_queue_rank": 11.980676328502415,
+    "selected_mean_PVR": 73.90893256728154,
+    "pass_mean_PVR": 67.53280037660315,
+    "pass_not_top2_with_two_other_selected": 207,
+    "unselected_assigned_PnL": false,
+    "decision_counts": {
+      "PASS_NOT_TOP2": 207,
+      "SELECTED_PENDING": 107,
+      "BLOCKED_HELD": 12,
+      "CLOSE_MINIMUM_LOT_OR_RISK_REJECT_AT_CLOSE": 5,
+      "BLOCKED_UNKNOWN": 1
+    }
+  }
+]

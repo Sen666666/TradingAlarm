@@ -1,0 +1,29 @@
+{
+  "name": "首次规则亏损后扩大再参与通道",
+  "version": "v1",
+  "frozen_at": "2026-10-29T10:58:11.331468+00:00",
+  "scope": "407 tech, 2023-12-29 through 2026-10-27; one finite cash sleeve, initial 1m, max one held stock, no injection/reset/leverage/ACT.",
+  "policies": [
+    "I_ONLY",
+    "I_PLUS_CP_AFTER_LOSS"
+  ],
+  "trigger": "First actually completed original I/E0 exit cycle with net proceeds + then-known accrued entitlements - actual buy/sell costs < 0. Timestamp actual final sale. No later payment information can change trigger. One permanent policy switch, not continuous adaptive error diagnosis.",
+  "common": "Both arms identical original I admission/rank/exit and initial actual capital until trigger. New channel does not force sell or change holding protection. Failure trigger necessity is NOT identified.",
+  "CP": "Reuse experiment-two first qualifying receipt, continuous Q, warm G1, PVR>50, anchor age 0-20. Full pool all matching statuses. Only new receipt today, no replay of signal seen while funded.",
+  "priority": "Original S0 sector round-robin and stock H1 ranks; CP gets no priority bonus; lot cost only feasibility, not score.",
+  "sizing": "Native reserve own actual available cash incl actual settled proceeds, one holding/order; no buffer/10% limit; original minimum lot/day lease/support gap guard/T+1/costs/rights.",
+  "exit": "Original I/E0 state/source loss or close<=old original protection; else max old/original i_floor, next-observation effect. No F/CP exits.",
+  "initial_perturbation": "First nonempty I batch only: original versus exchange first two original-priority candidates. No future fill/PnL selection. Less than two means no perturbation; no replacement date.",
+  "paths": "2 initial scenarios x 2 policies x costs1/2 =8 only; prefix sample is validation, not another variant.",
+  "main": "Terminal NAV adaptive-I per initial/cost. Worst and range of two initial paths are case-level sensitivity only. Tail/ordinary plus displacement and all costs; win rate descriptive.",
+  "verdict": "No trigger or no distinct allowed/selected/filled CP opportunity means unidentified, not CP ineffective. Positive total/worst improvement/nonwider range/tail preservation sufficient, not mandatory; mixed signs tradeoff; cost/scenario reversal inconclusive. No retune/start replacement.",
+  "identification": "Preflight actual initial fills, common failure dates, CP-only not-I candidates while flat, selected and filled. New cash allocation is only a link in correction, not early-sale/trigger correctness or antifragility proof.",
+  "budget_seconds": 300,
+  "not_identified": [
+    "necessity of loss-trigger switch",
+    "E0 algorithm reliability",
+    "PVR threshold/ranking increment",
+    "general path robustness",
+    "full ACT portfolio performance"
+  ]
+}

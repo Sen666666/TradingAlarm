@@ -1,0 +1,14 @@
+{
+  "status": "one_root_authorized2023_continuation_completed_awaiting_independent_finance_campaign_scope_review",
+  "own2022_parent_NAV": "704487.8470098769005",
+  "end2023_NAV": "745426.9583780900535",
+  "cursor": "2023-12-29 15:10:00+08:00",
+  "raw2023_segment_return_pct": "5.811187736165332000316358600",
+  "raw2022_2023_cumulative_return_pct": "-25.4573041621909946500",
+  "full_year_paths_completed": 1,
+  "Jan3_replays": 0,
+  "financial_resets": 0,
+  "all_frozen_sources_unchanged": true,
+  "owner_for_next_horizon": "PARENT_FOR_2024.json",
+  "strategy_promoted": false
+}

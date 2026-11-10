@@ -1,0 +1,17 @@
+<=3min只读字段定位完成；0保护反馈数值/0grant/0信用消费/0账户。
+
+有现成字段，不需要新价格模型
+原No60 continuation2023/run-2023/pair/daily.jsonl.gz每日CLOSE的layers含id/sid/kind/role/qty/initial_qty/opened/signal_at/epoch/floor/last_core_line/sector/episode/pool/attempt/unit_cost/stock_structure/budget_order。同记录含positions/pending_sells/pending_intents、nativebalance；不是只期末总层表。原stock manifest可直接定位facts.factor/raw_close及CP1_input/CP1原有receipt/candidate，行业当日strictprior20high已有local20导出event；不需重算I/CP1/行业模型。
+
+真实生效保护线必须复用原函数
+case-stage-ledger-20261031/v3/joint_v3.py Account.sync:48按实际role选：core=last_core_line，mobile/add=x.floor，再用当时facts.factor转raw；不是所有layer都用初floor，也不对mobile误取其陈旧last_core_line。risk_constraints/market_regime_risk/analyze_saved.py:87–92已有相同原生坐标转换只读写法，可参考，不能自行换成初floor差。
+J.planning:233 core读取当日已知I-floor写last_core_line。mobile/add:237–242先核旧floor或已有退出责任，未退出才按max(oldfloor,已知I-floor,当日CP1.candidate若receipt)更新x.floor；因此mobile.floor是已更新保护字段，不等同core初始floor。
+已对照Nov30'22原snapshot：601728.SH core layer589 qty200、epoch[0,6]，初floor3.847272727272727，last_core_line4.198714987714988。只比初floor会错误得到零推进。Apr14'23 mobile示例003006 layer988，floor18.818732808260926而last_core_line14.04005696602962，正好说明不能用同一裸字段覆盖所有role。
+
+什么尚无，不能叫credit
+Book journal仅actual_split/cancel_ack/real_buy_fill/real_reserve/real_sell_fill；audit含risk_checkpoint/lot_risk_funded/exit_request等，但没有独立floor_raise或protection_receipt_consumed事件。每日layer字段也没有本次floor更新的receiptid/更新时间/信用epoch/消费量。CP1市场receipt能证明该日市场证据，不能单凭它证明某个已卖/待退出层在那个时点可生成可消费信用。
+故现有日快照可作actual effective-line snapshot witness；不能直接称可消费risk credit，更不能先把所有升线差累计成风险授资。原pool与attempt/epoch/receipt所有权、退出锁、跨日q变更/现金/公司行动单位仍须单独证明。原native CORE与mobile的更新/退出先后顺序须保留。
+
+最小核验成本和边界
+固定June恢复、Nov/Dec、Apr/May少量日期的同layer相邻快照，若同source/factor/epoch/qty且无退出责任，可以只读现成json+少量facts/CP1 parquet观察：同当前mark/当前q下旧有效线与新有效线有无上移，并关联当日industry严格new20high。该必要条件只需薄reader，不需Account/Runner或新模型；此处尚未计算任何DeltaR/候选授权。
+因子/source/epoch改变、split/rights、q变化、开平层或pending-exit的配对不能偷用同q/当前factor直接换算旧线；缺完整已验转换应UNKNOWN。全期证书归属、消费去重、H后实际trial反馈若不存在，必须明确缺口，不能为补齐而建新credit账。尚未估算完整全母体信用可用性为已就绪；本次到字段定位结束。

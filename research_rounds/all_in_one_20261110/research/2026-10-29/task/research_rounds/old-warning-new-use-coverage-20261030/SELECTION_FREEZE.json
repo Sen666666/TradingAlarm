@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-30T06:01:30.255238+00:00",
+  "before_nextopen_execution_precheck": true,
+  "D_future_returns_read": false,
+  "D_economic_paths": 0,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/old-warning-new-use-coverage-20261030/PROTOCOL.txt": "498d9b07a2b0d15959fff1c65d46d2e4e7947095fecbb77165519736a74b9ddc",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/old-warning-new-use-coverage-20261030/first-D-before-execution.csv": "d88a29459653253b0332946b5ef60f1f31f89258df264f4c7d79de58d8bdc22c",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/old-warning-new-use-coverage-20261030/candidate-resource-checks.csv": "5de676450518828c5eb3095c4b2496a35a18b6d710da665122e7ad6424370ba7",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/old-warning-new-use-coverage-20261030/decision-coverage.csv": "fa473e61857a41dc09d9d480896998f0b594fda953a02abb03b9d9b92fe2318f"
+  }
+}

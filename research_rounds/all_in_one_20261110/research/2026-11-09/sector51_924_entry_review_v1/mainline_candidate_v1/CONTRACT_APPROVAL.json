@@ -1,0 +1,12 @@
+{
+  "approved": true,
+  "reviewer": "/root/research_sector_entry/audit_joint_sector_account",
+  "review": "Static admission PASS after independent 26-case synthetic rerun; single historical M research path permitted. Not hypothesis endorsement or fill certification.",
+  "reviewed_strategy_engine_sha256": "bfdb57bc6b17c38805fe88d3153313e6a84ad78835d1a1bb51ef8400caba97ea",
+  "reviewed_strategy_contract_sha256": "3cb996cb024abd39ab1a2d4c2e95297a2a1158c5cc896db09ad7f408951e57cc",
+  "engine_sha256": "df47ad28878f837b6204277a0d33781b2beed38b25439ac2445c371cf2f450e9",
+  "contract_sha256": "c12876569ef90ae22790c224421ddd3fb7f6700142c4367d1f23d32c3375d88c",
+  "subsequent_change": "Parent explicitly approved 603083 company cash fact supplement before first run; inherited v9 admission logic copied verbatim. No strategy change.",
+  "supplement_sha256": "30bee171a5055cfabd8785cad3d62615ea2680aceab5eb0893124e54751cccb8",
+  "synthetic_sha256": "b918eaa46ae70eb5cf4142a894db0e9574fb95fc751b5373c03080afbdaa3fa7"
+}

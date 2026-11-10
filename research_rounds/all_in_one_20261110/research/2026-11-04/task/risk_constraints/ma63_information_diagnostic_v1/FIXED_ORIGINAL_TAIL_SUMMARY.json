@@ -1,0 +1,72 @@
+{
+  "2022_2024": [
+    {
+      "original_MA63_class": "S+I+",
+      "original_tail_members": 67,
+      "original_actual_buy_cash": "499918.0440020226830",
+      "original_actual_net": "278240.5303333982072036199095",
+      "original_matched_members": 38,
+      "unique_matched_No60_fills": 38,
+      "actual_matched_No60_buycash": "401520.5495323820560",
+      "actual_matched_No60_net": "224059.3425436346040",
+      "original_active_members": 4
+    },
+    {
+      "original_MA63_class": "S+I-",
+      "original_tail_members": 10,
+      "original_actual_buy_cash": "29208.6454463048000",
+      "original_actual_net": "14592.79940199444864253393665",
+      "original_matched_members": 5,
+      "unique_matched_No60_fills": 5,
+      "actual_matched_No60_buycash": "22432.8418328555500",
+      "actual_matched_No60_net": "12556.4129196804000",
+      "original_active_members": 3
+    },
+    {
+      "original_MA63_class": "S-I+",
+      "original_tail_members": 3,
+      "original_actual_buy_cash": "11425.4333618982000",
+      "original_actual_net": "4419.867931486866666666666667",
+      "original_matched_members": 2,
+      "unique_matched_No60_fills": 2,
+      "actual_matched_No60_buycash": "11278.3532551471000",
+      "actual_matched_No60_net": "4335.0086321149000",
+      "original_active_members": 1
+    },
+    {
+      "original_MA63_class": "S-I-",
+      "original_tail_members": 3,
+      "original_actual_buy_cash": "6949.0004970147000",
+      "original_actual_net": "2666.4225869133500",
+      "original_matched_members": 0,
+      "unique_matched_No60_fills": 0,
+      "actual_matched_No60_buycash": "0",
+      "actual_matched_No60_net": "0",
+      "original_active_members": 1
+    }
+  ],
+  "strong": [
+    {
+      "original_MA63_class": "S+I+",
+      "original_tail_members": 88,
+      "original_actual_buy_cash": "1284354.9940602712865",
+      "original_actual_net": "1135888.722732489937500000000",
+      "original_matched_members": 65,
+      "unique_matched_No60_fills": 65,
+      "actual_matched_No60_buycash": "1282679.4338984551945",
+      "actual_matched_No60_net": "1209130.3624862021715",
+      "original_active_members": 17
+    },
+    {
+      "original_MA63_class": "S+I-",
+      "original_tail_members": 6,
+      "original_actual_buy_cash": "49159.7000119191000",
+      "original_actual_net": "27159.0598705019000",
+      "original_matched_members": 2,
+      "unique_matched_No60_fills": 2,
+      "actual_matched_No60_buycash": "30771.3436757452000",
+      "actual_matched_No60_net": "11850.4563242548000",
+      "original_active_members": 2
+    }
+  ]
+}

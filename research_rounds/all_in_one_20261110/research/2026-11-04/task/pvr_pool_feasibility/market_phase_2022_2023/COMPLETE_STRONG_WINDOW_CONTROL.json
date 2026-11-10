@@ -1,0 +1,28 @@
+{
+  "NO60": {
+    "period": [
+      "2025-07-01",
+      "2026-06-30"
+    ],
+    "days": 242,
+    "net_PnL": "1263281.23097532975650000000000",
+    "return_pct": "126.3281230975329756500",
+    "mean_close_exposure_pct": "88.387615748157097364549881051446280991735537190083",
+    "actual_buy_cash": "18410977.5958040346740",
+    "actual_fees": "22720.0265796702435",
+    "passive_or_simple_filter_counterfactual_not_computed": true
+  },
+  "PVR": {
+    "period": [
+      "2025-07-01",
+      "2026-06-30"
+    ],
+    "days": 242,
+    "net_PnL": "948966.515655957438500000000000",
+    "return_pct": "94.8966515655957438500",
+    "mean_close_exposure_pct": "64.368017981544260186796786754752066115702479338843",
+    "actual_buy_cash": "12319112.3075514717150",
+    "actual_fees": "16687.1978440425615",
+    "passive_or_simple_filter_counterfactual_not_computed": true
+  }
+}

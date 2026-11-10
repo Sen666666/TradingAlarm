@@ -1,0 +1,79 @@
+{
+  "protocol_sha256": "e8be017794c1c36f0d8c6b3ec256428defcb53bfc60d9666ec632c438839643e",
+  "events": 33,
+  "unique_stock_days": 32,
+  "minute_bars": 1536,
+  "contracts": {
+    "NOACT_ORIGINAL_MOBILE": {
+      "events": 14,
+      "nominal_status_counts": {
+        "SIGNAL": 12,
+        "NO_SIGNAL": 2
+      },
+      "quality_status_counts": {
+        "SIGNAL": 12,
+        "NO_SIGNAL": 2
+      },
+      "original_ORB_counts": {
+        "NO_SIGNAL": 9,
+        "SIGNAL": 5
+      },
+      "old_O_gt_J_counts": {
+        "UNKNOWN": 14
+      },
+      "old_label_by_quality_status": {
+        "OLD_NET_NEGATIVE": {
+          "SIGNAL": 7,
+          "NO_SIGNAL": 1
+        },
+        "OLD_NET_POSITIVE": {
+          "SIGNAL": 5,
+          "NO_SIGNAL": 1
+        }
+      }
+    },
+    "PRICE_FIXED_INPUT": {
+      "events": 19,
+      "nominal_status_counts": {
+        "SIGNAL": 18,
+        "NO_SIGNAL": 1
+      },
+      "quality_status_counts": {
+        "SIGNAL": 18,
+        "NO_SIGNAL": 1
+      },
+      "original_ORB_counts": {
+        "NO_SIGNAL": 9,
+        "SIGNAL": 10
+      },
+      "old_O_gt_J_counts": {
+        "NO_PASS": 1,
+        "PASS": 18
+      },
+      "old_label_by_quality_status": {
+        "OLD_FAILURE": {
+          "SIGNAL": 6,
+          "NO_SIGNAL": 1
+        },
+        "OLD_WINNER": {
+          "SIGNAL": 7
+        },
+        "UNLABELED_PRICE_POINT": {
+          "SIGNAL": 5
+        }
+      }
+    }
+  },
+  "stock_days_with_incompatible_bars": 4,
+  "incompatible_bars": 41,
+  "unknown_prefix_bars": 89,
+  "later_bad_after_quality_signal_events": 4,
+  "old_input_files_hashed": 81,
+  "old_output_hash_entries_checked": 78,
+  "new_network_fetches": 0,
+  "new_account_runs": 0,
+  "new_economic_calculations": 0,
+  "parameter_searches": 0,
+  "disposition": "DO_NOT_PROMOTE_NO_SEPARATION_EXECUTION_UNCERTIFIED",
+  "interpretation": "Condition and descriptive source prices only. No new win rate, pnl, saved loss, fills or execution certification."
+}

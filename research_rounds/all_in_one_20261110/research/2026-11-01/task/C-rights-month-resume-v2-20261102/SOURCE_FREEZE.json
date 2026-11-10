@@ -1,0 +1,28 @@
+{
+  "identity_sha256": "d0c1f9e1c4355d8a494ed3ccba6ef2788ae200d3f7d272482a46c595780d4afc",
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-v2-20261102/compare_resume_v2.py": "e235e82664f3354fe4f46387325bcad7062893391060df05e8e0edb8ff926d7c",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-v2-20261102/test_readonly.py": "b65a308f872f452d322daff6a7a1c7c9de25683eb519d1670341e5d766c11c85",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-v2-20261102/legacy_readonly_v2.py": "e5fea510cb219a2d12ea6f6867b0667584bd96179c9f631d1b3ad27250348c8b",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-v2-20261102/resume_runtime_v2.py": "2ba83f647a31c9628d9f814b856f32481a25e110086c8ac583aae485d901c281",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-v2-20261102/driver.py": "48dcb92499b950be87b7c27c0ae2950c13e405ba339a8dcdf95bd305544f9f45",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-v2-20261102/prepare.py": "a4826013bd334a521c2ac3d5f82a8c283e51bae347cfd9f5a02d463d67430dad",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-v2-20261102/CONTRACT.txt": "981b619235bc3608cd749664831341fac910bbdd817df6ba633b408b8fab2130",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-v2-20261102/INPUT_FREEZE.json": "30bd94bcfc9733096e0808182762d2be5e81b2fddf220611ae64cb3a98df980b",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-v2-20261102/IDENTITY.json": "d0c1f9e1c4355d8a494ed3ccba6ef2788ae200d3f7d272482a46c595780d4afc",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-v2-20261102/INITIAL_GRANTS.json": "eb42329ad1c30376bf29b928cb50299549649b66aca3355af2ed0f7951d318b8",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-20261102/continuation_runtime.py": "c05c805d38e0436c8b6cfd8c35e900ade985b0fd4df3ad057db5ad92c3226c06",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-20261102/SOURCE_FREEZE.json": "5ef404dbf135d77fdfeead1502ba3d9bdd58ffe4ef7c5ba502f2009b23852a62",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-20261102/IDENTITY.json": "425fab04e8734474a45e875d9be42de9f7406c75494b3d8ab366b2b935eb032b",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-20261102/BLOCKED_SHA256.json": "e2063e8e9697ebd0a41f5d53830ad007eccce4083cd44f10a35021b25552e49f",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v3-20261102/SOURCE_FREEZE.json": "0a5c09403d15fd290af0ee1ce93f39a66446bb1f4e09de58e3776f14147bc703",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v3-20261102/OUTPUT_REGISTRY.json": "8bed1bd324fcee86ac989aa7287c741e63fd15a0bb61ee0adaeb42e878b090f6",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-nextsession-native-20261102/compare_branches.py": "1731570dba76ac23f57cb0e1ceeafdfca0f3d09c36a4cd30734a587255658a14",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-v2-20261102/grants/2022-C10-full.json": "9f16b9dbbfefaf86c14231d665766d39fb3a4b41453ae8a5df921b710a011c51",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-v2-20261102/grants/2022-C10-physical.json": "de658d8e83e486b6b31f037b86af52dcbfe507e5a7b9c52f059a127eff1223de",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-v2-20261102/grants/2022-C_BATCH20-full.json": "53984ff52704973f3802438be281b264a28ac2cd0d05715ae05b3652eff2bac1",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-v2-20261102/grants/2022-C_BATCH20-physical.json": "ea3082dbbcb0fdae394576cd7737626ab0f19ff95e6fa08b0f9ab70d60e9b91c",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-20261102/runs/2022-C10/full/REGISTRY.json": "511f2f333c57fd2f4524fa74032be2cadd251ad531c49f9cb87de181f15941ad",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-20261102/runs/2022-C10/physical/REGISTRY.json": "3ce7ad040b8fab067f263827138d08df7e7e871e239edd7b4302de9030153fe4"
+  }
+}

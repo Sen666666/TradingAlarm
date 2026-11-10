@@ -1,0 +1,4 @@
+首次短段运行成功，财务审计的旧S1名称前缀识别把内部S10CP误判为旧单行业S1账户（实际配置仍是3行业），触发持仓行业数断言。保留全部首轮短段、失败审计和源码；仅将内部S10CP改名W10CP，用户显示仍为S+CP1+W10，规则/参数未改，重新短段核验。完整经济运行尚未开始。
+
+结果后个例绘图v1使用DataFrame.at作为列名触发_AtIndexer无str；保存case_path-v1-display.py.txt，改为显式[at]列访问后图和JSON证明均生成并人工查看。不涉及策略、参数或经济重跑。
+原prefix审计已验证日账/决策/成交/CP日志；补充waiting_prefix.py进一步逐条比较等待/继承/预算日志287748条，源码另记supplementary-verification.json，不修改冻结经济源码。

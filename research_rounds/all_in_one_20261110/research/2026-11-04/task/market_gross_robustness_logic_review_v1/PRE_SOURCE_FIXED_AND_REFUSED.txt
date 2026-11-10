@@ -1,0 +1,15 @@
+稳健性矩阵前置源/逻辑约束（无账户、无fullGO）
+
+固定六个新增对照行：MA63/alpha.05/cost1、MA63/.20/1、MA62/.10/1、MA64/.10/1、MA63/.10/1.5、原No60/cost1.5。主MA63/.10/1及No60/cost1采用已审归档，不重跑。每行覆盖相同两段、各自1m和真实连续state；六行完整报告，不交叉形成网格、不挑赢家为新主参数。全部仍是已见开发窗口，参数邻值通过不构成OOS/独立样本或绝对损失可接受。
+
+输入必须固定同一原ETF因果signal_close、原完整观察钟/暖机/未知，inclusive窗口和前一原观察均线，原expected-native-CLOSE域与nextOPEN滞后。MA62/64只改窗长；不得换raw close/ETF on、dropna压缩、ffill或移入未来收盘。MA63主臂必须保持原存值D。重新滚算63是输入一致性检查，不可静默替换主63；原X序列CSV往返和浮点求和会改变近等号分类，因此所有值差及全部计划CLOSE/OPEN的D差必须明列。出现D分类差先交主审，不能放宽tol、改<=、切换63基线来假造窗口邻值稳健。任一alpha参数必须在route/reserve/fill/postcheck同一配置，不可由全局ALPHA最后一次赋值污染其它臂。
+
+1.5倍成本存在真实源阻碍：原FeeSchedule.incremental白名单只接受1/2；SectorAccount构造同样限制1/2；FastMarket.window和原父Market.window仅在cost_multiplier==2时加倍滑点。只设a.cost_multiplier=1.5/LR.SLIP会使实际费用报错且preview7.5bp与native5bp窗口不一致。不能用事后交易额×费率、全费用×1.5或已算Pnl减一笔数代替。需要先冻结最薄私有原body扩展，原repo不改，明确真实调用函数身份与源码逆diff；若变成重建手续费/撮合/资金引擎则STOP这条成本实验。
+
+成本合同沿原FeeComponent语义：stress_rate只放大被标记的变量费率；minimum是否缩放取stress_minimum，maximum取stress_maximum；side、notional/shares/parvalue基数、order/fill计提、累计paid/accrued、税率日期、取整单位/方向必须保留。默认固定5元佣金下限不能自动变7.5元，未标stress的费用不能一起乘。买卖真实execution_price均需按原stress_slippage策略用1.5（或未标时保持原值），native和preview与pending滑点/NAV投影一致。1/2倍率的原分支需靠可逆源码/直接费用窗口证据保持，不为此再跑完整B。
+
+建议成本实验独立进程，同进程仅D10/cost1.5和No60/cost1.5。原C.activate会写CURRENT cost和LR.SLIP，虽原多账户循环逐账户激活、window cache含cost键，但新1.5私有函数替换可能污染混合倍率进程。未见具体实现前不认证混跑安全。各cost1.5账户的实际费用累计、现金与ACT必须自己演化；不能引用cost1归档作为cost1.5控制，也不能冻结原B的H日历。新cost1.5控制是必要新路径，不是重复已有cost1 B。
+
+本gross门与ACT不重复：它只在市场DOWN限制新买gross承诺，允许legacy超cap自然持有；ACT依本账户DD/flat/突破独立暂停/退出/恢复。参数或成本改变可以间接改变自身H触发，但不允许更改其规则/峰值或沿别的臂复用状态。两者互补也不是有效性证明；必须看绝对两年/三年损失、强窗fat-tail与新龙头/旧赢家、费用和暴露。少投、只比No60少亏或低于35%不构成晋升。
+
+待native冻结具体source/protocol后只审差分、参数/输入身份与授权小技术账。不空跑、不新建账户、无新指标计算/新fixture/fullGO。

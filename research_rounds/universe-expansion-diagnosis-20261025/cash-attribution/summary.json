@@ -1,0 +1,23 @@
+{
+  "mean_old_account_exposure": 0.6619520386862753,
+  "mean_exposure_while_sector_IX_off": 0.2723764763514326,
+  "fraction_inventory_value_while_sector_off": 0.40542711971624035,
+  "days_with_cold_sector_holdings": 1004,
+  "days": 1400,
+  "actual_new_entries": 943,
+  "entries_while_sector_off": 444,
+  "closed_groups": [
+    {
+      "sector_IX": 0.0,
+      "campaigns": 441,
+      "mean_return": 0.0017762672461786235,
+      "net_pnl": -35397.454855199314
+    },
+    {
+      "sector_IX": 1.0,
+      "campaigns": 498,
+      "mean_return": -0.005627064033844481,
+      "net_pnl": -87116.48295733597
+    }
+  ]
+}

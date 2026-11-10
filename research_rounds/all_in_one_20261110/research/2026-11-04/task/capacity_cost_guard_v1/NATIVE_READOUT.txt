@@ -1,0 +1,6 @@
+完整native候选已完成。见NATIVE_COMPLETION.json与runs/{long-v1,strong-v1}。
+五臂NONE/G10/G20/G40/NR20均结果前固定；新增守卫是未获保护余仓实际含买费成本与真实pending成本/费用滑点投影权益，不是旧mark gross+.005nominal。原E0/I/PVR/ACT20/BREAK63/退出/现金/股行业池/费用/T+1/CA不改；新MA+20恢复未叠加。
+long为2022Jan4–2024Dec31共726原CLOSE，自身连续不年重置；strong为2025Jul1–2026Jun30共242原CLOSE，独立fresh1m。原1709/90当前快照A股开发历史，不PIT/OOS/HK/实盘。两段不能相加冒六年连续财富。
+全部source末hash44/40通过，NONE两窗原完整日账/实际交易/layers/终值均经独审核原No60 exact。独立ledger完成long3630daily/11755atomic snapshots/43actual splits，strong1210daily/5577atomic snapshots/18actual splits。
+G20保护释放的增量有方向取舍：strong比NR20多236374.41元，long却少43915.19元；G10强窗仅10.61% vsNONE126.33%，G40三年仍亏23.08%。不能只凭相对旧No60改善或回撤边界晋升。机会/费用/924/半导体与winner、新leader影响由分析线汇总，不调alpha或追加条件救结果。
+full source和rootcard此后没有改。ARM_VIEW_INDEX是兼容视图全部stream关闭的最终门；原main pair/DONE及observer原事件均保留，derived视图无新账户事件。失败/修复scope保留：module名adapter冲突import0event；missingbasis/unknown边界源修复；原naive score overlap为NaN/NaN误等判已勘误，当前明确按真实决策年原manifest选择，不设容忍/未来回填；独立processrestart已证。历史partialfixture-v1漏kwargs构造失败0event保留，独立edge owner已补native真实部分成交/CA。

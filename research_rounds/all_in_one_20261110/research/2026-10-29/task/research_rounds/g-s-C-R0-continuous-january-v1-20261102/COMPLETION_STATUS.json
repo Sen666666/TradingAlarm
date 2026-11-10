@@ -1,0 +1,168 @@
+{
+  "status": "BOTH_JANUARY_R0_PATHS_COMPLETE_AUDIT_READY",
+  "rows": [
+    {
+      "mode": "C10",
+      "actual_start": "2026-11-02T18:40:53.865766+00:00",
+      "actual_complete": "2026-11-02T18:48:25.392190+00:00",
+      "continuation_after_gated_Jan5_seconds": 452.0471779592335,
+      "final_checkpoint": {
+        "checkpoint": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-january-v1-20261102/runs/C10/2022-01-28-CLOSE.pkl",
+        "sha256": "313611ae0bae555d21cfe4f7380def512420a924d0848ce5a362e57585a726e8",
+        "cursor": "2022-01-28 15:10:00+08:00",
+        "phase": "CLOSE"
+      },
+      "max_exact_native_checks": 581,
+      "rights_events": {
+        "no-subscription|002948.SZ|2022-01-13|401874472822d6da1273a5bf1df00a3c82fe30f395df0770452cd3b1db698c4d": {
+          "event_id": "no-subscription|002948.SZ|2022-01-13|401874472822d6da1273a5bf1df00a3c82fe30f395df0770452cd3b1db698c4d",
+          "payload_sha256": "08f30965ec5eb3af4d2f35d1575b8c956e8bb301b5184590799fda28a682bfc1",
+          "sid": "002948.SZ",
+          "day": "2022-01-13",
+          "actual_cash": "0",
+          "actual_share_ratio": "1",
+          "signal_ratio": "1.30",
+          "signal_cash": "-0.9600",
+          "source": {
+            "sid": "002948.SZ",
+            "effective_date": "2022-01-13",
+            "cash_per_old_share": "0",
+            "split_ratio": "1",
+            "source_id": "401874472822d6da1273a5bf1df00a3c82fe30f395df0770452cd3b1db698c4d",
+            "raw_text": "2022-01-13(每十股 配股3.00股 配股价3.20元)$",
+            "paid_at": null,
+            "new_shares_sellable_at": null,
+            "classification": "rights_issue_no_subscription",
+            "rights_ratio": "0.30",
+            "subscription_price": "3.20",
+            "signal_cash_per_old_share": "-0.9600",
+            "signal_split_ratio": "1.30",
+            "volume_split_ratio": "1",
+            "holder_election": "do_not_subscribe_no_cash_debit_no_extra_holder_shares",
+            "modeling_basis": "declared_research_proxy",
+            "known_action_date": "2022-01-13",
+            "unpaid_policy": "original unknown date stays attributed receivable, 80% net research proxy; no financing",
+            "sellability_proxy": "unknown new-share sellable date follows original next source trading day proxy; not certified"
+          }
+        },
+        "no-subscription|600030.SH|2022-01-27|7138d8a902cb6136a64da2d08e3381f26e7d0ed737313cd7881a9357c4d68b4a": {
+          "event_id": "no-subscription|600030.SH|2022-01-27|7138d8a902cb6136a64da2d08e3381f26e7d0ed737313cd7881a9357c4d68b4a",
+          "payload_sha256": "3fcb39983a7541c4edb3cb7847a53a83292b464c448bdaf375d19301da508a5f",
+          "sid": "600030.SH",
+          "day": "2022-01-27",
+          "actual_cash": "0",
+          "actual_share_ratio": "1",
+          "signal_ratio": "1.15",
+          "signal_cash": "-2.1645",
+          "source": {
+            "sid": "600030.SH",
+            "effective_date": "2022-01-27",
+            "cash_per_old_share": "0",
+            "split_ratio": "1",
+            "source_id": "7138d8a902cb6136a64da2d08e3381f26e7d0ed737313cd7881a9357c4d68b4a",
+            "raw_text": "2022-01-27(每十股 配股1.50股 配股价14.43元)$",
+            "paid_at": null,
+            "new_shares_sellable_at": null,
+            "classification": "rights_issue_no_subscription",
+            "rights_ratio": "0.15",
+            "subscription_price": "14.43",
+            "signal_cash_per_old_share": "-2.1645",
+            "signal_split_ratio": "1.15",
+            "volume_split_ratio": "1",
+            "holder_election": "do_not_subscribe_no_cash_debit_no_extra_holder_shares",
+            "modeling_basis": "declared_research_proxy",
+            "known_action_date": "2022-01-27",
+            "unpaid_policy": "original unknown date stays attributed receivable, 80% net research proxy; no financing",
+            "sellability_proxy": "unknown new-share sellable date follows original next source trading day proxy; not certified"
+          }
+        }
+      }
+    },
+    {
+      "mode": "C_BATCH20",
+      "actual_start": "2026-11-02T18:40:55.192835+00:00",
+      "actual_complete": "2026-11-02T18:48:08.611393+00:00",
+      "continuation_after_gated_Jan5_seconds": 433.93152662506327,
+      "final_checkpoint": {
+        "checkpoint": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-january-v1-20261102/runs/C_BATCH20/2022-01-28-CLOSE.pkl",
+        "sha256": "e1fdbc2305baf3abda0378664f1adcd2773a6814f9c963164931d3fc964ed7c3",
+        "cursor": "2022-01-28 15:10:00+08:00",
+        "phase": "CLOSE"
+      },
+      "max_exact_native_checks": 413,
+      "rights_events": {
+        "no-subscription|002948.SZ|2022-01-13|401874472822d6da1273a5bf1df00a3c82fe30f395df0770452cd3b1db698c4d": {
+          "event_id": "no-subscription|002948.SZ|2022-01-13|401874472822d6da1273a5bf1df00a3c82fe30f395df0770452cd3b1db698c4d",
+          "payload_sha256": "08f30965ec5eb3af4d2f35d1575b8c956e8bb301b5184590799fda28a682bfc1",
+          "sid": "002948.SZ",
+          "day": "2022-01-13",
+          "actual_cash": "0",
+          "actual_share_ratio": "1",
+          "signal_ratio": "1.30",
+          "signal_cash": "-0.9600",
+          "source": {
+            "sid": "002948.SZ",
+            "effective_date": "2022-01-13",
+            "cash_per_old_share": "0",
+            "split_ratio": "1",
+            "source_id": "401874472822d6da1273a5bf1df00a3c82fe30f395df0770452cd3b1db698c4d",
+            "raw_text": "2022-01-13(每十股 配股3.00股 配股价3.20元)$",
+            "paid_at": null,
+            "new_shares_sellable_at": null,
+            "classification": "rights_issue_no_subscription",
+            "rights_ratio": "0.30",
+            "subscription_price": "3.20",
+            "signal_cash_per_old_share": "-0.9600",
+            "signal_split_ratio": "1.30",
+            "volume_split_ratio": "1",
+            "holder_election": "do_not_subscribe_no_cash_debit_no_extra_holder_shares",
+            "modeling_basis": "declared_research_proxy",
+            "known_action_date": "2022-01-13",
+            "unpaid_policy": "original unknown date stays attributed receivable, 80% net research proxy; no financing",
+            "sellability_proxy": "unknown new-share sellable date follows original next source trading day proxy; not certified"
+          }
+        },
+        "no-subscription|600030.SH|2022-01-27|7138d8a902cb6136a64da2d08e3381f26e7d0ed737313cd7881a9357c4d68b4a": {
+          "event_id": "no-subscription|600030.SH|2022-01-27|7138d8a902cb6136a64da2d08e3381f26e7d0ed737313cd7881a9357c4d68b4a",
+          "payload_sha256": "3fcb39983a7541c4edb3cb7847a53a83292b464c448bdaf375d19301da508a5f",
+          "sid": "600030.SH",
+          "day": "2022-01-27",
+          "actual_cash": "0",
+          "actual_share_ratio": "1",
+          "signal_ratio": "1.15",
+          "signal_cash": "-2.1645",
+          "source": {
+            "sid": "600030.SH",
+            "effective_date": "2022-01-27",
+            "cash_per_old_share": "0",
+            "split_ratio": "1",
+            "source_id": "7138d8a902cb6136a64da2d08e3381f26e7d0ed737313cd7881a9357c4d68b4a",
+            "raw_text": "2022-01-27(每十股 配股1.50股 配股价14.43元)$",
+            "paid_at": null,
+            "new_shares_sellable_at": null,
+            "classification": "rights_issue_no_subscription",
+            "rights_ratio": "0.15",
+            "subscription_price": "14.43",
+            "signal_cash_per_old_share": "-2.1645",
+            "signal_split_ratio": "1.15",
+            "volume_split_ratio": "1",
+            "holder_election": "do_not_subscribe_no_cash_debit_no_extra_holder_shares",
+            "modeling_basis": "declared_research_proxy",
+            "known_action_date": "2022-01-27",
+            "unpaid_policy": "original unknown date stays attributed receivable, 80% net research proxy; no financing",
+            "sellability_proxy": "unknown new-share sellable date follows original next source trading day proxy; not certified"
+          }
+        }
+      }
+    }
+  ],
+  "formal_accounts": 2,
+  "technical_two_day_branches": 4,
+  "original_baselines_untouched": true,
+  "first_two_days_not_replayed": true,
+  "no_February": true,
+  "model_or_parameter_updates": 0,
+  "risk_core_sha256": "b447dcb43fa72e5d25ef79f15b21de3c8e5cd41ef64eee5fa86085f2418caeb7",
+  "runtime_sha256": "0cc41f3b24b8f67fd457d94f9090ee270d292e8f6f8a74c986c2ab4305eabb26",
+  "entry_sha256": "d11f709bd8358dd3c291a5c9a0d60a21470a40e677b7ae66a66b426ddc745502"
+}

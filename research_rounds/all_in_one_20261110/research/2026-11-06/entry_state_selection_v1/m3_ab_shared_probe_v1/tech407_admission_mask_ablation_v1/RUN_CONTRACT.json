@@ -1,0 +1,48 @@
+{
+  "experiment": "TECH407_MEMBERSHIP_ONLY_CURRENT_M3_AB_SHARED_2024_AUTUMN",
+  "arms": [
+    "all1709",
+    "tech407"
+  ],
+  "seed": "1200000",
+  "start": "2024-09-01",
+  "first_common_day": "2024-09-02",
+  "birth_end": "2024-12-31",
+  "end": "2026-06-30",
+  "common_sessions": 439,
+  "wall_seconds": 900,
+  "peak_rss_bytes": 6442450944,
+  "baseline": "indexed_execution_v1/cohort_2024_924 under COHORT_EXECUTION_CONTRACT_V3.json",
+  "independent_execution": "Each arm is a fresh process/source module/account, same original internal ARM and round_id format, persistent per-arm exclusive ONCE lock. Run all1709 first; exact semantic match and resource PASS required before tech407. One run each. No failure rerun, parameter scan, stop-policy substitution, repair or source addition.",
+  "sole_factor": "Filter nonmember FLAT new admissions before original queue/checkclose and industry top2. Keep all existing-state rows. Use original retained PVR, current sector assignments, eligibility and sorting. Recompute top2 within all legal member events, not original top2 subset. OPEN asserts every INIT member; no OPEN third-rank backfill. Do not constrain held assets, ADD, exits, rights, old claims or cash reuse.",
+  "membership": {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/tech-finite-compound-20261026/data/core-v3/manifest.json",
+    "sha256": "993eb45d11bf536d1b123bfa14af330ea63daa663d36e471356e0e3c7c9f16fb",
+    "rows": 407,
+    "unique": 407,
+    "intersection_with_original1709": 407,
+    "missing": [],
+    "duplicate": 0,
+    "code_format": "six digits dot SH/SZ/BJ",
+    "raw_AB_events_tech": 1319,
+    "raw_AB_events_all": 6878,
+    "tech_A": 855,
+    "tech_B": 464,
+    "tech_event_stocks": 368
+  },
+  "immutable_signal_mother": "Original STOCK_MANIFEST 1709, common-known daily M3 denominator, stock M3, industry M3/state, SEALED_ALL_BIRTH_EVENTS, source groups, I/PVR and current industry mappings unchanged. 6878/1319 are raw A/B birth events before I/PVR/minimum-unit/top2/shared-budget filters.",
+  "financial": "Original per-round INIT2%/fee-inclusive risk0.25%, probe capital10%/nominal risk0.5%, confirmed industry10%, industry probe2%/all-risk1%, cash reserve10%, stock10%, original phase-aware freshCP double profit/one ADD, T+1, reserve-all then fill-all snapshot, whole fees once, original 165-event NET80 2024 wrapper and reporting unchanged.",
+  "unknown": "Exactly original 2024 contract: retain all assets, live intentions, receivables and claims; initial zero-liability UNKNOWN exemption unchanged. If owned-liability UNKNOWN occurs, uncertified NAV blocks new risk/promotions while known exits/rights continue through same cutoff. Do not stop at first UNKNOWN, liquidate, invent mark, erase liability, use new halt/union evidence or claim full NAV across gaps.",
+  "resource": "Darwin ru_maxrss process peak bytes and monotonic wall from source load through reports, exports, seal creation and verification. Day-boundary checks plus 900s hard alarm. FINAL_RESOURCE_QA after seal and RUN_STATUS authoritative; FAILURE or POST_STATUS_FAILURE makes run failed regardless exit or provisional result.",
+  "report": "Initial CORE layers, unique ADD layers, and whole rounds use original report_layers_v2 exact fee/NET80 allocations. Closed denominator requires execution AND settlement closed. List open/unknown separately; no terminal force-close. CORE accounting attribution is not a no-ADD account.",
+  "tail": "Frozen from existing comparison: complete fee-net return >=30%. Whole-round return denominator actual total buy cash across INIT+ADD. Also report initial/ADD own buy-cash layer tails separately. No post-outcome threshold choice. Amount means, amount payoff, tails and quantity/risk are separate.",
+  "nav": "Give portfolio return only if every recorded phase NAV certified; CLOSE-to-CLOSE drawdown uses seed plus 439 CLOSE observations, requires whole path certification. No gap interpolation or intraday drawdown claim.",
+  "comparison": "Compare each arm actual filled event_id+sid and separately record own round_id, quantities, fees, claims, NET80 and closure. Common names do not imply equal PnL. Report all1709-only and tech407-only new actual paths; do not transplant old outcomes. Different consumed-source sets allowed; common physical source hashes must match.",
+  "boundaries": [
+    "2024 autumn Sep-Dec birth cohort, not 2024 full-year or continuous 2025/26 admission. Start left truncation fixed and equal.",
+    "Fixed future membership and classifications NON-PIT, sources reused development data.",
+    "Current M3 engine uses conditional observed OPEN +/-5bp; real limit/queue/executability not certified. No new same-day HLCV use. Do not import the different old ACT/S same-day HLV limitations without current-source evidence.",
+    "Does not explain all old S 48.44% vs current system differences; old S different window, budgets, rules and execution."
+  ],
+  "pre_run_QA": "Pure synthetic tests plus a fixed 7-session Sep2-Sep10 prefix per arm only. Old financial synthetic suite not a real 2022 economic replay. Freeze all code and potential input hashes, independent pre-review release required before any full arm."
+}

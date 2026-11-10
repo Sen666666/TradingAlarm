@@ -1,0 +1,137 @@
+MA/EMA/BB可插拔研究：历史排重、复用入口与尾仓例外逻辑，2026-11-04
+当前范围：只读审查；未运行新指标、信号、账户或资金投影。
+
+主要判断
+不启动完整替代策略矩阵。应把entry confirmation、原I持有授权延续、MOBILE CP退出
+例外分开定义；原I/CP1/PVR是否保留及哪里改动须明确，不能用“均线趋势有效”混写。
+当前CP破位后半仓、5个市场观察、EMA20退出的样例不是旧W3/W10或N1的同义规则；
+但它新增mark-to-floor风险，且“尾仓等待原CORE接续”在现有held门下不可达。尚无
+经济准入。以下源文件在本次已实际读取，旧成果未修改。
+
+一、已完成EMA前置过滤，不能换参数重跑后称新机制
+money/research_rounds/ema-gate-e0-i-20261026/PROTOCOL.md、CONCLUSION.md。
+唯一条件：决策CLOSE EMA9>EMA21>EMA50且三线各高于同源前一观察；source段内
+adjust=False、min_periods=n完整预热。只AND新买，不改变持有退出。I仍需当日原I/IX
+事件，EMA后来达标不创造新I事件；E0保留自身连续资格/候选记忆，两者不能偷换。
+四固定池256股：半导体126、通信43、药48、银行39，2021-01-04—2026-10-16，独立
+100万元；原RS-H1/行业资格、15%初仓、90%新增、六股及原dated费用/整手/T+1/不利
+滑点不变。24账户=16基础E0/E0G/I/IG+8过滤组cost2，其中4个I旧完整控制；无延迟矩阵。
+原I→IG收益/DD：半导体205.89/68.86→144.20/51.90；通信492.84/48.68→354.15/
+52.40；药25.55/44.21→−26.96/43.88；银行8.28/31.53→1.60/29.80。
+E0仅半导体同时改善。原738周期374被过滤、72尾部中39被挡，真实新账交易只721→
+658，因为其他机会与金额取代；不能把旧单删除收益当新策略结果。长光、锐捷的早期
+赢家延后，普通损耗不足弥补尾部损失；仕佳正例也保留。结论针对此严格硬AND，不是
+所有均线无效，更不是EMA持有/退出已被证明失败。
+单改为20/60排列、斜率窗口或放松层数属于同类参数变体；没有新的失效点和可证伪
+作用机制时不应开启账户。新holding/CP例外是另一个干预位置，应如实识别。
+
+二、视频EMA和BB的已有边界
+video-ema-a-share-20261026/PROTOCOL.md、RULES_FOR_REVIEW.md、
+DAILY_ADAPTATION_FOR_REVIEW.md是未运行经济的Q1/D1设计。EMA9/21/50/150、回调
+或整理完成日K的H+tick触发、L−tick初始保护、0.5%名义风险/30%单股等为待审约定。
+日线D1已允许作为明确适配研究，不再以缺分钟拒绝一切日线工作，但不能称分钟复刻。
+日内高低先后不明须保留两种敏感性，且不是整个账户严格收益上下界。B持有方案有
+9EMA收盘退出及部分卖出；账户数0，不能列为已完成EMA经济负例。
+three-layer-prototype-20261024有MA20/MA63及prior20高低、放量启动/危险撤销，只有
+19序列纯市场投影，未接账户；不是BB20上轨突破或MA20/60交叉完整金融对照。
+旧pv-structure-context中Bollinger位置是图上描述，未参与投票/资金；不是BB策略证明。
+本次有界查重未定位到当前No60同1709母域、精确BB20或EMA20/60持有例外的完成
+账户。此为搜索范围结论，不宣称全库绝不存在，也不因此自动批准新矩阵。
+
+三、MA63停案必须区分信息诊断与资金策略
+task/risk_constraints/ma63_information_diagnostic_v1/READOUT.md：inclusive63含当日，
+不是previous63 mean；2022–24原No60 1841/2265实际层stock+industry均在MA上，
+生命周期仍净−281466.86元。原>=2行业推进R的617层净−204595.69。不同于原63正收益
+标签不等于改进质量，不能只选弱基准或删除负组估节省。
+loss_correction/ma63_buy_chain_v1及MA63_AXIS_FINDINGS_AND_NEXT保留2022–23全
+1557层与24月/44连续段。宏观BELOW/down866层净−234092.47，但242个原正层仍在；
+同格行业strict新20高268层净−59181.51、193原负层，非新高仍167正层。2023April
+No60实际月wealth+142183.41与MA基准−11519.68也保留。不得只引用负月给统一门晋升。
+这些MA组钱是旧路径描述，不是新过滤、延续或退出单因素收益。均线hold例外应另冻
+干预位置，不能把更换周期当已找到因果优化；也不能用旧入口诊断机械否决全部持有用途。
+
+四、可复用入口，避免新工程
+1. ema-gate-e0-i-20261026/code/gate_common.py::gate：因果价格EMA、source分段、
+   n观察预热；video.../code/check_daily.py有独立标量递推与真实截断验证样例。
+2. ema.../code/adapter.py::decide展示entry-only Fact在decision_at绑定且保留原资格
+   的接口；run_gate.py展示完整旧控制与物理前缀。它的四池/S1/六股并非当前No60母域，
+   不能整套搬过去冒充相同资金合同。
+3. 当前No60完整原生入口：task/pvr_pool_feasibility/native_adapter.py、
+   run_economic.py，沿execution_support.inputs及现成PreparedRunner输入/时钟/账本。
+   native opening/sector_account的dated单位、费用/5bp不利滑点、T+1、权息、取消/结算
+   与完整原日志继续复用，不能新造fractional/cash近似。
+   原adapter明确assert planning.__func__ is N.Runner.planning。若新卡修改planning，
+   须对已冻结派生函数建立具体新policy身份/预期绑定和OFF恒等；不可关掉整个assert
+   或沿旧policy checkpoint恢复新规则。新账户只能从自己的初态/同策略checkpoint推进。
+4. TradingAlarm/research/trend_engine.py虽然有20/60，但它是log-price EMA+波动尺度
+   温度分数，backtest是分数仓位/泛ETF近似，非标准price EMA和当前A股dated账户。
+   stock_signal_data.py的SMA200/55突破及shadow_daily_exit也是旧影子口径，含next-close/
+   不完整权息/限价等限制。只可复用纯公式思路，不能作为当前资金核账引擎。
+纯BB20价格函数只需小型冻结函数；不需要新标准指标平台、恢复框架或RiskBook。
+
+五、W3/W10、PH/N1、部分行动与新尾仓的精确差别
+intent-support-20261027/RULES：W3/W10延寿的是尚未持有的原完整资格意图3/10个市场
+收盘，不锁钱、不优先，E0/I/原支持/ACT失效立即撤销，不滚动续期。35路径/407股三
+起点。W3基础有取舍但三延迟全差，W10普通扩候选挤掉原赢家；这是entry等待，不是
+持仓退出宽限。cp1-waiting-factorial进一步W0/W3/W10两池，科技专项和药结果不同，
+纯延续交易收益也不等于整户增量。不把其数值直接当5日尾仓的经济否证。
+PH1：在旧保护未破时，post-entry原E0新higher-low确认并实际抬支持才停止以后F。
+L*=max(oldP,I)，保留旧快线，无限期BRIDGE直到I追上；不因浮盈自动交接。36完整
+两池×仓位/持有模式/压力，跨层/板块/执行取舍，不晋升通用。它没有CP破位后放松线。
+N1：买后新F/CP1>K，存活后才交接，仍先查旧线且保留继承floor。1084晋升层解除
+继承线的局部试验有+33.07万元增量但风险增加；1917单元确认等待三臂B比入场即结构
+C少约24.83万元，876真正等到者终值同C。不能给浮盈门槛换名。
+partial-action-wiring/full-account：初始冻结alpha半核心/半risk，负event RB2只减
+risk角色，core本来就I持有，fresh I才恢复。不是CP破位时由EMA/BB许可半仓尾仓，
+也没有固定5期尾仓期限。固定半E0/半快线混合对照也不识别该新条件退出例外。
+
+新样例暂可描述为“CP提出退出时的新增风险限时保留许可”，未找到精确已做合同；
+但不是风险中性，也不是旧保护完全没动。C<=旧CP floor F时q*max(0,C−F)=0；如果
+保留q_tail且S<C，名义风险q_tail*(C−S)>0，必须从原共享风险余额取得许可。
+
+六、候选逻辑实质阻断/必须先冻结的部分
+1. 原CORE接续不可达：joint_v3.py::planning仅在event.QTrue AND not held AND
+   core_epoch!=epoch生成CORE。只要尾仓还有真实股数，not held=False；不能宣称5期
+   中“真正CORE信号按既有规则接续”。当前24mobile只有北斗640有同股core636，其余
+   23没有旧core。允许有仓再建core/把tail改core都属于额外入口/角色改动，不能混入。
+2. CP必须在proposal被提交为a.sell/ExitOrder之前作为新政策截获；已经锁定的原卖单
+   不可因EMA/BB后来转好撤销。硬优先级：原ACT、原I_target/来源失效、已有退出责任、
+   entry hardline或独立硬保护破坏，全退出；EMA/BB不能覆盖这些责任。
+3. hardline要取实际MOBILE entry冻结的max(I,entry CP1)而非更低“原始I线”。
+   S=max该entry hardline,current合法I_floor)，单位用实际qty/factor/同source。C<=S
+   无尾仓；C>S才可能申请有限保留。EMA20是一条新的退出/许可线，必须明确实际下一
+   观察有效floor是否为max(S,EMA20)，还是C<EMA20的单独信号；两者的时序/资源risk
+   不完全同义，不能把风险视图仍保留已破CP线、实际却等更低S，造成隐形新增风险。
+4. 风险门是实际新许可而不是一般新买request：同股/行业/probe所有旧lot与live订单
+   都保留。尾股q_tail的新actual floor必须进原名义risk，行业1%、probe.5%/10%等原
+   适用限制和现金/费用不放松；confirmed60和旧账户3%已前置消融，不能误添6%新合同。
+   拟卖数量未成交前仍是真实库存，不能按计划减量计风险或用预计卖款付款。过渡期间
+   两种保护/两部分责任如何记账须明确；若只有一个原layer floor，不能用虚构平均线
+   让budget看不到真实S。可能需要在实际trim完成后才启尾，或明确保守全qty占用；
+   当前没有该接线证明，不以补工程豁免。实际部分成交/延迟/T+1继续承担责任。
+5. 最多半仓沿合法SELL格点，剩余旧股不套buy_min。100股普通层可能完全不能正卖
+   正留；STAR可以留极少股，但那不等于充分资本参与。20/60/5/1/2等都须本卡一次
+   冻结，不根据25层或未来赢家救覆盖，不借跨层利润重复发预算。
+6. 5期以共同市场观察计，明确触发CLOSE算第几期、实际trim延迟是否耗期限及第5期
+   后哪个OPEN退出；未知价/停牌不让日历暂停，重复CP proposal/EMA状态不能重置。
+   不可无穷5期续期变成未声明的永久结构持有。到期、EMA退出、hard/I/ACT优先级及
+   已卖部分净款/费用、余股实际权益都保留。日线价格无法保证止损价成交。
+7. EMA/BB许可须具体布尔式。价格>EMA20、EMA20>EMA60、EMA斜率、BB上轨/中轨
+   不是同一“趋势有效”。本卡不同时混OR/AND、持有5天、重新core入场等多项变化；
+   如果只针对CP软化，entry原合法信号与PVR顺序、金额/资源、硬退出应保持原合同。
+
+七、防未来与账户口径独审准备
+EMA按真实完整来源段预热，不随I段/账户/2022或强窗起点重置。BB均值/标准差须冻结
+inclusive20还是prior20、ddof及倍率。当前收盘自含均值可以因果，但不等同prior窗口。
+breakout“今日越轨状态”与“从不越到越的fresh crossing”分开；原receipt不能在每天
+越轨时反复消费。所有条件在signal CLOSE可知，只供下一合法OPEN，不能读fill日CLOSE。
+新同bar线先后必须明确：旧保护先检、新线下一观察；旧退出不撤。CA/source未知不补0。
+先OFF完整同输入短账恒等与真实指标物理截断，再有限一次新经济；普通失败、假突破、
+正常宽回撤、V形恢复、单边无回调赢家及零交易都保留。两窗财富独立，不拼接，2022–24
+连续时不每年重置。新ACT按新路径NAV实际重算，不借旧ACT pause/恢复日历。
+评价是完整实际账本收益/回撤/暴露/费用、全部负层与原赢家资本参与，不是只看止损后
+反弹或新增覆盖。旧price label、旧层终生PnL不能按尾股比例缩成新收益。
+
+当前裁决：历史排重完成到足以审卡；CP尾仓样例尚有CORE不可达、真实风险占用及期限
+定义未闭合，不给予金融准入。可以先冻结一个作用点，复用当前native kernel做必要薄
+验证；不因旧EMA硬过滤失败断言全部EMA工具无效，也不因未见精确BB对照就开大矩阵。

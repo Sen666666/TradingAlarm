@@ -1,0 +1,20 @@
+H2原持仓授权作用域诊断（非entry-only，未运行政策账户）
+
+同一已冻RS20及EMA20，jointweak=RS20<=0且C<EMA20；只看mobile、原ACT/I仍on、严格早于该层原firstspecific退出，原CP/I/ACT同日优先。CORE事件0。全57213原held逐行导出，首次点不读原最终损益。
+
+原Dec209层(旧87+新122)在12月有首条件点37层，34个sid×day、33股：旧24，新first7/add2/reentry4。
+其中旧24有15层在10/11月已有更早global条件点。若H2从此前生效，不能假定这些层仍以相同形式持到12月；真正global首点在Dec的本母体为22层(旧9+新13)。
+
+原Dec财富的时点分解（元，仍不是可避损失）：
+cohort | layers | through trigger CLOSE already accrued | later original Dec wealth | whole original Dec wealth
+Dec_new_add | 2 | -651.57 | 332.75 | -318.83
+Dec_new_first | 7 | -4234.89 | -1537.37 | -5772.27
+Dec_new_reentry | 4 | -1276.58 | -260.96 | -1537.54
+old_inventory_at_Nov30 | 24 | -1861.55 | -8955.72 | -10817.27
+
+全三年mobile global首eligible388层，原负贡献−234475.00/原正+132224.89；strong124层，原负−100590.71/原正+267127.19。原贡献覆盖含此前损益和正常持有变化，不能机械扣除。
+完整原fixedtail83/94保留：No60精确对应45/67；H2分别触及4/11层。strong触及11层No60原贡献+145599.88、原PVR贡献+185141.35分别列示。未对应成员未知，不叫没有受伤；实际重入、资金再分配、ACT反馈均未模拟。
+
+下一native session OPEN只附原source raw OHLCV及volume_unit；不认证legal fill/容量/T+1/限价/停牌条件，也不使用该报价选触发点。请求、触发CLOSE既有跌幅、下一OPEN报价分列。
+未知held观察三年198、strong264；全57,213观察与原每层heldcount逐项一致。17个entry-context anchor未知另表保留。
+新买only stock gate已按root指示停止。此处不实现H2、不另建行业policy、不按strong收益挑阈值；候选需root另冻。

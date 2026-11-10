@@ -1,0 +1,65 @@
+授权短窗连续结果（研究模拟；未改经济规则）
+四个原账户从各自Jan7/Jul4已核收盘接续，2022只到Jan12、2025只到Jul9。没有重置、旧日期重跑、Jan13配股或Jul10事件。原601916角色回转、中药失败、全部样本保留。
+
+累计口径：各自原起点100万元；2022 Jan4–12、2025 Jul1–9，各7个交易日。已实现=实际卖出净款−对应原买款及分摊买费；未实现=剩余库存估值−剩余含买费成本。股息/零股核销另列。
+arm | NAV | return | realized | unrealized | fee | gross two-sided turnover | exposure
+2022-C10 | 949,349.69 | -5.07% | -30,509.85 | -20,140.46 | 2,670.27 | 3,670,448.32 | 71.26%
+2022-C_BATCH20 | 953,092.18 | -4.69% | -28,645.27 | -18,262.55 | 2,331.88 | 3,256,246.92 | 71.23%
+2025_26-C10 | 996,486.31 | -0.35% | -4,629.51 | 1,115.83 | 1,206.64 | 2,294,300.88 | 61.48%
+2025_26-C_BATCH20 | 996,457.60 | -0.35% | -5,530.26 | 1,987.86 | 1,108.57 | 2,125,886.09 | 67.92%
+所有四账股息收入/应收/到账、零股核销均0；不表示以后无需处理权息。未平层贡献包括已卖部分，不能当成未实现：
+2022-C10: closed positive 14,226.35, closed negative -37,052.92; open-layer contribution -27,823.74=partial realized -7,683.28+unrealized -20,140.46+open dividends 0.00.
+2022-C_BATCH20: closed positive 11,477.66, closed negative -33,143.20; open-layer contribution -25,242.28=partial realized -6,979.73+unrealized -18,262.55+open dividends 0.00.
+2025_26-C10: closed positive 16,949.38, closed negative -20,930.87; open-layer contribution 467.81=partial realized -648.02+unrealized 1,115.83+open dividends 0.00.
+2025_26-C_BATCH20: closed positive 12,647.26, closed negative -20,930.87; open-layer contribution 4,741.22=partial realized 2,753.35+unrealized 1,987.86+open dividends 0.00.
+
+实际链条与代价：
+1. Jan7中药新买→Jan7收盘支持失败/CP1退出请求→Jan10开盘真实卖出：C10五股45.14万毛买款，含费已实现-11,415.35；C20两股19.14万，已实现-7,248.89。天士力C10仍获利304.89，不能把所有退出叫个股失败。
+   旧因果包已独审：Jan6合法，存在已知急跌反弹但并无规则失效被忽略。T+1/周末不能把Jan7收盘请求冒称Jan7实卖。
+   中药Jan10 repair_restored（未成熟），Jan11新price_advance后成熟；Jan12白云山重新获S/confirmed：C10 200股、C20 1200股，截止未实现-107.06/-620.66。没有禁重入或抹去原亏损。
+2. Jan10必要退出释放现金后，Jan11两档实际新买68.38万/62.90万；20%只限制健康旧仓机会性减持，不限制独立退出款/空闲现金投放。Jan11净值又下跌21,030.25/20,627.37，并非限速就全程小试。
+3. 601916两档均保留：Jul2 mobile/S100→Jul4筹资卖100，已实现+1.42；同开盘core/T500→Jul9仍持500、未实现+83.98；Jul7另加mobile/T500→Jul9筹资卖出、含费-8.03。core/mobile保护、池、费用和责任分别记，不能合并净量当等价。
+4. 2022截至Jan12 C20较C10财富多3,742.49、少双边换手414,201.40、少费用338.39；这是完整账户净差，不把少买五股当全部因果。其Jan12中药权重23.02%反而高于C10的17.30%。
+5. 2025首次实际限速分歧在Jul9：前收盘计划New316,009/198,284；实际健康旧仓毛卖313,131.36/196,754.57，实际毛买91,186.57/39,148.56。C20保留更多三七互娱，也少加世纪华通。
+   世纪华通累计贡献C20少1,890.72（主要剩余估值）；三七互娱多2,565.98；平安电工少710.84。全股票贡献差精确汇总为C20少28.71。它既减少迁移成本，又延迟新资金；不据此判C20胜。
+   20%限制按原决策批次计划毛市值，不是实际成交金额硬上限；价差可使实际毛卖偏离。部分卖出的保留仓贡献不可全算浮盈。
+
+逐日资本响应（买/卖为当天真实成交毛额；行业为当日收盘真实权重）：
+2022-C10 2022-01-07: expo 89.31%, buy 451,720.75, sell 344,078.87, top 中药 75.53%; close New 26,539.00, Carry 0.00.
+2022-C10 2022-01-10: expo 12.19%, buy 10,884.44, sell 766,231.69, top 游戏 9.47%; close New 0.00, Carry 0.00.
+2022-C10 2022-01-11: expo 81.71%, buy 683,834.75, sell 0.00, top 建筑装饰 29.05%; close New 88,815.00, Carry 0.00.
+2022-C10 2022-01-12: expo 71.26%, buy 171,798.86, sell 269,928.97, top 化学制药 22.11%; close New 472,281.00, Carry 0.00.
+2022-C_BATCH20 2022-01-07: expo 77.49%, buy 191,405.66, sell 199,799.05, top 中药 59.12%; close New 26,539.00, Carry 0.00.
+2022-C_BATCH20 2022-01-10: expo 22.08%, buy 62,214.09, sell 606,952.37, top 游戏 14.09%; close New 0.00, Carry 0.00.
+2022-C_BATCH20 2022-01-11: expo 85.87%, buy 629,026.36, sell 0.00, top 建筑装饰 28.99%; close New 185,527.00, Carry 0.00.
+2022-C_BATCH20 2022-01-12: expo 71.23%, buy 227,987.94, sell 366,891.46, top 中药 23.02%; close New 187,368.00, Carry 0.00.
+2025_26-C10 2025-07-04: expo 75.58%, buy 89,636.80, sell 125,078.43, top 通信设备 21.26%; close New 150,840.00, Carry 0.00.
+2025_26-C10 2025-07-07: expo 81.60%, buy 297,449.65, sell 237,753.06, top 游戏 19.88%; close New 72,226.00, Carry 0.00.
+2025_26-C10 2025-07-08: expo 83.72%, buy 91,158.56, sell 73,407.28, top 游戏 19.79%; close New 316,009.00, Carry 0.00.
+2025_26-C10 2025-07-09: expo 61.48%, buy 91,186.57, sell 313,131.36, top 游戏 21.14%; close New 296,684.00, Carry 0.00.
+2025_26-C_BATCH20 2025-07-04: expo 75.58%, buy 89,636.80, sell 125,078.43, top 通信设备 21.26%; close New 150,840.00, Carry 0.00.
+2025_26-C_BATCH20 2025-07-07: expo 81.60%, buy 297,449.65, sell 237,753.06, top 游戏 19.88%; close New 72,226.00, Carry 0.00.
+2025_26-C_BATCH20 2025-07-08: expo 83.72%, buy 91,158.56, sell 73,407.28, top 游戏 19.79%; close New 198,284.00, Carry 0.00.
+2025_26-C_BATCH20 2025-07-09: expo 67.92%, buy 39,148.56, sell 196,754.57, top 游戏 24.07%; close New 157,177.00, Carry 0.00.
+注意New/Carry为该收盘下一批许可，非已成交/结算资金；不可与当天卖额混同。
+
+实际首参与/追加/重入及退出：
+2022-C10: actual buy-fill layers 48, distinct funded stocks 44, first/add/reentry 44/2/2; buy-fill/sell-fill receipts 48/23; same-buy-day exit-request layers 8（请求非实卖）; terminal native buys/exits 0/9, next-open intents 142.
+2022-C_BATCH20: actual buy-fill layers 45, distinct funded stocks 41, first/add/reentry 41/3/1; buy-fill/sell-fill receipts 45/21; same-buy-day exit-request layers 5（请求非实卖）; terminal native buys/exits 0/4, next-open intents 142.
+2025_26-C10: actual buy-fill layers 41, distinct funded stocks 34, first/add/reentry 34/3/4; buy-fill/sell-fill receipts 41/25; same-buy-day exit-request layers 2（请求非实卖）; terminal native buys/exits 0/6, next-open intents 233.
+2025_26-C_BATCH20: actual buy-fill layers 42, distinct funded stocks 35, first/add/reentry 35/3/4; buy-fill/sell-fill receipts 42/24; same-buy-day exit-request layers 2（请求非实卖）; terminal native buys/exits 0/4, next-open intents 233.
+role/core-mobile与pool/probe-confirmed的完整买款、已实现、未实现、闭合正负见RESULTS与ALL_LAYERS；同股加仓按实际买入前全股数量，真正归零再买才算reentry。全样本保留，deterministic worst/best3仅作后视解释，不用于选择。
+
+技术与审计：
+40状态×7会计差均0（280条断言，不是280独立样本）；库存股数桥、原始流水＋库存权益桥、四终态完整恢复一致。旧包254个文件按原件或明确归档副本校验一致。分析无金融事件。
+库存估值仍取同一原生as-of mark，不冒称第二套独立价格源。
+新金融执行用同一run_month.py；四臂runner wall 324.810s（含状态保存与读取），分析复核另计。
+2022-C10: start 2026-11-02T10:20:44.176293+00:00, end 2026-11-02T10:21:46.618030+00:00, wall 63.984s, event(save+native) ACTION/OPEN/CLOSE 0.000/49.050/12.843s.
+2022-C_BATCH20: start 2026-11-02T10:21:49.434592+00:00, end 2026-11-02T10:22:53.014103+00:00, wall 65.046s, event(save+native) ACTION/OPEN/CLOSE 0.000/49.959/13.078s.
+2025_26-C10: start 2026-11-02T10:22:57.754460+00:00, end 2026-11-02T10:24:31.783445+00:00, wall 97.343s, event(save+native) ACTION/OPEN/CLOSE 12.714/63.029/17.306s.
+2025_26-C_BATCH20: start 2026-11-02T10:24:36.617024+00:00, end 2026-11-02T10:26:11.770305+00:00, wall 98.436s, event(save+native) ACTION/OPEN/CLOSE 12.831/64.195/17.151s.
+本次没有性能改代码；该计时含前后checkpoint/I/O，不能伪装纯投影耗时。
+当前止于授权截止，无工程失败；Jan13配股仍为后续显式接线门，未因当前没持仓跳过。后续仍有一般零股/G备用子集/部分mandatory升级等既有未支持分支，遇到须原子停。
+仍继承当前snapshot非PIT、日线OHLC/volume执行代理、未知分红支付不再投/权息代理限制；这7日结果不证明长期有效或实盘可执行。
+
+结论边界：支持“限速确实改变实际迁移节奏，必要退出与再参与仍运行”；否定“C20等于所有新股小仓、总换手很小或必然更好”；未知长期肥尾捕获/累计假启动损耗取舍。后续仅在审查后接续既有账户，不据本短窗临时调规则。

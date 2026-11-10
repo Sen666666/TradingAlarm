@@ -1,0 +1,629 @@
+actual_budget_resources
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/model_without_account_check.py
+SHA256 2fb801bcadfe3aa0fe0ecac97a9730861079bc16d908a3674a404b255729c2c3
+  106     def resources(self, pool=None, sector=None):
+  107         lots = [x for x in self.lots if (pool is None or x.pool == pool)
+  108                 and (sector is None or x.sector == sector)]
+  109         orders = [x for x in self.orders.values() if x.qty > 0 and
+  110                   x.status in ('open', 'cancel_pending') and
+  111                   (pool is None or x.pool == pool) and
+  112                   (sector is None or x.sector == sector)]
+  113         capital = sum(x.qty*self.prices[x.stock] for x in lots) + sum(x.qty*x.limit for x in orders)
+  114         risk = sum(x.qty*max(0., self.prices[x.stock]-x.floor) for x in lots)
+  115         risk += sum(x.qty*max(0., x.limit-x.floor) for x in orders)
+  116         reserve = sum(x.qty*(x.limit+x.fee_per_share) for x in orders)
+  117         return capital, risk, reserve
+  119     def valid(self, token, source, bar):
+  120         s = self.sectors.get(token.sector)
+  121         return bool(s and (source == 'industry_cp1' or s.active) and token.source == source and token.scale == '21' and
+  122                     token.epoch == s.episode and
+  123                     token.end >= s.episode_started and token.confirmed_time >= s.episode_started and
+  124                     (source == 'industry_cp1' or (token.attempt == s.attempt and token.end >= s.started)) and
+  125                     token.start <= token.end <= token.confirmed_time <= bar)
+  166     def invalidate(self, sector, episode, *, bar):
+  167         s = self.sectors[sector]
+  168         assert s.episode == episode
+  169         s.active, s.status = False, 'invalidated'
+  170         s.failed_bar = max(s.failed_bar, bar)
+  171         for o in self.orders.values():
+  172             if o.sector == sector and o.episode == episode: self.cancel(o.oid)
+  188     def migrate(self, sector):
+  189         s = self.sectors[sector]
+  190         if s.level == 0 or not s.active:
+  191             return False
+  192         if any(o.sector == sector and o.attempt == s.attempt and o.pool == 'probe' and o.qty > 0
+  193                and o.status in ('open', 'cancel_pending') for o in self.orders.values()):
+  194             s.status = 'confirmed_unfunded'
+  195             return False
+  196         moved = sum(x.qty*self.prices[x.stock] for x in self.lots if x.sector == sector and x.attempt == s.attempt and x.pool == 'probe')
+  197         pending_fees = sum(o.qty*o.fee_per_share for o in self.orders.values()
+  198                            if o.status in ('open', 'cancel_pending'))
+  199         if self.resources('confirmed')[0] + moved > .60*(self.nav-pending_fees) + 1e-9:
+  200             s.status = 'confirmed_unfunded'
+  201             return False
+  202         before = (self.cash, self.nav, self.resources(), self.shared_loss)
+  203         for x in self.lots:
+  204             if x.sector == sector and x.attempt == s.attempt and x.pool == 'probe':
+  205                 x.pool = 'confirmed'
+  206         s.status = 'confirmed' if s.level == 1 else 'expanded'
+  207         assert before == (self.cash, self.nav, self.resources(), self.shared_loss)
+  208         return True
+
+joint_exit_mirror
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py
+SHA256 fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425
+   32  def pools_from_model(self):
+   33   for x in self.budget.lots:
+   34    k=int(x.batch)
+   35    if k in self.jmeta:self.jmeta[k]['pool']=x.pool
+   36  def sync(self,at,*,pending_ack=False):
+   37   # Only native callbacks may change actual inventory. The mirror's existing
+   38   # lot units must not be silently repaired by rebuilding it from the ledger.
+   39   # Pool migration is intentionally excluded: it changes ownership of capacity,
+   40   # not shares/cost/protection units.
+   41   old_units=[(x.batch,x.stock,x.qty,x.cost,x.floor) for x in self.budget.lots]
+   42   if hasattr(self,'_mirror_lot_units'):assert old_units==self._mirror_lot_units,'mirror lot mutation outside native sync'
+   43   self.pools_from_model();b=self.budget;marks=self.market.marks(at,self.positions);bal=self.balance(at,marks);lots=[]
+   44   for x in self.layers:
+   45    if not x['qty']:continue
+   46    # Only the last decision-known core line is available at the next open.
+   47    # facts.row(at) contains that date's close and must not update this at open.
+   48    meta=self.jmeta[x['id']];sid=x['sid'];factor=self.facts.factor(sid,at);floor=D(str(meta['last_core_line'])) if x['kind']=='core' else x['floor']
+   49    if floor is None:raise ValueError('unknown actual protection floor '+sid)
+   50    b.prices[sid]=float(marks[sid].cny_price(at));lots.append(V.Lot(str(x['id']),sid,meta['sector'],meta['episode'],meta['pool'],x['qty'],meta['unit_cost'],float(floor/factor),meta['role'],meta['attempt']))
+   51   b.lots=lots
+   52   for sid,o in self.buys.items():
+   53    bid=self.order_bridge[o.order_id];bo=b.orders[bid];assert bo.qty==o.remaining_shares,(sid,'budget/actual pending quantity')
+   54    assert abs(bo.qty*bo.limit-float(o.remaining_budget_cny))<1e-6,(sid,'mirror pending gross differs from native')
+   55    assert abs(bo.qty*bo.fee_per_share-float(o.fee_reserved_cny))<1e-6,(sid,'mirror pending fee differs from native')
+   56    bo.floor=float(self.order_meta[o.order_id]['floor']/self.facts.factor(sid,at))
+   57   # This is an authorization view of explicit real-ledger accounts, not a
+   58   # second valuation engine and not a residual forced to match NAV.
+   59   b.cash=float(bal['available']+bal['order_reserved'])
+   60   b.receivable_equity=float(bal['sale_receivable']+bal['dividend_receivable'])
+   61   self.budget_at=at;self._budget_sync_pending=pending_ack
+   62   self.assert_budget_view(at,bal,pending_ack=pending_ack)
+   63   self._mirror_lot_units=[(x.batch,x.stock,x.qty,x.cost,x.floor) for x in b.lots]
+   64   return bal
+  130  def fill_exit(self,sid,w):
+  131   before={x['id']:dict(x) for x in self.live(sid)};r=super().fill_exit(sid,w)
+  132   if r:
+  133    for part in self.trades[-1]['parts']:
+  134     meta=self.jmeta[part['layer']];fee=float(r.fees_cny)*part['shares']/r.shares;loss=max(0.,meta['unit_cost']-float(r.gross_cny/D(r.shares)))*part['shares']+fee;self.budget.loss(meta['sector'],meta['episode'],loss)
+  135    self.journal.append(dict(kind='real_sell_fill',at=w.at,sid=sid,shares=r.shares,price=r.gross_cny/D(r.shares),fees=r.fees_cny,parts=self.trades[-1]['parts']));self.sync(w.at)
+  195  def industry(self,a,at):
+  196   day=gidday(at);bar=ordinal(day);b=a.budget
+  197   for sector,rows in self.industry_rows.items():
+  198    r=rows[day];ep=r['E0_episode'];current=b.sectors.get(sector)
+  199    if r['E0_valid'] and (not current or current.episode!=ep):b.start(sector,ep,self.episode_starts[ep])
+  200    if sector not in b.sectors:continue
+  201    if not r['E0_valid'] or r['action']=='end_attempt':
+  202     b.observe(sector,bar,failure=True);result='invalidated'
+  203    elif r['receipt']:
+  204     cp=self.industry_cp[sector+'|'+day];tok=V.Evidence(cp['receipt_id'],sector,'industry_cp1','21',ordinal(cp['formation_start_exclusive']),bar,bar,b.sectors[sector].episode)
+  205     result=b.observe(sector,bar,token=tok)
+  206    else:result='unchanged'
+  207    a.pools_from_model()
+  208    for sid,real in tuple(a.buys.items()):
+  209     bid=a.order_bridge[real.order_id]
+  210     if b.orders[bid].status=='cancel_pending':a.cancel_buy(sid)
+  211    a.sync(at)
+  222    C.activate(a);a.expire_day_buys(at);a.current_nav=a.balance(at,self.market.marks(at,a.positions))['nav'];M.E.risk_policy.step(a,at,'ACT20_BREAK');a.pending=[]
+  223    for sid in tuple(a.positions):
+  224     row=self.facts.row(sid,at);cp=self.cp[sid].loc[day] if day in self.cp[sid].index else None;quote=self.market.quote(sid,at);assert quote
+  225     if not a.risk_state['on'] or not bool(row.i_target):
+  226      if not bool(row.i_target):
+  227       for x in a.live(sid):
+  228        if x['kind']=='core':a.jmeta[x['id']]['pending_I_exit_reference']=True
+  229      a.sell(sid,clock,quote,[x['id'] for x in a.live(sid)],'ACT_pause' if not a.risk_state['on'] else 'I_structure_exit');continue
+  230     for x in a.live(sid):
+  231      if x['kind']=='core':
+  232       known_floor=self.facts.floor(sid,at,'I')
+  233       if known_floor is not None:a.jmeta[x['id']]['last_core_line']=str(known_floor)
+  234       continue
+  235      if x['kind']!='add' or x['id'] in a.sell_layers.get(sid,set()):continue
+  236      if D(str(row.close))<=x['floor']:a.sell(sid,clock,quote,[x['id']],'CP1_add_protection')
+  237      else:
+  238       floor=self.facts.floor(sid,at,'I')
+  239       if floor is not None:x['floor']=max(x['floor'],floor)
+  240       if cp is not None and bool(cp.receipt):x['floor']=max(x['floor'],D(str(cp.candidate)))
+  241    a.sync(at);self.industry(a,at)
+  242    for rank,sid in enumerate(ordered):
+  243     cpr=self.receipts[sid].get(gidday(at));roles=[];why=[];held=bool(a.quantity(sid));epoch=self.global_watch.get(sid);sector=self.sector_by_sid[sid]
+  244     if event[sid].q is True and not held and a.core_epoch.get(sid)!=epoch:roles.append('core')
+  245     if cpr and continuing[sid].q is True:roles.append('mobile')
+  246     if not a.risk_state['on']:why.append('ACT_paused')
+  247     if sid in a.exits:why.append('exit_pending')
+  248     if sid in a.buys:why.append('buy_pending')
+  249     if event[sid].q is not True and not (cpr and continuing[sid].q is True):why.extend(event[sid].reasons or ['no_fresh_signal_or_Q'])
+  250     self.opportunities.append(dict(account=a.label,day=gidday(at),sid=sid,sector=sector,rank=rank,core_Q=event[sid].q,mobile_Q=continuing[sid].q,CP1_id=cpr['receipt_id'] if cpr else None,roles=roles,held=held,barriers=why))
+  251     if why or not roles:continue
+  302  def opening(self,a,at):
+  303   C.activate(a)
+  304   for sid in sorted(a.exits):
+  305    win=self.market.window(sid,at,'sell',1)
+  306    if win:a.fill_exit(sid,win)
+  307   a.settle_due(at);a.sync(at);funded=[];done=set()
+  308   for i in sorted([i for i in a.pending if i['clock'].earliest_execution_at==at],key=lambda x:(x['rank'],x['role']!='core')):
+  309    sid=i['sid']
+  310    if sid in done or sid in a.buys or sid in a.exits:continue
+  311    raw=self.market.raw[sid];day=pd.Timestamp(at.date())
+  312    if day not in raw.index or not np.isfinite(raw.loc[day].open) or raw.loc[day].open<=0:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='missing_open'));continue
+  313    x,why=LR.preview(i,D(str(raw.loc[day].open)),self.facts.factor(sid,at),self.market.quantity(sid,at),self.market.fees(sid,at))
+  314    if why:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result=why));continue
+  315    x['known_open']=D(str(raw.loc[day].open))
+  316    route,why=self.route(a,i,x,at)
+  317    if why:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result=why));continue
+  318    q,pool=route;a.reserve_quantity(i,q,x['price'],x['schedule'],at);a.sync(at);done.add(sid);funded.append((sid,i,x,q));self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='reserved',pool=pool,shares=q,price=x['price'],CP1_id=i.get('CP1_id')))
+  319   # Execution proxies are consulted only after all H1-ranked funding decisions.
+  320   for sid,i,x,q in funded:
+  321    win=self.market.window(sid,at,'buy',1)
+  322    if win:assert win.execution_price==x['price'];a.fill_buy(sid,win)
+  323    else:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='no_execution_window_after_reservation'))
+  324   a.settle_due(at);a.sync(at);a.minimum_available=min(a.minimum_available,a.available);a.check()
+
+physical_ledger
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py
+SHA256 48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb
+  249 class InventoryLot:
+  250     shares: int
+  251     sellable_at: datetime
+  252 
+  253 
+  254 @dataclass
+  255 class Position:
+  256     security_id: str
+  257     issuer_id: str
+  258     sector_id: str
+  259     currency: str
+  260     lots: list[InventoryLot] = field(default_factory=list)
+  261 
+  262     @property
+  263     def shares(self) -> int:
+  264         return sum(lot.shares for lot in self.lots)
+  265 
+  266 
+  267 @dataclass
+  268 class ExitOrder:
+  269     event_id: str
+  270     quote: DecisionQuote
+  271     requested_at: datetime
+  272     earliest_at: datetime
+  273     delay_remaining: int
+  274     local_notional: Decimal = ZERO
+  275     fees_local: dict[str, Decimal] = field(default_factory=dict)
+  276     fee_accrued_local: dict[str, Decimal] = field(default_factory=dict)
+  277     submitted_remaining: int = 0
+  278     remaining_target: int | None = None
+  279     purpose: str = 'structure_exit'
+  570     def request_exit(self, quote: DecisionQuote, clock: admission.Clock):
+  571         self._time(clock.decision_at)
+  572         sid = quote.security_id
+  573         if sid in self.positions:
+  574             pos = self.positions[sid]
+  575             if (quote.issuer_id, quote.sector_id, quote.currency) != (pos.issuer_id, pos.sector_id, pos.currency):
+  576                 raise ValueError('Exit identity/currency disagrees with existing inventory')
+  577         self.cancel_buy(sid)
+  578         if self.quantity(sid) and sid not in self.exits:
+  579             quote.read_price(clock.decision_at)
+  580             self.exits[sid] = ExitOrder(self._id('exit', sid), quote, clock.decision_at,
+  581                                         clock.earliest_execution_at, self.delay_events)
+  582             self.audit_log.append(dict(kind='exit_request', at=clock.decision_at, sid=sid,
+  583                                       event_id=self.exits[sid].event_id))
+  584 
+  585     def request_reduction(self, quote: DecisionQuote, clock: admission.Clock, shares: int):
+  586         """B0's frozen annual sell delta; never used for a strategy trend exit."""
+  587         if type(shares) is not int or shares < 0 or shares > self.quantity(quote.security_id):
+  588             raise ValueError('Annual sell delta must fit actual integer inventory')
+  589         if not shares:
+  590             return
+  591         if quote.security_id in self.exits:
+  592             raise ValueError('Cancel the old annual reduction before replacing its target')
+  593         self.request_exit(quote, clock)
+  594         order = self.exits[quote.security_id]
+  595         order.remaining_target, order.purpose = shares, 'annual_rebalance'
+  596 
+  597     def cancel_reduction(self, sid):
+  598         order = self.exits.get(sid)
+  599         if order is not None:
+  600             if order.purpose != 'annual_rebalance':
+  601                 raise ValueError('A structural exit is irrevocably latched')
+  746     def fill_exit(self, sid, window: FillWindow) -> FillReceipt | None:
+  747         order = self.exits.get(sid)
+  748         if order is None or not self._eligible_event(order, window, 'sell'):
+  749             return None
+  750         pos = self.positions[sid]
+  751         available = sum(lot.shares for lot in pos.lots if lot.sellable_at <= window.at)
+  752         target = pos.shares if order.remaining_target is None else order.remaining_target
+  753         available = min(available, target)
+  754         additional_available = max(0, available-order.submitted_remaining)
+  755         additional_order = window.quantity.sell_floor(additional_available,
+  756                                                        pos.shares-order.submitted_remaining)
+  757         submitted = order.submitted_remaining+additional_order
+  758         count = min(submitted, available, window.capacity_shares)//window.quantity.fill_step*window.quantity.fill_step
+  759         if not count:
+  760             return None
+  761         price, fx = dec(window.execution_price), window.fx.read(window.at)
+  762         local = count*price
+  763         components = self._fee(order, window.fees, 'sell', local, shares=count, par_value=window.par_value)
+  764         fee = sum(components.values(), ZERO)*fx
+  765         net = local*fx-fee
+  766         if net < 0 and self.available < -net:
+  767             return None
+  768         if not self._consume_event(order, window):
+  769             return None
+  770         order.submitted_remaining = submitted-count
+  771         if order.remaining_target is not None:
+  772             order.remaining_target -= count
+  773         remaining = count
+  774         for lot in pos.lots:
+  775             if lot.sellable_at <= window.at:
+  776                 sold = min(remaining, lot.shares); lot.shares -= sold; remaining -= sold
+  777         pos.lots[:] = [lot for lot in pos.lots if lot.shares]
+  778         self._remember_fees(order, window.fees, 'sell', local, components,
+  779                            shares=count, par_value=window.par_value)
+  780         settlement_id = self._id('sale', sid)
+  781         if net < 0:
+  782             self.available += net  # Lock only the excess fee; no borrowed cash.
+  783         self.settlements[settlement_id] = Settlement(settlement_id, abs(net), net < 0,
+  784                         window.cash_due_at, abs(local-sum(components.values(), ZERO)), fx, window.fx.source_id)
+  785         receipt = FillReceipt(self._id('fill', sid), sid, 'sell', count, local*fx, fee,
+  786                                window.at, settlement_id, window.execution_basis)
+  787         self.fills.append(receipt); self.fees_cny += fee
+  788         self.audit_log.append(dict(kind='fill', receipt=receipt, order_id=order.event_id,
+  789                                   raw_open=window.raw_open, price=price, fx_rate=fx,
+  790                                   fx_source=window.fx.source_id, source=window.source_id,
+  791                                   fee_schedule=window.fees.schedule_id, fee_components=components))
+  792         if not pos.shares:
+  793             del self.positions[sid]; del self.exits[sid]
+  794             self.completed.append(admission.ExitCompletion(sid, order.event_id, window.at))
+  795         elif order.remaining_target == 0:
+  796             del self.exits[sid]
+  797         return receipt
+  798 
+  799     def settle_due(self, at) -> tuple[str, ...]:
+  800         self._time(at)
+  801         done = []
+  802         for key, item in list(self.settlements.items()):
+  803             if item.due_at <= at:
+  804                 if not item.debit:
+  805                     self.available += item.cny_amount
+  806                 # Debit cash was already locked, never available for another buy.
+  807                 del self.settlements[key]; done.append(key)
+  808                 self.audit_log.append(dict(kind='settle', at=at, settlement=item))
+  809         return tuple(done)
+
+logical_target_ledger
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/probe-pyramid-pilot-20261029/code/pilot.py
+SHA256 38ac36ba3b9da599c66307451f4173249efc229f54dfb6a0d8469517431f94b4
+   74  def fill_exit(self,sid,w):
+   75   receipt=super().fill_exit(sid,w)
+   76   if receipt:
+   77    left=receipt.shares;targets=self.sell_layers[sid];parts=[]
+   78    for z in self.live(sid):
+   79     if z['id'] not in targets:continue
+   80     take=min(left,z['qty']);z['qty']-=take;left-=take;cash=(receipt.gross_cny-receipt.fees_cny)*D(take)/receipt.shares;z['cash']+=cash
+   81     if not z['qty']:z['closed']=w.at
+   82     parts.append(dict(layer=z['id'],kind=z['kind'],shares=take,net_cash=cash,reason=z['reason']))
+   83     if not left:break
+   84    assert not left,(sid,receipt,'sale allocation')
+   85    self.trades.append(dict(**asdict(receipt),parts=parts,raw_open=w.raw_open,price=w.execution_price,reason=','.join(sorted({p['reason'] for p in parts}))))
+   86    if sid not in self.exits:self.sell_layers.pop(sid,None)
+   87    if not self.quantity(sid):self.last_buy.pop(sid,None)
+   88    self.counts['sell_fills']+=1
+   89   self.check();return receipt
+  104  def sell(self,sid,clock,quote,ids,reason):
+  105   ids=set(ids)
+  106   for z in self.live(sid):
+  107    if z['id'] in ids:z['reason']=reason
+  108   ids|=self.sell_layers.get(sid,set());self.sell_layers[sid]=ids
+  109   shares=sum(z['qty'] for z in self.live(sid) if z['id'] in ids)
+  110   if not shares:return
+  111   if sid not in self.exits:super().request_reduction(quote,clock,shares)
+  112   else:
+  113    ex=self.exits[sid];ex.remaining_target=shares
+  114    if shares==self.quantity(sid):ex.purpose='structure_exit';ex.remaining_target=None
+  115   self.log('pilot_layer_exit',clock.decision_at,sid=sid,layers=sorted(ids),shares=shares,reason=reason)
+
+effective_market
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/temperature-sizing-20261026/code/fast_market.py
+SHA256 55f9ccf4085ace9f476afde4d29f250f7317dea405cbd9dffa69f5d7e366f36a
+   14    self.arr[sid]=dict(days=f.index.as_unit('ns').asi8//86400000000000,open=f.open.to_numpy(float),high=f.high.to_numpy(float),low=f.low.to_numpy(float),close=f.close.to_numpy(float),volume=v,valid=f.valid_price.to_numpy(bool),good=np.flatnonzero(ok),positive=np.flatnonzero(np.isfinite(v)&(v>0)),close_time=time.fromisoformat(self.bundle.series[sid].record['close_available_time']))
+   30  def latest_mark(self,sid,at):
+   31   self._cache(at)
+   32   if sid in self.mc:return self.mc[sid]
+   33   self.source_available(sid,at);a=self.arr[sid];day=pd.Timestamp(at.date()).value//86400000000000;i=np.searchsorted(a['days'][a['good']],day,side='right')-1
+   34   if i<0:return super().latest_mark(sid,at)
+   35   p=a['good'][i];d=pd.Timestamp(int(a['days'][p])*86400000000000).date();known=datetime.combine(d,a['close_time'],native.TZ)
+   36   if known>at or any(d.isoformat()<e['effective_date']<=at.date().isoformat() for e in self.actions.get(sid,())):m=super().latest_mark(sid,at)
+   37   else:m=ledger.Mark(D(str(a['close'][p])),known,self.rate('CNY',at),self.bundle.series[sid].record['raw']['sha256'])
+   38   if sid not in self.mark_verified:
+   39    assert m==super().latest_mark(sid,at),(sid,at,'mark identity');self.mark_identity_checks+=1;self.mark_verified.add(sid)
+   40   self.mc[sid]=m;return m
+   41  def quote(self,sid,at):
+   42   self._cache(at)
+   43   if sid not in self.qc:self.qc[sid]=super().quotes(at,[sid]).get(sid)
+   44   return self.qc[sid]
+   45  def window(self,sid,at,side,cost_multiplier):
+   46   self._cache(at);key=(sid,side,cost_multiplier)
+   47   if key in self.wc:return self.wc[key]
+   48   self.wc[key]=None;market=self.lines[sid].market
+   49   if at not in self.sessions_set[market]:return None
+   50   try:self.source_available(sid,at)
+   51   except RuleUnavailable:return None
+   52   a=self.arr[sid];day=pd.Timestamp(at.date()).value//86400000000000;p=np.searchsorted(a['days'],day)
+   53   if p>=len(a['days']) or a['days'][p]!=day or not a['valid'][p] or not np.isfinite(a['volume'][p]) or a['volume'][p]<=0:return None
+   54   j=np.searchsorted(a['positive'],p)
+   55   if j<20:return None
+   56   try:
+   57    market_identity_on(self.rules,sid,at.date(),self.protocol['approved_proxy_ids']);availability=self._version('availability_versions',sid,at);buy,sell=availability.get('buy_allowed'),availability.get('sell_allowed');policy=self.protocol['daily_execution'][market]
+   58    assert policy['price_limit_policy']=='conservative_hl_proxy'
+   59    if policy['reject_flat_day'] and a['high'][p]<=a['low'][p]:buy=sell=False
+   60    prior=a['volume'][a['positive'][j-20:j]];capacity=int(min(prior.mean()*float(self.protocol['participation_rate']),a['volume'][p]));slip=D(policy['slippage_bps'])/10000
+   61    if cost_multiplier==2 and policy['stress_slippage']:slip*=2
+   62    op=D(str(a['open'][p]));price=op*(1+slip if side=='buy' else 1-slip)
+   63    w=ledger.FillWindow(f'{sid}:{at.isoformat()}:{side}',sid,at,op,price,self.rate('CNY',at),self.quantity(sid,at),self.fees(sid,at),capacity,True,buy,sell,self.lag(market,at,self.protocol['sellable_lag_sessions'][market]),self.lag(market,at,self.protocol['settlement_lag_sessions'][market]),self.bundle.series[sid].record['raw']['sha256'],'explicit_daily_bar_proxy_past20_capacity_same_day_hlv_postcheck',self.rules.get('security_metadata',{}).get(sid,{}).get('par_value'))
+   64   except RuleUnavailable:return None
+   65   if key not in self.window_verified:
+   66    assert w==super().window(sid,at,side,cost_multiplier),(sid,at,'window identity');self.window_identity_checks+=1;self.window_verified.add(key)
+   67   self.wc[key]=w;return w
+
+effective_base_market
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/ix-a-share-entry-20261025/code/multi_runner.py
+SHA256 8272c400fcee074a3902db9430dcf22d7ea3f0e0b3abb3caed3dc1e2a344d285
+   85         self._notice_keys = {}
+   86         for sid, line in self.lines.items():
+   87             record = bundle.series[sid].record
+   88             if record.get('status') != 'ready':
+   89                 self.notices.append(dict(sid=sid, reason=record.get('blocked_reason', 'raw_not_ready')))
+   90                 continue
+   91             path = checked_ref(record['raw'], bundle.manifest_path.parent)
+   92             frame = read_raw(path, record)
+   93             # Keep the source rows for execution diagnostics; marks use valid prices.
+   94             valid = eligible_prices(frame)
+   95             frame['valid_price'] = frame.index.isin(valid.index)
+   96             frame['observed_bar'] = boolean_column(frame, 'observed_bar', True)
+   97             self.raw[sid] = frame
+   98             if record['kind'] == 'stock':
+   99                 events, _ = read_actions(record, bundle.manifest_path.parent)
+  100                 self.actions[sid] = events
+  145     def source_available(self, sid, at):
+  146         record = self.bundle.series[sid].record
+  147         day = at.astimezone(TZ).date().isoformat()
+  148         if record.get('unavailable_from') and day >= record['unavailable_from']:
+  149             raise RuleUnavailable('Declared source unavailable from '+record['unavailable_from']+': '+sid)
+  150         parts = record.get('segments', ())
+  151         if any(left['end'] < day < right['start'] for left, right in zip(parts, parts[1:])):
+  152             raise RuleUnavailable('Declared source discontinuity: '+sid)
+  153 
+  154     def quantity(self, sid, at):
+  155         return QuantityRule(**self._version('quantity_versions', sid, at)['rule'])
+  156 
+  157     def fees(self, sid, at):
+  158         identity = market_identity_on(self.rules, sid, at.astimezone(TZ).date(),
+  159                                       self.protocol['approved_proxy_ids'])
+  160         # A/H is not a fee venue. No broad-market fallback can erase historical
+  161         # SSE/SZSE/BSE differences or turn today's suffix into historical identity.
+  162         schedule = self._version('fee_versions', identity['venue'], at)['schedule']
+  163         return FeeSchedule(schedule['schedule_id'], tuple(FeeComponent(**x) for x in schedule['components']))
+  164 
+  165     def market_buyable(self, at):
+  166         result = {}
+  167         for sid in self.lines:
+  168             try:
+  169                 self.source_available(sid, at)
+  170                 market_identity_on(self.rules, sid, at.astimezone(TZ).date(),
+  171                                    self.protocol['approved_proxy_ids'])
+  172                 row = self._version('availability_versions', sid, at)
+  173                 value = row['buy_allowed']
+  174                 if value is not None and type(value) is not bool:
+  175                     raise ValueError('Availability must be a boolean or unknown')
+  176                 source = row['source_id']
+  177             except RuleUnavailable as exc:
+  178                 value, source = None, str(exc)
+  179             result[sid] = admission.Fact(value, at, at, source_id=source)
+  182     def latest_mark(self, sid, at):
+  183         self.source_available(sid, at)
+  184         frame = self.raw.get(sid)
+  185         if frame is None:
+  186             raise RuleUnavailable('Raw mark unavailable: ' + sid)
+  187         record = self.bundle.series[sid].record
+  188         cutoff = at.astimezone(TZ).date()
+  189         pos = frame.index.searchsorted(pd.Timestamp(cutoff), side='right')-1
+  190         for i in range(pos, -1, -1):
+  191             date, row = frame.index[i], frame.iloc[i]
+  192             if not bool(row.get('observed_bar', True)):
+  193                 continue
+  194             close_at = datetime.combine(date.date(), time.fromisoformat(record['close_available_time']), TZ)
+  195             if close_at <= at:
+  196                 if not bool(row.valid_price):
+  197                     continue
+  198                 price, known = dec(row.close), close_at
+  199             else:
+  200                 opens = [x for x in self.sessions[self.lines[sid].market]
+  201                          if x.astimezone(TZ).date() == date.date() and x <= at]
+  202                 # The current open is observable independently of future H/L/C.
+  203                 if not opens or not pd.notna(row.open) or not math.isfinite(row.open) or row.open <= 0:
+  204                     continue
+  205                 price, known = dec(row.open), opens[0]
+  206             source = record['raw']['sha256']
+  207             intervening = [e for e in self.actions.get(sid, ())
+  208                 if date.date().isoformat() < e['effective_date'] <= cutoff.isoformat()]
+  209             if intervening:
+  210                 if self.protocol.get('stale_action_mark_policy') != 'theoretical_ex_reference':
+  211                     raise RuleUnavailable('Stale pre-action price requires an explicit valuation policy: '+sid)
+  212                 for event in sorted(intervening, key=lambda e:e['effective_date']):
+  213                     price = (price-dec(event.get('signal_cash_per_old_share',event['cash_per_old_share'])))/dec(event.get('signal_split_ratio',event['split_ratio']))
+  214                     source += ':derived_ex_reference:'+event['effective_date']+':'+event['source_id']
+  215                 if price <= 0:
+  216                     raise RuleUnavailable('Nonpositive derived ex-action valuation reference: '+sid)
+  217                 # Keep the actual raw observation time. The source explicitly
+  218                 # records the subsequent unit transforms, never a tradable quote.
+  219             return Mark(price, known, self.rate(record['currency'], at), source)
+  220         raise RuleUnavailable('No already-observed price prefix: ' + sid)
+  221 
+  222     def marks(self, at, ids):
+  223         return {sid: self.latest_mark(sid, at) for sid in ids}
+  224 
+  225     def quotes(self, at, ids=None):
+  226         result = {}
+  227         for sid in ids if ids is not None else self.lines:
+  228             line = self.lines[sid]
+  229             if ids is None and not (line.current_stock is True and line.company_cap_cny is not None
+  230                     and line.company_cap_cny > 10_000_000_000
+  231                     and (line.market == 'A' or line.southbound_selected is True)):
+  232                 continue
+  233             if line.issuer_id is None or line.sector_id is None:
+  234                 continue
+  235             try:
+  236                 mark = self.latest_mark(sid, at)
+  237                 meta = self.rules.get('security_metadata', {}).get(sid, {})
+  238                 result[sid] = DecisionQuote(sid, line.issuer_id, line.sector_id, self.currency(sid),
+  239                     mark.raw_price, mark.known_at, mark.fx, self.quantity(sid, at), self.fees(sid, at),
+  240                     mark.source_id, meta.get('par_value'))
+  241             except RuleUnavailable as exc:
+  242                 self.notice(dict(at=at, sid=sid, reason=str(exc)))
+  243         return result
+  258     def window(self, sid, at, side, cost_multiplier):
+  259         market = self.lines[sid].market
+  260         if at not in self.sessions[market]:
+  261             return None
+  262         try:
+  263             self.source_available(sid, at)
+  264         except RuleUnavailable as exc:
+  265             self.notice(dict(at=at, sid=sid, side=side, reason=str(exc)))
+  266             return None
+  267         frame = self.raw.get(sid)
+  268         date = pd.Timestamp(at.astimezone(TZ).date())
+  269         if frame is None or date not in frame.index:
+  270             return None
+  271         row = frame.loc[date]
+  272         if not bool(row.valid_price) or not pd.notna(row.volume) or row.volume <= 0:
+  273             return None
+  274         prior = frame.loc[frame.index < date, 'volume'].dropna()
+  275         prior = prior[prior > 0].tail(20)
+  276         if len(prior) < 20:
+  277             return None
+  278         try:
+  279             market_identity_on(self.rules, sid, at.astimezone(TZ).date(),
+  280                                self.protocol['approved_proxy_ids'])
+  281             availability = self._version('availability_versions', sid, at)
+  282             buy, sell = availability.get('buy_allowed'), availability.get('sell_allowed')
+  283             policy = self.protocol['daily_execution'][market]
+  284             guard = policy['price_limit_policy']
+  285             if guard == 'external_columns':
+  286                 if pd.isna(row.get('limit_up')) or pd.isna(row.get('limit_down')):
+  287                     buy = sell = None
+  288                 else:
+  289                     buy = bool(buy and row.open < row.limit_up)
+  290                     sell = bool(sell and row.open > row.limit_down)
+  291             elif guard not in ('no_price_limits', 'conservative_hl_proxy'):
+  292                 raise ValueError('Unknown frozen price-limit policy')
+  293             if policy['reject_flat_day'] and row.high <= row.low:
+  294                 buy = sell = False
+  295             capacity = int(min(prior.mean()*float(self.protocol['participation_rate']), row.volume))
+  296             slip = dec(policy['slippage_bps'])/10000
+  297             if cost_multiplier == 2 and policy['stress_slippage']:
+  298                 slip *= 2
+  299             price = dec(row.open)*(1+slip if side == 'buy' else 1-slip)
+  300             return FillWindow(f'{sid}:{at.isoformat()}:{side}', sid, at, dec(row.open), price,
+  301                 self.rate(self.currency(sid), at), self.quantity(sid, at), self.fees(sid, at),
+  302                 capacity, True, buy, sell,
+  303                 self.lag(market, at, self.protocol['sellable_lag_sessions'][market]),
+  304                 self.lag(market, at, self.protocol['settlement_lag_sessions'][market]),
+  305                 self.bundle.series[sid].record['raw']['sha256'],
+  306                 'explicit_daily_bar_proxy_past20_capacity_same_day_hlv_postcheck',
+  307                 self.rules.get('security_metadata', {}).get(sid, {}).get('par_value'))
+  308         except RuleUnavailable as exc:
+  309             self.notice(dict(at=at, sid=sid, side=side, reason=str(exc)))
+  310             return None
+
+raw_reader
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/code/current_pool_bridge.py
+SHA256 f5d228529662dfe364d2465a8f6f2adad86ba521ca5bff05bb41d67da5de4cf4
+   69 def read_raw(path, record):
+   70     if path.suffix == '.parquet':
+   71         frame = pd.read_parquet(path)
+   72     elif path.suffix == '.csv':
+   73         frame = pd.read_csv(path, float_precision='round_trip')
+   74     else:
+   75         obj = json.loads(path.read_text())
+   76         frame = pd.DataFrame(obj['bars'])
+   77     if 'trade_date' in frame:
+   78         frame = frame.rename(columns={'trade_date': 'date'})
+   79     if 'date' in frame:
+   80         frame = frame.set_index('date')
+   81     frame.index = pd.DatetimeIndex(pd.to_datetime(frame.index), name='date')
+   82     if (frame.empty or frame.index.tz is not None or not frame.index.is_unique
+   83             or not frame.index.is_monotonic_increasing):
+   84         raise ValueError('Nonempty unique increasing local session dates required')
+   85     if (frame.index != frame.index.normalize()).any():
+   86         raise ValueError('Expected daily dates, not intraday timestamps')
+   87     if str(frame.index[0].date()) != record['source_start']:
+   88         raise ValueError('Explicit source origin mismatch; no silent truncation/rebase')
+   89     declared_volume_unit = record['volume_unit']
+   90     allowed_volume_units = ({'shares', 'source_index_units'} if record['kind'] == 'sector_index'
+   91                             else {'shares'})
+   92     for name, expected in [('volume_unit', declared_volume_unit), ('price_adjustment', 'raw')]:
+   93         if name in frame and set(frame[name].dropna()) != {expected}:
+   94             raise ValueError('Unexpected raw ' + name)
+   95     if declared_volume_unit not in allowed_volume_units or record['price_adjustment'] != 'raw':
+   96         raise ValueError('Raw prices and normalized share volume (or explicit index source units) required')
+   97     if not set(OHLC + ('volume',)).issubset(frame.columns):
+   98         raise ValueError('Missing raw OHLCV')
+   99     for col in OHLC + ('volume',):
+  100         frame[col] = pd.to_numeric(frame[col], errors='raise')
+  101     if 'is_observed_bar' in frame:
+  102         frame['observed_bar'] = frame.is_observed_bar
+  103     # Malformed price rows are retained for the declared observation mask audit.
+  104     if (frame.volume.dropna() < 0).any():
+  105         raise ValueError('Negative raw volume')
+  106     return frame
+
+rule_version_reader
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/market_rules.py
+SHA256 2fe02c28d30b9202a627acb5541c8ef917a6fb92953494a467148ed5f83f5cdb
+   33 def version_on(versions,on_date,approved_proxy_ids=()):
+   34     target=day(on_date);ranges=[]
+   35     for row in versions:
+   36         lo=day(row['from']);hi=day(row['to']) if row.get('to') else None
+   37         if hi is not None and hi<=lo:raise ValueError('Invalid version interval')
+   38         if not row.get('source_id'):raise RuleUnavailable('Rule has no source identity')
+   39         ranges.append((lo,hi,row))
+   40     ranges.sort(key=lambda x:x[0])
+   41     for left,right in zip(ranges,ranges[1:]):
+   42         if left[1] is None or left[1]>right[0]:raise ValueError('Overlapping rule versions')
+   43     matches=[r for lo,hi,r in ranges if lo<=target and (hi is None or target<hi)]
+   44     if not matches:raise RuleUnavailable('No rule version for this historical date')
+   45     row=matches[0];basis=row.get('basis')
+   46     if basis=='official_rule':
+   47         if row.get('verification_status')!='verified':raise RuleUnavailable('Official rule not marked verified')
+   48     elif basis=='explicit_research_proxy':
+   49         if not row.get('proxy_id') or row['proxy_id'] not in approved_proxy_ids:
+   50             raise RuleUnavailable('Research proxy was not frozen/approved')
+   51     else:raise RuleUnavailable('Unknown rule evidence basis')
+   52     return row
+
+CP_existing_output
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py
+SHA256 85f21ad1622863645618f570b5f2e832558ebaca218ff2c71d0b4a0b545dd0bf
+   20  out=pd.DataFrame(index=f.index,columns=['r','s','z','B','u','v','m'],dtype=float)
+   21  for _,g in f.groupby('segment_id',sort=False):
+   22   r=np.log(g.close).diff();s=r.abs().shift().rolling(63,min_periods=63).median().mul(1.4826).clip(lower=1e-8)
+   23   B=g.amount.shift().rolling(21,min_periods=21).median();u=np.tanh(r/s);v=np.tanh(np.log(g.amount/B))
+   24   out.loc[g.index]=pd.DataFrame(dict(r=r,s=s,z=s.clip(lower=S_MIN),B=B,u=u,v=v,m=1+.5*u.abs()*v),index=g.index)
+   50   out.append(dict(ready=ready,phase=used_phase,reset_reason=reason,anchor=used_anchor,frontier=frontier,scale=used_scale,credit=used_credit,delta_frontier=fresh,displacement=disp,receipt=receipt,candidate=candidate,next_anchor=anchor,next_scale=scale,next_credit=credit,next_phase=phase))
+   51  cols=['ready','phase','reset_reason','anchor','frontier','scale','credit','delta_frontier','displacement','receipt','candidate','next_anchor','next_scale','next_credit','next_phase']
+   52  result=pd.DataFrame(out,index=f.index,columns=cols)
+   53  for k in ['phase','reset_reason','next_phase']:result[k]=result[k].astype('string')
+   54  for k in ['ready','receipt']:result[k]=result[k].astype(bool)
+   55  for k in set(cols)-{'ready','receipt','phase','reset_reason','next_phase'}:result[k]=result[k].astype(float)
+   56  result=result.join(z)
+   57  result['e0_valid']=f.e0_valid;result['e0_floor']=f.i_floor if 'i_floor' in f else np.nan
+   58  return result
+
+native_fact_columns
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/native-I-cache-interface-20261031/cache.py
+SHA256 fe800283edacb57d1581b50b2bcfdb800ffe4d5f0a22114d0180d3836f6ec969
+   12 COLS=['close','segment_id','e0_target','e0_floor','i_target','i_floor','i_buy','g_grade','g_fresh_up','g_acute_down','g_ready','e0_ready','factor','raw_close']
+

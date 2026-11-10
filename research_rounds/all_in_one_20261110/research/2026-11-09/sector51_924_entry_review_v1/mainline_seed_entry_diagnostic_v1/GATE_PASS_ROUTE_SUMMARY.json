@@ -1,0 +1,44 @@
+[
+  {
+    "cohort": "ALL",
+    "via": "F_AND_CP",
+    "n": 140,
+    "net": "-44752.1043702999295",
+    "same_signal_receipt": 19
+  },
+  {
+    "cohort": "ALL",
+    "via": "F",
+    "n": 28,
+    "net": "-9457.6918839307860",
+    "same_signal_receipt": 0
+  },
+  {
+    "cohort": "ALL",
+    "via": "CP",
+    "n": 233,
+    "net": "-5962.7149986951345",
+    "same_signal_receipt": 78
+  },
+  {
+    "cohort": "LATE",
+    "via": "F_AND_CP",
+    "n": 67,
+    "net": "-30870.6065695702500",
+    "same_signal_receipt": 14
+  },
+  {
+    "cohort": "LATE",
+    "via": "F",
+    "n": 19,
+    "net": "-13255.0116652602360",
+    "same_signal_receipt": 0
+  },
+  {
+    "cohort": "LATE",
+    "via": "CP",
+    "n": 123,
+    "net": "-31222.5179065018715",
+    "same_signal_receipt": 42
+  }
+]

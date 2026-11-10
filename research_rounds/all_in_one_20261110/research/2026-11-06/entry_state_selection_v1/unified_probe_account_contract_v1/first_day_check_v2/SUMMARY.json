@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "scope": "FIRST_DAY_ENGINEERING_ONLY_NOT_ECONOMIC_VALIDATION",
+  "unique_first_stocks": 4,
+  "first_buy_fills": 4,
+  "first_reserves": 4,
+  "role_counts": {
+    "core": 3,
+    "mobile": 1
+  },
+  "gross": "30584.284500",
+  "fees": "22.7128260351500",
+  "close_nav": "1198447.0026739648500",
+  "close_inventory": "29054.00",
+  "close_inventory_fraction": 0.024243041148398686,
+  "close_probe": [
+    29054.0,
+    4457.548892270535,
+    0
+  ],
+  "close_confirmed": [
+    0,
+    0,
+    0
+  ],
+  "promotion_count": 0,
+  "funding_rejections": {
+    "minimum_unit_exceeds_risk_or_nominal_cap": 2,
+    "probe_risk": 389,
+    "probe_risk,sector_capital": 8,
+    "industry_invalidated": 16,
+    "missing_open": 1,
+    "no_nominal_gap": 1
+  },
+  "original_source_files_unchanged": true,
+  "real_orders": false,
+  "full_window_run": false,
+  "seconds": 125.42059983406216,
+  "implementation_sha256": "755547e59cce871762523167bf21006033260291d6f0e613876d5c063aa5bc02"
+}

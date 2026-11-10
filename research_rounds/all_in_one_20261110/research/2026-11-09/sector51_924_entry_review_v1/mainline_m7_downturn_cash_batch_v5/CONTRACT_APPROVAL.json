@@ -1,0 +1,17 @@
+{
+  "approved": true,
+  "engine_sha256": "6860981fd7dd9cf7228c594b72fc3777c5c3df46a2fb7087878d0219b168f6be",
+  "contract_sha256": "4bc47b496f2517d135ff647962b206d518b7b0686fe4f5b3fff9216ea193ff75",
+  "manifest_sha256": "d72c66d16205b77e356276ecb7f1e541aa2dee5ad7f87e7bb1d0e018ff0d76d0",
+  "scope": "One frozen M7 historical extension through 2024-10-31 with exact four-event reviewed 10/11 manifest only. Preserve source-coordinate d_source, gross d_cash entitlement, and separately disclosed official d_ref. No alpha or suspension changes, live trades or additional cash admissions. Require 10/8,10/9,10/10 prefixes before later trading.",
+  "author_tests_independently_repeated": 30,
+  "independent_checks": 69,
+  "audit_files": {
+    "independent_batch_admission.py": "5e2052ca38a26096a0e4e9c2c8f04bc14fe0a5ecd7acd190c51e8f0b79e8e7dc",
+    "INDEPENDENT_QA.json": "cfd3ae484450965c94177e92caa2feb189d027574f3df53043554cdf23ce02f9",
+    "synthetic_batch.py": "48029b120cb0d04beb261d0a2c696c2a8589c0dd613776fd41feca6343f503e3",
+    "SYNTHETIC_QA.json": "61baa676644428736b299f44d676e227e8833cc8f3da663934a8df33f379e4c8",
+    "REVIEWED_BATCH_MANIFEST.json": "d72c66d16205b77e356276ecb7f1e541aa2dee5ad7f87e7bb1d0e018ff0d76d0"
+  },
+  "timestamp_utc": "2026-11-09T21:23:06.721704+00:00"
+}

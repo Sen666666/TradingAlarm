@@ -1,0 +1,19 @@
+只读原码入口（未运行build/模型/指标/账户）
+
+1. CP完整原式：snippets/CP_constants_features_calculate.py.txt
+原model.py1-58，含输入校验、63/21滞后背景、new-frontier credit、sqrt5触发、sqrt21保护候选。
+stock输入e0_valid实际来自I_target，见CP_stock_input_native_frame.py.txt23-28。
+2. PVR完整原式：snippets/PVR_actual_frozen_formula.py.txt（仅19行）
+真实字段r/scale/amount_ref/u/b/e/E/score；没有P/V/R三独立分数，金额用amount非volume。
+3. 缓存/排序接线：PVR_actual_cache_reader、PVR_unique_stock_slot_substitution、
+PVR_native_planning_order三段。原J.planning先完成资格和尺寸，之后只改已有意图rank；
+NA留原slot，无50分准入门，同分保持原相对序，不是新造E0/I买点。
+4. ACTUAL_SCORE_MANIFEST_BINDINGS：strong用native默认score manifest；实际long2024
+用ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/SCORES_MANIFEST.json，formula
+SHA同为9328109bada26c53b04cf0f3e84d719917cb528ff8608b3e9faa5d1c55ba8cb2。
+
+SNIPPET_INDEX.json有25段原样片段的绝对路径/行号/SHA；FORMULA_VARIABLE_TABLE.json
+是变量及时间表。FORMULAS_AND_CLOCKS.txt仅作为可选展开说明，直接读原码即可。
+四亏真PVR支持旧结论的冻结字段仅摘4行，见LEGACY_ALIAS_924_FOUR_SAVED_INTENTS。
+PVR公式不读行业标签；固定1709池/行业映射仍是not_PIT snapshot。真实live发布时间/
+供应商原始eventID仍未知，数值因果前缀不等于PIT。新增模型/构建/指标/账户均为0。

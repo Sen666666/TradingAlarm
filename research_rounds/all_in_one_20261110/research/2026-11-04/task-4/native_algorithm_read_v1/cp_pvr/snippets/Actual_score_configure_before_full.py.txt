@@ -1,0 +1,15 @@
+    root=O/'runs';root.mkdir(exist_ok=True);budget=Budget(2400,root/'TIMING.json')
+    assert not(root/'TIMING.json').exists(),'prior compute needs explicit review, never silently repeat'
+    E.configure_features()
+    for window,(_,end)in D.WINDOWS.items():
+        N.configure_scores(D.SCORES[window]);t=time.monotonic();value=D.inputs(window)
+        save(root/(window+'_INPUT_IDENTITY.json'),value[-1])
+        print('INPUT_READY',window,'seconds',time.monotonic()-t,flush=True)
+        for mode in ('OFF','BB20'):
+            r=construct(value,mode);out=root/(window+'_'+mode)
+            save(root/(window+'_'+mode+'_FRESH.json'),dict(cash=1000000,positions=0,orders=0,account_imports=0))
+            pair=run(r,out,end,budget)
+            if mode=='OFF':
+                proof=compare_pairs(D.BASELINES[window],pair)
+                save(out/'ORIGINAL_IDENTITY.json',proof)
+                assert proof['passed'],'full OFF differs from original No60; candidate stopped'

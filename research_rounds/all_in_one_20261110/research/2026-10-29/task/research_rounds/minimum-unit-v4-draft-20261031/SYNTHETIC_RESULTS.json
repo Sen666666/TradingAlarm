@@ -1,0 +1,9 @@
+{
+  "tests": 22,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "scope": "minimum-gate pure fixture, no sizing/ledger integration or history",
+  "exception_default": false,
+  "new_numeric_exception_cap_not_selected": true
+}

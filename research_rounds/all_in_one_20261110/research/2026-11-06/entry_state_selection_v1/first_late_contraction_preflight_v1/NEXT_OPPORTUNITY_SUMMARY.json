@@ -1,0 +1,44 @@
+[
+  {
+    "year": 2022,
+    "strict_negative": 12,
+    "birth_receipt_confirmed": 12,
+    "birth_zero_actual_proxy_buy": 12,
+    "no_prior_window_buy": 12,
+    "no_prior_proxy_price_parent": 12,
+    "prior_same_root_registered_rounds": 0,
+    "with_same_root_future_fresh": 10,
+    "with_same_root_not_robust_negative": 9,
+    "with_market_and_size_visible": 9,
+    "first_nonnegative_directions": {
+      "UNKNOWN": 7,
+      "FLAT": 1,
+      "POSITIVE": 1
+    },
+    "first_nonnegative_four_true": 9,
+    "first_nonnegative_close_feasible": 9,
+    "first_nonnegative_open_feasible": 9,
+    "first_nonnegative_AB_market_permit": 1
+  },
+  {
+    "year": 2024,
+    "strict_negative": 42,
+    "birth_receipt_confirmed": 42,
+    "birth_zero_actual_proxy_buy": 42,
+    "no_prior_window_buy": 42,
+    "no_prior_proxy_price_parent": 42,
+    "prior_same_root_registered_rounds": 0,
+    "with_same_root_future_fresh": 37,
+    "with_same_root_not_robust_negative": 35,
+    "with_market_and_size_visible": 35,
+    "first_nonnegative_directions": {
+      "UNKNOWN": 20,
+      "POSITIVE": 10,
+      "FLAT": 5
+    },
+    "first_nonnegative_four_true": 35,
+    "first_nonnegative_close_feasible": 35,
+    "first_nonnegative_open_feasible": 35,
+    "first_nonnegative_AB_market_permit": 3
+  }
+]

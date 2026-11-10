@@ -1,0 +1,103 @@
+{
+  "window": "2022",
+  "model": "CONDITIONAL_PER_STOCK_PROXY_NOT_SHARED_CASH_ACCOUNT",
+  "fixed_stocks": 1709,
+  "common_comparable_stocks": 1244,
+  "old_net_common": -987182.0274282136,
+  "new_net_common": -901781.8039685601,
+  "common_delta": 85400.22345965356,
+  "common_lane_deltas": {
+    "AB": -26858.908049619822,
+    "PRICE": 112259.13150927327
+  },
+  "unknown": {
+    "old": 445,
+    "new": 445,
+    "newly_unknown": [
+      "000528.SZ",
+      "600475.SH",
+      "688209.SH"
+    ],
+    "no_longer_unknown": [
+      "000559.SZ",
+      "002171.SZ",
+      "688122.SH"
+    ]
+  },
+  "retained_ab_path_exact": {
+    "retained_events": 1687,
+    "mismatch_count": 0,
+    "mismatches": [],
+    "action_columns": [
+      "day",
+      "economic_role",
+      "fee",
+      "price",
+      "prior_round_net",
+      "q",
+      "reason",
+      "sid",
+      "side",
+      "signal_day",
+      "window"
+    ],
+    "claim_economic_columns": [
+      "sid",
+      "economic_event_id",
+      "evidence_version",
+      "record_date",
+      "inventory_snapshot_day",
+      "snapshot_kind",
+      "state",
+      "record_q",
+      "core_record_q",
+      "exitpending",
+      "amount",
+      "core_amount",
+      "recognized",
+      "settled",
+      "ex_date",
+      "pay_date",
+      "d_cash"
+    ],
+    "exit_columns": [
+      "status",
+      "exit_day",
+      "exit_price",
+      "exit_reason"
+    ],
+    "comparison": "Exact native values after missing-key omission and literal calendar-day normalization; only arm/round identities excluded"
+  },
+  "unknown_round_stock_mismatch": {
+    "baseline": [],
+    "joint": []
+  },
+  "unknown_status_vs_stock": {
+    "baseline": [],
+    "joint": []
+  },
+  "changed_requests": 373,
+  "changed_request_reasons": {
+    "AB|BLOCKED_HELD_PRICE": 6,
+    "AB|NEWLY_SELECTED_DYNAMIC_PATH": 53,
+    "AB|SECTOR_SLOT_RANK": 20,
+    "AB|BLOCKED_UNKNOWN_PRICE": 2,
+    "AB|BLOCKED_HELD_AB": 1,
+    "PRICE|SECTOR_SLOT_RANK": 22,
+    "PRICE|NEWLY_SELECTED_DYNAMIC_PATH": 99,
+    "PRICE|DENY_ENTRY_GENERATION_INACTIVE": 151,
+    "PRICE|BLOCKED_HELD_PRICE": 11,
+    "PRICE|BLOCKED_HELD_AB": 5,
+    "PRICE|BLOCKED_UNKNOWN_PRICE": 3
+  },
+  "entry_gate_counts": {
+    "reads": 5004,
+    "statuses": {
+      "ALLOW": 4488,
+      "DENY_ENTRY_GENERATION_INACTIVE": 516
+    },
+    "new_initial_only": true
+  },
+  "adapter_blockers": [],
+  "new_economic_executions_by_this_report": 0
+}

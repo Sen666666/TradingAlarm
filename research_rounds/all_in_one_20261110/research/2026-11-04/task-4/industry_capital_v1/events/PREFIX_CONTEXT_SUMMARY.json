@@ -1,0 +1,36 @@
+{
+  "complete": true,
+  "raw_events": 33569,
+  "first_source_I_epoch_events": 8335,
+  "first_by_window": {
+    "long": 5264,
+    "strong": 3071
+  },
+  "actual_reserved_orders": 3519,
+  "counts": {
+    "long": {
+      "events": 18703,
+      "S0_no_old_inventory_with_prior_same_sector_new_orders": 659,
+      "previous_CLOSE_old_sector_sell_lock_present": 559,
+      "surviving_old_prior_exit_reason_present": 0,
+      "S0_has_old_inventory_without_prior_same_sector_new_orders": 14251,
+      "S0_has_old_inventory_with_prior_same_sector_new_orders": 3652,
+      "S0_no_old_inventory_without_prior_same_sector_new_orders": 141
+    },
+    "strong": {
+      "events": 14866,
+      "S0_no_old_inventory_with_prior_same_sector_new_orders": 310,
+      "previous_CLOSE_old_sector_sell_lock_present": 870,
+      "surviving_old_prior_exit_reason_present": 9,
+      "S0_has_old_inventory_with_prior_same_sector_new_orders": 2889,
+      "S0_has_old_inventory_without_prior_same_sector_new_orders": 11622,
+      "S0_no_old_inventory_without_prior_same_sector_new_orders": 45
+    }
+  },
+  "seconds": 3.952742792200297,
+  "limit_seconds": 100,
+  "new_marks": 0,
+  "new_accounts": 0,
+  "new_risk_states": 0,
+  "scope": "Only links original log commitments; post-funding fills are retrospective facts, not known/available capacity at rejected candidate time"
+}

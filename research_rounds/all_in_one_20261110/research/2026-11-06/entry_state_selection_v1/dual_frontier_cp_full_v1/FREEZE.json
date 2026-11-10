@@ -1,0 +1,27 @@
+{
+  "status": "FULL_SIGNAL_REPLAY_FROZEN_BEFORE_FULLPOOL_OUTCOMES_SEEN_HISTORY",
+  "end": "2026-05-15",
+  "original_pool": 1709,
+  "formula": "p=logC; original price frontier hC/D retained. hq starts at each OWN anchor a. q=(CNY amount/raw_shares)*native factor; x=min(logC,logq); dq=max(x-hq,0); hq=max(hq,x); K+=dq*original_m. Receipt only when current price makes fresh hC and D,K>=sqrt5*frozen_scale. OWN receipt consumes and sets both frontiers=logC, K=0, scale=current original z.",
+  "resets": "Original I.valid/native-down/SEEK-lower-anchor/source reset rules. q invalid or source/price/volume/synthetic flags invalid outputs UNKNOWN and clears new state; next valid observation starts SEEK. No original receipt borrowed.",
+  "q": "Declared shares/CNY and observed/price_eligible/volume_eligible/not source_invalid/not synthetic. Raw mean must lie within raw L/H with fixed numerical tolerance 0.5 CNY/raw_shares + 1e-8 yuan; only within that rounding tolerance clip to raw interval. No price-unit or volume-unit fitting.",
+  "clock": "Native original observed index and source segments exactly as original CP; common-calendar completeness only used for evaluation labels. No extra waiting or missing-session rule inserted into CP.",
+  "timing": "Same-day both/old-only/new-only authoritative. Shifted event pairing descriptive only: exact common receipts delimit synchronization blocks within original I root, then unmatched chronological order one-to-one, excess unpaired. Root-level first events separately. Never assume two paired events are same evidence.",
+  "domains": "Original full I signal domain; original-account-conditioned pre-size EMPTY/MOBILE Q/ACT and pending barriers plus industry permission; original 53121 legal MOBILE pending rows retained as separate old-defined domain. No fabricated new pending or executed fills.",
+  "outcomes": "No account run. Existing original first rounds association only; original CORE entry not removed merely because CP changes. Price labels from next common OPEN to 5/20/60 completed closes, same source and no missing common session; fixed big60 MFE>=30%, terminal>=20%. Original root epoch and native I root both named, not silently interchanged.",
+  "periods": [
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026 through May15",
+    "2024-09-24..2024-10-31",
+    "2026-01-01..2026-03-31"
+  ],
+  "prefixes": "Every nonempty stock prefix through2024-09-24; named cases all query-date prefixes; first10 nonempty stocks also2022-12-30 and2026-01-15; exact full-prefix comparison after feature recomputation.",
+  "no_accounts": true,
+  "no_parameters": true,
+  "source_hash": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0",
+  "native_model_hash": "85f21ad1622863645618f570b5f2e832558ebaca218ff2c71d0b4a0b545dd0bf",
+  "code_hash": "fbd6708ba2a3b91b66f91cbb511b3b811e6847b7e815d6ed6c1004ed79f03576"
+}

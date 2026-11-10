@@ -1,0 +1,16 @@
+{
+  "status": "FIXED_BEFORE_NEW_COMPARISON_OUTPUTS",
+  "dates": ["2022-01-10", "2022-01-24", "2024-09-24", "2024-10-08", "2026-01-15", "2026-01-20", "2026-05-15"],
+  "mother": "5517 existing canonical series x seven dates; preserve all38619 requests, not certified historical all-A universe",
+  "no_cap_research_pool": "Exact target bar, valid original close/amount observation and finite already-frozen original PVR score. No current market cap, current roster, current industry, current ST/name, or old account qualification input enters this rule.",
+  "signal_subset": "Only attach same-canonical saved original stock E0/I signals. Fresh stock subset requires ready and I_target and i_buy; hold subset ready and I_target. Unknown remains unknown. Full original S0/H1/CP/executable qualification not implied.",
+  "liquidity_feature": "L20(t)=median(A[t-20]..A[t-1]) in the same valid original price/amount block, source-observation clock,20 observations required. Exclude current amount; no skip-over invalid row or source reset. Missing target bar stays missing. Native TuShare amount units retained, not certified yuan capacity; no threshold, percentile filter or ranking weight.",
+  "ranking": "Original frozen PVR score descending, symbol ascending for exact ties; preserve score bits. No score change and no liquidity ordering. Compare to an explicitly separate current-2026-snapshot-cap view of the same no-cap pool.",
+  "historical_status": "Listing/delisting identity validity, historical ST/halt/limit state and executable_eligibility UNKNOWN unless separately evidenced. Series identity is observed vendor symbol only, not legal status. Unknown is neither False nor permission.",
+  "static_comparison_only": "Old cap gate is current cap>10000000000 CNY, unknown distinct. Read current cap only in comparison/report layer, never in candidate module.",
+  "fixed35": "Reuse frozen2024-09-24 union of full-local PVRtop20 and old1709-subpool PVRtop20,35 unique,not a global signal-qualified top20.",
+  "retired239": "Retain prior separate dated coverage, no mixed-unit/adjustment ranking merge. Missing standardized retired series remain a disclosed mother limitation.",
+  "no_account_or_forward_return": true,
+  "no_parameter_fitting": true,
+  "strategy_engine_modified": false
+}

@@ -1,0 +1,48 @@
+{
+  "status": "COMPLETED_FIXED_CONDITION_RESEARCH_NOT_PROMOTED",
+  "completed_at": "2026-11-09T00:54:27.120677+00:00",
+  "protocol_sha256": "e8be017794c1c36f0d8c6b3ec256428defcb53bfc60d9666ec632c438839643e",
+  "events": 33,
+  "unique_stock_days": 32,
+  "bars": 1536,
+  "nominal_and_quality_first_event_results_equal": true,
+  "NOACT": {
+    "events": 14,
+    "signal": 12,
+    "no_signal": 2,
+    "old_O_gt_J_unknown": 14
+  },
+  "PRICE": {
+    "events": 19,
+    "signal": 18,
+    "no_signal": 1,
+    "old_O_gt_J_exact_mappings": 19
+  },
+  "strict_incompatible_bars": 41,
+  "unknown_prefix_bars": 89,
+  "affected_days": 4,
+  "physical_prefix_tests": 1536,
+  "future_poison_tests": 1536,
+  "independent_raw_bars": 1536,
+  "author_synthetic_tests": 15,
+  "independent_field_comparisons": 38400,
+  "independent_audit": "PASS_FIXED_CACHE_AUDIT_NOT_TRADABILITY_CERTIFICATION",
+  "source_input_hashes_unchanged": 81,
+  "native_source_hashes_unchanged": 29,
+  "new_network_fetches": 0,
+  "account_runs": 0,
+  "new_economic_calculations": 0,
+  "parameter_searches": 0,
+  "original_inputs_modified": false,
+  "core_results_overwritten": false,
+  "setup_and_audit_errors_preserved": true,
+  "source_completed_bar_and_available_at": "UNKNOWN_NOT_CERTIFIED",
+  "order_lifecycle": "NOT_IMPLEMENTED_FIRST_TAU_ONLY",
+  "readouts": [
+    "READOUT.md",
+    "READOUT_EXECUTION_ADDENDUM.md",
+    "READOUT_2022_SUBSET_ADDENDUM.md",
+    "INDEPENDENT_AUDIT_READOUT.md"
+  ],
+  "final_disposition": "DO_NOT_PROMOTE_NO_FIXED_CASE_SEPARATION"
+}

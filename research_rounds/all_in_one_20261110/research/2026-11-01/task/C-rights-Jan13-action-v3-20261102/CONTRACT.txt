@@ -1,0 +1,18 @@
+JAN13-ACTION-3，2026-11-02。当前父线程明确授权仅两2022账户Jan13 ACTION技术前缀；不执行OPEN/CLOSE，不访问2025账户payload，不修改任何原件。
+
+输入必须是已独审Jan12升级身份6c3e...及其精确注册checkpoint SHA；保持原Jan12注册/restore实现完全不动。此版只在本新目录建ActionRunner类、精确grant/可信grantSHA、ACTION输出注册及显式registrySHA恢复入口。旧14证书（含8张Jan7–12）继续调用已审原旧类/旧源/旧输入验证和重算，不改证书，不放宽snapshot身份守卫。
+
+每arm执行一次2022-01-13T00:00+08:00 ACTION，来源terms固定为原002948不认购配股。实际cash_per_old_share=0、split_ratio=1；信号-0.96/1.30只在原市场价格/因子坐标，不扣认购钱、不加股、不消费股票CP1，不平仓/撤单/改预算。source/actions/factor/保护未知、混合批、已到期/未知settlement仍由已审NSR1原子拒绝。发生不支持项必须保存STOP及未改变状态证据，不猜补。
+
+新ActionRunner的激活是无事件class/source记录，原Jan12金融/策略前缀hash须相同；grant必须绑定旧升级IDENTITY、该arm Jan12CP SHA、新ACTION_IDENTITY SHA、phase/day及no_OPEN_CLOSE，且可信grantSHA来自本版EXECUTION_AUTHORITY冻结表。原数据/映射/来源与旧grant守卫保持，新的补充权限仅ACTION。
+
+ACTION前后严格核已审conservation_bytes，覆盖账户现金/股数/成本/保护存储、待买/待卖/原pending、policy锁/责任e0/消费/损耗、C authority、GoalCoverage、New/Carry与策略/F1状态。另逐字段核runner/account/market/facts/inputs/旧inputs/native所有原状态；只有ACTION clock、审计/事件/幂等登记、合法market mark/factor/known及明确只读缓存/notice差异可变化。raw历史/动作源表、原fact floor/保护与数据身份必须不变。任何未声明差异整事件rollback，不持久为成功输出。
+
+实际输出先持久checkpoint/provenance/金融差异与价格坐标证据，再显式写OUTPUT_REGISTRY。输出路径/arm/phase/input CP/grant/source identity/checkpoint/provenance/prefix/完整post-state指纹全部绑定；restore要求调用方提供可信registry SHA，只接受本版预定输出，不接受任意snapshot。原Jan12注册不覆盖不扩范围。
+
+恢复后重算全部旧证书，按完整post-state与conservation核对；再调用同一ACTION必须already_applied且完整状态/日志/时钟不变，或明确拒绝。OPEN/CLOSE及其他日/普通ACTION仍拒绝。输出后停待独审；未来交易入口不在本次执行范围。
+
+V3仅修正编码与失败证据保存，不删字段、不放宽允许差异。新金融守恒与全字段指纹唯一调用fingerprint.norm；真实对象__dict__保留动态字段与真实别名，slots dataclass逐字段编码。旧证书继续原身份/原方法重算。旧失败包不改、不追认。
+独审前仅prepare_authority.py --preflight-only可做无事件恢复核验；不创建ACTION_IDENTITY、SOURCE_FREEZE、EXECUTION_AUTHORITY或grant。正式运行入口因此缺少可信授权而拒绝。独审PASS后必须以调用方可信audit SHA及本CODE_FREEZE SHA显式生成精确新身份/每arm grant，再从两可信Jan12升级checkpoint重新开始；未获PASS不得执行ACTION。范围仍仅ACTION、注册及恢复，不执行OPEN/CLOSE、其他账户或2025。
+
+V3统一修复：memo条目持有(path,object)强引用，贯穿整个norm遍历，覆盖object ndarray.tolist等临时转换；真实__dict__与未被它覆盖的dataclass声明字段同时编码，保留真实别名与动态字段。原8例、独审2个反例及新增别名/slot同名遮蔽回归必须通过。对两可信Jan12私有副本做全字段pickle与真实旧证书重算对照；这些均无ACTION。没有证据表明两个新增反例已影响真实账户，旧失败不追认。

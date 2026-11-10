@@ -1,0 +1,10 @@
+{
+  "status": "SEALED_MECHANICAL_SYNTHETIC_STAGE",
+  "tests_passed": 25,
+  "real_economic_binding": "NOT_RELEASED_HARD_REJECT",
+  "tax_mode": "EXTERNAL_EXPLICIT_UNDECIDED",
+  "independent_review_of_this_package": "NOT_DONE",
+  "no_new_economic_run": true,
+  "no_old_files_modified": true,
+  "next_step": "Separate real binding contract after tax decision, not an extension of this synthetic PASS."
+}

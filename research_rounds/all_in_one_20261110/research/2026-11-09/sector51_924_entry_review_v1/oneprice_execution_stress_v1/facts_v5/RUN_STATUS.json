@@ -1,0 +1,22 @@
+{
+  "scope": "CONDITIONAL_EXPOST_SCENARIO_NOT_LIVE_EXECUTION_OR_RETURN_BOUND",
+  "certified_through": "2024-10-09",
+  "days": 21,
+  "orders": 968,
+  "no_fills": 2,
+  "blockers": [
+    "2024-10-10 000001.SZ UNADMITTED_EQUITY_EVENT"
+  ],
+  "last": {
+    "day": "2024-10-09",
+    "cash": "148863.0429178600000",
+    "receivable": "0.0000",
+    "market_value": "1279449.00",
+    "NAV": "1428312.0429178600000",
+    "net_liquidation_NAV": "1425602.6363892504500",
+    "stocks": 266,
+    "shares": 100500,
+    "weight_pct": "89.57769461820459623187488977",
+    "fees_paid": "5408.2950821400000"
+  }
+}

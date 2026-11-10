@@ -1,0 +1,69 @@
+{
+  "status": "PASS_COMPLETE_ACCOUNTING_HORIZON_WITH_TWO_NONTRADABLE_STALE_ASSETS",
+  "certified_through": "2024-10-31",
+  "days": 37,
+  "prior_prefix_days": 34,
+  "new_days": 3,
+  "all_11_prior_families_byte_exact": true,
+  "completed_accounting_horizon": true,
+  "whole_account_liquidation_certified": false,
+  "independent_checks": {
+    "admission_prefix": 8715,
+    "account": 73763,
+    "causality": 63194,
+    "new_three_day_boundary": 18767
+  },
+  "engine_sha256": "a8155abf29559b41e73dcb0959328970006d0306b5c63ed4db369e1835d5c969",
+  "freeze_sha256": "488a00a62555196763b1c59ada9bf384a7944f41667fc6724ffa93286479724f",
+  "last": {
+    "day": "2024-10-31",
+    "cash": "540152.2229520978945",
+    "receivable": "0.0000",
+    "market_value": "859693.42",
+    "NAV": "1399845.6429520978945",
+    "net_liquidation_NAV": null,
+    "stocks": 107,
+    "shares": 66641,
+    "weight_pct": "61.41344399851222258905518080",
+    "fees_paid": "13641.2211929021055",
+    "valuation_basis": "MARKED_NAV_INCLUDES_NONTRADABLE_STALE_ASSET",
+    "stale_market_value": "2013.00",
+    "nontradable_stocks": 2,
+    "tradable_subset_net_liquidation_value": "1396371.4191743803555",
+    "whole_account_liquidation_available": false
+  },
+  "actual_preflight": [
+    {
+      "day": "2024-10-29",
+      "held_symbols": 242,
+      "pending_seed_count": 8,
+      "actual_target_count": 250,
+      "new_orders": 6,
+      "NAV": "1388288.3535810241945",
+      "stale_market_value": "2013.00"
+    },
+    {
+      "day": "2024-10-30",
+      "held_symbols": 242,
+      "pending_seed_count": 76,
+      "actual_target_count": 318,
+      "new_orders": 242,
+      "NAV": "1390716.3319922318945",
+      "stale_market_value": "2013.00"
+    },
+    {
+      "day": "2024-10-31",
+      "held_symbols": 154,
+      "pending_seed_count": 17,
+      "actual_target_count": 171,
+      "new_orders": 82,
+      "NAV": "1399845.6429520978945",
+      "stale_market_value": "2013.00"
+    }
+  ],
+  "actual_orders": 2315,
+  "actual_ADDs": 69,
+  "stale_value": 2013,
+  "no_historical_strategy_rerun_by_auditor": true,
+  "report_sha256": "b6deadfd261dd34cb9d866e44f40f02123b20a906d9ae97ec400d1013ca9cb35"
+}

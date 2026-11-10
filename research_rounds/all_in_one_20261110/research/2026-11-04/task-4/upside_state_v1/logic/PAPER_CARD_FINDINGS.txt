@@ -1,0 +1,52 @@
+PAPER_CARD v1 首轮逐条逻辑审查（待root修订后最终绑定）
+
+F1 当前退出条件必须先于新TREND许可
+VERIFIED是历史状态，可能在当前T已弱化时仍保留。若H只要求历史VERIFIED，可能在
+当前X已True时转轨；A的B/T又不排除C<=EMA60，新层可能刚买就满足其退出状态。
+最小确定修复：A/H申请前必须当前hard/soft退出谓词已知且全False，原seed入口不变。
+代价也明示：这会让V形中的加仓/晋级等待C>EMA60，不能再笼统说EMA60完全不影响扩仓。
+
+F2 持有管理是所有TREND层的共同函数，不等于H开关
+A-only会创建TREND_ADD，应无条件执行COMMON_TREND_MANAGE(H_i/X/DEGRADED等)，
+否则H off时生命周期不闭合。H-only没有新TREND_ADD，时间减量的目标集合为空，应
+明确no-op；它可以进入DEGRADED和禁新增状态，但不偷偷卖原MOBILE种子或原CORE。
+
+F3 同日原CP与新proof动作唯一
+第0节说A只补无CP，第3节又合并双证据，尚不唯一。可冻结原CP原样优先，新A不申请/
+不消费proof；或冻结双证据合并后使用哪种保护、数量、m计数和预算来源。两者行为不同，
+不能依据事后哪个挣钱选择。不能用原CP的紧线预算生成TREND_ADD的宽线数量。
+
+F4 H风险差分允许零，不能负申请造额度
+H_i可能等于甚至高于F_old。已知线价增量应为max(0,r_new-r_old)，完整新合同即便
+增量为零仍要求明确grant；‘请求额不是0’过强。真实费用/压力与既有责任是风险模块
+的单独输入，不能仅差分为零就假设全部责任释放。
+
+F5 锚、档位、部分成交与重入的边界
+第一postfill B只设锚不自行验证；确认窗口冻结为b后1..20观察，先评旧锚再换锚。
+实际flat同key保留m，但下一真实seed需新postfill B，不沿用旧锚/价位。m按何种单
+的第一次实际fill加1需要flag；同一订单后续partial callbacks不得再加，也不得每次
+partial生成新rung。取消/未成交预留何时返还仍以确认事实而非计划为准。
+DEGRADED至少要有episode id及acted标志；连续满足20日条件不能每日再退出一层。
+恢复条件满足但原减仓锁单仍在时，原订单继续，不许同日买回抵消。
+
+F6 例子的D1与新卡T5不是同一个条件
+examples_924的D用C>prior20high、C>EMA20与EMA20较前1观察上升；后一对对标准
+EMA事实上等价。新卡改为较t-5，必须有限关键点lookup原已审EMA20_t-5，或将本卡
+T5判定明确UNKNOWN。不能把原9层D1在已知结果指定样本中的分离当新卡命中/有效性。
+
+F7 新增typed proof是明确授权改变，不是原接口自然可接
+No60有效Budget只接受core/mobile；mobile验证stock_cp1源、21 scale、行业epoch/
+attempt及时间。新proof应有独立验证路径、id/当日有效期和消费时钟，保留金融池门。
+不能伪造stock_cp1 source，也不能为了绕过not-held把MOBILE自动改CORE。接口实现
+缺失可以作为未决工程项报告，不能把价格valid说成已合法预留/成交。
+
+F8 FIFO纠正已确认
+详见FIFO_CORRECTION_NOTE和LOGICAL_LAYER_FIFO_CORRECTION。物理sellable FIFO不
+阻止经济target晚层；原sell(ids)可退出完整指定策略层。同集合partial分摊仍按
+live先后，不天然hard优先。原旧半仓4事件不是所有完整层持有的覆盖上界。
+
+其它仍须保留的范围限定
+2/4/6%仅目标且每新单最多2%/宽线风险尺寸/最多两次fill，实际小seed不一定能达6%；
+PVR原序保留就允许目标填0，插入新意图仍会挤后排候选；H更久更宽会占现金。
+旧N1确认等待、结构持有结果不能包装成全失败或当前1709域新方案已被经济证实。
+本轮未运行策略或参数测试，也不要求为完成这次合同审查启动新测试。

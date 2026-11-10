@@ -1,0 +1,24 @@
+{
+  "sector51": "自动化与机器人",
+  "event_id": "自动化与机器人|2024-12-03",
+  "birth_day": "2024-12-03",
+  "all_frozen_N": 31,
+  "birth_price_known_N": 28,
+  "birth_qualified_N": 17,
+  "close_1204_G": 0,
+  "close_1204_profitable_advance": 10,
+  "close_1204_CP_receipts": 2,
+  "close_1204_CP_frontier": 6,
+  "market_receipt_names": [
+    "埃斯顿",
+    "机器人"
+  ],
+  "original_1205_MATURE_count": 10,
+  "all_ten_WAIT": true,
+  "first_industry_G_recovery_CLOSE": "2024-12-10",
+  "earliest_industry_only_next_OPEN": "2024-12-11",
+  "original_ten_SEED_cost": "105683.3476387806750",
+  "original_ten_full_round_net": "-4180.0333767678250",
+  "original_ten_ADD_count": 6,
+  "original_path_PnL_not_claimed_as_saving": true
+}

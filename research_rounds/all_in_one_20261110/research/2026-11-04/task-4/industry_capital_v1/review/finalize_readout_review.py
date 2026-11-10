@@ -1,0 +1,29 @@
+import pathlib,json,hashlib,gzip,statistics
+from decimal import Decimal as D
+p=pathlib.Path(__file__).resolve().parent.parent;r=p/'review'
+def sha(f):return hashlib.sha256(f.read_bytes()).hexdigest()
+refs=['SPECIFIC_OLD_STOCK_PAIRS_REVIEW.json','DUAL_PROOF_AND_ACTUAL25_REVIEW.json','COMPLETED_SINGLE_ASSET_LABELS_REVIEW.json','MATCHED_HOLDINGS_SAVED_REVIEW.json','EXANTE_AND_OUTCOME_GROUPS_REVIEW.json','AUXILIARY_POST_SUMMARY_REVIEW.json','RELEASE_BOUND_SAVED_REVIEW.json']
+support=[]
+for name in refs:
+ f=r/name;d=json.loads(f.read_text());passed=d.get('passed',d.get('passed_for_saved_arithmetic_and_bound_scope'));assert passed is True,(name,passed)
+ support.append({'path':str(f),'sha256':sha(f),'passed_within_declared_scope':True})
+with gzip.open(p/'labels_new/FIRST_REJECT_SHADOW_LABELS.jsonl.gz','rt') as f: rows=[json.loads(x) for x in f]
+s=[x for x in rows if x['window']=='strong'];cens=[x for x in s if x['status']=='censored_open'];closed=[x for x in s if x['status']=='closed']
+assert len(rows)==8335 and len(cens)==252
+assert sum(D(x['net_liquidation_profit'])>0 for x in cens)==212
+cm=statistics.median(D(x['net_return_pct']) for x in cens);xm=statistics.median(D(x['net_return_pct']) for x in closed)
+assert round(cm,2)==D('33.20') and round(xm,2)==D('-3.93')
+a=json.loads((p/'CANDIDATE_NET_AND_AMOUNT_DISTRIBUTIONS.json').read_text());assert [x['counts']['first_events'] for x in a]==[2179,1491,708,886,1738,1333]
+l=json.loads((p/'events/LATER_ACTUAL_PARTICIPATION_SUMMARY.json').read_text())['by_window'];assert [(l[w]['later_CORE'],l[w]['later_MOBILE'],l[w]['later_both']) for w in ['long','strong']]==[(68,744,28),(53,358,17)]
+s=json.loads((p/'FINAL_STATUS.json').read_text())
+expected={'original_sector_reject_raw_events':33569,'first_original_source_I_epoch_reject_events':8335,'only_industry_gates_first_events':170,'known_common_horizon_old_basket_matches':7282,'native_conditional_single_asset_labels':8335,'technical_calibration_single_asset_ledgers':5,'new_portfolio_policy_accounts':0,'fixed_COR_weak_specific_stock_pairs':23,'capital_not_excluded_fixed_COR_weak_pairs':6,'actual_2026H1_semiconductor_buy_layers':25,'actual_2026H1_semiconductor_CORE_layers':1,'actual_2026H1_semiconductor_MOBILE_layers':24,'MOBILE_held_blocks_new_CORE':6,'MOBILE_original_CLOSE_CORE_size_rejects':7,'MOBILE_original_CORE_OPEN_rejects':11,'of_11_only_probe_or_sector_capital_gates':9,'of_11_still_sector_risk_gate':2}
+for k,v in expected.items():assert s[k]==v,(k,s[k])
+assert s['quadrants']=={'new_profit_old_loss':1020,'new_loss_old_profit':1447,'both_profit':1340,'both_loss':3475}
+assert s['environment_or_approval_blockers']==[]
+assert not any(s[k] for k in ['next_mechanism_all_market_coverage_done','next_mechanism_legal_routing_validated','next_mechanism_portfolio_value_validated'])
+report=(p/'RESEARCH_READOUT.txt').read_text();card=(p/'NEXT_MECHANISM_CARD.txt').read_text()
+assert '+33.20%' in report and '+33.33%' not in report,'Final report censored-median correction not yet applied'
+assert '下一步先做必要覆盖与技术审查，本轮不启动长账户' in card
+out={'passed':True,'scope':'Final saved-evidence financial, denominator, causal-boundary and next paper-card statement review. No new Account, ledger, marks, source-state restoration or parameter search.','disposition':'PASS_FINAL_READOUT_STOP_THIS_ACTIVE_ROTATION_DIRECTION_NO_NEW_POLICY_ACCOUNT','bound_final_files':[{'path':str(p/f),'sha256':sha(p/f)} for f in ['RESEARCH_READOUT.txt','NEXT_MECHANISM_CARD.txt','FINAL_STATUS.json']],'supporting_saved_reviews':support,'last_numeric_spot_checks':{'OPEN_cohort_counts':[2179,1491,708,886,1738,1333],'strong_censored':252,'strong_censored_positive':212,'strong_censored_net_liquidation_return_median_pct':str(cm),'strong_closed_net_return_median_pct':str(xm),'later_actual_CORE_MOBILE_overlap_long':[68,744,28],'later_actual_CORE_MOBILE_overlap_strong':[53,358,17]},'statement_checks':{'8335_labels_distinguished_from_7282_old_basket_matches':True,'closed_censored_nonfill_labels_not_portfolio_returns':True,'release_is_necessary_lower_bound_not_executable_sale_or_guaranteed_fill':True,'baskets_and_events_not_independent_or_additive':True,'23_weak_pairs_22_events_and_6_not_capital_excluded_not_execution_approval':True,'actual25_1CORE24MOBILE_held6_size7_OPEN11':True,'later_actual11_9pool_cap_2sectorrisk_not_first167_dual62_sameOPEN1':True,'all11_industry_financial_mature':True,'probe_zero_fallback_not_double_pool_max_or_change_successful_probe':True,'typed_CORE_original_I_sizing_epoch_CP_token_and_independent_industry_permission_required_not_yet_validated':True,'new_CORE_fill_profit_or_portfolio_value_not_claimed':True,'N1_TRIAL_to_CORE_and_BP1_overlap_disclosed':True,'reviewer_original_OPEN_source_misreading_corrected_not_native_price_bug':True,'evidence_staging_not_missing_user_authorization':True},'correction_resolved':{'field':'strong censored net_return_pct median','incorrect_report_rounded_pct':'33.33','correct_saved_rounded_pct':'33.20','counts_unchanged':True,'no_new_economic_path':True},'remaining_limits':['Current survivor/current industry universe, not PIT/OOS.','Frozen original ACT and isolated minimum-unit net labels omit portfolio feedback.','Old-basket common-horizon G0/L0/Vh and release algebra are conditional estimates, not sellable FIFO instructions.','Next CORE confirmed fallback remains paper-only: whole-market coverage, typed routing, legal minimum size, epoch/token closure and portfolio cost remain untested.'],'material_unresolved_statement_errors':[],'reviewer_new_Accounts_or_ledgers':0,'reviewer_new_marks_or_source_state_reconstruction':0,'environment_or_approval_blockers':[]}
+f=r/'FINAL_READOUT_REVIEW.json';f.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps({'passed':True,'path':str(f),'sha256':sha(f),'bound_final_files':out['bound_final_files']},ensure_ascii=False))

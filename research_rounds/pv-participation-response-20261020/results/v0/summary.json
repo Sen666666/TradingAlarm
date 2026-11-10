@@ -1,0 +1,19 @@
+{
+  "totals": {
+    "observations": 27655,
+    "created": 226,
+    "independent_entries": 26,
+    "base_consumptions": 84,
+    "pending_days": 545,
+    "entries": 556,
+    "original_entries": 549,
+    "changed_vs_original": 91,
+    "changed_vs_all_declines": 1867,
+    "numeric_vs_legacy_days": 4,
+    "rejected_events": 115,
+    "open_events": 1
+  },
+  "series": 14,
+  "cases": 18,
+  "account_calls": 0
+}

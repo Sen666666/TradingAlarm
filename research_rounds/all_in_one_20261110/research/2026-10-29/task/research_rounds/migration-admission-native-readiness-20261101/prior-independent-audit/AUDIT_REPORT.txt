@@ -1,0 +1,55 @@
+MD1迁池/准入解耦2x2｜独立只读审计｜2026-11-01
+
+结论：当前冻结政策和两日期局部结果通过，未发现需改源码的实质问题。可进入原生账本集成测试；尚不能以11项纯预算回归代替完整账户接线门。下一步先原单遍coupled/decoupled是合适的单因素隔离，不应把TD41单作为选择组合的依据。本审计未运行经济路径、未运行新的真实日期分配、未改任何主文件。
+
+1. 唯一经济差异：确为两处migration门
+- 独立逐字重建model/route新旧差异：model只把confirmed分支“migrate False即return”改为同位置best-effort调用；route只把confirmed append移出migrate成功分支，成功时原pools_from_model仍调用。
+- Contract全部方法集合相同，AST仅request不同；资源、valid、migrate、fill/sell/cancel/ack/loss/industry/invalidate等正文未改。原planner函数仅新增first_pass_migrations日志，无经济分支改动。
+- route的active/level/mobile/expand、fresh CP1与consumed、同股待单/退出和core-first，request的level0拒绝、mobile角色、epoch/attempt/当日fresh receipt、所有原capital/risk/cash/fee检查均保留。core .25%含费风险、mobile冻结2%、100/200最低与step仍沿原preview/fixed predicate。
+- Bdiag既有无账户3%门保持，没有C1/R1/新stage；只解除了迁池失败对新confirmed候选/申请的提前否决。迁池尝试的原位置和成功/失败副作用均未取消。没有新读入sector历史status或未来行情。
+源码：variant.py:19-35/63-78；sources/model_decoupled.py:210-261；sources/route_decoupled.py:1-30；POLICY_SOURCE.diff。
+
+2. 11项新回归：独立11/11通过
+- 运行原测试体，将三份fixture JSON输出重定向本/tmp；未执行test文件__main__对主结果的写入。38份当前包artifact在测试前后SHA完全不变。
+- open/cancel_pending旧probe的pool/role/qty/status保留；新confirmed被接纳不等于旧probe迁走、待单释放或probe风险清零。
+- 590000已占confirmed、19000旧probe整迁：初始余量10000、缺9000；新confirmed100股*50=5000，fee5.3935，旧probe仍probe。
+- 下一次余量=0.60*(1000000-5.3935)-595000=4996.7639，缺口=19000-4996.7639=14003.2361；独立重算与重新生成fixture一致，没有缓存旧余量。
+- 后续人工预算卖20000旧confirmed后才允许整迁，迁池前后总cash/NAV/capital/risk/shared_loss保持，旧core角色保持。
+- 无单候选的合法迁池、失败试算保留之前合法迁池/订单、满池/行业跨pool旧attempt/stockcap/frozen target/quantity/core-first/旧receipt/退出均有对应回归。重新生成的三份fixture与主包逐字段相同。
+证据：11TESTS.json、11tests.log；MATRIX_EVIDENCE.json。源码：test_variant.py:35-97。
+
+3. 四个旧格完整恒等：通过
+- 指“两日期x旧coupled的single/two-pass=4格”，不指四种新政策结果均相同。
+- 独立比较完整旧对象，仅删新增first_pass_migrations和两处migrations.diagnostic；orders、rejected、attempts、原迁池序列/状态、final_state、费用/资源、输入指纹等其余字段全部相等。
+- 43份原preview文件及冻结输入SHA保持；decode后的输入SHA与此前已独审before指纹一致，未重读/重算指标、未伪造S0缺失字段。
+- 原历史sector status仍为None的局部读集限制沿用；没有将投影扩称完整runner/account恢复。
+源码：variant.py:79-95；run_matrix.py:43-56；证据：MATRIX_EVIDENCE.json old_four_cells。
+
+4. 两日期结果与股票变化：静态重算通过
+- 1/20 [SC,TC,SD,TD]订单=[36,34,38,41]，每格一股一单；role/pool数量、资本、risk、reserve、available、fees由final lots/orders独立重算相符。
+- SC->SD：新增002465/300251/300660，失去300398；600595原4200缩800。同probe资本22659.324/risk3325.324没有被新confirmed“洗掉”。
+- TC->TD：新增002465/002648/300660/600378/600595/600888/603993七股，没有完全失去原股票；300398由700缩100。同probe资本23408.6985/risk3334.6985保持。
+- SD->TD：新增000032/000630/300398/600388，失去002739；003006 core300->100，600873 mobile1200->core100且跳自身mobile，600595从800->4200。不能称放宽跨股票门也改变了同股优先级。
+- 中际四格仍无单且probe_risk；新易不在原冻结F，不能计本批拒绝。
+- 6/29四格零单，原总capital533020.44/risk61006.19/现金相同；每格234次无单迁池。confirmed已占509302.44>约493104.42容量，probe risk5909>约4109.20，因此新confirmed路径也受原池约束。SD/TD增加pool_capital诊断是新增候选路由后的自然原因并集，不能要求与旧coupled raw原因完全同。
+证据：MATRIX_EVIDENCE.json dates；独立脚本check_matrix.py。原READOUT各组变化均核同。
+
+5. 纯预算partial/cancel/sell覆盖的准确边界
+- 测试直接调用旧N.Contract.fill/sell/cancel/ack，证明模型订单/lot占用、角色、pending竞态与迁池规则在该fixture下守恒。
+- 它不是native Account/BuyOrder/真实mirror桥：模型fill按qty*fee_per_share分摊费用，而原生账本按累计notional/paid/accrued计算订单最低佣金及增量费用；模型sell直接改cash，也不能证明原生sale receivable/settle时点。T+1、真正submitted_remaining/fill_step、部分成交后fee_reserved与available、native cancel回调/重复ack、split pending数量和保护factor均未被这11项新增认证。
+- S0两日期本来无旧pending；非空pending覆盖只来自人工fixture，不冒称真实历史旧挂单。
+
+上完整账户前仍需通过的具体门（未发现源码错误，不等于门已完成）
+1) 实际single-pass runner只绑定本MD1 route/request、其余normal身份保持；关闭变体应与原native单遍行为/账一致，不混入two-pass/C1/R1/D1/cost。
+2) 原生镜像+ledger真正reserve、40/60部分成交/取消或fill赢取消竞态、最低佣金/fee_reserved/available、重复回调与应收/结算的逐项桥；旧probe保留直到原合法条件满足，不能借pure-budget测试宣称已有noghost现金证明。
+3) 原生新confirmed占用后的fee-adjusted capacity重验及后来真实settlement/合法迁池，旧lot/order role/floor不重算；legacy sector.status=confirmed_unfunded不可被接线误作行业失效或自动抹掉新单。
+这些是主线程正在准备的native integration边界；本审计没有执行或替它们背书。通过后再考虑仅SC/SD完整路径，当前不授权或启动经济回放。
+
+实际冻结SHA
+variant.py f18acd1f21ac46cc8245a664909151cfeddb366506357541f4e42c7b51877a98
+model_decoupled.py 42774ad14d3d365d67358b456d97460d5293b1936ede284749080e4345004793
+route_decoupled.py c2d06df473ac5b027b462e3a55bc8788a150bf130aa341c0e451ead5b4b4c82d
+原model 2fb801bcadfe3aa0fe0ecac97a9730861079bc16d908a3674a404b255729c2c3
+原route 7bc31864d1d3944e800bb3f51297f01c417ecf8ac8487b857aa897bde22d66a1
+
+原日线执行/权息代理、已见历史与当前snapshot非PIT边界不变。更多预留不是更好收益，此包不晋升策略或实盘。

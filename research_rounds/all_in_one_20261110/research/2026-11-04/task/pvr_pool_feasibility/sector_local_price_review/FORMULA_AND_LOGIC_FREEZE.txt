@@ -1,0 +1,32 @@
+行业局部LOCAL20新增风险许可：独立纸审与公式冻结
+
+裁决：唯一公式因果闭合，可作既存原层全母体关联诊断；不是新账户/金融策略准入。原全市场风险许可失败仍保留，不为本案搭C反馈、额度或资金系统。
+
+源与对象
+ar6_native_feasibility/sector_local_price_permission/compute.py，SHA256 a428e3252649fd9aa14a0afc96d2c334890a76f4e4de6656deff25d598118461。
+90条既存INDUSTRY_MANIFEST的原CP1_input.close与segment_id；使用各自原观察钟、完整warm至2026-06-30。不是HS300、不是synthetic全市场M，也不是把原CP1/I方向或分数重新计算为价格。
+
+唯一公式（严格排今日）
+在同一连续source segment内，原第t观察C_t有效且此前20个观察C_(t-20)...C_(t-1)均有效时：
+H20_t=max(C_(t-20)...C_(t-1))；L20_t=min(C_(t-20)...C_(t-1))。
+C_t>H20_t：state=LOCAL_ON。
+C_t<L20_t：state=LOCAL_OFF。
+否则（包含恰好相等）：继承state。
+每个新source segment起state=UNESTABLISHED，history清空；不跨段借旧方向。
+
+有效与unknown
+当前close须positive finite，prior20须原20个观察均为known。代码在计算H/L后才append当前，排今日正确。未知当前append None占原观察钟，不跳过未知重新取20个known，不向前/后填充。当前或窗口未知时保state但permission=False、status=UNKNOWN_NO_NEW_PERMISSION，不编造成LOCAL_OFF。前20个warm与虽已known但尚无突破的UNESTABLISHED也不是OFF。
+同一source内未知之后，完整窗口恢复且当日未新破H/L可延续此前state；这是当前冻结的继承语义，不在看结果后偷偷改成必须重突破。source unit未知/非连续则停止，不修数据或重拼。
+
+许可映射
+local_new_risk_permission = known AND state==LOCAL_ON；这里只表示新增风险的价格必要条件。不能据此称行业成熟、实际可买、满额、风险档提升或覆盖原I/CP1/Q/本候选自身H。LOCAL_OFF/UNKNOWN都不宏观强卖旧仓，旧仓原I/CP1、角色及退出锁保留，不按盈亏分组。
+LOCAL_ON是通道的持续状态，不等于每天都创新高，也不等于C_t永远高于旧高/入场价。它可能继续放行尚未破20low的失败续推；需要全母体关联检验，不能凭公式名字判有效。
+
+接口与分母
+输出primary=DAILY.jsonl.gz；以sector==原URFI行业和decision_close==原budget_order实际CLOSE精确连接。全部2265/1171原层及83/94固定原tail均保留；缺行业/日期为UNAVAILABLE，禁止nearest future、跨日ffill、fill日或signal_at兜底。
+macro C/local OFF针对L03/strict303主损耗；macro D/local ON针对Q2AI/strong盈利反例。所有ON/OFF/UNKNOWN/UNESTABLISHED及无匹配都保留，不仅展示命中的败者。旧原贡献是共同cutoff层归因，不是过滤后节省或可重投利润。
+
+差分及旧研究边界
+当前对象是行业同源收盘20high开启、20low关闭的持续新增风险线索；不同于已关的行业prior63均值静态背景、原I/S21/S63事件结构或独立55high+量确认账户。既有20low通道家族不使本表自动成为全新算法，也不能把其它家族结果冒充此原90行业/原层关联已测。此轮只查本单一公式，不扫描窗口、加量或补局部门。
+
+本支已读唯一50行源/SPEC/SCHEMA，未另写状态机、未重跑行业表。暂无逻辑阻断。可否继续的实质条件是：在不大量阻断盈利反例的同时，确能区分主要失败新钱；若损耗仍在LOCAL_ON或盈利也大量LOCAL_OFF，则本候选停止，不再叠第3门。

@@ -1,0 +1,24 @@
+Scope: source plus actual July saved authorization/reserve/amend/fill records, no account steps.
+Read REPORT.txt -> CONTRACT.txt -> CANDIDATE.txt -> ALL_POSITIVE_C_AUTHORIZATIONS.json.
+Each of88/87 positive certificates retained, including unreserved, zero-fill and terminal.
+Original quantity comes from certificate.Q AND native reserve audit/support.quantity, not fills.
+Original risk reconstructed from that certificate's trusted dated mark/floor with original5bps.
+OPEN floor derived from original order_meta signal-coordinate floor / dated factor, corroborated
+against ALL actual fill initial-floor records; no final floor or exit-lock snapshot substituted.
+SUMMARY has25 actually risk-increased filled C orders per mode plus positive controls.
+INDEPENDENT_TRIAL_CONTROLS flags T controls with no CLOSE approved quantity/risk; do not infer R0.
+
+Local cap is only a fixed-old-state upper bound; no _preview, solve, route, event or new Q/D call.
+No q-loss multiplication, inferred saved PnL, or new policy rollout. Fee/NAV/late-stock resource
+feedback needs future authorized native testing. Existing financial audits/prefixes are reused.
+
+Source anchors:
+g-s-C-native-synthetic-v3-20261102/native_c.py:54 authority quantity;114 _preview;
+153 account6/sector5;158 core-only .25;174 submit_fixed;378 certificate verification.
+g-s-historical-native-prefix-20261101/native_capital.py:261 remaining-only amendment before fill.
+lot-risk-allocation-20261029/code/study.py:94 known-open reserve and risk_budget log.
+lr1-cp1-add-preflight-20261031/adapter.py:72 reserve wrapper; actual MRO saved in SUMMARY.
+
+Reproduce static output to /tmp (no financial steps): import check; check.HERE=new Path; check.main().
+Interpreter /Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B
+Original static read completed11.706s. All original checkpoint/source bindings unchanged.

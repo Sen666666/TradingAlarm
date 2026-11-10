@@ -1,0 +1,14 @@
+def function(path,name,env):
+ s=Path(path).read_text();INPUT[str(path)]=sha(path);n=next(n for n in ast.parse(s).body if isinstance(n,ast.FunctionDef) and n.name==name)
+ text='\n'.join(s.splitlines()[n.lineno-1:n.end_lineno])+'\n';exec(compile(text,str(path),'exec'),env)
+ return env[name],text
+freeze=read(O/'CONTRACT_FREEZE.json');assert sha(O/'CONTRACT.txt')==freeze['contract_sha256']
+assert freeze['version']=='v1.2' and not freeze['new_paired_outcomes_read']
+score,scoretext=function(R/'pvr-act-comparison-20261027/code/experiment.py','score',dict(np=np,pd=pd))
+digest=lambda x:hashlib.sha256(x.encode()).hexdigest()
+match,matchtext=function(R/'pvr-incremental-order-20261029/code/study.py','match',dict(pd=pd,collections=collections,digest=digest))
+env=dict(pd=pd,np=np)
+_,_=function(R/'pv-participation-response-20261020/code/data_utils.py','boolean_column',env)
+eligible,_=function(R/'pv-participation-response-20261020/code/data_utils.py','eligible_prices',env)
+(O/'original_score_function.py').write_text(scoretext);(O/'original_match_function.py').write_text(matchtext)
+SM={r['symbol']:r for r in read(U/'STOCK_MANIFEST.json')};META=read(R/'a-share-selection-e0-20261024/inputs-v2/metadata.json')

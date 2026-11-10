@@ -1,0 +1,34 @@
+{
+  "status": "COMPLETE",
+  "events": 99031,
+  "development_label_events_after_purge": 34550,
+  "development_crossboundary_purged": 1163,
+  "families": [
+    "G1_RS",
+    "G2_PRICE",
+    "G3_AMOUNT",
+    "ALL17"
+  ],
+  "ridge_output_predictors": 12,
+  "lambda": 0.01,
+  "model_refits_after_dev": 0,
+  "candidate_rules_tested": 1,
+  "bootstrap_seed": 20261105,
+  "bootstrap_draws_per_phase_sample_family": 200,
+  "cluster_bootstrap_only_mean_differences": true,
+  "common_date_dependence_not_removed": true,
+  "event_weighted_primary_evaluation": true,
+  "predictions_clipped": false,
+  "static_pool_conditioning": true,
+  "historical_sector_PIT_verified": false,
+  "account_runs": 0,
+  "new_strategy_runs": 0,
+  "any_family_passed_all_frozen_gates": false,
+  "seconds": 9.22212554095313,
+  "input_SHA256": {
+    "design": "68f9456b1fd9ad2b81a19eed18538b406b4e7272306115fd04eeb64b501fb254",
+    "features": "85034ebc43ab4a476e51a7c9ed076c0c579a8b3a980c422715117948d86f92cc",
+    "labels": "e9cc4461c1bc73d427d933c10b7d1c43b0b8ad4b8579f1daa45b8154becd6fbc",
+    "events": "e873b6d50c635a6fd7a2e4ec7a40c8bae671e477526fcae9f6d295b7976a20d9"
+  }
+}

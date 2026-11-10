@@ -1,0 +1,42 @@
+{
+  "status": "evidence_and_action_contract_complete_no_economic_paths",
+  "completed_at": "2026-10-31T04:11:22.948005+00:00",
+  "verification": {
+    "passed": true,
+    "new_economic_paths": 0,
+    "book_bridges": [
+      {
+        "pair": "DRUG-C10-normal-vs-cost2",
+        "net_difference": "-104153.9708355393470",
+        "cashflow_residual": "0",
+        "stock_residual": "0"
+      },
+      {
+        "pair": "TECH-C20-normal-vs-delay",
+        "net_difference": "-3380695.2467997620095",
+        "cashflow_residual": "0",
+        "stock_residual": "0"
+      }
+    ],
+    "native_valid_despite_ACT_forced_exit": 9,
+    "original_source_hashes_unchanged": true,
+    "market_loader_only_no_trading_replay": true
+  },
+  "blockers": [],
+  "unresolved_design_choice": "Pure action ablation keeps original own-flat AND market-breakout recovery; non-flat recovery would be a second explicit policy change requiring review.",
+  "no_product_changes": true,
+  "no_real_trades": true,
+  "deliverables": {
+    "REVIEW.txt": "f15e5375abc677494350008fe76e7890f89fada0033de2e385305d586e715898",
+    "NATIVE_HOLDING_STATES.json": "e0d565863efc2af721d90b35e73f6dbb653a8c7b8de55f8bcf140dd9904dfed2",
+    "TECH-C20-delay-october-admission.json": "00babb6a5114ed5d95d50d93d11cacf0c8f30ae6889bdcef2bcac052f1c45fc0",
+    "TECH-C20-normal-vs-delay-stock-difference.csv": "a195dec966d88e1cd82838347baf0d047c2d6f06aa836ece654193daf0a205b1",
+    "CHECKPOINT.txt": "ed33be3e2981be8a477419866fe60cc0ac2e6a581b91579e9e598f4e5d912de7",
+    "TECH-C20-normal-vs-delay.json": "983290ffa0a58065a6a9976f11bf7da0c1e2e14212ea86f1580d643a6ce4b4ed",
+    "DRUG-C10-normal-vs-cost2-stock-difference.csv": "a92525a3145c195960c5b7446ee1a7506969c5c804047918b139a637cbf77710",
+    "audit.log": "d168fa4ca950d6e516265bb3348b235184140db83736cfa7db67bbbe6551a982",
+    "audit_pairs.py": "1ab7bc5ee01ccdb1852278bed16b81793d8b5e9590e65283d048ca8aaee41dc6",
+    "VERIFICATION.json": "ad0f0624bf1de20d2254d1565488c57201b9cc1e0713323195d9f456f85604a2",
+    "DRUG-C10-normal-vs-cost2.json": "3909b8d2bd57df1509eeee760d810d45fa69fd539f83d384778b1e14b8483375"
+  }
+}

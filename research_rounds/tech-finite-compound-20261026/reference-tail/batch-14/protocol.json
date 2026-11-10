@@ -1,0 +1,720 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "symbol": "URFI881101",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881102",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881103",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881105",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881107",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881108",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881109",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881112",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881114",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881115",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881116",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881117",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881118",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881125",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881126",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881128",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881131",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881132",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881133",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881134",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881135",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881136",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881137",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881138",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881139",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881140",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881141",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881142",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881143",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881144",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881145",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881146",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881148",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881149",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881151",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881152",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881153",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881155",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881156",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881157",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881158",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881159",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881160",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881164",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881165",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881166",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881167",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881168",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881169",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881170",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881171",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881173",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881174",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881175",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881177",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881178",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881179",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881180",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881181",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881182",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881263",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881264",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881265",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881266",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881267",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881268",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881269",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881273",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881274",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881275",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881276",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881277",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881278",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881279",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881280",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881281",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881282",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881283",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "URFI881284",
+      "node": "9603",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": false,
+      "max_pages": 1
+    }
+  ],
+  "max_requests": 160,
+  "request_interval_seconds": 0.3,
+  "read_timeout_seconds": 15,
+  "session_preference": "snapshot"
+}

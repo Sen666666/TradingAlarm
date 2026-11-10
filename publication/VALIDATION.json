@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "files_scanned": 11884,
+  "checkout_bytes": 102379166,
+  "metadata_members_scanned": 4819,
+  "credential_findings": [],
+  "forbidden_paths": [],
+  "extension_bytes": {
+    ".txt": 13384150,
+    ".md": 11560164,
+    "": 1090,
+    ".csv": 5768901,
+    ".gz": 16364825,
+    ".json": 5947165,
+    ".py": 49024276,
+    ".command": 452,
+    ".sh": 190,
+    ".html": 27276,
+    ".css": 33161,
+    ".js": 253882,
+    ".svg": 259,
+    ".asm": 13375
+  },
+  "scope": "Final lean publication plus every compressed metadata member",
+  "tests_passed": 22,
+  "original_private_history_included": false,
+  "workflow_uploaded": false,
+  "credential_persisted": false
+}

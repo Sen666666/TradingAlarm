@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "registered_utc": "2026-10-24T13:42:46.593498+00:00",
+  "user_decision": "Keep existing logic/formulas and continuously use E0/R/R1 names; close this single-asset study and assess whole-project selection/position maturity.",
+  "definitions": "docs/ALGORITHMS_E0_R_R1.md",
+  "aliases_are_stable": true,
+  "scope": "Signal/participation definitions; universe/ranking/funding/execution and dataset versions must be specified separately for each study.",
+  "algorithms": {
+    "E0": {
+      "id": "E0-PV-structure-participation-v1",
+      "implementation": [
+        "numeric.event_frame_numeric(joint=True,event_exit=False)",
+        "participation.participation_frame(mode=volume)"
+      ],
+      "params": {
+        "volume_baseline_prior_observations": 21,
+        "return_RMS_prior_observations": 63,
+        "normalizer_sqrt": 5,
+        "RMS_floor": 1e-08,
+        "activity_sqrt_clip": [
+          0.5,
+          2.0
+        ],
+        "confirmation_inclusive": 1,
+        "decline_memory_volume_ratio_inclusive": 2
+      },
+      "role": "frozen trend baseline; no claim of full-market validation"
+    },
+    "R": {
+      "id": "R-shadow-E0-trail2-cycle-v1",
+      "implementation": "strategy-switching-20261024/model.combined(policy=R)",
+      "shadow": "E0",
+      "prior_relative_TR_mean": 14,
+      "trailing_multiplier": 2,
+      "reentry": "Only new shadow E0 cycle; same-day exit precedence",
+      "role": "risk/participation control; no default replacement claim"
+    },
+    "R1": {
+      "id": "R1-IR-20261024",
+      "implementation": "r1-structural-reentry-20261024/model.r1_state(enable_recovery=True)",
+      "parent": "R",
+      "reentry": "Fresh up PV event, exit signal day < pivot day < recognition day, pivot strictly above exit-day updated E0 support; shadow valid; no same-day reentry",
+      "promoted": false
+    }
+  },
+  "reference_initialization": "All latest18 windows inherit preceding E0 active/floor; R/R1 peak=log(previous close), stop=peak−2*previous lagged ATR, R1 memory=None. See definition section7.",
+  "reference_suite": {
+    "fixed_cases": 11,
+    "continuous_checks": 7,
+    "scenarios": [
+      "base",
+      "cost2",
+      "delay1"
+    ],
+    "inputs": [
+      {
+        "symbol": "HK00002",
+        "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/market-regimes-exit-20261024/inputs/HK00002.parquet",
+        "sha256": "c9a7157062a18c07057de0f5eafb75c514cf11f43fa608e7c7ea53968f0d631e",
+        "first": "2020-01-02",
+        "last": "2026-10-16",
+        "rows": 1671
+      },
+      {
+        "symbol": "HK00101",
+        "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/market-regimes-exit-20261024/inputs/HK00101.parquet",
+        "sha256": "fd932db8a4adc926a9e47d3ee4d48353a18f1edeefe0bdcdb27364dbcb8b1075",
+        "first": "2020-01-02",
+        "last": "2026-10-16",
+        "rows": 1671
+      },
+      {
+        "symbol": "HK03033",
+        "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/market-regimes-exit-20261024/inputs/HK03033.parquet",
+        "sha256": "d323a846ce44147ac04d67d1226e4fcd26fd99fb4a4af72fc501103bdf952a99",
+        "first": "2020-08-31",
+        "last": "2026-10-16",
+        "rows": 1507
+      },
+      {
+        "symbol": "HK09618",
+        "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/market-regimes-exit-20261024/inputs/HK09618.parquet",
+        "sha256": "65060a0809b02776b209cae45f657d32b59e1ce6e7d5a52a29e4b08c0d6aadf7",
+        "first": "2020-06-18",
+        "last": "2026-10-16",
+        "rows": 1557
+      },
+      {
+        "symbol": "USHJ510300",
+        "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/market-regimes-exit-20261024/inputs/USHJ510300.parquet",
+        "sha256": "106af9c9805e137efb1a46ad746b90c3b3d865c3da423edfb3694dc8b4ecce6b",
+        "first": "2018-07-17",
+        "last": "2026-10-16",
+        "rows": 2000
+      },
+      {
+        "symbol": "USHJ512480",
+        "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/market-regimes-exit-20261024/inputs/USHJ512480.parquet",
+        "sha256": "f8051b26194cc6b1e24dbfbcc53ff7c0287cc4cd14cbae06ea3e1d611d556596",
+        "first": "2019-06-12",
+        "last": "2026-10-23",
+        "rows": 1786
+      },
+      {
+        "symbol": "USHJ518880",
+        "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/market-regimes-exit-20261024/inputs/USHJ518880.parquet",
+        "sha256": "206a2301502537e45678fe5a41f27d432a2701ba79807073fd97d32c4413846c",
+        "first": "2018-07-17",
+        "last": "2026-10-16",
+        "rows": 2000
+      }
+    ],
+    "identity_note": "This pins the completed reference data, not a permanent7-asset strategy universe."
+  },
+  "this_registration": {
+    "algorithm_changes": 0,
+    "new_signals": 0,
+    "new_accounts": 0,
+    "network_requests": 0
+  },
+  "sha256": {
+    "research_rounds/pv-participation-response-20261020/code/numeric.py": "b07f92f309864ba1cfdb84f76adbf7c4d97d5eff6d90b6b25acd62577be0c2e3",
+    "research_rounds/pv-participation-response-20261020/code/participation.py": "7a7017c7cd43dd2bdd7cfae4cfed29bf16d1b7452e9c411fe53c968692017cf0",
+    "research_rounds/pv-participation-response-20261020/code/ranking.py": "2f5d1ce4e297667a72386f47b99a4ee7f3ace8b75fc41990be06117fae36e04d",
+    "research_rounds/strategy-switching-20261024/legacy.py": "e9326c5493d278e453dffdd40e9a7fd1cc8234d4bdf511b3177c3c33e93bcdb4",
+    "research_rounds/strategy-switching-20261024/model.py": "bf72216fc3760d53ffbcbcb1f05f93e7197ec5c3d61c452e730a461eb6b47a0b",
+    "research_rounds/strategy-switching-20261024/engine.py": "fdc4c9754de3fefc5ec3a06c709844f1ec111510bc8f5d9b91d17cdfe0d24673",
+    "research_rounds/r1-structural-reentry-20261024/model.py": "86d5622e6d9a0eed5e24cdf8ce17f06a5f86d78b71d934d0ce8dc3572fe35c16",
+    "research_rounds/r1-structural-reentry-20261024/engine.py": "fdc4c9754de3fefc5ec3a06c709844f1ec111510bc8f5d9b91d17cdfe0d24673",
+    "research_rounds/r1-structural-reentry-20261024/prepare.py": "b22e4bf3589f424a5380a4640aca4633073d9d9246cbea0bbdeda7da449de496",
+    "research_rounds/r1-structural-reentry-20261024/PROTOCOL.md": "304a1a3fd72d2b39ff255e1516ea032709220cbaa435da2f2cd3e4fc1f245b97",
+    "research_rounds/r1-structural-reentry-20261024/cases.json": "13207fdd9592dee57f3846abbf74f31791f16df454f9a4ebb4f476f5655f857f",
+    "research_rounds/r1-structural-reentry-20261024/inputs.json": "ac0f2e576879a3f24613c09a1be357fe48fb3ffd98aaf3afc3efd05b233e52d1",
+    "research_rounds/r1-structural-reentry-20261024/freeze.json": "b3b92ccc65ec9d6fc6b4313066a8866a166b355eb4a847f36492b4be9946a817",
+    "research_rounds/r1-structural-reentry-20261024/preflight.json": "6c5c5e2dde539205805b815feea57c655cdf2fa96895da5079d3852f4bb3e63f",
+    "research_rounds/r1-structural-reentry-20261024/results/v0/audit.json": "14f5bb4821b0335e42ae8157db4ea789a39780efae73ea3f2e2521465d1a1467",
+    "research_rounds/strategy-switching-20261024/freeze.json": "8362292b17dfab793f49fdd404d6ab83054a5290ed5feea1da54322e564779fc",
+    "research_rounds/strategy-switching-20261024/results/v0/audit.json": "01f8ed7fd2daaf33ffbf3d489832f766579b837665160ec7d06ac629c51307c5",
+    "research_rounds/fixed-scenarios-v1/cases.json": "4002d22898d64b8d638840b391a548daffe449e0f5a2a86d934f304209be3e46",
+    "docs/ALGORITHMS_E0_R_R1.md": "10f6d3e81bca731a2c7a0d0f7d0a6b5ab842fad6f6e31f0979a22608cafe4b0d",
+    "docs/PROJECT_STATUS_2026_10_24.md": "24a7b1365f5fbda140bd486f40b1dc290031c3ac496ddca903070e5c3316067a",
+    "scripts/verify_algorithm_baselines.py": "73583442784e1b42773236fe2e0a1cfb6862aa5f00e6977180de6ffa2c79ce3b",
+    "research_rounds/algorithm-baselines-20261024/README.md": "130fae21f2c5ef53341d480ebdb177120ee5b4b24b2af5295775d3e390ae8c72",
+    "research_rounds/algorithm-baselines-20261024/project-status-evidence.json": "6dc11b8df9f2b90f7092966f11a99cdc13cdf4545026375e825b46e29dfbbf73",
+    "research_rounds/market-regimes-exit-20261024/inputs/HK00002.parquet": "c9a7157062a18c07057de0f5eafb75c514cf11f43fa608e7c7ea53968f0d631e",
+    "research_rounds/market-regimes-exit-20261024/inputs/HK00101.parquet": "fd932db8a4adc926a9e47d3ee4d48353a18f1edeefe0bdcdb27364dbcb8b1075",
+    "research_rounds/market-regimes-exit-20261024/inputs/HK03033.parquet": "d323a846ce44147ac04d67d1226e4fcd26fd99fb4a4af72fc501103bdf952a99",
+    "research_rounds/market-regimes-exit-20261024/inputs/HK09618.parquet": "65060a0809b02776b209cae45f657d32b59e1ce6e7d5a52a29e4b08c0d6aadf7",
+    "research_rounds/market-regimes-exit-20261024/inputs/USHJ510300.parquet": "106af9c9805e137efb1a46ad746b90c3b3d865c3da423edfb3694dc8b4ecce6b",
+    "research_rounds/market-regimes-exit-20261024/inputs/USHJ512480.parquet": "f8051b26194cc6b1e24dbfbcc53ff7c0287cc4cd14cbae06ea3e1d611d556596",
+    "research_rounds/market-regimes-exit-20261024/inputs/USHJ518880.parquet": "206a2301502537e45678fe5a41f27d432a2701ba79807073fd97d32c4413846c"
+  }
+}

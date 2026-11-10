@@ -1,0 +1,1 @@
+Analysis export only: generic import name prepare resolved to an unrelated existing research module after native imports modified sys.path. C results and source freeze remain unchanged. Replace this report-only import with its exact existing source path constant. Do not rerun any target projection or account event.

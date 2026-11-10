@@ -1,0 +1,37 @@
+完成范围：只读原价格、CP、canonical receipt及原No60 strong_OFF账本日志；只新增固定5/20/60观察的相对logreturn算术。未运行模型、账户、策略、订单、收益反事实或参数选择。
+
+一、分母必须分开
+2026-01-01—06-30有116个沪深300原观察日。2026-10-22静态metadata归入半导体URFI881121的126股，形成14616个“静态股×同期市场日”行；其中116股产生1220张原canonical CP receipt。这一“116”是有CP的股票数，绝不是旧研究“116个合格信号/11成交”的分母。
+原基线半导体已买18股/25层已全部保留：1层CORE、24层MOBILE。CORE636的signal当日CP=false，其余24层signal当日CP=true，不能统称25张CP。18已买股全部CP为238张。已买集合是成交后条件集合；预先点名四股是诊断，不是当时选股池。
+原cached receipt与canonical receipt逐股逐日核平；126股facts.close与CP_input.close原值完全一致；505份已读原输出SHA与原manifest一致。
+
+二、源与回报口径
+行业：半导体URFI881121；原industry CP1_input.close，原输入manifest为sector_index/INDEX_POINTS/raw/unadjusted_index。行业桥显示block_code=DFB9、名称半导体；它是2026-10-22当前桥，历史指数成分及纳入变更未保存，不能认证PIT。
+市场：固定沪深300USHI1B0300。server-names实际名为沪深300；本地protocol标index_code=000300（其publication元数据状态仍为unverified_recollection_check_provider_before_use，不冒充官方核验）。canonical CSV为5289行，2005-01-04—2026-10-16；checkpoint canonical SHA=8fb29cca1a981f090d8789f9d8ba9a30b93a94628aaa4f4fdc22eb4b89eb0cea，文件实值相符。protocol请求fuquan省略且注明price index/raw。
+股票：原CP_input.close，与原facts.close相同；输入manifest调整方法theoretical_ex_price，原facts同时保留raw_close/factor。股票理论除权信号价格与原始价格指数不是已核一致的总回报口径，不称TR或总回报alpha。
+时钟：仅当日收盘/历史日线描述。股票及行业原manifest声明close_available_time=15:05，原CLOSE决策15:10；宽基CSV仅日期。没有据此证明当年的真实发布/接收时间或历史版本。所有文件为后来取得的历史快照，静态行业/当前池含生存与成员回看限制。
+
+三、精确公式与共同期间
+固定n=5,20,60；t−n由同一沪深300观察日历定位。stock_n=ln(stock_close[t]/stock_close[t−n])，industry_n与market_n同一日期两端计算。
+RS_stock_n=stock_n−industry_n；RS_ind_n=industry_n−market_n。数值是无量纲自然对数差；×100为“log百分点”，不是算术超额收益%。不使用个股自己的n条记录替代共同期间；不前填停牌、缺端点或缺行业/市场值；跨源segment不算。
+1220原CP中5/20/60的RS_stock可用1215/1217/1218。20日正866、负351、缺3；缺值是688536 1/6、688766 1/7、600745 6/2共同基准端点无股票源值，未填0。静态126中6股原缓存为空，保留其缺失行而未排出分母。
+
+四、真实正负RS例（全表均保留，不按这些例选阈值）
+以下为signal/CP当日RS_stock20、RS_ind20，均×100：
+江丰300666：1/15 +19.509352/+10.693520；3/25原CP仍有但RS_stock20=−3.220412，RS5=+5.710718、RS60=+31.534981，原core_Q/mobile_Q均false。
+珂玛301611：1/15 +56.713177/+10.693520；5/13原CP为−1.917437/+18.524336，RS5=+0.265886、RS60=−22.706009，原两Q均true。
+金海通603061：1/16 +33.467559/+15.538135；1/28 +54.599594/+19.311076；6/18原CP为−1.400272/+8.587648，RS5=−3.937072、RS60=+32.506611。
+先锋精科688605：原5/20已买MOBILE signal为−0.364921/+24.241808，但RS5=+10.778130、RS60=−4.465817，显示期限并不等价。
+中船特气688146原metadata属于电子化学品URFI881172，不在半导体126/18/25内。单列其相对原所属行业24张CP（20日正19、负5），不偷换为半导体成员：1/5 RS_stock20=−1.582138/RS_ind20=+5.366370，4/8 +19.536097/+2.209100。单列文件不合并上述1220统计。
+原25signal中24个RS20为正、1个负；原已存21个已关层中有14个“正RS20而后原层净亏”。例如江丰658 −2800.629150、珂玛670 −2941.739929、金海通702 −2832.924829元；金海通674/677/684正RS20的原层净为+4083.937432/+3616.673982/+1441.339206元。这些是原日线代理账本已保存生命周期净额，非券商成交、非半年/年度账户收益，亦非新筛选策略结果；不能据此直接估计RS是否提高策略收益。
+
+五、除权混口径确实影响一些点，不能忽略
+逐点同时保存raw股票回报、raw-vs-industry RS、factor_t/factor_base及理论除权−raw差。恒等式Δreturn=ln(factor_t/factor_base)最大残差<4.5e−16。
+原CP1220：5/20/60两端可用1215/1217/1218；factor有变48/154/229点；raw与理论除权RS符号不同8/28/32点，最大绝对logfactor=.407388050。比如金海通4/16 20日raw-RS=−3.782847、原除权-RS=+33.487462个log百分点，差37.270309个log百分点。未逐个审公司行为，不能把这些差全叫分红或错误，也不能据此认定raw更正确；送转拆分等会使raw机械跳变。
+25个原买入signal：5日factor全不变；20/60各仅有研6/26和神工6/29两点变，差分别+.346546和+.225975个log百分点；全部三期限的RS符号均未变。故“25signal为24正1负”对这次raw敏感性稳健；全CP母体不能用此结论替代口径审查。
+
+六、可用结论与尚未证明
+相对于只用股票自身价量的原CP，行业/宽基相对收益提供不同信息；同张CP能分别处于领跑、落后、不同期限相冲突的状态。但它不自动提供资金、资格或盈利因果关系。已有Q门中还有stock_rs_ready_fresh状态，不能仅凭本次描述宣称整个旧框架从未有相对强度；未做全面机制排重或把该状态等同于本公式。
+本次不选RS>0为新硬门，不推荐阈值、权重、买卖或预算。行业历史成员、同期历史数据版本/可得时间、指数公司行为/分红口径仍未认证。
+
+先读文件：SUMMARY.json；ALL_CANONICAL_CP_H1_RS.csv；ALL25_ORIGINAL_SIGNAL_RS.json；RAW_ADJUSTED_CONVENTION_SUMMARY.json；ALL1220_CP_RAW_ADJUSTED_SENSITIVITY.csv；ZHONGCHUAN_SEPARATE_ORIGINAL_INDUSTRY_ALL_CP.csv；SOURCE_IDENTITY_AND_CONVENTIONS.json；ORIGINAL_MANIFEST_SHA_VERIFICATION.json。

@@ -1,0 +1,3 @@
+from native_c import *
+if __name__=='__main__':
+ r=Runner.restore(sys.argv[1]);at=iso(sys.argv[3]);IO.write_json(Path(sys.argv[2]),dict(digest=digest(r.observable(at)),bridge=r.account.bridge(at),mode=r.mode,source=r.source_binding()),encoder=encode)

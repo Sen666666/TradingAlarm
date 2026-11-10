@@ -1,0 +1,1 @@
+Read-only shell heredoc could not allocate temporary file; no research output created. Initial escalated script write had command-quoting SyntaxError before execution; no research output created. Both corrected without changing protocol or inputs.

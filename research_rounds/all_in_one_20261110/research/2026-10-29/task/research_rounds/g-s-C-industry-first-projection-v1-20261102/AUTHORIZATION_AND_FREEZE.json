@@ -1,0 +1,29 @@
+{
+  "scope": "synthetic + Jan6/Jul3 static C joint target projections; Apr30/May7 market-only rankings; no account events",
+  "parent": "01a1869e-bab0-73ad-a5ca-8b65eb61f01b",
+  "policy": "C_INDUSTRY_FIRST",
+  "contract_sha256": "dafcf956c6ec888b3399bef04557e857a6fa54750014c9701a58847b66897802",
+  "frozen_code": {
+    "c_selector.py": "8a4b89cec342763f922ae65b3d138792cc6945f452595d86a263f5c0b15bc130",
+    "prepare.py": "781642256dbb38688a9efde81219c9f94d4825d2de4177ac5a2e2826a48c2f80",
+    "run.py": "5fcc0a70b9ca293103121fbdc8e6cfe4a05c96fe801cbbf6030ee8a003150640",
+    "test_c_selector.py": "88f1a4fdb9838cce41fb6e5b4566a4f35930e9db742dd5fd4206400949aa7bdd"
+  },
+  "source_B_sha256": "44e7345ef2b3fc494e9854216579aa5faa0e0557b4ecbc207b1027b102e401a8",
+  "source_joint_sha256": "b76660a053a09a4e394b32b9ccc61f709cdc98ac6bf900a425f476700c7771cf",
+  "inputs": {
+    "2025_26": "8aa58b1218f4363ea9b6f195a4c0e5a024824e5c7af62ed7eeec941a77592abe",
+    "2022": "48ea2f12189f171990002e7618c49e9fedebfb33e6f3a52381a59b6be5ab24eb"
+  },
+  "market_only_sources": {
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/h1.npz": "416ddabacb9b16105cf3e5d93c961049ac1b48da433a62995a71311be17e4615",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/industry-evidence-ranking-readonly-v1/LOCAL2026-RANKS_AND_OPPORTUNITIES.parquet": "3e0006b1efcb2506059262115a4b82d398bda2b84ab4c0320032ee454183295e",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/g-s-static-capital-competition-v1/2026-04-30-ALL_SECTOR_FRESH_COMPETITION.json": "91910cdc45408a70b83657f321a9af4de1ce86510ff76ca423c88c92858028b3",
+    "/Users/bytedance/Documents/Codex/2026-11-01/task/market-permission-price-only-20261101/g-s-static-capital-competition-v1/2026-05-07-ALL_SECTOR_FRESH_COMPETITION.json": "9a445757a6f81c458b76d6f341ee8b4034b4e6d4a363e36172582740efe5373c"
+  },
+  "frozen_B_artifact_sha256": "302018be7a57910b73b3d61920091132e0e0ea40cd94b15901d62ef9e7d42b62",
+  "original_B_files_unchanged": 73,
+  "financial_events": 0,
+  "new_indicators": 0,
+  "numerical_2026_fixture": "NOT_EXECUTED; if later enabled must be common B/C 1m cash / zero positions / zero old orders, not a historical continuation"
+}

@@ -1,0 +1,35 @@
+PVR信息分量：纯因果特征函数｜2026-11-04
+
+交付 features.py：compute_features(signal: pd.DataFrame) -> pd.DataFrame，同原DatetimeIndex、保留原行顺序、不改输入，无文件读取、模型/账户/交易/未来标签依赖。只实现父冻结的8项新增特征(初7项+后授权Lplus)，未选权重、阈值、融合或新排序。全1709导出由另一agent负责，本目录未做。
+
+原数据口径和clock
+输入必需close/high/low/amount/segment_id。close/high/low必须为同一原因果signal价格坐标；open允许存在但本组公式不用。raw_*及adjustment_factor完全不进入数值计算。amount沿原signal成交金额，不换成volume、不乘价格因子。
+有效观察完整复用原PVR score：正有限close、正有限amount；存在price_eligible/observed_bar/is_observed_bar时都须真(缺值假)；存在source_invalid/synthetic_event_bar时都须假(缺值真)。未自行猜测observed别名。segment_id必须显式非缺失；每个无效行及source变化都按原score重置，下一有效行从观察0重新暖机。无效行保留，数值NaN/布尔NA；不前填缺报价、不跨声明源段。
+这是原PVR的有效观察钟，不等于市场交易日/自然日，也不等于旧E0/I趋势段。没有记录行的缺日不推进；有无效记录行按原score重新暖机。没有另加一套“所有特征同时准备”门：各窗自有WARMUP，原PVR是否KNOWN仍完全沿其原score。
+
+原8列原样输出
+r=log(C).diff；scale=max(1.4826 median(此前63个|r|),1e-8)；amount_ref为此前21 amount中位数；u=tanh(r/scale)；b=tanh(log(amount/amount_ref))；e=u(1+.5|u|b)；E=过去21 e用w_j∝.9^j归一化权(最近j=0)加权；score=50+50tanh(2E)。实际源SHA9328109bada26c53b04cf0f3e84d719917cb528ff8608b3e9faa5d1c55ba8cb2。原σ不是新std20。原PVR完整score最早第85个本block有效close，未改ready。
+
+8个限定新增特征及首个KNOWN(从block第1有效close计)
+1 sign_persistence21_w09：Σj=0..20 w_j sign(r[t-j])；signed [-1,1]，零收益贡献0；需21个已知r，即第22 close。非abs强度、非胜率。
+2 logreturn_std20：当前及此前19个r的总体标准差，ddof=0；第21 close，未年化。
+3 close_gap_prior_high20：Ct/max(C[t-20:t-1])−1；第21 close，不含当前close作比较基准。
+4 breakout_prior_high20：Ct严格大于上述此前20最高close；第21 close。等于为False；未知为NA。只表示当前新突破，不声称first-ever、无突破年龄/锁存状态，连续创新高可连续True。
+5 close_location_in_day_range：(Ct−Lt)/(Ht−Lt)；第1有效close。Ht=Lt为UNKNOWN_ZERO_RANGE，OHLC非有限/非正/不能包住close为UNKNOWN_OHLC_RANGE，绝不夹到[0,1]或用.5补。它的range异常不改变原PVR和其它价格特征。
+6 return5：Ct/C[t−5]−1，第6 close。
+7 return20：Ct/C[t−20]−1，第21 close。
+8 positive_effective_observations21_w09：p_j=w_j max(e[t-j],0)，Lplus=(Σp)^2/Σp²。完整21个原e且计算分母正有限才KNOWN，最早第85 close；否则WARMUP/UNKNOWN。全负或无正质量不能补0，未除以21、未归一成概率。理论范围[1,21]，是有效正贡献观察数，非连续持续天数；无融合权重。原E相同的单次正脉冲可Lplus=1，分散相等加权正质量可Lplus=21；快速启动可能因此被低估，特征存在本身不代表应罚权。
+
+输出schema
+31列：原8浮点列；7元数据source_segment(保原dtype)、pvr_valid_observation(bool)、pvr_clock_block(int64)、pvr_block_observation(nullable Int64)、pvr_status(string)、return5_anchor_day/return20_anchor_day(datetime64[ns])；8新增值及各自_status。breakout为nullable boolean，其余新增float64；各status为StringDtype。两anchor精确对应本股同PVR block shift(5/20)的实际观察日期，warm/invalid时NaT；行业相对推进须按此股票anchor去行业取同日期，不以行业自己的20观察端点代替。本函数不算sector_relative。完整列序/公式/状态在SCHEMA.json。源码父API冻结后不再改数值。
+状态KNOWN/WARMUP/INVALID_ORIGINAL_PVR_OBSERVATION明确区分；数值窗完整但溢出为UNKNOWN_NUMERICAL_RESULT，Lplus完整窗但无正有限分母为UNKNOWN_NONPOSITIVE_OR_NONFINITE_EFFECTIVE_DENOMINATOR。UNKNOWN从未被当False/0。此status不是金融权限。
+
+价格factor审查
+原current_pool_bridge.prepare_signal对每个source起点factor=1；close/high/low各自=raw值×同日factor。theoretical_ex_price有效权息日Fnew=Fold×previousRaw/((previousRaw−cashSignal)/splitSignal)，只向后更新因子，非以今日锚回改过去的前复权；volume另按share_units，amount本组不重算。这是理论除权信号坐标，非股东现金总回报。源亦支持total_return声明分支，具体信号约定必须沿原record，函数不将二者混合或自行重新复权。
+小样3个原signal核raw_close×adjustment_factor≈close，误差见SMALL_SAMPLE_CHECKS；原合成权息行沿原PVR mask排除并重暖。因果计算依赖冻结输入，不证明历史首发发布时间/PIT：源未逐bar给出当日首次可得版本，2026回溯快照及权息proxy/paid_at未知边界延续。
+
+小样验证与预算
+verify.py一次1.705秒、29项通过；固定3个原身份是STOCK_MANIFEST按symbol字典序前三，不按特征/赢家/PNL选。原PVR全部8列对冻结原函数逐bit相同；所有输出列物理截断prefix逐bit相同(含空前缀和暖机边界)；仅改未来值前缀逐bit相同；输入未修改；无效/source段不串窗；std/权重/5与20端点独立标量重算核同；零range UNKNOWN不动其它列；raw/factor干扰不影响输出；Lplus单脉冲1/同E分散21/全负UNKNOWN核验。
+无1709特征全导出、无未来标签文件、无金融账。前7项版本保存在pre_positive_effective_append；Lplus后status措辞澄清前版本在pre_numeric_status_clarification，最终以当前features.py/SOURCE_SHA256为准。没有用新结果调窗口或阈值。
+
+最终两anchor元数据补件由root冻结，补件前版本保留pre_anchor_metadata_append；全列prefix核验已包括两anchor。

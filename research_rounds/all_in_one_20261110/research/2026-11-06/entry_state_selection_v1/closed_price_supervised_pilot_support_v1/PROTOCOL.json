@@ -1,0 +1,38 @@
+{
+  "status": "FROZEN_BEFORE_ANY_PRICE_PILOT_FIT; history/support outcomes already inspected, not untouched OOS",
+  "scope": "Static forward-time diagnostic on original joint-arm PRICE registered/filled rounds; no new economics, filtering-path replay, account or trading. No common-stock survival selection.",
+  "validation_windows": [
+    {
+      "name": "2022H2",
+      "start": "2022-07-01",
+      "end": "2022-12-31"
+    },
+    {
+      "name": "2024SepDec",
+      "start": "2024-09-01",
+      "end": "2024-12-31"
+    }
+  ],
+  "model_clock": "First common trading session of each validation month, before OPEN; training signal_t in [cut-504,cut), ordinary no-claim fully settled 0-to-0 rows with exit_day<cut. Label known-at proxy=exit-day close. All labels unavailable then excluded from fit, not set to zero. Latest available signal cohorts are 2022 and Sep-Dec2024 only; no2023/early2024 cohort invented.",
+  "target": "y=complete original PRICE full-round net cash >0, including original ADD, dated fees and 5bp conditional OPEN fills. Training uses strictly no-rights/no-bridge rows. This is a closure-conditioned historical score, not identified eventual probability for all births.",
+  "features": "P=original PRICE PVR_score. D=strict native Wilder14 from pvr_dmi_cmf_round_interaction_v1/preflight.py:dcalc. C=strict native CMF21 from cmf_pvr_component_v1/experiment.py:calc. Factor/source/invalid/zero-direction exclusions unchanged. No future holding length, exit/ADD count or return inputs.",
+  "formula": "INTERACTION: logit(p)=alpha+betaP*zP+betaD*zD+betaC*zC+gammaPD*zPD+gammaPC*zPC. PRICE-only removes undefined/constant legacy CORE/MOBILE role; exactly6 coefficients. PVR control: alpha+betaP*zP. Constant comparator: p0=mean(y) on exact same training rows.",
+  "scaling": "Training-only median and IQR/1.349 for P,D,C; clip main z to +/-5; standardize products zP*zD,zP*zC again by training median/IQR1.349 and clip5. Nonpositive/nonfinite scale fails month, no rescue.",
+  "penalty": "Summed Bernoulli NLL +0.5*(4*sum(main slopes^2)+16*sum(interaction slopes^2)); intercept unpenalized. PVR-only slope penalty4. No class weighting, tuning, parameter scan or threshold search.",
+  "minimum": {
+    "n": 300,
+    "W": 50,
+    "L": 50,
+    "signal_dates": 60,
+    "stocks": 100,
+    "price_roots": 200,
+    "full_rank": 6,
+    "max_condition": 1000000,
+    "max_gradient": 1e-06,
+    "max_Newton_iterations": 100
+  },
+  "selection": "Fixed p>=p0; equality admitted. Same threshold definition for PVR-only. Original all-selected comparator. Unknown feature/month/score retains original selected membership and is separately counted. No threshold chosen for35%, no ranking or size/ADD/exit changes.",
+  "evaluation": "Report all registered/filled/closed/unresolved/no-fill denominators, score-known and selected rates. Full ordinary settled and all financially covered closed evaluation cohorts separately; unknown not loss. W/L count, full-round net cash, mean winner/loser, payoff, profit factor, mean return, original net-return>=30% tail retention, lost winners. These are original-path subset outcomes, not new policy or portfolio returns.",
+  "bias": "Exclude rights only for training label support, never as signal eligibility. Retain unavailable/open labels in denominator and audit delayed labels descriptively after prediction sealing. Conditional execution and fixed future1709/NON-PIT industry/source versions remain. No 2026 validation cohort fabricated.",
+  "controls": "Same training rows/scaling clocks; score all before outcome reports. Prefix spot checks, input/output hashes, source manifest checks, future-unavailable-label poison on all10 monthly fits. No automatic promotion."
+}

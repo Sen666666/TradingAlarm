@@ -1,0 +1,17 @@
+test_a_t1_skips_weekend (test_market_rules.MarketRulesTest.test_a_t1_skips_weekend) ... ok
+test_explicit_zero_lag_preserves_execution_time (test_market_rules.MarketRulesTest.test_explicit_zero_lag_preserves_execution_time) ... ok
+test_global_venue_floor_does_not_create_listing (test_market_rules.MarketRulesTest.test_global_venue_floor_does_not_create_listing) ... ok
+test_minimum_and_step_remain_distinct (test_market_rules.MarketRulesTest.test_minimum_and_step_remain_distinct) ... ok
+test_missing_calendar_never_becomes_next_natural_day (test_market_rules.MarketRulesTest.test_missing_calendar_never_becomes_next_natural_day) ... ok
+test_neeq_cannot_become_bse_by_current_suffix (test_market_rules.MarketRulesTest.test_neeq_cannot_become_bse_by_current_suffix) ... ok
+test_no_current_snapshot_backfill (test_market_rules.MarketRulesTest.test_no_current_snapshot_backfill) ... ok
+test_proxy_requires_explicit_freeze (test_market_rules.MarketRulesTest.test_proxy_requires_explicit_freeze) ... ok
+test_to_is_exclusive_and_versions_cannot_overlap (test_market_rules.MarketRulesTest.test_to_is_exclusive_and_versions_cannot_overlap) ... ok
+test_unknown_bse_listing_stays_unknown (test_market_rules.MarketRulesTest.test_unknown_bse_listing_stays_unknown) ... ok
+test_unknown_has_no_default_lot (test_market_rules.MarketRulesTest.test_unknown_has_no_default_lot) ... ok
+test_unverified_rule_is_unknown (test_market_rules.MarketRulesTest.test_unverified_rule_is_unknown) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.000s
+
+OK

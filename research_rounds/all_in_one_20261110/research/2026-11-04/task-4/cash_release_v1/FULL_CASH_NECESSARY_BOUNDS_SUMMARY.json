@@ -1,0 +1,192 @@
+{
+  "long": {
+    "original_days": 726,
+    "cash_flow_and_obligation_assertions_passed": true,
+    "audit_types": {
+      "risk_checkpoint": 726,
+      "reserve": 2321,
+      "lot_risk_funded": 2321,
+      "fill": 4068,
+      "release_buy": 2321,
+      "settle": 4068,
+      "exit_request": 1803,
+      "pilot_layer_exit": 2101,
+      "buy_day_expiry": 56,
+      "dividend_accrual": 136,
+      "split": 5
+    },
+    "source_OPEN_records": 106499,
+    "cash_rejected": {
+      "all": {
+        "events": 74185,
+        "stocks": 1609,
+        "OPENs": 356,
+        "physical_cash_can_afford_min": 74185,
+        "actual_permission_eligible": 56440,
+        "eligible_physical_min": 56440,
+        "eligible_F1_joint": 22757,
+        "eligible_F1_joint_physical_min": 22757,
+        "raw_cash_only_physical_min": 28923,
+        "by_entry_kind": {
+          "first_participation": {
+            "events": 44372,
+            "eligible_physical_min": 33797
+          },
+          "flat_reentry": {
+            "events": 28008,
+            "eligible_physical_min": 21027
+          },
+          "existing_hold_ADD": {
+            "events": 1805,
+            "eligible_physical_min": 1616
+          }
+        }
+      },
+      "mobile": {
+        "events": 26287,
+        "stocks": 1581,
+        "OPENs": 355,
+        "physical_cash_can_afford_min": 26287,
+        "actual_permission_eligible": 20725,
+        "eligible_physical_min": 20725,
+        "eligible_F1_joint": 8953,
+        "eligible_F1_joint_physical_min": 8953,
+        "raw_cash_only_physical_min": 9983,
+        "by_entry_kind": {
+          "first_participation": {
+            "events": 14755,
+            "eligible_physical_min": 11592
+          },
+          "flat_reentry": {
+            "events": 9727,
+            "eligible_physical_min": 7517
+          },
+          "existing_hold_ADD": {
+            "events": 1805,
+            "eligible_physical_min": 1616
+          }
+        }
+      },
+      "core": {
+        "events": 47898,
+        "stocks": 1607,
+        "OPENs": 356,
+        "physical_cash_can_afford_min": 47898,
+        "actual_permission_eligible": 35715,
+        "eligible_physical_min": 35715,
+        "eligible_F1_joint": 13804,
+        "eligible_F1_joint_physical_min": 13804,
+        "raw_cash_only_physical_min": 18940,
+        "by_entry_kind": {
+          "first_participation": {
+            "events": 29617,
+            "eligible_physical_min": 22205
+          },
+          "flat_reentry": {
+            "events": 18281,
+            "eligible_physical_min": 13510
+          },
+          "existing_hold_ADD": {
+            "events": 0,
+            "eligible_physical_min": 0
+          }
+        }
+      }
+    }
+  },
+  "strong": {
+    "original_days": 242,
+    "cash_flow_and_obligation_assertions_passed": true,
+    "audit_types": {
+      "risk_checkpoint": 242,
+      "reserve": 1198,
+      "lot_risk_funded": 1198,
+      "fill": 2058,
+      "release_buy": 1198,
+      "settle": 2058,
+      "buy_day_expiry": 27,
+      "exit_request": 889,
+      "pilot_layer_exit": 1065,
+      "dividend_accrual": 94,
+      "split": 6
+    },
+    "source_OPEN_records": 72527,
+    "cash_rejected": {
+      "all": {
+        "events": 58557,
+        "stocks": 1654,
+        "OPENs": 222,
+        "physical_cash_can_afford_min": 58557,
+        "actual_permission_eligible": 47587,
+        "eligible_physical_min": 47587,
+        "eligible_F1_joint": 26452,
+        "eligible_F1_joint_physical_min": 26452,
+        "raw_cash_only_physical_min": 25722,
+        "by_entry_kind": {
+          "first_participation": {
+            "events": 48018,
+            "eligible_physical_min": 39452
+          },
+          "flat_reentry": {
+            "events": 9021,
+            "eligible_physical_min": 6795
+          },
+          "existing_hold_ADD": {
+            "events": 1518,
+            "eligible_physical_min": 1340
+          }
+        }
+      },
+      "mobile": {
+        "events": 20718,
+        "stocks": 1629,
+        "OPENs": 221,
+        "physical_cash_can_afford_min": 20718,
+        "actual_permission_eligible": 17168,
+        "eligible_physical_min": 17168,
+        "eligible_F1_joint": 9618,
+        "eligible_F1_joint_physical_min": 9618,
+        "raw_cash_only_physical_min": 9146,
+        "by_entry_kind": {
+          "first_participation": {
+            "events": 16216,
+            "eligible_physical_min": 13523
+          },
+          "flat_reentry": {
+            "events": 2984,
+            "eligible_physical_min": 2305
+          },
+          "existing_hold_ADD": {
+            "events": 1518,
+            "eligible_physical_min": 1340
+          }
+        }
+      },
+      "core": {
+        "events": 37839,
+        "stocks": 1649,
+        "OPENs": 221,
+        "physical_cash_can_afford_min": 37839,
+        "actual_permission_eligible": 30419,
+        "eligible_physical_min": 30419,
+        "eligible_F1_joint": 16834,
+        "eligible_F1_joint_physical_min": 16834,
+        "raw_cash_only_physical_min": 16576,
+        "by_entry_kind": {
+          "first_participation": {
+            "events": 31802,
+            "eligible_physical_min": 25929
+          },
+          "flat_reentry": {
+            "events": 6037,
+            "eligible_physical_min": 4490
+          },
+          "existing_hold_ADD": {
+            "events": 0,
+            "eligible_physical_min": 0
+          }
+        }
+      }
+    }
+  }
+}

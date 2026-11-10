@@ -1,0 +1,74 @@
+{
+  "created_utc": "2026-10-19T16:29:37.895125+00:00",
+  "status": "before candidate implementation and outcomes; histories previously inspected development data",
+  "hypothesis": "Persistent online price-volume segmentation can retain a trend through small shocks while switching slope on sustained contrary high-volume evidence. Volume changes fit evidence and segment reset, not only data eligibility. This is a hypothesis, not calibrated significance or proven alpha.",
+  "mechanism": {
+    "input": "causal total-return log close and positive raw traded volume; split-adjust raw volume to constant-share units using known splits",
+    "max_segment": 63,
+    "min_segment": 8,
+    "warmup": 63,
+    "weights": "sqrt(volume / trailing21 median), clipped [.25,4], each observation weight frozen when observed, mean-normalized within candidate window",
+    "fit": "weighted straight line vs two independent lines, candidates with >=8 each side, minimize weighted residual SSE; score improvement (SSE_single-SSE_split)/(prior21 daily RMS squared) - 3*log(n); split accepted only score>0, persistent segment start advances to chosen split, no retroactive signal rewriting",
+    "strength": "sqrt(21)*current-segment slope/prior21 daily RMS, signed; not probability",
+    "penalty_multiplier": 1.0,
+    "sensitivity": [
+      0.75,
+      1.25
+    ]
+  },
+  "difference_from_prior": "Prior segmented_trend_strength uses a daily rolling21 continuous one-knot BIC fit. Here retain a causal accepted segment boundary, allow independent segment intercepts, cap segment63, minimum8, normalize residual gain by preceding return variation, and freeze relative-volume weights when observed. Same broad family; no claim of novel statistical method.",
+  "strategy": "Upward crossing of normalized slope +1 opens; slope<=0 closes; missing holds prior exposure; 90%/N equal initial budget on state change, no daily rebalancing, no pyramiding or target TP. Strength3->5 example not used.",
+  "scope": {
+    "accounts": "all existing ETF17 and HK7 in load_extended/load_assets, 2022-01-01..2026-10-16; inherited survivor/raw/action limitations; A-share stocks not yet covered",
+    "data": "existing audited raw Tencent/action datasets for comparable accounts; same THS Q ETF7 only proxy repair replay, no new acquisition. THS remains primary desired source; Q semantics not certified",
+    "controls": [
+      "price-only same segment",
+      "same volume lag21 (causal placebo)",
+      "SMA63 price",
+      "half-slow fixed old signals",
+      "90%/N buyhold"
+    ],
+    "scenarios": "base for all; main and price model cost2/delay1; penalty .75/1.25 base, no winner selection"
+  },
+  "cases": [
+    [
+      "USHJ510300",
+      "2022-01-01",
+      "2023-12-31"
+    ],
+    [
+      "USHJ512480",
+      "2026-01-01",
+      "2026-10-16"
+    ],
+    [
+      "USHJ515030",
+      "2026-01-01",
+      "2026-10-16"
+    ],
+    [
+      "HK00700",
+      "2022-01-01",
+      "2023-12-31"
+    ],
+    [
+      "HK00005",
+      "2024-01-01",
+      "2026-10-16"
+    ],
+    [
+      "HK03690",
+      "2024-01-01",
+      "2026-10-16"
+    ]
+  ],
+  "repair_scope": "trend_cash_book exact-one-lot preservation and terminal mark-vs-liquidation; explicit sell-first free-cash allocation and pending zero-budget retry/cancel; synthetic regression then only half-slow ETF7 replay old/quantity-only/full. Record policy difference separately; no other old scripts run.",
+  "evaluation": "Prefix and scale invariance mandatory; inspect fixed trajectory cases BEFORE any new account outcomes. Failed mechanism may be rejected before account, otherwise run fixed matrix. Volume must demonstrate explained incremental behavior, not merely different output. Ordinary net/initial capital target near0; tolerance diagnostic +/-5% fullwindow predefined, not success guarantee. No hard target winrate; tail net return>=30%, preserve unlimited upside; compare drawdown and entire-account return/excess.",
+  "attribution": "Closed means no active parent, no retained securities, no unpaid receivable. Open/claims separate. NetPnL/buy cash including fees determines fixed tail labels. All non-tail closed included. Fees once; gross addback same labels. Daily episode contributions bridge windows and labels are hindsight diagnostics. MFE/MAE diagnostics signal close total-return, not executable return.",
+  "stopping": "one mechanism and prescribed ablations only. Causal/accounting failure stops results. No parameter optimization; conclude reject/insufficient/control/forward candidate. No forward launch without worthwhile candidate.",
+  "sources": [
+    "https://arxiv.org/abs/2503.05270",
+    "https://arxiv.org/abs/2009.08573"
+  ],
+  "source_boundary": "Conceptual reading on jump/kink and polynomial trend segmentation; this heuristic is not an implementation of their estimators or transfer of statistical guarantees."
+}

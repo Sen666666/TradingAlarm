@@ -1,0 +1,15 @@
+{
+  "groups": [
+    {
+      "current_G1": "G1_ready_below_warm",
+      "warm_fresh_since_E0_start": 0,
+      "unknown_G1_since_E0_start": 0,
+      "E0_start_warm": false,
+      "events": 1211
+    }
+  ],
+  "original_entry_expression": "E0 && G1_ready && grade>=2 && (E0.entered || fresh_up)",
+  "source": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/policies_g1.py",
+  "sha256": "079a70ac83aa98a3824aeaecc46186081d83f5148e9630a3ad0435cb01b05af1",
+  "scope": "Existing fields only; no I/model recomputation or new authorization"
+}

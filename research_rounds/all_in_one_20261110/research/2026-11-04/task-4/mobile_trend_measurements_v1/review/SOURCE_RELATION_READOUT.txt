@@ -1,0 +1,25 @@
+EMA与原G1的重合、差异和因果边界：源码先审
+
+1. EW净速度不是价格EMA
+B4model110–117、163–188：p为规范化log(C)，r=diff(p)；mu5、mu21对r递推，alpha=2/(h+1)，首个有效r作种子并从早期完整历史持续预热，到第65有效strength收盘才展示指标。单位log return/有效strength观察（336）。G1 grade19–43读取它们的正负及sqrt5*mu5/s、sqrt21*mu21/s，并用S21/S63、acute和原事件覆盖定级。
+本轮EMA20/60平滑调整价水平C，单位调整价/股，周期20/60也不同于mu5/21。即使同一span，对价格水平做EMA与对log return做EW也不是相同变换；不能把两套字段称完全等价。二者使用同源收盘与收益历史，不能称独立外生证据。是否EMA提供G1之外的可用区分力是未验问题，四股描述表不予证明。
+
+2. S21/S63不是均线21/63
+B4model122–160用候选anchor、冻结sqrt(h)*scale门槛和成交量加权的新frontier credit，达到双门槛才确认方向；232–271维护S21/S63及其running极值。这是离散方向/结构状态，不是EMA20/60交叉。成交量权重是sqrt(v/volume_reference)裁于.5–2；此处不是CP/PVR的成交金额amount背景。
+G1 fresh来自原up、S21/S63确认或确认UP结构里新frontier（grade24–29）。同日价格冲击可以同时改变这些字段和EMA，不能用同时满足直接乘成独立证据概率，也不因同源就否定所有增量描述价值。
+
+3. 观察钟不同必须保留
+B4 strength_frame284–329先过滤valid_strength_observation；无效strength行未知且不推进该钟，后面有效收盘跨间隙桥接r。同segment才连续，source变更重启。价格有效但volume缺/零的观察，可能在价格facts钟存在而不推进strength钟。
+本轮冻结定义按完整事实价格观察，source/显式无效价格断块，与旧build_price_features11–19相同。故20/60以及t−5、t−20只指原价格观察，不能当自然日或保证等同G1 strength观察数。只需在当前facts所提供的显式无效行上应用该断块规则；不能凭无原观察记录的休市日造无效bar。若原raw无效行在facts中被过滤，表的定义范围仍应明确为facts观察，不冒称重建原raw全部缺口。
+
+4. 原调整坐标的因果范围
+prepare_signal145–218按cutoff截prefix，仅纳入start<effective_date<=prefix_end的action；theoretical_ex_price用此前raw close、cash/split算ex_price，factor向前累计，不因未来action重写已输出旧factor。输出调整OHLC与volume_factor，并保留raw_*。这解释原冻结信号的数学前缀因果坐标，不等于今日后复权、股东总回报或公司行为公告收到时间认证。合成action行不是真实观察（220），只有原eligible facts价格观察用于本轮EMA。
+
+5. 本轮固定描述口径审查
+EMA20/60使用alpha=2/(N+1)、每块首个有效C为种子、adjust=False、分别满20/60观察才显示；完整source历史预热，案例窗口不能重新种子。
+EMA20五观察坡=100*(E20_t/E20_(t−5)−1)/5，单位百分比/原价格观察；它是五观察变化的算术均摊，不是几何日率、OLS坡或自然日年化。偏离=100*(C/E20−1)。
+shift20区间只含t−20到t−1的H/L（附同样滞后C区间），同source/有效块内算，零宽缺失，不裁0–100。不可把当日H/L掺进去再称突破位置。
+最近确认峰只在原event=−1的confirmation_day<=当前收盘后更新；pivot发生日虽早，不回填许可。可保留同source、旧个股E0段的已确认峰并标身份，不跨source；缺峰缺失，不用未来最大值。
+全部指标为t CLOSE输入，未来OPEN动作只作原账结果连接。15:10只是研究时钟，未认证历史received_at；原fill仍是日线代理账本。
+
+本阶段仅源码/定义审查。数值脚本及CSV尚未交付审核时，不声称四股EMA已独立验证。之后只准四股描述算式/少数前缀核，不运行G1/E0/CP模型、全市场1709或账户策略。

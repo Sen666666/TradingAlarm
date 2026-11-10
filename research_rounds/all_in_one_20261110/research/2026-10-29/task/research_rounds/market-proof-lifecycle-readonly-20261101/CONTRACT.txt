@@ -1,0 +1,43 @@
+Read-only original market proof lifecycle, 2026-11-01.
+No account replay, new threshold/gate, sizing/exit/limit change, or T1-L work.
+
+Fixed cases: OLD RS and OLD PVR ACT20_BREAK normal407tech/11industry Sep27 2024
+recovery; original Bdiag1709/90 Jun17 2022 and Jan19 2023 recovery; current
+PVR_SLOT1 2026 Apr30/May7 and semiconductor/electronic-chemical H1 peak/Jun30.
+Do not transfer old90% allocation to current60+10% policy or mix stock pools.
+924 primary window remains Sep24--Dec31. Its actual full phase peak/pause may
+be outside that window: report them separately as existing later-episode
+context. First10% giveback uses the RUNNING, already-known phase high, NOT
+10% below an eventual future peak. It may precede that eventual peak.
+
+Checkpoints: recovery, phase maximum (retrospective label), first causal10%
+phase giveback, ACT pause and first actual flat close; old924 adds Sep24,
+Sep30, within2024 peak and Dec31. These are descriptive, not proposed triggers.
+At every checkpoint read original market/breadth/BREAK/fast field and actual
+capital/new-buy/exit behavior. Same-day fills use their prior signal clock;
+never use that day's closing evidence to claim the morning buy was invalid.
+
+Original signed amount-direction evidence: r*min(1,sqrt(A/prior21medianA)),
+EWMA21 adjust=False, original valid/source/64-observation readiness. This m
+is NOT PVR/CP1's dimensionless amount multiplier. Industry breadth is share
+m>0 with min5 ready stocks; equal industry mean requires min8 industries.
+Macro market price is the original equal-industry-return cumulative series.
+BREAK is above prior63high, positive current return, breadth>.6. Source on
+state is withdrawn by account phase drawdown, not a falling breadth/BREAK.
+Old fast_on came from the old .4/.6 latch; native fast_on is breadth>.6.
+Reuse both exactly as observed fields, not a new exit rule or common definition.
+
+OLD407 has cached stock m/industry counts: reuse them. Native sector components
+not saved may be exported by the SAME original compute_recovery function,
+changing ONLY its returned internal diagnostics. Verify exported global values
+against unchanged stored recovery at selected dates; report all1709 identities,
+absent source/ready counts and industry coverage, unknown is never zero.
+No model import/account constructor. Export only fixed checkpoint component
+values, no threshold search. A small loading pilot bounds the original export.
+
+Holdings-weighted original industry breadth is a continuous descriptive mean;
+report its marked-capital denominator and unknown capital separately. Stock m
+positive/negative/zero/unknown capital and actual core/mobile/pool are separate.
+Localized strong industry can coexist with weak macro breadth; no blanket
+risk-off or calendar-dependent policy is inferred. Stop at one falsifiable
+proof-creation/validity/withdrawal/reentry hypothesis and its failure control.

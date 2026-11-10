@@ -1,0 +1,60 @@
+{
+  "scope": "FROZEN_EXPERIMENT_NOT_DEPLOYABLE_STRATEGY",
+  "completed_through": "2024-09-24",
+  "blockers": [
+    "2024-09-25 601825.SH UNADMITTED_EQUITY_EVENT"
+  ],
+  "sep23": {
+    "day": "2024-09-23",
+    "cash": "797559.4368915568500",
+    "receivable": "0.000",
+    "market_value": "394730.00",
+    "NAV": "1192289.4368915568500",
+    "net_liquidation_NAV": "1191358.8293781533500",
+    "stocks": 102,
+    "shares": 26600,
+    "weight_pct": "33.10689399623542573720533407",
+    "fees_paid": "4390.7976084431500"
+  },
+  "sep24": {
+    "day": "2024-09-24",
+    "cash": "485123.7577092061000",
+    "receivable": "0.000",
+    "market_value": "726086.00",
+    "NAV": "1211209.7577092061000",
+    "net_liquidation_NAV": "1209095.9290009624000",
+    "stocks": 268,
+    "shares": 46700,
+    "weight_pct": "59.94717226958823099099026007",
+    "fees_paid": "5255.7692907939000"
+  },
+  "sep23_held_sectors": 9,
+  "sep23_actual_ADDs_by_sector": {
+    "消费电子": 1,
+    "电气电网设备": 4,
+    "化工材料": 1,
+    "证券保险": 3
+  },
+  "sep23_CLOSE_ADD_gate_counts": {
+    "NO_VALID_UNCONSUMED_POSTSEED_CP": 55,
+    "ADD_PLANNED": 3,
+    "SECTOR_NOT_STRENGTHENED": 37,
+    "CLOSE_NET_NOT_POSITIVE": 7
+  },
+  "sep23_software_A_decisions": {
+    "PASS": 33,
+    "I_INELIGIBLE_OR_UNKNOWN": 18
+  },
+  "sep24_buy_cash": "312435.6791823507500",
+  "sep24_seed_cash": "253272.3305162150000",
+  "sep24_add_cash": "59163.3486661357500",
+  "sep24_actual_seed_fills": 166,
+  "sep24_actual_add_fills": 3,
+  "sep24_OPEN_rejections": {
+    "证券保险|MIN_LOT_CAPITAL_REJECT:sector_cap": 9
+  },
+  "FALSE_sector_ADD_plans": [],
+  "FALSE_sector_actual_ADDs": [],
+  "small_N_edge_not_modified": true,
+  "no_PIT_or_real_fill_certification": true
+}

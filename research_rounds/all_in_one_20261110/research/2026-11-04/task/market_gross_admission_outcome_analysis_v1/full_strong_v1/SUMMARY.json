@@ -1,0 +1,316 @@
+{
+  "D_GROSS10": {
+    "account_metrics": {
+      "window": "strong",
+      "reference": "D_GROSS10",
+      "return_pct": "121.4709412167926181500",
+      "global_DD": {
+        "percent": "11.65952364895303383718413153",
+        "day": "2025-12-04",
+        "preceding_peak_day": "2025-11-17"
+      },
+      "mean_exposure_pct": "85.94720626739691469132360058",
+      "peak_exposure_pct": "90.50776883942819696541589849",
+      "mean_cash_pct": "13.79449229455032032240773158",
+      "fees": "21615.7770870738185",
+      "buy_cash": "17640243.6721820872465",
+      "buy_fills": 1115,
+      "sell_fills": 843,
+      "paused_closes": 0,
+      "whole_layers": {
+        "layers": 1115,
+        "stocks": 644,
+        "buy_cash": "17640243.6721820872465",
+        "closed_positive": "1303646.128975565791216559908",
+        "closed_negative": "-927832.2255509527602165599080",
+        "open_net": "838895.5087433131505",
+        "tail_net": "1617193.462135614356318181818"
+      },
+      "new_confirmed_mobile": {
+        "layers": 747,
+        "stocks": 487,
+        "buy_cash": "15166902.4674508778200",
+        "closed_positive": "1138640.562352711290157232705",
+        "closed_negative": "-778743.2706204903807576854491",
+        "open_net": "716224.7481218065205",
+        "tail_net": "1401759.6712138972745"
+      },
+      "open_contribution": "838895.5087433131505",
+      "terminal_inventory": "1984421.65",
+      "terminal_dividend_receivable": "9669.33120",
+      "worst_ACT_phase_DD": {
+        "day": "2025-12-04",
+        "percent": "11.65952364895303383718413153",
+        "phase": 0,
+        "phase_peak": "1394229.8530915695925"
+      },
+      "ACT_events": [],
+      "quarters": [
+        {
+          "quarter": "2025Q3",
+          "return_pct": "33.5577863452444808500",
+          "DD_pct": {
+            "percent": "8.265693602741411771307929130",
+            "day": "2025-09-04",
+            "preceding_peak_day": "2025-09-01"
+          },
+          "mean_exposure_pct": "88.48625252089683525073416289",
+          "new_buy_cash": "4658508.2389566930925"
+        },
+        {
+          "quarter": "2025Q4",
+          "return_pct": "5.513613312403991440464842000",
+          "DD_pct": {
+            "percent": "11.65952364895303383718413153",
+            "day": "2025-12-04",
+            "preceding_peak_day": "2025-11-17"
+          },
+          "mean_exposure_pct": "88.74994002196311702750848037",
+          "new_buy_cash": "4492114.8610923797325"
+        },
+        {
+          "quarter": "2026Q1",
+          "return_pct": "14.00474703539353578672861180",
+          "DD_pct": {
+            "percent": "8.586634023540408207800540860",
+            "day": "2026-01-16",
+            "preceding_peak_day": "2026-01-12"
+          },
+          "mean_exposure_pct": "86.04773347463477208966089725",
+          "new_buy_cash": "4143861.8877432933830"
+        },
+        {
+          "quarter": "2026Q2",
+          "return_pct": "37.85296392511211611535746010",
+          "DD_pct": {
+            "percent": "4.793776111421504626590203740",
+            "day": "2026-05-21",
+            "preceding_peak_day": "2026-05-20"
+          },
+          "mean_exposure_pct": "80.2576962405587995013389602",
+          "new_buy_cash": "4345758.6843897210385"
+        }
+      ]
+    },
+    "whole_calendar": {
+      "start": "2025-07-01",
+      "end": "2026-06-30",
+      "days": 242,
+      "initial_own_NAV": "1000000",
+      "end_NAV": "2214709.4121679261815",
+      "return_pct": "121.4709412167926181500",
+      "DD": {
+        "percent": "11.65952364895303383718413153",
+        "day": "2025-12-04",
+        "preceding_peak_day": "2025-11-17"
+      },
+      "mean_lag_exposure_pct": "85.57695049398675676432505264",
+      "mean_close_exposure_pct": "85.94720626739691469132360058",
+      "mean_cash_pct": "13.79449229455032032240773158",
+      "mean_close_nominal_risk_pct": "8.560244069679370924847484169",
+      "paused_OPEN_days": 0,
+      "wealth_change": "1214709.4121679261815",
+      "actual_buy_cash": "17640243.6721820872465",
+      "actual_buy_gross": "17633289.968865",
+      "actual_sell_net": "16860862.1031500134280",
+      "actual_sell_gross": "16875524.176920",
+      "actual_fees": "21615.7770870738185",
+      "recognized_dividend": "9669.33120",
+      "buy_fills": "1115",
+      "sell_fills": "843"
+    }
+  },
+  "ARCHIVED_B": {
+    "account_metrics": {
+      "window": "strong",
+      "reference": "B",
+      "return_pct": "126.3281230975329756500",
+      "global_DD": {
+        "percent": "11.65952364895303383718413153",
+        "day": "2025-12-04",
+        "preceding_peak_day": "2025-11-17"
+      },
+      "mean_exposure_pct": "88.38761574815709736454988087",
+      "peak_exposure_pct": "90.50776883942819696541589849",
+      "mean_cash_pct": "11.35991612195810364999224896",
+      "fees": "22720.0265796702435",
+      "buy_cash": "18410977.5958040346740",
+      "buy_fills": 1171,
+      "sell_fills": 887,
+      "paused_closes": 0,
+      "whole_layers": {
+        "layers": 1171,
+        "stocks": 671,
+        "buy_cash": "18410977.5958040346740",
+        "closed_positive": "1379157.105871485543257685449",
+        "closed_negative": "-965679.4178715212832576854491",
+        "open_net": "849803.5429753654965",
+        "tail_net": "1676775.1159242851445"
+      },
+      "new_confirmed_mobile": {
+        "layers": 776,
+        "stocks": 504,
+        "buy_cash": "15854958.6788843650065",
+        "closed_positive": "1198890.288763758239490566038",
+        "closed_negative": "-804254.6275942286270910187824",
+        "open_net": "734835.1453569240465",
+        "tail_net": "1456026.6297115441945"
+      },
+      "open_contribution": "849803.5429753654965",
+      "terminal_inventory": "2027186.58",
+      "terminal_dividend_receivable": "10852.19680",
+      "worst_ACT_phase_DD": {
+        "day": "2025-12-04",
+        "percent": "11.65952364895303383718413153",
+        "phase": 0,
+        "phase_peak": "1394229.8530915695925"
+      },
+      "ACT_events": [],
+      "quarters": [
+        {
+          "quarter": "2025Q3",
+          "return_pct": "33.5577863452444808500",
+          "DD_pct": {
+            "percent": "8.265693602741411771307929130",
+            "day": "2025-09-04",
+            "preceding_peak_day": "2025-09-01"
+          },
+          "mean_exposure_pct": "88.48625252089683525073416289",
+          "new_buy_cash": "4658508.2389566930925"
+        },
+        {
+          "quarter": "2025Q4",
+          "return_pct": "5.513613312403991440464842000",
+          "DD_pct": {
+            "percent": "11.65952364895303383718413153",
+            "day": "2025-12-04",
+            "preceding_peak_day": "2025-11-17"
+          },
+          "mean_exposure_pct": "88.74994002196311702750848037",
+          "new_buy_cash": "4492114.8610923797325"
+        },
+        {
+          "quarter": "2026Q1",
+          "return_pct": "17.33623936129296362154699470",
+          "DD_pct": {
+            "percent": "8.586634023540408207800540860",
+            "day": "2026-01-16",
+            "preceding_peak_day": "2026-01-12"
+          },
+          "mean_exposure_pct": "87.94015021712618529007577391",
+          "new_buy_cash": "4564283.0131242885400"
+        },
+        {
+          "quarter": "2026Q2",
+          "return_pct": "36.87642357483145655140304400",
+          "DD_pct": {
+            "percent": "4.704517648837212748429263760",
+            "day": "2026-05-21",
+            "preceding_peak_day": "2026-05-20"
+          },
+          "mean_exposure_pct": "88.33442551996621729629773833",
+          "new_buy_cash": "4696071.4826306733090"
+        }
+      ]
+    },
+    "whole_calendar": {
+      "start": "2025-07-01",
+      "end": "2026-06-30",
+      "days": 242,
+      "initial_own_NAV": "1000000",
+      "end_NAV": "2263281.2309753297565",
+      "return_pct": "126.3281230975329756500",
+      "DD": {
+        "percent": "11.65952364895303383718413153",
+        "day": "2025-12-04",
+        "preceding_peak_day": "2025-11-17"
+      },
+      "mean_lag_exposure_pct": "88.01749806525752641886955529",
+      "mean_close_exposure_pct": "88.38761574815709736454988087",
+      "mean_cash_pct": "11.35991612195810364999224896",
+      "mean_close_nominal_risk_pct": "8.585458960359508904938975438",
+      "paused_OPEN_days": 0,
+      "wealth_change": "1263281.2309753297565",
+      "actual_buy_cash": "18410977.5958040346740",
+      "actual_buy_gross": "18403651.507140",
+      "actual_sell_net": "17636220.0499793644305",
+      "actual_sell_gross": "17651613.987895",
+      "actual_fees": "22720.0265796702435",
+      "recognized_dividend": "10852.19680",
+      "buy_fills": "1171",
+      "sell_fills": "887"
+    },
+    "source_book_sha256": "155d4d831fc9a4f6cfea24565287d0a1e7e9d7030b0e7aa9b54f20bc3fa0f851",
+    "independent_financial_audit": "PENDING",
+    "saved_role_candidate_population": {
+      "role_candidate_stockdays": 57506,
+      "fresh_CP1_mobile_Q_stockdays": 26815,
+      "planned_roles": {
+        "mobile": 26815,
+        "core": 51843
+      },
+      "barrier_stockdays": {},
+      "scope": "Producer retains rows with nonempty roles only; stock-day counts and overlapping barriers are not independent opportunities or all-universe unknown counts."
+    }
+  },
+  "source_control": "immutable ARCHIVED_B_CONTROL_BINDING; preexisting B result xref only",
+  "financial_review": "PENDING",
+  "derived_review": "PENDING",
+  "market_ACT_cross": [
+    {
+      "market_state_at_OPEN": "DOWN",
+      "own_ACT_at_OPEN": false,
+      "days": 0,
+      "actual_buy_cash": "0",
+      "actual_fees": "0",
+      "buy_fills": 0,
+      "diagnostic_selected_day_wealth_sum_not_account_return": "0"
+    },
+    {
+      "market_state_at_OPEN": "DOWN",
+      "own_ACT_at_OPEN": true,
+      "days": 14,
+      "actual_buy_cash": "0",
+      "actual_fees": "1164.9231857691445",
+      "buy_fills": 0,
+      "diagnostic_selected_day_wealth_sum_not_account_return": "55446.7804592308555"
+    },
+    {
+      "market_state_at_OPEN": "NOT_DOWN",
+      "own_ACT_at_OPEN": false,
+      "days": 0,
+      "actual_buy_cash": "0",
+      "actual_fees": "0",
+      "buy_fills": 0,
+      "diagnostic_selected_day_wealth_sum_not_account_return": "0"
+    },
+    {
+      "market_state_at_OPEN": "NOT_DOWN",
+      "own_ACT_at_OPEN": true,
+      "days": 228,
+      "actual_buy_cash": "17640243.6721820872465",
+      "actual_fees": "20450.8539013046740",
+      "buy_fills": 1115,
+      "diagnostic_selected_day_wealth_sum_not_account_return": "1159262.6317086953260"
+    },
+    {
+      "market_state_at_OPEN": "UNKNOWN",
+      "own_ACT_at_OPEN": false,
+      "days": 0,
+      "actual_buy_cash": "0",
+      "actual_fees": "0",
+      "buy_fills": 0,
+      "diagnostic_selected_day_wealth_sum_not_account_return": "0"
+    },
+    {
+      "market_state_at_OPEN": "UNKNOWN",
+      "own_ACT_at_OPEN": true,
+      "days": 0,
+      "actual_buy_cash": "0",
+      "actual_fees": "0",
+      "buy_fills": 0,
+      "diagnostic_selected_day_wealth_sum_not_account_return": "0"
+    }
+  ],
+  "ACT_rule": "unchanged original ACT20/BREAK63; own original risk_checkpoint events in account_metrics; archived B events diagnostic only"
+}

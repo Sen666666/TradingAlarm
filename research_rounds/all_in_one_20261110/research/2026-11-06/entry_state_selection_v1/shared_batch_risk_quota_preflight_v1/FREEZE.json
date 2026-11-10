@@ -1,0 +1,12 @@
+{
+  "count": 72,
+  "updated_rmax_before_computation": true,
+  "files": {
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/shared_batch_risk_quota_preflight_v1/PROTOCOL.json": "a89445f37218d4d5a083668b8684c0d7077e2dd97a784adda318b23314c9b614",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/cohort_2022_recovery_v2/DECISIONS.json": "18d4ea0d9a498795419dc865f58bb84f9708ddba36a535e7dd81382136975df5",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/cohort_2022_recovery_v2/AUDIT.json": "618b3b615df219036121ae2754b6ad62d470c4c02766af623e8ce322c0ff8eca",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/cohort_2024_924/DECISIONS.json": "26875017c8d7674194f834247f38725050953e283bf9ac57be986cadffead29a",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/cohort_2024_924/AUDIT.json": "dbb0bc3feb313d7d2b902ee464c86ddbc8177018cd659db98f5eae4101ad9a81",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/shared_batch_risk_quota_preflight_v1/FIXED_72_TICKETS.json": "26c0027b1a6da9549f27aa3069006fa50ebc77e3c36319cb374c200a06b40547"
+  }
+}

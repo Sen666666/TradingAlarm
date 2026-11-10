@@ -1,0 +1,20 @@
+{
+  "count": 52,
+  "sectors": 25,
+  "role_counts": {
+    "core": 3,
+    "mobile": 49
+  },
+  "entry_pool_counts": {
+    "probe": 3,
+    "confirmed": 49
+  },
+  "gross": "1079633.486970",
+  "fees": "355.7634902942390",
+  "cost": "1079989.2504602942390",
+  "full_round_W": 8,
+  "full_round_L": 44,
+  "full_round_net": "-69154.83189943101900000000000",
+  "first_layer_net": "-64947.17966326617163157894737",
+  "full_round_latest_close": "2022-03-08 09:30:00+08:00"
+}

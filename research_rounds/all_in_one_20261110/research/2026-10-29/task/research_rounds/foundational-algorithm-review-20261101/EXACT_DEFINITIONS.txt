@@ -1,0 +1,29 @@
+当前真实调用链与职责（不是把所有同名历史版本合并）
+
+E0市场事件：B5 evidence._event_facts继承原数值核。在正有限close/volume观察上计算log收益；sigma_t=max(sqrt(mean(r²的前63观察)),1e-8)，不是含未来窗口。跟踪交替摆动极值ext。极值之后累积区间的平均volume，相对ext当时已知的前21中位基准取平方根并clip到[.5,2]；确认值=(-direction)*log(C_t/C_ext)*activity/(sqrt(5)*sigma_ext)。达到1才在t确认相反方向事件，pivot=C_ext，随后换方向。它是可能跨多个观察形成、在一天确认的累计摆动，不是“只看一根阳线”。pivot发生日不等于当时已知日。
+
+E0参与政策：policy.e0_policy先用旧floor检查C<=floor失效；正事件把有效floor抬至max(old,pivot)，非持有且当天未刚退出则可建立结构。负事件本身不触发退出。来源段重置和无效观察独立处理。通用policy还支持高参与下跌记忆/收复通道，但CURRENT TradingAlarm.desk.refresh.prepare_facts和已核缓存派生链显式decline_candidate=False；本轮原I/E0账不能误称启用了该通道。B5不是纯E0持仓的别名：事件事实和参与政策分开。
+
+G1原生分量（B4 run_valid）：r=ΔlogC；mu_h从首个收益以alpha=2/(h+1)递推EW均值，h为5/21；第65个有效收盘才公开指标。s=max(1.4826*median(前63|r|),1e-8)，Vref=前21 volume中位；qeff=(r/s)*sqrt(clip(V/Vref,1,4))，<=−2为acute_down、>=2为acute_up。S21/S63分别维护方向结构和反向候选，从已知价格极点冻结threshold=sqrt(h)*s_anchor、Vref_anchor；只有方向正确的新价格frontier才积credit+=dF*clip(sqrt(V/Vref_anchor),.5,2)，净位移和credit同时过threshold才确认该方向。有效结构新高/新低重建相反方向候选；首次两侧候选与翻转顺序详见run_valid原文。它是锚定、冻结尺度的多尺度进展，不是简单MA或过去63日正负号。
+
+G1当前强度：grade.classify消费B4的S21/S63方向结构、EW净推进mu5/mu21、滞后63 robust s及急变事实。z_h=sqrt(h)*mu_h/s；S_h是锚定推进/信用确认，不等于过去h日收益符号。基本proposal：双结构未定=0；mu21负且mu5非正为冷/强冷，mu5转正最多局部修复；mu21正而S21向上可暖，两尺度向上可热；两尺度上行且z5/z21>=1可扩张。acute up+新E0正事件+正mu5可快启到暖；z5<=-1至多冷，acute down压到强冷。proposal上升必须有新E0正事件/S21或S63新上行确认/已确认S21新的价格前沿，否则保留旧grade；降温不需新升级凭据。等级−3..4、score=25grade是有序证据，不是收益概率或仓位百分比。字段逐日更新但升温受记忆约束，不能说完全锁存或完全无记忆。
+
+I/X/IX投影：policies_g1.project中warm=ready且grade>=2，cold=grade<=−2或acute_down。I入场机会要求E0有效、当前暖，且E0新开或fresh_up；I已有效后不因G1转冷退出，只随E0边界/自身floor失效，继续抬原floor。X另加当前冷退出；IX两者都有。i_buy是当次原I买证据，可在同一I段内多次出现；i_target是历史I结构仍有效，两者不能互换。
+
+H1排序：rs_h1_model.raw_momentum完整252区间分四段，权重(.4,.2,.2,.2)，raw=.4*(C_t/C_t-63−1)+.2*(C_t-63/C_t-126−1)+.2*(C_t-126/C_t-189−1)+.2*(C_t-189/C_t-252−1)。短历史按同一市场日历h=min(age,252)，段端min(63j,h)，零长度段不算；所有参照用该股相同h，至少6有效观察、20可比参考，来源跨段/端点缺失不前填。mid-percentile=100*(小于数+.5相等数)/参考数。股票1709和行业90各自排名；不保证绝对上涨。current native planning全球股票按−H1/代码排序，开盘沿(rank,core优先)；不是旧PVR行业内排序，也不是Top3行业。Q只要求原RS就绪/新鲜，不另设H1最低分。
+
+PVR-Q1（原数值，不是新增算法）：pvr-act-comparison-20261027/code/experiment.py:score与pv-rank-q1-20261027/FORMULA.json规定r=ΔlogC，s=max(1.4826*median(前63|r|),1e-8)，B=前21 amount中位；u=tanh(r/s)，b=tanh(log(A/B))，e=u*(1+.5|u|b)。E_t=sum(j=0..20, .9^j*e_(t-j))/sum(j=0..20,.9^j)，S=50+50*tanh(2E)。完整85个有效收盘准备才输出，断点/无效金额重置，缺失不是50；同分按原12位舍入/代码，S>50不是现有门。S是近期有符号净推进，非横截面百分位；显示tanh是单调映射，不改变E的排序。CP1复用其中日调制m=1+.5|u|b，但不复用21日聚合E/score，且只对新增价格frontier积正向信用；不能当两项独立alpha证据。
+
+CP1：features按原因果价格/amount计算r=log(C/Cprev)，s=1.4826*median(前63|r|)，z=max(s,log(1.001))；B=前21 amount中位，u=tanh(r/s)，v=tanh(log(amount/B))，m=1+.5|u|v。锚点冻结z；只有新的log价格frontier增量dF可积credit+=dF*m。新位移和credit均>=sqrt(5)*冻结z且本观察确有新推进才给receipt，candidate=C*exp(−sqrt(21)*冻结z)，随后消费该推进、重锚。横盘不能重复消费同一跳升。原负事件可重置局部SEEK，SEEK更低价重锚，所以较低高点的反弹仍可能给真正新局部凭据；canonical去重正确不等于中期趋势成立。股票CP1的e0_valid实际接i_target；行业接原E0。m保留PVR日金额调制，未使用PVR聚合分数。
+
+共同Q的真实边界：sector_stock_admission.eligibility要求common_ready、buy_allowed、市值>100亿元、stock_up、issuer/sector已知、股票H1就绪新鲜；S0另要行业当日观测、行业H1就绪新鲜、sector_up。Facts.packet在I政策把stock_up接i_target，core buy_allowed还合并当日i_buy；mobile continuing则把buy_allowed换回原market_buyable，所以不需fresh I。行业up仍接原E0而非当前G1。未知组件产生q=None，即使另有已知false也保留unknown原因；不是缺失补0。没有额外行业R21、H1最低分、PVR>50或量硬门。
+
+当前消费者逐项分开：
+HOLD：core沿原I/E0；mobile沿原I失效或自己的CP1 mobile保护；行业attempt失效不是强卖股票。
+NEWENTRY：core需fresh I/原Q、空仓和core_epoch；mobile需fresh canonical CP1、I仍有效及共同continuing Q，但不需当天fresh I、也不受core_epoch锁拦首次/全清后重入。
+ADD：只有fresh stock CP1 mobile可新增超probe风险；每次原目标2%NAV、股合计10%、真实floor与共享资源重验，不把浮盈当免费钱。
+RANK/执行：全球H1顺序，原核心角色先尝试；成功路由并预留即跳同股mobile，非等待实际fill，零fill也可能丢失当天mobile机会。route比较合法量，probe同量优先；SC成功迁池是confirmed前提，SD仅去掉此依赖；SD仍不强迁旧仓。
+EXIT：上一观察已知mobile线先检查，未失效再抬新线供后续；core不偷换mobile近线。ACT另按原phase规则。卖出义务、真实成交和释放资源分开。
+REENTRY：实际全清后新的CP1可mobile再入，但仍受当前行业/ACT/数量/资源/挂单约束；原core同epoch一次锁依旧。一次退出不意味着未来无机会或未来必然能获资。
+
+来源精确路径、函数、行号及SHA见SOURCE_INDEX.json；关键原文见SOURCE_EXCERPTS.txt。行业stage是第一/二/三新CP1对应probe/confirmed/expanded，并配上一观察已知行业mobile保护维护attempt。没有把三凭据计数等同“市场主线已证明”。

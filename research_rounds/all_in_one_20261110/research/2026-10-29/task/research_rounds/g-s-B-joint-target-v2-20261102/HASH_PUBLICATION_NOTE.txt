@@ -1,0 +1,1 @@
+REPORT_STDOUT中的index_sha256是在报告调试日志仍打开时生成的中间值，不作为最终发布索引。最终ARTIFACT_SHA256.json在全部日志关闭后重建；最终回复的SHA为准。这是日志内容追加变化，不是mtime导致SHA变化。

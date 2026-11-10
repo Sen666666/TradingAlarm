@@ -1,0 +1,12 @@
+{
+  "fresh_no_cap": 32,
+  "fresh_current_cap_comparator": 17,
+  "hold_no_cap": 34,
+  "hold_current_cap_comparator": 19,
+  "rows": 35,
+  "day": "2024-09-24",
+  "no_cap_all_PVR": 35,
+  "current_cap_PVR": 20,
+  "additional_fresh": 15,
+  "global_signal_qualified_pool_computed": false
+}

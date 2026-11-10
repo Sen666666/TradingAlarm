@@ -1,0 +1,29 @@
+{
+  "candidates": 53121,
+  "actual_mobile_first": 1814,
+  "outside20": 297,
+  "outside20_dates": 73,
+  "outside20_on_days_over20_fills": 170,
+  "outside20_on_days_atmost20_fills": 127,
+  "earlier_categories_sum": {
+    "earlier_core_reserved": 625.0,
+    "earlier_mobile_reserved": 5101.0,
+    "earlier_no_reservation": 8096.0,
+    "reject_probe_risk,sector_capital": 821.0,
+    "reject_probe_risk": 5524.0,
+    "reject_probe_risk,sector_capital,sector_risk": 303.0,
+    "reject_cash_or_original_reserve,probe_risk": 430.0,
+    "reject_cash_or_original_reserve,probe_risk,sector_capital": 295.0,
+    "reject_sector_capital": 174.0,
+    "reject_sector_capital,sector_risk": 26.0,
+    "reject_cash_or_original_reserve": 305.0,
+    "reject_cash_or_original_reserve,sector_capital": 219.0,
+    "reject_cash_or_original_reserve,sector_capital,sector_risk": 4.0,
+    "reject_open_minimum_exceeds_frozen_contract": 20.0,
+    "reject_cash_or_original_reserve,probe_risk,sector_capital,sector_risk": 62.0,
+    "reject_open_at_or_below_protection": 20.0,
+    "reject_missing_open": 6.0,
+    "reject_pool_capital,probe_risk": 4.0
+  },
+  "note": "Earlier-name counts repeat across outside20 rows and are explanatory context, not unique rejected candidates. No hardTop20 in actual allocator; funding/risk/role constraints and variable count matter. No causal attribution percentages inferred from co-occurrence."
+}

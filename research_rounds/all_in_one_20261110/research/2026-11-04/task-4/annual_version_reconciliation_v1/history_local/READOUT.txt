@@ -1,0 +1,33 @@
+本地历史版本核查：未找到“2022年度约-26%、2023年度约-34%”同一路径的准确匹配。
+没有证据能确认旧聊天究竟引用哪张表，不能由接近数字认定来源。
+
+确定可追溯的-26候选：task-4/core_confirmed_v1/RESEARCH_READOUT.txt12与
+analysis/long_ON_PERIODS.json的2022.return_pct=-26.1468975191819374%，
+2022 max_CLOSE_DD=26.4857502645682374%。这是CORE confirmed许可ON候选，
+100万→738531.024808180626；该连续路径2023却+4.4526952606%，不是-34%。
+同包原No60 OFF以及new_price_trend_v1原OFF均为2022-29.5512152990%、2023+5.8111877362%。
+BB20入场候选2022-31.9889110231%、2023-1.9071296923%，也不匹配。
+补核原core_confirmed_v1/funding/runs/long_ON/pair/daily.jsonl.gz：2022/12/30
+NAV738531.0248081806260，2023/12/29 NAV771415.5607481492305，与ON年度报告
+精确一致；原两行及源SHA见CORE_ON_ORIGINAL_YEAR_END_DAILY_ROWS.json，无模型运行。
+
+task-3另有一个“2023行约34”的确定不同口径：trend_exit_controls_v1/execution_review/
+account_comparison/results_v2/PERIOD_ACCOUNT_MATRIX.json第14行（JSON下标），
+EARLY_EMA60/2023，maximum_account_drawdown_from_full_path_peak=0.3386019410007865505。
+这是从完整路径历史峰值计的最大回撤，不是2023年度收益；其年度收益-3.9530107546%，
+年度重置峰回撤5.9312292968%，688619.2520929378695→661398.0589992134495。
+该包BASELINE2023仍明确704487.8470098769005→745426.9583780900535、+5.8112%。
+
+父线程另已定位邻task累计2022–23的No60/PVR净交易现金约-26.1336%/-34.3547%；
+那是一对跨年不同版本的现金净损失，另有分红应收，不能写成2022/2023两个年度收益。
+本地核查并未证明旧聊天原句出自该对累计数。
+
+范围：task-4 prior RESULTS/analysis PERIODS/METRICS与task-3已有小report/readout/
+summary/comparison。两套重叠JSON筛选分别379/215文件（<=800KB），text<=1MB；
+不声称全项目穷尽，不扫描大特征、parquet或账户pickle，不做新经济运行。
+另一agent核research_rounds与ar6，本任务没有重复跑这两区。
+
+LOCAL_VERSION_AND_TASK3_YEAR_ROWS.json保存上述原行；VERBATIM_SMALL_REPORT_SNIPPETS.txt
+给绝对路径、行号、SHA及原样摘录；SOURCE_FILE_IDENTITIES.json还含文件大小和mtime
+（mtime只是文件系统时间，不当作研究运行时间）。两套原搜索匹配保存，注意近似
+小数收益/事件前瞻收益等非账户匹配已明确排除，不拿它们补年度证据。

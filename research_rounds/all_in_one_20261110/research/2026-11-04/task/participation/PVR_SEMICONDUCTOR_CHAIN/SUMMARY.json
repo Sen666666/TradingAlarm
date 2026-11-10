@@ -1,0 +1,116 @@
+{
+  "old_PVR_has_account6_gate": false,
+  "old_PVR_has_account3_gate": false,
+  "new_C10_NO_AR6_is_not_this_policy_or_cause": true,
+  "unique_833_not_planning_sizing_breakdown": {
+    "positive_budget_below_minimum": 257
+  },
+  "sizing_unique_stocks": 46,
+  "positive_budget_minimum_distinct_stocks": 46,
+  "planning_priority_by_outcome": {
+    "opening_rejected_raw_merged_constraints": {
+      "n": 537,
+      "unique_stocks": 85,
+      "priority_min": 4,
+      "priority_median": 397.0,
+      "priority_max": 1648,
+      "priority_le_10": 2,
+      "priority_le_50": 23,
+      "same_stock_core_planned": 374
+    },
+    "reserved_and_filled": {
+      "n": 13,
+      "unique_stocks": 11,
+      "priority_min": 0,
+      "priority_median": 16.0,
+      "priority_max": 191,
+      "priority_le_10": 4,
+      "priority_le_50": 9,
+      "same_stock_core_planned": 7
+    },
+    "terminal_close_next_open_outside_saved_account": {
+      "n": 26,
+      "unique_stocks": 26,
+      "priority_min": 2,
+      "priority_median": 295.0,
+      "priority_max": 809,
+      "priority_le_10": 2,
+      "priority_le_50": 2,
+      "same_stock_core_planned": 22
+    }
+  },
+  "opening_merged_reject_tag_presence": {
+    "probe_risk": 532,
+    "pool_capital": 277,
+    "sector_capital": 315,
+    "open_minimum_exceeds_frozen_contract": 3,
+    "sector_risk": 9
+  },
+  "opening_merged_reject_combinations": {
+    "probe_risk": 130,
+    "pool_capital,probe_risk": 89,
+    "pool_capital,probe_risk,sector_capital": 180,
+    "probe_risk,sector_capital": 124,
+    "open_minimum_exceeds_frozen_contract": 3,
+    "pool_capital,probe_risk,sector_capital,sector_risk": 8,
+    "probe_risk,sector_capital,sector_risk": 1,
+    "sector_capital": 2
+  },
+  "close_resource_pressure_days_of_116": {
+    "confirmed60_excess": 75,
+    "probe_halfpct_excess": 79,
+    "probe10_excess": 0,
+    "sector_1pct_excess": 0,
+    "sector_stage_cap_excess": 2,
+    "both_confirmed60_and_probe_risk_exceeded": 57,
+    "cash_above10_positive": 116
+  },
+  "rejected_plan_signal_close_pressure_events_of_537": {
+    "confirmed60_excess": 475,
+    "probe_halfpct_excess": 443,
+    "sector_1pct_excess": 0,
+    "sector_stage_cap_excess": 0
+  },
+  "actual_entry_actions": {
+    "add_to_existing_stock": {
+      "filled_layers": 2,
+      "gross_buy": "49329.652500",
+      "fees": "13.3546257252500",
+      "closed_layers": 2,
+      "open_layers": 0,
+      "net_layer_contribution": "675.7033519028500",
+      "not_all_realized": false
+    },
+    "first_actual_participation": {
+      "filled_layers": 9,
+      "gross_buy": "179758.974570",
+      "fees": "60.6682383299370",
+      "closed_layers": 6,
+      "open_layers": 3,
+      "net_layer_contribution": "2099.2344002096560",
+      "not_all_realized": true
+    },
+    "fresh_reentry_after_actual_flat": {
+      "filled_layers": 2,
+      "gross_buy": "28192.089000",
+      "fees": "11.8071129049000",
+      "closed_layers": 1,
+      "open_layers": 1,
+      "net_layer_contribution": "6417.0210428190000",
+      "not_all_realized": true
+    }
+  },
+  "actual_exit_count": 9,
+  "actual_exit_reasons": {
+    "CP1_add_protection": 8,
+    "I_structure_exit": 1
+  },
+  "actual_exit_first_sell_lag": {
+    "1": 8,
+    "6": 1
+  },
+  "financial_events": 0,
+  "new_price_labels": 0,
+  "no_relaxed_route_projection": true,
+  "interpretation": "Reject tag union is recorded across considered routes. Presence and close pressure do not isolate exclusive removal causes or foregone PnL; repeat signal budgets cannot be summed as missed capital."
+}

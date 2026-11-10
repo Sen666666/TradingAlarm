@@ -1,0 +1,318 @@
+[
+  {
+    "period": "ALL",
+    "reason": "ACTIVE_MARKET_ATTEMPT",
+    "permits": 3255,
+    "AB_passing_I_role": 424,
+    "all_current_passing_roles_held": 0,
+    "execution_UNKNOWN": 357,
+    "sources": {
+      "FAST_CORE": 2205,
+      "FAST_CORE|FRESH_CP": 483,
+      "AB|FAST_CORE": 198,
+      "AB": 183,
+      "FRESH_CP": 141,
+      "AB|FAST_CORE|FRESH_CP": 34,
+      "AB|FRESH_CP": 11
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "ALL",
+    "reason": "AWAITING_FRESH_CP_AFTER_FAILURE_CURRENT_EPISODE",
+    "permits": 147,
+    "AB_passing_I_role": 5,
+    "all_current_passing_roles_held": 142,
+    "execution_UNKNOWN": 9,
+    "sources": {
+      "FAST_CORE": 114,
+      "FAST_CORE|FRESH_CP": 17,
+      "FRESH_CP": 11,
+      "AB": 3,
+      "AB|FRESH_CP": 1,
+      "AB|FAST_CORE": 1
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "ALL",
+    "reason": "CURRENT_EPISODE_BEFORE_FIRST_CP",
+    "permits": 1558,
+    "AB_passing_I_role": 270,
+    "all_current_passing_roles_held": 0,
+    "execution_UNKNOWN": 189,
+    "sources": {
+      "FAST_CORE": 1005,
+      "FAST_CORE|FRESH_CP": 210,
+      "AB": 138,
+      "AB|FAST_CORE": 100,
+      "FRESH_CP": 71,
+      "AB|FAST_CORE|FRESH_CP": 23,
+      "AB|FRESH_CP": 11
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "ALL",
+    "reason": "E0_OFF",
+    "permits": 71,
+    "AB_passing_I_role": 71,
+    "all_current_passing_roles_held": 0,
+    "execution_UNKNOWN": 4,
+    "sources": {
+      "AB": 71
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q1",
+    "reason": "ACTIVE_MARKET_ATTEMPT",
+    "permits": 1147,
+    "AB_passing_I_role": 157,
+    "all_current_passing_roles_held": 0,
+    "execution_UNKNOWN": 13,
+    "sources": {
+      "FAST_CORE": 674,
+      "FAST_CORE|FRESH_CP": 247,
+      "AB": 74,
+      "FRESH_CP": 69,
+      "AB|FAST_CORE": 65,
+      "AB|FAST_CORE|FRESH_CP": 14,
+      "AB|FRESH_CP": 4
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q1",
+    "reason": "AWAITING_FRESH_CP_AFTER_FAILURE_CURRENT_EPISODE",
+    "permits": 53,
+    "AB_passing_I_role": 2,
+    "all_current_passing_roles_held": 51,
+    "execution_UNKNOWN": 1,
+    "sources": {
+      "FAST_CORE": 36,
+      "FAST_CORE|FRESH_CP": 9,
+      "FRESH_CP": 6,
+      "AB|FRESH_CP": 1,
+      "AB": 1
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q1",
+    "reason": "CURRENT_EPISODE_BEFORE_FIRST_CP",
+    "permits": 657,
+    "AB_passing_I_role": 92,
+    "all_current_passing_roles_held": 0,
+    "execution_UNKNOWN": 14,
+    "sources": {
+      "FAST_CORE": 435,
+      "FAST_CORE|FRESH_CP": 102,
+      "AB": 45,
+      "AB|FAST_CORE": 34,
+      "FRESH_CP": 28,
+      "AB|FAST_CORE|FRESH_CP": 9,
+      "AB|FRESH_CP": 4
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q1",
+    "reason": "E0_OFF",
+    "permits": 18,
+    "AB_passing_I_role": 18,
+    "all_current_passing_roles_held": 0,
+    "execution_UNKNOWN": 1,
+    "sources": {
+      "AB": 18
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q2",
+    "reason": "ACTIVE_MARKET_ATTEMPT",
+    "permits": 1043,
+    "AB_passing_I_role": 143,
+    "all_current_passing_roles_held": 0,
+    "execution_UNKNOWN": 309,
+    "sources": {
+      "FAST_CORE": 705,
+      "FAST_CORE|FRESH_CP": 146,
+      "AB|FAST_CORE": 68,
+      "AB": 57,
+      "FRESH_CP": 47,
+      "AB|FAST_CORE|FRESH_CP": 14,
+      "AB|FRESH_CP": 6
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q2",
+    "reason": "AWAITING_FRESH_CP_AFTER_FAILURE_CURRENT_EPISODE",
+    "permits": 17,
+    "AB_passing_I_role": 0,
+    "all_current_passing_roles_held": 17,
+    "execution_UNKNOWN": 2,
+    "sources": {
+      "FAST_CORE": 13,
+      "FAST_CORE|FRESH_CP": 3,
+      "FRESH_CP": 1
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q2",
+    "reason": "CURRENT_EPISODE_BEFORE_FIRST_CP",
+    "permits": 430,
+    "AB_passing_I_role": 66,
+    "all_current_passing_roles_held": 0,
+    "execution_UNKNOWN": 161,
+    "sources": {
+      "FAST_CORE": 273,
+      "FAST_CORE|FRESH_CP": 63,
+      "AB": 35,
+      "FRESH_CP": 27,
+      "AB|FAST_CORE": 24,
+      "AB|FAST_CORE|FRESH_CP": 5,
+      "AB|FRESH_CP": 3
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q2",
+    "reason": "E0_OFF",
+    "permits": 17,
+    "AB_passing_I_role": 17,
+    "all_current_passing_roles_held": 0,
+    "execution_UNKNOWN": 2,
+    "sources": {
+      "AB": 17
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q3",
+    "reason": "ACTIVE_MARKET_ATTEMPT",
+    "permits": 407,
+    "AB_passing_I_role": 36,
+    "all_current_passing_roles_held": 0,
+    "execution_UNKNOWN": 17,
+    "sources": {
+      "FAST_CORE": 344,
+      "AB|FAST_CORE": 21,
+      "FAST_CORE|FRESH_CP": 16,
+      "AB": 12,
+      "FRESH_CP": 11,
+      "AB|FAST_CORE|FRESH_CP": 3
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q3",
+    "reason": "AWAITING_FRESH_CP_AFTER_FAILURE_CURRENT_EPISODE",
+    "permits": 51,
+    "AB_passing_I_role": 3,
+    "all_current_passing_roles_held": 48,
+    "execution_UNKNOWN": 5,
+    "sources": {
+      "FAST_CORE": 41,
+      "FAST_CORE|FRESH_CP": 4,
+      "FRESH_CP": 3,
+      "AB": 2,
+      "AB|FAST_CORE": 1
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q3",
+    "reason": "CURRENT_EPISODE_BEFORE_FIRST_CP",
+    "permits": 113,
+    "AB_passing_I_role": 28,
+    "all_current_passing_roles_held": 0,
+    "execution_UNKNOWN": 3,
+    "sources": {
+      "FAST_CORE": 71,
+      "AB": 14,
+      "AB|FAST_CORE": 12,
+      "FAST_CORE|FRESH_CP": 11,
+      "FRESH_CP": 3,
+      "AB|FAST_CORE|FRESH_CP": 1,
+      "AB|FRESH_CP": 1
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q3",
+    "reason": "E0_OFF",
+    "permits": 14,
+    "AB_passing_I_role": 14,
+    "all_current_passing_roles_held": 0,
+    "execution_UNKNOWN": 0,
+    "sources": {
+      "AB": 14
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q4",
+    "reason": "ACTIVE_MARKET_ATTEMPT",
+    "permits": 658,
+    "AB_passing_I_role": 88,
+    "all_current_passing_roles_held": 0,
+    "execution_UNKNOWN": 18,
+    "sources": {
+      "FAST_CORE": 482,
+      "FAST_CORE|FRESH_CP": 74,
+      "AB|FAST_CORE": 44,
+      "AB": 40,
+      "FRESH_CP": 14,
+      "AB|FAST_CORE|FRESH_CP": 3,
+      "AB|FRESH_CP": 1
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q4",
+    "reason": "AWAITING_FRESH_CP_AFTER_FAILURE_CURRENT_EPISODE",
+    "permits": 26,
+    "AB_passing_I_role": 0,
+    "all_current_passing_roles_held": 26,
+    "execution_UNKNOWN": 1,
+    "sources": {
+      "FAST_CORE": 24,
+      "FAST_CORE|FRESH_CP": 1,
+      "FRESH_CP": 1
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q4",
+    "reason": "CURRENT_EPISODE_BEFORE_FIRST_CP",
+    "permits": 358,
+    "AB_passing_I_role": 84,
+    "all_current_passing_roles_held": 0,
+    "execution_UNKNOWN": 11,
+    "sources": {
+      "FAST_CORE": 226,
+      "AB": 44,
+      "FAST_CORE|FRESH_CP": 34,
+      "AB|FAST_CORE": 30,
+      "FRESH_CP": 13,
+      "AB|FAST_CORE|FRESH_CP": 8,
+      "AB|FRESH_CP": 3
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q4",
+    "reason": "E0_OFF",
+    "permits": 22,
+    "AB_passing_I_role": 22,
+    "all_current_passing_roles_held": 0,
+    "execution_UNKNOWN": 1,
+    "sources": {
+      "AB": 22
+    },
+    "economic_effect_not_estimated": true
+  }
+]

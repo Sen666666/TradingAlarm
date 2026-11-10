@@ -1,0 +1,98 @@
+{
+  "added_all": {
+    "events": 116,
+    "unique_stocks": 103,
+    "horizons": {
+      "21": {
+        "known": 105,
+        "unknown_or_original_invalid": 11,
+        "endpoint_mean_pct": -0.3448787690784267,
+        "endpoint_median_pct": -7.4296640262223494,
+        "negative_endpoints": 65,
+        "MFE30": 20,
+        "MAE_mean_pct": -11.966343319076781
+      },
+      "63": {
+        "known": 105,
+        "unknown_or_original_invalid": 11,
+        "endpoint_mean_pct": 15.11964877305724,
+        "endpoint_median_pct": -0.5108173363339796,
+        "negative_endpoints": 53,
+        "MFE30": 45,
+        "MAE_mean_pct": -18.427620877344303
+      }
+    }
+  },
+  "added_semiconductor": {
+    "events": 12,
+    "unique_stocks": 11,
+    "horizons": {
+      "21": {
+        "known": 12,
+        "unknown_or_original_invalid": 0,
+        "endpoint_mean_pct": 1.0120154314928593,
+        "endpoint_median_pct": 0.6158257602315524,
+        "negative_endpoints": 6,
+        "MFE30": 3,
+        "MAE_mean_pct": -14.820333216492516
+      },
+      "63": {
+        "known": 12,
+        "unknown_or_original_invalid": 0,
+        "endpoint_mean_pct": 8.97005850929954,
+        "endpoint_median_pct": 1.3993534785439632,
+        "negative_endpoints": 4,
+        "MFE30": 6,
+        "MAE_mean_pct": -21.47420566363626
+      }
+    }
+  },
+  "added_original_flat_reentry": {
+    "events": 30,
+    "unique_stocks": 27,
+    "horizons": {
+      "21": {
+        "known": 27,
+        "unknown_or_original_invalid": 3,
+        "endpoint_mean_pct": 9.67084989715986,
+        "endpoint_median_pct": 4.124860646599782,
+        "negative_endpoints": 12,
+        "MFE30": 12,
+        "MAE_mean_pct": -10.43496582106634
+      },
+      "63": {
+        "known": 27,
+        "unknown_or_original_invalid": 3,
+        "endpoint_mean_pct": 36.39287925914499,
+        "endpoint_median_pct": 16.722408026755865,
+        "negative_endpoints": 11,
+        "MFE30": 18,
+        "MAE_mean_pct": -14.672424452384757
+      }
+    }
+  },
+  "shrunk_original": {
+    "events": 28,
+    "unique_stocks": 26,
+    "horizons": {
+      "21": {
+        "known": 28,
+        "unknown_or_original_invalid": 0,
+        "endpoint_mean_pct": 1.4707151076004534,
+        "endpoint_median_pct": -1.0559302801854744,
+        "negative_endpoints": 14,
+        "MFE30": 10,
+        "MAE_mean_pct": -16.995234886772835
+      },
+      "63": {
+        "known": 28,
+        "unknown_or_original_invalid": 0,
+        "endpoint_mean_pct": 17.105903816117277,
+        "endpoint_median_pct": -2.7394423219655017,
+        "negative_endpoints": 16,
+        "MFE30": 15,
+        "MAE_mean_pct": -23.328392477119746
+      }
+    }
+  }
+}

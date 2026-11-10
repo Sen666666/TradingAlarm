@@ -1,0 +1,227 @@
+{
+  "status": "completed_cost2_and_actual_funnel_no_new_architecture",
+  "completed_at": "2026-10-31T03:56:19.277419+00:00",
+  "wall_since_protocol_seconds": 1030.6459367275238,
+  "pre_protocol_read_time_not_fully_instrumented": true,
+  "compute": {
+    "seconds": 169.30891416640952,
+    "stages": [
+      {
+        "sector": "TECH",
+        "stage": "off",
+        "status": "complete",
+        "seconds": 50.00533991726115
+      },
+      {
+        "sector": "TECH",
+        "stage": "on",
+        "status": "complete",
+        "seconds": 62.3045201250352
+      },
+      {
+        "sector": "TECH",
+        "stage": "prefix",
+        "status": "complete",
+        "seconds": 34.197913791053
+      },
+      {
+        "sector": "DRUG",
+        "stage": "off",
+        "status": "complete",
+        "seconds": 7.502423624973744
+      },
+      {
+        "sector": "DRUG",
+        "stage": "on",
+        "status": "complete",
+        "seconds": 9.6678844159469
+      },
+      {
+        "sector": "DRUG",
+        "stage": "prefix",
+        "status": "complete",
+        "seconds": 5.63083229213953
+      }
+    ]
+  },
+  "verification": {
+    "passed": true,
+    "cost2_actual_new_paths": 6,
+    "cost2_off_exact_accounts": 2,
+    "cost2_prefix_exact_accounts": 6,
+    "finance": [
+      {
+        "sector": "TECH",
+        "accounts": 3,
+        "rows": 2043,
+        "NAV_residual": "0"
+      },
+      {
+        "sector": "DRUG",
+        "accounts": 3,
+        "rows": 2043,
+        "NAV_residual": "0"
+      }
+    ],
+    "stock_bridge": {
+      "passed": true,
+      "rows": [
+        {
+          "account": "I__C10_S0_cost2",
+          "stock_difference_sum": "-1274341.6245626012880",
+          "NAV_difference": "-1274341.6245626012880",
+          "residual": "0E-13"
+        },
+        {
+          "account": "I__C20_S0_cost2",
+          "stock_difference_sum": "769617.3955733246080",
+          "NAV_difference": "769617.3955733246080",
+          "residual": "0E-13"
+        },
+        {
+          "account": "I__C30_S0_cost2",
+          "stock_difference_sum": "720220.5776490979380",
+          "NAV_difference": "720220.5776490979380",
+          "residual": "0E-13"
+        },
+        {
+          "account": "ACT__C10_S0_cost2",
+          "stock_difference_sum": "-129523.3863449147140",
+          "NAV_difference": "-129523.3863449147140",
+          "residual": "0E-13"
+        },
+        {
+          "account": "ACT__C20_S0_cost2",
+          "stock_difference_sum": "0E-13",
+          "NAV_difference": "0E-13",
+          "residual": "0E-13"
+        },
+        {
+          "account": "ACT__C30_S0_cost2",
+          "stock_difference_sum": "0E-13",
+          "NAV_difference": "0E-13",
+          "residual": "0E-13"
+        }
+      ]
+    },
+    "zero_intervention_identity": {
+      "passed": true,
+      "accounts": [
+        {
+          "account": "ACT__C20_S0_cost2",
+          "sector": "DRUG",
+          "pressure": "cost2",
+          "passed": true,
+          "actually_run": true,
+          "requests": 0,
+          "all_original_events_daily_decisions_identical": true
+        },
+        {
+          "account": "ACT__C30_S0_cost2",
+          "sector": "DRUG",
+          "pressure": "cost2",
+          "passed": true,
+          "actually_run": true,
+          "requests": 0,
+          "all_original_events_daily_decisions_identical": true
+        }
+      ]
+    },
+    "frozen_runtime_hashes_unchanged": true,
+    "compute_seconds": 169.30891416640952,
+    "budget_seconds": 240,
+    "funnel_clearances": 86,
+    "fresh_I_observation_days": 215,
+    "funnel_outcomes": {
+      "no_same_structure_fresh_I": 38,
+      "fresh_I_without_submitted_order": 36,
+      "same_structure_actual_reentry": 6,
+      "submitted_without_same_structure_fill": 6
+    },
+    "primary": {
+      "total_slots_full": 117,
+      "Q_false": 22,
+      "sector_issuer_slots_full": 5,
+      "Q_unknown": 16,
+      "ACT_paused": 27,
+      "order_submitted": 27,
+      "sector_slots_full": 1
+    },
+    "slot_primary_days": 123,
+    "slot_also_unfunded_before": 79,
+    "slot_also_unfunded_after_other_actual_reservations": 106,
+    "strict_slot_intents": 12,
+    "strict_slot_valid_matching_natural_release_batches": 0,
+    "broader_natural_release_batches": 4,
+    "broader_matching_and_funded_before_batch": 2,
+    "strict_intents_with_later_natural_clearance": 10,
+    "original_42_price_condition_marks_retained": true,
+    "new_cost2_price_condition_marks": 19
+  },
+  "remaining_blockers": [
+    "No execution blockers; original42/new cost2 19 stale-price and16 RS unknown marks retained.",
+    "OOS/forward execution, initial-selection dependence, survivorship/company-action/daily-fill proxies remain unverified."
+  ],
+  "no_product_changes": true,
+  "no_real_orders": true,
+  "no_additional_economic_paths": true,
+  "deliverables": {
+    "TECH-FUNNEL_EPISODES.json": "9f9e3035a4d5c7841ed4bc77a7b473eca95dafcd9fa7815ec139b6a6dd3499fe",
+    "FUNNEL_APPLICATIONS.csv": "54fa73671c62490965a101412f2606cb1e92efdd1b65dd2bdcfca068029b97cc",
+    "SUMMARY.json": "3d413531ddc52914503801cc51c9a5164493e38c67079941545865cd3b66869b",
+    "summary.log": "d8e4801d083cf01571ada4f0a2c30f183070fe6bff42b903386afc3f5279c624",
+    "run_cost2.py": "8a1b6ee75ed309dcd78fd034a68634dd07dc3514091d57ba0a310e656217a48a",
+    "TECH-NATURAL_RELEASES.json": "bfc206ff333339139ce0c2a1ed021d12758c23718f2a2066cb24875c1e2abc7d",
+    "DRUG-off.log": "d9c8c5bbce618d7baf884b1d0f2f95f95e1b99d3a28f9d159d397c6b04cf586a",
+    "STRUCTURE_TRIALS.csv": "643d002bcd94457af006f9f637bd0b32681842a8dd65de52c29c13e9fe605750",
+    "COMPUTE_TIME.json": "b1c6248697612aa68eb4f76f8fe979b7a77daed75ec5ff93dba102850daeacdc",
+    "TRANSMISSION.json": "c9bf0c33c80ae6244db698e16f896fe7b341b120499adffa214669b36c37a89b",
+    "MATRIX_24_ALL_PRESSURES.csv": "8befd3a598316816c8dc14f1db5767edd081b2a51a17ee6375c3c619353f3f4d",
+    "DRUG-FUNNEL_APPLICATIONS.json": "234a6516d94ee7c9dbcc62056e95820f50ab00de85fce28d7aaf88c3ab820a71",
+    "DRUG-on.log": "5d6529131c6b7a2ea5077eadcaf704651c4735a95d8db956242c603bd7146578",
+    "FUNNEL_INTENTS.json": "ab914787125a3d1be26de08d1201d8a4ae5de1857a41988f5f4b80eb7bf7de81",
+    "TECH-FUNNEL_INTENTS.json": "9e9b82f93a0de5738de1b8f48f7d2c2976156e9fa7c283ef5bea08e3f8cf03fa",
+    "DRUG-FUNNEL_INTENTS.json": "28ce1713136543d6ced080299adf37b7e769dde1339367ac22bace5182bd7d1a",
+    "REENTRIES.csv": "455eb1f42c9379e5ef1eae4ef20324e278b952a5540668f75727e6abf106b77e",
+    "KEY_CASE_CYCLES.csv": "1cebd25cc5667712876f9521a00ec95ecfb457c9defedda6207aa1bb853e81f7",
+    "FUNNEL_EPISODES.csv": "c82440cf1642df892097692ed7b15cc019cad27f9d9901169fb4be73e8427826",
+    "TECH-off.log": "3801a9c66938850a3a937705e1b212231ef75033e3dcf6bc9447f9ab9e70234b",
+    "NO_EXPOSURE_IDENTITY.json": "eb05ec4ea8678deeeaab489b673c32d446b255e93891435fbac02fb0a202f1a2",
+    "TECH-FUNNEL_APPLICATIONS.json": "f90a35c0e4151d739207274b4d8414078a727996109f75b6450c946448941b5b",
+    "ACT_EVENTS.json": "ed1541ea75aaaa8a5c3bb3c1d53e7f1e2d77a018c6b113305c305ac64743656f",
+    "PROTOCOL.txt": "5423a68ae321fd1571df8110101eef1f34c8bcfdf55dc375157a8ee6c41855b3",
+    "FUNNEL_APPLICATIONS.json": "bb3e0635a27588c65876e2e61dd6f96279264d4f7cfce33fcc98a6f299ea646b",
+    "CHECKPOINT.txt": "ce46ce2dc1738c85eedee48a768452f87f051270f7fa8d78de51154e5a99230d",
+    "finalize.py": "9cc6d6e26a3467e639cbd78ab9035d24684dd48079be98944aa7c6aec1a85cad",
+    "MATRIX_8_COST2.csv": "0c99adbb7678a61082c4af76afb8ac20320633429ce0fe21a8c9740a06bca304",
+    "FUNNEL_SUMMARY.csv": "8540b83008981d81671d6978f817eac1a04b89bdfebd3589140b9c818c7119c5",
+    "ALL_CAMPAIGNS.csv": "3a94cf2e91fe915129c8d402d40c7226beb307445d25dbd4aceddfdc97a9d3e5",
+    "STOCK_BRIDGE.json": "7dd2f3d0581c4965a6f787e14301f60c5a9c16293367f6e09808ea6643179267",
+    "enrich_cost2_reference.py": "faa64a5874cd95af9042879b360ba9ce3ba7b63943b95c43fc9b758522f097a5",
+    "finalize.log": "b3548fbdf77ea779b9bccff948016ecd7830e92be8b3654f48fb761a662c800e",
+    "REPORT.txt": "490659ff5fe83202419a050579d5500b840ae307a4c610d36af2c04b0cce9142",
+    "reference.log": "6fa0571b53fe1509fbf372927c54403e89f6196066faba785f2b1e980c76fd1a",
+    "summarize_cost2.py": "0e958bfd7bba555fff96e6e395f4345c523e8c2a9f6c63d4a28c12409f1b3198",
+    "UNKNOWN.json": "c3972c05c22a0b2a2613d0db43fa7a3fa7869f0f20da971947f0458493a33209",
+    "CORRECTION.txt": "ccfdc60dfdc8a72cd6aee478944fc7569945b81d774a36092308580ae731d292",
+    "TECH-on.log": "45d8a2e9539ad4fc3e70f8df5bbcd48783d5eb18db4891b6b3a9753c95ab0e55",
+    "VERIFICATION.json": "9a65398725edf139b0a059a766313540ac6ec36f87020e4ddcf940b3c016503a",
+    "DRUG-NATURAL_RELEASES.json": "47f3e4b13e15ba7eb96cf440045b7455616cc81ee57cad2fd780a4c8145b0508",
+    "TECH-FUNNEL_SUMMARY.json": "6c5685e64b41df66bc368e0e96b747bd4811ed0c9f2fd24143eba48bfc371b0a",
+    "DRUG-FUNNEL_SUMMARY.json": "eb0dfb10d3c0e9fb4c17352d3bbc4d81b25ea50e85e2b08a5883c42e7e65b256",
+    "NATURAL_RELEASES.json": "1a479068a5e37af8a7b54dedb5589bb22a71b50ee746a32f5d6273a02d52b4ef",
+    "DRUG-prefix.log": "8a9893cd40de3347fa181900203924abfa94d859e480f2060c920c09f49208f4",
+    "FUNNEL_INPUT_IDENTITY.json": "aa991d6dc42352160b7a6c9720d7597c16de8549a4887bd1901428d7de65c022",
+    "FUNNEL_ADDENDUM.txt": "61de9b20209f676a5dd5b8da94034c8b37aa0fb37b2b4b28ba23ac54a81be8cf",
+    "STOCK_PNL_DIFFERENCE.csv": "77be80eb7b043a2944a3358068839d0e94a7299cef92a460bdc337006c7cc859",
+    "DRUG-funnel.log": "5f9c0121c654c67d802a7749adce74893123dbb73dc4b82c83214bfcc6c423d4",
+    "DRUG-FUNNEL_EPISODES.json": "3baf47ad5d109201b992b5a7a57dd043072d392f0c9cd32121f7c298ecb7185d",
+    "EXECUTION_NONFILLS.json": "ca40d13cfe6c920db3d4fb7f1fb75cbded7be8c5fe5348d0b8241ca457d88056",
+    "TECH-funnel.log": "bb7ee0ec7847ec9e5fb2b24fec718b71ec12b14fe2b0f241fef35c81e6718213",
+    "funnel.py": "ceb3c7a19fa371dea485514a157a84b907fca90aad2bcf983c071b29f0a5af14",
+    "TECH-prefix.log": "9e202b6b64978a0fd354ec72874eaae1ae6305f24a5cf08d1cbd226f3d843d33",
+    "FUNNEL_EPISODES.json": "aa0997a34d6b75dbde09f7ca052f9bb2747733d852525d4db471ba5e01138b42",
+    "EXCLUSIVE_SLOT_LATER_CLEARANCES.json": "b38500df1dd356ea43c7d9e98e052fe6a2abe1b460ceceea0a9a30c72444f1fc",
+    "FREEZE.json": "dc784dd286d6cddf6ea0ec571c480ad790d7fa9cd87ec0420acf0d3c4bcf9ed1"
+  }
+}

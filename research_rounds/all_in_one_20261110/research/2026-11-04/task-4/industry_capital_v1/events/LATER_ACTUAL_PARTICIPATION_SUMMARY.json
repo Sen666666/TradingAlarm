@@ -1,0 +1,26 @@
+{
+  "by_window": {
+    "long": {
+      "first_groups": 5264,
+      "later_CORE": 68,
+      "later_MOBILE": 744,
+      "later_both": 28,
+      "no_later_actual_buy_same_epoch": 4480,
+      "same_OPEN_MOBILE_after_CORE_reject": 236
+    },
+    "strong": {
+      "first_groups": 3071,
+      "later_CORE": 53,
+      "later_MOBILE": 358,
+      "later_both": 17,
+      "no_later_actual_buy_same_epoch": 2677,
+      "same_OPEN_MOBILE_after_CORE_reject": 79
+    }
+  },
+  "actual_fills_without_epoch": {
+    "long|mobile": 4,
+    "strong|mobile": 2
+  },
+  "seconds": 0.9643915421329439,
+  "scope": "Original actual participation facts in same native source/I epoch after first reject. SameOPEN MOBILE fills occur after CORE route reject; not completely missed market participation and not new policy PnL."
+}

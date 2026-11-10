@@ -1,0 +1,14 @@
+仅提取现行No60原始代码和已有输出，暂停风险设计/参数实验。
+
+本轮交付：E0/I/CP/PVR原样片段、真实接线、变量依赖/可得时钟，以及海能达002583.SZ
+2024-09-23至2024-11-27逐日原变量与原实际动作。新数据平台/模型/账户/回测均不运行。
+只读保存parquet/JSON/旧源，不重算指标或策略，不用事后floor回填历史，不造缺失字段。
+
+原数据域：new_price_trend_v1/funding/runs/long_OFF/pair，OFF与原No60输出身份已核；
+actual input_loader将STOCK_MANIFEST.refs.facts的full warm文件覆入facts.f。2024 long
+不是native-I-cache-interface截成2025-07之后的strong事实文件。
+
+root只写接线索引/汇总；e0_i agent追E0/G1/I原生成；cp_pvr agent追CP/PVR冻结公式；
+daily_hytera agent只提原表/原账逐日值。写目录分离，不修改算法源码或历史结果。
+UNKNOWN、NOT_SAVED、NO_NATIVE_INTENT_SLOT分别标明，来源文件和SHA列出。
+短公式说明从源码翻译，原样带行号片段是可核依据；不将它们当新经济有效性结论。

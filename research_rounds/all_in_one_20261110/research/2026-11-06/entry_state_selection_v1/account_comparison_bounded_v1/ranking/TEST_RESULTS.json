@@ -1,0 +1,80 @@
+{
+  "status": "PASS_PURE_RANK_TESTS_ONLY",
+  "account_runs": 0,
+  "runner_imports": 0,
+  "economics": "NOT_RUN",
+  "toy_tests": [
+    "exact_1_plus_3_native_order",
+    "missing_score_pinned",
+    "missing_state_and_mobile_retained",
+    "shortage_fallback",
+    "dual_role_shared_rank_core_first",
+    "duplicate_role_rejected",
+    "duplicate_stock_rank_rejected",
+    "stale_first_break_excluded",
+    "empty_queue",
+    "nonrank_deep_equality",
+    "input_immutability"
+  ],
+  "dates": [
+    {
+      "policy": "E31_NATIVE_PENDING_5F15C_FULL_QUEUE_v1",
+      "day": "2024-09-24",
+      "unique_stocks": 988,
+      "intents": 1256,
+      "state_available": 949,
+      "missing_state": 39,
+      "missing_native_PVR": 1,
+      "fresh_reserved": 5,
+      "confirmed_reserved": 15,
+      "fallback_prefix": 0,
+      "moved_stocks": 47,
+      "prefix_definition": "20 movable stocks, pinned unknown-PVR slots have precedence",
+      "original_5517_daily20_hypothesis": false,
+      "nonrank_intents_equal": true,
+      "stock_role_multiset_equal": true,
+      "numeric_rank_slots_equal": true,
+      "future_row_perturbation_invariant": true,
+      "input_unchanged": true,
+      "top20_state_counts": {
+        "FIRST_BREAK": 5,
+        "CONFIRMED": 15
+      }
+    },
+    {
+      "policy": "E31_NATIVE_PENDING_5F15C_FULL_QUEUE_v1",
+      "day": "2026-01-15",
+      "unique_stocks": 257,
+      "intents": 344,
+      "state_available": 243,
+      "missing_state": 14,
+      "missing_native_PVR": 0,
+      "fresh_reserved": 5,
+      "confirmed_reserved": 15,
+      "fallback_prefix": 0,
+      "moved_stocks": 55,
+      "prefix_definition": "20 movable stocks, pinned unknown-PVR slots have precedence",
+      "original_5517_daily20_hypothesis": false,
+      "nonrank_intents_equal": true,
+      "stock_role_multiset_equal": true,
+      "numeric_rank_slots_equal": true,
+      "future_row_perturbation_invariant": true,
+      "input_unchanged": true,
+      "top20_state_counts": {
+        "FIRST_BREAK": 5,
+        "CONFIRMED": 15
+      }
+    }
+  ],
+  "input_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/equal_entry_validation_v1/ALL_ORIGINAL_I_BUY_WITH_STATES.parquet": "e12f81b2a6eef138627b15c1f208b6b06ad040734076b2be95936c96d14886b4",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/account_integration_audit_v1/2024-09-24_FROZEN_NATIVE_INTENTS.json": "3efe5dffca2932075614f576734335cd025f433e5eae67bd33667613e679d346",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/account_integration_audit_v1/2026-01-15_FROZEN_NATIVE_INTENTS.json": "6c39cec41a08ecec1923baccee6c835f4f519e5451b77543909118490e59358a"
+  },
+  "limitations": [
+    "Frozen state source is canonical local I-buy states, not raw-account-price recomputation.",
+    "Future-row perturbation tests lookup isolation, not proof of upstream state causality.",
+    "Existing priority_rank and priority_policy fields are historical and preserved; consumer must sort literal rank.",
+    "Native pending 5/15 is a new bounded hypothesis, not original 5517 daily20."
+  ]
+}

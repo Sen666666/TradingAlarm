@@ -1,0 +1,58 @@
+MD1 native readiness独立审计｜2026-11-01
+
+裁决：PASS（冻结原单遍Bdiag适配器的工程准备门）。未发现当前必须修复的源码或未解释经济差异，可交主审决定是否批准预注册的经济比较；本审计不启动或替代该授权。不把本门通过称收益改善、全窗验证或实盘认证。
+
+实际范围：独立运行16项隔离native测试，增加1个实际DecoupledRunner.opening的core/mobile碰撞零fill反例；只读两份已落盘原政策prefix/checkpoint及旧账，真实restore与错误身份反例均在/tmp输出。未调用run_prepared、未运行任何新历史事件、未初始化全域行情/指标、未重跑完整/短段财务路径、未修改主文件。
+
+1. 实际接线：PASS
+- native_adapter.py SHA879579695da6b8b28fb9d411400836eea6f375dc1698b51b0502621ffd714b30，与申报/冻结一致。
+- DecoupledRunner只替换route；DecoupledBudget只替换request。enable仅原budget.__class__切换，保留已有账户/行业attempt/订单/凭据/权益，不重建资金。
+- 生产Native Account类型仍是J.Account；planning/opening及reserve_quantity/fill_buy/fill_exit/cancel_buy/split/sync/assert_budget_view原函数绑定不变。BASE只建B账户、继承原单遍opening，未导入two-pass planner、C1/R1/D1/cost分支。
+- 两份policy源码逐字是此前已审最小diff；原migrate/resources/valid/industry/退出等正文不改。所有原stage/freshCP1/股/合并行业/pool/cash/risk/费用门保留，Bdiag仍仅省略原账户3%门。
+源码：native_adapter.py:17-39/42-77；account-risk-ablation/adapter.py:14-19；原joint_v3.py:302-324。
+
+2. 16项native生命周期：独立16/16通过，非mock-only执行
+- 数据环境/初始存量为手写fixture；执行对象是实际J.Account、原BuyOrder/Position/FillReceipt和原callbacks，不是预算模型代填成交。
+- Python调用跟踪记录原生reserve/fill_buy/fill_exit/cancel_buy/split/settle_due调用；Contract.fill与Contract.sell调用数均0。旧纯预算模型没有用于产生这些成交。
+- 原订单400股分次成交：首100股收费5，第二次100收费0，剩余取消；原native累计费用/fee_reserved/available及journal NAV桥实际核验。
+- T+1当日实际卖出拒绝、次日成功；请求取消至原生ack前仍占用；late partial、full fill赢cancel竞态、重复ack保留qty/角色/权益；原生持仓与未成交余量同时split后再fill/cancel，同域qty/floor/price/预留及receipt未重领。
+- 原生真实卖出后未settle的应收不供新买，settle后才可新reserve；旧probe整迁不下时新confirmed较小订单可实际fill，旧probe仍占用，后来真实卖出/结算后再合法迁池；损坏镜像仍被sync拒绝。
+- 初始legacy fixture可人工设旧持仓，但随后通过真实native reserve/fill/sell回调，不把它冒称历史资格或真实市场路径。
+- 独立额外core优先反例：把同股mobile/core输入故意倒序，实际DecoupledRunner.opening仍先reserve core；所有buy window为None，最终0成交且只保留core单，mobile未reserve、其CP1未消费。原journal桥相符。补足测试名/静态继承之外的实际opening证据。
+证据：16TESTS.json、16tests.log、CORE_PRIORITY.json/core_priority.log。
+源码：test_native.py:38-218；原v3/test_bridge.py:14-71；native_adapter.py:50-58。
+
+3. 原政策短段身份：独立重读存量证据PASS，没有新重放
+- 2025/7/1–7/2：38trades、78journal、198audit、2decisions，五流2daily/419funding/3418opportunities/28industry/2balances逐项与旧原Bdiag保存账相同。
+- 两侧checkpoint内全部63个native账户字段（含完整budget）用独立严格递归比较通过：原float/Decimal、class/dataclass、list顺序、tuple类型、set成员均保留；未靠舍弃账户字段或只比终值通过。
+- 原策略runner的25个可比保存字段包括epoch/last_epoch/global_watch/applied_actions等严格相同；run_seconds是运行耗时差。
+- 另一个差异是派生输入索引episode_starts：full侧6824，物理截断侧6544；截点已知6544项完全相同，额外280项全在截点以后。这是未来输入lookup缓存，不是当时决策/账户差异。现有observable原本比较native账户及流水，并没有声称整个runner.__dict__物理完全相等；不把该缓存差当经济失败，也不隐藏它。
+- 完整恢复另用full-source保存checkpoint：真实原恢复函数后全部27个保存runner字段、全部63个账户字段逐项严格同。未声称测试了物理截断缓存扩展到未来后的继续运行。
+证据：IDENTITY_RESTORE_EVIDENCE.json，check_saved_and_restore-corrected.log；主IDENTITY_GATE.json两侧pkl/五流。
+
+4. 比较器修订/失败记录：合理，没有发现被忽略的经济不一致
+- 原audit含8个仅把时间放在嵌套FillReceipt.at的后续日事件；正确用该字段可明确排除7/3。当前event_day对缺日期会assert，不把不明事件静默归CUT或丢掉。38/198及每条原记录独立复算匹配。
+- receipt字段也可能为None/字符串；先isinstance(dict)再读取避免早期eager default表达式异常。这是schema修订，不改变成交或过滤未知数据。
+- set比较改成员一致，list/事件序列仍按原顺序；本独审又以原Python类型/严格成员比较全部账户/策略字段通过，未靠把所有列表排序掩盖差异。
+- 早期fixture缺core risk_budget、core窗口event ID为None、测试exit clock早于实际buy，修订为合法fixture；生产adapter/model/route与callback源码冻结不变。
+- 当前检查器明确已有checkpoint则restore，比较器后续修订不调用其历史事件循环。这里核实已落盘generation source SHA与最终源一致、现存错误日志保留；没有按失败结果改策略源码或改旧交易账的证据。
+源码：check_identity.py:15-36/55-87；FAILURE_HISTORY.json及failure/fixture-draft日志。
+
+5. 恢复/身份守卫：真实拒绝PASS
+- 独立在/tmp实际恢复保存的full-source checkpoint；原provenance/sha/source-freeze及policy检查通过，实际opening/planning/route绑定正确。
+- 用错误Decoupled policy恢复Coupled checkpoint、以及同Coupled类却绑定decoupled route，两者均在restore账户更新之前报Checkpoint engine identity mismatch before restore；独立比较错误尝试前后账户未变。
+- 16测试中新的decoupled partial+cancel_pending native fixture也实际checkpoint/restore，恢复后native cancel/迁池工作，错误policy被拒。它补充新分支状态生命周期，但不冒称解耦历史经济已跑。
+源码：native_adapter.py:60-66；_shared/research_output_io.py:86-125；test_native.py:195-217。
+
+6. 冻结输入与预注册指标：口径可用
+- 当前ARTIFACT、FREEZE source_sha256与original_inputs_and_dependencies逐项SHA核同；包括原model/route/native执行依赖、manifest、H1、ACT参照及旧对照流水。未重算指标或刷新缓存。
+- CONTRACT明确仅原单遍Bdiag，在固定2022及2025/7–2026/6两窗各自原初始化/暖机与输入版本比较；two-pass不拼入，新增权限是新政策不是bugfix。
+- 预声明获资股票/attempt新增和失去、reserve/fill/exit分开、原合格机会及去重receipt含unknown/censored、旧probe等待/右删失及新试错受挡、两pool承诺/曝险/损耗、closed/open肥尾、NAV/globalDD/ACT/费用、弱市额外亏损及原赢家受挤，符合本次机制问题；不能只以更多订单或收益决定是否保留。
+- 沿既有层成本/肥尾口径统计，不能把相关层当独立胜率。当前合同不提供结果，不授权阈值扫描、未来赢家名单或完整经济运行。
+
+边界
+- 16测试是合成输入上的真实原生账本；不是券商或现场异步交易测试。生产历史cancel_buy同步完成；fixture显式保留请求至ack间占用，只检验原模型接口。
+- 物理前缀仅两收盘+首次开盘；未验证全窗新权限行为、收益/弱市损耗、旧probe长期被挤、跨窗鲁棒性。原snapshot非PIT、日线H/L/volume成交代理、同开盘卖款复用和未知权息时点限制均保留。
+- 无剩余must-fix工程项；PASS只覆盖当前冻结版本与本次测试/保存证据。
+
+私有核验记录：初次最小restore shell误保留fixture专用fixture_state属性，与真实63字段检查点多一测试字段；删除该私有测试旋钮后全部严格恢复比较通过。失败日志保留，不是生产恢复失败或放松比较器。

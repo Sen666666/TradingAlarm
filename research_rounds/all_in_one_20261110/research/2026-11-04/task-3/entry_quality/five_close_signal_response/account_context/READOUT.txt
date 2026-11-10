@@ -1,0 +1,49 @@
+固定年龄市场信号响应：每日账户并排上下文（2026-11-04）
+
+已完成纯join，未重估账、未跑账户或市场算法。全968个原native收盘先核
+日期、NAV、库存、现金、ACT与既有财富桥，再取已冻结三段有限日历：
+
+日历                    原收盘数  无买入日  零库存日  ACT暂停CLOSE  A负日  C负日
+2022全年度                  242       74        39            38     187    218
+2024-09-02—11-29             58        9         0             0      35     39
+2025-07-01—2026-06-30        242       39         1             0      85    213
+共542日，未按买入、持仓、ACT、盈亏或未来市场结果筛日。2024段是原日历
+真实58观察，没有补造工作日或静默删除无买入日期。
+
+每日字段
+• A：原近21个native交易CLOSE日期里实际sell.parts的严格已实现，按卖出
+  时钟；毛价差、消耗原买费、实际卖费和part数分列。
+• C：原近21观察中新开层截至当前全部已实现；准确沿既有已审C字段，
+  未发生卖出no_realization与有事件后零损益分开，AR未混入。
+• 原当日realized、unrealized变化、AR确认、实际买卖费、实际买卖款与
+  fill数；从旧finance DAILY直接复制，没有再求成本或重放交易。
+• 原NAV/期初NAV、当前市值、剩余含买费basis、当前持仓未实现、未收
+  AR、暴露%、名义风险、available cash。
+• 原ACT_at_OPEN、ACT_at_CLOSE，以及原risk_checkpoint.fast、breakout、
+  previous_fast、event、episode、episode_drawdown；968日全部已有，
+  没有新计算或代理替换fast/breakout。
+
+发布时钟是原native15:10+08:00的CLOSE；真实金融sell.parts严格早于该
+时点。快慢状态只在该收盘知晓，不能把当天CLOSE的ACT或反馈倒贴当天
+OPEN。A/C沿原完整账户过去观察，不在每个有限子窗起点重新初始化。
+例如2024Sep2的两条21观察窗都从Aug5开始；原账户资本和跨年损益照存。
+
+这只是账户上下文，与市场信号cohort独立。此处没有构造市场股票池、
+选信号、筛实际买过的股票或做94尾首次market root候选映射；这部分由
+主线程另按全市场信号来源完成。市场信号五收盘响应、窗口末端截尾和
+与账户反馈的比较也未在本脚本中计算，不能把这542账户日期当信号母体。
+
+两个原账户各自从100万元起点：2022→2024为原连续No60，strong为原
+2025Jul—2026Jun独立窗口；未拼接成一条伪连续资金曲线。未实现由已存
+raw市值减已存remaining fee-inclusive basis直读算术差，且与旧公开财富
+桥核同；它不是信号复权收益、可花现金或新估值模型。AR未付、卖出净
+对价也不直接等于可支用现金。
+
+输入：两份已核finance DAILY、两份DAILY_ABC、两份原native daily与
+book风险checkpoint；所有SHA在SOURCE_SHA256，脚本独立存本目录。
+VALIDATION为PASS，new_account_events=0、new_signals=0、new_ledger=false。
+保留当前存续/当前行业开发样本、已消费历史及日线执行代理等原限制。
+
+主文件：DAILY_ACCOUNT_CONTEXT.json及.csv（542行），另有三段独立JSON。
+日期连接键为reference+date，published_at保存原完整时区时钟。PROTOCOL
+冻结日历和口径，READOUT仅说明数据；无新政策结论或待授权动作。

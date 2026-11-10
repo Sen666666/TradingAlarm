@@ -1,0 +1,20 @@
+强窗简单基准一次复用卡｜2026-11-04｜经济运行未授权/未开始
+
+目的：给同2025-07-01..2026-06-30 fresh1m的No60及成本额度插件提供机会成本参考。不是替代E0/I/PVR，也不影响native候选信号/参数/执行。
+
+本地可得性已只读确认
+portfolio_data.load_assets仅解析现成local files；USHJ510300 raw 2018-07-17..2026-10-16，2000行。原No60强窗242个交易日全部有raw OHLCV，前一日2025-06-30完整；warmup足够计算MA63和strictly-prior ADV20。
+H1唯一窗内分红：ex2026-01-19，pay2026-01-27，0.123元/股，沿原EastmoneyF10实际支付记录；全历史510300 split为空。2025-06-18 ex/06-27 pay在新起点之前，只影响因果TR暖机，不给予fresh账户之前的分派权益。
+全本地原公式重算对原1327行2022–23、1569行2022–24的MA on分类均exact；numeric序列相对已存CSV的max绝对差5.329070518200751e−15来自TR/MA十进制序列化，未改原数据/容差合同或替换信号。新history将保留原2024整个文件原bytes前缀，之后只append2025至2026H1，保证原记录不重写。原raw价量字段本身exact。
+
+唯一实现与时钟（需root另grant一次）
+原benchmark_2022_2023/run_benchmarks.py::simulate全文不改，直接import调用；初始cash1m/持仓0，2025Jul1首CLOSE才形成intent，最早Jul2 OPEN。MA用原因果TR CLOSE>inclusive63mean，非当日决定当日OPEN。BH最大可买整百，MA初/每次OFF→ON90%signal-NAV固定含费预算，ON自然持有不每日再平衡；OFF次OPEN卖出，真实T+1/订单余量/参与率/排队代理沿原函数。CASH原零利率同242日期。
+原15bp每侧estimated friction/min5、lot100、strictly-prior20均量×1%容量、原分红ex/pay/AR、原indicative10% band代理保持。没有dated halt/limit/queue/auction状态，execution_verified=false；不调用股票税费或额外5bp，不将这个ETF假设当当前券商报价。
+输出独立新目录capacity_cost_guard_analysis_v1/benchmark_B_2025_26/，不改旧benchmark inputs/results。只运行两条BUY_HOLD/MA63_90，CASH为数值参考；不调MA窗口或仓位，不扫ETF universe。
+
+预计成本与检查
+输入准备+2arm一次运行预期<2min；独立cash/qty/fees/AR/NAV、MA/ADV prefix和全fills审查预期<5min，不需新loader/财务engine/下载/外部通信。先源/输入/code冻结，然后一次simulate两arm，保存完整242日与全部orders/fills/signals/terminal、同季度/月表。
+审查：原函数SHA与原RUN_FREEZE exact；原history bytes前缀exact；所有新观察可用时间和分红不得在ex前入signal/claim；首日从现金无前置仓；费用一次/最低费/容量/prior日量/实际整手/顺序/AR桥；不把回报差当alpha或可避损。
+若输入/日历/分派缺口或原执行函数不适用，停止并保UNVERIFIED，不阻native主线，不补新交易引擎。
+
+本卡/可得性0账户事件。未调用simulate；等root单次grant后方执行。

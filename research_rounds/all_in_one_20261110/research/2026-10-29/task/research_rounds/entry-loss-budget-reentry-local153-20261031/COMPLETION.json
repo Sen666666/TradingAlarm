@@ -1,0 +1,59 @@
+{
+  "status": "complete_local_component_loop_retained_for_discussion_not_promoted",
+  "at": "2026-10-31T02:50:51.958499+00:00",
+  "wall_since_protocol_seconds": 615.906066,
+  "pre_protocol_read_time_not_fully_instrumented": true,
+  "compute": {
+    "status": "complete",
+    "seconds": 5.877800500020385,
+    "synthetic_allowance": 2,
+    "budget": 120
+  },
+  "verification": {
+    "passed": true,
+    "C_rows": 459,
+    "B_exact": 459,
+    "replayed_C": 31,
+    "identical_C_reused": 428,
+    "maximum_residual": "0",
+    "seconds": 5.877385458908975,
+    "no_external_funding": true,
+    "no_portfolio_paths": true
+  },
+  "blockers": [
+    "Two inherited source cycles have five unknown market/event rows.",
+    "Original eligible-list omissions cannot distinguish Q false from unknown component; all treated not-True, not bypassed.",
+    "Fixed external NAV/ACT/resource clock is not an endogenous account; cost2/delay1 economic pressure not evaluated."
+  ],
+  "deliverables": {
+    "SUMMARY.json": "5463cc6229ae8e233039cbe9078ad9d2c68f8baab05d69e6126d82eed09af9a9",
+    "SUMMARY.csv": "96a486be7ee631f7d81380c9510410279fd6038adc7bb945a508088341e3497e",
+    "summary.log": "4e7ed774724bff8933f770cef4624462a8b44c935670231c93857ea077285e48",
+    "run.py": "4b3c7a03c65971c4ede879c4935e91808c6baedd0515a9333a94a81d0caa27c2",
+    "COMPUTATION_TIME.json": "7eeafcb2af8b155b053e05d1b556455244190acbff55f0c8d508dd29c53ecd09",
+    "MUTUALLY_EXCLUSIVE_GROUPS.csv": "ff5ee64e5cb6e0d72c75b0e4b5756e6bae4da1538bfe35bf97cb36c7147ed7f5",
+    "state.log": "17d9a2861a1214db643e22fab5f2684a7bde246aa1c8039448d794cf21394eea",
+    "run.log": "55f3ce2cac57d8403f4f2cc50c1581c78e32113412a50fe8878f9d59163327d2",
+    "PROTOCOL.txt": "550d32c84f9e3312e3adbad450dd4a278b8915abe64eaf665e05b28f01958e07",
+    "POSTCHECK.json": "2f02c4542aa87a6662c51b2d8274f443c244ed9e8c81fd06c4df0a6a82be10b9",
+    "CHECKPOINT.txt": "082deb013448c7e24be8f5fd645bc19f8c0d00eab0db35fbc9b5dea72a53adb4",
+    "core.py": "bd849566f9984e05c9e5715d711a5719f8a7c0158bfc5f8ed9551502cbf2f0ce",
+    "summarize.py": "d0fb4ba18b5f63c0d81250718f9ab30f14516c0fa1100229a5399189e702150e",
+    "test_state.py": "3a23f6b48ad86c0a40cf02a4612c04eeb87bc00c2a6e722c4948da2405c63018",
+    "Q_INTERFACE_CHECK.json": "ab7c53118291a39879f2503e9d1c3d4b29f110b80c8a35ea515b24cbeb7fabc6",
+    "REPORT.txt": "83ac87d44fe493a4f22b0e5fdf3211e13649b355976296f76eff67241f2d927e",
+    "KEY_CASE_CHAINS.csv": "85e16d2d221cd2528d36f270e05aba5c8f3e2501658770ecfe48c238a86e15b9",
+    "REPAIR_AND_GIVEBACK.csv": "f74a686f81f2d54fa2a56e0f4bc07f475d2a20c999ee290437f4c50542d869c2",
+    "PERIOD_RISK_ALL459.csv": "4eb8355bc1926b36a1fd54cc2f7333377ae54c748483e98ecdc2f5a32153b850",
+    "COMPLETE_SOURCE_SUBSET.csv": "18dc026e1e3f34a882bae4de9bebcb6132f5c5dfb77dd280b2b5b493c739f674",
+    "STATE_TESTS.json": "29f3605f651c9f1f4508ca5916587ee9e6d2321a93ba16c455e5e87de73efd50",
+    "FREEZE.json": "84cfcf6a5abd6d208d78056324ee816566fb2c3ec6c0b2a752443e7ede44cdf5",
+    "full/unit-results.csv": "bc0cc91cc457ea04fa40b98fc55f9bf3c01c44240cd86ad96b67b1ee863354c0",
+    "full/equity.parquet": "c86d3e7228d781406a00d6833b6e945f9dcdd0bf96b11e329058903227b441cf",
+    "full/B_REPRODUCTION.json": "fa0dadb2e8f475ce0693e4548c8fd3d625c6b8e6f9499c845c4b83ce2753ef5c",
+    "full/audit.jsonl.gz": "dafe55e9873deed74ae138b6d1836da437b7f368bf9044639aac8c3ebb814037",
+    "full/VERIFICATION.json": "eee79f61a54991c3de57a2f54eea67457f5f854d4c9aecbdf861e6c534dab616",
+    "full/restoration-attempts.csv": "d413eaace29a06fde3ea4d0dc97a8300234c16a37c30fa5d28235ced5bad0dfa",
+    "full/leg-ledgers.csv": "c8953d1c1bc1cd6006b12315086c50c7711a24dc106c1c3f2d1c684bbe0ac97c"
+  }
+}

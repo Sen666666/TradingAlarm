@@ -1,0 +1,218 @@
+"""Frozen L0 + original P1 ADD only. Original ledger; explicit ADD delay adapter."""
+from pathlib import Path
+import sys,importlib.util,json,gzip,collections,inspect,hashlib,time
+from decimal import Decimal as D
+from dataclasses import replace
+from datetime import datetime,time as dt,date
+import pandas as pd,numpy as np
+O=Path(__file__).resolve().parent;RR=Path('/Users/bytedance/Documents/ChatGPT/money/research_rounds')
+sys.path[:0]=[str(RR/'lot-risk-allocation-20261029/code'),str(RR/'probe-pyramid-pilot-20261029/code')]
+import study as LR
+BP=LR.BP;L,A,N,E,R=BP.L,BP.A,BP.N,BP.E,BP.R
+Z=D(0);ONE=D(1);CURRENT={'cost':1}
+def load(n,p):
+ s=importlib.util.spec_from_file_location(n,p);m=importlib.util.module_from_spec(s);sys.modules[n]=m;s.loader.exec_module(m);return m
+def encoded(x):
+ if isinstance(x,date):return x.isoformat()
+ return N.encoded(x)
+def save(p,x):
+ p=Path(p);p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(N.encoded(x),ensure_ascii=False,indent=2,allow_nan=False,default=encoded))
+def read(p):return json.loads(Path(p).read_text())
+def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def activate(a):
+ CURRENT['cost']=a.cost_multiplier;LR.SLIP=D('.0005')*a.cost_multiplier
+LR.fees=lambda q,p,s,side,par=None:sum(s.incremental(side,D(q)*p,{}, {},CURRENT['cost'],shares=q,par_value=par).values(),Z) if q else Z
+
+# Pure eligibility memo, complete input equality on every shared hit.
+_elig=A.eligibility;memo={};memo_at=None;memo_counts=collections.Counter()
+def eligibility(s,sectors,clock,variant):
+ global memo_at,memo
+ if memo_at!=clock.decision_at:memo={};memo_at=clock.decision_at
+ key=(s.security_id,s.buy_allowed,variant);sec=tuple(sectors.items())
+ if key in memo:
+  old,oldsec,oldclock,res=memo[key];assert old==s and oldsec==sec and oldclock==clock;memo_counts['hit']+=1;return res
+ res=_elig(s,sectors,clock,variant);memo[key]=(s,sec,clock,res);memo_counts['miss']+=1;return res
+A.eligibility=eligibility
+
+class Account(LR.Account):
+ def __init__(self,name,market,facts,add_enabled=False,cost=1,delay=0):
+  super().__init__('P0',market,facts);self.label=name;self.mode='ACT';self.add_enabled=add_enabled
+  self.cost_multiplier=cost;self.delay_events=delay;self.cp_used=set();self.add_credits={};self.layer_structures={};self.risk_rows=[];self.ops=[];self.verify_index=False;self.group_layers=collections.defaultdict(list);self.structure_risk={}
+ def live(self,sid):
+  if not hasattr(self,'_ix'):self._ix={};self._ixn=0
+  for z in self.layers[self._ixn:]:self._ix.setdefault(z['sid'],[]).append(z)
+  self._ixn=len(self.layers);r=[z for z in self._ix.get(sid,()) if z['qty']]
+  if self.verify_index:assert r==BP.Account.live(self,sid)
+  return r
+ def cp_key(self,sid,at,epoch):return (sid,epoch,at.date())
+ def credit_key(self,sid,epoch):
+  cores=[x for x in self.live(sid) if x['kind']=='core']
+  if not cores or sid in self.exits or not any(x['epoch']==epoch for x in cores):return None
+  return sid,epoch,'CP1_ADD',cores[0]['id']
+ def add_valid(self,sid,at,epoch):return self.cp_key(sid,at,epoch) not in self.cp_used and bool(self.credit_key(sid,epoch))
+ def use_cp(self,i):
+  if i['kind']=='add':
+   k=self.cp_key(i['sid'],i['clock'].decision_at,i['epoch']);assert k not in self.cp_used;self.cp_used.add(k)
+   c=self.add_credits.get(i['sid']);valid=bool(c and c['at']==i['clock'].decision_at and c['key']==self.credit_key(i['sid'],i['epoch']))
+   if valid:self.ops.append(dict(kind='ADD_credit_intent',at=i['clock'].decision_at,sid=i['sid'],from_order=c['order']))
+ def expire_day_buys(self,at):
+  credits={}
+  if self.add_enabled and self.delay_events:
+   for sid,o in self.buys.items():
+    i=self.order_meta[o.order_id];key=self.credit_key(sid,i['epoch']) if i['kind']=='add' else None
+    if key and at.date()>=o.earliest_at.date() and not o.filled_shares and not o.delay_remaining:
+     credits[sid]=dict(key=key,at=at,order=o.order_id)
+  result=super().expire_day_buys(at);self.add_credits=credits
+  for sid,c in credits.items():self.ops.append(dict(kind='ADD_credit_created',at=at,sid=sid,key=c['key'],order=c['order']))
+  return result
+ def reserve_quantity(self,i,q,p,schedule,at):
+  activate(self);oid=super().reserve_quantity(i,q,p,schedule,at);order=self.buys[i['sid']]
+  order.delay_remaining=self.delay_events
+  if i['kind']=='core' and i['sid'] in self.daily_delay_credit:order.delay_remaining=0
+  if i['kind']=='add':
+   c=self.add_credits.get(i['sid']);k=self.cp_key(i['sid'],i['clock'].decision_at,i['epoch'])
+   if c and c['at']==i['clock'].decision_at and c['key']==self.credit_key(i['sid'],i['epoch']) and k in self.cp_used:
+    order.delay_remaining=0;self.add_credits.pop(i['sid'],None)
+    self.ops.append(dict(kind='ADD_credit_consumed',at=at,sid=i['sid'],from_order=c['order'],to_order=oid,signal_at=i['clock'].decision_at))
+  return oid
+ def sell(self,sid,*args,**kw):
+  self.add_credits.pop(sid,None);return super().sell(sid,*args,**kw)
+ def fill_buy(self,sid,w):
+  o=self.buys.get(sid);i=self.order_meta.get(o.order_id) if o else None
+  f=super().fill_buy(sid,w)
+  if f:
+   context=getattr(self.facts,'structure_lookup',{}).get(sid,{})
+   self.layer_structures[self.layers[-1]['id']]=context.get(i['clock'].decision_at.date(),f'{sid}|unknown')
+   self.group_layers[self.layer_structures[self.layers[-1]['id']]].append(self.layers[-1])
+   if i['kind']=='add':self.ops.append(dict(kind='ADD_fill',at=w.at,sid=sid,shares=f.shares,price=w.execution_price,fees=f.fees_cny,signal_at=i['clock'].decision_at))
+  return f
+
+# Minimal original function transformation: core entrance remains P0; only held
+# CP1 ADD is enabled. Everything else is the original BP planning body.
+src=inspect.getsource(BP.Pilot.planning)
+src=src.replace("confirm=a.name!='P0' and confirmed and (held or a.core_epoch.get(sid)!=epoch)","confirm=a.add_enabled and held and confirmed and a.add_valid(sid,at,epoch)")
+src=src.replace("a.pending.append(meta);a.counts['intent_'+kind]+=1","a.use_cp(meta);a.pending.append(meta);a.counts['intent_'+kind]+=1")
+assert 'a.add_enabled and held' in src and 'a.use_cp(meta)' in src
+env=dict(BP.__dict__);exec(src.strip(),env);plan_original_add=env['planning']
+
+class Pilot(LR.Pilot):
+ def __init__(self,sector,root,cut=None,stresses=('base','cost2','delay1'),policies=('L0','ADD')):
+  w=load('lr_add_sector_setup',O.parent/'entry-loss-budget-full-account-20261031/wire.py')
+  R0,E0,core,prep,mode=w.setup(sector,root,False,cut);self.bundle,self.market=R0.context(cut)
+  self.facts=E0.Facts(self.bundle,self.market,cut);self.accounts={};self.b0=N.B0Controller();self.applied_actions=set();self.actions_by_date={};self.daily=[];self.risk=[];self.sector=sector;self.prep=prep;self.core=core
+  # Original row is a pure lookup in immutable frozen frames. Exact (sid, at)
+  # cache, cleared on clock change: no new signal, no cross-clock reuse.
+  original_row=self.facts.row;row_cache={};row_at=[None];self.row_cache_checks=0
+  def cached_row(sid,at):
+   if row_at[0]!=at:row_cache.clear();row_at[0]=at
+   if sid not in row_cache:
+    row_cache[sid]=original_row(sid,at)
+    if self.row_cache_checks<32:
+     q=original_row(sid,at);v=row_cache[sid];assert (v is None and q is None) or v.equals(q);self.row_cache_checks+=1
+   return row_cache[sid]
+  self.facts.row=cached_row
+  for s in stresses:
+   for p in policies:
+    name=f'{p}_{s}';self.accounts[name]=Account(name,self.market,self.facts,p=='ADD',2 if s=='cost2' else 1,1 if s=='delay1' else 0)
+  for sid,es in self.market.actions.items():
+   for n,event in enumerate(es):self.actions_by_date.setdefault(event['effective_date'],[]).append((sid,n,event))
+  cpd=BP.CP if sector=='TECH' else RR/'cp1-cross-sector-20261028/signals/DRUG'
+  self.cp={s:pd.read_parquet(cpd/f'{s}.parquet').loc[:cut] for s in self.market.lines}
+  self.pv={};cache=O/'derived-pvr'/sector
+  for s in self.market.lines:
+   path=(BP.PV/f'{s}.parquet') if sector=='TECH' else cache/f'{s}.parquet'
+   if not path.exists():
+    assert sector=='DRUG';cache.mkdir(parents=True,exist_ok=True)
+    # Same frozen PVR-Q1 formula, data available before each observation.
+    BP.P.score(pd.read_parquet(prep/'signals'/f'{s}.parquet')).to_parquet(path)
+   self.pv[s]=pd.read_parquet(path).score.loc[:cut]
+   if sector=='DRUG' and cut:
+    pd.testing.assert_series_equal(BP.P.score(pd.read_parquet(prep/'signals'/f'{s}.parquet').loc[:cut]).score,self.pv[s],check_exact=True)
+  self.last_epoch={};self.epoch=collections.Counter();self.global_watch={}
+  self.facts.structure_lookup={}
+  for sid,f in self.facts.f.items():
+   if sid not in self.market.lines:continue
+   on=f.e0_target.fillna(False).astype(bool);start=on&~on.groupby(f.segment_id).shift(fill_value=False)
+   z=pd.Series(None,index=f.index,dtype=object)
+   for d in f.index[start]:z.loc[d]=f'{sid}|{int(f.loc[d,"segment_id"])}|{d.date()}'
+   self.facts.structure_lookup[sid]={t.date():v for t,v in z.groupby(f.segment_id).ffill().where(on,None).items()}
+ def planning(self,at):
+  before=len(self.daily);plan_original_add(self,at)
+  for row,(aid,a) in zip(self.daily[before:],self.accounts.items()):
+   activate(a);allitems=a.pending
+   for i in allitems:
+    if i['kind']=='core':LR.resize_core(i,a.current_nav,self.facts.factor(i['sid'],at))
+    if i.get('size_reject'):a.counts['size_'+i['size_reject']]+=1
+   a.pending=[i for i in allitems if not i.get('size_reject')]
+   a.decisions[-1]['intents']=[{k:v for k,v in i.items() if k not in ('quote','clock')} for i in allitems]
+   row['account']=aid;row['pending_intents']=len(a.pending);row['counts']=dict(a.counts)
+   pending_add={i['sid'] for i in a.pending if i['kind']=='add'}
+   for sid in tuple(a.add_credits):
+    if sid not in pending_add:
+     c=a.add_credits.pop(sid);a.ops.append(dict(kind='ADD_credit_expired',at=at,sid=sid,from_order=c['order'],reason='no_new_legal_CP1_Q_or_add_gap'))
+   if getattr(self,'record_risk',False):self.risk_snapshot(a,at)
+ def risk_snapshot(self,a,at):
+  activate(a);total=Z;core=Z;add=Z;unknown=0;crossed=0;cap=Z;positive_cap=Z;groups=set();day=pd.Timestamp(at.date());data_unknown=0
+  for sid in a.positions:
+   mark=self.market.latest_mark(sid,at).raw_price;factor=self.facts.factor(sid,at);ef=self.facts.floor(sid,at,'I')
+   if day not in self.facts.f[sid].index or day not in self.market.raw[sid].index or not bool(self.market.raw[sid].loc[day,'observed_bar']):data_unknown+=1
+   for z in a.live(sid):
+    floor=(ef if z['kind']=='core' else z['floor']);g=a.layer_structures[z['id']];groups.add(g)
+    if floor is None:unknown+=1;continue
+    raw=floor/factor;v=D(z['qty'])*max(Z,mark-raw);total+=v
+    if z['kind']=='core':core+=v
+    else:add+=v
+    crossed+=int(mark<=raw)
+  for g in groups:
+   value=Z
+   for z in a.group_layers[g]:
+    value+=z['cash']+z['dividend']
+    if z['qty']:
+     sid=z['sid'];floor=self.facts.floor(sid,at,'I') if z['kind']=='core' else z['floor']
+     if floor is None:continue
+     raw=floor/self.facts.factor(sid,at)*(ONE-LR.SLIP);gross=D(z['qty'])*raw
+     value+=gross-LR.fees(z['qty'],raw,self.market.fees(sid,at),'sell',self.market.quote(sid,at).par_value)
+   loss=-value;cap+=loss;positive_cap+=max(Z,loss)
+   old=a.structure_risk.get(g)
+   if old is None:a.structure_risk[g]=dict(max_capital_loss_signed=loss,max_at=at,last_capital_loss_signed=loss,last_at=at)
+   else:
+    if loss>old['max_capital_loss_signed']:old['max_capital_loss_signed']=loss;old['max_at']=at
+    old['last_capital_loss_signed']=loss;old['last_at']=at
+  a.risk_rows.append(dict(at=at,nav=a.current_nav,nominal_drawdown_to_actual_floor=total,core_to_floor=core,add_to_floor=add,nominal_rate=total/a.current_nav,active_structure_capital_loss_signed=cap,active_structure_positive_capital_loss=positive_cap,unknown_floor_layers=unknown,price_or_observation_unknown_positions=data_unknown,at_or_below_floor_layers=crossed,exit_pending=len(a.exits)))
+ def opening(self,a,at):
+  activate(a)
+  for sid in sorted(a.exits):
+   w=self.market.window(sid,at,'sell',a.cost_multiplier)
+   if w:a.fill_exit(sid,w)
+  a.settle_due(at);cash=max(Z,a.available-a.current_nav*D('.1'));items=[i for i in a.pending if i['clock'].earliest_execution_at==at];previews=[];day=pd.Timestamp(at.date())
+  for i in items:
+   sid=i['sid'];raw=self.market.raw[sid]
+   if day not in raw.index or not np.isfinite(raw.loc[day].open) or raw.loc[day].open<=0:a.counts['allocation_missing_open']+=1;continue
+   z,why=LR.preview(i,D(str(raw.loc[day].open)),self.facts.factor(sid,at),self.market.quantity(sid,at),self.market.fees(sid,at))
+   if why:a.counts['allocation_'+why]+=1;a.log('lot_risk_open_reject',at,sid=sid,reason=why,signal_at=i['clock'].decision_at);continue
+   previews.append(z)
+  for group in (0,1):
+   part=[x for x in previews if x['i']['group']==group];qty,audit=LR.whole_orders(part,cash)
+   for x in part:
+    if qty[x['sid']]:cash-=x['cost'](qty[x['sid']])
+   for z in audit:a.log('lot_allocation',at,**z)
+   assert cash>=0
+  for x in sorted(previews,key=lambda x:(x['i']['group'],x['sid'])):
+   sid=x['sid'];q=x['qty'];i=x['i']
+   if not q:a.counts['whole_order_unfunded']+=1;continue
+   if i['kind']=='core':assert LR.protection_risk(q,x['price'],x['floor'],x['schedule'],i['quote'].par_value)<=i['risk_budget']
+   a.reserve_quantity(i,q,x['price'],x['schedule'],at);w=self.market.window(sid,at,'buy',a.cost_multiplier)
+   if w:
+    assert w.execution_price==x['price'];a.fill_buy(sid,w)
+   else:a.counts['no_open_window']+=1
+  a.settle_due(at);a.minimum_available=min(a.minimum_available,a.available);a.check()
+  for sid,c in tuple(a.add_credits.items()):
+   a.ops.append(dict(kind='ADD_credit_expired',at=at,sid=sid,from_order=c['order'],reason='no_accepted_new_order_under_open_cash_and_contract'));a.add_credits.pop(sid,None)
+
+def dump(r,out):
+ out=Path(out);out.mkdir(parents=True,exist_ok=False)
+ with gzip.open(out/'daily.jsonl.gz','wt',compresslevel=1) as f:
+  for row in r.daily:f.write(json.dumps(N.encoded(row),ensure_ascii=False,allow_nan=False,default=encoded)+'\n')
+ for k,a in r.accounts.items():
+  with gzip.open(out/f'{k}.json.gz','wt',compresslevel=1) as f:json.dump(N.encoded(dict(trades=a.trades,layers=a.layers,audit=a.audit_log,counts=dict(a.counts),decisions=a.decisions,minimum_available=a.minimum_available,ops=a.ops,layer_structures=a.layer_structures,risk_rows=a.risk_rows,structure_risk=a.structure_risk)),f,ensure_ascii=False,allow_nan=False,default=encoded)
+ save(out/'META.json',dict(sector=r.sector,paths=list(r.accounts),closes=len(r.daily),prep=str(r.prep),core=str(r.core),memo=memo_counts))

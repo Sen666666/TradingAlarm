@@ -1,0 +1,34 @@
+{
+  "at": "2026-10-30T11:23:26.302532+00:00",
+  "status": "v2_spec_synthetic_only_completed_stop",
+  "passed_defined_tests": 13,
+  "test_levels": {
+    "controller_unit": 10,
+    "normalization_unit_only": 2,
+    "real_original_offline_ledger_functions": 1
+  },
+  "unverified_interfaces": 4,
+  "implementation_fix_without_strategy_change": "unknown actual shares with last-known zero no longer treated as no position",
+  "prior_run_retained": "run-01",
+  "specification_unchanged_between_runs": true,
+  "historical_market_files_read": 0,
+  "new_historical_behavior_runs": 0,
+  "economic_tests": 0,
+  "product_changes": 0,
+  "v1_outcomes_not_reused": true,
+  "readiness": "conditional_read_only_historical_behavior_only_after_parent_review",
+  "follow_on_started": false,
+  "wall_minutes_since_specification": 11.605393894513448,
+  "sha256": {
+    "SPECIFICATION.txt": "86977b0cb60c27218a4071a57de6da5101e0fe1ebed726de44fc0483bed7e0cc",
+    "risk_boundary_v2.py": "47dc7fa6d63fea2a1e1740d8c9c14c5caa9cbe5dd3aba484e15fe1010cb44c19",
+    "synthetic_verify.py": "7f29ba735b709233d74ce93d166e34d9c4be62f107dce44fec88809b9b338734",
+    "TEST_FREEZE.json": "a2c5d8ff383c97ecda32c8f7db58b62af2d351a27df25fdef690b21fca019e1c",
+    "TEST_RESULTS.json": "d53aca3e6bb263cced7cbe944849661717355035ea9f5774c8771c2548718ede",
+    "TEST_CASES.csv": "e5681578eed42b85b2a4998f68db27298859da2da5a891a32640a9e46c40f7a0",
+    "STATE_TRACE.json": "1c519b7a37740b6bf92d7d95ee305dbaaa0ff1e6d5e5afcdab1e0370b1ce7671",
+    "OFFLINE_EXECUTION_TRACE.json": "84423c744f772add0195d2cd96071a1844e72c979ebd2e65e08a3f01638271c2",
+    "INTERFACE_GAPS.json": "e3720763008a687597a26b1e5ddb10abadc06b65514ca4bfc96b36c36d745d43",
+    "REPORT.txt": "b2c4117c5a08ead7d233d560a721190109ddbc19552daad5fbea05b82992251b"
+  }
+}

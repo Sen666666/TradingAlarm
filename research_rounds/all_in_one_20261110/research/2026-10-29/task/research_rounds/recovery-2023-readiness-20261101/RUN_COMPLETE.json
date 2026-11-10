@@ -1,0 +1,15 @@
+{
+  "completed": true,
+  "policies": [
+    "Bdiag",
+    "C1"
+  ],
+  "normal_continuations": 2,
+  "year2022_rerun": false,
+  "new_cash_added": 0,
+  "old_state_or_H_reset": false,
+  "decision": "not_promoted; risk_menu_only; low-c expansion restoration not established",
+  "remaining": "independent result audit not claimed; latest-tail realization remains unresolved",
+  "execution_blockers": [],
+  "all8_quarter_checkpoints_passed": true
+}

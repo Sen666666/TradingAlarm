@@ -1,0 +1,25 @@
+D_GROSS10 full结果分析：冻结协议，2026-11-04
+
+授权范围与主问题
+只读已由root授权运行的D_GROSS10真实原生账户，不创建/运行任何账户，不改生产、冻结源或审查源。10%阈值不调优。主线先回答2022—23绝对累计亏损和完整2022—24风险收益，不用强窗两条都盈利的微差替代主要问题。
+long为2022Jan4–2024Dec31/726个CLOSE，各自状态跨年接续，初始1m；strong为2025Jul1–2026Jun30/242个CLOSE独立fresh1m，不冒称完整25/26自然年或连续2022—26账户。
+原E0/I_target/PVR、持有与退出、ACT20/BREAK63均保留。唯一附加准入为原冻结市场D时真实I+P+new gross不超自身projected NAV的10%；旧仓被动超限不强卖。非D移除额外限制，UNKNOWN仅阻新增。gross非cost、fee仍为原cash/NAV成本。保持原执行proxy/费用/数据时钟限制。
+
+B控制与reader复用
+控制只按 market_gross_admission_native_v1/ARCHIVED_B_CONTROL_BINDING.json 归档金本路径/SHA引用；不运行、合成、合并或改标签造新B。原母体已审No60结果直接读 capacity_cost_guard_analysis_v1/full_{long,strong}_v1 的B SUMMARY/DAILY_WEALTH/ALL_PERIODS/FIXED_PHASE_WEALTH/原层表等；只在比较表追加D列。归档账和原报告输入identity需先核SHA。
+完成的D原生pair/D_GROSS10.json.gz、单账户daily/balances直接交既有纯analyze_saved.py::account reader。仅将book路径B.json.gz参数化为D_GROSS10.json.gz，并将固定242断言参数化为expected_days；反向替换须还原原source exact。不创建D/B book views或流合并。价格/实际数量/现金/AR/CA沿现成只读reader，不建立第二套金融引擎。若标准字段缺失，先报告具体字段阻碍，不扩平台。
+full输出尚未完成时不空读/拼接live writer。原run_window schema没有actual_end/fixed_full_end报告字段；须DONE.completed、TIMING.completed、WINDOW_RESULT.passed/source_post_exact及726/242天数一致后读完整书，再核daily首末日/全日历精确等于prepared固定窗口。此处只适配已有发布字段，不增输出或改变producer。月checkpoint JSON仅作完成日期元数据，不读pickle。
+
+事前诊断分段
+prepared/{long,strong}/MARKET_INFO_FULL_CLOCKS.json是已冻结且已独立校核1936点的真实可得时钟。只原样分组OPEN lag信息、CLOSE当日信息，各自连续DOWN/NOT_DOWN/UNKNOWN全部区间；不重新rolling/EMA/收益标签，不从经济结果挑段。不把分组标签再次注入准入。
+全日历、全36/12月、全3年及strong两个半年、全部D/非D段均展示，保留所有盈利、负、零及空交易段。额外固定Apr2023/Dec2022、924六close与其后、严格H1半导体；不能仅报有利段。
+long现成已审ma63_down_replenishment_v1的9个DOWN执行日边界仅覆盖2022—23；其逐日列表与本次预冻结OPEN DOWN截至2023Dec29的prefix一致，才引用已审B old/new母体。本次全3年为12段DOWN，第9段连续跨入2024，不将2023截尾误称全部3年边界。原9个截尾边界另保留同口径表；其余新全窗段B仅复用已存DAILY_WEALTH作账户期间聚合，没有已审原层桥则不新建B层管线，明确无同口径原层证据。D自身同已审边界carry/new财富桥仅复用已有native层快照cash/dividend/qty和原rawmark边界方法，明确列原source Decimal舍入残差，不创造分摊basis或新引擎。
+
+结果顺序与解释
+1. 全窗口ret/global CLOSE maxDD/费用/真实buy与sell/平均lag与CLOSE市值暴露/原native mark-floor名义风险。逐年期末财富、净元、按自身年初权益回报；2023末相对1m累计。不得将35%界限当成功标准，也不能仅凭较B少亏晋升。
+2. 真实自身ACT pause/resume序列、暂停OPEN/CLOSE数、NOT_DOWN但自身ACT仍暂停的完整天数/区间与实际买入流量，比较归档B原实际序列只作诊断。区分减少新增流量使自身较少触发暂停，与仍在等待原BREAK63恢复；规则没有更改，不用B旧H日历控制D。若缺少可归属的实际证据则UNKNOWN，不宣称改变恢复规则。
+3. 全月/全部预定D及非D连续区间按自身期初NAV比较。DOWN old/new：期初已真实持有层与期内新实际fill，逐层期间净额与实际native NAV差桥；保留正反例及0段。原层损失不是删单可实现省损，先卖后买也不是卖款因果融资证明。
+4. 原固定83/94尾单保留；原赢家、同股后续加仓/新资助股票与丢失股票按真实预算订单/receipt及层表已有方法区分。严格H1半导体固定URFI881121/126成员，电子化学品/元件另列不能混入。新龙头/赢家收益只是实际路径贡献，不能把D−B净值差称单笔因果alpha。
+
+审查与停止条件
+财务独审、准入/时钟逻辑独审、派生分组独审分列；本地算术桥不冒称全源独审。不推断真实交易所执行，仍execution proxy。当前1709 A股开发快照池、非PIT/OOS/HK或1.2m实盘证明。若三年仍显著绝对亏损/坏月份仍高损耗或牺牲主要赢家，报告失败并停止本参数族扩展；不调10、叠加新候选或重做基础管线。

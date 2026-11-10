@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-10-20T02:02:15.397749+00:00",
+  "status": "exploratory extension after main16 accounts, before these12 outcomes; no model changes",
+  "scope": "same historical3 stock cohort as prior impact-sector pilot, common HK03033 new filter gate; initial90% ETF,30%all3,45%top2; picks fixed until exit; 2022..2026-10-16",
+  "cases": "pv/price each ETF/all3/top2 base; pv all3structures additionally cost2/delay1;12total",
+  "fees": "15bps FX10 base,30+20double; generic, not exact asymmetric stock/ETF taxes",
+  "source_signal_hashes": {
+    "HK03033": "2b563a2e162115bd7991b3dd38344e9078cd1e87a13187e1ec4899b36db07089",
+    "HK00700": "2c7583ab8ca094ede3d290bef2c3097f06b4536af374c51ea236e59f30a9e105",
+    "HK03690": "942350a668149ef71509c073f7853cb05b640c9ce7212048594bb5fab233ae2a",
+    "HK09618": "a79280c2589056a0078ac8187fcd4decdd0bdf2c8376174a72822830249d7599"
+  }
+}

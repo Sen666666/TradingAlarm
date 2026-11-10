@@ -1,0 +1,222 @@
+[
+  {
+    "window": "long",
+    "year": "2022",
+    "market_OPEN_days": 241,
+    "with_original_attempts": 203,
+    "ACT_on_days": 203,
+    "F1_global_unknown_days": 0,
+    "S0_cash_pct": {
+      "n": 241,
+      "minimum": 9.587728865088057,
+      "median": 17.94211593569683,
+      "mean": 34.82674459860025,
+      "maximum": 100.0
+    },
+    "maximum_discussable_release_pct": {
+      "n": 241,
+      "minimum": 9.587728865088057,
+      "median": 10.0,
+      "mean": 9.983817966545404,
+      "maximum": 10.0
+    },
+    "original_cash_below_extra10_days": 25,
+    "original_final_cash_pct": {
+      "n": 241,
+      "minimum": 9.587728865088057,
+      "median": 10.166163253109193,
+      "mean": 29.828801777314744,
+      "maximum": 100.0
+    },
+    "original_buy_fees": {
+      "n": 241,
+      "minimum": 0.0,
+      "median": 16.3374665991,
+      "mean": 23.79220335536881,
+      "maximum": 344.7978483756955
+    },
+    "original_sell_fees": {
+      "n": 241,
+      "minimum": 0.0,
+      "median": 29.15250575785,
+      "mean": 56.9472693629843,
+      "maximum": 1116.5767115273125
+    }
+  },
+  {
+    "window": "long",
+    "year": "2023",
+    "market_OPEN_days": 242,
+    "with_original_attempts": 132,
+    "ACT_on_days": 132,
+    "F1_global_unknown_days": 0,
+    "S0_cash_pct": {
+      "n": 242,
+      "minimum": 9.748102114951617,
+      "median": 28.707249128204246,
+      "mean": 53.75539116347279,
+      "maximum": 99.09275618167678
+    },
+    "maximum_discussable_release_pct": {
+      "n": 242,
+      "minimum": 9.748102114951617,
+      "median": 10.0,
+      "mean": 9.992663209661762,
+      "maximum": 10.0
+    },
+    "original_cash_below_extra10_days": 19,
+    "original_final_cash_pct": {
+      "n": 242,
+      "minimum": 9.330682628934468,
+      "median": 11.265010716568696,
+      "mean": 50.90916469631126,
+      "maximum": 99.09275618167678
+    },
+    "original_buy_fees": {
+      "n": 242,
+      "minimum": 0.0,
+      "median": 0.0,
+      "mean": 13.829300842579789,
+      "maximum": 93.0254844381
+    },
+    "original_sell_fees": {
+      "n": 242,
+      "minimum": 0.0,
+      "median": 0.0,
+      "mean": 38.149503090423714,
+      "maximum": 1068.486800386499
+    }
+  },
+  {
+    "window": "long",
+    "year": "2024",
+    "market_OPEN_days": 242,
+    "with_original_attempts": 157,
+    "ACT_on_days": 157,
+    "F1_global_unknown_days": 0,
+    "S0_cash_pct": {
+      "n": 242,
+      "minimum": 7.988694480620606,
+      "median": 30.986266860578915,
+      "mean": 50.29810498313263,
+      "maximum": 99.09275618167678
+    },
+    "maximum_discussable_release_pct": {
+      "n": 242,
+      "minimum": 7.988694480620606,
+      "median": 10.0,
+      "mean": 9.97107718393869,
+      "maximum": 10.0
+    },
+    "original_cash_below_extra10_days": 19,
+    "original_final_cash_pct": {
+      "n": 242,
+      "minimum": 7.988694480620606,
+      "median": 26.730598801157765,
+      "mean": 46.71058834121892,
+      "maximum": 99.09275618167678
+    },
+    "original_buy_fees": {
+      "n": 242,
+      "minimum": 0.0,
+      "median": 5.808074091128,
+      "mean": 16.24139955622896,
+      "maximum": 249.2586997895
+    },
+    "original_sell_fees": {
+      "n": 242,
+      "minimum": 0.0,
+      "median": 0.0,
+      "mean": 25.924259088672667,
+      "maximum": 694.3065441601
+    }
+  },
+  {
+    "window": "strong",
+    "year": "2025",
+    "market_OPEN_days": 125,
+    "with_original_attempts": 125,
+    "ACT_on_days": 125,
+    "F1_global_unknown_days": 0,
+    "S0_cash_pct": {
+      "n": 125,
+      "minimum": 9.446241173948863,
+      "median": 14.023006408813204,
+      "mean": 16.42540868410379,
+      "maximum": 100.0
+    },
+    "maximum_discussable_release_pct": {
+      "n": 125,
+      "minimum": 9.446241173948863,
+      "median": 10.0,
+      "mean": 9.972322375116054,
+      "maximum": 10.0
+    },
+    "original_cash_below_extra10_days": 17,
+    "original_final_cash_pct": {
+      "n": 125,
+      "minimum": 9.446241173948863,
+      "median": 9.990373616599152,
+      "mean": 10.493812509833058,
+      "maximum": 31.391320186663304
+    },
+    "original_buy_fees": {
+      "n": 125,
+      "minimum": 0.0,
+      "median": 23.3639380791,
+      "mean": 29.8835343925826,
+      "maximum": 332.3919184073945
+    },
+    "original_sell_fees": {
+      "n": 125,
+      "minimum": 0.0,
+      "median": 40.98552853485,
+      "mean": 57.86829029318053,
+      "maximum": 288.72861103685
+    }
+  },
+  {
+    "window": "strong",
+    "year": "2026",
+    "market_OPEN_days": 116,
+    "with_original_attempts": 116,
+    "ACT_on_days": 116,
+    "F1_global_unknown_days": 0,
+    "S0_cash_pct": {
+      "n": 116,
+      "minimum": 9.455769785270004,
+      "median": 13.767213218689855,
+      "mean": 16.35095785606623,
+      "maximum": 56.14490523718592
+    },
+    "maximum_discussable_release_pct": {
+      "n": 116,
+      "minimum": 9.455769785270004,
+      "median": 10.0,
+      "mean": 9.972458154005398,
+      "maximum": 10.0
+    },
+    "original_cash_below_extra10_days": 17,
+    "original_final_cash_pct": {
+      "n": 116,
+      "minimum": 9.23745044540068,
+      "median": 9.978177835350044,
+      "mean": 11.529078774006283,
+      "maximum": 47.30694258502806
+    },
+    "original_buy_fees": {
+      "n": 116,
+      "minimum": 0.0,
+      "median": 25.768751584325003,
+      "mean": 30.95385228415387,
+      "maximum": 136.101853965526
+    },
+    "original_sell_fees": {
+      "n": 116,
+      "minimum": 0.0,
+      "median": 51.3459204484375,
+      "mean": 70.348289905069,
+      "maximum": 323.62553838645
+    }
+  }
+]

@@ -1,0 +1,101 @@
+{
+  "complete": 1687,
+  "NA": [
+    "001232.SZ",
+    "001246.SZ",
+    "001248.SZ",
+    "301569.SZ",
+    "301583.SZ",
+    "301660.SZ",
+    "301689.SZ",
+    "301699.SZ",
+    "301707.SZ",
+    "301716.SZ",
+    "301717.SZ",
+    "601091.SH",
+    "601123.SH",
+    "688801.SH",
+    "688806.SH",
+    "688825.SH",
+    "688826.SH",
+    "688828.SH",
+    "688835.SH",
+    "688836.SH",
+    "688837.SH",
+    "920138.BJ"
+  ],
+  "mode_counts": {
+    "verified_case_reuse": 79,
+    "new_fixed_chain": 1630
+  },
+  "audit_ready_rows": 399120,
+  "audit_unready_rows": 2571,
+  "required_account_observations": 300944,
+  "required_account_CP1_receipts": 22483,
+  "nonempty_cache_but_zero_account_window": [
+    "001365.SZ",
+    "001399.SZ",
+    "301599.SZ",
+    "301666.SZ",
+    "301669.SZ",
+    "301696.SZ",
+    "603407.SH",
+    "603435.SH",
+    "603459.SH",
+    "688635.SH",
+    "688797.SH",
+    "688808.SH",
+    "688820.SH",
+    "920186.BJ"
+  ],
+  "trace_unknown_receipts": 0,
+  "physical_prefix_samples": [
+    "000002.SZ",
+    "000009.SZ",
+    "000012.SZ"
+  ],
+  "industry90_exact": 90,
+  "industry5_CP1_exact": 5,
+  "industry5_state_exact": 5,
+  "existing_407_not_reused": [
+    {
+      "sid": "001232.SZ",
+      "reason": "incompatible_or_unavailable:"
+    },
+    {
+      "sid": "301583.SZ",
+      "reason": "incompatible_or_unavailable:"
+    },
+    {
+      "sid": "301660.SZ",
+      "reason": "incompatible_or_unavailable:"
+    },
+    {
+      "sid": "301716.SZ",
+      "reason": "incompatible_or_unavailable:"
+    },
+    {
+      "sid": "301717.SZ",
+      "reason": "incompatible_or_unavailable:"
+    },
+    {
+      "sid": "688801.SH",
+      "reason": "incompatible_or_unavailable:"
+    },
+    {
+      "sid": "688825.SH",
+      "reason": "incompatible_or_unavailable:"
+    },
+    {
+      "sid": "920138.BJ",
+      "reason": "incompatible_or_unavailable:"
+    }
+  ],
+  "next_pair_runtime_estimate_seconds": [
+    180,
+    300
+  ],
+  "estimate_not_run": true,
+  "new_account_paths": 0,
+  "snapshot_not_PIT": true
+}

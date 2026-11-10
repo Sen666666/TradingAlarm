@@ -1,0 +1,11 @@
+from pathlib import Path
+from collections import Counter
+from decimal import Decimal as D
+import json,sys
+import pandas as pd
+P=Path(__file__).resolve().parent.parent;O=P/sys.argv[1];R=O/'full_20241031_once';read=lambda p:json.loads(p.read_text());ledger=read(R/'DAY_LEDGER.json');orders=read(R/'ORDERS.json');cand=read(R/'CANDIDATES.json');fps=[x for x in cand if x.get('phase')=='CLOSE' and x.get('decision')=='ADD_PLANNED' and x.get('sector_state')==0];keys={(x['round_id'],x['day']) for x in fps};ff=[x for x in orders if x['side']=='BUY_ADD' and (x['round_id'],x['signal_day']) in keys];rows=[]
+for l in ledger:
+ day=l['day'];os=[x for x in orders if x['day']==day];cs=[x for x in cand if x['day']==day and x['phase']=='OPEN'];rows.append(dict(l,actual_seed_fills=sum(x['side']=='BUY_SEED' for x in os),actual_ADD_fills=sum(x['side']=='BUY_ADD' for x in os),actual_sell_fills=sum(x['side'].startswith('SELL') for x in os),buy_cash=str(-sum((D(x['cash_delta']) for x in os if x['side'].startswith('BUY')),D(0))),seed_cash_rejects=sum(x['event']=='SEED' and x['decision']=='MIN_LOT_CAPITAL_REJECT:cash_reserve' for x in cs),ADD_cash_rejects=sum(x['event']=='ADD' and x['decision']=='ADD_NO_LEGAL_Q:cash_reserve' for x in cs),seed_sector_rejects=sum(x['event']=='SEED' and x['decision']=='MIN_LOT_CAPITAL_REJECT:sector_cap' for x in cs),ADD_sector_rejects=sum(x['event']=='ADD' and x['decision']=='ADD_NO_LEGAL_Q:sector_cap' for x in cs)))
+(O/'DAILY_ALLOCATION_SUMMARY.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n');pd.DataFrame(rows).to_csv(O/'DAILY_ALLOCATION_SUMMARY.csv',index=False)
+summary=dict(scope='FROZEN_EXPERIMENT_NOT_DEPLOYABLE_STRATEGY',planned_end='2024-10-31',completed_horizon=ledger[-1]['day']=='2024-10-31',certified_through=ledger[-1]['day'],days=len(ledger),orders=len(orders),blockers=read(R/'BLOCKERS.json'),last=ledger[-1],prior_prefix_replay=read(O/'PRIOR_PREFIX_REPLAY_QA.json') if (O/'PRIOR_PREFIX_REPLAY_QA.json').exists() else None,FALSE_sector_ADD_plans=fps,FALSE_sector_actual_ADDs=ff,economic_alpha_rules_unchanged=True,accounting_boundary_extension=True,stale_nontradable_not_liquidation=True,no_PIT_or_real_fill_certification=True)
+(O/'RUN_STATUS.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n');print(json.dumps(summary,ensure_ascii=False))

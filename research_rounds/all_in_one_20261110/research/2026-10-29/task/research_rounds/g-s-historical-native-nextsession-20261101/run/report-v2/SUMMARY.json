@@ -1,0 +1,26 @@
+{
+  "2025_26": {
+    "sells": 3,
+    "buys": 7,
+    "sale_net": "130029.6656863279500",
+    "new_buy_cost": "154191.1373065307000",
+    "opening_exposure": "0.8161050483965246819519664491",
+    "end_exposure": "0.8165767470384708825530807712",
+    "NAV": "998033.5626206666500",
+    "pending_exits": 16,
+    "pending_intents": 243,
+    "same_day_new_allocation_requests": 4
+  },
+  "2022": {
+    "sells": 0,
+    "buys": 2,
+    "sale_net": "0",
+    "new_buy_cost": "58528.1331952767000",
+    "opening_exposure": "0.8765557893814827488766986710",
+    "end_exposure": "0.8777385998827716286555568394",
+    "NAV": "998252.7829094260500",
+    "pending_exits": 9,
+    "pending_intents": 155,
+    "same_day_new_allocation_requests": 0
+  }
+}

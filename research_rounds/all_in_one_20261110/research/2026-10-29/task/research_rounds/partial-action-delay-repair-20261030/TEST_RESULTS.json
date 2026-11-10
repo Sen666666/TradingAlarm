@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "tests": [
+    {
+      "name": "original_held_core_restore_expiry_reproduced",
+      "passed": true,
+      "actual": {
+        "core": 200,
+        "restored": 0,
+        "original_repeat_wait": true
+      }
+    },
+    {
+      "name": "fresh_I_Q_consumes_credit_actual_restore_fill",
+      "passed": true,
+      "actual": {
+        "actual_restore_shares": 200,
+        "core": 200,
+        "full_fee_ledger": true
+      }
+    },
+    {
+      "name": "no_fresh_I_no_revive_and_one_cutoff_expiry",
+      "passed": true,
+      "actual": {
+        "no_order_without_fresh_I": true,
+        "next_cutoff_credit_expired": true
+      }
+    },
+    {
+      "name": "new_I_but_Q_false_no_order",
+      "passed": true,
+      "actual": {
+        "Q_still_required": true
+      }
+    },
+    {
+      "name": "stale_receipt_does_not_consume_or_order",
+      "passed": true,
+      "actual": {
+        "old_signal_never_revived": true
+      }
+    },
+    {
+      "name": "no_window_no_credit",
+      "passed": true,
+      "actual": {
+        "no_eligible_execution_no_credit": true
+      }
+    },
+    {
+      "name": "partly_filled_order_no_zero_fill_credit",
+      "passed": true,
+      "actual": {
+        "partial_real_shares": 100,
+        "remaining_new_order_waits": true,
+        "no_over_cap": true
+      }
+    },
+    {
+      "name": "full_exit_and_new_structure_cannot_inherit",
+      "passed": true,
+      "actual": {
+        "full_exit_clears": true,
+        "structure_mismatch_never_inherits": true
+      }
+    },
+    {
+      "name": "normal_cost2_disabled_roles_delay_exact",
+      "passed": true,
+      "actual": {
+        "exact_ledgers": [
+          "normal",
+          "cost2",
+          "A-delay",
+          "L-delay"
+        ]
+      }
+    }
+  ],
+  "real_ledger_admission": true,
+  "no_historical_returns": true
+}

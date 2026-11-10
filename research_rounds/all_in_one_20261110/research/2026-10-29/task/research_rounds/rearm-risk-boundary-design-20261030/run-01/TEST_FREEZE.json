@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-30T11:17:04.560201+00:00",
+  "before_test_execution": true,
+  "no_historical_inputs": true,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rearm-risk-boundary-design-20261030/SPECIFICATION.txt": "86977b0cb60c27218a4071a57de6da5101e0fe1ebed726de44fc0483bed7e0cc",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rearm-risk-boundary-design-20261030/risk_boundary_v2.py": "10d03159a9aa6377bf14ac53a039dc5bd6be3f13bf246b5d780c3c2c11b46e76",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rearm-risk-boundary-design-20261030/synthetic_verify.py": "64a0be10d9d1abde75d0c2c4ca9bba40e71f1e33ff9fbddb979a20cbe159d976",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py": "48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/test_sector_account.py": "88535a7b96aaf4e040e87c2f328711eda9e70fe62cb5957206afd60b70f15f8a",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_stock_admission.py": "0ad8c13c87081f1b64657ee987130d1e90f9ff4fd1728a319844af073313ebb8"
+  }
+}

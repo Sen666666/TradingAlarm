@@ -1,0 +1,13 @@
+def project(f,z,start,initial,start_at_open=False):
+ """One absorbing price-only shadow, old floor checked before today's receipt."""
+ P=float(initial);out=[]
+ for day,r in f.loc[start:].iterrows():
+  reason='E0' if not r.e0_valid else 'protection' if ge(P,float(r.close)) else None
+  new=P
+  if not reason:
+   if math.isfinite(float(r.i_floor)):new=max(new,float(r.i_floor))
+   if (start_at_open or day>pd.Timestamp(start)) and bool(z.loc[day,'receipt']):new=max(new,float(z.loc[day,'candidate']))
+  out.append(dict(date=str(day.date()),close=float(r.close),P_before=P,P_after=new,exit=reason is not None,reason=reason,receipt=bool(z.loc[day,'receipt']),candidate=None if not math.isfinite(float(z.loc[day,'candidate'])) else float(z.loc[day,'candidate'])))
+  P=new
+  if reason:break
+ return out

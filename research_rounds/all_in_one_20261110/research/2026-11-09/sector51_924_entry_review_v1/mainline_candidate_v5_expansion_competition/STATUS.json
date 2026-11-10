@@ -1,0 +1,22 @@
+{
+  "status": "HISTORICAL_RUN_COMPLETED",
+  "run": {
+    "days": 20,
+    "orders": 654,
+    "blockers": [],
+    "last": {
+      "day": "2024-10-08",
+      "cash": "162139.7062102814490",
+      "receivable": "0.000",
+      "market_value": "1394342.45",
+      "NAV": "1556482.1562102814490",
+      "net_liquidation_NAV": "1554551.9186832694715",
+      "stocks": 80,
+      "shares": 93737,
+      "weight_pct": "89.58293832259158255576417452",
+      "fees_paid": "4891.9109197185510"
+    }
+  },
+  "account_reconstruction": "PASS",
+  "next": "M5 remaining mainline constraints diagnostic; continue strategy improvement, no live orders"
+}

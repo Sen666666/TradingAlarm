@@ -1,0 +1,80 @@
+{
+  "branch": "2026",
+  "economic_runs": 0,
+  "output_seal": {
+    "sha256": "d2990a1811f292c3107ea1e38675a4dfa336371ad792bd2a76b8f859ad6df10a",
+    "entries": 17
+  },
+  "analysis_seal": {
+    "sha256": "0e47ad3e4a1ebfc9305960b88f8d675a4944c262e1e9cf7528242b6af824e8ed",
+    "entries": 21
+  },
+  "checkpoint_seal_sources": 99,
+  "pre_2026_PVR_ancestry_exact": true,
+  "native_checks": {
+    "daily_rows": 85,
+    "suffix_days": 65,
+    "trade_prefix": 5971,
+    "suffix_fills": 528,
+    "open_cash_rows": 85,
+    "all_balance_and_NAV_gaps_zero": true,
+    "rank_rows": 13016,
+    "UNKNOWN_fixed_slots": 75,
+    "all_CLOSED_days_DMI_rank_reconstructed": true,
+    "calendar_reconstructed_events": 164,
+    "first_suffix_event": "2026-02-02 09:30:00+08:00",
+    "action_midnights": 34,
+    "every_daily_cash_and_dividend_prefix_reconstructed": true
+  },
+  "full_round_export_exact": 2703,
+  "cohort": {
+    "fixed_members": 54,
+    "closed": 53,
+    "wins": 18,
+    "net_closed_pnl": "72092.00027432396500000000000",
+    "first_closed": 53,
+    "first_wins": 20,
+    "first_pnl": "4029.703942897757847919655662",
+    "open": [
+      {
+        "sid": "002859.SZ",
+        "opened": "2026-01-26 09:30:00+08:00",
+        "first": 3338,
+        "pnl": "1327.8472720972000",
+        "quantity": 100
+      }
+    ],
+    "tails": [
+      {
+        "sid": "002716.SZ",
+        "opened": "2026-01-16 09:30:00+08:00",
+        "pnl": "9102.6518491344000"
+      },
+      {
+        "sid": "600482.SH",
+        "opened": "2026-01-16 09:30:00+08:00",
+        "pnl": "7101.1709244216000"
+      },
+      {
+        "sid": "000711.SZ",
+        "opened": "2026-01-30 09:30:00+08:00",
+        "pnl": "66538.2411679438000"
+      }
+    ]
+  },
+  "final": {
+    "nav": "1245684.9291099352690",
+    "cash": "126439.9271899352690",
+    "inventory": "1086229.95",
+    "dividend_receivable": "33015.05192",
+    "all_dividend_accrual": "33015.05192",
+    "fees": "67033.4411200647310",
+    "held": 72,
+    "live_layers": 89,
+    "pending": 163,
+    "stale": [],
+    "last_event": "2026-05-15 15:10:00+08:00",
+    "NAV_PnL_all_round_bridge_pass": true
+  },
+  "passed": true
+}

@@ -1,0 +1,12 @@
+{
+  "version": "RETENTION_20261110_V1",
+  "all_original_paths_and_bytes_preserved": true,
+  "unique_information_deleted": 0,
+  "hardlinked_redundant_copies": 1766,
+  "byte_identical_logical_bytes": 15278200802,
+  "protected_current_inputs": 9108,
+  "current_M12_evidence_excluded": true,
+  "ledger_relative_path": "manifest/DEDUPLICATION_LEDGER_20261110.jsonl",
+  "storage_is_frozen_read_only": true,
+  "external_source_directories_modified": false
+}

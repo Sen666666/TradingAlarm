@@ -1,0 +1,11 @@
+{
+  "before_run": true,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/industry-mobile-stage-20261031/stage.py": "91b21d664eadb5864a7ff97bc288392325c0101d164b3c873d9fa7d492d7268d",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/industry-mobile-stage-20261031/PROTOCOL.txt": "97bac01bd66f03d9d0381f6f8783dc985a4f164c0fddcacd46622d26b40bbba6",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/cp1-evidence-trace-20261031/trace.py": "bac0d77f7cc6aac767c24e70147d6d711e493ede57a30a8130eeeb0a122d00fe",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py": "85f21ad1622863645618f570b5f2e832558ebaca218ff2c71d0b4a0b545dd0bf",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/cp1-evidence-trace-20261031/SIX_PATHS_INPUT_FROZEN.json": "0c44f66ad943192d68cdfbcf94666e24cf38437e575f52f6091b0a733b8cbbd0"
+  },
+  "new_economic_paths": 0
+}

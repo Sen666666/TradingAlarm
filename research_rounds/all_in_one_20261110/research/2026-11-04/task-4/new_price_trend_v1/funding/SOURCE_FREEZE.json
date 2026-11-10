@@ -1,0 +1,75 @@
+{
+  "policy": "ENTRY_BB20_FLAT_CONFIRM",
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/native_rank.py": "5ec91c2323b2d3b8fa5c99df504139e2ac7af9b5b84359222c3d6353d0cd697c",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/adapter.py": "a998b45d6ab7c243f6161ddfe53721203f0f746e58edbee0d56138737d5d427f",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py": "fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/launch_v3.py": "e90e1ccc0e891218c9120d58430860f468f06840dc6186c0fb8f7aec17bd60b1",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/model_without_account_check.py": "2fb801bcadfe3aa0fe0ecac97a9730861079bc16d908a3674a404b255729c2c3",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/route_without_account_check.py": "7bc31864d1d3944e800bb3f51297f01c417ecf8ac8487b857aa897bde22d66a1",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/_shared/research_output_io.py": "3d7cae91648150fa09d17f048156c2ea7f9bc4ebeed96c87a9397942d431c2fa",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/wire.py": "87287700466328aa767ee28e0791853ca33d87a406e4b125256cc96c587f42fe",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/budget_v3/model.py": "c4e61fc6f12eb47aeaa9bfb7faea82f29467a2fb2627875c39308ef9f642af26",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lr1-cp1-add-preflight-20261031/adapter.py": "b81569bd13f22a39e973ebd38b8b382fbafe9da959536bae455ca7bed2a45185",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/lot-risk-allocation-20261029/code/study.py": "2e7cfbdded269ae5430c9146d0b1f5c2b2281e5a5c774fdffb088b620d72bff4",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/probe-pyramid-pilot-20261029/code/pilot.py": "38ac36ba3b9da599c66307451f4173249efc229f54dfb6a0d8469517431f94b4",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/SCORES_MANIFEST.json": "22077458907e1989ca88cb8e3dcc72284cedf3f670abc5432f08198a262bf27f",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/export_scores.py": "96e3ccac767e82ac4b28cf3c0f07e311227414a3acd4d3ea693080f7b72c260d",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/test_rank.py": "74b82cff56403f6c1c2bf86aaba36ce70f551e14c57d725fe83d463938a10559",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/execution_support.py": "e1bd8290ffbf76a50d5dff5ce254a0eda57945ebfaab3df339f84097a731e6d4",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/preflight.py": "0669a5048067246757228f6c472b603796d43419221318be83250948b68101a2",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/run_trial.py": "6626d2380506b196fd702af96b23987a0e13fe05fd36bda604d126f797106981",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/CONTRACT.txt": "291bed90043cf156a6de6c99257a637313bbcf776efd77482633a46fffeb4f0c",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/AUTHORIZATION_SCOPE.txt": "475c1da68efc8e4bde99203ee9c9882b9daa9231e5e2dcaffea4873bf34b8a2f",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-current-v3-information-capital-20261101/original_score_function.py": "9328109bada26c53b04cf0f3e84d719917cb528ff8608b3e9faa5d1c55ba8cb2",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/INDUSTRY_MANIFEST.json": "339c89777f488b3bbd5685cd93e38ad47748585b783808e7da35c685ad0775cd",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/FREEZE.json": "f9bab0c4de45ea465ed085f982d763f6189f58b296b8781bfd821e65c445b977",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/q2-normal-continuation-20261031/continuation.py": "7258f3ed74e5b363edb61b903479fed3607d2a145ae4050c4c32f0bc53557e6b",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/2022-normal-reference-20261031/adapter.py": "ed981d182e7e1272c615c2a6e61d966814cfc13f6fa781f0e8514739c8fc5792",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/2022-normal-reference-20261031/inputs/MANIFEST.json": "05ba9f1c76d9a39230710fc94438c18581b38476e183204df2fd51357ef8a306",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/2022-normal-reference-20261031/inputs/COMPLETION.json": "a0d4b8fadbbdab3149fc6df059537e1bab7aecfdfef07e87708aac071873ad91",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/recovery.csv": "76599d9013946bc5fc501a57b046f36a2868ad61f147ef1a6c73c9575b35906a",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/h1.npz": "416ddabacb9b16105cf3e5d93c961049ac1b48da433a62995a71311be17e4615",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/component.py": "604a89c2d4205d20c2799d6408b47b19a64b1f3beb6396da8807cd023e105361",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/probe-batch-local-preview-20261101/planner.py": "0701eb1418e08e30b17e56477d6729d44b07a167fe5fd844d8ef30951c2702c1",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/native_adapter.py": "7f451011b97bccbae863fa098e5520e7af4b6107fb9ed96b4d105eaa84d8a208",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/NATIVE_WIRING_CARD.txt": "477a86fb028af3e1939387011e9bbc9e1294b888c3415d44dac3eca567af1682",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/new_price_trend_v1/funding/entry_adapter.py": "5b07f2eef495219adc799d7f3773153f2200e9c48437831762dfc4bedeb1574c",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/new_price_trend_v1/funding/input_loader.py": "55deb37196a602296394a9ee1f018156c21d7a69c4c68026dc2b5073ea7d484d",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/new_price_trend_v1/funding/run_entry.py": "e985820542feaf256d4a80d360466ed91d8bfc28720520c8dbaa0fb74355f109",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/new_price_trend_v1/PROTOCOL.txt": "ecdfebcbdd38a5a388d059d12a31958d2e9d1ff90d1569bd52ec6d5344acbe92",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/new_price_trend_v1/PRICE_FEATURE_MANIFEST.json": "b2f2fffb84d829b6d82f91c04fd6d3d821bad6d8cb7832ee47121e1ce3eb1335",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/new_price_trend_v1/PRICE_FEATURES.pkl": "d507067873b2e8fdbd56b7493cc7eda69bbaf22b935c64bd92bf3ee0f01603bc",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/recovery-2023-readiness-20261101/inputs/MANIFEST.json": "6cbd4785a76a00e24e27264168a7c4b8a67d8ef82ab482f4a76363dff562d514",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/inputs/MANIFEST.json": "8756ac00cc596e966f303401578c741ddb6e7c42ccde25ab370f9207633c4703",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/SCORES_MANIFEST.json": "70f706e10696bd248e100d4ddc9f0eb375533b47556509bcf95d24f498205c05",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/new_price_trend_v1/funding/generated_entry_planning.py": "e1d31a4980a9ab4d072529e11f3d833118cb85ef0c1b3d2636d00f9bd7bb0c86"
+  },
+  "windows": {
+    "long": [
+      "2022-01-01",
+      "2024-12-31"
+    ],
+    "strong": [
+      "2025-07-01",
+      "2026-06-30"
+    ]
+  },
+  "technical_cuts": {
+    "long": "2022-01-14",
+    "strong": "2025-07-15"
+  },
+  "feature_manifest_sha256": "b2f2fffb84d829b6d82f91c04fd6d3d821bad6d8cb7832ee47121e1ce3eb1335",
+  "technical_compute_limit_seconds": 180,
+  "full_compute_limit_seconds": 2400,
+  "old_baseline_pairs": {
+    "long": "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/cycle2024/no60/run-2024/pair",
+    "strong": "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/runs/2025_26/pair"
+  },
+  "prior_account_imports": 0,
+  "entry_hook_insertions": 1,
+  "original_planning_sha256": "e19009f8d305ba443223d1cf66f01873dbc7408b08bd96e066cace2ef64a8ab4",
+  "physical_feature_policy": "exact day only; truncate lookup as well as original inputs",
+  "accounts_executed": 0
+}

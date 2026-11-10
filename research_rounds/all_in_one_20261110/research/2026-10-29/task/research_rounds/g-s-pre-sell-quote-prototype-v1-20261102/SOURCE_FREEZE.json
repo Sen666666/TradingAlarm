@@ -1,0 +1,21 @@
+{
+  "scope": "ISOLATED_QUOTE_ONLY_PROPOSAL_NO_ORDER_OR_ACCOUNT_MUTATION",
+  "financial_events_authorized": false,
+  "financial_events_executed": 0,
+  "native_preview_qualified_name": "Account._preview",
+  "native_preview_source_file": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-native-synthetic-v3-20261102/native_c.py",
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-pre-sell-quote-prototype-v1-20261102/prepare_cases.py": "5b7c8d93c23d1243b3bf37ff6dcb7fa71d75218b0e657d1b0978372ab4ab411a",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-pre-sell-quote-prototype-v1-20261102/verify_one.py": "fbb6dd5681bc1159b815dbcc71279b345c348b4516c2950d036ff35f5bc6553c",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-pre-sell-quote-prototype-v1-20261102/test_quote.py": "890d058dbf57fcf0e08968cdee0c57a5259b88fd2dadeca7b277a6a47e160fd2",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-pre-sell-quote-prototype-v1-20261102/quote_package.py": "905a49ea7413662a5f867b80fec584155702c83c4f214ffa894d7c3d18da0454",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-native-synthetic-v3-20261102/native_c.py": "363d879d55b87669c6ef3d05a70756d91541c8a2a4f6316942d58945c112e8df",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-historical-native-prefix-20261101/native_capital.py": "3dc56dd9f44abad733df7edd6181f82ef25db96b5dc1496cbd2b02e24fb12ac4",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-historical-native-prefix-20261101/policy.py": "b27d8fac3e977d30de9153d4a400d62caf9a2c69695692da1a88ecba4e24607e",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py": "48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lr1-cp1-add-preflight-20261031/adapter.py": "b81569bd13f22a39e973ebd38b8b382fbafe9da959536bae455ca7bed2a45185",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-pre-sell-quote-prototype-v1-20261102/INPUT_BINDING.json": "e10c9acf097c636c068efcd00e6dfff40636f695a69198646dd05a672e8e7411"
+  },
+  "old_readonly_evidence_sha256": "f68730d56cf882533bc4fa477a06bd3ce5ce4d790991be0e353300c4c02a72b4",
+  "old_source_and_state_hashes_unchanged": true
+}

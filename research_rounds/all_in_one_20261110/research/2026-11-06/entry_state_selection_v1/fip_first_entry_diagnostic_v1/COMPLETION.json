@@ -1,0 +1,20 @@
+{
+  "status": "SMALL_FIRST_ENTRY_DIAGNOSTIC_COMPLETED_NO_STRATEGY_PROMOTION",
+  "N": 2693,
+  "stocks": 1220,
+  "max_native_original_close_error": 0.0,
+  "prefix_checks": 12,
+  "sources": 1224,
+  "source_hashes_unchanged": true,
+  "windows": [
+    20,
+    60
+  ],
+  "account_runs": 0,
+  "original_model_runs": 0,
+  "parameter_scans": 0,
+  "common_endpoint": "2026-05-15",
+  "duplicate_stock_signal_days": 0,
+  "repeated_I_roots": 118,
+  "elapsed_seconds": 12.599901874549687
+}

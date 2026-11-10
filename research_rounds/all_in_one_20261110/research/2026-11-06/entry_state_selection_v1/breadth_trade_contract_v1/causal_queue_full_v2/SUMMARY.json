@@ -1,0 +1,12 @@
+{
+  "all_candidates": 28558,
+  "selected": 5490,
+  "elapsed_seconds": 24.805387124884874,
+  "passes_at_close": 22389,
+  "status": {
+    "PRICE_SIZE_PROXY_PASS_AT_CLOSE": 22389,
+    "I_OR_RANK_INELIGIBLE": 4432,
+    "REJECT_AT_CLOSE": 1737
+  },
+  "no_account": true
+}

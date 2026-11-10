@@ -1,0 +1,102 @@
+[
+  {
+    "window": "2022",
+    "N": 1779,
+    "known": 1778,
+    "UNKNOWN": 1,
+    "blocked": 322,
+    "equal": 21,
+    "groups": [
+      {
+        "group": "original_winners",
+        "N": 435,
+        "known": 434,
+        "blocked": 70,
+        "blocked_pct": 16.091954022988507,
+        "original_amount": 1537066.7412807716,
+        "blocked_original_amount": 218547.39825805256,
+        "blocked_original_amount_pct": 14.21847161145042
+      },
+      {
+        "group": "original_losers",
+        "N": 1344,
+        "known": 1344,
+        "blocked": 252,
+        "blocked_pct": 18.75,
+        "original_amount": 2724524.4104149295,
+        "blocked_original_amount": 527869.8123122057,
+        "blocked_original_amount_pct": 19.374750701235747
+      },
+      {
+        "group": "original_mfe_lt5_losers",
+        "N": 826,
+        "known": 826,
+        "blocked": 160,
+        "blocked_pct": 19.37046004842615,
+        "original_amount": 1883178.219805795,
+        "blocked_original_amount": 353118.0296606293,
+        "blocked_original_amount_pct": 18.75117426204329
+      },
+      {
+        "group": "original_mfe_ge10_winners",
+        "N": 402,
+        "known": 401,
+        "blocked": 62,
+        "blocked_pct": 15.422885572139304,
+        "original_amount": 1515507.1516751214,
+        "blocked_original_amount": 214677.17152756205,
+        "blocked_original_amount_pct": 14.165368424047022
+      }
+    ]
+  },
+  {
+    "window": "2024_924",
+    "N": 1083,
+    "known": 1083,
+    "UNKNOWN": 0,
+    "blocked": 101,
+    "equal": 8,
+    "groups": [
+      {
+        "group": "original_winners",
+        "N": 490,
+        "known": 490,
+        "blocked": 34,
+        "blocked_pct": 6.938775510204081,
+        "original_amount": 2636794.2888158713,
+        "blocked_original_amount": 205649.6806272485,
+        "blocked_original_amount_pct": 7.799231115583212
+      },
+      {
+        "group": "original_losers",
+        "N": 593,
+        "known": 593,
+        "blocked": 67,
+        "blocked_pct": 11.298482293423271,
+        "original_amount": 1020231.5531158334,
+        "blocked_original_amount": 124037.01939821584,
+        "blocked_original_amount_pct": 12.157732136337202
+      },
+      {
+        "group": "original_mfe_lt5_losers",
+        "N": 300,
+        "known": 300,
+        "blocked": 40,
+        "blocked_pct": 13.333333333333334,
+        "original_amount": 620008.4258337966,
+        "blocked_original_amount": 88875.0400451228,
+        "blocked_original_amount_pct": 14.334489071757746
+      },
+      {
+        "group": "original_mfe_ge10_winners",
+        "N": 487,
+        "known": 487,
+        "blocked": 34,
+        "blocked_pct": 6.981519507186858,
+        "original_amount": 2636443.994175944,
+        "blocked_original_amount": 205649.6806272485,
+        "blocked_original_amount_pct": 7.800267370804783
+      }
+    ]
+  }
+]

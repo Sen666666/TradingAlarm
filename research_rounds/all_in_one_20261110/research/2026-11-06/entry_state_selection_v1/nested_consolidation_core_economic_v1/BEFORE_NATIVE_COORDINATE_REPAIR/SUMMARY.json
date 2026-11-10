@@ -1,0 +1,139 @@
+[
+  {
+    "window": "2022",
+    "arm": "CONTROL",
+    "root_births": 51,
+    "accepted_buys": 49,
+    "W": 7,
+    "L": 32,
+    "B": 0,
+    "U": 0,
+    "UNKNOWN": 10,
+    "unknown_unaccepted": 1,
+    "minimum_lot_failures": 1,
+    "completed_net_cny": -23472.837399154556,
+    "avg_win_cny": 5843.196509896758,
+    "avg_loss_cny": -2011.7254052634953,
+    "avg_win_loss": 2.904569626952351,
+    "early_births": 0,
+    "status_counts": {
+      "COMPLETE": 39,
+      "UNKNOWN_FACTOR_ACTION_CHANGE": 11,
+      "NO_BUY_MINIMUM_LOT": 1
+    }
+  },
+  {
+    "window": "2022",
+    "arm": "LOCAL",
+    "root_births": 31,
+    "accepted_buys": 31,
+    "W": 5,
+    "L": 21,
+    "B": 0,
+    "U": 0,
+    "UNKNOWN": 5,
+    "unknown_unaccepted": 0,
+    "minimum_lot_failures": 0,
+    "completed_net_cny": -29041.8326495869,
+    "avg_win_cny": 1795.9234645860674,
+    "avg_loss_cny": -1810.545236786535,
+    "avg_win_loss": 0.9919241055658906,
+    "early_births": 24,
+    "status_counts": {
+      "COMPLETE": 26,
+      "UNKNOWN_FACTOR_ACTION_CHANGE": 5
+    }
+  },
+  {
+    "window": "2022",
+    "arm": "UNION",
+    "root_births": 59,
+    "accepted_buys": 58,
+    "W": 8,
+    "L": 39,
+    "B": 0,
+    "U": 0,
+    "UNKNOWN": 11,
+    "unknown_unaccepted": 0,
+    "minimum_lot_failures": 1,
+    "completed_net_cny": -33003.71863192477,
+    "avg_win_cny": 5404.9333269679955,
+    "avg_loss_cny": -1954.953467888942,
+    "avg_win_loss": 2.7647375836543655,
+    "early_births": 19,
+    "status_counts": {
+      "COMPLETE": 47,
+      "UNKNOWN_FACTOR_ACTION_CHANGE": 11,
+      "NO_BUY_MINIMUM_LOT": 1
+    }
+  },
+  {
+    "window": "2024_924",
+    "arm": "CONTROL",
+    "root_births": 26,
+    "accepted_buys": 25,
+    "W": 14,
+    "L": 6,
+    "B": 0,
+    "U": 0,
+    "UNKNOWN": 5,
+    "unknown_unaccepted": 0,
+    "minimum_lot_failures": 1,
+    "completed_net_cny": 154799.62428704798,
+    "avg_win_cny": 11931.721950112216,
+    "avg_loss_cny": -2040.747169087175,
+    "avg_win_loss": 5.846741884958375,
+    "early_births": 0,
+    "status_counts": {
+      "COMPLETE": 20,
+      "UNKNOWN_FACTOR_ACTION_CHANGE": 5,
+      "NO_BUY_MINIMUM_LOT": 1
+    }
+  },
+  {
+    "window": "2024_924",
+    "arm": "LOCAL",
+    "root_births": 14,
+    "accepted_buys": 13,
+    "W": 3,
+    "L": 6,
+    "B": 0,
+    "U": 0,
+    "UNKNOWN": 4,
+    "unknown_unaccepted": 0,
+    "minimum_lot_failures": 1,
+    "completed_net_cny": -638.3587154462325,
+    "avg_win_cny": 3387.1498066515737,
+    "avg_loss_cny": -1799.9680225668255,
+    "avg_win_loss": 1.8817833229177952,
+    "early_births": 10,
+    "status_counts": {
+      "COMPLETE": 9,
+      "UNKNOWN_FACTOR_ACTION_CHANGE": 4,
+      "NO_BUY_MINIMUM_LOT": 1
+    }
+  },
+  {
+    "window": "2024_924",
+    "arm": "UNION",
+    "root_births": 27,
+    "accepted_buys": 26,
+    "W": 14,
+    "L": 7,
+    "B": 0,
+    "U": 0,
+    "UNKNOWN": 5,
+    "unknown_unaccepted": 0,
+    "minimum_lot_failures": 1,
+    "completed_net_cny": 151137.9300116971,
+    "avg_win_cny": 11931.721950112216,
+    "avg_loss_cny": -2272.3110414105577,
+    "avg_win_loss": 5.250919320757026,
+    "early_births": 3,
+    "status_counts": {
+      "COMPLETE": 21,
+      "UNKNOWN_FACTOR_ACTION_CHANGE": 5,
+      "NO_BUY_MINIMUM_LOT": 1
+    }
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "as_of": "2026-10-29T15:06:34.062846+08:00",
+  "sha256": {
+    "ANALYSIS.txt": "b3045aa0ca64027c86db2e55ce71bd47b9290ae55782b947641d1a2b3359fe45",
+    "SOURCES.json": "dd9fec433fe14104fcdb6523e5161dabc7526ec4d6e4b7f2f8a89f03d68ec86d",
+    "STATUS.json": "5ea4ad7870d9b9c0665c01bc6f29d9338ffba003177f86defcbec8c30bb31295",
+    "VERIFICATION.json": "4751cb2a09540e497eb08e88122c2d81bbc79479fd3c62d89a093552286ab769",
+    "case-observations.json": "dc144df797b7ebaf4def1c1a8691f6f5e503b08d6ba23e5bf0c0a5d5426a5cd2",
+    "case-source-sha256.json": "2c8203ebea05cd0b320b84212d28f3e96e3066499e76775105abf272a5288465",
+    "inspect_existing.py": "db245d143a6dbf4090ddec8310c7bfae53b372b3f8d91598a57df3def168405b"
+  }
+}

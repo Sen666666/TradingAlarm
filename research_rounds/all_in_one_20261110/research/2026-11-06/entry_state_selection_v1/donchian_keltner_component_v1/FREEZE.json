@@ -1,0 +1,43 @@
+{
+  "status": "FIXED_BEFORE_NEW_RESULTS",
+  "mechanism": "Risk/protection only: initial E0/CORE and CP P0 unchanged. On fresh CP with current C above this layer entry reference E, cap only new CP raise by previous completed Keltner lower. Other CP updates unchanged. Old P and I hard floor stay monotone. No autonomous daily ATR exit. No entry/add permission change.",
+  "formula": "Q=max(P_old,I_floor,min(CPcandidate,EMA20_prev-2*WilderATR10_prev)) only if fresh CP and C>E; otherwise original CP. Old P check first; current I invalid priority; proposal>=C exits only after current close, next action clock. Independent layer E not inherited from prior winner.",
+  "parameters": {
+    "EMA": 20,
+    "ATR": 10,
+    "multiple": 2,
+    "EMA_seed": "first20 mean",
+    "ATR_seed": "first10 TR mean; first TR=H-L"
+  },
+  "cases": {
+    "000620.SZ": [
+      "2022-01-07"
+    ],
+    "002583.SZ": [
+      "2024-09-20"
+    ],
+    "300085.SZ": [
+      "2024-09-12",
+      "2024-10-09"
+    ],
+    "603061.SH": [
+      "2025-12-04"
+    ],
+    "300623.SZ": [
+      "2026-01-09"
+    ],
+    "000029.SZ": [
+      "2022-12-01"
+    ],
+    "002385.SZ": [
+      "2022-03-04"
+    ],
+    "300182.SZ": [
+      "2022-01-04"
+    ],
+    "601607.SH": [
+      "2022-03-24"
+    ]
+  },
+  "limits": "Ten preidentified development anchors; saved full native E0/I/CP inputs not recalculated. Complete conditional protection-shadow lifecycle; not capital/whole strategy replay. Next observed OPEN is only reference not verified fill. Stop after this prototype; no parameter grid; no account and no first-entry win-rate claim."
+}

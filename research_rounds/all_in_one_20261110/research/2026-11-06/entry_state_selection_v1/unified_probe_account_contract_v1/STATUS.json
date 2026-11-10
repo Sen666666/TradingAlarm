@@ -1,0 +1,16 @@
+{
+  "state": "FIRST_DAY_ENGINEERING_LIMITED_FINAL_AUDIT_PASS",
+  "implementation_sha256": "755547e59cce871762523167bf21006033260291d6f0e613876d5c063aa5bc02",
+  "synthetic_test_count": 23,
+  "original_sources_unchanged": true,
+  "first_attempt": "FAILED_RESTORE_REPLAY_PRESERVED",
+  "first_attempt_last_complete_event": "2022-01-04 15:10:00+08:00",
+  "first_day_completed": true,
+  "full_window_run": false,
+  "full_window_paused_for_sector_breadth_contract": true,
+  "independent_final_audit": "PASS_LIMITED_FIRST_DAY_ENGINEERING_SCOPE",
+  "independent_final_audit_record": "INDEPENDENT_FINAL_AUDIT.json",
+  "active_account_run": false,
+  "checkpoint_candidate_intents": 421,
+  "checkpoint_unique_candidate_stocks": 294
+}

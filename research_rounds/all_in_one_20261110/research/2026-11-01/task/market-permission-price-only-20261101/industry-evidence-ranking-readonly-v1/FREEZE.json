@@ -1,0 +1,33 @@
+{
+  "before_stock_count_and_rank_calculation": true,
+  "script_sha256": "86a5feec2d0709f2e02a2eed64b33416661fe8a5af49b3468e0b6fcc35bf02d6",
+  "protocol_sha256": "b50a4a9ecde411ac874d9953a58364de06addad7cdbf02ba94c16961acb0a44e",
+  "cases": {
+    "2022": [
+      "NATIVE1709",
+      "2022-06-17",
+      "2022-12-29"
+    ],
+    "2023": [
+      "NATIVE1709",
+      "2023-01-19",
+      "2023-08-25"
+    ],
+    "OLD924": [
+      "OLD407",
+      "2024-09-24",
+      "2024-12-31"
+    ],
+    "LOCAL2026": [
+      "NATIVE1709",
+      "2026-04-30",
+      "2026-06-30"
+    ]
+  },
+  "sectors": {
+    "NATIVE1709": 90,
+    "OLD407": 11
+  },
+  "industry_PVR": "NOT_CACHED; original index amount contract unverified",
+  "no_new_indicator_calculation": true
+}

@@ -1,0 +1,44 @@
+{
+  "sectors": 90,
+  "review_days": 37,
+  "detected_by_1031": 84,
+  "not_detected": [
+    {
+      "sector": "URFI881137",
+      "industry": "造纸"
+    },
+    {
+      "sector": "URFI881165",
+      "industry": "综合"
+    },
+    {
+      "sector": "URFI881174",
+      "industry": "厨卫电器"
+    },
+    {
+      "sector": "URFI881178",
+      "industry": "教育"
+    },
+    {
+      "sector": "URFI881266",
+      "industry": "橡胶制品"
+    },
+    {
+      "sector": "URFI881284",
+      "industry": "环保设备"
+    }
+  ],
+  "false_to_true_relevant": 73,
+  "unknown_to_true_relevant": 11,
+  "fixed20_known": 82,
+  "fixed20_positive": 82,
+  "fixed20_nonpositive": 0,
+  "all90_0923_1008_positive": 90,
+  "median_0923_1008_pct": 35.481463034213505,
+  "median_0923_1031_pct": 34.94135729235259,
+  "actual_entered_by_1008": 12,
+  "actual_entered_by_1031": 28,
+  "no_account_runs": true,
+  "no_new_threshold": true,
+  "not_win_rate": true
+}

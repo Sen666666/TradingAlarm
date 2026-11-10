@@ -1,0 +1,18 @@
+{
+  "draft_completed": true,
+  "synthetic_tests": {
+    "tests": 22,
+    "failures": 0,
+    "errors": 0,
+    "passed": true,
+    "scope": "minimum-gate pure fixture, no sizing/ledger integration or history",
+    "exception_default": false,
+    "new_numeric_exception_cap_not_selected": true
+  },
+  "v3_inputs_results_unchanged": true,
+  "historical_runs": 0,
+  "not_integrated_with_ledger": true,
+  "only_one_draft_candidate": "fresh flat mobile exactly one legal minimum unit; hard limits preserved; exception flag remains false by default",
+  "unresolved_policy": "whether to approve above-target one-unit policy, dedicated exception cap and tradable shared remainder; no numeric cap selected",
+  "no_unit_exception_in_next_account_risk_ablation": true
+}

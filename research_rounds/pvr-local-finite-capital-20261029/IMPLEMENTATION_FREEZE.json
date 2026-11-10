@@ -1,0 +1,9 @@
+{
+  "before_local_returns": true,
+  "recorded_at": "2026-10-29T13:27:14.696771+00:00",
+  "sha256": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-local-finite-capital-20261029/code/local_adapter.py": "30b2e4c0078cc6623ff1ab63bdf8531a7beda392eb2130091b1576dd9ba75698",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-local-finite-capital-20261029/code/local_run.py": "f60cfa658272852f5a69c5fc780d96c7b31dd13775f7a9639a7c6f7270a7615e",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-local-finite-capital-20261029/PROTOCOL.txt": "9b4ea693836514a7ca897b2db4a9ae9097981e0d32204acd793debe06a9c2df0"
+  }
+}

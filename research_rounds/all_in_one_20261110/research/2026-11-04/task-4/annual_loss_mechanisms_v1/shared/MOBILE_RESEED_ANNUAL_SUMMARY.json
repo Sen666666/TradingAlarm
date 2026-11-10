@@ -1,0 +1,100 @@
+{
+  "years": {
+    "2022": {
+      "individual_buy_classification": {
+        "MOBILE_reseed_after_nonloss_or_first": {
+          "fills": 486,
+          "annual_change": "-150972.8347720847494888160716",
+          "negative_layer_sum": "-313630.1070804997886803526052",
+          "positive_layer_sum": "162657.2723084150391915365336",
+          "same_I_watch_epoch_as_previous_mobile_episode": 8
+        },
+        "continue_existing_MOBILE": {
+          "fills": 146,
+          "annual_change": "-71402.03399744970164097014097",
+          "negative_layer_sum": "-111228.2910996939670255855255",
+          "positive_layer_sum": "39826.25710224426538461538462",
+          "same_I_watch_epoch_as_previous_mobile_episode": 4
+        },
+        "MOBILE_reseed_after_loss_CORE_remaining": {
+          "fills": 24,
+          "annual_change": "14764.33777572392051282051283",
+          "negative_layer_sum": "-16811.69300180512948717948718",
+          "positive_layer_sum": "31576.0307775290500",
+          "same_I_watch_epoch_as_previous_mobile_episode": 2
+        },
+        "MOBILE_reseed_after_loss_stock_flat": {
+          "fills": 79,
+          "annual_change": "-28260.73371369054444139194139",
+          "negative_layer_sum": "-44495.21781620664194139194139",
+          "positive_layer_sum": "16234.4841025160975",
+          "same_I_watch_epoch_as_previous_mobile_episode": 7
+        }
+      },
+      "whole_mobile_episode_origin_including_later_buys": {
+        "first_or_after_nonloss": {
+          "fills_including_seed_and_later_adds": 599,
+          "annual_change": "-218313.2329696650797378448206",
+          "negative_layer_sum": "-401291.1823111184343139967389",
+          "positive_layer_sum": "182977.9493414533545761519182"
+        },
+        "after_previous_mobile_loss": {
+          "fills_including_seed_and_later_adds": 136,
+          "annual_change": "-17558.03173783599532051282051",
+          "negative_layer_sum": "-84874.12668708709282051282051",
+          "positive_layer_sum": "67316.0949492510975"
+        }
+      }
+    },
+    "2023": {
+      "individual_buy_classification": {
+        "continue_existing_MOBILE": {
+          "fills": 125,
+          "annual_change": "15944.78177294443509986618904",
+          "negative_layer_sum": "-82557.85469080500810137701220",
+          "positive_layer_sum": "98502.63646374944320124320124",
+          "same_I_watch_epoch_as_previous_mobile_episode": 11
+        },
+        "MOBILE_reseed_after_loss_stock_flat": {
+          "fills": 82,
+          "annual_change": "-21910.25750891322654700854701",
+          "negative_layer_sum": "-44278.34946045329743589743590",
+          "positive_layer_sum": "22368.09195154007088888888889",
+          "same_I_watch_epoch_as_previous_mobile_episode": 9
+        },
+        "MOBILE_reseed_after_nonloss_or_first": {
+          "fills": 239,
+          "annual_change": "13129.54830784309407569711695",
+          "negative_layer_sum": "-120826.8004741289685381619086",
+          "positive_layer_sum": "133956.3487819720626138590256",
+          "same_I_watch_epoch_as_previous_mobile_episode": 9
+        },
+        "MOBILE_reseed_after_loss_CORE_remaining": {
+          "fills": 18,
+          "annual_change": "8670.00571651685882352941176",
+          "negative_layer_sum": "-6010.4093690712000",
+          "positive_layer_sum": "14680.41508558805882352941176",
+          "same_I_watch_epoch_as_previous_mobile_episode": 5
+        }
+      },
+      "whole_mobile_episode_origin_including_later_buys": {
+        "first_or_after_nonloss": {
+          "fills_including_seed_and_later_adds": 317,
+          "annual_change": "28341.07514702907601317014361",
+          "negative_layer_sum": "-171106.2810136335562976585790",
+          "positive_layer_sum": "199447.3561606626323108287225"
+        },
+        "after_previous_mobile_loss": {
+          "fills_including_seed_and_later_adds": 147,
+          "annual_change": "-12506.99685863791456108597286",
+          "negative_layer_sum": "-82567.13298082491777777777778",
+          "positive_layer_sum": "70060.13612218700321669180491"
+        }
+      }
+    }
+  },
+  "scope": "MOBILE-zero episodes are distinct from stock-flat cycles. Prior episode net is already realized at later buy; original trade epoch is an I-watch/source-key epoch, NOT a canonical E0 episode. Reseed row annual values are seed layers only; continued buys belong to continue_existing_MOBILE. Whole-episode-origin grouping includes those later buys, not a newly simulated wave. Annual P&L uses fixed as-of layer wealth, no future outcome in classification.",
+  "all_original_726_CLOSE_layer_quantities_exact": true,
+  "new_accounts": 0,
+  "new_backtests": 0
+}

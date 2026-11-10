@@ -1,0 +1,164 @@
+{
+  "examples": [
+    {
+      "name": "loop",
+      "moves": [
+        0.02,
+        -0.02
+      ],
+      "weights": [
+        4,
+        1
+      ],
+      "net": 0,
+      "weighted": 0,
+      "retained_absolute": 0,
+      "fragments": []
+    },
+    {
+      "name": "revisit",
+      "moves": [
+        0.02,
+        -0.02,
+        0.02
+      ],
+      "weights": [
+        4,
+        1,
+        1
+      ],
+      "net": 0.02,
+      "weighted": 0.02,
+      "retained_absolute": 0.02,
+      "fragments": [
+        [
+          0.02,
+          1.0,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "partial_pullback",
+      "moves": [
+        0.02,
+        0.03,
+        -0.01
+      ],
+      "weights": [
+        1,
+        4,
+        1
+      ],
+      "net": 0.039999999999999994,
+      "weighted": 0.09999999999999999,
+      "retained_absolute": 0.039999999999999994,
+      "fragments": [
+        [
+          0.02,
+          1.0,
+          0
+        ],
+        [
+          0.019999999999999997,
+          4.0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "reverse",
+      "moves": [
+        0.02,
+        0.03,
+        -0.06
+      ],
+      "weights": [
+        1,
+        4,
+        1
+      ],
+      "net": -0.009999999999999998,
+      "weighted": -0.009999999999999998,
+      "retained_absolute": 0.009999999999999998,
+      "fragments": [
+        [
+          -0.009999999999999998,
+          1.0,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "recover_late",
+      "moves": [
+        0.04,
+        -0.06,
+        0.04
+      ],
+      "weights": [
+        1,
+        4,
+        1
+      ],
+      "net": 0.020000000000000004,
+      "weighted": 0.020000000000000004,
+      "retained_absolute": 0.020000000000000004,
+      "fragments": [
+        [
+          0.020000000000000004,
+          1.0,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "fall_late",
+      "moves": [
+        0.04,
+        0.04,
+        -0.06
+      ],
+      "weights": [
+        1,
+        1,
+        4
+      ],
+      "net": 0.020000000000000004,
+      "weighted": 0.020000000000000004,
+      "retained_absolute": 0.020000000000000004,
+      "fragments": [
+        [
+          0.020000000000000004,
+          1.0,
+          0
+        ]
+      ]
+    }
+  ],
+  "random_invariant_tests": 1000,
+  "price_prefix_tests": 3000,
+  "cases": [
+    {
+      "id": "F2",
+      "observations": 103,
+      "sign_mismatches": 0
+    },
+    {
+      "id": "R2",
+      "observations": 242,
+      "sign_mismatches": 0
+    },
+    {
+      "id": "B1",
+      "observations": 132,
+      "sign_mismatches": 0
+    },
+    {
+      "id": "S3",
+      "observations": 236,
+      "sign_mismatches": 0
+    }
+  ],
+  "conclusion": "Correct cancellation prevents resurrection but positive-weight score sign is identically endpoint return sign. Do not promote as new path-state estimator."
+}

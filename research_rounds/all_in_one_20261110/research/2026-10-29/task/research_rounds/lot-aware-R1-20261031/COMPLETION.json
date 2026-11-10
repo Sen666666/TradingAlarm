@@ -1,0 +1,219 @@
+{
+  "completed": true,
+  "valid_complete_R1_arms": 1,
+  "baseline_replayed": false,
+  "policy": "B_diag plus frozen R1, no account risk check; all other original constraints retained",
+  "real_ledger_synthetic_gate": {
+    "passed": true,
+    "tests": 20,
+    "failures": 0,
+    "errors": 0,
+    "real_native_ledger_and_admission": true,
+    "historical_paths": 0,
+    "original_account_3_percent_tested_separately": true
+  },
+  "resume_class_gate": {
+    "passed": true,
+    "actual_module": "R1_unique_frozen_run_harness",
+    "actual_file": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lot-aware-R1-20261031/run_one.py",
+    "planning_opening_route_are_R1": true,
+    "harness_sha256": "b1e538e9d8ebee47f1b5d7982c0dfc979c274fb26c5f408a8e005c7ffc5a1392",
+    "resume_script_sha256": "dbb8deb651706e3855d56a5ceef028e8fb112a1bceb32647483fcfc30cd94ea0"
+  },
+  "physical_prefix": {
+    "passed": true,
+    "cut": "2025-07-07",
+    "exact_observable_assertion": true,
+    "full_side_saved": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lot-aware-R1-20261031/invalid-hybrid-after-resume/prefix-full-source/pair",
+    "physical_side_saved": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lot-aware-R1-20261031/run/prefix-physical-source/pair",
+    "both_R1_function_identities_asserted": true,
+    "source_prefix_account_restored_not_replayed": true
+  },
+  "R1_counts": {
+    "preview_eligible_receipts": 415,
+    "admitted_reserved_receipts": 9,
+    "actual_filled_receipts": 9,
+    "reserved_unfilled_receipts": 0,
+    "actual_buy_fill_records": 9,
+    "ordinary_buy_fill_records": 695,
+    "actual_R1_buy_cash": "300995.8550167503000",
+    "allocated_R1_buy_and_sell_fees": "254.3443343515500",
+    "actual_gross_above_frozen4pct": [],
+    "all_reservations_exact_opening_minimum_and_confirmed": true,
+    "filled_receipt_share_totals": {
+      "55c1e81712ab92316670932f152ed12fee06238cf433805823d0fe9e3b7a1bda": 200,
+      "e3e714020f5f5f6d9e2e00c1a8d13fe029f8c7a490414a0a102cf5e16725568e": 200,
+      "135e3cf3c9028f81b6a7c3d4d9174d3ce1efca18a595b9dce5c03e714c13c478": 200,
+      "9f51146982f2b4c277374a99c69c9ac7cb6d72205a3290ea11ad3bba7bb13323": 100,
+      "efc50d4384a54bcdf8a281e1b6fd291aeb3b7b07c257ab71c36371ab42f98791": 100,
+      "f19e69e7ecedea374b23eaf7c1fa980b005a340381fe47ee9f47146b83f8ffad": 200,
+      "a5fa4277ad61f0313617f1904d69f372910df1b09b4e997a7a94b1c5f07922b2": 100,
+      "430419d51d89f2ab4024c223a903d39df9cafe93e7beadb8f9e5241054f3b671": 200,
+      "15d685ac1b0e685714ebcf7665c95d71273dc7fbebaed9106b8d338b572f4fde": 100
+    },
+    "partially_filled_receipts": [],
+    "tagged_layer_net_contribution": "-2070.2148343515500",
+    "tagged_layer_partitions": {
+      "closed_loss": "-16174.5627589041000",
+      "closed_tail_profit": "11937.3317528256000",
+      "open_ordinary_profit": "2167.0161717269500"
+    },
+    "interpretation": "R1-only immediate unlock at this endogenous account state; tagged sleeve contribution is descriptive, not total policy causal increment"
+  },
+  "metrics": {
+    "B_diag": {
+      "NAV": "1261468.9450115387830",
+      "net_profit": "261468.9450115387830",
+      "return_pct": "26.146894501153878300",
+      "DD_pct": "13.17950706908822863379594656",
+      "longest_observed_underwater_calendar_days": 125,
+      "average_exposure_pct": "63.72302382523523938740971582",
+      "peak_exposure_pct": "67.80946153358012671618607523",
+      "cumulative_buy_cash": "7415021.4651978849735",
+      "fees": "11208.0366884612170",
+      "buy_fills": 750,
+      "sell_fills": 549,
+      "ACT_paused_closes": 0,
+      "closed_negative_layer_loss": "469428.0490891289731803817895",
+      "record_only_gross_negative_realization_plus_all_fees": "474984.535543461231364",
+      "terminal_stock_count": 37,
+      "terminal_inventory": "589084.38",
+      "terminal_sale_AR": "0",
+      "terminal_dividend_AR": "1565.07200",
+      "industry_contribution_NAV_gap": "0E-13",
+      "actual_splits": 0
+    },
+    "R1_diag": {
+      "NAV": "1240082.8096831950355",
+      "net_profit": "240082.8096831950355",
+      "return_pct": "24.0082809683195035500",
+      "DD_pct": "13.73799454856013705043414176",
+      "longest_observed_underwater_calendar_days": 83,
+      "average_exposure_pct": "63.92397865290555283400979346",
+      "peak_exposure_pct": "69.72034877584552815398471423",
+      "cumulative_buy_cash": "7500752.3836615206685",
+      "fees": "10863.0445918049645",
+      "buy_fills": 704,
+      "sell_fills": 515,
+      "ACT_paused_closes": 0,
+      "closed_negative_layer_loss": "461967.8421126266821659451660",
+      "record_only_gross_negative_realization_plus_all_fees": "467065.323251804987091",
+      "terminal_stock_count": 32,
+      "terminal_inventory": "638103.08",
+      "terminal_sale_AR": "0",
+      "terminal_dividend_AR": "1322.86400",
+      "industry_contribution_NAV_gap": "0E-13",
+      "actual_splits": 1
+    }
+  },
+  "R1_average_nominal_risk_pct": "6.906516024053462235401476126",
+  "R1_peak_nominal_risk_pct": "11.61848999466863173728299901",
+  "accounting": {
+    "days": 182,
+    "maximum_absolute_gaps": {
+      "independent_NAV_difference": "0",
+      "budget_NAV_difference": "2.3283064365386963E-10",
+      "spendable_difference": "0.0",
+      "reserved_difference": "0.0",
+      "capital_occupancy_difference": "1.1641532182693481E-10",
+      "maximum_stock_quantity_difference": "0"
+    },
+    "exit_requests": 522,
+    "actual_sell_fill_records": 515,
+    "terminal_pending_exit_stocks": 7,
+    "sources": {
+      "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/run/pair/B.json.gz": "39601ce5b3cabdcb7b72ac5a3584c87110e3436dcf69fe9695a83e2ad60a2f60",
+      "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lot-aware-R1-20261031/run/pair/B.json.gz": "881f58104f795767f1e79b63a4a7d06860d5d80e023f87793366007fdae7b3e8"
+    },
+    "new_account_runs": 0,
+    "seconds": 3.456114541273564,
+    "baseline_not_replayed": true
+  },
+  "net_policy_difference": "-21386.1353283437475",
+  "all_frozen_sources_unchanged": true,
+  "timing": {
+    "valid_resume_preparation_seconds": 39.87853258382529,
+    "physical_prefix_seconds": 4.16905999975279,
+    "valid_continuation_audit_save_seconds": 134.31633824994788,
+    "total_valid_resume_wall_seconds": 182.78811737475917,
+    "new_complete_valid_R1_arms": 1,
+    "baseline_replayed": false,
+    "invalid_hybrid_not_counted_as_R1": true,
+    "prior_failed_attempts_preserved": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lot-aware-R1-20261031/invalid-hybrid-after-resume"
+  },
+  "resolved_errors": [
+    {
+      "kind": "artifact parent directory missing",
+      "evidence": "ARTIFACT_FIX.json",
+      "trade_code_changed": false
+    },
+    {
+      "kind": "wrong same-name run_one import during first resume",
+      "invalid_result": "17.47241045% is NOT R1 and withdrawn",
+      "evidence": "RESUME_IMPORT_ERRATUM.json",
+      "archive": "invalid-hybrid-after-resume",
+      "fix": "explicit absolute-file loading and function identity assertions; restart from valid July7 checkpoint, same policy"
+    }
+  ],
+  "output_io_smoke": {
+    "passed": true,
+    "checks": 10,
+    "details": [
+      "all five output families prepared from empty directory",
+      "nested prefix JSON success",
+      "checkpoint pickle success",
+      "final gzip stream success",
+      "failed checkpoint preserves prior target",
+      "mid-stream failure preserves prior final",
+      "new-target failure leaves no partial file and failure report is saved",
+      "no temporary output leftovers",
+      "runner checkpoint/prefix/side-audit staging and identity restoration",
+      "runner export failure preserves prior final and saves failure evidence"
+    ],
+    "temp_evidence_root": "/tmp/research-output-io-smoke-_nmpf_f5",
+    "preflight": {
+      "prefix_full": {
+        "target": "/tmp/research-output-io-smoke-_nmpf_f5/prefix/full/pair",
+        "parent": "/tmp/research-output-io-smoke-_nmpf_f5/prefix/full/pair",
+        "parent_created_or_existing": true,
+        "atomic_write_probe_passed": true
+      },
+      "prefix_physical": {
+        "target": "/tmp/research-output-io-smoke-_nmpf_f5/prefix/physical/pair",
+        "parent": "/tmp/research-output-io-smoke-_nmpf_f5/prefix/physical/pair",
+        "parent_created_or_existing": true,
+        "atomic_write_probe_passed": true
+      },
+      "checkpoint": {
+        "target": "/tmp/research-output-io-smoke-_nmpf_f5/checkpoints/state.pkl",
+        "parent": "/tmp/research-output-io-smoke-_nmpf_f5/checkpoints",
+        "parent_created_or_existing": true,
+        "atomic_write_probe_passed": true
+      },
+      "final": {
+        "target": "/tmp/research-output-io-smoke-_nmpf_f5/final/pair",
+        "parent": "/tmp/research-output-io-smoke-_nmpf_f5/final/pair",
+        "parent_created_or_existing": true,
+        "atomic_write_probe_passed": true
+      },
+      "failure": {
+        "target": "/tmp/research-output-io-smoke-_nmpf_f5/failures/ERROR.json",
+        "parent": "/tmp/research-output-io-smoke-_nmpf_f5/failures",
+        "parent_created_or_existing": true,
+        "atomic_write_probe_passed": true
+      }
+    },
+    "source_sha256": "4718d1d9d4a185a1a0071477189901f084e1c1593f7cf6b50fc5103946293773",
+    "scope": "I/O only; no economic replay or trading-code change"
+  },
+  "remaining_execution_blockers": [],
+  "limitations": [
+    "current snapshot/survivorship and consumed historical development sample, not independent OOS",
+    "original daily opening execution proxy uses same-day OHLC/volume postcheck; not certified real fills",
+    "tagged R1 contribution and ordinary-position bridge are descriptive; no unique causal decomposition",
+    "physical prefix only through July7; both sides now persisted"
+  ],
+  "no_additional_policy_or_parameter_runs": true,
+  "output_io_wrapper": "../_shared/research_output_io.py",
+  "io_wrapper_status": "success/error runner-boundary smoke passed; future runners use atomic_runner_outputs; completed frozen trade source not retroactively rewritten"
+}

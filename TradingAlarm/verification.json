@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-17",
+  "unit_tests": {
+    "passed": 16,
+    "command": "python3 -m unittest discover -s TradingAlarm -p 'test_*.py' -v"
+  },
+  "javascript_syntax": "passed",
+  "browser_checks": [
+    "中文和代码搜索",
+    "无搜索结果提示",
+    "切换股票",
+    "分时图和分钟成交量",
+    "日周月K切换",
+    "历史分页",
+    "CSV下载与内容核验",
+    "自选移除和加入",
+    "无图表数据提示",
+    "桌面1360px和手机390px布局",
+    "无console error/warn",
+    "在线会话状态面板",
+    "原客户端最新票据独立重建在线验证",
+    "完整09:30–15:00分时",
+    "中文/拼音/代码在线搜索",
+    "不在初始目录中的601939加载在线行情",
+    "在线零匹配正常提示",
+    "非沪深市场标记仅搜索"
+  ],
+  "csv": {
+    "symbol": "USHA688008",
+    "rows": 1382,
+    "first": "2021-01-28",
+    "last": "2026-10-16"
+  },
+  "network_mode": "user-authorized live mode enabled, selected stock manual refresh",
+  "live_adapter": "verified with current THS preferences: quote + 241 minutes + 750 daily bars; browser refresh successful",
+  "preview": "search-preview.jpg",
+  "search_endpoint": "8.134.69.102:9605"
+}

@@ -1,0 +1,54 @@
+from common import *
+from concurrent.futures import ProcessPoolExecutor
+sys.path.insert(0,str(ROOT));from TradingAlarm.desk.refresh import prepare_facts
+sys.path.append(str(ROOT/'research_rounds/pv-strength-b5-20261025/code'));ev=C.import_path('drug_b5_evidence',ROOT/'research_rounds/pv-strength-b5-20261025/code/evidence.py')
+ss=(SREF/'code/entry_kernel.py').read_text();fs=(FREF/'code/fast_kernel.py').read_text();ns=dict(ev.__dict__);exec(ss,ns);exec(fs,ns);entry=ns['entry_events'];fast=ns['fast_events']
+def strict_calc(f,k):
+ out=[]
+ for _,g in f.groupby('segment_id',sort=False):
+  e,_=entry(g,k);active=False;floor=math.nan;rows=[]
+  for t,r in g.iterrows():
+   exited=False
+   if active and ev.compare(float(r.close),floor)<=0:active=False;exited=True
+   if e.loc[t,'event']==1:
+    pivot=float(e.loc[t,'confirmed_pivot_price'])
+    if active:floor=max(floor,pivot)
+    elif not exited:active=True;floor=pivot
+   rows.append(dict(date=t,strict_target=active,strict_floor=floor if active or exited else math.nan,event=float(e.loc[t,'event'])))
+  out.append(pd.DataFrame(rows).set_index('date'))
+ return pd.concat(out) if out else pd.DataFrame({'strict_target':pd.Series(dtype=bool),'strict_floor':pd.Series(dtype=float),'event':pd.Series(dtype=float)},index=f.index[:0])
+def fast_calc(f):
+ pp=[]
+ for _,g in f.groupby('segment_id',sort=False):
+  z,_=fast(g);pp.append(z[['event','confirmed_pivot_price','confirmed_pivot_date']].rename(columns={'confirmed_pivot_price':'pivot','confirmed_pivot_date':'pivot_date'}))
+ z=pd.concat(pp).sort_index();z['close']=f.close;return z
+
+def job(rec):
+ sid=rec['series_id'];f=signal(rec);facts=prepare_facts(f);f.to_parquet(PREP/'signals'/f'{sid}.parquet');facts.to_parquet(PREP/'facts'/f'{sid}.parquet');n=0
+ if rec['kind']=='stock':
+  z=strict_calc(f.reindex(facts.index),1.5);b=strict_calc(f.reindex(facts.index),1);assert np.array_equal(b.strict_target.to_numpy(bool),facts.e0_target.to_numpy(bool));np.testing.assert_allclose(b.strict_floor,facts.e0_floor,equal_nan=True,rtol=1e-12,atol=1e-10)
+  fastz=fast_calc(f);z.to_parquet(PREP/'strict'/f'{sid}.parquet');fastz.to_parquet(PREP/'fast'/f'{sid}.parquet')
+ for cut in ['2024-12-31','2026-06-30']:
+  short=signal(dict(rec)) # Truncate source preparation through explicit causal cutoff below.
+  raw=C.read_raw(rec['raw']['path'],rec);events,_=C.read_actions(rec,Path(rec['raw']['path']).parent);parts=[]
+  for j,part in enumerate(C.source_segments(raw,rec)):
+   g=raw.loc[part['start']:part['end']].loc[:cut]
+   if g.empty:continue
+   v=C.prepare_signal(g,rec,[e for e in events if e['effective_date']<=cut],cutoff=cut);v['segment_id']=j;parts.append(v)
+  short=pd.concat(parts) if parts else f.iloc[:0];pd.testing.assert_frame_equal(short,f.loc[:cut],check_exact=True);sf=prepare_facts(short);pd.testing.assert_frame_equal(sf,facts.loc[:cut],check_exact=True)
+  if rec['kind']=='stock':
+   q=strict_calc(short.reindex(sf.index),1.5);pd.testing.assert_frame_equal(q,z.loc[:cut],check_exact=True);q=fast_calc(short);pd.testing.assert_frame_equal(q,fastz.loc[:cut],check_exact=True)
+  n+=1
+ return dict(symbol=sid,kind=rec['kind'],last=str(f.index[-1].date()),price_observations=len(facts),prefixes=n,raw_sha256=rec['raw']['sha256'],facts_hash=sha(PREP/'facts'/f'{sid}.parquet'))
+def main():
+ PREP.mkdir();[(PREP/d).mkdir() for d in ['signals','facts','strict','fast']]
+ scope=read(POOL);ids=scope['groups']['DRUG'];sectors={scope['meta'][s]['sector_id'] for s in ids};allrec={r['series_id']:r for r in read(SNAP/'manifest.json')['series']};records=[allrec[s] for s in sorted(set(ids)|sectors)];assert len(ids)==48
+ roster=[dict(symbol=s,**scope['meta'][s]) for s in ids];pd.DataFrame(roster).to_csv(O/'pool.csv',index=False)
+ save(O/'input.json',{'snapshot':str(SNAP),'as_of':'2026-10-27','scope_source':str(POOL),'scope_sha256':sha(POOL),'official_members_sha256':sha(ROOT/'research_rounds/sector-ix-i-20261026/sources/931152cons.xls'),'stock_count':48,'member_source_date':scope['innovation_source']['source_date'],'sector_ids':sorted(sectors),'current_members_bias':True,'excluded_official_members':[r for r in scope['innovation_source']['all_members'] if not r.get('eligible',False)]})
+ save(PREP/'manifest.json',{'series':records});receipts=[]
+ with ProcessPoolExecutor(max_workers=4) as pool:
+  for r in pool.map(job,records):receipts.append(r);print(r['symbol'],r['last'],flush=True)
+ save(O/'signal-validation.json',{'passed':True,'records':receipts,'raw_signal_fact_prefixes':sum(r['prefixes'] for r in receipts),'strict_fast_prefixes':48*4,'multiplier_one_exact':48,'network_requests':0})
+ # The complete RS reference matrix is already current; reuse unchanged.
+ (PREP/'h1.npz').symlink_to(SNAP/'h1.npz')
+if __name__=='__main__':main()

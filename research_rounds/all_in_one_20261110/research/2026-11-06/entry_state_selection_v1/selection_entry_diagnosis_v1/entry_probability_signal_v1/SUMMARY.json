@@ -1,0 +1,33 @@
+{
+  "status": "SIGNAL_ONLY_FROZEN_FORWARD_DIAGNOSTIC_NOT_ACCOUNT_NOT_INDEPENDENT_OOS",
+  "account_runs": 0,
+  "model_specs": 1,
+  "parameter_searches": 0,
+  "seconds": 144.5737844160758,
+  "events": 116271,
+  "training2021": 20265,
+  "training2021_mature_before2022": 19806,
+  "event_by_year": {
+    "2021": 20265,
+    "2022": 16932,
+    "2023": 18781,
+    "2024": 25251,
+    "2025": 24971,
+    "2026": 10071
+  },
+  "full_prediction_years": {
+    "2022": 16816,
+    "2023": 18671,
+    "2024": 25098,
+    "2025": 24769,
+    "2026": 9960
+  },
+  "original_first_entries": 2693,
+  "matched_CP_domain": 2307,
+  "matched_score_known": 2279,
+  "all_equalK": true,
+  "source_freeze_hash": "352f29ff515cf4a32017d1911e933d91a91fe0a18aad898186503bdd549847a4",
+  "frozen_selections_hash": "0f75b56b31fd3c1d62de237eb7605f33baf3d1e5aa12602d37ac39e51761b79e",
+  "limitations": "1709 identities are future-selected; historical availability/ST/delist and adjustment publication time not certified. No claim of all historical A-share legal candidates.",
+  "no_calibration_refit": true
+}

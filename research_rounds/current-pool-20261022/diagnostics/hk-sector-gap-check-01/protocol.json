@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "symbol": "UFIH871116",
+      "node": "9603",
+      "end": "20261020",
+      "earliest": "2026-10-01",
+      "mode": "full",
+      "rights": false,
+      "max_pages": 1
+    },
+    {
+      "symbol": "UFIH871117",
+      "node": "9603",
+      "end": "20201231",
+      "earliest": "2020-01-01",
+      "mode": "full",
+      "rights": false,
+      "max_pages": 1
+    }
+  ],
+  "max_requests": 2,
+  "request_interval_seconds": 0.3,
+  "session_preference": "auto",
+  "read_timeout_seconds": 20,
+  "purpose": "one bounded direct request inside each observed HK index source gap, not model expansion"
+}

@@ -1,0 +1,17 @@
+隔离研究接线NSR1，2026-11-02。仅合成，不接历史账户，不运行任何历史ACTION/OPEN/CLOSE。
+
+复用冻结rights_issue_no_subscription：holder_election=do_not_subscribe_no_cash_debit_no_extra_holder_shares，actual cash_per_old_share=0、split_ratio=1、volume_split_ratio=1。rights_ratio/subscription_price为已知原条款；signal_cash=-rights_ratio×subscription_price，signal_split=1+rights_ratio。信号调整不是现金扣款/送股/账户share_ratio。拒绝认购、卖权利、权利估值补偿及其他未知类型。不改股票资格、仓位/试错/迁速预算和保护规则。
+
+当前读写只在本新目录。原mixed-order-v1、month_runtime、loader、历史账户、所有原产物只读。未来主线程须显式版本升级并保留原证书来源；本包不提供自动历史checkpoint导入，不伪造历史授权或改现四账户类。
+
+输入适配只为该明确配股类型补check_action_support；普通分红送股仍调用原检查器。所有必要条款缺失/NaN/日期不符/比例或负现金信号恒等不符/持有人选择不符均在任何账户或行情内存变化前拒绝。每个新配股事件要求精确当日因子已知且>0，即使无仓也不默认因子。现有层/待买的有效保护须前置已知，预检直接只读层表，不调用会生成索引的live()；原bridge/observer再核，异常外层完整事务回滚。混合rights与普通动作同批暂拒绝，不能因为本接线放宽普通送股边界。
+
+事件身份=原sid/effective_date/source_id，绑定完整原条款的canonical hash。相同事件/同条款重复只返回already_applied，不再刷新行情、记审计或变cursor；同身份改条款原子拒绝。完成cursor之前的新事件拒绝；重复旧事件不倒退cursor。同批相同重复去重；任一条款未知整批拒绝。幂等登记保存在runner.no_subscription_actions；不伪造native split/dividend ledger事件。
+
+rights-only动作只更新既有来源的市场mark/factor与ACTION观察时钟、记录无认购审计/回调、运行原bridge和observer。不调用split/accrue/pay、submit/cancel/fill、资金求解或settle_due；若ACTION已有到期结算或结算钟未知则前置原子拒绝，不静默把原现金结算推迟到OPEN。此边界未接，须另审；其他原支付/结算留给原native事件流程。layers、现金与应收/预留、待买/待卖数量及deadline、原pending、权益成本/保护存储、policy锁/损耗/消费、share_ratio、C authority、GoalCoverage、New/Carry与冻结预算全部逐状态保留。因子/mark变动允许按原来源改变NAV与raw保护换算，不能虚构补偿。所有责任数量/原责任e0不变；动态line-risk可随真实mark/factor变化。
+
+使用原pickle内存事务模式对回调/bridge/observer异常回滚整个新动作；未知条款和因子在序列化/refresh前预检。只对受本新适配控制的内存事务负责，不保证外部副作用可撤销，原市场refresh须仍为只读本地缓存。
+
+合成必须覆盖：无持仓、有持仓、raw pending意图、reserved买单、待卖责任、未提交C Q、重复/变更/同批重复、未知元数据和因子、callback拒绝、保存恢复及跨进程；raw floor=原调整保护/已知factor，与signal_split及实际share_ratio不同域。两种C10/C_BATCH20均验证。普通动作分发不得调用新配股逻辑，不试图修一般零股/混合批/认购。
+
+只读核对原Jan13青岛银行、Jan27中信证券条款可通过纯schema验证；不把它们传入任何金融runner。合成使用虚构SID/价格/日期与生成配股条款，不载入历史pickle。

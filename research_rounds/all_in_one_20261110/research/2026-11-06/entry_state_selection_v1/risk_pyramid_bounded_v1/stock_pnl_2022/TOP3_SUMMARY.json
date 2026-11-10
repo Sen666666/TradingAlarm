@@ -1,0 +1,128 @@
+[
+  {
+    "sid": "000620.SZ",
+    "annual_pnl": "-14511.7248768672500",
+    "buy_orders": 12,
+    "sell_orders": 4,
+    "cumulative_buy_gross": "142462.195500",
+    "fees": "241.4013768672500",
+    "max_close_marked_value": "65268.00",
+    "max_close_value_day": "2022-09-28",
+    "max_remaining_cost": "55124.42332884320000000000001",
+    "max_cost_day": "2022-01-14",
+    "max_after_trade_open_mark": "62266.00",
+    "campaigns": [
+      {
+        "start": "2022-01-11",
+        "end": "2022-02-08",
+        "campaign": 1,
+        "net_pnl": "-17850.1464100348500"
+      },
+      {
+        "start": "2022-04-08",
+        "end": "2022-04-21",
+        "campaign": 2,
+        "net_pnl": "-895.5859182280000"
+      },
+      {
+        "start": "2022-09-08",
+        "end": "2022-10-10",
+        "campaign": 3,
+        "net_pnl": "4234.0074513956000"
+      }
+    ],
+    "corporate_actions_2022": [],
+    "corporate_actions_during_holdings": [],
+    "raw_vs_adjustment": "PnL from raw-currency fill cashflows and actual shares; adjusted indicator floor never multiplied directly by raw shares"
+  },
+  {
+    "sid": "600675.SH",
+    "annual_pnl": "-8253.8312493192000",
+    "buy_orders": 6,
+    "sell_orders": 4,
+    "cumulative_buy_gross": "83287.623000",
+    "fees": "142.6012493192000",
+    "max_close_marked_value": "47347.00",
+    "max_close_value_day": "2022-04-12",
+    "max_remaining_cost": "48011.24088898079999999999999",
+    "max_cost_day": "2022-04-12",
+    "max_after_trade_open_mark": "53110.0",
+    "campaigns": [
+      {
+        "start": "2022-04-08",
+        "end": "2022-04-13",
+        "campaign": 1,
+        "net_pnl": "-4358.4343506109500"
+      },
+      {
+        "start": "2022-04-15",
+        "end": "2022-04-21",
+        "campaign": 2,
+        "net_pnl": "-2076.0804010522500"
+      },
+      {
+        "start": "2022-12-01",
+        "end": "2022-12-08",
+        "campaign": 3,
+        "net_pnl": "-1819.3164976560000"
+      }
+    ],
+    "corporate_actions_2022": [
+      {
+        "effective_date": "2022-07-18",
+        "cash_per_old_share": "0.053",
+        "split_ratio": "1",
+        "source_id": "482b83f502101e116233787b2c12264f73dc8e1e73ab8d551baec62a5f06c607",
+        "raw_text": "2022-07-18(每十股 红利0.53元)$",
+        "paid_at": null,
+        "new_shares_sellable_at": null,
+        "classification": "ordinary_cash_and_pro_rata_bonus",
+        "modeling_basis": "explicit_source_terms_pay_dates_unknown"
+      }
+    ],
+    "corporate_actions_during_holdings": [],
+    "raw_vs_adjustment": "PnL from raw-currency fill cashflows and actual shares; adjusted indicator floor never multiplied directly by raw shares"
+  },
+  {
+    "sid": "002911.SZ",
+    "annual_pnl": "-6912.0927871222500",
+    "buy_orders": 5,
+    "sell_orders": 3,
+    "cumulative_buy_gross": "67040.503500",
+    "fees": "113.4532871222500",
+    "max_close_marked_value": "58938.00",
+    "max_close_value_day": "2022-08-02",
+    "max_remaining_cost": "52337.26054439345000000000000",
+    "max_cost_day": "2022-08-01",
+    "max_after_trade_open_mark": "56034.00",
+    "campaigns": [
+      {
+        "start": "2022-07-26",
+        "end": "2022-09-19",
+        "campaign": 1,
+        "net_pnl": "-5033.2470347182500"
+      },
+      {
+        "start": "2022-12-02",
+        "end": "2022-12-21",
+        "campaign": 2,
+        "net_pnl": "-1878.8457524040000"
+      }
+    ],
+    "corporate_actions_2022": [
+      {
+        "effective_date": "2022-05-31",
+        "cash_per_old_share": "0.45",
+        "split_ratio": "1",
+        "source_id": "df5f6edf2add689f38a9b1335277a9be929c95d962cbfaf0f4c62642a01077d2",
+        "raw_text": "2022-05-31(每十股 红利4.50元)$",
+        "paid_at": null,
+        "new_shares_sellable_at": null,
+        "classification": "ordinary_cash_and_pro_rata_bonus",
+        "modeling_basis": "explicit_source_terms_pay_dates_unknown"
+      }
+    ],
+    "corporate_actions_during_holdings": [],
+    "raw_vs_adjustment": "PnL from raw-currency fill cashflows and actual shares; adjusted indicator floor never multiplied directly by raw shares"
+  }
+]

@@ -1,0 +1,7 @@
+JF2：JF1隔离安全修正，无经济参数变更，无历史账户事件。
+
+1. 证书正文除certificate_id外完整hash；accept与restore都重新核算。证书绑定账户/目标ID、原真实资源快照digest、全部输入及每个receipt的source/formation/confirmation/structure/原deadline。
+2. hash不是资源授权。提交必须由调用方传入原provider核过的当前快照与需求，重算整个纯规划证书逐项核同；恢复必须传入可信快照映射及当前原生commitment映射。未接原生provider前仅能称组件验证。分析用前请求视图不可提交为真实账户权限。
+3. 同目标可跨receipt保留，但证书只能限制所绑定receipt；fresh换receipt不能复用旧证书，也不能延寿。新证书需新真实快照重新证明，不从同快照改receipt生成新grant。订单/实际fill/cancel ACK数量守恒，真实fill receipt去重；恢复校验正文和可信实际commitments，不能只信文件自带状态。
+4. 对other_saved_goal_need>0且无完整旧目标资源/独占覆盖证明的输入，本版明确RECONCILE_OTHER_COMMITTED_GOALS阻断，不把应收或现金余额重复借给新目标。本版不扩大成全目标融资平台。Jul3前请求视图旧目标额外需要为0；实际已请求状态有正旧目标额外需求时只能保留并阻断，不抹旧单。
+5. price_known_at与信号/receipt/formation/decision/expiry均按带时区真实时钟校验；缺字段拒，未来价格不能用于本次证明。旧JF1/source/失败反例保留。

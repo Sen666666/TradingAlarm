@@ -1,0 +1,30 @@
+D10是什么：两道独立门，原账户/退出不变
+
+市场D门（新增的唯一机制）
+读取原已存510300 ETF信息CSV的signal_close=X_t与inclusive MA63_t，不另算指标。D_t为：X_t<MA63_t，且MA63_t<前一已存观察的MA63。严格小于，不加容差；任何X/MA/前MA缺失、非有限、非正或信息不在预定可得时钟域，均为UNKNOWN。NOT_DOWN是上述D条件不成立，不能简单等同“市场一定上涨”。
+每个源日15:10+08才可用当日CLOSE；OPEN用此前最近完整可得CLOSE。route、真实reserve与真实fill均重新核当时可用状态，不能只看旧intent的signal_day。1936个预定OPEN/CLOSE已独审；long726日中OPEN D389/ND337，strong242日D14/ND228，UNKNOWN0。完整日期清单在原ALL_PREDECLARED_MARKET_STATE_SEGMENTS.json，正/负/零段全保留。
+
+10%限制的是TOTAL gross准入，不是“每笔可以买10%”或“强制账户维持10%仓位”。
+I=所有旧仓当前原生市值（盈利保护与否均算）；P=真实未完成买单remaining_budget_cny总额，含未ACK撤单的剩余额度；尚未reserve的intent不算P。
+新增q股按实际执行价格p预览：I+P+q*p <= 10% * projected_NAV。
+projected_NAV扣原pending费用/滑点buffer、新单原费用、执行价高于当前mark的差额；gross分子不把费用当股票市值。真实fill时当前订单已经在P中，只替换已执行部分、保留本单余量与其他单，不能重复加整单或提前释放撤单占用。原atomic审计核过实际reserve/fill。
+旧仓可因历史持有/上涨而被动超过10%，D门不因此强卖；不允许用“每日总仓<=10%”断言替代准入约束。缺口、费用、滑点不是保本或最大损失保证。
+市场转NOT_DOWN仅撤销这条额外10%门。原ACT、E0/I_target、CP1、PVR顺序、股票/行业/pool/cash/执行约束仍逐项成立才可买。UNKNOWN只阻新增，不另创卖出规则。
+
+账户ACT门（原有规则，已从源码核实）
+原joint_v3.py:222在每个15:10 CLOSE、原生mark计算完NAV后调用risk_policy.step(...,'ACT20_BREAK')。
+若尚无状态，初始化on=True、peak=1000000、episode=0。on时peak=max(旧peak,当前NAV)，dd=1−当前NAV/peak；源码threshold=Decimal('.2')（不是凭ACT名称推测）。当dd>=20%则pause；该次调用不会同时恢复。
+off时episode peak冻结。ACT20_BREAK恢复条件是flat AND 当日原breakout。flat要求没有任何实际持股、没有待退出、没有真实买单。满足后on=True、peak=当时NAV、episode+1。这里不要求FAST的上穿边沿；那属于另一个未运行的ACT20_FAST模式。
+原breakout并非510300的MA63。它来自原股票/行业合成市场时钟：行业均衡的股票收益合成market超过此前63个观察的最高值，当日market上涨，且原金额方向breadth>0.6。此前63日高点排除当日。计算中每行业至少5只有效股票、至少8个有效行业的广度条件保留。原1709/90行业输入和恢复CSV仍是原合同。
+ACT暂停通过原planning阻止新买，并给实际持有层发原ACT_pause退出请求；仍按原下一合法执行点和原ledger执行，不能解释成即时无滑点清仓。off直到flat+breakout达标，市场ND不能越过它。ACT的episode peak可在恢复时重置，全年/全程最大回撤统计不因此重置，两者不能混同。
+
+为什么二门不重复
+D门看外部ETF价格位置/均线方向，只限新增TOTAL gross，不处置旧仓；ACT看本账户自身episode NAV回撤，暂停新风险且按原规则退出已有仓位，再等待原合成市场breakout。两者输入、动作及解除条件不同。
+因此D但ACT on时，可保留旧赢家，只压新增；ND但ACT off时，仍不能买。D直到2024Jun11才首次自身ACT暂停。2022Jun7、2023Mar22、2024Feb20都是市场D→ND撤附加cap，own ACT原本on；2024Sep27 CLOSE→Sep30 OPEN才是本账户真实ACT恢复首买。不能将它们当同一种ACT单因素实验。
+
+退出未修改
+新D10不修改原ACT_pause、I_target结构退出、原mobile保护线及CP1更新、T+1/费用/成交容量/撤单等合同。原planning中ACT off或I_target false会发原退出；mobile close<=其原冻结/递进floor时按原保护退出，仍下一合法点执行。D门没有额外“盈利就卖”或“旧仓超过10%就卖”。
+
+时钟与实验范围
+long为2022Jan4–2024Dec31/726个CLOSE，自身跨年连续、初始100万元；strong为2025Jul1–2026Jun30/242个CLOSE，独立fresh100万元。2025H2与2026H1不是完整自然年度；两窗口不能拼成连续2022—26。当前1709A股开发快照池，已用于研究，非PIT/OOS、港股或120万元实盘验收。源执行仍daily-bar proxy，execution_verified不能默认为真实交易所认证。
+本说明只复用已存书、原reader及已审结果；0新账户、0新B、0新指标或金融basis。源码定位及SHA由SOURCE_BINDING.json列明。

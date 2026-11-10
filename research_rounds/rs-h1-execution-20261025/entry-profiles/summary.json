@@ -1,0 +1,54 @@
+{
+  "recorded_at": "2026-10-25T02:40:06.375782+08:00",
+  "rows": [
+    {
+      "account": "T0_base",
+      "old_support_distance_median": 0.055408093432001496,
+      "new_support_distance_median": 0.10951661631419947,
+      "old_support_distance_p90": 0.15527026361390128,
+      "new_support_distance_p90": 0.3004850258868298,
+      "old_e0_age_median": 15.0,
+      "new_e0_age_median": 19.0,
+      "old_e0_age_p90": 62.0,
+      "new_e0_age_p90": 73.0
+    },
+    {
+      "account": "T1_base",
+      "old_support_distance_median": 0.0685821573423341,
+      "new_support_distance_median": 0.11627267729521726,
+      "old_support_distance_p90": 0.1772959183673468,
+      "new_support_distance_p90": 0.31704701523928275,
+      "old_e0_age_median": 14.0,
+      "new_e0_age_median": 25.0,
+      "old_e0_age_p90": 56.60000000000002,
+      "new_e0_age_p90": 86.40000000000003
+    },
+    {
+      "account": "S0_base",
+      "old_support_distance_median": 0.10782060583693653,
+      "new_support_distance_median": 0.12709172384409456,
+      "old_support_distance_p90": 0.268553411893797,
+      "new_support_distance_p90": 0.31631060016497187,
+      "old_e0_age_median": 22.0,
+      "new_e0_age_median": 27.0,
+      "old_e0_age_p90": 92.60000000000002,
+      "new_e0_age_p90": 86.90000000000003
+    },
+    {
+      "account": "S1_base",
+      "old_support_distance_median": 0.11826923076923081,
+      "new_support_distance_median": 0.1253518260880223,
+      "old_support_distance_p90": 0.30136444773702303,
+      "new_support_distance_p90": 0.2993218329984217,
+      "old_e0_age_median": 24.0,
+      "new_e0_age_median": 26.5,
+      "old_e0_age_p90": 98.80000000000001,
+      "new_e0_age_p90": 105.1
+    }
+  ],
+  "no_new_accounts": true,
+  "notes": [
+    "Protection distance is the original E0 support known at reservation, not a guaranteed stop loss. No new risk filter or tighter exit is applied.",
+    "Trend age measures bars since the latest original E0 entry event, not age of the one-session cash order. Waiting candidates are evaluated afresh even when the underlying E0 structure is older."
+  ]
+}

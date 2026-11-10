@@ -1,0 +1,21 @@
+{
+  "status": "COMPLETED_FROZEN_OFFLINE_MOBILE_RANK_TEST_NOT_ACCOUNT_NOT_OOS",
+  "seconds": 109.01970337470993,
+  "candidate_rows": 103766,
+  "selected_rows": 55980,
+  "price_series": 1631,
+  "first_mobile_open_checks": 3601,
+  "future_poison_checks": 6,
+  "sources_unchanged": true,
+  "account_runs": 0,
+  "original_indicator_runs": 0,
+  "all_equal_K": true,
+  "full_domain_rows_by_account": {
+    "E31": 50645,
+    "PVR": 53121
+  },
+  "known_rows_by_account": {
+    "E31": 50154,
+    "PVR": 52629
+  }
+}

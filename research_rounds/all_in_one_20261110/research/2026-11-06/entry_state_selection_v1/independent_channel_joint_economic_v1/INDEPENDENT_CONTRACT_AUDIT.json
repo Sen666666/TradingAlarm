@@ -1,0 +1,199 @@
+{
+  "version": "JOINT_AB_PRICE_V1_SPECIFICATION_AUDIT",
+  "result": "PASS_CONTRACT_SPECIFICATION_ONLY",
+  "contract_specification_passed": true,
+  "economic_run_permitted": false,
+  "implementation_verified": false,
+  "baseline_regression_verified": false,
+  "scope": "独立规格前审及只读原源/既有预检事实复核。未实现新消费者，未跑新历史收益，未重复全量市场计算。此PASS仅允许研究负责人按最终协议hash确认后进入G1实现和QA，不是G2经济放行。",
+  "protocol_sha256": "94965590a1d5ba5fd28e88a6cf6c09188f747663590d2ffa0e3f7858e2265687",
+  "reviewed_specification": {
+    "experiment": "唯一A_UNION_B对A_UNION_B_PLUS_PRICE；2022全年与2024Sep-Dec；管理延续至2026-06-30；不扩为2026主经济窗。",
+    "market": "冻结20High独立根、a/U/Ca/B/R、frontier量信用、旧S先失效后E0抬线；不回加stock I/G/cap/RS、整体旧Q、M3或量确认首探门。",
+    "sector": "PRICE每次风险新增仅要求原native四行业事实全真。行业门不改变根出生，不影响原AB许可，不对病例豁免。",
+    "ranking": "同股仅原AB许可、PVR和close size均合法才AB优先；已选AB nextOPEN拒绝无PRICE fallback。跨股已知PVR降序/sid，PRICE未知PVR末排/sid且不否决，AB原PVR已知门保留。",
+    "resource_slots": "原每行业每信号CLOSE最多2个初始预约，不是并发持仓上限。PRICE probe续余量占本日初始名额；AB原ADD与PRICE ADD不占初始名额。",
+    "ownership": "同股既有AB/PRICE held、parent、pending、partial、exitpending、UNKNOWN锁住其他通道。原AB fill不作为PRICE probe完成证明。",
+    "protection": "AB原I/CP分层退出与ADD不改；PRICE probe与唯一ADD共冻结S，CP不接管PRICE。PRICE风险不用旧I或CP更高保护线。",
+    "target_and_receipt": "OPEN先计算并登记固定Q，再写proxy fill；q0或OPEN<=S是未提交，无parent和ACK。真实zero/partial只能同parent Q-F，terminal对账后严格更晚新票，过期/已用/旧根/退役root拒绝。",
+    "liability": "F累加唯一fill且不因卖出退款；F+live_leaves>Q锁UNKNOWN。cancel请求不解锁，latefill先登记再重做对账；根失败不释放未结库存/卖出责任；新根不继承旧Q/F。",
+    "add": "probe完整且complete-known_at之后的新frontier、CONFIRMED、健康持有、行业四真、close与nextOPEN双正净清算权益才ADD。仅一个ADD parent；partial续同目标，原24k/48k/3k与dated费用容量约束保留。",
+    "proxy": "唯一next-common-OPEN全填研究代理。actual order/fill/ACK保持UNKNOWN/NOT_PROVIDED，证据域隔离；一字OHLC不证明实际可成交。",
+    "open_information_boundary": "只能前一CLOSE root/许可/保护与当前OPEN已知raw_open/source/factor/已审权益。禁止读当日预计算market phase/failed/root_id/valid/S_new及日终HLC/量/flags。",
+    "source_and_rights": "原各窗有限现金权益权限、NET80、登记自有库存、claim隔离及应收/到账时钟；PRICE已知未准入行动和跨源UNKNOWN锁存。2026切源不卖出、不释放责任。",
+    "full_hold_clock": "已缓存三窗口不能拼成连续生命周期。G1须沿原fullwarm函数补连续管理期并与封存重叠行exact，行业和容量也补齐，不跳2023/2025等缺口。",
+    "reporting": "股票×窗口为主单位；真实已实现买卖净额、已确认权益、已知开放净未实现、UNKNOWN责任分开且不重复加应收；报告PRICE贡献及AB变化、全分母、共同可比覆盖、108旧赢家、一字依赖和行业/PVR阻挡。不得用普通追涨止损本身否定右侧理念。"
+  },
+  "independently_verified_existing_facts": {
+    "receipt_rows_read": 55201,
+    "industry_counts": [
+      {
+        "window": "2022",
+        "births": 4057,
+        "industry_pass_births": 3894,
+        "industry_blocked_births": 163,
+        "receipts": 24733,
+        "industry_pass_receipts": 24014,
+        "industry_blocked_receipts": 719,
+        "industry_unknown": 0,
+        "industry_pass_size_feasible_births": 3662,
+        "industry_pass_unknown_PVR_births": 70
+      },
+      {
+        "window": "2024_924",
+        "births": 1790,
+        "industry_pass_births": 1739,
+        "industry_blocked_births": 51,
+        "receipts": 12723,
+        "industry_pass_receipts": 12538,
+        "industry_blocked_receipts": 185,
+        "industry_unknown": 0,
+        "industry_pass_size_feasible_births": 1688,
+        "industry_pass_unknown_PVR_births": 8
+      },
+      {
+        "window": "2026H1_DIAGNOSTIC_ONLY",
+        "births": 2580,
+        "industry_pass_births": 2412,
+        "industry_blocked_births": 168,
+        "receipts": 17745,
+        "industry_pass_receipts": 17084,
+        "industry_blocked_receipts": 661,
+        "industry_unknown": 0,
+        "industry_pass_size_feasible_births": 2074,
+        "industry_pass_unknown_PVR_births": 32
+      }
+    ],
+    "interpretation": "以上均为既有市场票及未开始parent的条件size事实，不是新入选、订单或成交；全数行业拒绝为sector_up=false。",
+    "hytera": {
+      "sid": "002583.SZ",
+      "price_birth": "2024-09-20",
+      "birth_sector_up": false,
+      "next_receipt": "2024-09-23",
+      "next_receipt_sector_all_true": true,
+      "original_AB_event": "2024_924|A_SECTOR_BIRTH|2024-09-23|URFI881129|002583.SZ",
+      "original_I_qualified": true,
+      "original_PVR_known": true,
+      "original_PVR_score": 68.4229111063,
+      "original_close_check": "PASS",
+      "original_close_q": 2500,
+      "original_close_plan_risk": 2976.2343420475,
+      "original_state": "FLAT",
+      "original_queue_rank": 6,
+      "original_decision": "PASS_NOT_TOP2",
+      "original_selected": false,
+      "conclusion": "行业门将出生票最早条件OPEN由9月23日推至9月24日；9月23日可按AB角色竞争不等于已获槽。不得豁免。"
+    },
+    "jiangfeng_native_independent_read": [
+      {
+        "sid": "300666.SZ",
+        "day": "2025-12-15",
+        "sector": "URFI881121",
+        "four_sector_facts_all_true": true,
+        "sector_observed_at": "2025-12-15 15:05:00+08:00",
+        "sector_H1": 88.333333333333,
+        "event_Q": false,
+        "event_reasons": [
+          "buy_allowed:false",
+          "stock_up:false"
+        ]
+      },
+      {
+        "sid": "300666.SZ",
+        "day": "2025-12-17",
+        "sector": "URFI881121",
+        "four_sector_facts_all_true": true,
+        "sector_observed_at": "2025-12-17 15:05:00+08:00",
+        "sector_H1": 88.333333333333,
+        "event_Q": false,
+        "event_reasons": [
+          "buy_allowed:false",
+          "stock_up:false"
+        ]
+      },
+      {
+        "sid": "300666.SZ",
+        "day": "2025-12-23",
+        "sector": "URFI881121",
+        "four_sector_facts_all_true": true,
+        "sector_observed_at": "2025-12-23 15:05:00+08:00",
+        "sector_H1": 86.111111111111,
+        "event_Q": true,
+        "event_reasons": []
+      }
+    ],
+    "jiangfeng_method": "独立提取原prepare_inputs.py定义和单股native上下文，按15:10 S0读取；没有调用生命周期、账户或收益函数。原2025病例不扩大主经济窗口。",
+    "original_native_semantics": "独立读原simulate.py size/checkclose/entry_open/held_open/held_close/queue与两个修复engine，核24k初仓、48k按OPEN当前库存市值余量、3k计划风险、5bp、close/open双正净权益、日期费/手数、每日两预约及原AB退出。"
+  },
+  "resolved_specification_findings": [
+    "初稿把raw AB+I优先于PRICE，即使AB close不合法；已修为AB全部原许可和close PASS才优先。",
+    "初稿要求PRICE PVR已知；已修为未知末排且不否决，并规定未知组申请/获槽/阻挡报告。",
+    "原flags含当日volume_eligible，可能暗中用量态挡首探；已明确PRICE独立price_valid和原历史容量检查。",
+    "原closecache=(sid,day)会混AB I_floor与PRICE S；已规定按lane/root/floor/target等隔离及双调用顺序测试。",
+    "三窗口缓存缺连续持有期；已规定原fullwarm连续补齐和重叠exact，不跳S/失败/行业状态。",
+    "partial probe与ADD预算风险含糊；已给固定Q-F、剩余成本和组合风险精确式，既有合并库存一次假设卖费，余量原size独立费用。",
+    "超责任不能只测F>Q；已规定F+live_leaves>Q即UNKNOWN。",
+    "OPEN可能偷读预计算当日日线状态；已明确禁入并要求HLC/amount/flags及派生状态扰动不变性。",
+    "江丰原有辨识力病例是2025-12-15，不是另两条2022/24出生；已补正确病例，独立native三日复核通过。"
+  ],
+  "unresolved_specification_blockers": [],
+  "not_audited_or_not_run": [
+    "新联合消费者、订单/目标账本、权益/报告实现目前未审核。",
+    "所有新合成责任边界测试均未在本审计运行；写入协议不等于通过。",
+    "PRICE关闭时两窗原AB逐列/逐动作/claim/bridge/mark全回归未运行。",
+    "连续生命周期市场/行业事实补齐和实际输入hash封存未完成。",
+    "新消费者物理前缀及OPEN未来隔离不变性测试未运行。",
+    "真实券商ACK、盘口、可成交性、税务与上游PIT均未验证。",
+    "未重跑全1709原始市场预检，仅阅读其已封存PASS报告并核既有表。",
+    "没有新收益结果、经济后账本审计或策略提升验收。"
+  ],
+  "mandatory_G1_and_G2_gates": [
+    "研究负责人确认本protocol_sha256，仅放行G1实现/合成/baseline-only QA。",
+    "新实现import-safe，PRICE关闭时2022/2024原A+B所有原列和经济账本exact；原permit集合不变。",
+    "合成验证no-submit与true zero-fill、固定Q前置、partial、cancel_pending、latefill、重复/冲突fill与ACK、F+leaves、receipt消费、过期/错根/退役root、解锁后新票、probe完成后新票、唯一ADD和逐lot T+1。",
+    "合成验证AB-close合法性优先、未知PVR末排、每行业日两初始预约、次开拒绝不替补、同股责任锁，以及异floor缓存调用次序不变性。",
+    "验证PRICE量UNKNOWN不挡首探、行业变化不强卖、旧S先失效后抬S、source/factor/权益UNKNOWN保留库存和claim。",
+    "补齐连续管理期市场及原native行业，重叠缓存exact并物理截断前缀；不以三窗口拼接替代。",
+    "固定OPEN价格与当时已知元数据，仅扰动当日日终HLC/amount/volume/flags及派生market状态，OPEN动作/Q/fee exact不变。",
+    "财务报告分解、claim归属与不重复应收、未知覆盖、AB竞争变动和一字依赖均独立验收。",
+    "全部代码/输入/协议/独审hash冻结，独立实现前审通过后另获研究负责人明确G2放行，原子一次运行；本文件绝不单独授权经济运行。"
+  ],
+  "parent_decisions": {
+    "already_confirmed": [
+      "PRICE未知PVR末排而不否决；AB保持原PVR许可。",
+      "同股AB仅原许可和close PASS后优先；已选AB次开拒绝不PRICE fallback。",
+      "PRICE probe和唯一ADD共S，CP不接管，原AB不改；PRICE双正净权益与原预算/风险约束。"
+    ],
+    "still_required": [
+      "确认最终协议hash以进入G1。",
+      "实现、合成、原baseline全回归及独立前审完成后，另行明确G2经济放行。"
+    ],
+    "no_additional_formula_choice_required": true
+  },
+  "counters": {
+    "new_economic_runs": 0,
+    "new_lifecycle_runs": 0,
+    "baseline_regression_runs": 0,
+    "new_synthetic_test_runs": 0,
+    "real_orders": 0,
+    "real_fills": 0,
+    "real_ACKs": 0
+  },
+  "audited_at_utc": "2026-11-08T03:39:04.768858+00:00",
+  "reviewed_source_sha256": {
+    "independent_channel_probe_preflight_v1/core.py": "5efd09cceb357ca30ac71552a35b2531ba1d13b7ad9924b989bd2f82029d5771",
+    "independent_channel_probe_preflight_v1/PROTOCOL.md": "0aeef964e88d580abd0ab3ae546749f12da1d7e4f759e61c4e6f7bdad545a1b3",
+    "independent_channel_full1709_preflight_v1/INDEPENDENT_FULL_AUDIT.json": "f40a6a1795960accd74ee32d63551611bc5c44b351f84bcea0ccfca456603d29",
+    "independent_channel_full1709_preflight_v1/engine.py": "820da36d4741caea143d55379e9a097d60f1c79e4b7803f39a0efebf4c12a3af",
+    "independent_channel_full1709_preflight_v1/fast_core.py": "1c04fae16a13c61e2687c570aa71b511b87ab14f85566c610ba339365468165b",
+    "independent_channel_full1709_preflight_v1/overlap/RECEIPT_CONDITIONAL_OVERLAP.parquet": "68e9893a62d34ea4632c4430ce85c423378abbd37d8a721f2467d51b0bc63d74",
+    "m3_stock_birth_during_sector_v1/relative_priority_v1/simulate.py": "dc8890a2cb09b861fbeb8a9b071359a20d2a7282b6d8078286391e89c9f1bfa3",
+    "m3_stock_birth_during_sector_v1/relative_priority_equity_run_2022_v1/engine.py": "77a5d6345a7f35cbfaffedc08320512140adc2cd853fc8fef560de6a1a1a303c",
+    "m3_stock_birth_during_sector_v1/cash_equity_baseline_2024_v1/engine.py": "3c4fc71504bf1d6aa534387ede86008828e7d21a03b4a89a74d364c1a97a5c09",
+    "m3_stock_birth_during_sector_v1/cash_equity_baseline_2024_v1/economic/DECISIONS.csv": "7ac6ba255a17009d2b6d90f2736a1ce64ece4bb3dc3df1651dd4160fd9331d89",
+    "fast_entry_equity_2022_v1/prepare_inputs.py": "76b1a5c62bdfc5b0c1ce67daf616bb64ddd6273972b6cf7b21a85e1ba3f93aed",
+    "fast_entry_equity_2022_v1/lifecycle.py": "8f08fe15ba51095e57a033008d0412582039b8ca56295a01652434f525eda7b4",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_stock_admission.py": "0ad8c13c87081f1b64657ee987130d1e90f9ff4fd1728a319844af073313ebb8",
+    "independent_channel_joint_economic_v1/PROTOCOL_DRAFT.md": "94965590a1d5ba5fd28e88a6cf6c09188f747663590d2ffa0e3f7858e2265687"
+  }
+}

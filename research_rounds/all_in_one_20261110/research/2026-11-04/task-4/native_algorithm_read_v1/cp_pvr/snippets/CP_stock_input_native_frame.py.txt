@@ -1,0 +1,24 @@
+O=Path(__file__).resolve().parent;W=O.parent;RR=Path('/Users/bytedance/Documents/ChatGPT/money/research_rounds');BEGIN='2025-07-01';END='2026-06-30';CUT='2025-12-31'
+def load(n,p):
+ s=importlib.util.spec_from_file_location(n,p);m=importlib.util.module_from_spec(s);sys.modules[n]=m;s.loader.exec_module(m);return m
+N=load('case79_original_native_cache',W/'native-I-cache-interface-20261031/cache.py');M=load('case79_original_CP1',RR/'continuous-protection-lines-20261028/code/model.py');C=load('case79_original_common',RR/'continuous-protection-lines-20261028/code/common.py')
+def norm(x):
+ if isinstance(x,dict):return {str(k):norm(v) for k,v in x.items()}
+ if isinstance(x,(list,tuple)):return [norm(v) for v in x]
+ if isinstance(x,np.generic):return norm(x.item())
+ if isinstance(x,float) and not np.isfinite(x):return None
+ return x
+def save(n,x):
+ x=norm(x);(O/(n+'.json')).write_text(json.dumps(x,ensure_ascii=False,indent=2,allow_nan=False)+'\n')
+ if isinstance(x,list) and x:pd.DataFrame(x).to_csv(O/(n+'.csv'),index=False)
+def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def exact(a,b):
+ # Parquet stores the same calendar timestamps at s or ms precision. Normalize
+ # comparison copies only; never change prices, states or persisted source data.
+ aa=a.copy(deep=False);bb=b.copy(deep=False);aa.index=a.index.as_unit('ns');bb.index=b.index.as_unit('ns');pd.testing.assert_frame_equal(aa,bb,check_exact=True,check_dtype=False,check_freq=False)
+def frame(sid,f,cut):
+ if f.empty:
+  return pd.DataFrame({'close':pd.Series(dtype=float),'segment_id':pd.Series(dtype=int),'i_target':pd.Series(dtype=bool),'i_floor':pd.Series(dtype=float),'amount':pd.Series(dtype=float),'e0_down':pd.Series(dtype=bool),'e0_valid':pd.Series(dtype=bool)},index=f.index)
+ rec=N.RECORDS[sid];sig=pd.read_parquet(N.OLD/rec['files']['signal']['path']).loc[:cut];ev=pd.read_parquet(N.OLD/rec['files']['events']['path']).reindex(f.index);out=f[['close','segment_id','i_target','i_floor']].copy();out['amount']=sig.amount.reindex(f.index);out['e0_down']=ev.event.eq(-1);out['e0_valid']=f.i_target.astype(bool)
+ if not np.isfinite(out[['close','amount']]).all().all() or not out[['close','amount']].gt(0).all().all():raise ValueError('missing/nonpositive same-source CP1 price or amount; no row removal allowed')
+ return out

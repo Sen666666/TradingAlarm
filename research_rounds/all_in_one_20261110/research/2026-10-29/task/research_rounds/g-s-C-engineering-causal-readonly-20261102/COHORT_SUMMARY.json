@@ -1,0 +1,46 @@
+{
+  "2025_26-C10": {
+    "C_positive_plan": 88,
+    "C_requested": 3306,
+    "C_zero_plan": 3218,
+    "C_zero_plan_with_account_risk_bound": 2541,
+    "Q_pass": 3328,
+    "actual_C_filled_receipts": 79,
+    "actual_C_reserved_receipts": 81,
+    "engineering_qualified_fresh": 33,
+    "engineering_stage_counts": {
+      "C_positive_plan": 12,
+      "C_zero_plan_with_recorded_bounds": 20,
+      "no_current_new_S_or_G_permission": 1
+    },
+    "fresh_CP1": 3336,
+    "market_stock_days": 39307,
+    "stage_counts": {
+      "C_positive_plan": 88,
+      "C_zero_plan_with_recorded_bounds": 3218,
+      "no_current_new_S_or_G_permission": 22
+    }
+  },
+  "2025_26-C_BATCH20": {
+    "C_positive_plan": 87,
+    "C_requested": 3306,
+    "C_zero_plan": 3219,
+    "C_zero_plan_with_account_risk_bound": 2230,
+    "Q_pass": 3328,
+    "actual_C_filled_receipts": 80,
+    "actual_C_reserved_receipts": 81,
+    "engineering_qualified_fresh": 33,
+    "engineering_stage_counts": {
+      "C_positive_plan": 9,
+      "C_zero_plan_with_recorded_bounds": 23,
+      "no_current_new_S_or_G_permission": 1
+    },
+    "fresh_CP1": 3336,
+    "market_stock_days": 39307,
+    "stage_counts": {
+      "C_positive_plan": 87,
+      "C_zero_plan_with_recorded_bounds": 3219,
+      "no_current_new_S_or_G_permission": 22
+    }
+  }
+}

@@ -1,0 +1,10 @@
+SRP-v2探索卡：EXPLORATION_CARD.md
+裁决：分配器可编码接口，授权政策UNIDENTIFIED；探索未定稿，未实施/经济PASS。
+
+UPG-1固定2/5/10目标、固定次数、1R/2R、6%/2%均撤回不沿用。最小版本A保持同机会B不随CP/利润倍增，逐层κ=max(剩余grossbasis−线价净款,0)释放未兑现参考信用；明确这是G风险重用近邻、不是settled cash。D=max(L−G,0)意味着累计已实现利润缓冲可抵未来L，B本身不增加、G不另加B；负成本缺口不抵押新风险。mark执行压力ρ另账，floor>=cost不能消除GAP/流动性风险。
+
+原CP已消费新局部frontier和金额调制，不是同价重复发证；candidate不保证提高旧线或缩小新买距离。parent task4共享接口可把已有合法held I新buy事件与CP union成单槽申请：原I buy非持续I=True，原eventQ本身没有held门，J244才后置flat；I尚无canonical receipt，底层event/frontier来源及CP重叠不能双算。该接口不增加B、不代表新独立alpha。
+
+q_seed和后续q均须重新求整个同股/组合风险、真实现金和流动性可行域，不继承已冻结的306元CORE quantum。来源argmax q会偏好紧CP退出合同，列争议不强选；原来源优先又可能保小CORE先占代价。ρ执行压力provider、账户/行业预算、B拨款/行业债务政策、流动性退出horizon均未识别；任一必要项未知为UNKNOWN_NO_GRANT，不与已知约束下ZERO_CAPACITY混写。live/exit affected互斥，ρ覆盖全部实物不重复塞层E；pending未付buyfee明确预留、fill转D一次。
+
+0模型、0账户、0回测、0参数/数值路径试验；只读原代码/已有证据与纸面公式。旧sealed文件没有编辑。未声称此risk-only能修复选股/启动或保留所有赢家；旧G、local-high、无CORE赢家、盈利后失败加仓反例全部保留。

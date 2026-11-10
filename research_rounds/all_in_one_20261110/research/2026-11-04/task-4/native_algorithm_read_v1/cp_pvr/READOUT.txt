@@ -1,0 +1,67 @@
+最先澄清字段名：book trade.pvr并非新PVR评分，而是原intent.score/H1兼容字段。
+真正PVR看冻结intent.PVR_score、rank-policy.PVR或本账户所绑定的score缓存score列。
+以下三段是原样切片，未改任何字节；只有段间标题和路径行由本提取器添加。
+
+1. Intent.score is the original H1 compatibility value
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py:255-255
+SHA256 fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425
+     fline=max(floor,D(str(self.cp[sid].loc[day,'candidate']))) if role=='mobile' else floor;budget=min(a.current_nav*D('.02'),max(Z,a.current_nav*D('.1')-a.quantity(sid)*q.raw_price));i=dict(sid=sid,clock=clock,quote=q,budget=budget,cap=q.quantity.buy_floor(int(budget/q.raw_price)),weight=1.,group=0,score=sd[sid].rank.read(clock),kind='add' if role=='mobile' else 'core',role=role,floor=fline,epoch=epoch,reason='fresh_CP1_mobile' if role=='mobile' else 'I_early_core',rank=rank,CP1_id=cpr['receipt_id'] if role=='mobile' else None,CP1_trace=cpr if role=='mobile' else None)
+
+2. PVR substitutes rank and adds PVR_score; original score is asserted unchanged
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/native_rank.py:77-91
+SHA256 5ec91c2323b2d3b8fa5c99df504139e2ac7af9b5b84359222c3d6353d0cd697c
+    """Only rank keys change; original target/price/floor/role/receipt stay exact."""
+    keys, log = priority_plan(account.pending, score_at, day)
+    before = [{k: v for k, v in i.items() if k != 'rank'} for i in account.pending]
+    d = account.decisions[-1]
+    assert str(d['at'])[:10] == day
+    by = {r['sid']: r for r in log}
+    added = {'original_H1_rank', 'priority_rank', 'PVR_score', 'PVR_ready', 'priority_policy'}
+    for i in account.pending+d['intents']:
+        r = by[i['sid']]
+        i.update(original_H1_rank=r['original_H1_rank'], priority_rank=keys[i['sid']],
+                 PVR_score=r['PVR'], PVR_ready=r['PVR_ready'], priority_policy=POLICY)
+        # Compatibility alias consumed by the UNCHANGED native opening sort.
+        # The original H1 key/score and explicit frozen new key remain separate.
+        i['rank'] = i['priority_rank']
+    assert before == [{k: v for k, v in i.items() if k != 'rank' and k not in added} for i in account.pending]
+
+3. Trade.pvr is written from meta[score], not PVR_score
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/probe-pyramid-pilot-20261029/code/pilot.py:59-73
+SHA256 38ac36ba3b9da599c66307451f4173249efc229f54dfb6a0d8469517431f94b4
+ def fill_buy(self,sid,w):
+  order=self.buys.get(sid)
+  if order is None:return
+  meta=self.order_meta[order.order_id];f=self.facts.factor(sid,w.at)
+  if w.raw_open*f<=meta['floor']:
+   self.counts['open_at_or_below_protection']+=1;self.log('pilot_buy_rejected',w.at,sid=sid,reason='open_at_or_below_protection',intent=meta);self.cancel_buy(sid);return
+  receipt=super().fill_buy(sid,w)
+  if receipt:
+   self.layer_seq+=1
+   z=dict(id=self.layer_seq,sid=sid,kind=meta['kind'],qty=receipt.shares,initial_qty=receipt.shares,opened=w.at,signal_at=meta['clock'].decision_at,epoch=meta['epoch'],floor=meta['floor'],cash=-receipt.gross_cny-receipt.fees_cny,dividend=ZERO,closed=None,reason=None)
+   self.layers.append(z);self.last_buy[sid]=w.execution_price*f
+   if z['kind']=='core':self.core_epoch[sid]=meta['epoch']
+   self.trades.append(dict(**asdict(receipt),layer=z['id'],kind=z['kind'],signal_at=z['signal_at'],raw_open=w.raw_open,price=w.execution_price,floor=meta['floor'],pvr=meta['score'],reason=meta['reason'],epoch=meta['epoch']))
+   self.counts['buy_fills']+=1
+  self.check();return receipt
+
+
+只读原码入口（未运行build/模型/指标/账户）
+
+1. CP完整原式：snippets/CP_constants_features_calculate.py.txt
+原model.py1-58，含输入校验、63/21滞后背景、new-frontier credit、sqrt5触发、sqrt21保护候选。
+stock输入e0_valid实际来自I_target，见CP_stock_input_native_frame.py.txt23-28。
+2. PVR完整原式：snippets/PVR_actual_frozen_formula.py.txt（仅19行）
+真实字段r/scale/amount_ref/u/b/e/E/score；没有P/V/R三独立分数，金额用amount非volume。
+3. 缓存/排序接线：PVR_actual_cache_reader、PVR_unique_stock_slot_substitution、
+PVR_native_planning_order三段。原J.planning先完成资格和尺寸，之后只改已有意图rank；
+NA留原slot，无50分准入门，同分保持原相对序，不是新造E0/I买点。
+4. ACTUAL_SCORE_MANIFEST_BINDINGS：strong用native默认score manifest；实际long2024
+用ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/SCORES_MANIFEST.json，formula
+SHA同为9328109bada26c53b04cf0f3e84d719917cb528ff8608b3e9faa5d1c55ba8cb2。
+
+SNIPPET_INDEX.json有25段原样片段的绝对路径/行号/SHA；FORMULA_VARIABLE_TABLE.json
+是变量及时间表。FORMULAS_AND_CLOCKS.txt仅作为可选展开说明，直接读原码即可。
+四亏真PVR支持旧结论的冻结字段仅摘4行，见LEGACY_ALIAS_924_FOUR_SAVED_INTENTS。
+PVR公式不读行业标签；固定1709池/行业映射仍是not_PIT snapshot。真实live发布时间/
+供应商原始eventID仍未知，数值因果前缀不等于PIT。新增模型/构建/指标/账户均为0。

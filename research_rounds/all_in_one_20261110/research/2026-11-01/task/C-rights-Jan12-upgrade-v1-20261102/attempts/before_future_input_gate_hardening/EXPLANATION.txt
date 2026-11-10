@@ -1,0 +1,1 @@
+Successful no-event upgrade and cross-process proof retained. Before final sealing, explicitly retain the original month READ_ONLY_GATE/data horizon and prior-grant checks in the FUTURE Jan13 ACTION supplemental permission validator. No events ran. New checkpoint version must rebind the hardened source; original Jan12 sources/grants are never changed.

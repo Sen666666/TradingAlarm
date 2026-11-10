@@ -1,0 +1,48 @@
+{
+  "created_at": "2026-10-22T23:00:12.713324+08:00",
+  "plan_sha256": "6e3eebec3a1c1773507e6709fd0a19c13daa4db8529db25a09be9d6fa6e97a5b",
+  "code_sha256": "5f20a386759dca9eab9d0dc8a73a538c84f50f19bc58de59da3b0c316365c4bf",
+  "credentials_used": false,
+  "requests": [
+    {
+      "sequence": 1,
+      "url": "https://s.thsi.cn/js/basic/stockph_v2/stock/equity-c97fef.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "bytes": 2715,
+      "response": "01.body",
+      "sha256": "2c366eef1a266c432162cb8d665003a45626fd5d2eb87123723544c1fc12c42a",
+      "redirects": 0
+    },
+    {
+      "sequence": 2,
+      "url": "https://s.thsi.cn/js/basic/stock/equity.js",
+      "status": 200,
+      "content_type": "application/javascript",
+      "bytes": 1833,
+      "response": "02.body",
+      "sha256": "3987bc20f274c319b7f01c21af6b4e335b5d23c7f6f571db820b0371a708900c",
+      "redirects": 0
+    },
+    {
+      "sequence": 3,
+      "url": "https://basic.10jqka.com.cn/300033/news.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 188646,
+      "response": "03.body",
+      "sha256": "b672c55fad6920c3a79ec9ccc6e18c20f8f29ad294079c46d52581f3405127fc",
+      "redirects": 0
+    },
+    {
+      "sequence": 4,
+      "url": "https://basic.10jqka.com.cn/601318/news.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 246952,
+      "response": "04.body",
+      "sha256": "c7db68f4466cb7014fc1e4221bf591a7ffdc1340a1e726719869e56081cb0450",
+      "redirects": 0
+    }
+  ]
+}

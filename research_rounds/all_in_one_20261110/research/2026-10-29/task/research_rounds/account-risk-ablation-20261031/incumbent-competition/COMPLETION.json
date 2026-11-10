@@ -1,0 +1,16 @@
+{
+  "complete": true,
+  "new_account_paths": 0,
+  "snapshots": 4,
+  "maximum_allowed": 6,
+  "seconds": 2.4670142917893827,
+  "source_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/run/pair/B.json.gz": "39601ce5b3cabdcb7b72ac5a3584c87110e3436dcf69fe9695a83e2ad60a2f60",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/h1.npz": "416ddabacb9b16105cf3e5d93c961049ac1b48da433a62995a71311be17e4615"
+  },
+  "remaining_unknowns": [
+    "actual sellable quantities",
+    "exact pre-route opening composition and other-resource clearance"
+  ],
+  "no_new_policy": true
+}

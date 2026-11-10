@@ -1,0 +1,37 @@
+原 No60 执行与退出边界独立预审；只读既有账本，新账户/账户事件/候选收益测算均 0。
+
+结论影响协议冻结
+
+原 G1_I 的 I 是入场增强通道，不带 G1_X 的 cold/acute 冷退出。其已激活结构只因 E0 shadow 失效或 CLOSE<=旧 I floor 关闭。实际 planning 首先处理 ACT/I 全股退出，然后才检验 mobile 的旧 CP 保护；core 没有另一条独立 CP 保护退出。因此以 C>=EMA 为由延迟 Ioff，会延迟原 core 的结构硬保护，不能宣称原 hard risk 未放松。
+
+全路径 witness 已覆盖原 726+242 日的 57,213 条实际持层 CLOSE。No60 Ioff 951 条、首次 949 层；strong Ioff 437 条、首次 433 层。每个首次 Ioff 均触破严格先前已知、同源段 I floor，且 E0 shadow 已失效，未知先前 floor 为 0。No60 全部 951 条也均触破；strong 后续有 1 条反弹回 prior floor 上，但 E0 仍失效，且此前硬退出已经触发，不能取消。保留 I floor、E0 边界、CP/ACT 并禁止取消已触发硬退出时，没有首个可宽限偏离事件。六个 grace 臂应按父线程决定停止；这是冻结语义下的 no-first-deviation 逻辑证据，未冒充已运行六个完整账户的恒等测试。
+
+全部 I pilot 请求也已检查：No60 798 个事件/939 次层目标，strong 399 个事件/437 次层目标；全部匹配真实持仓 snapshot。包含 No60 2/strong 4 次重复请求，以及 No60 2 层先 CP 请求再 I，未按最终成交原因删掉。首次 Ioff 949/433 与最终实际 I 成交层 937/431 分母不同。NO_SOFT_GRACE_WITNESS 中 legacy 字段 all_terminal_I_layers 实为 book.layers 存储的当前 reason=I 数量（937/433），包括 strong 2 个尚未平仓的 I 请求；不能当成实际 I 成交数。正式首次资格使用 all held CLOSE，未依赖该字段。
+
+实际成交与本地规则
+
+共核 6,126 笔原实际 fill：No60 4,068=2,265 买+1,803 卖，strong 2,058=1,171 买+887 卖。每笔 raw_open 都与其 audit.source SHA 绑定的原 raw parquet 当日 open 相同，实际成交价等于 raw_open*(1+5bps 买/1-5bps 卖)；没有用 last-known CLOSE 替代执行 OPEN。决策 quote/估值允许 latest-known CLOSE，需与执行价分开。
+
+原 window 要求原市场 session、当日有效价格/正成交量、至少 20 个历史正成交量观察、H>L，容量=min(过去20正量均值*1%,当日总量)。所有实际 fill 均满足该原代理容量。它使用当日 H/L/V 的事后执行检查，不是开盘时已知真实盘口容量。没有恢复历史涨跌停价、ST/退市整理差异、队列、盘口、开盘竞价可成交量或停牌原因。availability 表统一为显式研究代理。不能称为完整“真实 A 股成交模拟”。
+
+全部 3,436 笔原买 fill 均符合各自 dated buy_minimum/buy_step；不能统一把所有股票说成 100 股：规则表区分主板/创业板、科创板 200 股与后续增量、北交所等，且明确是研究映射。真实已卖层均跨至少一个原市场 session，满足原 T+1 时钟必要检查；未重建未发生的委托/订单簿。ledger 原生区分首次提交最低量与部分撮合 fill_step，支持整仓卖出零股。
+
+逐逻辑订单独立累计 brokerage 最低佣金、印花税、经手、证管、过户各组件，与全部审计 fee_components/fees 精确核对：No60 42,241.17286897614 元，strong 22,720.0265796702435 元。原普通滑点 5bps 不包含在 fee_total 内。费率分 venue/date，并有 2022-04-29、2023-08-28 等切换；仅确认冻结本地费表执行一致，不认证费表等于各真实账户佣金和历史规则全覆盖。
+
+原 settlement_lag=0，卖款当时可复用为明确研究代理；sellable_lag=1 个市场 session。公司行动桥接分红 net80% 应收、未知 paid_at 不再投资，送转与新股可卖时钟；rights 不认购，部分发行不凭空加仓，分数权益允许明示 floor writeoff，stale ex-date mark 可用理论除权参考。均保留局限，不把应收当现金。
+
+公平基线最小校验建议（未执行）
+
+1. 原始母本冻结为 ORIGINAL，不修历史成交/费率/涨跌停代理后仍沿用旧标签。插件 OFF 同原 loader、PVR 排序、core/mobile  sizing、No60 资金契约、ACT 恢复、费用、执行、公司行动与未平估值。先对 2022 起始短段、2023/2024 跨年和 strong 首段做 daily/trades/audit/decisions/inventory/cash/AR/pending/risk-state 精确比较，不能只比 ending_NAV。
+2. 通过 OFF 原样校验后，ORIGINAL 完整 726 日与 strong 242 日的逐日账/全部成交应精确复现既有母本；四个 early 臂仅增加收盘 below-line 退出，原 I/CP/ACT 硬退出仍先处理，下一原可执行 OPEN。缺指标、断源、未充分 warmup 时回落原路径，不能用未来填补。指标与价格须同 causal-adjusted 坐标，执行仍 raw OPEN。
+3. 2022→2023→2024 必须接各臂自己的连续状态，不重置资金、ACT、消费过的 receipt、pending、层/费用、分红应收。候选已改 2022 时，不可从 ORIGINAL 的 2022 末 checkpoint 冒充候选自身延续。strong 为独立 100 万起点，不拼到三年路径。
+4. 候选 runner/plugin state 应有自己的来源身份和 checkpoint 字段，不冒用原 class/code identity。原 derived_route_on.py 是 component.py 用 compile filename 产生的虚拟路径，本身不要求有实体文件；审计应绑定 component.py 与其原 MODEL/ROUTE 源和 canonical code hash。
+5. 若本轮真实 requested A 股规则超过上述代理，最小合理复用方案是先明确原代理主对照；如确需补历史涨跌停/ST/开盘可成交约束，另冻一个 execution-v2，原与四候选全部同规则重跑，并另保留旧母本，不静默修补只一侧。本次预审未生成这些历史数据，也未执行 execution-v2。
+
+原 No60 也继承 account-risk-ablation 的去组合3%名义风险门、再移除 confirmed60 上限；不要把原 J.route 源码中的旧 account_risk 行误认成当前仍启用的门。保留当前 No60 实际 contract，不趁退出对照恢复/删除别的资金规则。
+
+复现入口与证据
+
+BASELINE_REPRODUCTION_TARGETS.json 记录两母本原路径、完整成交规范化 SHA、ending_NAV/cash 和 runtime function identity。CHECKPOINT_AND_STATIC_EVIDENCE.json 已独立流式核 2022、2023、2024、strong 四个 checkpoint.pkl 实体 SHA 与 metadata 一致，未 unpickle、未调用账户。已有入口为 pvr_pool_feasibility/run_economic.py、continuation2023/run_full.py+horizon_adapter.py，以及 2024_full/run_cycle2024.py+cycle2024_adapter.py；不得直接以旧输出目录运行这些带写操作入口。
+
+ORIGINAL_PATH_SUMMARY.json 保留全层、two-year/post303/strong、first/add/reentry 和原 I/CP/ACT/open 正负净额；*_I_EXIT_BOUNDARIES.json 是实际 I 成交层时钟诊断，*_ALL_HELD_IOFF_CLOSES.json 与 *_ALL_I_PILOT_REQUESTS.json 是更完整的资格 witness。原 I 净亏不证明退出过早，也可能已阻止更大亏损；本报告没有任何逐事件反事实或账户改善结论。

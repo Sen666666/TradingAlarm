@@ -1,0 +1,17 @@
+{
+  "status": "AMEND-FIRST documentation corrected, implementation still paused",
+  "old_contract_path": "research_rounds/probe-batch-design-review-20261101/CONTRACT_PROPOSAL.txt",
+  "old_contract_sha256": "27dde5e12e649a3d5feb0900e9f530ab49f261d5882b78b397519fdc2bbecdd9",
+  "new_contract_path": "research_rounds/probe-batch-design-review-20261101/CONTRACT_PROPOSAL.v2.txt",
+  "new_contract_sha256": "8691014a092b4ca6018cd271820df8d26fb65c36899a13e8eb5ad7fa3be1d19b",
+  "original_contract_preserved": true,
+  "changes": [
+    "F immutable; pass1 uses evolving shadow S1, historical pools/confirmed quantities may change",
+    "pass2 fixed role/pool; fixed-plan validation never reroutes",
+    "record every migration including no-order candidates",
+    "one aggregate per stock is not an existing atomic batch commit"
+  ],
+  "new_implementation": false,
+  "new_shadow_preview": false,
+  "new_economic_paths": 0
+}

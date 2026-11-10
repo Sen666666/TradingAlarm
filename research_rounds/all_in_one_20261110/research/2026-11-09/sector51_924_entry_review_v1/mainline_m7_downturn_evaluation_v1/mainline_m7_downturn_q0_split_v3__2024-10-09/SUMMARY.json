@@ -1,0 +1,50 @@
+{
+  "run": "mainline_m7_downturn_q0_split_v3",
+  "verified_last_day": "2024-10-09",
+  "planned_end": "2024-10-31",
+  "completed": false,
+  "blockers": [
+    "2024-10-10 600535.SH UNADMITTED_EQUITY_EVENT"
+  ],
+  "account_checks": 126,
+  "final": {
+    "day": "2024-10-09",
+    "cash": "155523.8626191957440",
+    "receivable": "0.000",
+    "market_value": "1327236.63",
+    "NAV": "1482760.4926191957440",
+    "net_liquidation_NAV": "1480902.2377072822355",
+    "stocks": 78,
+    "shares": 58766,
+    "weight_pct": "89.51119459998064829969599709",
+    "fees_paid": "6111.8834608042560",
+    "daily_return_pct": "-5.764150390682490943206019440",
+    "cumulative_return_pct": "23.56337438493297866666666670",
+    "since_1008_return_pct": "-5.764150390682490943206019440",
+    "running_max_close_drawdown_pct": "-5.764150390682490943206019440",
+    "total_cost_fees_plus_open_5bp_proxy": "9967.8173808042560",
+    "buy_cash": "357032.2123630658000",
+    "sell_cash": "351378.3094173078500",
+    "buy_seed_count": 24,
+    "buy_add_count": 7,
+    "sell_count": 24,
+    "core_value": "212760.00",
+    "frozen_value": "462682.84",
+    "mobile_value": "864553.79"
+  },
+  "post1008_closed_rounds": 17,
+  "post1008_closed_round_net": "44547.8016771778500",
+  "post1008_closed_losing_no_add_rounds": 1,
+  "post1008_closed_losing_no_add_net": "-23.9189725000000",
+  "post1008_adds": 7,
+  "post1008_adds_exceed_prior_profit": 1,
+  "max_post1008_add_known_floor_loss": "6473.64767318203913472143324",
+  "caveats": [
+    "Current non-PIT universe and industry mapping remain.",
+    "Rules frozen at M7, but previously selected parameters are not claimed out-of-sample.",
+    "Conditional OPEN with +/-5bp proxy is not certified execution.",
+    "Close-to-close drawdown is not intraday drawdown.",
+    "Closed round PnL spans the entire round, not just post10/8.",
+    "Known protection risk is not a guaranteed stop fill."
+  ]
+}

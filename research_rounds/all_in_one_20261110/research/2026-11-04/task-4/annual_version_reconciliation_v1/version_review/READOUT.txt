@@ -1,0 +1,16 @@
+限定通过：本轮 long_OFF 原版本、连续账户与复权/分红记账
+
+本轮不是“全部策略OFF”。entry_adapter.py113–115在entry_mode=OFF时直接调用原N.Runner.planning；关闭的是ENTRY_BB20_FLAT_CONFIRM新增入场过滤。native_rank.py115–120仍先执行原J.planning，再以冻结PVR_SLOT1优先次序排序。原E0/G1/I/stock CP1、ACT、CORE/MOBILE管理及执行沿冻结No60接线。
+准确基线是PVR_SLOT1_NO_CONFIRMED60_ONLY:PVR_SLOT1（外包ENTRY_BB20_FLAT_CONFIRM:OFF）。native_adapter.py11–40绑定J.Account/J.opening、NoConfirmed60Budget及component派生route/request/migrate。component.py17–34从已移除account3%门的account-risk-ablation源出发，再只删confirmed60三个相关谓词。全账户3%不是No60相对同池旧PVR的新增差异。固定1709股/90行业；这不是历史PIT/实盘认证。
+
+input_loader.py13声明2022-01-01至2024-12-31；run_entry.py85–100只构建fresh100万元账户、无旧财务账户导入。原daily首行2022-01-04 CLOSE为NAV=available=1000000、无持仓，首笔实际保存成交2022-01-05 OPEN。实际726收盘延续同一个B账户，月末checkpoint不是年重置；PreparedRunner.run_prepared82–109只按事件循环、公司行为、支付、OPEN、CLOSE推进。
+2022末NAV704487.8470098769005，现金70550.8870098769005、raw库存631570.40、股息应收2366.56000；75层/66股，累计买979/卖731。2023首日持仓与累计成交延续。2023末NAV745426.9583780900535=现金738664.1183780900535+应收6762.84000，接到2024初累计1557买/1235卖不变。因此该连续账的2022年度为-29.5512152990%，2023年度以2022末NAV为分母为+5.8111877362%。不能从“OFF”名字推出与此前约-26%/-34%同版同窗口。
+原保存ORIGINAL_IDENTITY.json已记录B及daily/opportunities/funding/industry/balances/rank-policy全部exact、无first difference；checkpoint.provenance绑定实际planning/opening/route代码身份。本审查仅静态读取这些保存证据，未复原pickle。root另作旧No60 242/484日完整前缀比对，见上级ORIGINAL_NAV_VERSION_COMPARISON.json；本审查不把root的独立比对冒称自己重跑。
+
+信号坐标与账户财富分开：prepare_signal145–218的theoretical_ex_price仅从原价前缀、到有效日公司行为逐行递推factor，signal OHLC=raw OHLC×该历史行factor；不是最新factor回填。此前四股纯算术prefix独审支持固定快照的这一数学因果边界，并不认证公告received_at或事后修订历史；本轮不新增指标/模型计算。
+实际原市场multi_runner.latest_mark182–219读raw close/open；只在无新raw且有公司行为时使用明确标注的理论ex-reference单位桥。quotes236–240传mark.raw_price，sector_account.balance435–456以实际股数×raw mark估值并单列应收。因此没有用复权信号总回报再加股息的财富公式。
+_actions354–383在effective日按此前实际持有oldqty×每旧股cash×协议A股净因子0.8确认权益，并另处理拆股实际数量。_payments385–390仅有paid_at到期才转现金；pay_dividend828–844加现金且删除对应应收，不重复收益。pilot.accrue_dividend100–103把同一权益按层分配，仅为经济归属，不另加账户NAV。
+本轮保存audit共136笔分红应收，合18404.96520；全部paid_at为空、实际支付记录0笔。各层dividend合数也为18404.96520，等于终态应收。2024末库存0，现金619584.6471510238600+应收18404.96520=终值637989.6123510238600。不能把应收说成已收到现金或可再投资资本。
+上述证明代码/原账口径未见双计；不认证税费代理与支付日为真实公司行为回执，不证明供应商历史as-of版本、执行日HLV代理可于09:30获知，亦不量化修正这些研究代理后的经济收益。
+
+范围：源码纯文本、保存JSON/gzip/Decimal等式和现有独审引用；0新账户、0新回测、0模型、0策略或参数变更。旧约-26%/-34%的用户原聊天引用由其他线核查，本审查不猜其出处。

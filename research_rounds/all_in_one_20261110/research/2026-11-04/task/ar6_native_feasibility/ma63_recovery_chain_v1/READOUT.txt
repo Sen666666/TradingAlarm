@@ -1,0 +1,48 @@
+MA63恢复与原真实机会链：15min只读分析完成，0新策略/0账户/0native preview。
+
+快结论
+2022Jun6原510300 totalreturn CLOSE上穿inclusiveMA63，基准下一OPEN Jun7实际proxy买入。原No60/旧PVR均直到Jun17CLOSE恢复并产生新买意图，Jun20OPEN首填：上穿到原恢复9个交易session、上穿到首填10个、恢复到首填1个。主要等待在原恢复之前，不是恢复后连续等很多天。
+但“这段错过多少可执行机会”无法从现存raw信号表精确回答。Jun7–Jun17 OPEN对应前CLOSE Jun6–Jun16的9session：raw freshCP1=1003股票日，mobile联合Q通过996；No60准入角色事件3897(core2901/mobile996)，旧PVR3892(core2896/mobile996)，全部被ACT挡住。它们不是独立可买订单，也不是可追回收益。暂停期原计划/保留/成交均0是原H策略行为，不是取消H后的反事实可执行0。缺完整同期原生preview，因此反事实可执行量UNKNOWN，不造正数或0。
+
+唯一市场轴与初始边界
+benchmark_2022_2023/logs/MA63_90_signals.json为484日既存signal_close/MA63/on；逐值核同inputs/510300_history.csv。原prepare_inputs.py:36公式为signal.close.rolling(63,min_periods63).mean()，含当日CLOSE；on=strictsignal_close>MA63。signal为原causal reinvested totalreturn ETF510300价格，不是HS300价格指数、syntheticM、个股价格或上一v2D/P/C。
+斜率仅相邻已存MA之差(sign up/down/flat)，不是原benchmark交易门、未重算MA/引入新D。Jan4的前值用原history中Dec31已存MA=5.22913983125751及on=True；没有新warm loader。
+2022Jan4已在历史上ON，原freshcash benchmark.previous_on=False只是制造初始买入，单列START_ON，绝不计真upcross。Jan5下穿是初始假启动反例，仍完整保留；未从warm借实际仓位。
+
+全部ON段（START另列；OFF11段也完整输出，无最近未来ON强配）
+起点             类型        ON观察数   下一DOWNcross
+2022Jan4         START_ON    1          Jan5
+2022Jun6         UP          41         Aug2
+2022Aug11        UP          2          Aug15
+2022Aug17        UP          1          Aug18
+2022Nov29        UP          65         2023Mar8
+2023Mar31        UP          8          Apr13
+2023Apr14        UP          5          Apr21
+2023Jun16        UP          1          Jun19
+2023Jul13        UP          2          Jul17
+2023Jul25        UP          15         Aug15
+2023Sep4         UP          1          Sep5
+合计真UP10、真DOWN11，另START_ON1，共22连续ON/OFF段覆盖484日；初段左删失、最后OFF右删失保留。所有短假上穿均在分母，不将上穿称成熟或获利。
+
+原ACT H/flat/恢复
+No60：2022Apr20暂停、Apr21flat、Jun17恢复/同CLOSE首新意图、Jun20首填；2023Jul20暂停、Jul21flat，到本2023Dec29分析端仍未恢复/无新买。
+旧PVR：2022Apr25暂停、Apr26flat、Jun17恢复/同CLOSE首新意图、Jun20首填；2023Sep21暂停、Sep22flat，到2023Dec29仍未恢复。
+原2024后来恢复不借入此窗口算新2023收益或伪缩短删失。2023Jul25和Sep4上穿时No60已H暂停，到年末仍无恢复/新买；旧PVR当时仍on，有原实际买入。两侧差异及无买单均保留。
+ALL_EPISODE_NATIVE_CHAINS对22段×2政策逐条列原start on/flat、段内H事件、firstnewdecision/actualfill、raw/admission分母和删失。originalACT已经ON的上穿根本不需要恢复：first_original_resume_after_start只是未来下一个resume，不能拿它当这次需要等的恢复延迟；仅resume_needed_at_start=True时解读相应delay。resume若落段外，不能称本次ON段已恢复。
+first_new_decision定义为原非空买意图CLOSE，不是每日空planning或rawQ；first_actual_fill_from_new_decision定义为源decision>=段start的首实际填单，record内保真实decision_day，未保证来自第一天的首意图。例2023Jun16短ON段原No60/PVR该段decision均无实际填单（已证下界0），表内更晚Jun21/Jun20填单来自后续decision、不能冒作6/16单成交或本段成熟。
+
+机会严格分层与六月时钟
+第一层raw：股票日Q/freshCP1；第二层原角色准入/计划/size拒绝和原OPEN尝试结果；第三层原实际native fills并有原预算/合法单位/现金入场证明，才是原规则中事实执行机会下界。第三层仍是原日线执行研究proxy，原历史dated停牌/涨跌停排队/每股真实成交可得性未完全外部认证，不能叫实盘可成交保证。
+原L02现成下界No60 86笔原实际买入、旧PVR70，完整表已审；不等同Jun7–17暂停期的可买数，也不证明新早恢复路径能累计买下同样组合。预算/现金/同股角色抑制/行业/退出锁/费用顺序都不能冻结到反事实再叠加。
+JUNE_DELAY_OPPORTUNITY_STRATA明确两种窗口：
+A OPEN Jun7–17 <- 原decisionCLOSE Jun6–16(9session)：1003 rawfresh/996mobileQ；全ACT挡；0原计划/实际；反事实UNKNOWN。
+B 字面decisionCLOSE Jun7–17(9session)：848 rawfresh/844mobileQ；Jun17已恢复，所以含355原计划和后续No60 56/旧PVR40原填单。后续填单主要Jun20，绝不当作Jun17OPEN填单；ACT仍挡mobile723。两个时钟不混加。
+旧4505/3079是整个L02 Apr27–Jul4累计rawQfresh/mobileACT挡口径，不是上述9session，不取名成可执行单数。
+
+≤3单“可执行升级”成本核查与具体阻碍
+原opportunities字段只有sid/sector/rank/coreQ/mobileQ/CP1id/roles/held/barriers；例如Jun6 603688有core/mobile且唯一barrier=ACT_paused，但没有当时原CLOSE cap/budget/floor、nextOPEN quote/datedguard/capacity/fee witness。原H期间decisions.intents为空，funding只记录实际尝试路径；没有全母体或选定暂停候选的完整native preview日照。loss owner明确确认此缺口，旧C10/AR6有限静态开发快照不是本No60暂停期全条件证据。
+读现有表定位缺口成本<1min，已完成；若要对哪怕<=3候选核完整可执行量，需另行建立H移除后同期budget/slot/cash/locks/floor/authority及真实datedquoteguard重放/preview证书。这属于新增原生state恢复/preview执行链，不是本次无account/无新引擎薄核。故此次停止升级，未运行对象/账户，也没拿旧cash或未来fill补齐缺口。可执行独立单量及可合计资金均UNKNOWN；没有声称合计可买或收益。
+
+交付与协作
+DAILY.json/CSV484：原price/MA、存量斜率、前CLOSEon/priceposition、ON/OFF episode_id、OFF的on_episode_id=null、cross_event、benchmark nextmarketOPEN。ALL_EPISODES22/CROSS_EVENTS22(含START)、ALL_EPISODE_NATIVE_CHAINS44、NATIVE_ACT_DAILY、ORIGINAL_ACT_PAUSE_CYCLES、ORIGINAL_RESUME_TO_FILL、JUNE_DELAY_OPPORTUNITY_STRATA、SCHEMA/SOURCE_FREEZE/RESULTS可复核。nextbenchmarkOPEN是市场原calendar及既有proxy，不是每股原生执行证明。
+17源先冻结、末SHA核同，一次reader0.49572秒，原benchmark/No60/PVR/MA/模型均未重算。shared已交loss原1557买层及risk原存量财富同轴；月度NAV/benchmark四路现成归因由pressure owner独立负责，本分支不另造月度PnL。独审已读源时钟无阻断，输出分母轻审待回执；不自动构账户或继续补preview。

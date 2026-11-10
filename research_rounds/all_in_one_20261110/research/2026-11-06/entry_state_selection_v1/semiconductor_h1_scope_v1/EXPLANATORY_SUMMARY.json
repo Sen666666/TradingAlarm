@@ -1,0 +1,148 @@
+{
+  "pvr": "120 stocks original score exact to cached full-H1 scores, all 2 physical prefixes exact; score is signed recent normalized price-volume evidence, not probability",
+  "root_groups": [
+    {
+      "cohort": "carry_from_2025",
+      "roots": 71,
+      "stocks": 71,
+      "old_any": 71,
+      "dual_any": 70,
+      "first_timing": {
+        "same": 58,
+        "dual_later": 12,
+        "old_only": 1
+      },
+      "old_common20_n": 12,
+      "old_common20_negative": 6,
+      "old_common20_median": 0.008372991706272703,
+      "old_lag_median": 7.0,
+      "old_move_already_median": 0.0486147412441191,
+      "new_common20_n": 13,
+      "new_common20_negative": 7,
+      "new_common20_median": -0.0035510462904249085,
+      "new_lag_median": 7.0,
+      "new_move_already_median": 0.050903518032081
+    },
+    {
+      "cohort": "born_Q2",
+      "roots": 157,
+      "stocks": 101,
+      "old_any": 141,
+      "dual_any": 141,
+      "first_timing": {
+        "same": 131,
+        "neither": 16,
+        "dual_later": 10
+      },
+      "old_common20_n": 88,
+      "old_common20_negative": 24,
+      "old_common20_median": 0.15613482327900075,
+      "old_lag_median": 5.0,
+      "old_move_already_median": 0.0815981992121552,
+      "new_common20_n": 88,
+      "new_common20_negative": 23,
+      "new_common20_median": 0.15613482327900075,
+      "new_lag_median": 6.0,
+      "new_move_already_median": 0.0840876607908527
+    },
+    {
+      "cohort": "born_Q1",
+      "roots": 91,
+      "stocks": 64,
+      "old_any": 65,
+      "dual_any": 60,
+      "first_timing": {
+        "same": 55,
+        "neither": 26,
+        "old_only": 5,
+        "dual_later": 5
+      },
+      "old_common20_n": 65,
+      "old_common20_negative": 35,
+      "old_common20_median": -0.009738595592004073,
+      "old_lag_median": 4.0,
+      "old_move_already_median": 0.0623244382022472,
+      "new_common20_n": 60,
+      "new_common20_negative": 31,
+      "new_common20_median": -0.0030375126599818114,
+      "new_lag_median": 4.0,
+      "new_move_already_median": 0.07592608393548755
+    }
+  ],
+  "retrospective_price_tiers": [
+    {
+      "tier": "negative",
+      "stocks": 13,
+      "I_active_first_H1": 11,
+      "first_old_CP_by_Jan15": 11,
+      "first_old_CP_after_Q1": 2,
+      "no_CP": 0,
+      "median_return_already_first_CP": 0.0687406362915306,
+      "median_PVR_at_first_CP": 73.92550289394147
+    },
+    {
+      "tier": "0_to_50pct",
+      "stocks": 17,
+      "I_active_first_H1": 12,
+      "first_old_CP_by_Jan15": 8,
+      "first_old_CP_after_Q1": 3,
+      "no_CP": 0,
+      "median_return_already_first_CP": 0.0550909985243484,
+      "median_PVR_at_first_CP": 66.32592937046797
+    },
+    {
+      "tier": "50_to_100pct",
+      "stocks": 32,
+      "I_active_first_H1": 20,
+      "first_old_CP_by_Jan15": 17,
+      "first_old_CP_after_Q1": 3,
+      "no_CP": 0,
+      "median_return_already_first_CP": 0.1330178792789951,
+      "median_PVR_at_first_CP": 76.49490068917846
+    },
+    {
+      "tier": "100pct_plus",
+      "stocks": 53,
+      "I_active_first_H1": 45,
+      "first_old_CP_by_Jan15": 38,
+      "first_old_CP_after_Q1": 3,
+      "no_CP": 0,
+      "median_return_already_first_CP": 0.16423655663128423,
+      "median_PVR_at_first_CP": 76.48918771546808
+    }
+  ],
+  "sector_intervals": [
+    {
+      "H1_visible_start": "2026-01-05",
+      "first_probe": null,
+      "last_visible": "2026-03-02",
+      "left_truncated": true,
+      "from_visible_start_to_probe": null,
+      "probe_to_end": null
+    },
+    {
+      "H1_visible_start": "2026-04-08",
+      "first_probe": "2026-04-17",
+      "last_visible": "2026-05-28",
+      "left_truncated": false,
+      "from_visible_start_to_probe": 0.06767496272741558,
+      "probe_to_end": 0.2966838787284001
+    },
+    {
+      "H1_visible_start": "2026-06-11",
+      "first_probe": "2026-06-16",
+      "last_visible": "2026-06-30",
+      "left_truncated": false,
+      "from_visible_start_to_probe": 0.06527006820012349,
+      "probe_to_end": 0.23943075363638067
+    }
+  ],
+  "raw_CP_sector_context": {
+    "total": 1220,
+    "sector_E0_false": 113,
+    "sector_E0_true_no_authorization": 96,
+    "sector_authorized": 1011,
+    "warning": "Conjunction only, not original full legal candidate/ACT/capital eligibility"
+  },
+  "all_sources_unchanged": true
+}

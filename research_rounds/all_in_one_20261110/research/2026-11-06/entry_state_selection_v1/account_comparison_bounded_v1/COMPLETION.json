@@ -1,0 +1,10 @@
+{
+  "completed": true,
+  "annual_run": false,
+  "real_orders": false,
+  "accepted_arms": 8,
+  "readout": "RESEARCH_READOUT.json",
+  "full_trace": "FULL_ALLOCATION_ATTRIBUTION.json",
+  "validation": "ACCEPTED_VALIDATION.json",
+  "source_and_output_hashes": "OUTPUT_SHA256.json"
+}

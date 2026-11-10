@@ -1,0 +1,43 @@
+{
+  "id": "600036.SH",
+  "group": "same_seven_original_adapter",
+  "rows": 3338,
+  "price_observations": 3338,
+  "strength_observations": 3338,
+  "events": 270,
+  "entries": 61,
+  "exits": 60,
+  "floor_updates": 78,
+  "memories": 35,
+  "ledger_records": 35,
+  "first": "2013-01-04",
+  "last": "2026-10-22",
+  "historical_b4_compared": true,
+  "historical_e0_compared": true,
+  "prefixes": [
+    {
+      "rows": 65,
+      "completed": false
+    },
+    {
+      "rows": 1112,
+      "completed": false
+    },
+    {
+      "rows": 2225,
+      "completed": false
+    },
+    {
+      "rows": 3337,
+      "completed": false
+    }
+  ],
+  "differences": 6,
+  "passed": false,
+  "sha256": {
+    "evidence.parquet": "d4cce009da340f16ae62499ed5f24f19d6bfc9e1b15c097b7b36b88d6c4c8dcf",
+    "journal.json": "9a8c5ff5f4f3f9233c7d8209dcc802b5dbb78920049ed20dac308f2b8328a201",
+    "ledger.parquet": "de10baf515e070048097dfdfe00b5817c89acd40a077f0400a40fec353ca6893",
+    "state.parquet": "411eb094395ff11149dac93bd475168024f03a0b8385225ca08b517cdc21e61a"
+  }
+}

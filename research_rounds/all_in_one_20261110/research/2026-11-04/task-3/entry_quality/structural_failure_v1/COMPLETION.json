@@ -1,0 +1,15 @@
+{
+  "completed": true,
+  "created_at_UTC": "2026-11-04T20:21:23.823470+00:00",
+  "new_full_financial_paths": 2,
+  "all_required_independent_receipts": {
+    "independent_review/ROOT_REPORT_AND_ETA_COMPARISON_AUDIT.json": "44f45d102ae06ff239f8370a3d6010481c2d27b0026477f23ac6184cfd414a13",
+    "independent_review/STRUCTURAL_FINAL_AUDIT_INDEX.json": "c94ad26efe2759c51805b878ddce4864620ff871de53c49bc451423e3c68bc1c",
+    "independent_review/PVR_ETA_2022_2024_ACCOUNT_AUDIT.json": "66eb0d8d2f7a89512f370edc69fbe82868e4f8f24cd340441d5f6aeeaca3495b",
+    "independent_review/PVR_ETA_strong_ACCOUNT_AUDIT.json": "422ef43c4e326e88c4d19c67570518deb672f2c5559b52d9a58b0c36158e0201",
+    "independent_review/ETA_STALE_ACTION_MARK_INDEPENDENT_CHECK.json": "80be18a5b446b4ac6a359afcb1ca3de95004ca6b1beb599f40a488672c7b0534"
+  },
+  "reported_result": "ETA weak endpoint+63865.451041274235CNY; strong endpoint-318377.900499170694CNY versus frozen BASE. Both drawdowns lower, no general enhancement promoted.",
+  "new_full_paths_pending": 0,
+  "no_production_or_live_trading": true
+}

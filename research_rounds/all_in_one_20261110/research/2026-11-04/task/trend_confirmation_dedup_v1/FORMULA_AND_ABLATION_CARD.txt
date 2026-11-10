@@ -1,0 +1,38 @@
+MA/BB/EMA确认只修饰原计划新买量：root已在指标/账户结果前接受四消融和主公式
+不是新E0/I信号、不是I_target延续/退出修改、不独立建仓。以下未计算历史值或回测。
+
+价格对象
+只用原STOCK_MANIFEST refs.facts中close/segment_id/raw_close/factor，与当前E0相同因果可比CLOSE及原观察钟；复用risk_constraints/analyze_ma63_information.py::frame的manifest SHA与坐标检查。不用新下载或改用其他价格源。不是ETF MA63，不是行业指数替股票。保原volume/E0/I/CP1资格，不声称MA/BB/EMA带来新独立量证据。
+所有窗口包含当前已完成CLOSE；不按持仓、E0趋势段、年度或回测起点重暖机。原source不可比边界重置；缺/无效行不压缩为连续有效窗口，不能拿未来值/最近价填未知。
+
+唯一建议公式（固定假说，参数不是永久偏好）
+MA60_t = mean(C[t-59:t+1])。
+A_t = known65 && C_t>=MA60_t && MA60_t>MA60_(t-5)。
+其中>=价格等于线也算，斜率严格>，相等不算上行。至少65个同段连续known观察才有A。
+MID20_t = mean(C[t-19:t+1])。
+SD20_t = sqrt(sum((C_k-MID20_t)^2)/20)，即ddof=0。
+UP20_t = MID20_t + 2*SD20_t。
+EMA10首个可比known收盘以C_seed初始化，之后递归EMA_t=(2/11)C_t+(9/11)EMA_(t-1)，adjust=False，min_periods=10；比较EMA_t>EMA_(t-3)。
+建议B采用fresh上穿事件：known && C_t>UP20_t && C_(t-1)<=UP20_(t-1) && EMA10_t>EMA10_(t-3)。窗口要求至少21个同段连续known观察，EMA额外种子/暖机检查保留。
+known观察定义为close正且finite、segment_id可知，股票raw_close/factor正且finite并满足原close≈raw_close*factor坐标核查。缺索引/原无效观察不造新行，不dropna压缩。每一原source段、或原段内真实未知之后，从下一known序列重新seed EMA并至少10个连续known观察；A/BB亦必须有各自完整连续known窗口，t-3/t-5按原观察槽而非过滤后的有效计数。不得用pandas默认缺值行为冒充协议。只重启特征暖机，不重启原E0/I/CP1或账户。
+root已接受本轮B_EVENT。B_STATE（持续站上轨）未准入，不能见924覆盖后替换。数值实现若无法复现本卡同源/缺值时钟则先修具体偏差，不补PASS。
+
+三值逻辑和大小映射
+TRUE/FALSE/UNKNOWN分别保存。若A true则MA_ONLY为1；否则0.5并保存false或unknown原因。MA_OR_BB任一true为1，否则0.5且保存unknown，不把未知命名为已证下行。
+NONE=1，UNIFORM50=.5。新指标未知仍只修饰原本已许可订单；原资格/执行硬输入未知不得越过旧规则。
+
+新买量与执行钟
+在原决策CLOSE中先由原规则产生真实合法intent(cap_0,budget_0,role,CP1,expiry)，再按上述m修饰。
+cap_1 = 原证券合法buy_floor(m*cap_0)，budget_1=m*budget_0；保证cap_1<=cap_0、budget_1<=budget_0。原close risk预算和nextOPEN实价/手续费/原量级等继续检验，最终可更小。
+50%针对整张计划单一次冻结，不是每次partialfill/retry再乘、也不是取baseline后来实际fill的一半。原最小单位内不足就不买，不能‘至少买一手’补回。新原始信号形成的新intent可重新按当日m判，不能延长旧CP1/旧expiry或复制已消费证据。
+nextOPEN只读其决策CLOSE m，不读OPEN日未来CLOSE；gap/slippage/fee可能令实际风险与50%原名义量不成比例，不能称风险保证减半。cancel/ACK/结算/费用只计一次。
+primary作用于所有原新买role(core/mobile、首次/add/reentry)，root要求分层保留；core-only不是本轮另开自由度。旧持仓、卖单、保护线、I_target和PVR顺序不改变。
+
+消融与BB快速反转边界
+四组上限：NONE / UNIFORM50 / MA_ONLY / MA_OR_BB，所有其他组件相同；本候选先不叠成本guard。
+B-only严格为A已知false且B true的原新单；A_UNKNOWN_B_TRUE另组，不混成已知慢趋势失败。列未满原量、后续连续原CLOSE、回入上轨、原结构保护/原退出和真实费用。可保存1/3/5后续观察作为事后诊断 horizon，不据最优horizon定义信号/补新出口。
+‘布林突破快速反转通道’若要新增退出或撤销规则，必须先定义触发价、适用层、持久期和优先级并单独消融。本卡没有这样的额外退出公式，不擅自将回带当强卖。
+
+对照与评价
+同原1m、1709快照开发池、原实际日历/连续state和原费用/执行约束。2022—24全726日、2025Jul—2026Jun强242日及完整预定phase均保；924、2026半导体只是诊断分层，非特征输入。
+同risk合同不等实现风险完全相同。报告actuallag exposure、initialrisk、mark-floor风险、费用、blocked/minlot、cash、账户return/DD与赢家/新龙头；UNIFORM50帮助识别减仓本身，不因其暴露仍不同就线性缩放收益。需要精确风险匹配时另预先冻结可实现的统一预算，不能事后调m到相同波动。

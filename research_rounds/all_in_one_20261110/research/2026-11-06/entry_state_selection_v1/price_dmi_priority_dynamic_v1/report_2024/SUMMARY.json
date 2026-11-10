@@ -1,0 +1,111 @@
+{
+  "window": "2024",
+  "model": "CONDITIONAL_PER_STOCK_PROXY_NOT_SHARED_CASH_ACCOUNT",
+  "fixed_stocks": 1709,
+  "common_comparable_stocks": 1571,
+  "old_net_common": 2763294.10090027,
+  "new_net_common": 2877230.5852743015,
+  "common_delta": 113936.48437403142,
+  "common_lane_deltas": {
+    "AB": -25484.608812986175,
+    "PRICE": 139421.09318701757
+  },
+  "unknown": {
+    "old": 113,
+    "new": 111,
+    "newly_unknown": [
+      "000338.SZ",
+      "300718.SZ",
+      "601966.SH",
+      "603268.SH",
+      "603588.SH",
+      "688097.SH",
+      "688257.SH"
+    ],
+    "no_longer_unknown": [
+      "002552.SZ",
+      "600475.SH",
+      "600750.SH",
+      "601236.SH",
+      "601555.SH",
+      "601696.SH",
+      "688016.SH",
+      "688209.SH",
+      "688531.SH"
+    ]
+  },
+  "retained_ab_path_exact": {
+    "retained_events": 651,
+    "mismatch_count": 0,
+    "mismatches": [],
+    "action_columns": [
+      "day",
+      "economic_role",
+      "fee",
+      "price",
+      "prior_round_net",
+      "q",
+      "reason",
+      "sid",
+      "side",
+      "signal_day",
+      "window"
+    ],
+    "claim_economic_columns": [
+      "sid",
+      "economic_event_id",
+      "evidence_version",
+      "record_date",
+      "inventory_snapshot_day",
+      "snapshot_kind",
+      "state",
+      "record_q",
+      "core_record_q",
+      "exitpending",
+      "amount",
+      "core_amount",
+      "recognized",
+      "settled",
+      "ex_date",
+      "pay_date",
+      "d_cash"
+    ],
+    "exit_columns": [
+      "status",
+      "exit_day",
+      "exit_price",
+      "exit_reason"
+    ],
+    "comparison": "Exact native values after missing-key omission and literal calendar-day normalization; only arm/round identities excluded"
+  },
+  "unknown_round_stock_mismatch": {
+    "baseline": [],
+    "joint": []
+  },
+  "unknown_status_vs_stock": {
+    "baseline": [],
+    "joint": []
+  },
+  "changed_requests": 971,
+  "changed_request_reasons": {
+    "AB|BLOCKED_HELD_PRICE": 56,
+    "AB|NEWLY_SELECTED_DYNAMIC_PATH": 82,
+    "AB|SECTOR_SLOT_RANK": 23,
+    "AB|BLOCKED_UNKNOWN_PRICE": 6,
+    "AB|BLOCKED_HELD_AB": 4,
+    "PRICE|SECTOR_SLOT_RANK": 245,
+    "PRICE|NEWLY_SELECTED_DYNAMIC_PATH": 405,
+    "PRICE|BLOCKED_HELD_PRICE": 141,
+    "PRICE|BLOCKED_HELD_AB": 7,
+    "PRICE|BLOCKED_UNKNOWN_PRICE": 2
+  },
+  "same_day_dynamic_queue_rank_invariants": {
+    "rows": 5262,
+    "locked_ab_moved": 0,
+    "unknown_moved": 0,
+    "dynamic_price_selected": 1220,
+    "mutable_rank_changes": 2190
+  },
+  "adapter_blockers": [],
+  "new_economic_executions_by_this_report": 0
+}

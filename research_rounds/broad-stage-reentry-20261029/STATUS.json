@@ -1,0 +1,17 @@
+{
+  "recorded_at": "2026-10-29T15:35:32.783626+08:00",
+  "status": "complete_limited_research_not_promoted",
+  "new_economic_paths": 1,
+  "complete_controls": 2,
+  "economic_replays": 0,
+  "parameter_changes_after_results": 0,
+  "new_data_downloads": 0,
+  "preparation_failure_and_same_parameter_fix": "REPAIR-v1.json",
+  "report_only_repairs": "REPORT_REPAIRS.json",
+  "platform_changes": 0,
+  "real_or_paper_account_changes": 0,
+  "next_queue_started": false,
+  "entry": "CONCLUSION.txt",
+  "visual_report": "REPORT.html",
+  "effective_freeze": "FREEZE-v2.json"
+}

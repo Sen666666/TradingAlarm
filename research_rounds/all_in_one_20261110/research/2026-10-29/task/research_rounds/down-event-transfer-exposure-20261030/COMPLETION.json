@@ -1,0 +1,18 @@
+{
+  "status": "completed_contract_and_exposure_only",
+  "start_utc": "2026-10-30T02:34:25+00:00",
+  "end_utc": "2026-10-30T02:56:21.469110+00:00",
+  "wall_seconds": 1316.46911,
+  "new_economic_paths": 0,
+  "indicator_recomputations": 0,
+  "selected_events": 32,
+  "known_boundaries": [
+    "next-open execution not examined",
+    "direct new I/Q rotation intent does not reproduce ordinary waiting memory",
+    "original future-cycle labels are descriptive only"
+  ],
+  "runtime_seconds_selection_freeze": 17.949527875054628,
+  "report_finalizer_seconds": 0.4284264580346644,
+  "blockers": [],
+  "serialization_failure": "preserved run.log; finalized only from frozen CSVs"
+}

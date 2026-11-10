@@ -1,0 +1,95 @@
+[
+  {
+    "sector": "TECH",
+    "stress": "base",
+    "requests": 26,
+    "requests_with_actual_trim": 26,
+    "risk_fully_empty": 26,
+    "episodes_with_restore": 10,
+    "restore_fills": 16,
+    "restore_buy_fees": "281.3575170724350",
+    "risk_trim_fees": "2413.3006035824950",
+    "categories": {
+      "no_fresh_I_before_exit_or_cutoff": 14,
+      "restored": 10,
+      "valid_application_no_order": 2
+    },
+    "role_profit": {
+      "core": "1694241.8027299142165",
+      "risk_initial": "1752928.6452312419045",
+      "risk_restored": "-19427.2182709145350"
+    },
+    "bprofit": "3427743.2296902415860"
+  },
+  {
+    "sector": "TECH",
+    "stress": "delay1",
+    "requests": 28,
+    "requests_with_actual_trim": 27,
+    "risk_fully_empty": 26,
+    "episodes_with_restore": 9,
+    "restore_fills": 10,
+    "restore_buy_fees": "164.7828640062500",
+    "risk_trim_fees": "1470.5803208412100",
+    "categories": {
+      "no_fresh_I_before_exit_or_cutoff": 13,
+      "risk_trim_not_flat_before_full_exit": 1,
+      "restored": 9,
+      "submitted_no_fill": 3,
+      "no_executed_trim": 1,
+      "valid_application_no_order": 1
+    },
+    "role_profit": {
+      "core": "329710.7387661509890",
+      "risk_initial": "232202.1499573231335",
+      "risk_restored": "57559.1620297670390"
+    },
+    "bprofit": "619472.0507532411615"
+  },
+  {
+    "sector": "DRUG",
+    "stress": "base",
+    "requests": 31,
+    "requests_with_actual_trim": 31,
+    "risk_fully_empty": 31,
+    "episodes_with_restore": 17,
+    "restore_fills": 20,
+    "restore_buy_fees": "338.5955252691825",
+    "risk_trim_fees": "1729.4253904711305",
+    "categories": {
+      "restored": 17,
+      "no_fresh_I_before_exit_or_cutoff": 12,
+      "fresh_I_Q_blocked": 2
+    },
+    "role_profit": {
+      "core": "-31654.2682151579310",
+      "risk_initial": "-59068.7838841529270",
+      "risk_restored": "-44333.2032230254090"
+    },
+    "bprofit": "-135056.2553223362670"
+  },
+  {
+    "sector": "DRUG",
+    "stress": "delay1",
+    "requests": 30,
+    "requests_with_actual_trim": 29,
+    "risk_fully_empty": 29,
+    "episodes_with_restore": 11,
+    "restore_fills": 11,
+    "restore_buy_fees": "229.0192028492370",
+    "risk_trim_fees": "1617.4423744728885",
+    "categories": {
+      "no_fresh_I_before_exit_or_cutoff": 10,
+      "restored": 11,
+      "submitted_no_fill": 7,
+      "fresh_I_Q_blocked": 1,
+      "no_executed_trim": 1
+    },
+    "role_profit": {
+      "core": "-130534.4063079203925",
+      "risk_initial": "-82300.9809197926465",
+      "risk_restored": "-62268.9096620263490"
+    },
+    "bprofit": "-275104.2968897393880"
+  }
+]

@@ -1,0 +1,59 @@
+2026-11-04 frozen BEFORE phase/account-return aggregation.
+Read-only retrospective attribution, zero new policy-account events.
+Do not modify No60/2024 source, trading rule, target, cap or parameter.
+
+Complete time domain: ALL484 original market decisions2022-01-04..2023-12-29.
+First partition ALL24 calendar months2022Jan..2023Dec and ALL8 quarters;
+no period selected by account or benchmark profit. Preserve every row.
+Use No60 own2022→2023 cumulative book and original PVR own2022→2023 book,
+each initial1m, all original fees/marks/actions/ACT and inherited state.
+Daily NAV change sums exactly to final-initial; segment return is NAVend /
+NAVbeforeSegment−1. Closing inventory/NAV and cash/NAV are AFTER each close;
+lagged prior-close exposure is also reported to avoid timing confusion.
+No index downleg is treated as a shortable gain. All policies are long-only.
+
+Primary contextual partition AFTER unconditional calendar tables:
+HS300 trueindex close, fixed single zigzag reversal10%, no threshold scan.
+Use full2021-12-31 anchor through2023-12-29 (if prior anchor absent, first
+available close explicitly documented). Start direction unknown: keep running
+highest/lowest; first10% move from an extreme establishes initial direction.
+In UP track highest close; first close<=peak*.9 confirms previous peak pivot.
+In DOWN track lowest close; first close>=trough*1.1 confirms previous trough.
+Record each pivot's extreme date AND later confirmation date. Partition every
+analysis day into non-overlapping (leftPivot,rightPivot] legs; preserve first
+edge leg and last right-censored unfinished leg, even if<10%. Every day gets
+one leg. Phase labels know future and are DIAGNOSTIC ONLY, never input to a
+signal/gate/rank/target/exit/benchmark execution. No top/bottom buy/sell PnL.
+Price-index return is contextual; ETF510300 actual MA63 long-only economic
+benchmark is independently implemented bypvr_pressure_readiness, not duplicated.
+
+Per complete month/quarter/leg and policy report actual NAV loss/return,
+fees, lag/close market exposure, committed capital, cash, ACT-paused days,
+actual buy/sell count/gross, new-reserve/fill and original Q/CP1/role/size /
+priority→route funnel. Overlapping raw barriers stay clearly marked or use
+the exact original ACT→exit→buy→other precedence, never sum overlapping tags.
+Signal-day funnel and next-open execution-day flows are distinct clocks.
+Core/mobile may both be planned for one stock; same-stock core reservation
+suppresses mobile and must not be called missing opportunity.
+
+Opportunity boundary uses existing factual admission/fill proof at the actual
+same-time signal/legal-unit/budget/cash/route state. A real funded/filled order
+is a lower bound of executable opportunities; actual native min-unit or frozen
+contract rejections are constraints, not foregone profit. Raw CP1/Q counts are
+not funded opportunities. Additional close-price arithmetic must be labeled
+close-clock numeric screen, not an exact OPEN reservation or counterfactual
+portfolio. No independent order sum, hindsight low/high timing or phantom PnL.
+
+Case selectors after complete table, fully disclosed retrospective:
+negative examples are ALL confirmed UP legs with negative account return;
+deep inspection uses largest No60 net-loss UP leg (earliest tie), plus largest
+net-loss DOWN leg. Positive counterexample uses largest No60 positive UP leg
+(earliest tie), retaining all other positive/negative legs in the table.
+Use complete2025Jul..2026Jun strong path as an additional already-audited
+positive control, not a selected stock-price ascent or new strategy test.
+These selections guide diagnosis only; no new filter/cap is inferred as solved.
+
+Scope limitations: current1709 A-stock/90-industry development snapshot,
+not PIT/OOS or HK. Broad HS300 movement does not prove the held stock/sector
+trend should rise. Causal mechanism claims require original chain evidence.
+Report verified, bounded/inferred and unresolved separately; independent review.

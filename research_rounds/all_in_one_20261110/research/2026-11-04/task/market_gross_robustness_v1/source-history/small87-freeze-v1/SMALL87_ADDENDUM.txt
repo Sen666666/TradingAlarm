@@ -1,0 +1,17 @@
+Root-authorized87-account-CLOSE technical scope, supersedes earlier proposed small cases.
+No fullGO. Cost1 independent process: fixed four variants + MA63_G10_TECH control, legacy9
+Jan4–Jan14 and freshDOWN6 Jan7–Jan14 =75 account days. Cost1.5 independent process:
+NO60_C15 + MA63_G10_C15 freshDOWN6 only =12 days. Total87. No strong small rerun.
+Tech control63/10 cost1 only in small, not a new economic matrix row; compare saved old
+same-start D63/10 financial/qty/trades/fees/original signals, allow label/scope metadata changes.
+Original six-factor robustness matrix still fixed. Strong alpha5/20 full rows may use archived
+same-path proof211b022e…d6955 only after final source equivalence approval; keep both report
+rows labeled archived induction proof, not fresh backtests/OOS. Neighbour MA/cost normal runs.
+Cost1.5 private original function support is newly checked. Original base1/2 fee/window pure
+identity does NOT prove old cost2 No60 opening economic paths (old J opening hardcoded1).
+Base1 unaffected; never cite an old cost2 path as validation of the new1.5 execution.
+Before any small Account use wrapped real original window: buy/sell cost1 then1.5 then1
+same market,7.5bp and cache isolation. Actual native opening asserts preview==window; actual
+buy/sell fee/price/NAV checks delegated to independent ledger. No new partial broker fixture;
+if real partial absent, that branch remains unexercised. Pure450 fee checks remain same
+pre-frozen scientific inputs; only this technical case selection changed, not their results.

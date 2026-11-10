@@ -1,0 +1,63 @@
+盈新 000620.SZ 2022-01-21 CLOSE
+C_a=4.1228784227791007; C_raw=3.6200000000000001; factor=1.138916691375442
+anchor original price: 2022-01-20 a=3.7470359146252044, raw=3.29; previous frontier source: 2022-01-20
+pre anchor=1.3209651046669244; frontier=1.3209651046669244; credit=0; frozen scale=0.032407847706411017; phase=UP
+saved features r=0.095586461060399142, s=0.03258592710125615, z=0.03258592710125615, B=158278265, amount=781161514
+u=tanh(r/s)=0.99435177288522392; v=tanh(log(amount/B))=0.921128988541562
+m=1+0.5*abs(u)*v=1.4579631214061377
+p=log(C_a)=1.4165515657273235
+fresh=p-pre_frontier=0.095586461060399142
+new credit=fresh*m=0.13936153513178576
+credit=fsum(pre_credit,new_credit)=0+0.13936153513178576=0.13936153513178576
+displacement=current_frontier-anchor=1.4165515657273235-1.3209651046669244=0.095586461060399142
+threshold=sqrt(5)*frozen_scale=2.2360679774997898*0.032407847706411017=0.07246615047599568
+displacement-threshold=0.023120310584403461; credit-threshold=0.066895384655790077; min margin=0.023120310584403461
+receipt: fresh>0 AND both margins>=0 -> true (same as saved receipt)
+sqrt(21)*frozen_scale=0.14851141522522948; exp(-sqrt(21)*frozen_scale)=0.86199016730243128
+candidate_a=C_a*multiplier=3.5538806614189409; candidate_raw=candidate_a/factor=3.1204044056348015
+price advance from anchor (NOT log displacement): a=0.3758425081538963, raw=0.33000000000000007
+CP next-state: anchor=frontier=p=1.4165515657273235; credit=0; next_scale=today z=0.03258592710125615; phase=UP
+Saved delta/displacement/credit/candidate binary64 substitution residuals all zero.
+
+盈新 000620.SZ 2022-01-24 CLOSE
+C_a=4.5328884316742597; C_raw=3.98; factor=1.138916691375442
+anchor original price: 2022-01-21 a=4.1228784227791007, raw=3.6200000000000001; previous frontier source: 2022-01-21
+pre anchor=1.4165515657273235; frontier=1.4165515657273235; credit=0; frozen scale=0.03258592710125615; phase=UP
+saved features r=0.094807793458666634, s=0.03258592710125615, z=0.03258592710125615, B=206903387, amount=746301803
+u=tanh(r/s)=0.99407609936103714; v=tanh(log(amount/B))=0.85724985695587652
+m=1+0.5*abs(u)*v=1.4260857969902525
+p=log(C_a)=1.5113593591859902
+fresh=p-pre_frontier=0.094807793458666634
+new credit=fresh*m=0.13520404769538985
+credit=fsum(pre_credit,new_credit)=0+0.13520404769538985=0.13520404769538985
+displacement=current_frontier-anchor=1.5113593591859902-1.4165515657273235=0.094807793458666634
+threshold=sqrt(5)*frozen_scale=2.2360679774997898*0.03258592710125615=0.072864348108261423
+displacement-threshold=0.021943445350405211; credit-threshold=0.062339699587128428; min margin=0.021943445350405211
+receipt: fresh>0 AND both margins>=0 -> true (same as saved receipt)
+sqrt(21)*frozen_scale=0.14932747753181924; exp(-sqrt(21)*frozen_scale)=0.86128701656467366
+candidate_a=C_a*multiplier=3.9041179537372459; candidate_raw=candidate_a/factor=3.4279223259274016
+price advance from anchor (NOT log displacement): a=0.41001000889515904, raw=0.35999999999999988
+CP next-state: anchor=frontier=p=1.5113593591859902; credit=0; next_scale=today z=0.03258592710125615; phase=UP
+Saved delta/displacement/credit/candidate binary64 substitution residuals all zero.
+
+海能达 002583.SZ 2024-10-18 CLOSE
+C_a=67.158178251070453; C_raw=11.949999999999999; factor=5.6199312343992007
+anchor original price: 2024-10-16 a=59.571271084631526, raw=10.6; previous frontier source: 2024-10-17
+pre anchor=4.0871734290767341; frontier=4.1114057424645019; credit=0.029450274785421341; frozen scale=0.027712956403817379; phase=UP
+saved features r=0.095644963871730049, s=0.032506539668503996, z=0.032506539668503996, B=1948201978, amount=5202582381
+u=tanh(r/s)=0.99445184903265926; v=tanh(log(amount/B))=0.75403749820414145
+m=1+0.5*abs(u)*v=1.3749269921645344
+p=log(C_a)=4.2070507063362319
+fresh=p-pre_frontier=0.095644963871730049
+new credit=fresh*m=0.13150484249184335
+credit=fsum(pre_credit,new_credit)=0.029450274785421341+0.13150484249184335=0.16095511727726469
+displacement=current_frontier-anchor=4.2070507063362319-4.0871734290767341=0.11987727725949782
+threshold=sqrt(5)*frozen_scale=2.2360679774997898*0.027712956403817379=0.061968054376423776
+displacement-threshold=0.057909222883074041; credit-threshold=0.098987062900840916; min margin=0.057909222883074041
+receipt: fresh>0 AND both margins>=0 -> true (same as saved receipt)
+sqrt(21)*frozen_scale=0.12699672045150431; exp(-sqrt(21)*frozen_scale)=0.88073656101068432
+candidate_a=C_a*multiplier=59.148662956590321; candidate_raw=candidate_a/factor=10.524801904077679
+price advance from anchor (NOT log displacement): a=7.5869071664389267, raw=1.3499999999999996
+CP next-state: anchor=frontier=p=4.2070507063362319; credit=0; next_scale=today z=0.032506539668503996; phase=UP
+Saved delta/displacement/credit/candidate binary64 substitution residuals all zero.
+

@@ -1,0 +1,47 @@
+{
+  "status": "COMPLETE_SOURCE_ONLY_FIXED14",
+  "case_count": 14,
+  "account_runs": 0,
+  "indicator_recomputations": 0,
+  "new_strategy_tests": 0,
+  "source_hashes_checked": 152,
+  "checks": {
+    "receipt_union_exact_stocks": 14,
+    "selected_no_split_exact_qty": 14,
+    "first_exit_reason_matches_final_layer_and_sell": 14,
+    "daily_floor_matches": 277,
+    "raw_fill_price_exact": 28
+  },
+  "fast_failure_count": 7,
+  "fast_initial_floor_already_breached": 6,
+  "fast_raised_floor_only": 1,
+  "Jiangfeng_initial_floor_already_breached": true,
+  "all_CP_exit_I_still_valid": true,
+  "I_structure_exit_case": [
+    361
+  ],
+  "daily_floor_unknowns": 0,
+  "missing_market_data_case": [
+    2897
+  ],
+  "loss_bridge_max_abs_residual": "5E-24",
+  "source_snapshot_timing": "Hashes verified against existing source manifests; this small report is NOT a retrospective pre-outcome sample freeze.",
+  "selection_limits": "Fixed 14 history-labelled mechanism-development cases; no population efficacy, win-rate or out-of-sample inference.",
+  "critical_result": "6/7 fast failures and Jiangfeng already broke immutable initial BUY floor. All 7 fast failures had CP-dominant initial floor; Ningbo 361 alone among 14 had I-dominant floor. Gree 1542 is the only raised-floor-only fast failure. Its 1/16 CP anchor is 1/9 before 1/10 OPEN, but all new advances are 1/10,1/15,1/16 CLOSE, with zero overlap with entry CP. Anchor-before-fill is not proof of pre-fill or reused credit.",
+  "counterfactual_boundary": "Original post-exit admission/funding/rebuys are original-account observations, not changed-exit counterfactual cash/risk feasibility. Missing immediate next common opening quote is UNKNOWN, not assumed zero.",
+  "prior_577": "Correct frozen population boundary is 578, parent typo corrected, no new all-population experiment.",
+  "unknowns": [
+    "Jiangfeng immediate next common OPEN after 2026-01-29 is missing. Five common-day native raw bars are absent before 2026-02-06; no official halt cause inferred.",
+    "Historical tradability remains UNKNOWN under original causal OPEN proxy."
+  ],
+  "initial_CP_dominant_cases": 13,
+  "initial_I_dominant_cases": 1,
+  "all_fast_failures_initial_CP_dominant": true,
+  "CP_floor_raises_all_new_advances_after_fill": true,
+  "CP_floor_raise_new_advances_overlap_entry_receipt": 0,
+  "post_exit_actual_rebuy_fills": 0,
+  "post_exit_fixed_common_close_rows_excluding_exit_day": 280,
+  "post_exit_includes_exit_day_separately": true,
+  "first_exit_reason_and_final_layer_sell_reason_agree_all14": true,
+  "clarification": "Original source behavior is old-floor check before update. A migration to first-layer I protection would require original-I risk sizing, not reuse of existing CP-sized quantities. No alternative strategy profits calculated."
+}

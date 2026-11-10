@@ -1,0 +1,116 @@
+{
+  "prior_known_raw_line": "71.16545445451323018927043824",
+  "prior_known_adjusted_line": "430.8206298963238",
+  "last_actual_saved_line_updates": [
+    {
+      "day": "2023-04-18",
+      "layer": 801,
+      "qty": 200,
+      "raw_close": "79.9",
+      "adjusted_close": "483.6977237420456",
+      "factor": "6.053788782754013",
+      "I_valid": true,
+      "recorded_after_decision_floor": "430.8206298963238",
+      "raw_line": "71.16545445451323018927043824",
+      "line_changed": true,
+      "source_CP1_receipt": true,
+      "source_CP1_candidate": "430.8206298963238",
+      "source_I_floor": "178.9499964182086",
+      "sell_pending": false
+    },
+    {
+      "day": "2023-04-18",
+      "layer": 803,
+      "qty": 100,
+      "raw_close": "79.9",
+      "adjusted_close": "483.6977237420456",
+      "factor": "6.053788782754013",
+      "I_valid": true,
+      "recorded_after_decision_floor": "430.8206298963238",
+      "raw_line": "71.16545445451323018927043824",
+      "line_changed": true,
+      "source_CP1_receipt": true,
+      "source_CP1_candidate": "430.8206298963238",
+      "source_I_floor": "178.9499964182086",
+      "sell_pending": false
+    }
+  ],
+  "trigger_day": "2023-04-27",
+  "trigger_close": "63.0",
+  "stock_I_still_valid": true,
+  "actual_requests": [
+    {
+      "kind": "exit_request",
+      "at": "2023-04-27 15:10:00+08:00",
+      "sid": "300502.SZ",
+      "event_id": "exit:300502.SZ:4605"
+    },
+    {
+      "kind": "pilot_layer_exit",
+      "at": "2023-04-27 15:10:00+08:00",
+      "sid": "300502.SZ",
+      "layers": [
+        801
+      ],
+      "shares": 200,
+      "reason": "CP1_add_protection"
+    },
+    {
+      "kind": "pilot_layer_exit",
+      "at": "2023-04-27 15:10:00+08:00",
+      "sid": "300502.SZ",
+      "layers": [
+        801,
+        803
+      ],
+      "shares": 300,
+      "reason": "CP1_add_protection"
+    }
+  ],
+  "actual_sells": [
+    {
+      "receipt_id": "fill:300502.SZ:4617",
+      "security_id": "300502.SZ",
+      "side": "sell",
+      "shares": 300,
+      "gross_cny": "19502.244000",
+      "fees_cny": "26.0370706028000",
+      "at": "2023-04-28 09:30:00+08:00",
+      "settlement_id": "sale:300502.SZ:4616",
+      "execution_basis": "explicit_daily_bar_proxy_past20_capacity_same_day_hlv_postcheck",
+      "fx_basis": "known_trade_time_reference_locked_until_settlement",
+      "parts": [
+        {
+          "layer": 801,
+          "kind": "add",
+          "shares": 200,
+          "net_cash": "12984.13795293146666666666667",
+          "reason": "CP1_add_protection"
+        },
+        {
+          "layer": 803,
+          "kind": "add",
+          "shares": 100,
+          "net_cash": "6492.068976465733333333333333",
+          "reason": "CP1_add_protection"
+        }
+      ],
+      "raw_open": "65.04",
+      "price": "65.007480",
+      "reason": "CP1_add_protection"
+    }
+  ],
+  "all_later_fresh_CP1_receipts": 11,
+  "first_later_CP1": "2023-05-18",
+  "later_CP1_initial_barriers": {
+    "industry_invalidated": 2,
+    "probe_risk,sector_capital,sector_risk": 2,
+    "pool_capital,probe_risk,sector_capital,sector_risk": 1,
+    "pool_capital,probe_risk,sector_capital": 3,
+    "probe_risk": 2,
+    "pool_capital,probe_risk": 1
+  },
+  "no_fresh_CP1_gap": "after actual 4/28 exit through 5/17 inclusive",
+  "core_opportunities_during_CP1_gap": [],
+  "not_an_I_structure_exit": true
+}

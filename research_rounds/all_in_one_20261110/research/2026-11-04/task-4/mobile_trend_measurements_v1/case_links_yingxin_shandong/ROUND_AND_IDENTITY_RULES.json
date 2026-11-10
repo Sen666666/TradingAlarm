@@ -1,0 +1,47 @@
+{
+  "labels": "Descriptive original Mobile inventory rounds split at already actual first Mobile clear OPEN; they are not new E0/I episodes or trading signals",
+  "first_clear_OPEN": {
+    "000620.SZ": "2022-01-20 09:30:00+08:00",
+    "601019.SH": "2023-04-11 09:30:00+08:00"
+  },
+  "actual_round_layer_sets": {
+    "000620.SZ": [
+      [
+        69,
+        75,
+        78
+      ],
+      [
+        113,
+        122
+      ]
+    ],
+    "601019.SH": [
+      [
+        1161,
+        1183
+      ],
+      [
+        1230,
+        1267,
+        1283
+      ]
+    ]
+  },
+  "original_CORE_layers": {
+    "000620.SZ": 68,
+    "601019.SH": 1148
+  },
+  "runner_I_epochs": {
+    "000620.SZ": [
+      0,
+      2
+    ],
+    "601019.SH": [
+      0,
+      5
+    ]
+  },
+  "warning": "Runner I epoch, canonical stock E0 id, budget industry episode and account ACT episode are separate; equal runner epoch does not establish E0 identity",
+  "early_shandong": "2023-03-20 through 03-27 only original book/daily/opportunities/funding were read; 03-22 CP receipt ID and next OPEN fill exist, but full canonical CP payload/E0 facts are NOT_IN_REUSED_TABLE"
+}

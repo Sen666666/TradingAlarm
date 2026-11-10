@@ -1,0 +1,152 @@
+{
+  "scope": "Isolated conditional original-CORE minimum-unit net labels only; variable original-I/baselineACT horizons. Not executable shared-capital rotation, no economic sums are account returns.",
+  "events": 8335,
+  "status_counts": {
+    "closed": 8058,
+    "entry_nonfill": 24,
+    "censored_open": 253
+  },
+  "groups": [
+    {
+      "window": "long",
+      "status": "censored_open",
+      "events": 1,
+      "known_net": 1,
+      "positive": 1,
+      "negative": 0,
+      "zero": 0,
+      "net_return_pct": {
+        "min": "13.15712340783338211822642879",
+        "p25": "13.15712340783338211822642879",
+        "median": "13.15712340783338211822642879",
+        "p75": "13.15712340783338211822642879",
+        "max": "13.15712340783338211822642879"
+      },
+      "cash_CA_paths": 0,
+      "CA_paths": 0,
+      "entry_partial": 0,
+      "derived_terminal_mark": 0
+    },
+    {
+      "window": "long",
+      "status": "closed",
+      "events": 5248,
+      "known_net": 5248,
+      "positive": 1479,
+      "negative": 3769,
+      "zero": 0,
+      "net_return_pct": {
+        "min": "-32.58464652761820541655510938",
+        "p25": "-9.966137156612557820773402550",
+        "median": "-5.891733241042074329890335028",
+        "p75": "1.489305239936790914187073045",
+        "max": "288.6904623638888835855940066"
+      },
+      "cash_CA_paths": 531,
+      "CA_paths": 532,
+      "entry_partial": 0,
+      "derived_terminal_mark": 0
+    },
+    {
+      "window": "long",
+      "status": "entry_nonfill",
+      "events": 15,
+      "known_net": 0,
+      "positive": 0,
+      "negative": 0,
+      "zero": 0,
+      "net_return_pct": {
+        "min": null,
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "max": null
+      },
+      "cash_CA_paths": 0,
+      "CA_paths": 0,
+      "entry_partial": 0,
+      "derived_terminal_mark": 0
+    },
+    {
+      "window": "strong",
+      "status": "censored_open",
+      "events": 252,
+      "known_net": 252,
+      "positive": 212,
+      "negative": 40,
+      "zero": 0,
+      "net_return_pct": {
+        "min": "-24.43282493689561252299270093",
+        "p25": "7.231676711783424278044074695",
+        "median": "33.32894219647119629008475301",
+        "p75": "99.57585276073729171627995220",
+        "max": "1410.185477126584560804554233"
+      },
+      "cash_CA_paths": 105,
+      "CA_paths": 105,
+      "entry_partial": 0,
+      "derived_terminal_mark": 0
+    },
+    {
+      "window": "strong",
+      "status": "closed",
+      "events": 2810,
+      "known_net": 2810,
+      "positive": 1053,
+      "negative": 1757,
+      "zero": 0,
+      "net_return_pct": {
+        "min": "-37.84349248765445964555377941",
+        "p25": "-8.494632718044416290065002870",
+        "median": "-3.932770923820976703583829995",
+        "p75": "7.421143725861105019082109390",
+        "max": "634.9421369135768417777708200"
+      },
+      "cash_CA_paths": 324,
+      "CA_paths": 325,
+      "entry_partial": 0,
+      "derived_terminal_mark": 0
+    },
+    {
+      "window": "strong",
+      "status": "entry_nonfill",
+      "events": 9,
+      "known_net": 0,
+      "positive": 0,
+      "negative": 0,
+      "zero": 0,
+      "net_return_pct": {
+        "min": null,
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "max": null
+      },
+      "cash_CA_paths": 0,
+      "CA_paths": 0,
+      "entry_partial": 0,
+      "derived_terminal_mark": 0
+    }
+  ],
+  "output_identity_and_Cn_seed_arithmetic_passed": true,
+  "technical_single_asset_paths": 5,
+  "full_single_asset_paths": 8335,
+  "all_single_asset_ledger_initializations": 8340,
+  "full_label_attempts": 8336,
+  "new_portfolio_policy_accounts": 0,
+  "costs": {
+    "first_label_phase_seconds": 120.10009508393705,
+    "additional_label_phase_seconds": 103.47523950086907,
+    "total_label_phase_seconds": 223.57533458480611,
+    "additional_worker_input_preparation_seconds": 2.2786731678061187,
+    "additional_subprocess_wall_sum_seconds": 147.56448991643265,
+    "parallel_subprocess_wall_elapsed_seconds": 37.01120591163635,
+    "merge_seconds": 0.9919677921570837,
+    "partition_prepare_seconds": 1.5108992918394506,
+    "continuation_freeze_prepare_seconds": 0.12667679134756327,
+    "first_input_prepare_seconds": 1.1284875418059528,
+    "technical_calibration_seconds": 1.3371215001679957
+  },
+  "read_only_summary_seconds": 0.12279916694387794,
+  "remaining_blockers": []
+}

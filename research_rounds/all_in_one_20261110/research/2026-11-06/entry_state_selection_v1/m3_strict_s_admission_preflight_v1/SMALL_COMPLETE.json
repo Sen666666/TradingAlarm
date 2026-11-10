@@ -1,0 +1,133 @@
+{
+  "qa": [
+    {
+      "sid": "000063.SZ",
+      "source_rows": 3269,
+      "multiplier1_rows": 3269,
+      "old_strict_cache_rows": 3269,
+      "first_source": "2013-01-04 00:00:00",
+      "last_source": "2026-10-22 00:00:00",
+      "physical_dataframe_prefix_cuts": 2
+    },
+    {
+      "sid": "000426.SZ",
+      "source_rows": 3060,
+      "multiplier1_rows": 2981,
+      "old_strict_cache_rows": 0,
+      "first_source": "2013-01-04 00:00:00",
+      "last_source": "2026-10-22 00:00:00",
+      "physical_dataframe_prefix_cuts": 2
+    },
+    {
+      "sid": "000636.SZ",
+      "source_rows": 3187,
+      "multiplier1_rows": 3185,
+      "old_strict_cache_rows": 3185,
+      "first_source": "2013-01-04 00:00:00",
+      "last_source": "2026-10-22 00:00:00",
+      "physical_dataframe_prefix_cuts": 2
+    },
+    {
+      "sid": "001309.SZ",
+      "source_rows": 1044,
+      "multiplier1_rows": 1044,
+      "old_strict_cache_rows": 1044,
+      "first_source": "2022-07-01 00:00:00",
+      "last_source": "2026-10-22 00:00:00",
+      "physical_dataframe_prefix_cuts": 2
+    },
+    {
+      "sid": "002643.SZ",
+      "source_rows": 3231,
+      "multiplier1_rows": 3230,
+      "old_strict_cache_rows": 3230,
+      "first_source": "2013-01-04 00:00:00",
+      "last_source": "2026-10-22 00:00:00",
+      "physical_dataframe_prefix_cuts": 2
+    },
+    {
+      "sid": "300139.SZ",
+      "source_rows": 3340,
+      "multiplier1_rows": 3264,
+      "old_strict_cache_rows": 0,
+      "first_source": "2013-01-04 00:00:00",
+      "last_source": "2026-10-22 00:00:00",
+      "physical_dataframe_prefix_cuts": 2
+    },
+    {
+      "sid": "300657.SZ",
+      "source_rows": 2245,
+      "multiplier1_rows": 2244,
+      "old_strict_cache_rows": 2244,
+      "first_source": "2017-05-23 00:00:00",
+      "last_source": "2026-10-22 00:00:00",
+      "physical_dataframe_prefix_cuts": 2
+    },
+    {
+      "sid": "300913.SZ",
+      "source_rows": 1423,
+      "multiplier1_rows": 1423,
+      "old_strict_cache_rows": 1423,
+      "first_source": "2020-12-07 00:00:00",
+      "last_source": "2026-10-22 00:00:00",
+      "physical_dataframe_prefix_cuts": 2
+    },
+    {
+      "sid": "603002.SH",
+      "source_rows": 3323,
+      "multiplier1_rows": 3323,
+      "old_strict_cache_rows": 3323,
+      "first_source": "2013-01-04 00:00:00",
+      "last_source": "2026-10-22 00:00:00",
+      "physical_dataframe_prefix_cuts": 2
+    },
+    {
+      "sid": "688110.SH",
+      "source_rows": 1174,
+      "multiplier1_rows": 1174,
+      "old_strict_cache_rows": 1174,
+      "first_source": "2021-12-10 00:00:00",
+      "last_source": "2026-10-22 00:00:00",
+      "physical_dataframe_prefix_cuts": 2
+    }
+  ],
+  "synthetic": {
+    "passed": true,
+    "checks": [
+      {
+        "n": 65,
+        "prefix": true,
+        "future_pollution": true
+      },
+      {
+        "n": 100,
+        "prefix": true,
+        "future_pollution": true
+      },
+      {
+        "n": 140,
+        "prefix": true,
+        "future_pollution": true
+      },
+      {
+        "n": 180,
+        "prefix": true,
+        "future_pollution": true
+      },
+      {
+        "n": 220,
+        "prefix": true,
+        "future_pollution": true
+      }
+    ],
+    "source_calc_comparisons": 8,
+    "segment_reset_known_test": true,
+    "zero_volume_unknown": true,
+    "numeric_tie": true,
+    "exit_then_positive_no_reentry": true,
+    "inactive_missing_floor_stays_known_false": true,
+    "no_labels": true
+  },
+  "full_sector_not_computed": true,
+  "no_economics": true
+}

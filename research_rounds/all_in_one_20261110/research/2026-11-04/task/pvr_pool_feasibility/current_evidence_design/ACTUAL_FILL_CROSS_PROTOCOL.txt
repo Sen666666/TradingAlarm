@@ -1,0 +1,15 @@
+ROOT批准的唯一新数值诊断：exact B prior63 × 全部已存实际买入层
+范围冻结于读取新B结果之前，2026-11-04。
+
+候选唯一：B_INDUSTRY_PRIOR63_MEAN_CONFIRMED_PERMISSION。
+入场决策t的行业context = C_j,t > arithmetic mean(C_j,t-63 ... C_j,t-1)。严格大于，排除当日，63完整此前行业计划观察槽，同原行业source/segment。无股MA/dayup/slope/breadth新门。
+使用实际授权决策CLOSE，不读fill当日未完成close；若无决策键须精确沿原order/journal追溯，不猜fill-1日。原行情价/观察/源身份/knownmask保留。未知单列，不能按False趋势解释。
+
+母体：No60自身2022→2023→2024全三年所有actual buy fills，以及完整2025-07-01→2026-06-30 strong全实际buy fills。保留core/probe/confirmed/原303（如为源字段或群体标签，沿risk已定定义，不删）。不只挑亏损/已闭合/confirmed，不按收益改期。与risk已冻fixed-entry贡献母体、阶段、标签完全同key核同。
+交叉主分母：所有实际买入层；另按pool_at_fill/role/迁池旧probe与新买confirmed区别报告。B直接新confirmed资格只是子集，不把全部False股层当实际会被阻断。migrate整体coupling效应未本轮验证，不能把已迁probe的原入场标签当其后来迁池时K。
+主字段：original decision day/source close/prior63 count/prior63 mean/known/B pass；风险agent已冻inclusive行业及个股标签独立并列。inclusive不代替prior63，也不据二者收益选门。
+财务：只复用原实际层全period财富/固定事件贡献、买款/费用/权益/期末值；分组和必须精确回原账。三年不年重置，strong独立原1m。已闭合尾部/普通/未闭合按既有固定标签保留，不能用新分组改净标签。可分所有24/36自然月/8/12季、原L03/L04和924已冻阶段；不生成新窗口。
+必出：全三年/各年/完整strong，B True/False/Unknown各全量层数/买款/正负净/原fixed tail/net；exactB与inclusive矩阵；只新confirmed直接作用子集；L03/L04与Oct8后原阶段主损耗能覆盖多少。CLOSE context与OPEN后分组不混。
+
+否证优先：若主要实际亏损都在B True（尤其L03/L04与924后），False只占边缘或误挡强窗赢家，则关闭B作为核心损耗修复方向，不再加股门/斜率/持久日或凑2×2。即使False组负，也仅说明历史可作用上界，不是可避损或新策略收益。
+原Q全域大表、全部迁池日context、合成路由/新信号接线/金融账户/2×2本轮均未授权。

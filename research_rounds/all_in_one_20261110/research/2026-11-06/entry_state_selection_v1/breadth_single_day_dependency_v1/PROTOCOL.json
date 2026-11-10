@@ -1,0 +1,10 @@
+{
+  "name": "breadth_single_day_dependency_v1",
+  "history": "Consumed development history, not OOS. Cmax/Neff and FIP already studied; only different fixed consumer on canonical M3 complete shadows.",
+  "formula": "d_k=w_k*e_(t-k); w_k=.9**k/sum(.9**arange(21)); E=sum(d); M=max(0,d_0,...,d_20); Q=E-M; score=50+50*tanh(2Q). Denominator fixed, not renormalized after deletion; all negatives retained.",
+  "feature_known": "Exact original e and score function. Last22 immediate common-session observed positive price/volume/amount source_kind/source_path/segment all valid and identical; all21 e finite. Original e scale/history inherited exactly as canonical PVR. Unknown preserves original rank slot.",
+  "selection": "Only14880 M3 inherited common-known close-feasible candidates. Same per-event K<=2. Original PVR descending then sid; known positions reordered Q descending then PVR then sid. Unknown fixed. Next-open rejection no replacement.",
+  "contract": "Unchanged independent shadow: reference NAV1.2m, initial nominal2%, plan risk.25%, at most one profitable freshCP2% addition, slot4%, original I/fees/T+1/next-open clock. No account/order.",
+  "report": "2022 full;2024Sep-Dec;2026H1 semiconductor. FALSE_TO_TRUE main; other event types separate. W/L/U/UNKNOWN/NO_ENTRY; same-event/day comparisons; changed slots both complete; tails>=30%; no unknown imputation. Reuse all-feasible shadows.",
+  "stop": "No scan, reweighting, or early-breakout exemption. Stop if weak results or material tail cost. NON-PIT survivor pool and overlapping event-stock rows."
+}

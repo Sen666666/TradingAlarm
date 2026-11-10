@@ -1,0 +1,10 @@
+{
+  "scope": "2019 through 2026-10-22; prior history used to preserve cross-year origins",
+  "main_layer": "Merge saved retrospective manual industry records; exact duplicate sector/start/end removed; overlapping long cycles and subwaves explicitly nested, never added",
+  "auxiliary_layer": "One fixed 20% close-reversal hysteresis from earliest available history; ascent confirmed only after 20% rise from running trough; peak confirmed only after 20% decline; no threshold search; these are mechanical subwave candidates, not manual campaign endpoints, alpha or fat-tail classifications",
+  "members": "Original current 1709 surviving approx>=10bn CNY company-cap pool, 2026-10 snapshot, repaired current industry mapping, NON-PIT; exact observed eligible adjusted-close endpoints shared by all stocks in a row; no forwardfill",
+  "units": "all percent fields in percentage points; MDD negative",
+  "concentration": "top3 sum max(r,0) / all sum max(r,0), equal initial notional, not index weight contribution",
+  "quality": "known endpoint != full path; report n/K/P/F separately; full current membership does not equal historic membership",
+  "no_accounts": true
+}

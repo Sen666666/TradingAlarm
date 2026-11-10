@@ -1,0 +1,21 @@
+{
+  "version": "cash_attribution_v1",
+  "frozen_before_new_amount_calculations": true,
+  "scope": "Read-only attribution of sealed lifecycle_comparison_v1 output. No economic lifecycle run, no formula/parameter changes, no selection gates, no new prediction scores.",
+  "windows": ["2022", "2024_924"],
+  "arms": ["A_UNION_B", "RAW_MOM11", "CH3_RM"],
+  "primary_comparison": "CH3_RM minus RAW_MOM11",
+  "reference_comparison": "CH3_RM minus A_UNION_B",
+  "stock_universe": "All stocks in either arm DECISIONS for each window, including those with no permission in either arm. Every permitted round is retained.",
+  "observed_subtotals": "Sum evidence_usable_closed rows only. Other paths remain explicitly unknown and do not become observed zeros. An empty observed subtotal is null, not zero.",
+  "complete_stock_delta": "Known only if both arms have every permission resolved as evidence-usable closed or explicit NOFILL. No permission or only explicit NOFILL is known nonparticipation zero. Any execution UNKNOWN, CENSORED, or closed financial UNKNOWN makes that stock's complete delta null; available closed subtotals may still be reported separately.",
+  "round_identity": "Same event_id is paired first and must have identical normalized ACTIONS, CLAIM_LEDGER and economic outcomes, including unknown statuses. These pairs contribute zero to observed monetary differences when evidence-usable.",
+  "same_exit_pairing": "After exact event pairs are removed, pair a stock and exit_day only if exactly one remaining round in each arm has that exit_day and both are evidence-usable closed. Never force repeated or ambiguous matching. Preserve all unmatched rounds and reasons.",
+  "core_decomposition": "For actual initial q_C,q_R and p_C=core_net_C/q_C,p_R=core_net_R/q_R: delta_net=(q_C-q_R)*(p_C+p_R)/2 + (p_C-p_R)*(q_C+q_R)/2. This symmetric exact identity uses actual own cashflows and is not a quantity optimization, causal estimate, hypothetical entry or transplantation of another path's profits. Fees and NET80 are included in p; p need not be an invariant price spread.",
+  "gross_identity": "net = raw_open_gross - slippage - fees + NET80 = after_slippage_gross - fees + NET80; CORE and FULL remain separate. FULL has additions and is not reduced to an initial-quantity/per-share identity.",
+  "mean_identity": "Observed mean_C - mean_R = (S_C-S_R)*(1/N_C+1/N_R)/2 + (1/N_C-1/N_R)*(S_C+S_R)/2. Decompose delta S further by common event, unique same-exit quantity and per-share terms, unmatched available paths. Denominator component is a sample-count arithmetic term, not causal selection value.",
+  "concentration": "Across every comparable complete-stock delta, sort by absolute delta descending, sid ascending tie-break. Report top 1/5/10 signed and absolute sums, shares of total absolute delta, and minimum/maximum delta after deleting any one stock. Also report an explicitly partial observed-subtotal bridge across all stocks; its signed values are not full-stock economic deltas if any path is unknown. No winner-based sample or beta grouping.",
+  "outcomes": "Retain all losses, zeros, gains and UNKNOWN. Report win/loss counts and sums; near-constant average loss is not an improvement claim.",
+  "limits": "Historical post-outcome descriptive attribution, not OOS or PIT certification. Independent conditional path sums are not shared-account portfolio profit/return. No executable next strategy follows without a newly frozen hypothesis and new independent evaluation.",
+  "output_restriction": "Create or update only cash_* files under mechanism_attribution_v1. Source files and sealed outputs remain unchanged. Python runtime /Users/bytedance/repos/my-quant/.conda/envs/dev/bin/python, PYTHONDONTWRITEBYTECODE=1; no installation."
+}

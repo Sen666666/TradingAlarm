@@ -1,0 +1,14 @@
+{
+  "total_receipts": 16,
+  "original_open_rejects": 15,
+  "close_no_plan": 1,
+  "cash_fails_on_every_available_route_at_original_min": 15,
+  "contract_request_reached": 0,
+  "smaller_upper_bound_in_same_state_creates_new_route": false,
+  "min_reference_fits_quarter_percent_risk": 9,
+  "min_open_fits_quarter_percent_risk": 9,
+  "these_risk_fit_counts_are_sizing_only_not_funded_orders": true,
+  "all_exact_open_states_verified_against_five_original_full_prefixes": true,
+  "competing_orders_not_assumed_cancelable": true,
+  "no_healthy_winner_sales_assumed": true
+}

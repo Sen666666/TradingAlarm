@@ -1,0 +1,9 @@
+{
+  "window": "2024",
+  "authorization_sha256": "00b4dc219fde86b4a293f4b980c9801b9d7d23c64f69def6a2d9b5996b50f418",
+  "implementation_audit_sha256": "3c0f4eec1645ccd0c7df6ee82672d2f106bcdc82944145f5cad3fe9886daa32b",
+  "protocol_sha256": "7c322d7bd7ea0ac7aee34d83ad00d439c3393c2e99af5c78a7c06b38ba49a0db",
+  "output_seal_sha256": "9e11c58dc2c2586849e9f4a0999673b0e94fb327b6055d6a4c51c1bfb4ed44b6",
+  "raw_ledger_saved": true,
+  "elapsed_seconds": 1568.7945125829428
+}

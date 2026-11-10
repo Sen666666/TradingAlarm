@@ -1,0 +1,11 @@
+{
+  "before_minimum_unit_numerics": true,
+  "scope_sha256": "f7bbfe5b886a38d0c18db5af6d5a1df7e439a4bcc7ce261e7f7f4320a58469bd",
+  "original_A_protocol_sha256": "a8874d4c4158c894022284392eff2780ee3ef60ac22349efe3dedf1650b7ef27",
+  "days": [
+    "2022-06-01",
+    "2023-07-25",
+    "2024-03-01"
+  ],
+  "no_account_or_S0": true
+}

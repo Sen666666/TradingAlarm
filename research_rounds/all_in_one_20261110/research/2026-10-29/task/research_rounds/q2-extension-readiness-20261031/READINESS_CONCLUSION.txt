@@ -1,0 +1,55 @@
+Read-only Q2 preparation complete; no new account execution/cache generation.
+
+2026Q2 has60 source market observations. Fixed1709 identities unchanged:
+1687 have Q2 eligible price observations,22 remain N/A;14 first become observable
+after the old March31 window and must not be dropped as a future selection.
+1671 stocks have CP1 ready at least once in Q2;16 have price but never ready.
+Daily price-known1669--1686, CP1/E0-ready1658--1669, H1-known1658--1677.
+All90 industry facts/state have60 Q2 rows. Original market clock reachesJune30,
+H1 reachesOct30 but any future loader must physically slice atJune30.
+Q2 cached raw nativeI fields and current raw price comparisons:0 mismatches.
+No new indicator calculation/cache regeneration is needed for this horizon.
+
+Original normal B3/B_diag checkpoints both endMarch31 15:10+08. Frozen sources
+all match, trades/layers/metadata/available reconcile to saved final books.
+B3 selected B from combined A/B payload: cash834758.55185,27held,5pending sells,
+80 core locks, ACT peak1161881.46407; accumulated loss/fees129736.15468.
+B_diag payload B: cash670819.49301,37held,6pending sells,122core locks,
+ACT peak1367327.50679; accumulated loss/fees474984.53554.
+Both have90 industry states; no cash/positions/receipt/attempt/ACT/cost/loss reset.
+
+Legacy normal checkpoints lack generation-time class provenance. Do not backfill
+or call the new strict identity restore while pretending they are new checkpoints.
+Future continuation needs a small explicit selected-B import after old frozen
+source/book/prefix checks, then new-version provenance linking parent checkpoint
+SHA. Original loader hard-clips March31; only its readonly horizon must be
+parameterized, with full data views constructed before state import. Original
+run_prepared already accepts end=June30 and exact resume_after=March31.
+For the combined B3 payload, select only B in account-labelled historical logs
+as well as account state; preserve the original shared market epoch/watch
+state. Do not accidentally import A as another newly running policy.
+Original initial_cash remains1000000. Q2 starts at inherited NAV1116212.52185 /
+1261468.94501; it is not another1000000 injection. Report Q2 returns against
+each inherited NAV, and full-period results against original initial cash.
+No such restore/import was executed in this audit.
+
+Fixed quarter price facts (positive/90; median industry return):
+2025Q3 86;+11.629%, Q4 62;+2.656%, 2026Q1 45;-.207%, Q2 23;-10.744%.
+Q2 p10=-21.118%,p90=+20.486%; top positive-return3 sum/total positive sum51.50%.
+Electronic chemicals+119.62%, components+87.14%, semiconductor+85.07% show that
+weak majority is NOT proof of no local mainline. These are retrospective prices,
+never trading labels. Original external fast_on/breakout Q2 counts11/2.
+Equal90 descriptive price reference Q2 return-2.743%,maxDD12.861%; underwater
+episodeMay12--June30 censored35observations. It can contain rebounds.
+
+Existing company-action proxies are material in Q2: all1709 files present,
+953 ordinary events,948cash events all pay dates unknown,106share events all
+sellable dates unknown. Preserve original net80% nonspendable dividend AR and
+next-source-session bonus-sellability proxy. This is not official PIT timing.
+Do not credit unknown dividends as usable cash or silently change the proxy.
+
+All history has been consumed; snapshot survivors/industry-membership bias remains.
+Q2 is a calendar time-extension/conditional stress, not OOS. Ready as research
+input, conditional on explicit legacy continuation engineering/prefix/accounting
+gates and the existing execution/company-action limitations. D1 review has
+priority; no Q2 path is authorized or started here.

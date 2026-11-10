@@ -1,0 +1,51 @@
+D_GROSS10完整两窗：有部分风险改善，绝对表现仍差，不晋升
+UTC 2026-11-04T19:40:53.798961+00:00
+
+裁决
+停止扩展本设定，不调10%或叠新确认/恢复条件救它。不把它晋升为可接受策略或默认新基线。它对2022部分持续投入损耗和三年风险有可复核改善，强窗尾部大体保留；但两年仍亏14.10%、三年仍亏28.14%，2024仍亏16.33%，不能因DD31.11%低于35%边界就称成功。
+
+实际实验
+原No60 E0/I/PVR及排序、现金留存/池/股/行业/执行/费用/退出/ACT20-BREAK63保留。只在已完成ETF TR<原存MA63且MA63下降的DOWN背景，给新买加TOTAL原实际市值+真实剩余买单gross<=.10费用/滑点投影NAV准入上界。旧仓允许超上界并按原结构退出，不强卖、不F>=E毕业、不建来源/credit成本账；NOT_DOWN撤附加门，原资格和自身H仍优先。
+原No60是决策NAV10%现金留存，不是currentNAV总gross90%硬cap；不能混淆。
+每窗独立1m、1709快照A股/90行业，long2022Jan4—2024Dec31共726CLOSE自身跨年不重置；strong2025Jul1—2026Jun30共242CLOSE fresh。两个窗口不能相乘/拼成连续2022—26，也不是完整自然2025。
+仅执行D，原BNo60完整金本直接引用、未第三次重跑/合成。原母体代码/数据/费用/年score与helper同条件绑定。
+
+实际净收益% / 全局收盘最大回撤% / 实际费用CNY
+                    2022—24                        2025Jul—2026Jun
+归档No60 B          −36.2010 /38.0881 /42241.17     +126.3281 /11.6595 /22720.03
+D_GROSS10           −28.1358 /31.1068 /33411.50     +121.4709 /11.6595 /21615.78
+long末NAV718642.0995626711180，相对B多80652.49元；strong末2214709.4121679261815，相对B少48571.82元。NAV包含实际持仓估值/应收，不冒称现金兑现；费用减少不是全部改善来源。
+全收盘DD为2023May4峰1043124.494569→2024Dec25谷718642.099563，不能把初始本金亏28.14%当最大DD。strong最坏DD发生在首次D之前，整体DD没有改善，不用后段局部回撤减小代替全窗。
+
+连续年度
+2022末811066.804812，年度−18.89332%；2023末858950.897037，年度+47884.092225/+5.90384%，两年累计−14.10491%；2024年度−140308.797474/−16.33490%，末718642.099563。原B两年−25.4573%，2024年度−14.41286%。改善主要发生在2022，2024自身回报反而更差，不能只看三年净元差。
+
+关键失败链
+自身原H规则未改，但资金路径改变：D直到2024Jun11才首次ACT pause，原B2022Apr20/2023Jul20的暂停不能当D输入。D paused OPEN82 vsB233；D NOT_DOWN但自身H仍关的OPEN20 vsB88。这是避免部分暂停的实际效应，不是偷偷提前改BREAK63。
+2024自身H于Sep27CLOSE才恢复，924前4个OPEN仍paused。固定六close Sep24—Oct8，D自身+9.60457%、meanlag资金暴露13.8171%，B+28.65794%/83.1068%。新D没有解决重大行情恢复参与。
+固定Oct8CLOSE至年底D自身约−20.61463%、财富−186615.50元；Oct8旧53层后续−61905.83，新311层−124709.67。其中mobile新227层−107345.19，占整个post财富损耗约57.5%。全post市场NOT_DOWN，附加10%门本来不生效；调10无法直接覆盖这一主亏。
+以上固定阶段、旧新层/role及firstbuy细项由现成已审边界法计算，已获DERIVED_KEY_REVIEW.json独审（SHA3017f200…f7254d），同时核全36/12月、25/9预定状态段和自身分母/望远镜。不能将原贡献当删单可实现省损。底层资金、年度、DD与H归属也已有独审。
+
+恢复/投入反例必须分门解释
+D2022Jun7是market D→ND后撤附加cap，原自身H一直on；不是ACT暂停后恢复。45真实fill/约73.50万，约10.13→89.85%持仓，June整月+3.9210%。D2024Feb20同样为market cap解除、无此前ACT暂停；30fill/约36.83万，10.13→53.43%，Feb整月+2.5932%。
+Sep27→Sep30才是D自身ACT恢复首OPEN，49fill/约67.97万，0→82.90%。晚恢复已先错过4OPEN，不能仅凭后段亏损就认定Sep30快投入必错，也不能一味慢加仓。三种场景不作为恢复单因素因果对照。
+强窗D四段14OPEN均没有新增真实买fill、B对应91fill/约198.5万买款；旧仓保留，非把现有总仓强卖至10%。原赢家/新leader实际路径有得失：长飞仍保留；唯特偶贡献减少、中船特气增加；中船特气为电子化学品，不能混进严格半导体126成员。
+严格H1半导体D贡献−19169.90 vsB−16783.58，未改善主线参与。新门不创造原E0/I未许可的新信号。
+
+财务、数据时钟与同口径控制已独审
+market_gross_admission_full_ledger_review_v1/FINAL_TWO_WINDOW_FINANCE_PVR_ATOMIC_REVIEW.json SHA47124318…ebfd0：968新D日桥、11817资金快照、171040原PVR值/885排序组/228211实际intent slots exact，源55/51末exact。B12归档文件SHA+共同source/旧helper账据复用，0新B事件/0合成金融。实际partial-buy两窗0，20真实split随原qty/rawmark桥处理，未扩真实CA零股经济待遇认证。
+CONTINUITY_DD_AND_INFO_ATTRIBUTION.json SHA76dd7b8f…b451a：自身年度接续、全DD峰谷、H与ND20暂停OPEN归属。
+market_gross_admission_technical_review_v1/FINAL_FULL_ACTUAL_CONSUMPTION_INDEX.json SHA40d28870…f6ac3：1936计划OPEN/CLOSE、203309全部gross事件/876实际unique钟匹配原ETF存值、asof/D/source；OPEN未用同日未来CLOSE、UNKNOWN实际0，负域测试范围独列；只运行D。
+STRONG_ND_PREFIX_FINANCIAL_EXACT.json SHA7b2d4311…7f2f9：首次D前146CLOSE至2026Jan30，15项每日财务/1218实际fill exact，强化归档控制与ND passthrough同口径，不比较label/RID元数据。
+小账48日/559资金快照、13正D实际reserve/fill及完整入口独审先于full根授权。旧provider v1域外负例FAIL保留，full实际用v2，0账户域修前后全部小实际状态等价。没有修正金额/策略回测重跑；正常原Decimal尾差沿既有EPS单列不当收益。
+
+范围与路径
+raw: market_gross_admission_native_v1/full-long-v1 与full-strong-v1，FULL_NATIVE_COMPLETION.json及prepared两ROOT_FULL_AUTHORIZATION；long实际总823.17秒/input117.06/event690.53，strong296.39/input58.28/event228.95。没有重跑完整B或建立新loader/财务引擎。
+分析：market_gross_admission_outcome_analysis_v1/READOUT.txt、PERFORMANCE_MATRIX.csv、两个full_*的全36/12月/全状态段/phase/H路径/leader与严格半导体。先冻结全long12D+13ND、strong4D+5ND；旧9D审计仅到2023末，截尾段延到2024Feb19，不混分母。
+原日线执行proxy、当前幸存者/行业快照限制保留；未验PIT/OOS/H股、120万元离散路径、2025H1连续接续或其他年代。不得实盘、发布、外部通信。
+
+研究继续与止损
+本轮不再调D的10%，也不把所有风险约束统称无效。下一主问题仍是NOT_DOWN/恢复授权后的新增mobile风险及真实纠错，父线个股入场/重入质量并行，不重复。组合健康H/u草案已被独立逻辑审指出10%成熟健康仓可一次授权90%给跨股未试资本、反馈翌日才稀释且不收回旧仓；根STOP当前公式，不花10–15分钟新算H或改参数救它，未建指标/账户。
+后续行业raw proposal源核也已完成并STOP当前实现：原sector Q读取行业E0，financial confirmed/expanded来自CP1阶段，不是G1 grade记忆；grade对已知proposal降级即时，暖grade而非暖proposal的错配原假说不成立。90行业现存facts/CP1/state均无proposal可直接读，未重建G1或loader。详sector_current_proposal_readiness_v1/READOUT.txt。未冻结或运行该新门。剩余主问题是实际E0/CP1授权延续与ND新增mobile质量，不能借错误G1记忆叙事或再造全局授资公式宣称解决。
+
+补充实值：long平均lag市值暴露D48.90284% vsB56.54472%，原native mark-floor风险均值3.96931% vs4.20295%；strong85.57695% vs88.01750%、8.56024% vs8.58546%。投入减少是取舍一部分，没有精确同实现风险控制，不能把80652元差额全称信号alpha。风险指标并非最坏损失保证。

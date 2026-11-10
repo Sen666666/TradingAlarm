@@ -1,0 +1,42 @@
+2026-11-04 root authorized technical implementation only; no full economics.
+
+Native candidate: PVR_SLOT1 + NO_CONFIRMED60_ONLY. Reuse component.py's exact
+private three-predicate source. Direct subclass original native_rank.Runner.
+Original native Account type, planning/PVR function, opening and every ledger
+callback remain exact. ON changes only budget class(request/migrate) and
+bound route. warm industry/attempt/pending/fees/stock requests are preserved.
+ON policy/checkpoint identity is distinct; OFF mode retains old PVR identity.
+No importing an old economic checkpoint into new ON full-window path.
+
+Pending path: original CLOSE expire_day_buys, cancellations, split/partial
+fill/ack/account mirror callbacks stay exact. They dynamically use the new
+budget's migrate; no fourth60 gate was located in Account/opening/planning.
+Pending is included in unchanged Contract.resources, probe/migration guard,
+fees/cash/industry/stock limits; no early release or new daily risk tolerance.
+Explicit source audit covers Account pending/amend/fill code, not only route.
+
+Technical gates (small native validation, not economic results):
+1 OFF first2 original days Jul1..2 2025 exact saved old PVR complete daily/
+  funding/opportunity/industry/balance/trades/journal/audit/decisions.
+2 ON same two-day prefix, full input vs physically truncated input, past-only
+  PVR score reader: all native observable state exact, no future dependencies.
+3 Native ON checkpoint/restart exact including pending, budget class/pools,
+  new/original rank keys, receipts/core epochs/ACT/fees; wrong policy/source
+  checkpoint must reject. No overriding native restore source/provenance gate.
+4 Affected predicate/callback boundaries reuse8 pure counterexamples plus
+  native budget class routing of cancel_ack/industry/expand=False; fresh-order
+  guard/actual pending resource view must remain one contract. Unchanged
+  legacy ledger/split/partial/cancel tests reused with frozen hashes.
+
+Inputs same frozen native1709 A shares/90industries, original1m technical
+accounts, same current/development snapshot limitations. Read-only caches,
+no recalculation/download. Expected load45–90s, short checks<60s, total3–5min.
+All output below native-readiness in this independent directory. Old project
+source/results/checkpoints never overwritten. Report actual native OPEN/fill
+counts; ON technical prefix has events but is not a strategy performance run.
+
+Potential later economics (NOT authorized by this card): exactly original
+2022 full year and2025-07-01..2026-06-30 fresh1m, compare old audited PVR
+read-only. Frozen result report must include NAV/DD, fat-tail participation,
+first/add/hold/exit/reentry, failed trial/large loss, fees and resource path.
+Evidence first, then own2023/2024September/cost/delay if justified; no sweep.

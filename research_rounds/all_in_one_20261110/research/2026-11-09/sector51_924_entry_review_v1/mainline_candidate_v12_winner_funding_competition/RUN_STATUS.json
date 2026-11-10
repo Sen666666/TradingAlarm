@@ -1,0 +1,29 @@
+{
+  "result": "ATOMIC_BLOCK",
+  "days": 22,
+  "orders": 664,
+  "last": {
+    "day": "2024-10-10",
+    "cash": "358066.0343768324175",
+    "receivable": "0.000",
+    "market_value": "1111761.64",
+    "NAV": "1469827.6743768324175",
+    "net_liquidation_NAV": "1468369.0321384589795",
+    "stocks": 36,
+    "shares": 48680,
+    "weight_pct": "75.63891055945433673799133054",
+    "fees_paid": "5363.6060381675825"
+  },
+  "blockers": [
+    "2024-10-11 688200.SH UNADMITTED_EQUITY_EVENT"
+  ],
+  "atomic_block": {
+    "day": "2024-10-11",
+    "reason": "2024-10-11 688200.SH UNADMITTED_EQUITY_EVENT",
+    "atomic_rollback": true
+  },
+  "runtime_error": null,
+  "output": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_candidate_v12_winner_funding_competition/once_20250120",
+  "source_hashes_verified": true,
+  "finished_at": "2026-11-10 02:17:06.009164+00:00"
+}

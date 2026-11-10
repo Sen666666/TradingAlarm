@@ -1,0 +1,23 @@
+{
+  "updated_utc": "2026-11-09 20:08:37.525749+00:00",
+  "completed": [
+    "engine import",
+    "UNKNOWN cold-start chain fixed",
+    "retained immutable event identity fixed",
+    "six explicit hooks uniquely matched"
+  ],
+  "M3_replay_session": null,
+  "M3_replay_log": "M3_REPLAY_LOG.txt",
+  "synthetic_status": "106/106 PASS, engine7d79b0dd",
+  "M4_history_started": true,
+  "next": "Await parent decision; preserve original run; read-only gate report only",
+  "M3_replay_status": "PASS economic/order/queue exact; two availability diagnostics permuted only",
+  "approval": "independent exact hash PASS",
+  "run_session": null,
+  "last_observed_log": "DAY 2024-09-30 orders=498 tickets=861 NAV=1457158.1863142282985",
+  "M4_history_completed": true,
+  "actual_days": 20,
+  "actual_orders": 515,
+  "contract_conformance": "NOT_CERTIFIED: sector UNKNOWN wrongly treated mobile through M FALSE in 14 SEED lots and inherited W ADD",
+  "independent_blocker": "current_trial_seed/classify_reference must check industry state separately; no actual donor sale but fixed/B/T affected"
+}

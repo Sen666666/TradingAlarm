@@ -1,0 +1,48 @@
+独立简单突破＋量确认对照：存在性排重裁决（0新算法/信号/账户）
+
+直接回答
+已有实际跨2022–2024的简单价格突破＋量确认逐股交易周期实验，不能把它当新算法或未研究原理；但没有定位到当前1709股票/90行业、同原生整手/权息/有限现金账务、连续2022→2024的该独立算法账户。原I/S21/S63/freshCP1不是这个对照。下一优先应有一个独立算法的公平对照问题，而不是继续给No60放容量或叠均线门；当前证据还不能把损失全部归因入口或止损。
+
+一、确实跑过的最简单近邻，且结果不支持预设会成功
+源码：money/TradingAlarm/research/stock_signal_data.py + a_stock_campaign_signals.py。
+旧固定算法：信号收盘C_t > max(此前55观察high)，信号日真实股数V_t > mean(此前20个positive observed V)，严格大于；信号形成后下一有正量/有效的adjusted OPEN入场。初始4ATR20保护或连续2close低于MA200后下一合资格开盘退出，不加仓。high是高价，不是此前55 close高点。
+确切旧volume分支只要求MA200可算，并未开启confirm_ma=True；不额外要求入场C>MA200。不能根据文字‘MA200/ATR available’误说是MA200上涨过滤。volume是原shares，不是金额/turnover ratio；股本变化与因果复权边界在旧报告保留。
+实际结果目录：money/TradingAlarm/research/results/a-stock-volume-confirm/{protocol.json,comparison.json,cutoffs/summary.json,coverage.json,campaigns.parquet}。
+母体5204 local+222 accepted retired=5426历史，持续2022起；全程至2026-05-15有36795周期、34723closed/2066open/6terminalunknown。不是当前1709同一股池，不是完整历史时点全池。
+
+旧15bp单边合成价格实验，各截止自2022连续累计marked mean R（不是年度账户收益）
+截止             不加量确认            加量确认          差值
+2022-12-30       -0.36794827           -0.36514532       +0.00280295
+2023-12-29       -0.30528260           -0.30282077       +0.00246182
+2024-12-31       -0.31970290           -0.32070676       -0.00100386
+2026-05-15       +0.02580312           +0.03047585       +0.00467273
+双成本对应2022/23/24加量为-0.38475785/-0.32612401/-0.34262454。
+这不是成本后现金账户，也不是简单突破已经有效。最晚终点小幅正不能覆盖前三个累计负截止。‘普通/尾部’旧表按其原top10 R定义，不冒充本轮closed campaign>=30%标签。共同15bp/30bp成本与重叠截止都保留，不能当独立样本或推广当前原生费率。
+
+二、确实存在有限资金执行旧对照，但没接量确认
+money/TradingAlarm/research/a_stock_campaign_shadow.py::build_bundle()明确entry=C>breakout55 AND SMA200可知 AND ATR可知正值；没有调用volume_confirmation，读取的是不加量的zero-range母体。
+results/a-stock-campaign-shadow/decision.json明确2022-01-04→2026-05-15、5426源、3rank/gate×2cost×2sizing=12case；只有synthetic影子账。普通部分仓版本15bp：strength_all -25.51%/DD27.84%，lowvol_all +0.80%/DD10.09%，lowvol_best_quintile +7.30%/DD11.79%，均非当前合同下可交易成绩。
+固定初始1m、分数份额、8位置、entry名义.5%风险/总4%/gross90%/单股35%、10%phaseDD减半新risk、16%清仓及20flat观察冷却。它同时有排名、仓位、止损/冷却等设定；不能拿最好的低波组当当前主策略基准或把差额归因量。
+缺原价股数/整手/历史ST涨跌停/ADV/行业分层/公司行为现金股数/终止付款，旧协议全部明示；不是本轮native账务的替代品。不得为省工作把这些分数账户当已通过原生执行验证。
+
+三、I / S21-S63 / freshCP1为什么不等价rolling high breakout
+原I（G1_I）：影子E0有效、G1 grade>=2，且当日E0新入或fresh_up；fresh_up可来自原E0量价上event、新S21/S63方向确认，或S21已上时其当前结构running extreme创新高。已参与后主要按E0旧结构/保护退出。
+S21/S63：B4候选从当前结构极点重锚，门槛delta=sqrt(21或63)*冻结尺度，需真实新前沿位移与量加权credit共同达标。63是位移尺度标签，另有63收益典型变动估计；不是过去63高点，也不保证等63天。确认方向后当前极点会从确认价重新开始；较低结构中的新高可仍低于以前63高点。
+freshCP1：E0/I无效或down/更低SEEK anchor时重建；累计局部新价格前沿×原PVR量价乘数，位移与credit均达sqrt5*冻结z时开收据，再以当前价重锚；候选保护C*exp(-sqrt21*z)。z来自此前63绝对logreturn中位数×1.4826及固定经济底，不是63high。每次fresh确有局部新推进，不是纯等待次数；同样允许位于更老的区间高点之下。
+严格S事件阈值1.5倍是另一旧E0/S/F事件核，不是这里B4的S21或S63；命名不可混。H1/PVR排名只改变谁先承接资金，不会把局部事件自动改成突破旧高。
+因此‘I/CP1已有量确认’不构成简单窗口突破已被当前原生账户比较过；反过来‘没过63high’也不等于错误交易，局部反弹中确有真实大赢家。
+
+四、其他近邻没有填补当前缺口
+three-layer-prototype-20261024：19固定输入、2024→2026、图检/信号账户0；先20close突破及量/守位建态，63high只在下降背景跳反转或expansion标签中作用。
+temperature-regime-comparison-20261025：11固定场景+7单资产2021→2026连续、756新经济+216旧、分数全额多头/现金；不是1709全市场有限组合。L3/温度多条件结构与撤销也不是只用窗口high+一条量确认。
+原market ACT BREAK本身用synthetic global prior63high+当日up+方向广度>.6，只负责暂停后flat恢复，不能作为每只股票的独立突破对照。
+
+五、可复用工程和数据边界
+旧算法函数、旧5426完整负/正结果与信号测试可只读复用；不重跑旧默认脚本（会写固定输出）。旧features/local-features.parquet5204 rowgroups与retired源存在，但池/来源/旧复权与本轮不同，不拼成当前账。
+当前1709 STOCK_MANIFEST/90 INDUSTRY_MANIFEST、原prepared-v2 signal OHLCV、单位/eligibility/observed/synthetic/source/segment/rawOHLC/adjustment/volume_factor均现成；2022/2023/2024完整warm、原价/权息/整手/原生会计observer也已在No60两窗口及连续接续验证。
+当前简化facts只有close/factor/raw_close及I/CP1，不含high/V；不能只读facts就声称实现了high突破/真实量确认。应从同manifest已绑定的原完整signal/原价源消费high/V，先核价格/成交量坐标、source段、有效观察与暖机；无需新行情下载。实际从simple signal接入原生账的scope/角色/持有/退出/行业/ACT合同尚未定义或验证。
+
+独立判断与下一步边界
+No60三年显性费用加回仍明显亏损，资金门放开也没有修复弱期，B63背景挡不住关键新钱损耗；不能继续假设只要资金更多/保护更紧就解决。但这不证明I一定过宽或‘更严格窗口突破必胜’，旧55+volume负实验正好反驳后者。
+如果继续，限定一个既存55high+V>prior20mean算法家族作为独立参照，先由主审决定同一输入/同一固定执行及保护映射的可比合同；不叠到I/CP1上当新过滤，不把55调63或加MA200/斜率/第二门来找收益。映射会怎样改变退出/试错与资金需明说，不能用完整旧4ATR/MA策略差额单独证明入口质量。
+本目录只做存在性/精确语义/旧结果/可复用数据盘点；没有新候选公式、历史信号、parameter search、账户或交易事件。未声称全工程不可能有遗漏；已定位的当前主线与直接相关旧研究中，当前原生跨2022–24独立simple breakout+volume账户缺口仍在。

@@ -1,0 +1,36 @@
+{
+  "PVR_BASELINE-2022_2023": {
+    "statuses": {
+      "cashclosed": 14,
+      "flat_unpaid_claim": 2
+    },
+    "with_negative_prior_status": {
+      "flat_unpaid_claim": 1,
+      "cashclosed": 3
+    },
+    "scope": "unique stocks at first terminal>=30% campaign, not cashclosed campaign count"
+  },
+  "PVR_NO60-2022_2023": {
+    "statuses": {
+      "cashclosed": 13,
+      "flat_unpaid_claim": 2
+    },
+    "with_negative_prior_status": {
+      "flat_unpaid_claim": 1,
+      "cashclosed": 3
+    },
+    "scope": "unique stocks at first terminal>=30% campaign, not cashclosed campaign count"
+  },
+  "PVR_NO60-strong": {
+    "statuses": {
+      "cashclosed": 33,
+      "marked_active": 19,
+      "flat_unpaid_claim": 8
+    },
+    "with_negative_prior_status": {
+      "cashclosed": 3,
+      "marked_active": 7
+    },
+    "scope": "unique stocks at first terminal>=30% campaign, not cashclosed campaign count"
+  }
+}

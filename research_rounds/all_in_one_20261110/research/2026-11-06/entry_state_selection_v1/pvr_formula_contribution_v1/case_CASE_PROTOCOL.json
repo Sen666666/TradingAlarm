@@ -1,0 +1,134 @@
+{
+  "status": "FROZEN_BEFORE_CONTRIBUTION_CALCULATION",
+  "created_utc": "2026-11-08T17:14:25.736212+00:00",
+  "case_n": 22,
+  "stock_n": 19,
+  "case_list_sha256": "3351cbc82a07f08dcaec58c014c6e89c9a2f2deca494533a935a9e827d19ec59",
+  "cases": [
+    [
+      "000977.SZ",
+      "2022-01-05",
+      "prior_fixed_19"
+    ],
+    [
+      "600100.SH",
+      "2022-01-04",
+      "prior_fixed_19"
+    ],
+    [
+      "688256.SH",
+      "2022-03-04",
+      "prior_fixed_19"
+    ],
+    [
+      "605118.SH",
+      "2022-08-22",
+      "prior_fixed_19"
+    ],
+    [
+      "605020.SH",
+      "2022-07-15",
+      "prior_fixed_19"
+    ],
+    [
+      "002174.SZ",
+      "2022-11-08",
+      "prior_fixed_19"
+    ],
+    [
+      "688248.SH",
+      "2022-05-12",
+      "prior_fixed_19"
+    ],
+    [
+      "688660.SH",
+      "2024-09-25",
+      "prior_fixed_19"
+    ],
+    [
+      "600396.SH",
+      "2024-10-28",
+      "prior_fixed_19"
+    ],
+    [
+      "605488.SH",
+      "2024-09-30",
+      "prior_fixed_19"
+    ],
+    [
+      "002241.SZ",
+      "2024-09-30",
+      "prior_fixed_19"
+    ],
+    [
+      "600126.SH",
+      "2024-12-11",
+      "prior_fixed_19"
+    ],
+    [
+      "605099.SH",
+      "2024-12-11",
+      "prior_fixed_19"
+    ],
+    [
+      "002126.SZ",
+      "2024-12-25",
+      "prior_fixed_19"
+    ],
+    [
+      "002583.SZ",
+      "2024-09-25",
+      "prior_fixed_19"
+    ],
+    [
+      "300666.SZ",
+      "2025-12-15",
+      "prior_fixed_19"
+    ],
+    [
+      "300666.SZ",
+      "2025-12-17",
+      "prior_fixed_19"
+    ],
+    [
+      "300666.SZ",
+      "2026-01-05",
+      "prior_fixed_19"
+    ],
+    [
+      "300666.SZ",
+      "2026-01-15",
+      "prior_fixed_19"
+    ],
+    [
+      "301611.SZ",
+      "2026-01-15",
+      "prior_semiconductor_fixed"
+    ],
+    [
+      "603061.SH",
+      "2026-01-15",
+      "prior_semiconductor_fixed"
+    ],
+    [
+      "002317.SZ",
+      "2022-10-14",
+      "prior_long_gate_counterexample"
+    ]
+  ],
+  "selection": "Reuse all 22 existing cases unchanged, including all four previously UNKNOWN cases. Previously viewed development cases, not random, blind or out-of-sample. No case addition or deletion based on new values.",
+  "sources": {
+    "case_protocol": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/direction_change_channel_preflight_v1/PROTOCOL.json",
+    "case_protocol_sha256": "7db02bcf92f76bf93c5687192a689132ea2a8d184f76c0045de80c5727d10d3a",
+    "common_protocol": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/common_boundary_translation_preflight_v1/PROTOCOL.json",
+    "common_protocol_sha256": "30c7626413f45a19e79ae64e8f5940a0012964ef07c83c927810e03eda6b6ffa"
+  },
+  "coverage": "2022 weak cases and 2024-09-24 transition represented. 2026 early cases are Jiangfeng, Kema and Jinhaitong. No 2026 Cambricon or GigaDevice dates in this list or existing root CASE_DATES.csv; report gap, do not add selected winners.",
+  "formula": "Extract and compile only exact original score FunctionDef AST from original_score_function.py, verify same AST as Money pvr-act-comparison-20261027/code/experiment.py. No experiment imports or execution.",
+  "decomposition": "r=diff(log close); s=1.4826 median(abs prior63 r) floor1e-8; u=tanh(r/s); b=tanh(log(A/prior21 median A)); e=u+.5*u*abs(u)*b. Unnormalized numerator sum .9^lag e, fixed denominator sum .9^lag. E=sum normalized weight e; score=50+50 tanh(2E). Additive attribution applies to E only, NOT to score.",
+  "scope": "At least 85 raw common observations ending signal t and exact original feature prefix. Save all raw fields and feature components for all22. Last21 observation contributions individually saved. For strict-lineage UNKNOWN cases, exact original mechanical score may be reconstructed but carries UNKNOWN status and is not accepted causal source proof.",
+  "validation": "Recheck original common85 strict OHLC/raw/amount/flags/factor lineage; compare direct original score to saved PVR; exact physical prefix; poison future close and amount; fixed positive unit multiplication; synthetic fixed positive/negative returns and high/low amount; memory half-life and 21-window boundary; invalid/segment reset clocks.",
+  "summary": "Separate positive and negative credits; price main and amount adjustment; last1/3/5 versus older windows; positive-share and negative-debit-share denominators explicitly separate; signed net fractions may lie outside 0..1. Descriptive saturation |u|>=.95 not a trading rule. No future features or labels in attribution.",
+  "outcomes": "Only join prior audited exact stock-date original PRICE conditional fee-net complete round context after sealing features. q0/no round stays non-traded/no round; no future peak labels.",
+  "constraints": "No new formula application until parent freezes it. No gates, thresholds, sizes, economics, account, consumers, parameter searches, downloads or original-source edits. Current survivor universe/source versions NON-PIT."
+}

@@ -1,0 +1,65 @@
+原No60执行时钟独立源码核查：09:30成交路径使用当天完整日线HLV
+
+结论
+已确认执行层存在盘内时间不一致：以当天完整high/low/volume决定能否/成交多少，
+却把成交记在同一天09:30、使用当天OPEN±滑点。卖方判定还先于新买资助，因而这些
+当时尚未知的数据会改变09:30记账卖款及后续买入数量/候选路径。不能用‘买单先reserve
+后咨询window’概括整个执行器，更不能把它当成严格当时可执行的开盘交易验证。
+
+直接证据链
+1. 实际市场类为FastMarket。window45–67从at.date所在完整日线行取：
+   - 当天volume是否有限且>0（第53行）；
+   - 当天high<=low时buy=sell=False（58–59）；
+   - capacity=min(过去20正量均值*参与率,当天完整volume)（60）；
+   - price=当天open*(1±slip)，FillWindow.at仍传入at（62–63）。
+   source_available只查声明的不可用日期与来源段断点，不验证该行HLV的盘中known_at。
+2. 实际基类为ix-a-share-entry-20261025/code/multi_runner.py；FrozenMarket.window258–310
+   同样读取当天row.high/low/volume，仍按row.open
+   返回at时点FillWindow；FastMarket与基类相等断言只是同一日线代理的实现一致。
+3. J.opening302–324：先对所有exits调用sell window→fill_exit，然后settle_due/sync，
+   之后才依冻结rank逐单preview/route/reserve。故卖方的完整HLV不仅事后标记成交，
+   还会改变同OPEN可用现金、旧仓剩余量、行业/风险占用和后排新买资金。
+4. 所有buy reserve结束后，319–322才调用buy window；这防止本批用买方未来窗口
+   先删前排订单回收预算，但返回的window仍根据全日HLV且按同一OPEN价回填。它并未
+   消除买方成交价/容量的时钟问题，也不能消除第3点卖方先影响资助的路径。
+5. PreparedRunner.run_prepared把原calendar OPEN、15:10 cutoff和公司行动时点合并
+   排序，到OPEN立即self.opening；原A calendar的2868个session均09:30+08，cutoff
+   为15:10。原protocol为conservative_hl_proxy、reject_flat_day=True、5bp、参与率1%，
+   卖出可卖lag1、现金结算lag0，且明确批准A_same_day_sell_cash_reuse代理。
+
+严格边界
+使用完成日线事后模拟一笔早已提交的订单，并不自动证明信号有前视。此处具体问题
+是：依全日数据确定的成交/容量被记成09:30，并在同一09:30进入卖款和新资金决策；
+同时数量预览已知实际OPEN之后，成交仍回填那一个OPEN价格。现有日线不能证明在
+开盘价发布后提交的订单还能按那个已发生开盘价、该数量实际成交。
+
+这不是本轮发现E0/I/CP/PVR的CLOSE公式用了未来日期，也不是证明每笔利润都被高估。
+平盘拒绝、容量代理、理想OPEN价可能分别造成不同方向偏差；未量化净影响。原账
+数量/现金/损益仍是该代理下的保存输出，不能升级为严格盘内因果或真实可成交收益。
+
+为什么既有核对不能补此证明
+- OFF/原账exact：只能证明重放相同代码/数据/假设，可能共同继承时钟缺陷。
+- FastMarket==FrozenMarket：两者都使用同一天完整HLV，不能互作可知性证明。
+- 日级prefix/future扰动：wire.physical按raw.loc[:日期]保留截止日整根H/L/V；没有
+  删除09:30之后该日尚未产生的部分。数值前缀exact不等于盘内available_at正确。
+- 已标postcheck、daily proxy或保守，不会改变某字段真正可知的时刻。
+
+最小真实时序边界（只描述，不改代码/数据）
+若决策用真实开盘价，必须先有该报价/成交的真实published_at/received_at，再提交
+相应订单；成交时间不得早于提交。卖出是否成交和成交量需真实可执行报价/队列或
+成交数据支持；净卖款何时可复用由实际fill与结算/券商可用时钟确定。之后新买再
+读取当时可得的post-open报价及流动性，不能回填已过去的OPEN。
+不能凭这份日线指定09:31、09:35或任意分钟，不能将当天最终volume当作该分钟累计
+成交量。若改成预先提交的开盘集合竞价模型，也需真实竞价订单/撮合约束及当时预算，
+不能保留已知OPEN后定量又声称预先提交。当前资料缺这类盘中证据。
+
+本轮只有源码/协议/日历文本读取与哈希，无市场、Account、模型、指标或新回测。
+不追加执行假设、风险设计或参数，不估算修复后收益。
+
+来源路径更正（结论不变）
+实际FastMarket通过common.native导入ix-a-share-entry-20261025/code/multi_runner.py；
+初稿引用的rs-h1/code/history_runner.py不是实际有效基类。两者window与source_available
+方法原文逐字相同，仅作比较证据；rs-h1/code/multi_runner.py不存在。原实际协议绑定为
+a-share-selection-e0-20261024/inputs-v2/economic-protocol.json，与初稿rs-h1协议副本
+字节及SHA完全相同。更正仅修复来源归属，没有运行任何源模块，未改变执行时钟结论。
+逐项记录见SOURCE_PATH_CORRECTION.json；初稿副本保留供审计。

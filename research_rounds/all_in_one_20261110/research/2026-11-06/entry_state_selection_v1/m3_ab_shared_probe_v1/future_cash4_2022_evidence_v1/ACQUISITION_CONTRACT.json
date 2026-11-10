@@ -1,0 +1,28 @@
+{
+  "created_utc": "2026-11-09T10:13:30.789923+00:00",
+  "subjects": [
+    [
+      "600348.SH",
+      "2022-07-13"
+    ],
+    [
+      "601319.SH",
+      "2022-07-29"
+    ],
+    [
+      "002270.SZ",
+      "2022-09-22"
+    ],
+    [
+      "600050.SH",
+      "2022-11-09"
+    ]
+  ],
+  "max_queries_per_subject": 1,
+  "max_pdf_get_per_subject": 1,
+  "max_http_requests": 8,
+  "timeout_seconds": 20,
+  "retry": 0,
+  "scope": "Official implementation dates, gross cash and reference-cash differences; candidates only, no registration or account changes",
+  "old_compound47_package_unchanged": true
+}

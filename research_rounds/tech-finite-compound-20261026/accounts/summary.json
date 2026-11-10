@@ -1,0 +1,4 @@
+{
+  "status": "failed_partial",
+  "error": "ValueError('Exit requires an identified fee/quantity quote')"
+}

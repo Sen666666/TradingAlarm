@@ -1,0 +1,10 @@
+{
+  "status": "complete_accounting_passed",
+  "active_account_paths": [],
+  "completed_full_paths": 5,
+  "original_reused": 1,
+  "hash_aliases": 2,
+  "not_run_slots": [],
+  "remaining_budget_used_seconds": 421.58930392423645,
+  "no_next_experiment": true
+}

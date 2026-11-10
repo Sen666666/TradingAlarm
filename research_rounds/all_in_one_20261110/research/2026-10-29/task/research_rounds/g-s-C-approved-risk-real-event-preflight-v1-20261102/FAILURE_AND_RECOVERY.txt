@@ -1,0 +1,39 @@
+Failure history is retained; no completed financial event was replayed.
+
+1. Two first main-batch OFF branches (C10/C_BATCH20 Jul23) completed ACTION/OPEN
+and persisted correct source-bound OPEN checkpoints. The original post-event
+report helper replay_runtime.opening_comparison omitted import asdict and raised
+NameError. ERROR.json, stderr and FAILED_WORKING_STATE.pkl are retained.
+This is an analysis outlet failure after OPEN, not a strategy loss or ledger error.
+
+2. compare_saved_event.py read those saved correct checkpoints with SHA/provenance,
+actual source identity and original native observers, then compared the full old
+policy view to original saved ACTION/OPEN. Both OFF OPEN comparisons are exact.
+C10 ACTION was separately reported immediately; final verifier checks ALL32states
+including every ACTION. No account/cash/order reset and no financial rerun.
+
+3. Fixed outlet: event_comparison.py explicitly imports dataclasses.asdict and
+reuses actual source/financial checks. run_prepared_fixed.py differs from the
+frozen old driver only by report import/helper identity check and the AFTER-OPEN
+report call. Financial callbacks and frozen b447dcb4 R0 core remain unchanged.
+Old source/drivers remain as failure evidence. Do NOT use their legacy execute
+path. run_open.py was used only for preparation (and expected false-grant denial).
+
+4. First analysis-equivalence assertion compared native objects to their JSON
+encoding via a different generic digest and failed on representation. Repeated
+ONLY the read-only comparison in published JSON representation: 0differences;
+ANALYSIS_FIX_GATE.json passed. It did not construct/advance any financial account.
+
+5. No other native planning/reservation/fill/finance error occurred in16branches.
+New actual financial outputs all use the same frozen native methods; final proof
+ACTUAL_FINANCIAL_GATE.json covers32event states,8OFF identities,8ON risk mappings.
+
+Known scope limits, not hidden bypasses:
+- Every imported parent has0active native buys; an existing live legacy partial
+  buy is explicitly refused pending a separate import contract.
+- Four fixed next dates have cash actions, no split/rights. General new-C-authority
+  splits and corporate transformations outside the audited domain still stop.
+- Historical completed ORDER records are not retroactively R0-charged; their live
+  HOLDINGS remain fully counted by original account/sector/stock risk and cash.
+- Physical future truncation was not newly generated; frozen original loader
+  audits reused. New old-prefix/import/restart and actual OFF-event identity pass.

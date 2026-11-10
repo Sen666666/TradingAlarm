@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "account_replays": 0,
+  "new_features": 0,
+  "deterministic_worst_by_gross_closed_negative_stock": "600105.SH",
+  "selection_rule": "all2023new layers; sum negative closed net bystock; ascending then code tie",
+  "cases": [
+    "600105.SH",
+    "601595.SH",
+    "300502.SZ"
+  ],
+  "first_wrong_entry_label": "posthoc first funded decision in selected failed episode, never an asof-known wrong signal",
+  "data_scope": "asof signal-close facts/actual frozen intents, actualfills, known lines; no unsaved exact preopen state reconstructed",
+  "source_sha256": "eebcbdd1ed317263258fc00c606ae97ab986866c16374b347b8bd530c309e85d",
+  "metadata_field_correction": "frozen_protection_of_actual_role labels core I/E0 and mobile CP1 separately; no values changed"
+}

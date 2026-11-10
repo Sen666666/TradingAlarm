@@ -1,0 +1,31 @@
+{
+  "research_basis": "current_pool_historical_development",
+  "synthetic": true,
+  "historical_account_runs": 0,
+  "technical_accounts": 8,
+  "initial_capital_cny": 1000000,
+  "accounts": [
+    "SEMI_IX__S1_base",
+    "SEMI_I__S1_base",
+    "COMM_IX__S1_base",
+    "COMM_I__S1_base",
+    "DRUG_IX__S1_base",
+    "DRUG_I__S1_base",
+    "BANK_IX__S1_base",
+    "BANK_I__S1_base"
+  ],
+  "daily_rows": 5816,
+  "final_nav": {
+    "SEMI_IX__S1_base": "652780.6952954446970",
+    "SEMI_I__S1_base": "894893.1889877284640",
+    "COMM_IX__S1_base": "1043799.9867938585570",
+    "COMM_I__S1_base": "1776909.9373833569985",
+    "DRUG_IX__S1_base": "873107.8048405863420",
+    "DRUG_I__S1_base": "1106086.4371638617435",
+    "BANK_IX__S1_base": "731779.7284062692000",
+    "BANK_I__S1_base": "819589.6543521197500"
+  },
+  "limitations": [],
+  "execution_basis": "explicit_daily_proxy_and_frozen_known_fx_settlement",
+  "final_positions_closed": false
+}

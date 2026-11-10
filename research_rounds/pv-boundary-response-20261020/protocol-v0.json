@@ -1,0 +1,175 @@
+{
+  "frozen_utc": "2026-10-20T08:30:35.220563+00:00",
+  "purpose": "Bounded ordered response study at fixed known price locations; no classifier or trading/account inference",
+  "history": "All seen development histories. Prefix masking limits immediate hindsight only, not true blinding or OOS.",
+  "cases": [
+    {
+      "id": "S1",
+      "symbol": "USHJ518880",
+      "start": "2025-01-01",
+      "end": "2026-03-31",
+      "anchor_requested": "2025-09-01",
+      "selection": "inherited fixed checkpoint"
+    },
+    {
+      "id": "S2",
+      "symbol": "HK00002",
+      "start": "2024-01-01",
+      "end": "2025-03-31",
+      "anchor_requested": "2024-07-01",
+      "selection": "inherited fixed checkpoint"
+    },
+    {
+      "id": "F1",
+      "symbol": "USHJ512480",
+      "start": "2024-08-01",
+      "end": "2024-12-31",
+      "anchor_requested": "2024-09-30",
+      "selection": "inherited fixed checkpoint"
+    },
+    {
+      "id": "F2",
+      "symbol": "HK09618",
+      "start": "2024-08-01",
+      "end": "2024-12-31",
+      "anchor_requested": "2024-09-30",
+      "selection": "inherited fixed checkpoint"
+    },
+    {
+      "id": "R1",
+      "symbol": "HK00700",
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "anchor_requested": "2025-05-01",
+      "selection": "inherited fixed checkpoint"
+    },
+    {
+      "id": "R2",
+      "symbol": "USHJ518880",
+      "start": "2024-01-01",
+      "end": "2024-12-31",
+      "anchor_requested": "2024-06-03",
+      "selection": "inherited fixed checkpoint"
+    },
+    {
+      "id": "B1",
+      "symbol": "USHJ512480",
+      "start": "2026-04-01",
+      "end": "2026-10-16",
+      "anchor_requested": "2026-07-01",
+      "selection": "inherited fixed checkpoint"
+    },
+    {
+      "id": "B2",
+      "symbol": "HK03033",
+      "start": "2022-01-01",
+      "end": "2022-12-31",
+      "anchor_requested": "2022-04-01",
+      "selection": "inherited fixed checkpoint"
+    },
+    {
+      "id": "C1",
+      "symbol": "USHJ510300",
+      "start": "2023-01-01",
+      "end": "2023-12-31",
+      "anchor_requested": "2023-07-03",
+      "selection": "inherited fixed checkpoint"
+    },
+    {
+      "id": "C2",
+      "symbol": "HK00101",
+      "start": "2023-01-01",
+      "end": "2023-12-31",
+      "anchor_requested": "2023-07-03",
+      "selection": "inherited fixed checkpoint"
+    },
+    {
+      "id": "W1",
+      "symbol": "HK03033",
+      "start": "2023-01-01",
+      "end": "2023-12-31",
+      "anchor_requested": "2023-07-03",
+      "selection": "inherited fixed checkpoint"
+    },
+    {
+      "id": "W2",
+      "symbol": "HK03690",
+      "start": "2022-03-01",
+      "end": "2022-12-31",
+      "anchor_requested": "2022-07-01",
+      "selection": "inherited fixed checkpoint"
+    },
+    {
+      "id": "S3",
+      "symbol": "600919.SH",
+      "start": "2024-01-01",
+      "end": "2024-12-31",
+      "anchor_requested": "2024-07-04",
+      "selection": "inherited fixed checkpoint"
+    },
+    {
+      "id": "C3",
+      "symbol": "600059.SH",
+      "start": "2024-01-01",
+      "end": "2024-12-31",
+      "anchor_requested": "2024-07-04",
+      "selection": "inherited fixed checkpoint"
+    },
+    {
+      "id": "C5",
+      "symbol": "600917.SH",
+      "start": "2024-01-01",
+      "end": "2024-12-31",
+      "anchor_requested": "2024-07-04",
+      "selection": "inherited fixed checkpoint"
+    },
+    {
+      "id": "COM1",
+      "symbol": "URFI881129",
+      "start": "2025-10-01",
+      "end": "2026-09-30",
+      "anchor_requested": "2026-08-03",
+      "selection": "known-failure-directed development probe"
+    },
+    {
+      "id": "COM2",
+      "symbol": "UZZI000994",
+      "start": "2025-10-01",
+      "end": "2026-09-30",
+      "anchor_requested": "2026-08-03",
+      "selection": "known-failure-directed development probe"
+    },
+    {
+      "id": "GOLD",
+      "symbol": "USHJ518880",
+      "start": "2026-01-01",
+      "end": "2026-09-30",
+      "anchor_requested": "2026-04-01",
+      "selection": "known-failure-directed development probe"
+    }
+  ],
+  "lookback": 21,
+  "window": 21,
+  "response_horizons": [
+    1,
+    5
+  ],
+  "anchor_rule": "First eligible price observation in case on/after requested anchor. Boundaries use preceding 21 eligible observations, excluding anchor. Window anchor through next20 observations, capped case end. No replacement if insufficient.",
+  "boundaries": "upper=max(prior21 high), lower=min(prior21 low), frozen until observation window ends; no moving or fitting",
+  "price_clock": "Finite positive OHLC with low<=open/close<=high, observed_bar true, synthetic_event_bar false; explicit source-invalid/zero-volume-flat placeholder rows excluded. Mere missing volume does not change price clock.",
+  "volume_reference": "median finite positive volume among same prior21 price observations; fixed, missing volume unknown; q=volume/reference, continuous without high/low threshold",
+  "range": "H=L retains valid price; close location undefined and explicitly marked. H>L location=(C-L)/(H-L). No inferred intraday order.",
+  "daily_facts": "For each boundary: touch (upper H>=U/lower L<=D), close outside (>U/<D), touch-and-close-inside, consecutive outside, return inside after outside, recontact after at least one complete no-touch day. Full daily ledger for both sides; no trade or state labels.",
+  "manual_selection": "Per case earliest boundary touch in window (both sides if simultaneous, same-day order unknown), plus first recontact of that same boundary after at least one whole no-touch observation. At most 2 selected event dates; other-side events stay in ledger. No touch => one end-window no-contact review. Exact duplicate symbol+effective-anchor+boundary definition only may be merged preserving membership; overlapping paths retained.",
+  "review_order": "For each reviewer assigned batch: inspect and lock all P views, then all H, then all V, finally outcome charts/tables. P is closing response conditional on common OHLC boundaries, NOT independent price-only algorithm. H adds OHLC; V adds same-period volumes. Current judgments, alternatives and invalidation conditions saved before later stage. All prior histories already known.",
+  "display": "Chart only prior21 boundary history and through selected event date. Axis limits depend only shown prefix. Outcome adds up to next5 eligible observations, bounded case end; +1/+5 labels separate from causal ledger. No-contact outcome absent.",
+  "interpretation": "No-contact and censored cases retained; continuous outside is persistence not many breakouts; same-day boundary touch does not itself imply fakeout; high/low volume never automatically assigns healthy/distribution/accumulation.",
+  "failure_rules": [
+    "No parameter, anchor or window changes after new results. No new model if only relabeling net displacement/wider hysteresis.",
+    "Distinguish additional OHLC observation from incremental volume. If volume changes narratives but not useful discrimination, say so.",
+    "If study misses known failure period, disclose insufficient coverage; do not extend chosen window for a prettier result.",
+    "No accounts, no rankings optimization, no networking or data refresh."
+  ],
+  "source_protocol_sha256": "b07fedd3415f6ebac324652994f809fce7ea12ad7e7704b6cbfa28ca57859916",
+  "input_manifest_sha256": "ae0d86a0762a2347be7d0f4705e4ad6406f7115a88120773d37536a20a1bb9d4"
+}

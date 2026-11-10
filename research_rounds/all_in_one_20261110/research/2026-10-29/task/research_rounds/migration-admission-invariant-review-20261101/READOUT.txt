@@ -1,0 +1,42 @@
+迁池与新confirmed准入：窄范围源码／不变量审查
+
+结论：当前代码确实把“本行业当前attempt所有probe层可迁池”作为另一只股票新增confirmed的先决条件。这是从v2继承的all-or-nothing promotion政策，资源守恒本身不要求这条跨股票依赖。可以在不洗占用的条件下分离；但分离会扩大某些时刻的新资金权限、改变旧probe晋升与新mobile争资金的优先关系，必须作为新政策，而非无经济影响的代码修复。小仓试错方向未被这次局部两遍负例否定。
+
+1. 两个实际门与历史证据
+account-risk-ablation-20261031/route_without_account_check.py：role mobile、有效行业level>0时先b.migrate；只有返回True才把confirmed加入routes。
+model_without_account_check.py:188–208：同sector、同attempt任意probe order的qty>0且status为open或cancel_pending，migrate就返回False并写status=confirmed_unfunded。既不检查是否同一股票，也不检查是否core；即使此刻一股已成交probe都没有，待单仍会挡。第二个失败条件是全部当前attempt旧probe一起迁入后超confirmed 60%。
+同文件request约233：选择confirmed后再次if not migrate:return confirmed_unfunded。只改route不够；两个门都须一致。失败不把行业active/level改为未确认；这些市场资格仍然有效。status在这里混入了迁池结果，而非市场信号失效。
+v2 model.py同样有这两个门；v2行业确认会请求取消同attempt probe挂单，再尝试迁池，cancel_ack/full-fill回调再尝试。因此可见目的包括满成/撤单竞态下的保守迁池与资源不提前释放。v2独审只确认该有限守恒接口，明确未引入更广迁移政策。
+v2→v3补丁删除grant累计周转券，却原样保留request的migrate先决条件；真实v3 adapter又在route复用了它。已读文档/测试没有单独论证“任何不同股票新confirmed前必须全部旧probe迁完”是一个必要交易目标。不能从迁池测试通过倒推出这条经济依赖必然正确。旧INTEGRATION_CONTRACT中的grant/NAV adjustment已被后续版本替代，这里仅引用其仍保留的角色/排序合同。
+
+2. 梅花／铜陵的精确链（只重读已保存局部预览，无新预览）
+2023/1/20 S0本来没有任何持仓；问题由同批尚未成交的core待单产生，并非旧弱仓无法清理。
+梅花rank137，化学制品881109，行业active、level2 expanded。同批先获core/probe100股，毛额1076.538、原raw floor9.83。原同股core预留成功即done，自己的mobile1200不再考虑。随后昊华rank350、卫星rank359，各自fresh mobile到route时遇到同sector/attempt梅花open probe单，migrate=False，confirmed根本未进入候选路由，只能试probe再被probe_risk挡。原单遍梅花core未获准、mobile走confirmed，于是同业后两股migrate=True，分别可预留200、700股。
+铜陵rank150，工业金属881168，行业active、level1 confirmed，新core/probe100股，毛额351.1755、原floor3.04。同一谓词随后挡住新疆众和rank395、洛钼511、中孚1393的confirmed路径；原单遍三者分别confirmed1400/2600/4200股，两遍下只有probe可试且风险被挡。
+所有买入预留先于任何实际buy fill。因此不能认为“梅花/铜陵马上会成交并迁池，后面的单自然就会补”：当批后序机会已经失去confirmed路由，原fresh CP1没有跨日自动补票。这里不评价这些被挤订单后来赚亏，也没计算移除门之后它们必能买多少。
+
+3. 资源守恒算例（只是书面合同的算术验证，不是新准入函数／新策略测试）
+NAV100万，现金590000；其它5行业confirmed持仓合400000、risk4000，每股/行业均在原上限内。本行业S已confirmed；旧已成交probe core10000/risk1000；股票A core待单5000/risk1000，合计probe15000/risk2000。A原.25%含费风险及行业全承诺2%准入均满足，角色不变。
+若另一股票X有合法fresh CP1，正常mobile完整目标20000（400股×50，floor45，risk2000）由confirmed承接：
+  probe保持15000/risk2000；confirmed=420000/risk6000；行业S全部承诺=35000/risk4000；总资本435000/risk8000。
+  原dated费用一次重算，待费11.9675，budgetNAV999988.0325，可用现金564988.0325，仍超过原10%cash reserve；confirmed60%、行业10%/1%risk、probe10%/.5%risk、股10%及即使存在的账户3%全部满足。没有把probe当成已迁入，也没有释放A的任何预留。
+  A仅改cancel_pending时，所有占用原封不动；真正ack取消A后才少5000资本/1000风险。之后另行合法原子迁P的10000到confirmed，总资本、risk、cash/reserve不变，core角色也不变。损耗map不在算例中模拟；未来真实接线必须继续原累计记录，不能宣称算术已证明真实ledger损耗通过。
+关键含义：行业2%是新增probe请求时按行业全部承诺执行的门，不是有任何probe层就永久要求整个已confirmed行业<=2%。本例新增confirmed后S35000>2%，所以再来任何probe请求仍应被sector_capital挡，不能“confirmed之外再领一份2%”。原代码本来也允许旧attempt probe与新attempt confirmed并存，因此“所有行业永远只能有一个pool”不是现成全局不变量。
+另一个反例：已有confirmed590000、同S旧probe19000，无pending。全部旧probe迁入会到609000>60%而失败；但新confirmed一手5000可使confirmed595000，旧probe仍19000，行业合24000，全部限制仍满足。新机会先使用小块confirmed空间是新的分配顺序选择，不是数学上必须等旧19000整块搬过去。
+
+4. 保留的真正不变量与危险变体
+所有旧attempt/core/mobile/挂单都计入行业总资本/risk、该股总量及原适用账户risk。probe仍计原全局10%/.5%，confirmed仍计60%；新confirmed只限有效行业stage+fresh mobile，stage0/失效/旧receipt都不放行。原原子现金预留、费用、股10%、单笔2%及合法单位不变；Bdiag本来无3%检查，不在这里暗添，B3若有则不能去掉。
+迁池本身保留当前attempt、无未结同attempt probe买单及目的池足额的原条件；不改pending pool/role、不抢先把撤单视为ack、不迁旧attempt、不洗损耗。原股退出和行业失效取消买单语义不变。
+危险反例：S已有probe19000和confirmed80000，再加confirmed15000。若只看confirmed行业部分95000会以为未到10%，但全行业114000已越限，必须拒绝。资源例已验证该错误变体不能通过。把A待单直接重标confirmed以腾出probe，或在late fill前退还全部本金，也会破坏原镜像/订单/池占用，不在候选范围。
+若把“当前attempt不得混有probe和confirmed”硬定义为策略不变量，则上述分离会违反该定义——它确实取消了旧all-or-nothing迁池优先权。但这不是现金/risk守恒要求；其必要性缺独立论证。该政策可能让新单先占confirmed、旧试探更晚迁池并继续卡probe，不能称全面改善或无代价。
+
+5. 最小待审合同（只写，不实现）
+以原单遍Bdiag为底座，先不叠两遍/C1/R1/新stage。行业active+level1/2为new confirmed的市场资格；旧probe迁池保留原函数和原尝试顺序，改为best effort独立事件，成功与否都诚实记录，不决定另一股票confirmed路由是否存在。
+route在市场/角色资格合格后可比较probe与confirmed，仍用原完整target/max合法数量、tie-probe、原H1/code/core-first。request也不得再把migrate=False直接当作confirmed拒绝；可保留同序best-effort尝试，但所有实时资源检查都必须完整执行。两个接口同时审，不能只删一处。
+数据上分别导出market stage、migration result、new-admission result；旧confirmed_unfunded原标签只能解释迁池失败，不能拿它重新否定仍有效stage。没有新增池、权限券或累计损失重置。
+同股票core优先是另一项明确经济选择，继续保留：梅花自身仍core100且跳mobile；不能借跨股票解耦同时恢复它的1200 mobile。同股已有buys/exits、同批done和每股一张单也不变。新池入口仍必须mobile，core不能因为行业confirmed就改role或改资金路由。
+
+6. 未来最小回归清单，当前未实施／未运行
+① 有同attempt open/cancel_pending probe时：旧迁池仍False，另一股合法confirmed可进入资源检查；原单仍占probe。② 阶段0/失效/无fresh/已消费CP1仍拒，同股pending/core-first仍挡第二单。③ 旧probe+新confirmed合并行业/股/账户检查，超任一cap仍拒，目的池满不能借probe。④ pending部分成交/撤单竞态：不提前释放，fill仍原role/pool；只有原ack释放剩余。⑤ 可选迁池成功时total cash/NAV/股数/成本/保护/损耗不变，pool移出=移入，失败不改占用。⑥ 旧attempt不迁且仍占额，尝试/episode更新不洗损耗。⑦ route与request统一一次合法数量选择/一次CP1消费，不能confirmed失败后再拿同凭据造第二单。⑧ 原单遍关新功能恒等、只开启此门的有限资源例/原两开盘检查先过；未批准任何preview或账户收益运行。
+
+本轮只原源码/旧JSON、书面算例和必要费用算术；未修改旧模型/适配/规划器，未运行新政策、旧预览或经济账户，也未把18项旧规划测试套到此新合同。

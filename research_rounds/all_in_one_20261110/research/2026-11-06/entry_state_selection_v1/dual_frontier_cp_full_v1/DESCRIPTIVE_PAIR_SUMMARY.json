@@ -1,0 +1,37 @@
+{
+  "kind_counts": {
+    "same_day": 78401,
+    "paired_unmatched": 10687,
+    "unpaired_old": 6918,
+    "unpaired_new": 161
+  },
+  "unmatched_pair_lags": {
+    "trading_lag": {
+      "n": 10687,
+      "new_earlier": 179,
+      "new_later": 10508,
+      "mean": 3.2860484701038644,
+      "median": 1.0,
+      "min": -60.0,
+      "max": 71.0
+    },
+    "observation_lag": {
+      "n": 10687,
+      "new_earlier": 179,
+      "new_later": 10508,
+      "mean": 3.2798727425844483,
+      "median": 1.0,
+      "min": -60.0,
+      "max": 71.0
+    },
+    "calendar_lag": {
+      "n": 10687,
+      "new_earlier": 179,
+      "new_later": 10508,
+      "mean": 4.876017591466267,
+      "median": 2.0,
+      "min": -93.0,
+      "max": 107.0
+    }
+  }
+}

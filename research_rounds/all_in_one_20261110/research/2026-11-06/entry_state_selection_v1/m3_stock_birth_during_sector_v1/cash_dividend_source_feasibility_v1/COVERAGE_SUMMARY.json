@@ -1,0 +1,34 @@
+{
+  "target_events": 426,
+  "retrieved_symbols": 426,
+  "historical_records_returned": 7543,
+  "coverage_status_counts": {
+    "CURRENT_PUBLIC_FACTS_MATCHED_NOT_PIT_OR_TAX_CERTIFIED": 400,
+    "FACT_CONFLICT_OR_INCOMPLETE_REQUIRES_ADJUDICATION": 24,
+    "DUPLICATE_EX_DATE_UNRESOLVED": 2
+  },
+  "qualified_date_and_gross_term_matches": 400,
+  "field_present_counts": {
+    "record_date": 424,
+    "pay_date": 424,
+    "implementation_announcement_date": 424,
+    "public_gross_cash_per_share": 424
+  },
+  "identity_echo_present": 0,
+  "archived_point_in_time_verified": 0,
+  "actual_individual_tax_verified": 0,
+  "eligible_quantities_in_original_simulation": 424,
+  "record_equals_previous_observed_trading_day": 424,
+  "pay_date_equals_ex_date": 424,
+  "http_request_timing_s": {
+    "mean": 0.42134263886011997,
+    "median": 0.32778183347545564,
+    "max": 1.7484529162757099,
+    "total": 179.4919641544111
+  },
+  "stop_files": [],
+  "frozen_inputs_unchanged": true,
+  "scope": "Company public-fact retrieval only. Old UNKNOWN statuses unchanged; no strategy replay or actual tax inference.",
+  "qualified_rows_with_positive_original_register_qty": 400,
+  "qualified_rows_register_qty_matches_interruption_qty": 400
+}

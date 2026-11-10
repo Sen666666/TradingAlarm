@@ -1,0 +1,15 @@
+test_ah_issuer_dedup_uses_fixed_identity (test_current_fixed_pool.CurrentPoolTests.test_ah_issuer_dedup_uses_fixed_identity) ... ok
+test_current_hk_selection_not_historical_southbound_chain (test_current_fixed_pool.CurrentPoolTests.test_current_hk_selection_not_historical_southbound_chain) ... ok
+test_current_stock_flag_does_not_create_prelisting_availability (test_current_fixed_pool.CurrentPoolTests.test_current_stock_flag_does_not_create_prelisting_availability) ... ok
+test_explicit_current_choice_and_label_without_backdating (test_current_fixed_pool.CurrentPoolTests.test_explicit_current_choice_and_label_without_backdating) ... ok
+test_fixed_cap_boundary_and_unknown (test_current_fixed_pool.CurrentPoolTests.test_fixed_cap_boundary_and_unknown) ... ok
+test_future_rank_stays_unavailable_and_fallback_is_preserved (test_current_fixed_pool.CurrentPoolTests.test_future_rank_stays_unavailable_and_fallback_is_preserved) ... ok
+test_future_signals_and_unknown_coverage_remain_unknown (test_current_fixed_pool.CurrentPoolTests.test_future_signals_and_unknown_coverage_remain_unknown) ... ok
+test_missing_lines_and_untraceable_evidence_rejected (test_current_fixed_pool.CurrentPoolTests.test_missing_lines_and_untraceable_evidence_rejected) ... ok
+test_original_snapshot_guard_unchanged (test_current_fixed_pool.CurrentPoolTests.test_original_snapshot_guard_unchanged) ... ok
+test_selection_types_cannot_replace_dynamic_facts_or_rank (test_current_fixed_pool.CurrentPoolTests.test_selection_types_cannot_replace_dynamic_facts_or_rank) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+OK

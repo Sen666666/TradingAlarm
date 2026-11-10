@@ -1,0 +1,216 @@
+[
+  {
+    "arm": "2022-C10",
+    "status": "upgraded_no_event",
+    "cursor": "2022-01-12 15:10:00+08:00",
+    "before": {
+      "whole": "7733a5bc7032259034a01c7f2e0ca30c32f34a79565853855eab966246ff3b80",
+      "fields": {
+        "observable": "07a6729bd9eaf2c6a3c97377f7b2cb342e2376d5d8bd639da12cea667070fa7a",
+        "lifecycle": "7574f8e55e3b6137bcd40f21f7e3f74702328dea3f2e3e3b590dc87e366c8b16",
+        "last_stock_state": "b4b51748a24ffb08e27e31b3340ce8b68073e900e336c40f4bcc97647dddf8c4",
+        "cursor": "66cf93ab89df24225818bd5ce14589d605e26e2682d858db3d65ad93d05992d7",
+        "goal_intents": "6c1dd8bdb41aa24067a37970504152d3b5baedd812be50ab3fb1773e659ee2a4",
+        "busy": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "active_intents": "f238628dfe70b05a44080cb476d5cb7d24e6459ac1a5dc9ebb4f7fcd1678879a",
+        "rank_bindings": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "after": {
+      "whole": "7733a5bc7032259034a01c7f2e0ca30c32f34a79565853855eab966246ff3b80",
+      "fields": {
+        "observable": "07a6729bd9eaf2c6a3c97377f7b2cb342e2376d5d8bd639da12cea667070fa7a",
+        "lifecycle": "7574f8e55e3b6137bcd40f21f7e3f74702328dea3f2e3e3b590dc87e366c8b16",
+        "last_stock_state": "b4b51748a24ffb08e27e31b3340ce8b68073e900e336c40f4bcc97647dddf8c4",
+        "cursor": "66cf93ab89df24225818bd5ce14589d605e26e2682d858db3d65ad93d05992d7",
+        "goal_intents": "6c1dd8bdb41aa24067a37970504152d3b5baedd812be50ab3fb1773e659ee2a4",
+        "busy": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "active_intents": "f238628dfe70b05a44080cb476d5cb7d24e6459ac1a5dc9ebb4f7fcd1678879a",
+        "rank_bindings": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "certificates": [
+      {
+        "certificate_id": "305b1528f0091b3b0d841097d78a2892ab51787439f4562877ba1f9fcf1ed010",
+        "known_at": "2022-01-04T15:10:00+08:00",
+        "projection_hash": "6499e99e66d861f3d54855fbfcc08b6c73ef143125d112c4915e19b4b61362a5",
+        "old_source_hash": "83fe5208b1c8d99f9c250b1d9494cfe12e80a5e318b29af3cb984984d64f70e8",
+        "in_month_old": true,
+        "route": "genuine month_runtime.MonthRunner.verify_native -> its unchanged legacy hierarchy",
+        "legacy_input_class": "month_runtime.MonthInputs"
+      },
+      {
+        "certificate_id": "de611fdffe1b7c57eb20d87bfc33f3abe54d5125b6f9c8a1216b894bc835d4c3",
+        "known_at": "2022-01-05T15:10:00+08:00",
+        "projection_hash": "c42eab666e92ca89c85777e4741ec1d5c5fa02b0bf3cf517e3b5123d575aec73",
+        "old_source_hash": "7083e3584b6bd85a9e80fe101956c8ff5301a44f5e13ba0e7393066f4b7aed30",
+        "in_month_old": true,
+        "route": "genuine month_runtime.MonthRunner.verify_native -> its unchanged legacy hierarchy",
+        "legacy_input_class": "month_runtime.MonthInputs"
+      },
+      {
+        "certificate_id": "d04312222ee5d225c04c06b19009de0cf9bef5b142fb85bd91fa1e56b2f6ce27",
+        "known_at": "2022-01-06T15:10:00+08:00",
+        "projection_hash": "f2df48c4aaa246c20180ac0d1f795d7956186f3aa8dde4f7873b5ad9f8578597",
+        "old_source_hash": "d28f10a32b4471e271708f33127de7e351224a91f4b4c2269ee442502f17a965",
+        "in_month_old": true,
+        "route": "genuine month_runtime.MonthRunner.verify_native -> its unchanged legacy hierarchy",
+        "legacy_input_class": "month_runtime.MonthInputs"
+      },
+      {
+        "certificate_id": "f72dea68f5df82f4b038397536a714620bd1b3927875c3344caa5ae045153d33",
+        "known_at": "2022-01-07T15:10:00+08:00",
+        "projection_hash": "b366db01af70a84fbad58fad0e32d46cf57d98f7860fc1f116926aba58043938",
+        "old_source_hash": "615a6c78c4ce3290099f0d99cc0299ddc577f74c014acfc83132cb32241c68b8",
+        "in_month_old": false,
+        "route": "genuine month_runtime.MonthRunner.verify_native -> its unchanged legacy hierarchy",
+        "legacy_input_class": "month_runtime.MonthInputs"
+      },
+      {
+        "certificate_id": "98b17758270b104ba5c28f47e22434128770ef157301ce6b7c686ad7b4419b03",
+        "known_at": "2022-01-10T15:10:00+08:00",
+        "projection_hash": "d16fa568e34f733afd4275adbd186705636d6d1d331e014271390fb5d8c65b52",
+        "old_source_hash": "615a6c78c4ce3290099f0d99cc0299ddc577f74c014acfc83132cb32241c68b8",
+        "in_month_old": false,
+        "route": "genuine month_runtime.MonthRunner.verify_native -> its unchanged legacy hierarchy",
+        "legacy_input_class": "month_runtime.MonthInputs"
+      },
+      {
+        "certificate_id": "f7ca4fa77e0522efcaa5247f9d97ed232fb40afad3c4eb8ee783a76127d3cc2b",
+        "known_at": "2022-01-11T15:10:00+08:00",
+        "projection_hash": "614ca0f36fe6568b2b10d944ecec215bd5e479d2467b48362538c21c9deabf6d",
+        "old_source_hash": "615a6c78c4ce3290099f0d99cc0299ddc577f74c014acfc83132cb32241c68b8",
+        "in_month_old": false,
+        "route": "genuine month_runtime.MonthRunner.verify_native -> its unchanged legacy hierarchy",
+        "legacy_input_class": "month_runtime.MonthInputs"
+      },
+      {
+        "certificate_id": "3c97a50113f10c549cf6b1f61f6c01c91420fdc618d0ba2ad85b8e4254fdd812",
+        "known_at": "2022-01-12T15:10:00+08:00",
+        "projection_hash": "218f92c80e8ed1b3b81e6561d9942b1ce192c37681956ff53aabfabe9bce1bfb",
+        "old_source_hash": "615a6c78c4ce3290099f0d99cc0299ddc577f74c014acfc83132cb32241c68b8",
+        "in_month_old": false,
+        "route": "genuine month_runtime.MonthRunner.verify_native -> its unchanged legacy hierarchy",
+        "legacy_input_class": "month_runtime.MonthInputs"
+      }
+    ],
+    "certificate_bank_sha256": "6a8b3aad8c87800a19a970ebd484e2a7a785591b3e1ad66ab995d1873366c7b9",
+    "trusted_bank_sha256": "5826fc36aff81c0c15748fc0ad1a0d519668e3f946167bcc28a1dd332dc23880",
+    "native_buys": 0,
+    "native_exits": 9,
+    "pending_intents": 142,
+    "available": "272859.6912329377500",
+    "native_share_digest": "57e76ac37338fcbdda27466548bf0c11f57bb498d06d02c1b7d0dacd71e156cb",
+    "New": "472281.00",
+    "Carry": "0",
+    "duplicate_upgrade": "already_upgraded",
+    "historical_events": 0
+  },
+  {
+    "arm": "2022-C_BATCH20",
+    "status": "upgraded_no_event",
+    "cursor": "2022-01-12 15:10:00+08:00",
+    "before": {
+      "whole": "15bd3253600eeb1ba104eb72faf97dad91f5d98fd6d572a79fd3386bc0d52f9e",
+      "fields": {
+        "observable": "47078300c0aaf4986aa8567cead3238b4d8c775d716527344924f62c75c65d51",
+        "lifecycle": "da37b4e728ce6b0a7f86aa7f63d4328d28675352ae879b74092d49b23be07d93",
+        "last_stock_state": "fcb10d5b8897ce04b821af02aa47cade3374dea2e74715e9a6af26437115edda",
+        "cursor": "66cf93ab89df24225818bd5ce14589d605e26e2682d858db3d65ad93d05992d7",
+        "goal_intents": "a19cb64120b10f1c8afcca46567f78085c702178c2e5a00a10ff1c5a66562886",
+        "busy": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "active_intents": "84ac23f10b9960f066f25e70dfd3489227a8a5ab1a9323444e5d551058511f74",
+        "rank_bindings": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "after": {
+      "whole": "15bd3253600eeb1ba104eb72faf97dad91f5d98fd6d572a79fd3386bc0d52f9e",
+      "fields": {
+        "observable": "47078300c0aaf4986aa8567cead3238b4d8c775d716527344924f62c75c65d51",
+        "lifecycle": "da37b4e728ce6b0a7f86aa7f63d4328d28675352ae879b74092d49b23be07d93",
+        "last_stock_state": "fcb10d5b8897ce04b821af02aa47cade3374dea2e74715e9a6af26437115edda",
+        "cursor": "66cf93ab89df24225818bd5ce14589d605e26e2682d858db3d65ad93d05992d7",
+        "goal_intents": "a19cb64120b10f1c8afcca46567f78085c702178c2e5a00a10ff1c5a66562886",
+        "busy": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "active_intents": "84ac23f10b9960f066f25e70dfd3489227a8a5ab1a9323444e5d551058511f74",
+        "rank_bindings": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "certificates": [
+      {
+        "certificate_id": "57a6440c6cbb9898113faa0428a5c799a9fa14212de4c9b9368af94df42d8428",
+        "known_at": "2022-01-04T15:10:00+08:00",
+        "projection_hash": "5b2355cb8f5171ea6625d9701158bb9ec9b4a89e473d78502367392f4c9a0bce",
+        "old_source_hash": "7083e3584b6bd85a9e80fe101956c8ff5301a44f5e13ba0e7393066f4b7aed30",
+        "in_month_old": true,
+        "route": "genuine month_runtime.MonthRunner.verify_native -> its unchanged legacy hierarchy",
+        "legacy_input_class": "month_runtime.MonthInputs"
+      },
+      {
+        "certificate_id": "ca8d69a1fc90d45127462045e4819df1c90fac156385cf8917c57be474f3e06c",
+        "known_at": "2022-01-05T15:10:00+08:00",
+        "projection_hash": "14cf44843d2ad8d9ff380f085a0c5e13d665b9b7611c27c57a6654376018c23e",
+        "old_source_hash": "7083e3584b6bd85a9e80fe101956c8ff5301a44f5e13ba0e7393066f4b7aed30",
+        "in_month_old": true,
+        "route": "genuine month_runtime.MonthRunner.verify_native -> its unchanged legacy hierarchy",
+        "legacy_input_class": "month_runtime.MonthInputs"
+      },
+      {
+        "certificate_id": "d720ecc1bf2ebaed10d358f4b70513364bebd4654e4b21b42a81c9dfd6fd03e6",
+        "known_at": "2022-01-06T15:10:00+08:00",
+        "projection_hash": "55b0cc2fe0eac2f2583bfec0c3909bd516a9ae65bdefbbf81ea0e9b61890fa92",
+        "old_source_hash": "d28f10a32b4471e271708f33127de7e351224a91f4b4c2269ee442502f17a965",
+        "in_month_old": true,
+        "route": "genuine month_runtime.MonthRunner.verify_native -> its unchanged legacy hierarchy",
+        "legacy_input_class": "month_runtime.MonthInputs"
+      },
+      {
+        "certificate_id": "93b1340bea71606ea5dcfec7d30f0086ac3c942ddd564841e8fa26e28344333f",
+        "known_at": "2022-01-07T15:10:00+08:00",
+        "projection_hash": "6ee2340a3a0406c76eee72fc085e63209881b7a8cfd71669d0fac58fb9b9fdca",
+        "old_source_hash": "615a6c78c4ce3290099f0d99cc0299ddc577f74c014acfc83132cb32241c68b8",
+        "in_month_old": false,
+        "route": "genuine month_runtime.MonthRunner.verify_native -> its unchanged legacy hierarchy",
+        "legacy_input_class": "month_runtime.MonthInputs"
+      },
+      {
+        "certificate_id": "5c327e20ad004c44d59e460fb0191578ec70d0be011c675b3af13f705d54c9f4",
+        "known_at": "2022-01-10T15:10:00+08:00",
+        "projection_hash": "4e779bd7825a0fe17cb43bbcf9b38411661681004d9438c5f465032b29c8068b",
+        "old_source_hash": "615a6c78c4ce3290099f0d99cc0299ddc577f74c014acfc83132cb32241c68b8",
+        "in_month_old": false,
+        "route": "genuine month_runtime.MonthRunner.verify_native -> its unchanged legacy hierarchy",
+        "legacy_input_class": "month_runtime.MonthInputs"
+      },
+      {
+        "certificate_id": "067be823143a2ab8d923ce17554afaec8feb8237d278be8b1831ad748fede5db",
+        "known_at": "2022-01-11T15:10:00+08:00",
+        "projection_hash": "5bb0e4a87880df0ab95bfdeb7f171194aa02c30fa5131f68b5470ac8f227db2a",
+        "old_source_hash": "615a6c78c4ce3290099f0d99cc0299ddc577f74c014acfc83132cb32241c68b8",
+        "in_month_old": false,
+        "route": "genuine month_runtime.MonthRunner.verify_native -> its unchanged legacy hierarchy",
+        "legacy_input_class": "month_runtime.MonthInputs"
+      },
+      {
+        "certificate_id": "797f675e417c0d2a38558bcb29e97fba83c68b6fef724ba26ff7fa5a00f1f20b",
+        "known_at": "2022-01-12T15:10:00+08:00",
+        "projection_hash": "dc4476321ce2628c438bcaacdde249e8f7fd45a424ee246e1a79ef9a82d2387c",
+        "old_source_hash": "615a6c78c4ce3290099f0d99cc0299ddc577f74c014acfc83132cb32241c68b8",
+        "in_month_old": false,
+        "route": "genuine month_runtime.MonthRunner.verify_native -> its unchanged legacy hierarchy",
+        "legacy_input_class": "month_runtime.MonthInputs"
+      }
+    ],
+    "certificate_bank_sha256": "ce5ef0b327a4a352871f2adec32325c2426425cf88f51d0ac2933df2952e6de3",
+    "trusted_bank_sha256": "4bc23fe53b96c2c4bff91e8e3053eb169b35e89372a23a8334409bf7e387ba1e",
+    "native_buys": 0,
+    "native_exits": 4,
+    "pending_intents": 142,
+    "available": "274206.1809882621000",
+    "native_share_digest": "73ea53fdc6c65f89dbe9728f66c4eb862a243c292d68fc213cac0ce660c5d8f1",
+    "New": "187368.00",
+    "Carry": "0",
+    "duplicate_upgrade": "already_upgraded",
+    "historical_events": 0
+  }
+]

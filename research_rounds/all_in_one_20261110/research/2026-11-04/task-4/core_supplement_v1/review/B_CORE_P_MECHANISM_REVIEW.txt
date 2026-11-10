@@ -1,0 +1,50 @@
+2026-11-05｜B-CORE-P机制审查：仅纸面与原路径必要界，未给予账户准入
+
+结论
+当前P不能被准确描述为只补一个缺失的新事件而保留原G1暖条件。
+policies_g1.project(G1_I)的opportunity是shadow AND warm AND (entered OR fresh)，
+i_buy为active AND opportunity；当前S0没有独立重验G1 warm。
+所以原i_buy OR P会同时替换warm与entered/fresh复合证明。保留warm的必要子组和
+用P替代warm是不同机制。不能依据后验结果悄悄选择其中之一，也不能把前者子组
+当作已经冻结并运行的新金融策略。
+
+当前母体与原账资源的可证范围
+全35699 P原路径关联及G1分层、最小手/现金/行业资本阻挡标量独审通过。
+H1半导体126身份中B-P259事件：真实flat、ACT、其余S0、pending、未消费CORE epoch
+交集174，其中167未暖、7暖。signal/OPEN最小手、共享原S0现金及乐观行业资本必要
+界后未被排除21事件，其中19未暖、2暖。2暖为600877.SZ 2026-04-27与688380.SH
+2026-04-30；21/2都是乐观上界，不是全部原风险/排序/预留/真实成交可达数量。
+全窗保留warm的B-P原始事件long546/strong149；相同必要界后134/61，不能相加为
+独立机会或以原S0现金在多股多事件上重复使用。事件可能同股同E0段重叠。
+
+资源审计边界
+原S0数量以同日CLOSE真实份额减同OPEN实际买入，保留原先发生的保护卖出与公司行动。
+13精确快照原股数/资本对齐；报告NAV上界误差最小-2.450e-10、最大1.635e-10。
+采用NAV+1e-6及比较+1e-6安全垫后27704行业资本判据重分类0，最小正阻挡0.838104元。
+NAV上界包含原S0现金/原库存及累计净股息不扣已支付，故仅用于保守确认行业资本拒绝；
+不能反过来证明足够风险预算，也不是实际可用现金。原现金单独按已扣10%buffer测最低单位。
+未重建1709 marks，未独立重跑全部802 CORE epoch事实；核其原源断言与保存数值并明确范围。
+原CORE尺寸统计H1半导体1169事件/68股的标签为minimum_unit_exceeds_risk_or_nominal_cap，
+是风险或名义资本的合并原因，不能推断1169均只因风险；同子母体实际1个CORE层。
+
+任何以后卡都必须明确且目前未获准的合同
+A(I未启动)涉及stock_up、有效I线、持续持有/退出及epoch授权，不能作为单入口插件。
+B(I有效)补入口架构已有BP1/TRE先例，价格证明可以不同，但warm复合证明必须显式定性。
+同I/source已实际CORE填单会消费epoch；P早填可能挡后续更好原i_buy，原订单经济路径不能
+声称不变。原MOBILE持仓不能自动转CORE，原CORE仍probe-only，行业资本计算含各原池。
+尺寸必须以原I线、双边估费和滑点风险计，不许以近EMA定量后拿远I持有。
+所有非价格资格、ACT、未知、锁卖、pending、原优先次序及动态资源必须在未来原生入口
+完整保留，次OPEN真实价重验。必要界通过不等于允许接账户。
+
+处置
+支持保留已完成证据。当前不给新Account/Runner、资金投影、adapter或价格参数矩阵准入。
+若P并非主要趋势失效点或原资源容量已阻挡，应直接研究已证实的CORE资源/持有问题；
+不能只为扩大P覆盖偷偷去warm、解epoch、借confirmed或改周期。也不能因稀疏右尾本身
+否定全部机会；需要明确当前任务目标、全母体可达性与机会成本。
+
+证据
+HISTORY_AND_AUTHORIZATION_BOUNDARIES.txt
+PRICE_EVENT_CENSUS_REVIEW.json
+COVERAGE_AND_ACTIVATION_REVIEW.json
+SAVED_RESOURCE_CONTEXT_REVIEW.json
+本轮独审0新Account、0新订单、0新预留投影；全部写入独立review目录。

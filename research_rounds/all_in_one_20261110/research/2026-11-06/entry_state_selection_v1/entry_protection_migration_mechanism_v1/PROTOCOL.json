@@ -1,0 +1,19 @@
+{
+  "status": "features_before_new_outcome_join",
+  "formula": "Q=log(F_t/F_(t-3))/log(C_t/F_t)",
+  "F": "original facts.i_floor in native price coordinate; C original facts.close",
+  "domain": "four immediate common dates t-3..t all original I active, positive finite floors and price, raw observed price/volume/amount eligible, same source_kind/source_path/segment_id and adjustment factor; C_t>F_t; no fill or epsilon or clip",
+  "unknown": "Preserve exact original PVR numeric queue slots; no admission hard gate and no wait",
+  "ranking": "within same M3 event and original close feasibility, reorder known slots by Q desc, PVR desc, sid asc; preserve K and unknown slots",
+  "economics": "unchanged existing PVR M3 independent stock-round contract; no account or new economic simulation",
+  "windows": [
+    "2022",
+    "2024_924",
+    "2026H1_SEMI"
+  ],
+  "comparison": "PVR_DESC baseline, not AMOUNT20",
+  "prior_consumed": "All history previously consumed; baseline full result and extreme cases already read. One bounded exploratory formula, not OOS and no parameter search.",
+  "source_root": "breadth_pvr3_priority_v1",
+  "risk": "D near zero can reward price near failure; no post-result clipping. Report exact distribution and counterexamples.",
+  "created_utc": "2026-11-07"
+}

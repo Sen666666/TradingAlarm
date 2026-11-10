@@ -1,0 +1,63 @@
+    begin = time.monotonic(); score = original()
+    calendars = {}
+    for win, root in [('2022', W/'2022-normal-reference-20261031/runs/B_diag/pair'),
+                      ('2025_26', W/'q2-normal-continuation-20261031/runs/B_diag/pair')]:
+        p = root/'daily.jsonl.gz'
+        with gzip.open(p, 'rt') as f:
+            ds = [json.loads(line)['at'][:10] for line in f]
+        assert len(ds) == len(set(ds)) == 242
+        calendars[win] = dict(dates=ds, source=str(p), source_sha256=sha(p))
+    dates = pd.DatetimeIndex([d for v in calendars.values() for d in v['dates']], name='day')
+    manifest_path = W/'universe-cp1-inputs-20261031/STOCK_MANIFEST.json'
+    records = json.loads(manifest_path.read_text())
+    assert len(records) == 1709
+    previous = O/'SCORES_MANIFEST.json'
+    prior = json.loads(previous.read_text()) if previous.exists() else {}
+    archive_manifest = O/'preflight-development-v1/SCORES_MANIFEST.json'
+    if not prior.get('physical_future_prefix_checks') and archive_manifest.exists():
+        prior = json.loads(archive_manifest.read_text())
+    roots = []; prefixes = prior.get('physical_future_prefix_checks', [])
+    old_points = 0; old_byte_checks = 0; numeric_recomputations = 0
+    for n, r in enumerate(records, 1):
+        sid = r['symbol']
+        source, source_hash = next((Path(p), h) for p, h in r['source_sha256'].items() if p.endswith('/signal.parquet'))
+        assert sha(source) == source_hash, ('original source changed', sid)
+        out = O/'scores'/f'{sid}.parquet'; meta = out.with_suffix('.json')
+        legacy = P/'pvr-cache'/f'{sid}.parquet'
+        legacy_hash = sha(legacy) if legacy.exists() else None
+        if meta.exists():
+            m = json.loads(meta.read_text())
+            assert m['source_sha256'] == source_hash and m['formula_sha256'] == EXPECTED
+            assert m['windows'] == [list(x) for x in WINDOWS] and sha(out) == m['output_sha256']
+            assert m['legacy_cache_sha256'] == legacy_hash
+            if not m.get('explicit_full_market_decision_calendar'):
+                # Reindex the completed identical score export, no score recomputation.
+                archive = O/'preflight-development-v1/scores'; archive.mkdir(exist_ok=True)
+                shutil.copy2(out, archive/out.name); shutil.copy2(meta, archive/meta.name)
+                keep = pd.read_parquet(out).reindex(dates)
+                tmp = out.with_name(out.name+'.tmp'); keep.to_parquet(tmp); tmp.replace(out)
+                m.update(source_observation_export_sha256=m['output_sha256'],
+                         explicit_full_market_decision_calendar=True, output_rows=len(keep),
+                         ready=int(keep.score.notna().sum()), NA=int(keep.score.isna().sum()),
+                         output_sha256=sha(out))
+                save(meta, m)
+        else:
+            numeric_recomputations += 1
+            f = pd.read_parquet(source).loc[:'2026-06-30']
+            z = score(f)
+            if legacy.exists():
+                old = pd.read_parquet(legacy)
+                pd.testing.assert_frame_equal(z.reindex(old.index), old, check_exact=True, check_freq=False)
+                assert sha(legacy) == legacy_hash
+            keep = z[['score']].reindex(dates)
+            out.parent.mkdir(parents=True, exist_ok=True)
+            tmp = out.with_name(out.name+'.tmp'); keep.to_parquet(tmp); tmp.replace(out)
+            m = dict(symbol=sid, source=str(source), source_sha256=source_hash,
+                     formula_sha256=EXPECTED, windows=[list(x) for x in WINDOWS],
+                     source_full_warm_start=str(f.index.min()) if len(f) else None,
+                     source_rows=len(f), output_rows=len(keep), ready=int(keep.score.notna().sum()),
+                     NA=int(keep.score.isna().sum()), output_sha256=sha(out),
+                     explicit_full_market_decision_calendar=True,
+                     legacy_cache_sha256=legacy_hash,
+                     old_all_eight_columns_exact=True if legacy.exists() else None,
+                     old_points=len(old) if legacy.exists() else 0)

@@ -1,0 +1,15 @@
+{
+  "events": 73,
+  "priority_attempted": 71,
+  "attempted_without_event_spend": 0,
+  "cold_events": 7,
+  "event_spent": "1364706.8543863761245",
+  "event_pending_reserved": "64004.0638336924000",
+  "seed_orders": 280,
+  "seed_positive_known_floor_risk": 280,
+  "seed_max_known_floor_loss": "5882.435487723250053838487532",
+  "ADD_orders": 30,
+  "ADD_risk_exceeds_existing_profit": 24,
+  "ADD_max_known_floor_loss": "6707.59074656625027705693632",
+  "known_floor_loss_is_not_guaranteed_stop_fill": true
+}

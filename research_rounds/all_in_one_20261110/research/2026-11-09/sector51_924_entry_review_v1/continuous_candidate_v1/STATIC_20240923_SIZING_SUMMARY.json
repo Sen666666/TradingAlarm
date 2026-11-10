@@ -1,0 +1,15 @@
+{
+  "date": "2024-09-23",
+  "original_three_add_cost": "71065.0590168705000",
+  "static_three_100share_add_cost": "3501.9660001942500",
+  "static_cash": "1160563.4347567395500",
+  "static_market_value": "39025.00",
+  "static_NAV": "1199588.4347567395500",
+  "static_weight_pct": "3.253199086394472178865169019",
+  "original_market_value": "106624.00",
+  "original_NAV": "1199624.3417400633000",
+  "original_weight_pct": "8.888115745079093665134965098",
+  "changed_actions_only": "Three actual Sep23 ADD quantities become 100 each; all actual seeds and pre-Sep23 cashflows held fixed",
+  "not_continuous_strategy_backtest": true,
+  "no_optimization": true
+}

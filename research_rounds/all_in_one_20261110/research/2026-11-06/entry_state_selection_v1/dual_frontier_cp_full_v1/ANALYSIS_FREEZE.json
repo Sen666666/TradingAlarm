@@ -1,0 +1,17 @@
+{
+  "status": "ANALYSIS_DEFINITION_FROZEN_BEFORE_LABELS",
+  "membership": "Signal unions and native I roots from sealed full-prefix replay. Original PVR-conditioned pre-size qualifier: held is False; mobile_Q is True; none of ACT_paused/exit_pending/buy_pending; industry E0_valid, nonnull attempt, stage>0. No use of original roles or event/core-only barrier reasons. No new pending/cap/fill assumed.",
+  "oldlegal": "Original 53121 PVR actual pending cap>0 legal intentions; only same-day retained/lost measured. Additions only in pre-size domain.",
+  "root": "Native I-active episodes, known birth only if prior observed row in same source inactive. Segment-start active is unknown birth. Birth<2022 separate. Deduplicate sid+segment+I_root. All known 2022+ roots included, even neither version receipts.",
+  "labels": "Fixed common anchor root birth; next COMMON trading-day adjusted OPEN, then 5/20/60 closing prices including entry day. Require all common sessions observed and price-eligible, one source segment and no synthetic/source-invalid. Only prices through cutoff. big60=MFE close>=.30 and terminal close>=.20; mature roots only. Never use each version first receipt as label anchor.",
+  "capture": "For fixed big60 root, same-root receipt within first5/20/60 common-calendar intervals AFTER and INCLUDING birth; lag 0..h-1. Report raw signal capture and pre-size qualification separately. This is opportunity timing, not actual selection/fills.",
+  "timing": "Within native I root: common same-day receipts synchronize versions; within blocks separated by those, pair unmatched old/new in chronological order; no tolerance search and no claim paired are same evidence. Report new-old common trading-day lag, native-observation lag, and calendar days.",
+  "originalrounds": "Only original PVR first_kind=add actual first MOBILE campaigns. Uniform closed as of 2026-05-15. Same-day new receipt retained/lost and same-root earlier new receipt annotation. Round net PnL is ORIGINAL history, not hypothetical strategy PnL; CORE not removed. Zero outcomes included in closed denominator.",
+  "limits": [
+    "fixed future1709 pool and fixed sector metadata non-PIT",
+    "old-account held/ACT/pending depend on original strategy",
+    "full endpoint2026 is May15 not full year",
+    "no brokerage accounts, no account backtest, no parameter scan",
+    "no same-K ranking or funded queue recomputation"
+  ]
+}

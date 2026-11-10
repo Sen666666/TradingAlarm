@@ -1,0 +1,28 @@
+{
+  "status": "FROZEN_BEFORE_NEW_FEATURES_PREVIOUSLY_SEEN_DEVELOPMENT_CASES_NOT_OOS",
+  "created_utc": "2026-11-09T06:08:22.714135+00:00",
+  "fixed_cases": 63,
+  "fixed_dates": 42,
+  "universe_N": 1709,
+  "formula": "r_i=log(Ct/Ct-1); a_i=log(A_t/median(A_t-21..t-1)); m_i=1+0.5*tanh(a_i). D=mean(m|r<0)-mean(m|r>0). Flat known names excluded from both groups. No target exclusion or within-sector ranking.",
+  "scope": "Same-day market-context hypothesis for unchanged M3 A/B entries. Not classic TRIN itself, not net aggressive flows, no fitted coefficients, smoothing, parameter scan, new ranking or account.",
+  "hypothesis": "When sector M3 is true but the declining-stock group has greater per-name activity relative to its own prior amount base, positive breadth may coexist with wider market fragility. This is a falsifiable conjecture, not causal demand/supply identification or a bull/bear forecast.",
+  "unknown_bounds": "For each known group n>0,S=sum(m), total missing M, lo=(S+.5M)/(n+M),hi=(S+1.5M)/(n+M). D_L=lo_down-hi_up;D_U=hi_down-lo_up. Outer bound independently assigns all missing to each side, conservative. Any known direction empty => UNKNOWN. PRESSURE if D_L>0;NO_PRESSURE if D_U<=0;otherwise UNKNOWN. UNKNOWN preserves original initial opportunity, never treated false.",
+  "consumer_not_implemented": "The sole candidate would withhold new initial risk only on certified PRESSURE dates and re-evaluate every new original legal ticket, with no permanent ban or cooldown. Original small probe, profits-only ADD and exits unchanged. No fills, dates, quantities or economic outputs generated here.",
+  "data": "22 exact immediate common observations ending at t, positive/eligible observed raw and adjusted prices, positive raw volume/amount with CNY/shares units, no synthetic/invalid; same source kind/path/segment and constant factor throughout; raw_close*factor matches close. Missing or warmup failures => unknown member. Current full day amount known only after t close, earliest effect next common OPEN.",
+  "limitations": "Current fixed1709 universe and industry mapping are NON-PIT and not full A market. Unknown bounds only address members of this fixed sample, not missing historical listings, survivor bias or retrospective vendor adjustment versions. Cases selected and labels seen in old studies, no prevalence or OOS inference.",
+  "old_work": "Not repeated: single-day positive credit deletion; group J rank/record event; sector total amount share*diffusion; OBV; whole-path U/V retest; r and r log(amount) next-return kernel. New organization is cross-stock current-sign-conditioned own-baseline activity means. This does not add raw information or prove incremental predictability.",
+  "source_links": [
+    "https://chartschool.stockcharts.com/table-of-contents/market-indicators/arms-index-trin",
+    "https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/trin"
+  ],
+  "stop": "Report every old fixed case, group sizes and unknowns. No direction flip, period/normalization changes, early-winner exception or alternative filter based on outcomes. Serious false rejection of early tails or no useful discrimination ends this candidate.",
+  "initial_hashes": {
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/market_activity_balance_preflight_v1/analyze.py": "d0cb7e548816cbe3144a6e94ea762f4320a70dfecb100fb4c93383a6f1fdbad0",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/lagged_amount_order_preflight_v1/FIXED_CASE_IDENTITIES.csv": "9cc34da80a687fa4c52f8b18f2d04c46ace5b05755fba0d3e09d859f3050a9a7",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/cross_window_entry_mechanism_v1/FIXED_CASES.csv": "373fa0cad5f23cc9487d185f1bf21939161a6a976cb5f99e786ea8884f706dbe",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/h1.npz": "416ddabacb9b16105cf3e5d93c961049ac1b48da433a62995a71311be17e4615",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/pvr_persistence_breadth_v1/FIXED_MEMBERSHIP.csv": "2ac0c575fdd52f8d5ccb8dace8c303aa5906f68de3baa81c2ea4d8d595722fc4",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0"
+  }
+}

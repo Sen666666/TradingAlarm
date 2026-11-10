@@ -1,0 +1,18 @@
+{
+  "status": "STOP_INSUFFICIENT_COMMON_SUPPORT",
+  "original_permits": 2417,
+  "feature_complete": 2002,
+  "anchor_edges": 36,
+  "feasible_triplets": 1,
+  "selected_triplets": 1,
+  "financial_complete_triplets": 1,
+  "matched_industries": 1,
+  "matched_dates_each_window": 1,
+  "significance_identified": false,
+  "daily_information_impossibility_proven": false,
+  "new_strategy": false,
+  "new_account": false,
+  "thresholds_changed_after_results": false,
+  "matched_rows_changed_after_labels": false,
+  "main_elapsed_seconds": 33.78
+}

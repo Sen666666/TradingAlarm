@@ -1,0 +1,70 @@
+当下市场证据→风险行动：A/B 有限设计卡（待 root 审，不是运行授权）
+2026-11-04；阶段：源码语义、旧研究排重和逻辑否证；本目录新历史信号=0，新账户/成交事件=0。
+
+先给裁决
+No60 三年亏损约36.20%、收盘回撤38.09%，不能采用。取消 confirmed60 只修复容量，不证明买入质量或风险可接受。
+A 与 B 的作用时钟不同，但尚无全量证据证明互补或有效；不准直接启动2×2，不以ETF MA63账户结果为新候选收益证据。
+建议仅让主审先审下面一个明确的 A、一个明确的 B；通过后先0账户全域覆盖/原信号承接诊断。这里没有做新MA、触发序列或金融原型。
+
+1. 原状态究竟表示什么
+原 market 是行业等权、行业内有效股票 log-return 等权后 exp 累乘的 synthetic price，不是HS300或可交易ETF，不虚构其成交额。先剔price_eligible=False、非observed/synthetic bar；股源分段首64观察抑制。
+原 breadth：r=diff(log(causal_close)); q=amount/median(previous21amount); u=r*min(1,sqrt(q)); m=EWMA21(u)。行业内ready m>0占比(至少5股)，整体等权行业(至少8行业)。不是当日上涨家数、净资金流或价格>均线。量确实影响方向证据；A/B均不得替换它、原I/E0或CP1为纯价格主模型。
+旧BREAK=(market>max(previous63market)) AND (market>previous_market) AND breadth>.6。
+ACT20_BREAK只在已暂停、真实flat（无仓/无买卖单）时允许恢复。ON时并不要求BREAK/fast每天成立；实际phaseDD达到20%才暂停，原持仓退出随后执行。恢复重置phase peak，累计回撤不是20%保证。
+当前1709 Q4 fast_on=breadth>.6。旧407 FAST字段曾有.4/.6锁存；ACT20_FAST另要saw_off和False→True边沿，不能混称本A。
+旧Q已经有stock_up=i_target与sector_up=e0_target、同日行业状态/RS、原买入资格；不是完全无方向。行业level还受episode/attempt有效、fresh21收据、end/time递进、failure优先约束。它们不蕴含当前价格高于63均值；B检验的是这份额外慢背景是否有用，而非第一次补上方向。
+
+2. A：保留63前窗与原fast价量条件，只替换恢复价格基准
+tentative ID=A_PRIOR63_MEAN_RECOVERY。
+令 t 是原市场计划收盘观察钟，P为同一原 market。H_t=max(P[t-63:t])；新L_t=mean(P[t-63:t])，均排除当日且要求同63个此前计划槽可知。
+A_recovery_t = known_context_t AND P_t>L_t AND P_t>P_(t-1) AND breadth_t>.6。
+这里没有MA斜率、连续5日、相对HS300、FAST重开边沿、新窗口或新账户DD值。P>均值只是价格背景，不被命名为均线向上；若要再加斜率须另卡，不能写入实现。
+它只替代原paused+flat分支的breakout输入；ON、pause优先、ACT20、个股旧退出/角色保护、买入原信号/排序/数量/整手/费用/现金全部不变。恢复不自动买，也不复制暂停前仓位。
+同一已知窗口max>=mean，旧BREAK蕴含A输入；这仅证明固定市场输入上的集合包含。新账户一旦恢复，持仓/flat/NAV/ACT峰会分叉，不能保证每一次实际恢复更早、收益更高或回撤更低。
+明确不混inclusive SMA63：它包含当日，P_t>SMA63(t)在代数上等价P_t>前62均值，改变了原63前窗。此前讨论过但未冻结/计算为本候选。
+复用另一agent已做原账状态上的条款只读核查：前63均值+up+breadth>.6在2022暂停段最早6/1（旧BREAK6/17），2024暂停段最早3/1（旧BREAK5/6）。不是4/27或2/8反弹起点；这些日期不是新账户恢复或盈利。
+
+3. B：先只研究行业当前63背景与成熟资金资格，不叠第二个股MA门
+tentative ID=B_INDUSTRY_PRIOR63_MEAN_CONFIRMED_PERMISSION。
+行业j的C使用原INDUSTRY_MANIFEST绑定、与现有industry facts/trace一致的真实行业指数因果close（原factor=1）。不换成研究股票等权价格，不把研究池广度冒充指数全成分。
+K_(j,t)=known_same_source_current_price_and_63_prior_slots AND C_(j,t)>mean(C_(j,t-63:t))。
+严格大于；相等False；未知单列且无新confirmed许可。B不加当日涨幅>0、MA斜率、持久日数或新的breadth门；原行业E0/Q与个股I/CP1真实量价机制保留。
+选择此前63均值的机制理由是把独立于今日冲击的、同一既有63观察历史水平作为新增成熟资本的背景参照；不是已证最优尺度或均线方向。它使比较对象/暖机与A一致，且当日大跳不同时抬高门槛。risk既有inclusive SMA63损耗分组是不同描述，必须另列，不据哪个删组收益更好择定义。
+为什么先不加个股63：行业和个股两新AND门不能被称作一个差分；原个股I/freshCP1已经约束当前结构。若为迁池再按每只旧probe是否高于股MA分拆，会偷偷改变原all-or-nothing同attempt迁池/引入SD。股价63仅可在后续批准的全域只读表作描述，不能变成新门或据收益挑第二门。
+风险动作唯一：原level>0、active的行业只有K=True才允许confirmed route、confirmed request和同attempt probe→confirmed迁池。三处同一合同，不能只拦新request却经cancel_ack释放probe池。
+K=False/unknown时原core与mobile probe路仍按原合同：probe总10%/风险.5%、行业probe2%、同股10%、行业风险1%、原mobile2%目标/费用/实际现金和10%预留/整手/角色锁全保留。不是无约束小试，也不绕过ACT、Q、原I/freshCP1。
+保留原成熟level/receipt/consumed/attempt，不倒退或清空。B无许可只拦新的成熟资本承接；不卖旧confirmed仓、不降旧层保护、不回迁confirmed为probe、不重标既有盈亏。
+K再次True后，原active/level仍在时可按旧migrate入口恢复迁池，不添加额外fresh industry CP1门；新mobile实买仍需当日fresh stock CP1与原Q。原旧pending probe和cancel_pending必须实际ACK后才准迁池，未ACK仍占资源。
+路由保留max合法量、tie选probe、不拆单；K=True并不强制confirmed。K=False使单笔可选route集合变小，但全批排序/后续资源反馈会改变成交，不能简单删掉旧账中被挡交易贡献或按笔金额相加为可避损。
+
+4. 事前时钟/持久化接口（设计，未实现）
+建议纯描述接口 Context(as_of_close,source_revision,current,prior_count,known,prior_mean,pass,reason)。不含账户盈亏/事后阶段/未来收益/赢家标签。
+原planning在CLOSE开始先expire_day_buys，会触发cancel_ack→migrate；之后ACT、个股保护、industry。B当日context须在最外层CLOSE入口、expire之前以已完成同日CLOSE设置，不然先按昨日门迁池再关门。
+下一OPEN只读该决策CLOSE context，绝不读取OPEN日尚未知close。OPEN前保护卖/权益结算/原预留顺序保持。cancel_ack/行业调用均读同一as_of context；不能因来源混用而放行。
+若context过期、源身份变更、当前或63前槽未知，则不给新confirmed；不造下行事实、不强平旧仓。上下文窗口只按计划观察钟更新，不用dropna压缩缺口、不跨段旧源凑63，不在季度/阶段重暖机。
+global market原fillna(0)累计值有限不等于真实可观察；A须绑定已有原有效观察/分母掩码，不能只isfinite。B行业price掩码独立于研究池breadth分母。A的market和B行业指数来源分别绑定。
+若将来实现，OFF须逐值同原No60，两门在保存/独立进程恢复后相同；新增context必须完整checkpoint。不能修改本轮已冻No60/2024来源与checkpoint。
+
+5. 两机制非冗余尚待证明，不能凭名称认定互补
+A作用于ACT OFF且flat的恢复机会；B作用于ACT ON时行业成熟新增/迁池。两者在逻辑上既非互相蕴含，也不构成统计独立证据。
+反例一：长跌后P刚过下移均值且breadth>.6，可更早恢复又立即失败；B行业也刚过均值，两门都True仍可大量亏损。原REC21/EMA负研究要求保留此例。
+反例二：A更早True但所有真实fresh stock CP1行业K=False，仅probe可买且最小整手不合法；没有改善早期实际参与。
+反例三：L03/L04 ACT一直ON，A毫无作用；B只拦新confirmed，旧confirmed/新增probe仍可使暴露高，不承诺解决满仓下跌。
+反例四：宏观P弱而局部AI强，B应独立看行业且无global AND；不能把全局A condition套作所有日资金总闸。
+反例五：924跳涨后行业C久高于落后的63均值，B继续放新钱而后续亏损；慢背景未必能识别行情后段。
+反例六：健康回测/整理低于63均值仍有原I/CP1真赢家，B阻断扩张与迁池，可能占死probe并排挤其他早期试错。
+
+6. 若获准，先做一次完整覆盖诊断，再决定是否有资格做有限2×2
+拟固定域：2022→2023→2024原1709连续726收盘；另完整2025-07-01→2026-06-30强窗242收盘。全90行业、全1709身份、所有原机会/原订单/无订单日保留；未知与分母独立报告。未授权前不计算这些新A/B序列。
+优先最小层次：源/known/完整前窗→固定A输入与原ACT状态交叉→全行业K与原Q/level/receipt交叉→原full funnel每一步与实际fill；全部季度/月份并列，不只取下面案例。
+非冗余须给A增量且原paused+flat的全部日期/原合法fresh信号/可承接最小单位下界；B须给旧confirmed routes与迁池中K=False的全部对象（不只亏损组），分ON日暴露、资金目标、probe反馈和强窗赢家。B若被原Q完全蕴含或A增量无合法尺寸，则不要2×2。
+这些旧状态上的交叉只是可作用范围和可执行下界，不是新账户策略结果。无新资金重放不能证明资源重分配/回撤改善。不得用原资金损益乘许可/删交易获得新NAV。
+有限2×2只在逻辑/全量覆盖支持且root另授时考虑：00原No60，10只A，01只B，11A+B；同源、同完整周期、自身跨年状态、原费用/权益/执行压力。不先跑11后根据最好组补理由，不扫描均线/阈值。
+明确停止：A与已测早恢复等价而无新机制解释，B作用范围很小/只挡赢家，或A+B几乎同单门且不能覆盖重要损耗，就停止该组合；不再追加斜率、5日、股MA、净推进R或global/local总AND来救案例。
+旧早恢复负对照必须进入未来通过标准：不能只在L02/Feb–Apr更早便通过；需完整保留旧REC21/REC21_P5/RECEMA_P5所暴露的假恢复、phase peak重置后连续试错、普通净损耗、肥尾机会和成本/延迟路径分叉。旧407数值不能直接当1709新候选成败，新的经济批准后才可能给完整当前合同结果。
+
+7. 必须保留的完整反例见FALSIFICATION_MATRIX.csv
+L02迟恢复；L03高暴露下跌；L04满仓亏损反弹；L05宏观跌而AI局部盈利；2024Feb–Apr fast有br0；924全段和10月后新钱；完整强窗赢家。阶段均后视镜标签，不输入新信号。
+ACT/原保护/费用/权息/真实现金/未ACK预留/整手和完整账户核账是后续验收，不当成本轮已验证结果。
+
+当前结论：精确定义与旧近邻排重完成；未发现完全相同的prior63mean恢复或只限行业confirmed/migrate当前63门的既有独立策略验证。广泛G/S/F1设计已含持续许可思想，不能冒称新发明。独审待完成，未证有效、未授权原型/经济。

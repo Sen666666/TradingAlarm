@@ -1,0 +1,33 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "execution_grant_SHA256": "36d3b1c0f5d1e82af08cc9056529b3308ce6768acb24c0aa4769c83394e51971",
+  "actual_cursor": "2023-12-29 15:10:00+08:00",
+  "sources_checked": 53,
+  "checkpoint_frozen_sources_preserved": 49,
+  "no_Jan3_or_control_replay": true,
+  "own_quarter_CP_identities": [
+    {
+      "day": "2023-03-31",
+      "SHA256": "711a486dab06c926cb8b844c4934dd2bb4cb24f60acdfa25e46fd9e3395a2b2b"
+    },
+    {
+      "day": "2023-06-30",
+      "SHA256": "444789857ed9a8e490861a96e1dd94e4981bba7adca0b475a822fdceaecea628"
+    },
+    {
+      "day": "2023-09-28",
+      "SHA256": "1580550dc11ac03294a6d23f353938ee3604d7b7bdad024fda4769b65427345b"
+    },
+    {
+      "day": "2023-12-29",
+      "SHA256": "61c449fb31065ad4ee2122853c0b08f0df5b2193573c8144ae18630de1c23d21"
+    }
+  ],
+  "final_NAV": "745426.9583780900535",
+  "ready_as_own2024_parent": {
+    "checkpoint": "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/continuation2023/run-2023/checkpoint.pkl",
+    "SHA256": "61c449fb31065ad4ee2122853c0b08f0df5b2193573c8144ae18630de1c23d21",
+    "provenance_SHA256": "7d88d0cb4362d17c75b4229e94c4ce584a57297d22c420d595cab5c220ba6c27"
+  },
+  "scope": "Byte/source/provenance/result owner audit plus separately completed independent484day financial/mark audit. No independent engine restore was executed by reviewer. New2024 needs distinct own-horizon transition and explicit economic scope."
+}

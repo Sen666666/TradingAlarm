@@ -1,0 +1,24 @@
+{
+  "status": "coverage_only_completed_stopped",
+  "at": "2026-10-30T06:05:49.806534+00:00",
+  "selected_known": 46,
+  "unselected_known": 7,
+  "unselected_unknown21": 4,
+  "original_reserve_days_reconciled": 681,
+  "new_D_economic_paths": 0,
+  "indicator_recomputations": 0,
+  "nextopen_only_after_selection_freeze": true,
+  "runtime_seconds": 6.601905832998455,
+  "source_and_selection_hashes_unchanged": true,
+  "resolved_report_error": "汇总追加identifiability时mother首行无此列导致CSV writer字段不齐；保留partial-report-error.csv，以字段并集重新导出69行。未重算覆盖/未改选择。",
+  "remaining_gaps": "4周期21左端历史缺失，不补史；D与C额外金额和行业约束不对称已明示，需主审决定经济合同。",
+  "artifacts": {
+    "PROTOCOL.txt": "498d9b07a2b0d15959fff1c65d46d2e4e7947095fecbb77165519736a74b9ddc",
+    "coverage57.csv": "eb5930f145c4ca13795d1b3f74cca4d2e7748eb37c8e5a35d67cf5a8a4f93b49",
+    "mother69-status.csv": "542c580a7ab7783f9aece0ad620cd0d643bcc1915b8a1468a9ab243848d67b97",
+    "SUMMARY.json": "4e607cac1f4b8c543e4f0f9129c134ec4f762ac4d40a4c1f0705880636692ff4",
+    "REPORT.txt": "85c3ceaf1a90aaf8c9f91c8e77d6b173dfc26b0eeb47bff8b226e120786ed257",
+    "VERIFICATION.json": "2d70aee4cf827917c82bd7ffe19b0e4901448b3bff282b74a5a582cfeffa69a6",
+    "SELECTION_FREEZE.json": "8818dbb7a111e901c4c95d821fe34dd623d0c9a8bfb9eaca0eae8b0a580c9244"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "official_unknown_unchanged": 508,
+  "scope": "three entitlement-evidenced cash-only cases; no aggregate inference",
+  "scenario_not_fact": true,
+  "scenario80_all_three_loss": true,
+  "fixed_permit_all_remaining_close_bound": {
+    "known_wins": 471,
+    "known_closed": 1923,
+    "unknown": 508,
+    "all_closed_denominator": 2431,
+    "lower_if_all_unknown_loss": 0.19374742904154668,
+    "upper_if_all_unknown_win": 0.40271493212669685,
+    "wins_needed_among_unknown_for_35pct": 380,
+    "required_unknown_win_fraction": 0.7480314960629921
+  },
+  "no_selection_or_account_rerun": true,
+  "important_direction": "Dividend receivable raises instantaneous equity, but can change profit-gated additions and worsen full-round PnL. Omitted receivable is not the old published result."
+}

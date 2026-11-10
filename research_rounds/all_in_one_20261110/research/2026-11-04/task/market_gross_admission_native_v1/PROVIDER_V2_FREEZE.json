@@ -1,0 +1,12 @@
+{
+  "scope": "PROVIDER_DOMAIN_REPAIR_ONLY_ZERO_ACCOUNT",
+  "frozen_before_checks": true,
+  "at_UTC": "2026-11-04T18:28:59.027802+00:00",
+  "source_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/market_info_v2.py": "74ea6f9524e9f75739de9d23a66251ee2d12f0bdaa9ee0d5012174759197ea93",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/market_info.py": "445e05c589a716b93bb04b734d2381f31c09ac8147c7ea7baeba21071102b18c",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/PROTOCOL.txt": "bbcfeee541479dc6a24e7495c93f971756536b527330f4a8948c4422145459e6"
+  },
+  "change": "Same stored X/MA/priorMA and strict D. Compare available observation clock with caller-supplied independent native expected CLOSE calendar; missing expected or outside domain UNKNOWN. No gross/fee/NAV/ACT change.",
+  "native_small_replayed": false
+}

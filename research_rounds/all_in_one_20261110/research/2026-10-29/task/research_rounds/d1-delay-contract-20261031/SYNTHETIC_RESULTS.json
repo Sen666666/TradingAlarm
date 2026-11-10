@@ -1,0 +1,42 @@
+{
+  "tests": 12,
+  "failures": 0,
+  "errors": 0,
+  "specification_checks_passed": true,
+  "historical_paths": 0,
+  "D1_real_runner_gate_passed": false,
+  "reason": "lifecycle proposal only; requires real expiry/retry/reprice integration and review; native upgap conflict reproduced",
+  "details": [
+    {
+      "case": "native same-price carry probe",
+      "role": "core",
+      "first_window": "2020-01-03 09:30:00+08:00",
+      "retry": "2020-01-06 09:30:00+08:00",
+      "same_native_order": "buy:A:1",
+      "fill": 1900,
+      "manual_retention_fixture_not_integrated_runner": true
+    },
+    {
+      "case": "native same-price carry probe",
+      "role": "add",
+      "first_window": "2020-01-03 09:30:00+08:00",
+      "retry": "2020-01-06 09:30:00+08:00",
+      "same_native_order": "buy:A:1",
+      "fill": 1900,
+      "manual_retention_fixture_not_integrated_runner": true
+    },
+    {
+      "case": "unamended gap retry counterexample",
+      "old_authorized_unit_price": 10.005,
+      "new_price": 11,
+      "native_quantity_mutated_before_callback_rejection": 1700,
+      "integration_gate_passed": false,
+      "isolated_fixture_discarded": true
+    }
+  ],
+  "sha256": {
+    "CONTRACT.txt": "aadca36ceee4b56b25d45579822b466f4b4413dd06c8383beecb539c86b71f1e",
+    "lifecycle.py": "d5f04829c48d02420030adc0d9276e15f3124b6a00d6b99564464ee6334f875d",
+    "test_lifecycle.py": "6a4d90b5abd81d46bd866459af118bc234bd683d967fbdf2282044478beae602"
+  }
+}

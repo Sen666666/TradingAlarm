@@ -1,0 +1,337 @@
+{
+  "2022_2023_at_2023_cutoff": {
+    "total": {
+      "layers": 1557,
+      "stocks": 772,
+      "actual_buy_cash": "15427691.6546075481915",
+      "original_cutoff_net": "-254573.0416219099464999999999578",
+      "positive_original_net": "599857.4076653744612057710369193",
+      "negative_original_net": "-854430.4492872844077057710368771",
+      "negative_layers_actual_buy_cash": "11049512.5809874032475",
+      "open_layers": 0,
+      "open_layers_original_cutoff_net": "0",
+      "old_reference_unknown_flags": {
+        "company_action_factor_changed_between_decision_and_fill": 3
+      }
+    },
+    "groups": {
+      "mobile_above_reference": {
+        "layers": 66,
+        "stocks": 60,
+        "actual_buy_cash": "1025064.4338938192265",
+        "original_cutoff_net": "-31481.38775025738817360417360",
+        "positive_original_net": "63802.62629931832186363636364",
+        "negative_original_net": "-95284.01404957571003724053724",
+        "negative_layers_actual_buy_cash": "697110.1634687542465",
+        "open_layers": 0,
+        "open_layers_original_cutoff_net": "0",
+        "old_reference_unknown_flags": {}
+      },
+      "mobile_at_or_below_reference": {
+        "layers": 1133,
+        "stocks": 639,
+        "actual_buy_cash": "12906836.8189636156240",
+        "original_cutoff_net": "-188543.8068162279512769325603812",
+        "positive_original_net": "464804.1555777996064579848001150",
+        "negative_original_net": "-653347.9623940275577349173604962",
+        "negative_layers_actual_buy_cash": "9254000.1056118904700",
+        "open_layers": 0,
+        "open_layers_original_cutoff_net": "0",
+        "old_reference_unknown_flags": {
+          "company_action_factor_changed_between_decision_and_fill": 3
+        }
+      },
+      "core_separate_original_contract": {
+        "layers": 358,
+        "stocks": 303,
+        "actual_buy_cash": "1495790.4017501133410",
+        "original_cutoff_net": "-34547.8470554246070494632659766",
+        "positive_original_net": "71250.6257882565328841498731643",
+        "negative_original_net": "-105798.4728436811399336131391409",
+        "negative_layers_actual_buy_cash": "1098402.3119067585310",
+        "open_layers": 0,
+        "open_layers_original_cutoff_net": "0",
+        "old_reference_unknown_flags": {}
+      }
+    },
+    "mobile_continuous": {
+      "initial_nominal_risk_pct_NAV": {
+        "observations": 1199,
+        "minimum": "0.0005302216658999504241116486124",
+        "maximum": "0.4153552838698741343902931451",
+        "quantiles": {
+          ".10": "0.008464562299403341781993091338",
+          ".25": "0.05181193978503924287497650119",
+          ".50": "0.1042222043838480078686158477",
+          ".75": "0.1572527637723321629052384287",
+          ".90": "0.2136123817273047671367455912",
+          ".95": "0.2550863546907809530758449328",
+          ".99": "0.3310222587376038196867971466"
+        },
+        "method": "fixed empirical lower order-statistics; descriptive only, no performance-selected bins"
+      },
+      "positive_initial_protection_distance_pct": {
+        "observations": 1199,
+        "minimum": "0.44397213023693870669921586168241845927864796883326",
+        "maximum": "30.121108677704749002652051306017814035625578731831",
+        "quantiles": {
+          ".10": "3.4131213810255715136303858750236532219327229589089",
+          ".25": "4.9312553025812554579806486989063607731018211824320",
+          ".50": "7.0186649355326054132693533647837317920084755844958",
+          ".75": "9.7924333211023254181998221132348805354407816334748",
+          ".90": "12.973803904837592916342266866566716641679160419790",
+          ".95": "15.334515658370455656987865300226599029252497039152",
+          ".99": "17.646218907353046272621733754971253868863887384039"
+        },
+        "method": "fixed empirical lower order-statistics; descriptive only, no performance-selected bins"
+      }
+    },
+    "core_continuous_initial_nominal_risk_pct_NAV": {
+      "observations": 358,
+      "minimum": "0.0005191587254543906810848896039",
+      "maximum": "0.2466067874407182671417517286",
+      "quantiles": {
+        ".10": "0.003284450102383869535114752159",
+        ".25": "0.009885525676544109699111771744",
+        ".50": "0.05265607484549406522449545264",
+        ".75": "0.1686900057041613523397435334",
+        ".90": "0.2210447703664226134315084263",
+        ".95": "0.2312397864665302306367891704",
+        ".99": "0.2454132768248926186297370737"
+      },
+      "method": "fixed empirical lower order-statistics; descriptive only, no performance-selected bins"
+    },
+    "absolute_reference_cross_old_R0_related_labels": {
+      "MOBILE_actual_nominal_above_frozen_full_plan": 54,
+      "MOBILE_actual_nominal_within_frozen_full_plan": 12
+    },
+    "above_reference_mobile_fraction": "0.055045871559633027522935779816513761467889908256881",
+    "above_reference_buycash_fraction_of_all": "0.066443150203075209241964462124747130049740857605519",
+    "above_reference_negative_magnitude_fraction_of_all": "0.11151757773737584668892837984302446395944329961776",
+    "economic_scope": "Original entry-cohort contributions through named saved cutoff. No deleted/resized-trade counterfactual or capital reinvestment. .25 is nominal reference, not original core all-in risk contract."
+  },
+  "post_Oct8_new303_at_2024_cutoff": {
+    "total": {
+      "layers": 303,
+      "stocks": 204,
+      "actual_buy_cash": "2839637.2229989367025",
+      "original_cutoff_net": "-112457.6005694286214999999999897",
+      "positive_original_net": "106763.3623466613531269071780521",
+      "negative_original_net": "-219220.9629160899746269071780418",
+      "negative_layers_actual_buy_cash": "2067838.3788192707460",
+      "open_layers": 0,
+      "open_layers_original_cutoff_net": "0",
+      "old_reference_unknown_flags": {
+        "company_action_factor_changed_between_decision_and_fill": 1
+      }
+    },
+    "groups": {
+      "mobile_above_reference": {
+        "layers": 40,
+        "stocks": 38,
+        "actual_buy_cash": "535442.9474588614985",
+        "original_cutoff_net": "-25811.32954125159771139890192",
+        "positive_original_net": "29643.23521216408283333333333",
+        "negative_original_net": "-55454.56475341568054473223525",
+        "negative_layers_actual_buy_cash": "303703.5474685850290",
+        "open_layers": 0,
+        "open_layers_original_cutoff_net": "0",
+        "old_reference_unknown_flags": {}
+      },
+      "mobile_at_or_below_reference": {
+        "layers": 210,
+        "stocks": 159,
+        "actual_buy_cash": "2136356.1954941260740",
+        "original_cutoff_net": "-75484.8275535091186414149508835",
+        "positive_original_net": "72691.6266868144064407599919083",
+        "negative_original_net": "-148176.4542403235250821749427918",
+        "negative_layers_actual_buy_cash": "1616433.0734349800870",
+        "open_layers": 0,
+        "open_layers_original_cutoff_net": "0",
+        "old_reference_unknown_flags": {
+          "company_action_factor_changed_between_decision_and_fill": 1
+        }
+      },
+      "core_separate_original_contract": {
+        "layers": 53,
+        "stocks": 53,
+        "actual_buy_cash": "167838.0800459491300",
+        "original_cutoff_net": "-11161.4434746679051471861471862",
+        "positive_original_net": "4428.5004476828638528138528138",
+        "negative_original_net": "-15589.9439223507690",
+        "negative_layers_actual_buy_cash": "147701.7579157056300",
+        "open_layers": 0,
+        "open_layers_original_cutoff_net": "0",
+        "old_reference_unknown_flags": {}
+      }
+    },
+    "mobile_continuous": {
+      "initial_nominal_risk_pct_NAV": {
+        "observations": 250,
+        "minimum": "0.001087525804695922381240106132",
+        "maximum": "0.4852530081053220750150371446",
+        "quantiles": {
+          ".10": "0.02117826460477258548493932676",
+          ".25": "0.08049710467786999053415255369",
+          ".50": "0.1412449484087904676642487988",
+          ".75": "0.2216606248600698827896342501",
+          ".90": "0.2754239820456550286030909206",
+          ".95": "0.3287143980669934360997037602",
+          ".99": "0.3938729582957435859038759192"
+        },
+        "method": "fixed empirical lower order-statistics; descriptive only, no performance-selected bins"
+      },
+      "positive_initial_protection_distance_pct": {
+        "observations": 250,
+        "minimum": "1.0477624607481284326936836636882023834102704603538",
+        "maximum": "27.842824837749832113235835812827484389886306208945",
+        "quantiles": {
+          ".10": "4.4968234474210620510507237599330646291585085644147",
+          ".25": "6.4907191426801875942817226866792592404362790356234",
+          ".50": "9.8507849844388799106918711735577638909158989826621",
+          ".75": "13.319500314065755540171944854512215333083671293083",
+          ".90": "16.753414137375602634437420398463762610432390214507",
+          ".95": "19.099257192149548797272306365427707982237169256563",
+          ".99": "24.133627709895517487086144166156678868456515293188"
+        },
+        "method": "fixed empirical lower order-statistics; descriptive only, no performance-selected bins"
+      }
+    },
+    "core_continuous_initial_nominal_risk_pct_NAV": {
+      "observations": 53,
+      "minimum": "0.001013697599709841744033021548",
+      "maximum": "0.2467917517716736928691226372",
+      "quantiles": {
+        ".10": "0.003556484090219824583156543741",
+        ".25": "0.01611551388380425611716200933",
+        ".50": "0.07726310669493505537865219437",
+        ".75": "0.1194888876019219896220713435",
+        ".90": "0.1797219488744796321639183004",
+        ".95": "0.2094031598442905717839469389",
+        ".99": "0.2292052445909233944031789581"
+      },
+      "method": "fixed empirical lower order-statistics; descriptive only, no performance-selected bins"
+    },
+    "absolute_reference_cross_old_R0_related_labels": {
+      "MOBILE_actual_nominal_above_frozen_full_plan": 31,
+      "MOBILE_actual_nominal_within_frozen_full_plan": 9
+    },
+    "above_reference_mobile_fraction": "0.16",
+    "above_reference_buycash_fraction_of_all": "0.18856033549714529651850998991180814309814329786979",
+    "above_reference_negative_magnitude_fraction_of_all": "0.25296196137338254983397774490211184612799472698722",
+    "economic_scope": "Original entry-cohort contributions through named saved cutoff. No deleted/resized-trade counterfactual or capital reinvestment. .25 is nominal reference, not original core all-in risk contract."
+  },
+  "strong_at_2026Jun30_cutoff": {
+    "total": {
+      "layers": 1171,
+      "stocks": 671,
+      "actual_buy_cash": "18410977.5958040346740",
+      "original_cutoff_net": "1263281.2309753297565000000000020",
+      "positive_original_net": "2236768.7479397271897576854491672",
+      "negative_original_net": "-973487.5169643974332576854491652",
+      "negative_layers_actual_buy_cash": "11538866.5846591783455",
+      "open_layers": 74,
+      "open_layers_original_cutoff_net": "849803.5429753654965",
+      "old_reference_unknown_flags": {
+        "company_action_factor_changed_between_decision_and_fill": 6
+      }
+    },
+    "groups": {
+      "mobile_above_reference": {
+        "layers": 81,
+        "stocks": 69,
+        "actual_buy_cash": "2294905.9629168041905",
+        "original_cutoff_net": "282757.04168962532279032258065",
+        "positive_original_net": "438651.8434275580305",
+        "negative_original_net": "-155894.80173793270770967741935",
+        "negative_layers_actual_buy_cash": "1283665.1193484874860",
+        "open_layers": 9,
+        "open_layers_original_cutoff_net": "179725.9545079064955",
+        "old_reference_unknown_flags": {}
+      },
+      "mobile_at_or_below_reference": {
+        "layers": 786,
+        "stocks": 513,
+        "actual_buy_cash": "14295840.2295858285470",
+        "original_cutoff_net": "914399.9462366736700975287681556",
+        "positive_original_net": "1608508.4808751658734028467394898",
+        "negative_original_net": "-694108.5346384922033053179713342",
+        "negative_layers_actual_buy_cash": "9072862.2524508079035",
+        "open_layers": 40,
+        "open_layers_original_cutoff_net": "613382.5217146518010",
+        "old_reference_unknown_flags": {
+          "company_action_factor_changed_between_decision_and_fill": 4
+        }
+      },
+      "core_separate_original_contract": {
+        "layers": 304,
+        "stocks": 268,
+        "actual_buy_cash": "1820231.4033014019365",
+        "original_cutoff_net": "66124.2430490307636121486511964",
+        "positive_original_net": "189608.4236370032858548387096774",
+        "negative_original_net": "-123484.180587972522242690058481",
+        "negative_layers_actual_buy_cash": "1182339.2128598829560",
+        "open_layers": 25,
+        "open_layers_original_cutoff_net": "56695.0667528072000",
+        "old_reference_unknown_flags": {
+          "company_action_factor_changed_between_decision_and_fill": 2
+        }
+      }
+    },
+    "mobile_continuous": {
+      "initial_nominal_risk_pct_NAV": {
+        "observations": 867,
+        "minimum": "0.00008260092181876965717701303441",
+        "maximum": "0.4699090586509218464745909529",
+        "quantiles": {
+          ".10": "0.004556088548319984204737877932",
+          ".25": "0.03822012752712996193149083756",
+          ".50": "0.1008253651161355802872104963",
+          ".75": "0.1697126107320547690851595824",
+          ".90": "0.2440136268407328000958138820",
+          ".95": "0.2918128263893760726240001035",
+          ".99": "0.3637730859818924358739119072"
+        },
+        "method": "fixed empirical lower order-statistics; descriptive only, no performance-selected bins"
+      },
+      "positive_initial_protection_distance_pct": {
+        "observations": 867,
+        "minimum": "0.052647539049102573991512514770652057148995595660114",
+        "maximum": "23.529411546590142547382615505204555506990496392347",
+        "quantiles": {
+          ".10": "3.1645650262687353207249066684787917655902926723607",
+          ".25": "4.8347331487404620753692321463289243106906076987616",
+          ".50": "7.6816776781752736534958327287968918766423239992907",
+          ".75": "10.987043963493082337059202519780030428030763706086",
+          ".90": "15.010438993597690817402564682364700002939706617280",
+          ".95": "17.311374605256751350098197283267913781802566053657",
+          ".99": "20.307263424749494679493312801774017933998780077642"
+        },
+        "method": "fixed empirical lower order-statistics; descriptive only, no performance-selected bins"
+      }
+    },
+    "core_continuous_initial_nominal_risk_pct_NAV": {
+      "observations": 304,
+      "minimum": "0.00007146467163013315724982563026",
+      "maximum": "0.2481088356802075807922717274",
+      "quantiles": {
+        ".10": "0.001920270822485991547853228642",
+        ".25": "0.007966691521035864992018294437",
+        ".50": "0.04186681987438106468015148537",
+        ".75": "0.1550018219188837763615726711",
+        ".90": "0.2200989287486953106502870477",
+        ".95": "0.2302858449083725417432784463",
+        ".99": "0.2434011557583033458056745298"
+      },
+      "method": "fixed empirical lower order-statistics; descriptive only, no performance-selected bins"
+    },
+    "absolute_reference_cross_old_R0_related_labels": {
+      "MOBILE_actual_nominal_above_frozen_full_plan": 59,
+      "MOBILE_actual_nominal_within_frozen_full_plan": 22
+    },
+    "above_reference_mobile_fraction": "0.093425605536332179930795847750865051903114186851211",
+    "above_reference_buycash_fraction_of_all": "0.12464878363872574395920015309107528331705990500222",
+    "above_reference_negative_magnitude_fraction_of_all": "0.16014052468187336954605560354872004808768903633292",
+    "economic_scope": "Original entry-cohort contributions through named saved cutoff. No deleted/resized-trade counterfactual or capital reinvestment. .25 is nominal reference, not original core all-in risk contract."
+  }
+}

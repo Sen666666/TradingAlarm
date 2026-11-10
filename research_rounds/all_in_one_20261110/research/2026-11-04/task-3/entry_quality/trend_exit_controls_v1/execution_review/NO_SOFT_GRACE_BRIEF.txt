@@ -1,0 +1,9 @@
+PASS；新账户与账户重放 0。
+
+全部原持层 CLOSE：No60 36,213 / strong 21,000。Ioff 951 / 437 条；首次 Ioff 949 / 433 层，均 C<=严格先前已知同段 I floor 且 E0off，未知 floor 0。soft 资格 0。
+
+全 I pilot 798 / 399 事件，939 / 437 次层目标，匹配遗漏 0；含 2 / 4 次重复、No60 2 层先 CP 后 I。strong 仅后续重复 1 条 C>prior floor，仍 E0off 且此前已触硬退出，不能取消。
+
+因此保留原 I floor/E0/CP/ACT 硬边界的 grace 没有首个可偏离事件。结论基于全路径 no-first-deviation witness，非仅实际最终 I sell reason，亦非六臂实际重放的恒等测试。父线程已决定停止六 grace 经济臂、不放宽风险；early 四臂不受此结论阻断。
+
+字段说明：WITNESS 的 all_terminal_I_layers 是旧字段名，实际统计 book.layers 当前 reason=I，含 strong 2 个尚未平仓 I 请求；它不是 actual sold I 数。正式资格统计来自全部 held CLOSE，不依赖该字段。

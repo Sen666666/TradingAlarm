@@ -1,0 +1,15 @@
+{
+  "status": "ONE_FROZEN_FORWARD_INFERENCE_COMPLETE",
+  "births": 1814,
+  "predicted": 1299,
+  "first_prediction": "2023-02-03",
+  "model_months": 41,
+  "eligible_months": 40,
+  "converged_months": 40,
+  "prefix_checks": 1814,
+  "future_poison_checks": 41,
+  "account_runs": 0,
+  "parameter_searches": 0,
+  "candidate_reorders": 0,
+  "seconds": 375.4439690411091
+}

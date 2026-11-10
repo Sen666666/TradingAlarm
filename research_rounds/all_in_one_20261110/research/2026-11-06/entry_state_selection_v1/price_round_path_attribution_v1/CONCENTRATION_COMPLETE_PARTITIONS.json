@@ -1,0 +1,226 @@
+{
+  "2022__net__TOP10": [
+    {
+      "part": "TOP",
+      "n": 46,
+      "stocks": 10,
+      "profit_rounds": 1,
+      "loss_rounds": 45,
+      "net": -113539.67763277433,
+      "profit_amount": 240.276808818803,
+      "loss_amount": 113779.95444159313,
+      "probe_trade": -87290.39107517041,
+      "add_trade": -26249.286557603915,
+      "net80_income": 0.0
+    },
+    {
+      "part": "REMAINDER",
+      "n": 1733,
+      "stocks": 875,
+      "profit_rounds": 434,
+      "loss_rounds": 1299,
+      "net": -1073917.9915013835,
+      "profit_amount": 1536826.4644719528,
+      "loss_amount": 2610744.455973336,
+      "probe_trade": -916090.2531509718,
+      "add_trade": -207699.30674241163,
+      "net80_income": 49871.568392
+    }
+  ],
+  "2022__net__TOP20": [
+    {
+      "part": "TOP",
+      "n": 78,
+      "stocks": 20,
+      "profit_rounds": 2,
+      "loss_rounds": 76,
+      "net": -198803.68977421592,
+      "profit_amount": 957.5761314118031,
+      "loss_amount": 199761.26590562772,
+      "probe_trade": -154657.6160553669,
+      "add_trade": -44314.07371884902,
+      "net80_income": 168.0
+    },
+    {
+      "part": "REMAINDER",
+      "n": 1701,
+      "stocks": 865,
+      "profit_rounds": 433,
+      "loss_rounds": 1268,
+      "net": -988653.9793599417,
+      "profit_amount": 1536109.16514936,
+      "loss_amount": 2524763.1445093015,
+      "probe_trade": -848723.0281707753,
+      "add_trade": -189634.51958116656,
+      "net80_income": 49703.568392
+    }
+  ],
+  "2022__loss_amount__TOP10": [
+    {
+      "part": "TOP",
+      "n": 46,
+      "stocks": 10,
+      "profit_rounds": 2,
+      "loss_rounds": 44,
+      "net": -111622.91403814548,
+      "profit_amount": 3603.005316933703,
+      "loss_amount": 115225.91935507918,
+      "probe_trade": -83628.37665078568,
+      "add_trade": -27994.537387359793,
+      "net80_income": 0.0
+    },
+    {
+      "part": "REMAINDER",
+      "n": 1733,
+      "stocks": 875,
+      "profit_rounds": 433,
+      "loss_rounds": 1300,
+      "net": -1075834.7550960123,
+      "profit_amount": 1533463.7359638377,
+      "loss_amount": 2609298.49105985,
+      "probe_trade": -919752.2675753566,
+      "add_trade": -205954.05591265578,
+      "net80_income": 49871.568392
+    }
+  ],
+  "2022__loss_amount__TOP20": [
+    {
+      "part": "TOP",
+      "n": 86,
+      "stocks": 20,
+      "profit_rounds": 7,
+      "loss_rounds": 79,
+      "net": -191238.08557008655,
+      "profit_amount": 13541.362660174445,
+      "loss_amount": 204779.448230261,
+      "probe_trade": -154484.2789603138,
+      "add_trade": -36833.8066097728,
+      "net80_income": 80.0
+    },
+    {
+      "part": "REMAINDER",
+      "n": 1693,
+      "stocks": 865,
+      "profit_rounds": 428,
+      "loss_rounds": 1265,
+      "net": -996219.5835640712,
+      "profit_amount": 1523525.378620597,
+      "loss_amount": 2519744.9621846685,
+      "probe_trade": -848896.3652658284,
+      "add_trade": -197114.7866902428,
+      "net80_income": 49791.568392
+    }
+  ],
+  "2024__net__TOP10": [
+    {
+      "part": "TOP",
+      "n": 21,
+      "stocks": 10,
+      "profit_rounds": 1,
+      "loss_rounds": 20,
+      "net": -54810.5266481207,
+      "profit_amount": 69.4243486383,
+      "loss_amount": 54879.950996759,
+      "probe_trade": -40619.26885174499,
+      "add_trade": -14191.257796375727,
+      "net80_income": 0.0
+    },
+    {
+      "part": "REMAINDER",
+      "n": 1062,
+      "stocks": 935,
+      "profit_rounds": 489,
+      "loss_rounds": 573,
+      "net": 1671373.2623481588,
+      "profit_amount": 2636724.8644672334,
+      "loss_amount": 965351.6021190744,
+      "probe_trade": 1521750.3253043392,
+      "add_trade": 133099.82432381986,
+      "net80_income": 16523.11272
+    }
+  ],
+  "2024__net__TOP20": [
+    {
+      "part": "TOP",
+      "n": 42,
+      "stocks": 20,
+      "profit_rounds": 1,
+      "loss_rounds": 41,
+      "net": -100049.78476404841,
+      "profit_amount": 69.4243486383,
+      "loss_amount": 100119.20911268672,
+      "probe_trade": -83592.95936732391,
+      "add_trade": -16456.82539672453,
+      "net80_income": 0.0
+    },
+    {
+      "part": "REMAINDER",
+      "n": 1041,
+      "stocks": 925,
+      "profit_rounds": 489,
+      "loss_rounds": 552,
+      "net": 1716612.5204640862,
+      "profit_amount": 2636724.8644672334,
+      "loss_amount": 920112.3440031467,
+      "probe_trade": 1564724.015819918,
+      "add_trade": 135365.39192416868,
+      "net80_income": 16523.11272
+    }
+  ],
+  "2024__loss_amount__TOP10": [
+    {
+      "part": "TOP",
+      "n": 21,
+      "stocks": 10,
+      "profit_rounds": 1,
+      "loss_rounds": 20,
+      "net": -54810.5266481207,
+      "profit_amount": 69.4243486383,
+      "loss_amount": 54879.950996759,
+      "probe_trade": -40619.26885174499,
+      "add_trade": -14191.257796375727,
+      "net80_income": 0.0
+    },
+    {
+      "part": "REMAINDER",
+      "n": 1062,
+      "stocks": 935,
+      "profit_rounds": 489,
+      "loss_rounds": 573,
+      "net": 1671373.2623481588,
+      "profit_amount": 2636724.8644672334,
+      "loss_amount": 965351.6021190744,
+      "probe_trade": 1521750.3253043392,
+      "add_trade": 133099.82432381986,
+      "net80_income": 16523.11272
+    }
+  ],
+  "2024__loss_amount__TOP20": [
+    {
+      "part": "TOP",
+      "n": 42,
+      "stocks": 20,
+      "profit_rounds": 1,
+      "loss_rounds": 41,
+      "net": -100049.78476404841,
+      "profit_amount": 69.4243486383,
+      "loss_amount": 100119.20911268672,
+      "probe_trade": -83592.95936732391,
+      "add_trade": -16456.82539672453,
+      "net80_income": 0.0
+    },
+    {
+      "part": "REMAINDER",
+      "n": 1041,
+      "stocks": 925,
+      "profit_rounds": 489,
+      "loss_rounds": 552,
+      "net": 1716612.5204640862,
+      "profit_amount": 2636724.8644672334,
+      "loss_amount": 920112.3440031467,
+      "probe_trade": 1564724.015819918,
+      "add_trade": 135365.39192416868,
+      "net80_income": 16523.11272
+    }
+  ]
+}

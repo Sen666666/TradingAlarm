@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-30T10:52:16.954274+00:00",
+  "before_new_economic_results": true,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/warning-boundary-all69-20261030/PROTOCOL.txt": "b26c6f5622f26d7227b19688b1ed00c78a73c933b1604a296f7c52847d5ac921",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/warning-boundary-all69-20261030/FROZEN_69_CYCLES.csv": "08b33a8b8f08d717af11b93b800615c94db8f4b48e45818cde44c645dbad161a",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/warning-boundary-all69-20261030/COVERAGE.csv": "ac41bb2286fdd8a56939e806efee0f00bd54f7662b825d34836f465120c16bd3",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/warning-boundary-all69-20261030/COVERAGE_STATE_TRACE.csv": "d8decc9c44bc1c0819a9530200ad73afd2f273ca0c76a6871bf53c5ef45bb831",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/warning-boundary-all69-20261030/COVERAGE_SUMMARY.json": "63b1717c5b6fb6eefc13daf44e6a5f9d2db4bc9bc0f98b5a67a4c4cf7a5c3d92",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/warning-boundary-all69-20261030/INPUT_IDENTITY.json": "0d2f856e6f829e76972dc4176e1a5b4f80bfa0b2852ad1ca5e7d4aff6f55aee5"
+  }
+}

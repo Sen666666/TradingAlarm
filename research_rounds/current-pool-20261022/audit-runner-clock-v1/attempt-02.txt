@@ -1,0 +1,7 @@
+All provider boundary assertions completed, but final receipt writing failed:
+IsADirectoryError: code-at-read/__pycache__
+
+The probe's final hash inventory incorrectly iterated directories created by
+Python import. Restricted this local audit inventory to *.py and reran the same
+provider checks. No reviewed implementation or source data was edited.
+Account runs = 0.

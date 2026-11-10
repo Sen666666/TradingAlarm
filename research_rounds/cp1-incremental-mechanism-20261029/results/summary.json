@@ -1,0 +1,408 @@
+{
+  "verdict": "匹配支持区间内存在正向尾部取舍，须结合覆盖与残余失衡审阅，不是因果或整池验证",
+  "primary_question": "Among contemporaneous opportunities already G1 warm and PVR>50, does the first new CP1 receipt add discrimination for subsequent new capital? Not a test of the entire CP1/PVR composite confirmation or N1 cost promotion.",
+  "coverage": {
+    "no_economic_results_read": true,
+    "all_confirmations": 2916,
+    "matched": 715,
+    "unmatched": 2201,
+    "matching_rate": 0.24519890260631003,
+    "unmatched_reasons": {
+      "no_exact_stratum": 1137,
+      "runup_caliper": 885,
+      "control_epoch_already_used": 179
+    },
+    "case_stocks": 391,
+    "matched_case_stocks": 329,
+    "matched_control_stocks": 323,
+    "case_dates": 512,
+    "matched_dates": 248,
+    "case_sectors": 11,
+    "matched_sectors": 11,
+    "sector_coverage": {
+      "URFI881121": {
+        "cases": 840,
+        "matched": 262
+      },
+      "URFI881122": {
+        "cases": 216,
+        "matched": 47
+      },
+      "URFI881123": {
+        "cases": 92,
+        "matched": 10
+      },
+      "URFI881124": {
+        "cases": 225,
+        "matched": 43
+      },
+      "URFI881129": {
+        "cases": 313,
+        "matched": 80
+      },
+      "URFI881130": {
+        "cases": 163,
+        "matched": 38
+      },
+      "URFI881162": {
+        "cases": 91,
+        "matched": 10
+      },
+      "URFI881172": {
+        "cases": 179,
+        "matched": 28
+      },
+      "URFI881270": {
+        "cases": 277,
+        "matched": 55
+      },
+      "URFI881271": {
+        "cases": 251,
+        "matched": 70
+      },
+      "URFI881272": {
+        "cases": 269,
+        "matched": 72
+      }
+    },
+    "age_bins": {
+      "0-20": 704,
+      "21-62": 11
+    },
+    "same_anchor_day_cases": 255,
+    "balance": {
+      "age": {
+        "case_mean": 5.500699300699301,
+        "control_mean": 3.325874125874126,
+        "case_median": 4.0,
+        "control_median": 2.0,
+        "mean_paired_difference": 2.174825174825175,
+        "median_abs_paired_difference": 1.0,
+        "smd": 0.38525135861674803
+      },
+      "runup": {
+        "case_mean": 0.03210398820454732,
+        "control_mean": 0.027336269559562105,
+        "case_median": 0.02807106239138209,
+        "control_median": 0.01995783934094586,
+        "mean_paired_difference": 0.004767718644985209,
+        "median_abs_paired_difference": 0.008941191901435407,
+        "smd": 0.13210581820572037
+      },
+      "scale": {
+        "case_mean": 0.02669458849537345,
+        "control_mean": 0.02969412133834389,
+        "case_median": 0.024352431560386967,
+        "control_median": 0.02690817961651692,
+        "mean_paired_difference": -0.0029995328429704396,
+        "median_abs_paired_difference": 0.007098695313778443,
+        "smd": -0.25557608158214945
+      },
+      "pvr": {
+        "case_mean": 69.00016033945562,
+        "control_mean": 67.56966454927748,
+        "case_median": 69.23871959746587,
+        "control_median": 67.8586576720619,
+        "mean_paired_difference": 1.4304957901781377,
+        "median_abs_paired_difference": 6.014316066386208,
+        "smd": 0.17832862292092833
+      }
+    },
+    "max_caliper_scale_gap": 0.9984720177170153,
+    "control_epochs_later_used_as_cases": 95,
+    "prefix_exact": [
+      {
+        "cutoff": "2024-12-31",
+        "pairs": 260
+      },
+      {
+        "cutoff": "2025-12-31",
+        "pairs": 477
+      },
+      {
+        "cutoff": "2026-06-30",
+        "pairs": 635
+      }
+    ],
+    "seconds": 45.67739920923486
+  },
+  "scenarios": {
+    "1": {
+      "main": {
+        "confirmed": {
+          "net_pnl": "86565626.2338079209530",
+          "positive": "124942726.5267194101825",
+          "negative_loss": "38377100.2929114892295",
+          "pair_tail_pnl": "106265857.8981131564600",
+          "pair_ordinary_pnl": "-19700231.6643052355070",
+          "own_tail_pnl": "101889051.1462783873540",
+          "actual_fees": "744310.6021320790470",
+          "realized_and_paid": "87288580.09606985739850000000",
+          "unrealized_inventory": "-1531467.000821936445500000000",
+          "unpaid_dividend_income": "808513.13856",
+          "profit_factor": 3.2556583372141117,
+          "payoff_ratio": 3.886903999499355,
+          "mean_win_return": 0.40012035214388963,
+          "mean_loss_return_abs": 0.10294063146283683,
+          "win_rate_descriptive": 0.453015427769986,
+          "counts": {
+            "traded": 713,
+            "terminal_inventory": 27,
+            "unpaid_dividend_units": 151,
+            "not_filled": 2,
+            "settled_tail": 57,
+            "terminal_valued_or_claim_tail": 51
+          }
+        },
+        "control": {
+          "net_pnl": "56728529.5709959971135",
+          "positive": "99610559.7747184151735",
+          "negative_loss": "42882030.2037224180600",
+          "pair_tail_pnl": "78506598.9604641462965",
+          "pair_ordinary_pnl": "-21778069.3894681491830",
+          "own_tail_pnl": "75544747.4487337237875",
+          "actual_fees": "721933.2433690028865",
+          "realized_and_paid": "58413034.90436944659650000000",
+          "unrealized_inventory": "-2326949.916733449483000000000",
+          "unpaid_dividend_income": "642444.58336",
+          "profit_factor": 2.3228974771365096,
+          "payoff_ratio": 3.034984864202108,
+          "mean_win_return": 0.34019951584469765,
+          "mean_loss_return_abs": 0.11209265649307794,
+          "win_rate_descriptive": 0.44537815126050423,
+          "counts": {
+            "traded": 714,
+            "terminal_inventory": 26,
+            "unpaid_dividend_units": 154,
+            "settled_tail": 64,
+            "terminal_valued_or_claim_tail": 45,
+            "not_filled": 1
+          }
+        },
+        "delta": "29837096.6628119238395",
+        "saved_losses": "4504929.9108109288305",
+        "foregone_positive": "-25332166.7520009950090",
+        "delta_tail": "27759258.9376490101635",
+        "delta_ordinary": "2077837.7251629136760"
+      },
+      "case_stock_equal_robustness": {
+        "confirmed": {
+          "net_pnl": "118098.7138080958512132561134",
+          "positive": "161561.9668928370243359190359",
+          "negative_loss": "43463.25308474117312266292270",
+          "pair_tail_pnl": "140565.9600409760745762021763",
+          "pair_ordinary_pnl": "-22467.24623288022336294606294",
+          "own_tail_pnl": "134992.2613378985280143529894",
+          "actual_fees": "855.0197781790405616356616346",
+          "realized_and_paid": "119772.3796046264692654966651",
+          "unrealized_inventory": "-2631.575015306796828419328420",
+          "unpaid_dividend_income": "957.9092187761787761787761785",
+          "profit_factor": 3.7172083409825865,
+          "payoff_ratio": 4.170291419653437,
+          "mean_win_return": 0.44150650841575706,
+          "mean_loss_return_abs": 0.10586946186423765,
+          "win_rate_descriptive": 0.47003555104113764,
+          "counts": {
+            "traded": 713,
+            "terminal_inventory": 27,
+            "unpaid_dividend_units": 151,
+            "not_filled": 2,
+            "settled_tail": 57,
+            "terminal_valued_or_claim_tail": 51
+          }
+        },
+        "control": {
+          "net_pnl": "77327.27534640380860902948397",
+          "positive": "125318.4009464006813414238911",
+          "negative_loss": "47991.12559999687273239440743",
+          "pair_tail_pnl": "104348.1858278814779847197848",
+          "pair_ordinary_pnl": "-27020.91048147766937569030073",
+          "own_tail_pnl": "100616.2936839658551631303382",
+          "actual_fees": "820.3637904588625036416286402",
+          "realized_and_paid": "79510.39514229480084539604530",
+          "unrealized_inventory": "-3009.080254788851134225459225",
+          "unpaid_dividend_income": "825.9604588978588978588978594",
+          "profit_factor": 2.6112828023856323,
+          "payoff_ratio": 3.18874730732628,
+          "mean_win_return": 0.3633912996021084,
+          "mean_loss_return_abs": 0.11396051947020126,
+          "win_rate_descriptive": 0.4582292232482347,
+          "counts": {
+            "traded": 714,
+            "terminal_inventory": 26,
+            "unpaid_dividend_units": 154,
+            "settled_tail": 64,
+            "terminal_valued_or_claim_tail": 45,
+            "not_filled": 1
+          }
+        },
+        "delta": "40771.43846169204260422662943",
+        "saved_losses": "4527.87251525569960973148473",
+        "foregone_positive": "-36243.5659464363429944951448",
+        "delta_tail": "36217.7742130945965914823915",
+        "delta_ordinary": "4553.66424859744601274423779"
+      },
+      "mean_delta_per_1m_unit": "41730.20512281387949580419580"
+    },
+    "2": {
+      "main": {
+        "confirmed": {
+          "net_pnl": "85453750.1640468404840",
+          "positive": "124334799.6692830970000",
+          "negative_loss": "38881049.5052362565160",
+          "pair_tail_pnl": "105294600.1642233988040",
+          "pair_ordinary_pnl": "-19840850.0001765583200",
+          "own_tail_pnl": "100715510.4901929784960",
+          "actual_fees": "1118068.7011731595160",
+          "realized_and_paid": "86195803.67525600459400000000",
+          "unrealized_inventory": "-1550204.804009164110000000000",
+          "unpaid_dividend_income": "808151.29280",
+          "profit_factor": 3.197825193801378,
+          "payoff_ratio": 3.8601822209507612,
+          "mean_win_return": 0.40048615916113833,
+          "mean_loss_return_abs": 0.10374799329097442,
+          "win_rate_descriptive": 0.45021037868162694,
+          "counts": {
+            "traded": 713,
+            "terminal_inventory": 27,
+            "unpaid_dividend_units": 151,
+            "not_filled": 2,
+            "settled_tail": 55,
+            "terminal_valued_or_claim_tail": 50
+          }
+        },
+        "control": {
+          "net_pnl": "55643404.1313434426900",
+          "positive": "99041707.8383199585140",
+          "negative_loss": "43398303.7069765158240",
+          "pair_tail_pnl": "78075418.5936191859040",
+          "pair_ordinary_pnl": "-22432014.4622757432140",
+          "own_tail_pnl": "75304392.2397141304540",
+          "actual_fees": "1088144.8743865573100",
+          "realized_and_paid": "57344598.44193096462000000000",
+          "unrealized_inventory": "-2343404.415947521930000000000",
+          "unpaid_dividend_income": "642210.10536",
+          "profit_factor": 2.282156199169565,
+          "payoff_ratio": 3.015648165425242,
+          "mean_win_return": 0.340309982947167,
+          "mean_loss_return_abs": 0.11284803938631192,
+          "win_rate_descriptive": 0.4425770308123249,
+          "counts": {
+            "traded": 714,
+            "terminal_inventory": 26,
+            "unpaid_dividend_units": 154,
+            "settled_tail": 64,
+            "terminal_valued_or_claim_tail": 45,
+            "not_filled": 1
+          }
+        },
+        "delta": "29810346.0327033977940",
+        "saved_losses": "4517254.2017402593080",
+        "foregone_positive": "-25293091.8309631384860",
+        "delta_tail": "27219181.5706042129000",
+        "delta_ordinary": "2591164.4620991848940"
+      },
+      "case_stock_equal_robustness": {
+        "confirmed": {
+          "net_pnl": "116817.4814453151039924885925",
+          "positive": "160828.4091523555656601380606",
+          "negative_loss": "44010.92770704046166764946770",
+          "pair_tail_pnl": "139555.9725715602292699777700",
+          "pair_ordinary_pnl": "-22738.49112624512527748917752",
+          "own_tail_pnl": "133746.9802017881179996138996",
+          "actual_fees": "1282.515946522499845115245112",
+          "realized_and_paid": "118516.3975448695407201123198",
+          "unrealized_inventory": "-2656.392067112644285831285831",
+          "unpaid_dividend_income": "957.4759675582075582075582075",
+          "profit_factor": 3.654283550278985,
+          "payoff_ratio": 4.157305399989927,
+          "mean_win_return": 0.44267205362421125,
+          "mean_loss_return_abs": 0.10648052308721023,
+          "win_rate_descriptive": 0.4664804469273743,
+          "counts": {
+            "traded": 713,
+            "terminal_inventory": 27,
+            "unpaid_dividend_units": 151,
+            "not_filled": 2,
+            "settled_tail": 55,
+            "terminal_valued_or_claim_tail": 50
+          }
+        },
+        "control": {
+          "net_pnl": "76092.79863093573166023166028",
+          "positive": "124646.6218967396082634608634",
+          "negative_loss": "48553.82326580387660322920326",
+          "pair_tail_pnl": "103720.0294807493790996372997",
+          "pair_ordinary_pnl": "-27627.23084981364743940563942",
+          "own_tail_pnl": "100300.8810353211967828594829",
+          "actual_fees": "1234.918494603521879021879023",
+          "realized_and_paid": "78295.86163022274791077571074",
+          "unrealized_inventory": "-3028.755482778299741827541828",
+          "unpaid_dividend_income": "825.6924834912834912834912837",
+          "profit_factor": 2.5671844874989973,
+          "payoff_ratio": 3.1569400900363958,
+          "mean_win_return": 0.36272522834417426,
+          "mean_loss_return_abs": 0.1148977231113665,
+          "win_rate_descriptive": 0.456454825276118,
+          "counts": {
+            "traded": 714,
+            "terminal_inventory": 26,
+            "unpaid_dividend_units": 154,
+            "settled_tail": 64,
+            "terminal_valued_or_claim_tail": 45,
+            "not_filled": 1
+          }
+        },
+        "delta": "40724.68281437937233225693222",
+        "saved_losses": "4542.89555876341493557973556",
+        "foregone_positive": "-36181.7872556159573966771972",
+        "delta_tail": "35835.9430908108501703404703",
+        "delta_ordinary": "4888.73972356852216191646190"
+      },
+      "mean_delta_per_1m_unit": "41692.79165413062628531468531"
+    }
+  },
+  "background_only_not_added": [
+    {
+      "group": "no_qualified_CP1|negative",
+      "events": 1129,
+      "traded": 1129,
+      "net_pnl": "-121030547.2407168706355",
+      "negative_loss": "121030547.2407168706355",
+      "actual_fees": "967125.6332668706355"
+    },
+    {
+      "group": "ever_qualified_CP1|nonnegative",
+      "events": 1694,
+      "traded": 1694,
+      "net_pnl": "590108197.5787484540020",
+      "negative_loss": "0",
+      "actual_fees": "2030900.4159415459980"
+    },
+    {
+      "group": "ever_qualified_CP1|negative",
+      "events": 1222,
+      "traded": 1222,
+      "net_pnl": "-108899875.3971126034480",
+      "negative_loss": "108899875.3971126034480",
+      "actual_fees": "1084265.9955026034480"
+    },
+    {
+      "group": "no_qualified_CP1|nonnegative",
+      "events": 1304,
+      "traded": 12,
+      "net_pnl": "508556.6081211192075",
+      "negative_loss": "0",
+      "actual_fees": "7938.1594838807925"
+    }
+  ],
+  "matched_pairs": 715,
+  "unmatched_not_zero": 2201,
+  "causal_claim": false,
+  "global_claim": false,
+  "early_support_limit": true,
+  "sample_full_exact": true,
+  "source_freeze_unchanged": true,
+  "all_terminal_assets_included": true,
+  "report_seconds": 1.369735041167587
+}

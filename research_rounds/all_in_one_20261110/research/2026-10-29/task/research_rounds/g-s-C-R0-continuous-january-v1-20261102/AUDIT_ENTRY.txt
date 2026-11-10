@@ -1,0 +1,16 @@
+Exactly two fresh Jan2022 R0 accounts; no baseline financial replay.
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-january-v1-20261102/REPORT.txt SHA256 ebe008a60607f4fa0060eb3908ef22aad7f22e64581e94e5447302c97f7e8bb9
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-january-v1-20261102/HANYU_ACTUAL.json SHA256 5cb67bf1c22144850929d7273f5692b0bb413352f82bc65e56c0ac47c20896e8
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-january-v1-20261102/COMPARISON.json SHA256 7b6548b4fef1b51a5afab6855a25b2bf9f603db335f8efaa488308fd54f87dec
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-january-v1-20261102/jan_r0.py SHA256 0cc41f3b24b8f67fd457d94f9090ee270d292e8f6f8a74c986c2ab4305eabb26
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-january-v1-20261102/run_january.py SHA256 d11f709bd8358dd3c291a5c9a0d60a21470a40e677b7ae66a66b426ddc745502
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-january-v1-20261102/INPUT_IDENTITY.json SHA256 5777de5f7db845d8f814566454bb0c5b16f4767393667b30ed5c0c75072e2a76
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-january-v1-20261102/TWO_DAY_GATE.json SHA256 65940f0673828e21f4c5df9eccf3cce3e0502bc1142186a2d08e8498cc0d72d5
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-january-v1-20261102/MONTH_AUTHORIZATION.json SHA256 bf455f9fe493b0703f9813c81209734ed7871c7aaccb444f038d0996a5faa587
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-january-v1-20261102/analysis/VERIFICATION.json SHA256 5cb668587a2a01e6d74351e10884c5f95ae16027727d27a34b7e322cd48d6c38
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-january-v1-20261102/analysis/ARCHIVE_AND_FINAL_RESTORE.json SHA256 647a1c5fc3980c8d85a708daf4b80e03858ddc918c789ce46225a58532f4f203
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-january-v1-20261102/analysis/AUTHORIZATION_RISK_BRIDGES.json SHA256 7d30c75060588924ed584c626e3b8a3cc0b2488d3c94ecc05fd1543143785801
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-january-v1-20261102/baseline_readonly/RESULTS.json SHA256 d6ef7fbde1e1d5d9ccc63734a5e3042bc648086f2433793b040b581ee587ceac
+Checkpoints: runs/{C10,C_BATCH20}/PROGRESS.json; all original OPEN/CLOSE/ACTION states remain.
+Scope endsJan28.
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-january-v1-20261102/COMPLETION_STATUS.json SHA256 b73c5d7f1afe09bd858fe0e76506f645a9707e5af37aff4fdf764d4953891c0f

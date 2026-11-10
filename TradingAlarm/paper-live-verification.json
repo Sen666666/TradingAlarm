@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "account_initial_cash": "1000000",
+  "start_decision": "2026-10-26",
+  "execution_day": "2026-10-27",
+  "fills": [
+    {
+      "symbol": "002439.SZ",
+      "shares": 9900,
+      "price": "15.04",
+      "fee": "39.323433600"
+    },
+    {
+      "symbol": "603171.SH",
+      "shares": 3000,
+      "price": "48.97",
+      "fee": "38.798931000"
+    },
+    {
+      "symbol": "301269.SZ",
+      "shares": 1300,
+      "price": "111.76",
+      "fee": "38.370560800"
+    },
+    {
+      "symbol": "300017.SZ",
+      "shares": 9900,
+      "price": "15.15",
+      "fee": "39.611038500"
+    }
+  ],
+  "gross": "591079.00",
+  "fees": "156.103963900",
+  "cash": "408764.896036100",
+  "nav": "999843.896036100",
+  "holdings": 4,
+  "repeated_sync_events_unchanged": true,
+  "actual_account_events_unchanged": true,
+  "actual_events": 0,
+  "price_basis": "raw next-session open; zero slippage",
+  "source": "retained THS 9602 responses",
+  "rest_request_paths": [
+    "/api/config",
+    "/api/desk/trades",
+    "/api/paper/start",
+    "/api/paper",
+    "/api/paper/sync"
+  ]
+}

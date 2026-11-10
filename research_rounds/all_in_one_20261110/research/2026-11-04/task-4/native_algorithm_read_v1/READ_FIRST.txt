@@ -1,0 +1,101 @@
+现行No60原始算法与海能达逐日输出：阅读入口
+
+仅原样代码提取与原保存输出连接。未运行E0/I/CP/PVR模型、指标构建、账户或回测；
+已暂停风险设计。本目录没有实现新规则。原绝对路径、行号、SHA均随片段保存。
+
+先读这五件
+1. e0_i/GUIDE.txt + e0_i/SOURCE_EXCERPTS.txt：E0、S21/S63、G1、I的公式和原码。
+   实际runtime facts生成是TradingAlarm/desk/refresh.py47–75；E0事件在evidence.py，
+   target/floor在policy.py；I在policies_g1.py6–35，当前G1_I use_x=False。
+2. cp_pvr/snippets/CP_constants_features_calculate.py.txt：CP完整原函数。
+3. cp_pvr/snippets/PVR_actual_frozen_formula.py.txt：真正PVR score函数，仅19行。
+4. NATIVE_WIRING_EXCERPTS.txt：从事实→S0→CORE/MOBILE→PVR排序→次OPEN原生资助/成交。
+5. daily_hytera/HYTERA_DAILY_NATIVE.csv：海能达43观察日全原变量/原动作；较详细原对象
+   在ALL_DAYS_ORIGINAL_STOCK_OUTPUTS.json，7个关键日期在KEY_DAYS_ORIGINAL_OUTPUTS.json。
+
+具体依赖（所有含当日价格/量额的计算在CLOSE后）
+同源有效价/量 -> 已确认E0转折event -> E0 target/floor
+E0 + S21/S63结构/速度/量证据 -> G1 grade与fresh -> I target/floor/i_buy
+I_target + 价格新frontier + 成交金额credit -> 股票CP receipt/candidate
+原i_buy经过完整S0资格、真实空仓、CORE epoch未用 -> CORE意图
+新canonical CP + continuing S0(仍要求I_target，替换i_buy门为市场买入许可) -> MOBILE意图
+已形成原合法且有尺寸的意图 -> 真PVR score只改唯一股票槽位 -> 下一OPEN实际资助/执行
+PVR不产生买点、池额度或退出；MOBILE可在无新i_buy但I持续有效时由新CP提出。
+
+I最短原样片段（policies_g1.py29–34；完整上下文看e0_i原码）
+ 29         opportunity=shadow and warm and (bool(b.entered) or fresh) if use_i else bool(b.entered)
+ 30         if not active and not exited and opportunity:
+ 31             active=True;entered=1;floor=float(b.floor)
+ 32             entry_kind='G1_fresh_warm_evidence' if use_i else str(b.entry_kind)
+ 33         buy=bool(active and opportunity) if use_i else bool(active)
+ 34         rows.append(dict(date=dt,target=int(active),entered=entered,exited=exited,floor=floor if active or exited else np.nan,exit_line=floor if active or exited else np.nan,buy_event=buy,entry_kind=entry_kind,exit_reason=reason,grade=a.grade))
+此前先检查旧I：E0失效或C<=旧I floor才退出；当前use_x=False，不因冷G1本身退出。
+
+CP核心原样片段（model.py40–45）
+ 40    fresh=p-frontier if gt(p,frontier) else 0.
+ 41    if fresh:
+ 42     frontier=p;credit=math.fsum((credit,fresh*(1. if price_only else float(q.m))))
+ 43    disp=frontier-anchor
+ 44    receipt=bool(fresh and ge(disp,A*scale) and ge(credit,A*scale))
+ 45    if receipt:candidate=float(row.close)*math.exp(-K*scale)
+A=sqrt(5)，K=sqrt(21)。p是log(C)，scale在anchor建立/receipt重置时冻结，不是每日
+变动的均线；u分母s与阈值z=max(s,log1p(.001))不可混为一个scale。
+
+PVR核心原样片段（original_score_function.py12–18）
+ 12  weights=.9**np.arange(20,-1,-1);weights/=weights.sum()
+ 13  for _,g in f.loc[valid].groupby(block[valid],sort=False):
+ 14   r=np.log(g.close).diff();s=r.abs().shift().rolling(63,min_periods=63).median().mul(1.4826).clip(lower=1e-8)
+ 15   ar=g.amount.shift().rolling(21,min_periods=21).median()
+ 16   u=np.tanh(r/s);b=np.tanh(np.log(g.amount/ar));e=u*(1+.5*u.abs()*b)
+ 17   z=e.rolling(21,min_periods=21).apply(lambda x:np.dot(weights,x),raw=True)
+ 18   out.loc[g.index]=pd.DataFrame({'r':r,'scale':s,'amount_ref':ar,'u':u,'b':b,'e':e,'E':z,'score':50+50*np.tanh(2*z)},index=g.index)
+63收益/21金额基线均shift排除今日；e及21期E含今日，故是CLOSE后已知、次OPEN可用。
+没有独立P/V/R三个分数，没有行业/横截面百分位入这个score式，V用amount而非volume。
+无效/来源断点会重启准备，缺分股票保留原槽位；原排序函数完整见native_rank.py47–91。
+
+输出时钟与坐标
+CSV每行是该日CLOSE 15:10+08及同日OPEN 09:30原动作；同日OPEN来自前一个CLOSE
+计划，不能把当天收盘后的CP/PVR说成当天开盘已知。所有43实际股票观察保留，不补假期。
+raw_close是元/raw股；continuous_close、E0/I/CP线在原a坐标，除以当时factor才可与raw价
+比较。原数据真实发布timestamp未保存，不把回测15:10约定冒称历史供应商发布证明。
+
+海能达原实际交易（不是新路径）
+2024-10-14 CLOSE I_early_core -> 10-15 OPEN买100股@8.90445。
+2024-10-18 CLOSE fresh_CP1_mobile -> 10-21 OPEN买1100股@12.00600。
+2024-10-21 CLOSE fresh_CP1_mobile -> 10-22 OPEN买1000股@14.00700。
+2024-11-04 CLOSE两MOBILE层CP退出提案 -> 11-05 OPEN卖2100股@22.98850，余CORE100。
+2024-11-26 CLOSE I_structure_exit提案 -> 11-27 OPEN卖余100股@18.370810，全平。
+9/23已有原资格与意图但无实际仓位；中间全部拒因及原slot在每日CSV中，不靠上述五笔
+反推“9/23无信号”或“有信号就能买”。10/16、17曾有原CP增量但实际资金日志probe_risk。
+
+四处必须分清的字段
+一：trade.pvr <- meta['score']是旧H1兼容字段，不是真PVR。真值读intent.PVR_score、
+rank-policy.PVR或绑定PVR源缓存score；当前表列PVR_source_score，没意图就不伪造slot。
+二：股票CP输入e0_valid <- facts.i_target，不是裸e0_target。原字面变量名不能代替接线。
+三：旧IX target会因冷G1退出，现行I不这样退出。43日中19日不同，表内I只取实际long
+facts；旧IX仅提供与实际g_*核同的G1来源字段，绝不替换I_target/exit_reason。
+四：CORE stored x.floor是初始层快照，不是一直用于持有的当前线。海能达11/20后
+last_core_line/currentI=111.27463844110417，而stored x.floor仍42.59907875674594。
+当前CSV/对照原对象把两者分列；不能据x.floor说CORE没执行真实I结构。MOBILE按本层
+进入CLOSE前旧floor判断，未触才抬线；当前新CP candidate不能倒填旧线触发。
+
+缺失字段/来源范围
+No60实际facts没导出I_entered/exited/exit_reason，均NOT_SAVED；不从IX同名列补。
+E0 entered/exited/event可在原E0_states/events另行找到，表名显式标source/native_state；
+它们不是No60主facts直接消费列。已核E0 target/floor两源一致，不擅自重算当前投影。
+intra-CLOSE逐行floor更新audit未存，表给前/后两个真实快照和原退出audit，不虚构每条
+执行中间日志。源NULL、无意图NONE、未存NOT_SAVED分别保留，不能都当False/0。
+数据仍用原当前成分/行业映射和执行代理；这里提供算法原文/原输出，不声称PIT或收益优势。
+
+以下关键日原值摘自43日CSV，原始精度及完整字段请读CSV/JSON：
+date | raw_close | E0_target | I_target | I_buy | G1_grade | CP_receipt | PVR_source_score | original_qty_CLOSE
+2024-09-23 | 4.76 | 1 | 1 | True | 4.0 | True | 68.42291110625169 | 0
+2024-10-14 | 8.76 | 1 | 1 | True | 4.0 | False | 93.74782666597523 | 0
+2024-10-15 | 9.64 | 1 | 1 | True | 4.0 | True | 95.62300606522726 | 100
+2024-10-18 | 11.95 | 1 | 1 | True | 4.0 | True | 97.68441350277004 | 100
+2024-10-21 | 13.15 | 1 | 1 | True | 4.0 | True | 98.05793933037367 | 1200
+2024-10-22 | 14.47 | 1 | 1 | True | 4.0 | True | 98.36894358027644 | 2200
+2024-11-04 | 22.84 | 1 | 1 | False | -3.0 | False | 87.66895662708315 | 2200
+2024-11-05 | 22.32 | 1 | 1 | False | -3.0 | False | 80.79140846925189 | 100
+2024-11-26 | 18.83 | 0 | 0 | False | -3.0 | False | 35.60799102079211 | 100
+2024-11-27 | 18.23 | 0 | 0 | False | -3.0 | False | 33.243135437129204 | 0

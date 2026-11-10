@@ -1,0 +1,17 @@
+{
+  "totals": {
+    "observations": 27655,
+    "created": 23,
+    "resolved_up": 16,
+    "resolved_down": 6,
+    "pending_days": 78,
+    "blocked_price_events": 16,
+    "entries": 545,
+    "original_entries": 549,
+    "changed_vs_original": 115,
+    "changed_vs_all_conflicts": 1150
+  },
+  "series": 14,
+  "cases": 18,
+  "account_calls": 0
+}

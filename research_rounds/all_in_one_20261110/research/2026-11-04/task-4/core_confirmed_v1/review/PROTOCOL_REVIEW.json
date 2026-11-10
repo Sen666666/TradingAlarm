@@ -1,0 +1,67 @@
+{
+  "passed_for_protocol_scope": true,
+  "protocol_sha256": "759883914a939f6156a751fca40f2f87ab15a9111aeb1783a6277d2f9a1630d9",
+  "coverage_protocol_sha256": "3097de17af2063e2b2d7eb6a88ac2cefb3c64decc6f7a867b9710e94c5054234",
+  "scope": "Frozen design/resource/source contract review only. No candidate patch yet; no technical or portfolio run admission.",
+  "risk_contract_accurate": true,
+  "original_mobile_request_consume_semantics_must_remain_unchanged": true,
+  "new_typed_CORE_failure_must_not_consume_token": true,
+  "resource_plan": {
+    "technical_native_prefix_paths": 6,
+    "technical_native_run_cap_seconds": 180,
+    "new_full_ON_paths": 2,
+    "fresh_each_window": 1000000,
+    "long_native_run_cap_seconds": 1600,
+    "strong_native_run_cap_seconds": 800,
+    "aggregate_full_native_run_cap_seconds": 2400,
+    "parallel_independent_processes": true,
+    "annual_resets": false,
+    "preparation_separately_measured": true,
+    "timeout_save_partial_no_automatic_extension": true
+  },
+  "OFF_reuse_conditions": [
+    "Both archived OFF full books and six streams have original full identity proof.",
+    "All common effective native dependencies and actual input sources remain bound to original SHA; new candidate-only files are not falsely required to match old freeze.",
+    "New OFF prefix really delegates unchanged original No60 and is book plus six-stream exact against archived original prefix.",
+    "Preserve original facts warm history, receipts/CP canonical source, PVR scores, industry map, dates, CA, fee/quantity rules and window-start semantics."
+  ],
+  "ON_prefix_conditions": [
+    "Full lookup and physically truncated new proof/CP/facts/market visible information yield exact same book, six streams and new fallback/proof audit.",
+    "If no new branch fires, disclose that native prefix is leakage/control identity evidence, not coverage of novel reservation semantics.",
+    "Novel typed permission needs pure route/request adverse-boundary cases and exact original candidate-prefix minimum existence/resource evidence."
+  ],
+  "candidate_code_must_show": [
+    "Native probe evaluated first, successful quantity/pool returned unchanged.",
+    "Only probe zero plus nonempty subset probe_risk/sector_capital may invoke helper.",
+    "No speculative migration before helper numeric feasibility; legal same-attempt migration and pending-lock checks precede actual request.",
+    "Original CORE kind/floor/frozen sizing and all retained cash/sector-risk/stock constraints.",
+    "Typed CORE confirmed token/epoch validation; canonical token consumed only after legal budget reservation.",
+    "Both CORE routes failing leaves original Mobile fallback and token usable; successful reserve retains same-stock done even if later no fill.",
+    "Native ledger, Mobile behavior, ACT and sorting unchanged outside branch."
+  ],
+  "minimum_witness_boundary": [
+    "Adjacent same-prefix original confirmed Mobile reservation with quantity >= COREmin is only an after-rule min-existence certificate.",
+    "Need same sid/CP/industry/date/quantity/fee source, original CORE OPEN preview success and complete original CORE minimum failure set; no omitted sector_risk/cash/etc.",
+    "Migration must preserve all-pool capital/risk/NAV/cash; fee monotonicity and same prefix must be verified.",
+    "No maximum quantity, altered-policy state, portfolio profit or sample selection inference from witness."
+  ],
+  "admissions": {
+    "candidate_patch_passed": false,
+    "technical_native_run_passed": false,
+    "whole_mother_coverage_passed": false,
+    "full_portfolio_run_admitted": false
+  },
+  "remaining_required_evidence": [
+    "Candidate adapter/request/route diff and dependency closure.",
+    "Complete necessary coverage and source/resource certificate audit.",
+    "Technical runner/input cutoff/resource gate audit."
+  ],
+  "reviewer_new_accounts_or_ledgers": 0,
+  "reviewer_new_marks": 0,
+  "no_user_permission_blocker": true,
+  "protocol_rebind_note": {
+    "previous_sha256": "f549a599f6c9b73cf6190c26fe4061ca82347301006f009973ba0f85d3f917ee",
+    "new_sha256": "759883914a939f6156a751fca40f2f87ab15a9111aeb1783a6277d2f9a1630d9",
+    "change": "Clarifies proportional limits are reservation-time gates; mark fluctuations can exceed reference levels without forced selling. No strategy threshold/window/budget change."
+  }
+}

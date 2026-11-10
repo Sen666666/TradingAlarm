@@ -1,0 +1,14 @@
+{
+  "version": "postseal_descriptive_readout_v1",
+  "source": "all_priority_sector_m3_detection_v1/SIGNAL_SEAL.json",
+  "list": "FIXED_PRIORITY_66.csv unchanged",
+  "new_start": "original cycle start >=2024-06-01; first TRUE from original start to original end",
+  "carryin": "keep original start; describe first research-domain observation, do not infer original first recognition or full-cycle lag",
+  "lag": "number of source common trading sessions after original start to first TRUE; no nearest-price selection",
+  "remaining": "original end index close / signal-day index close -1 retrospective only",
+  "switch": "every state transition; distinguish0to1/-1to1; FALSE is not actual account exit",
+  "phases": "unchanged existing five-industry phase anchors; first TRUE in upward phase and first FALSE in downward phase; not optimized",
+  "no_new_thresholds": true,
+  "no_account_run": true,
+  "known_hindsight": true
+}

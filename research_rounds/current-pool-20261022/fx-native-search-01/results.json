@@ -1,0 +1,36 @@
+[
+  {
+    "query": "HKDCNY",
+    "rows": 1,
+    "exact_code_matches": [
+      {
+        "symbol": "UFXBHKDCNY",
+        "code": "HKDCNY",
+        "name": "港元/人民币",
+        "market": "UFXB",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:20:02.323283+08:00",
+    "response_sha256": "c1af2ee6bce90b2dc83a3eb970bccf8dd1cfb7f66cfc4703b49e38879ef9061f"
+  },
+  {
+    "query": "港元人民币",
+    "rows": 0,
+    "exact_code_matches": [],
+    "observed_at": "2026-10-23T00:20:03.040762+08:00",
+    "response_sha256": "05dd1a4587c401d06cd931055cd2f927d6f36f753e1176c77e81a6a255fc6e94"
+  },
+  {
+    "query": "港币人民币",
+    "rows": 0,
+    "exact_code_matches": [],
+    "observed_at": "2026-10-23T00:20:03.109920+08:00",
+    "response_sha256": "5376ba0087ab9f9e0417557544a09c839a5cc2d75f4eadf2ba33993af76a6d44"
+  }
+]

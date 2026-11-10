@@ -1,0 +1,117 @@
+{
+  "started_utc": "2026-11-10T03:47:58.684526+00:00",
+  "completed_utc": "2026-11-10T03:50:00.160367+00:00",
+  "files_indexed": 360198,
+  "files_copied": 53125,
+  "bytes_copied": 1193943901,
+  "already_in_project_indexed": 279514,
+  "roots": {
+    "project_docs": {
+      "files": 240,
+      "bytes": 8864391,
+      "snapshots": 0,
+      "snapshot_bytes": 0,
+      "source": "/Users/bytedance/Documents/ChatGPT/money/docs"
+    },
+    "project_research_rounds": {
+      "files": 259992,
+      "bytes": 39142377875,
+      "snapshots": 0,
+      "snapshot_bytes": 0,
+      "source": "/Users/bytedance/Documents/ChatGPT/money/research_rounds"
+    },
+    "project_legacy_research": {
+      "files": 19204,
+      "bytes": 2550680565,
+      "snapshots": 0,
+      "snapshot_bytes": 0,
+      "source": "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research"
+    },
+    "project_application": {
+      "files": 78,
+      "bytes": 2237275,
+      "snapshots": 0,
+      "snapshot_bytes": 0,
+      "source": "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm"
+    },
+    "20261101_task": {
+      "files": 4268,
+      "bytes": 26017577976,
+      "snapshots": 1843,
+      "snapshot_bytes": 57162792,
+      "source": "/Users/bytedance/Documents/Codex/2026-11-01/task"
+    },
+    "20261104_task": {
+      "files": 9558,
+      "bytes": 16756863951,
+      "snapshots": 6513,
+      "snapshot_bytes": 110996139,
+      "source": "/Users/bytedance/Documents/Codex/2026-11-04/task"
+    },
+    "20261104_task2": {
+      "files": 38,
+      "bytes": 590657,
+      "snapshots": 38,
+      "snapshot_bytes": 590657,
+      "source": "/Users/bytedance/Documents/Codex/2026-11-04/task-2"
+    },
+    "20261104_task3": {
+      "files": 31188,
+      "bytes": 21054934302,
+      "snapshots": 20410,
+      "snapshot_bytes": 356952821,
+      "source": "/Users/bytedance/Documents/Codex/2026-11-04/task-3"
+    },
+    "20261104_task4": {
+      "files": 3552,
+      "bytes": 6244032157,
+      "snapshots": 2782,
+      "snapshot_bytes": 50873828,
+      "source": "/Users/bytedance/Documents/Codex/2026-11-04/task-4"
+    },
+    "20261106_entry": {
+      "files": 20201,
+      "bytes": 14958506191,
+      "snapshots": 13006,
+      "snapshot_bytes": 251940373,
+      "source": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1"
+    },
+    "20261106_cp_full": {
+      "files": 26,
+      "bytes": 147819061,
+      "snapshots": 18,
+      "snapshot_bytes": 163104,
+      "source": "/Users/bytedance/Documents/Codex/2026-11-06/cp_sequential_full1709_v1"
+    },
+    "20261106_cp_audit": {
+      "files": 9,
+      "bytes": 1869475,
+      "snapshots": 6,
+      "snapshot_bytes": 49775,
+      "source": "/Users/bytedance/Documents/Codex/2026-11-06/cp_sequential_candidate_audit_v1"
+    },
+    "20261106_h1": {
+      "files": 44,
+      "bytes": 22677572,
+      "snapshots": 38,
+      "snapshot_bytes": 841861,
+      "source": "/Users/bytedance/Documents/Codex/2026-11-06/h1_failure_mechanism_v1"
+    },
+    "20261106_multiscale": {
+      "files": 16,
+      "bytes": 2579293,
+      "snapshots": 14,
+      "snapshot_bytes": 154811,
+      "source": "/Users/bytedance/Documents/Codex/2026-11-06/multiscale_entry_R_coverage_v1"
+    },
+    "20261109_sector51": {
+      "files": 11784,
+      "bytes": 12732649190,
+      "snapshots": 8457,
+      "snapshot_bytes": 364217740,
+      "source": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1"
+    }
+  },
+  "errors": [],
+  "copy_policy": "External human-readable reports/code, figures/PDF, and JSON/CSV/JSONL/log <=256 KiB are copied; large matrices/accounts/market data/checkpoints remain at indexed source paths. Project files already resident are indexed, not duplicated. Runtime/private/venv/git/node_modules excluded. This is not a complete source-tree migration or whole-account atomic snapshot."
+}

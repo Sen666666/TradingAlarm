@@ -1,0 +1,21 @@
+Scope: review frozen native_risk.py b447dcb43fa72e5d25ef79f15b21de3c8e5cd41ef64eee5fa86085f2418caeb7.
+Original mixed base236b6cae..., V3 363d879d..., no original edits.
+
+Commands (choose NEW output dirs; all generated-price synthetic only):
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-approved-risk-native-v1-20261102/test_risk.py --out /tmp/C-approved-risk-review-native
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-approved-risk-native-v1-20261102/reuse_regressions.py --enabled off --out /tmp/C-approved-risk-review-off
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-approved-risk-native-v1-20261102/reuse_regressions.py --enabled on --out /tmp/C-approved-risk-review-on
+
+Read CONTRACT.txt, REPORT.txt, VERIFICATION.json, FAILURE_HISTORY.txt.
+Final pass logs AUDIT_* and state directories audit-native/audit-regression-*.
+Cross-process checkpoints are in those state directories and source-bound to
+this frozen version. Earlier directories are retained intermediate evidence.
+No long historical script or financial continuation command is provided.
+
+Focus:
+- cid+stock R0 from trusted original snapshot, receipt immutable;
+- original minimum/fees/account guard and before-fill atomic amend;
+- actual execution price/effective floor per fill, no line/cancel refunds;
+- permanent shrink replay, complete order/fill mapping;
+- partial/split domain, restart, C-only scope and unchanged T/core;
+- downstream feedback/old D not cancelled (unfavorable cases preserved).

@@ -1,0 +1,83 @@
+[
+  {
+    "window": "2022",
+    "arm": "ORIGINAL",
+    "pending": 30,
+    "moved_sid": "000002.SZ",
+    "moved_name": "万  科Ａ",
+    "selected_names": [
+      "000876.SZ",
+      "002100.SZ",
+      "000810.SZ",
+      "000592.SZ"
+    ],
+    "reserved_names": 4,
+    "reserved_cash": "33475.6852560866000",
+    "nominal_probe_risk": "5996.717999999998371472459037",
+    "effective_nav": "1199977.0327439134000",
+    "original_quantities_exact": true,
+    "outcome_use": "NONE",
+    "not_a_proposed_alpha_rank": true
+  },
+  {
+    "window": "2022",
+    "arm": "LEX_FIRST_REJECTED_MOVED_FIRST",
+    "pending": 30,
+    "moved_sid": "000002.SZ",
+    "moved_name": "万  科Ａ",
+    "selected_names": [
+      "000002.SZ",
+      "000876.SZ",
+      "002100.SZ",
+      "002244.SZ",
+      "600777.SH"
+    ],
+    "reserved_names": 5,
+    "reserved_cash": "42173.8002669994000",
+    "nominal_probe_risk": "5996.061999999998321587214102",
+    "effective_nav": "1199971.2617330006000",
+    "original_quantities_exact": false,
+    "outcome_use": "NONE",
+    "not_a_proposed_alpha_rank": true
+  },
+  {
+    "window": "2024_924",
+    "arm": "ORIGINAL",
+    "pending": 42,
+    "moved_sid": "000158.SZ",
+    "moved_name": "常山北明",
+    "selected_names": [
+      "603626.SH",
+      "688819.SH",
+      "601222.SH",
+      "002636.SZ",
+      "300185.SZ"
+    ],
+    "reserved_names": 5,
+    "reserved_cash": "23783.3052647553655",
+    "nominal_probe_risk": "5999.662455000001012334823100",
+    "effective_nav": "1199973.4771902446345",
+    "original_quantities_exact": true,
+    "outcome_use": "NONE",
+    "not_a_proposed_alpha_rank": true
+  },
+  {
+    "window": "2024_924",
+    "arm": "LEX_FIRST_REJECTED_MOVED_FIRST",
+    "pending": 42,
+    "moved_sid": "000158.SZ",
+    "moved_name": "常山北明",
+    "selected_names": [
+      "000158.SZ",
+      "603626.SH",
+      "688819.SH"
+    ],
+    "reserved_names": 3,
+    "reserved_cash": "41827.4644521829245",
+    "nominal_probe_risk": "5999.304445000004487157780274",
+    "effective_nav": "1199982.3199928170755",
+    "original_quantities_exact": false,
+    "outcome_use": "NONE",
+    "not_a_proposed_alpha_rank": true
+  }
+]

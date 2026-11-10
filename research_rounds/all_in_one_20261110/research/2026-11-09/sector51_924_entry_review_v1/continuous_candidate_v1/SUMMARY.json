@@ -1,0 +1,18 @@
+{
+  "days": 37,
+  "orders": 206,
+  "attempts": 100,
+  "unique_traded_stocks": 45,
+  "seed_fills": 100,
+  "add_fills": 4,
+  "capital_rejected_seed_tickets": 11,
+  "capital_rejected_ADD_open_attempts": 160,
+  "unique_rejected_CP_ids": 136,
+  "first_episode_closed_stocks": 34,
+  "first_episode_pnl": -441.6724066640501,
+  "first_episode_fees": 363.39690666405,
+  "last_NAV": 1238402.11552513,
+  "last_marked_pnl": 38402.11552512995,
+  "max_close_to_close_drawdown_pct": -1.4880418731053835,
+  "known_net80_dividends": 16.56
+}

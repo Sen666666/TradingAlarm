@@ -1,0 +1,14 @@
+test_hk_settlement_minimum_maximum_and_stamp_ceiling (test_history_runner.FeePrecisionTests.test_hk_settlement_minimum_maximum_and_stamp_ceiling) ... ok
+test_nearest_cent_and_par_value_are_not_market_value (test_history_runner.FeePrecisionTests.test_nearest_cent_and_par_value_are_not_market_value) ... ok
+test_b0_has_no_six_slot_limit_and_yearly_targets_only (test_history_runner.HistoryTests.test_b0_has_no_six_slot_limit_and_yearly_targets_only) ... ok
+test_cost_and_delay_variants_share_signal_but_change_execution (test_history_runner.HistoryTests.test_cost_and_delay_variants_share_signal_but_change_execution) ... ok
+test_end_positions_are_marked_without_inventing_liquidation (test_history_runner.HistoryTests.test_end_positions_are_marked_without_inventing_liquidation) ... ok
+test_future_close_signal_cannot_trigger_morning_order (test_history_runner.HistoryTests.test_future_close_signal_cannot_trigger_morning_order) ... ok
+test_production_entry_rejects_unfrozen_package_before_running (test_history_runner.HistoryTests.test_production_entry_rejects_unfrozen_package_before_running) ... ok
+test_recovered_state_does_not_cancel_latched_exit (test_history_runner.HistoryTests.test_recovered_state_does_not_cancel_latched_exit) ... ok
+test_shared_bundle_ten_accounts_and_no_same_close_fill (test_history_runner.HistoryTests.test_shared_bundle_ten_accounts_and_no_same_close_fill) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.050s
+
+OK

@@ -1,0 +1,30 @@
+{
+  "status": "RESUME_ONLY_UNFINISHED_ANALYSIS",
+  "original_analysis_sha256": "8048d6a833747f06587519a7a321287bff355d5efb28968e97989c39c5706fb4",
+  "resume_code_sha256": "ebd48af09fd35f6250f7bba69f307cfe502483b9f257aa3af1bf230450aa53b9",
+  "protected_hashes": {
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/analyze_signals.py": "8048d6a833747f06587519a7a321287bff355d5efb28968e97989c39c5706fb4",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/run.log": "171a0cf90b207193a61dab961afe0d1cfdf0b68045f30c80608a76a310c2053a",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/EVENT_COUNTS.csv": "6456208e621927190ddc3b2e290652250bb9e93d23000566f01f2a5758ceccf3",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/PREFIX_AUDIT.csv": "9ccb40ad371049143df09f105d6dd6a9a3bbba0e3c490dc5e3a760627623a71f",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/I_ROOTS.parquet": "f0005c711411d3aaccd6b7ed376223b4b24a47c13e0d46642ff8b217cfb2fc57",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/replay_signals.py": "fbd6708ba2a3b91b66f91cbb511b3b811e6847b7e815d6ed6c1004ed79f03576",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/supplementary_contract.py": "ecf8da0660f431b3a0d817ded11dfcf7abbc145504919ebca05dedfeca37c6b1",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/SUPPLEMENTARY_SOURCE_CONTRACT.csv": "34bf8ba70ff390d4358b66136497468c65856d75d43d79849b6435ad08db97c6",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/analysis_run.log": "543bb930365fa3c775101d9a28fc3340d2dbdb141a7390ddf0df72069c850272",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/EVENTS.parquet": "f2436edf899b8e3dce239cdc0b2d223f9fd3311890ffd4790370ad9a306aa413",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/ANALYSIS_FREEZE.json": "b2e1b415a2d30138888e81da1795597a5638690cbac6df05e859f7eb0efcd88a",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/SIGNAL_SEAL.json": "729770c3805af86681db056a1b371028e5b96895ae97a93a26358983f7f46615",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/SOURCE_AND_BASELINE_AUDIT.csv": "ac1d8c46d0d1252a2a13d47e49a03098ace0476d0c1185740751438e6dcbd983",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/ANNUAL_SIGNAL_COUNTS.csv": "47f0f3a0cc21a3d590db1da764be0f4895919c9d665597a7fe9bbd294e8b3e91",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/ORIGINAL_LEGAL_COMPARISON.parquet": "b5de2b2717c341deaec8810fabe0c4c7a494e2e105665c45314e91b26e34f176",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/SUPPLEMENTARY_SEAL.json": "5f10a71a8a83abdc66c94671731de43a95b5308ae8498b55e6fbbdd7e5d6f062",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/INPUT_SHA256.json": "8743de0909de1323fd2dfbb5e5c477f8911ded8da6404cd364ebb0958cb736e9",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/EVENTS_QUALIFIED.parquet": "c4a84e2251e5723f6b46f4abad2db1cc67a69daea64901a8184c960131fc0fea",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/STOCK_YEAR_EVENTS.csv": "8555f5a84fc7636a1b796cfc6385e967a0945c15914b93f95bae41f6ba57927c",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/dual_frontier_cp_full_v1/FREEZE.json": "38798a053efc17dea41f2c58f3f7ed086b2486f83b3bd47297d852aa2735908f"
+  },
+  "signal_replay_rerun": false,
+  "qualification_rerun": false,
+  "account_backtest": false
+}

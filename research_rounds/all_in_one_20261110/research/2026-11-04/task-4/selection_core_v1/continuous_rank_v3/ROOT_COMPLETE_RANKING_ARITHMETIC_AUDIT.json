@@ -1,0 +1,9 @@
+{
+  "scope": "independent complete ranking arithmetic; no labels/accounts/parameters",
+  "rows": 97650,
+  "sessions": 1085,
+  "source_sha256": "6a53ecac6f489045e62fb2983fa9663e25bb35eb879e9c3c2cb3562f18dc6a0e",
+  "design_sha256": "cf6feda161b897c5fe54b6012a135f7bec7f2991f89162b655b877625d178fcc",
+  "failure_count": 0,
+  "failures": []
+}

@@ -1,0 +1,13 @@
+{
+  "status": "source_design_review_complete",
+  "allocator_implemented": false,
+  "new_accounts": 0,
+  "orders": 0,
+  "receipt_consumption": 0,
+  "whole_batch_allocator_preview_run": false,
+  "static_original_target_preview_dates": [
+    "2023-01-20",
+    "2022-06-29"
+  ],
+  "readiness": "contract proposal awaiting review; no implementation/economic permission assumed"
+}

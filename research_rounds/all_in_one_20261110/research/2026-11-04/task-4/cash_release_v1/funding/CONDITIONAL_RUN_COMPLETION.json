@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "arms": 4,
+  "OPEN_plans": 52,
+  "intents_per_arm": 4172,
+  "whole_controls_exact": 26,
+  "compute_wall_seconds": 105.38270862493664,
+  "shared_budget_seconds": 180,
+  "source_unchanged": true,
+  "inputs_unchanged": true,
+  "no_fallback": true,
+  "new_accounts": 0,
+  "new_restores": 0,
+  "real_fills": 0,
+  "new_outcome_labels": 0,
+  "independent_result_review_required": true
+}

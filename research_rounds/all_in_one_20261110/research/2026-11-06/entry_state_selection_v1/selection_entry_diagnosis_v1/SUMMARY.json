@@ -1,0 +1,25 @@
+{
+  "status": "FIRST_ENTRY_DESCRIPTIVE_DIAGNOSIS_NOT_NEW_ACCOUNT_OR_OOS",
+  "seconds": 18.523589792195708,
+  "rows": 5373,
+  "closed_2022_identity_rows": 1400,
+  "max_2022_pnl_identity_error": 7.275957614183426e-12,
+  "all_H1_decision_exact": true,
+  "all_PVR_decision_exact": false,
+  "PVR_source_nonmatch_including_NA": 678,
+  "PVR_source_max_absolute_difference": 6.496307063815038,
+  "all_entry_next_common": true,
+  "max_scale_ratio_variation": 0.9516170059742879,
+  "account_runs": 0,
+  "original_indicator_runs": 0,
+  "limitations": [
+    "fixed future-selected 1709-stock universe and non-PIT industry assignment",
+    "5517 broad cache January rolling knowledge UNKNOWN, not WEAK",
+    "all new statistics are descriptive on consumed history; no refitted score or randomized comparison",
+    "2022 round win rates use original closed-by-2022 denominator; other years full subsequent completed round, separately tagged",
+    "forward path uses same cached adjusted next actual open including buy-day close; no fillability claim or barrier execution",
+    "excluded original path profit is not counterfactual account PnL; released capital and interactions not simulated",
+    "PVR grouping uses original account decision score; canonical full-pool numeric differences retained, original e decomposition is only canonical-source diagnostic",
+    "warm H1 close and canonical cache have different adjustment scale; only within-source normalized features and returns used"
+  ]
+}

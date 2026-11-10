@@ -1,0 +1,68 @@
+"""Pure aggregation checks on saved traces and original buy identities; no replay."""
+from pathlib import Path
+from collections import defaultdict,Counter
+from datetime import datetime
+import gzip,hashlib,json
+O=Path(__file__).resolve().parent;F=O.parent;D=F/'signal_traces_v3/v3_all4';sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+S={}
+def read(p,gz=False):
+ p=Path(p);S[str(p.resolve())]=sha(p)
+ with (gzip.open(p,'rt') if gz else p.open()) as f:return json.load(f)
+rows=read(D/'ALL_DAILY_TRACES.json');expect=read(O/'EXPECTED_DISPLAY_CYCLE_AGGREGATES.json');cycles=read(D/'RECOVERY_CYCLES.json');stats=read(D/'B_IMPLIES_A_AND_COUNTS.json');join=read(D/'ORIGINAL_ACTUAL_ENTRY_SIGNAL_JOIN.json');rec=read(D/'SAVED_OUTPUT_POSTPROCESS_RECEIPT.json')
+for path,h in rec['input_sha256'].items():assert sha(path)==h,path
+for path,h in rec['output_sha256'].items():assert sha(path)==h,path
+by=defaultdict(list)
+for r in rows:by[r['sid']].append(r)
+E={(x['sid'],x['cycle']):x for x in expect['rows']};C={(x['sid'],x['recovery_cycle']):x for x in cycles};assert set(E)==set(C) and len(C)==51
+p_exit_differences=[]
+for key,e in E.items():
+ c=C[key];rr=by[key[0]];start=next(r for r in rr if r['day']==e['down_day']);stop=c['cycle_endpoint_at']
+ assert c['down_confirmed_at']==e['down_day'] and c['R_source']==e['R'] and c['previous_expand']==e['previous_expand']
+ assert c['first_new_up_at']==e['first_up_day'] and c['first_recovered_at']==e['first_recovery_day'] and c['first_recovery_lag_valid_close']==e['recovery_lag_valid_CLOSE']
+ assert c['valid_close_rows_before_recovery_or_endpoint']==e['unavailable_valid_closes_until_first_recovery_or_cycle_end']
+ assert c['next_down_day']==e['next_down_day'] if 'next_down_day' in c else True
+ assert c['cycle_endpoint_at']==(e['next_down_day'] or rr[-1]['day'])
+ assert c['endpoint_kind']==('NEXT_DOWN_REPLACES_R' if e['next_down_day'] else 'SAMPLE_END')
+ assert c['censor_reason']==(None if e['first_recovery_day'] else 'NEXT_DOWN_REPLACES_R' if e['next_down_day'] else 'SAMPLE_END')
+ if e['first_up_day']:
+  up=next(r for r in rr if r['day']==e['first_up_day']);assert c['first_new_up_lag_valid_close']==up['effective_CLOSE_observation_index']-start['effective_CLOSE_observation_index']
+ end=next(r for r in rr if r['day']==stop);assert c['elapsed_valid_close_to_endpoint']==end['effective_CLOSE_observation_index']-start['effective_CLOSE_observation_index']
+ expected_exits=[x['event'] for x in e['holding_exit_events_not_cycle_censors']]
+ if c['P_exit_events_not_censors']!=expected_exits:p_exit_differences.append({'key':key,'expected':expected_exits,'actual':c['P_exit_events_not_censors']})
+# Preserve the discovered sidecar mismatch; continue independent unaffected checks.
+if p_exit_differences:
+ (O/'V3_P_EXIT_CYCLE_ASSIGNMENT_FAILURE.json').write_text(json.dumps({'status':'FAIL_POSTPROCESS_EXIT_CYCLE_ASSIGNMENT_ONLY','remaining_block':'Group P exits by event.recovery_cycle_preserved, not post-down row cycle.','core_state_or_recovery_lag_change_required':False,'differences':p_exit_differences,'affected_sidecar_sha256':sha(D/'RECOVERY_CYCLES.json')},ensure_ascii=False,indent=2)+'\n')
+left=read(D/'P_EXIT_LEFT_TRUNCATED_CONTEXT.json')
+all_exits=[(r['sid'],e) for r in rows for e in r['support_exit_events']]
+assigned=[(c['sid'],e) for c in cycles for e in c['P_exit_events_not_censors']]+[(x['sid'],x['event']) for x in left]
+canonical=lambda pair:json.dumps(pair,sort_keys=True)
+assert len(all_exits)==len(assigned)==21 and Counter(map(canonical,all_exits))==Counter(map(canonical,assigned))
+assert len(left)==1 and left[0]['sid']=='002583.SZ' and left[0]['event']['at']=='2024-01-08' and left[0]['event']['recovery_cycle_preserved']==109
+before=read(D.parent/'postprocess_before_p_exit_attribution_fix/RECOVERY_CYCLES.json')
+for old,new in zip(before,cycles):assert {k:v for k,v in old.items() if k!='P_exit_events_not_censors'}=={k:v for k,v in new.items() if k!='P_exit_events_not_censors'}
+for fn in ['ORIGINAL_ACTUAL_ENTRY_SIGNAL_JOIN.json','B_IMPLIES_A_AND_COUNTS.json']:
+ a=D.parent/'postprocess_before_p_exit_attribution_fix'/fn;b=D/fn
+ assert sha(a)==sha(b);S[str(a.resolve())]=sha(a)
+for sid,rr in by.items():
+ ss=stats['per_stock'][sid];cc=[c for c in cycles if c['sid']==sid]
+ assert ss['display_rows']==len(rr) and ss['down_logs']==len(cc) and ss['down_with_previous_expand_true']==sum(r['down_event'] is not None and r['down_event']['previous_expand'] is True for r in rr)
+ assert ss['recovered_cycles']==sum(c['first_recovered_at'] is not None for c in cc) and ss['unrecovered_cycles']==sum(c['first_recovered_at'] is None for c in cc)
+ assert ss['B_true_rows']==sum(r['B_active'] is True for r in rr)
+sea=read(D/'SEA_ALL_DOWN_CYCLES.json');main=read(D/'SEA_MAIN_UPTREND_DOWN_CYCLES.json')
+assert sea==[c for c in cycles if c['sid']=='002583.SZ'] and len(sea)==17
+assert main==[c for c in sea if '2024-09-19'<=c['down_confirmed_at']<='2024-11-27']
+sea_lags=[c['first_recovery_lag_valid_close'] for c in sea if c['first_recovered_at']]
+assert sea_lags==[5,13,5,1,1]
+bookpath=F.parent/'trend_exit_controls_v1/runs/BASELINE/2022_2024/pair/B.json.gz';b=read(bookpath,True)
+lookup={(r['sid'],r['day']):r for r in rows};buys={t['layer']:t for t in b['trades'] if t['side']=='buy'}
+for j in join:
+ t=buys[j['original_layer']];md=b['metadata'][str(j['original_layer'])]
+ assert t['security_id']==j['sid'] and datetime.fromisoformat(t['at'])==datetime.fromisoformat(j['original_actual_fill_at'])
+ assert datetime.fromisoformat(md['budget_order'].split('|')[1])==datetime.fromisoformat(j['original_signal_at']) and md['role']==j['original_role']
+ r=lookup[(j['sid'],j['signal_day'])]
+ for k in ['C','raw_C','mode','I_hold','I_expand','A_active','B_active','B_base','P_old','P_new','R','up_after_R','recovery_cycle','L1','H12','L2']:assert j[k]==r[k],(j['original_layer'],k)
+negative=[(j['sid'],j['original_layer'],j['signal_day']) for j in join if j['I_expand'] is False];assert len(join)==20 and negative==[('000620.SZ',113,'2022-01-21'),('601601.SH',1931,'2024-09-18')]
+sea_entries=[j for j in join if j['sid']=='002583.SZ'];assert len(sea_entries)==3 and all(j['I_expand'] is True for j in sea_entries)
+assert stats['down_logs']==51 and stats['down_with_previous_expand_true']==22 and stats['B_true_rows']==135 and stats['B_true_A_not_true_rows']==0
+result={'status':'FAIL_V3_EXIT_CYCLE_ASSIGNMENT_OTHER_AGGREGATES_AND_JOIN_PASS' if p_exit_differences else 'PASS_V3_EXISTING_CYCLE_AGGREGATION_AND_ORIGINAL_ENTRY_JOINS_WITH_LIMITS','remaining_blocks':['P exit sidecar cycle assignment'] if p_exit_differences else [],'cycles_verified':51,'all_21_P_exit_events_partitioned_once':True,'P_exits_in_display_cycles':20,'P_exits_in_left_truncated_context':1,'only_P_exit_sidecar_fields_changed':True,'all_cycle_first_up_recovery_lag_and_endpoint_matches':True,'P_exit_not_a_cycle_censor_verified':True,'P_exit_generation_event_assignment_mismatches':p_exit_differences,'total_downs':51,'downs_previously_expand_true':22,'sea_all_down_cycles':17,'sea_recovery_lags':sea_lags,'sea_unrecovered_next_down':sum(c['censor_reason']=='NEXT_DOWN_REPLACES_R' for c in sea),'sea_unrecovered_sample_end':sum(c['censor_reason']=='SAMPLE_END' for c in sea),'actual_original_buy_identity_and_trace_joins':20,'original_signal_with_current_mature_gate_false':negative,'sea_original_entry_rows_all_current_true':3,'source_sha256':S,'limits':['Saved output aggregation only; not a second state replay.','20 original fills are development-case annotations, not predicted candidate orders.','No trial/CP/portfolio path or economic-effect proof.','Left-censored carry cycles preceding display are context, not new fully observed down cycles.'],'new_accounts':0,'new_backtests':0,'trace_or_model_calls':0}
+(O/'V3_CYCLE_AND_ENTRY_JOIN_AUDIT.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print(json.dumps({k:result[k] for k in ['status','cycles_verified','sea_recovery_lags','sea_unrecovered_next_down','sea_unrecovered_sample_end','original_signal_with_current_mature_gate_false']},ensure_ascii=False))

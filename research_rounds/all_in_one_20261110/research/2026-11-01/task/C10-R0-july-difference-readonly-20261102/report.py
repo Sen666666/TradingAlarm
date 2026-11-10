@@ -1,0 +1,59 @@
+from analyze import O,read,save,sha,D,Z
+def money(v):return f'{D(v):,.2f}'
+def main():
+ b=read(O/'EXACT_BRIDGE.json');ss={z['sid']:z for z in read(O/'STOCK_BRIDGE.json')};eng=read(O/'ENGINEERING_REMAINING_LOSS.json');inds=read(O/'INDUSTRY_BRIDGE.json')
+ lines=[
+ 'C10+R0连续2025 July相对原C10：只读收益差与剩余损耗',
+ '核心发现：原工程机械前排实际缩量减少损失，是收益改善主体；资源沿原优先序流给后排后，同日行业资本集中几乎没有下降。R0守住逐股批准风险，不等于识别主线、减少行业共振损耗或已可实盘。',
+ '',
+ '范围与会计：同一原100万元起点连续Jul1–Jul31，原C10 NAV916753.3158444679795，R0 NAV924902.2127096246360，差8148.8968651566565。',
+ '净差=已实现+11368.36184068221268518518519 + 未实现−3224.584975525556185185185190 + 股息应收+5.12000。费用已在净额内。',
+ '正交核对=毛价格贡献+8074.782625 + 显式费用节省68.9942401566565 + 股息应收5.12；不能再将费用节省加到净贡献表。股息应收不是已到账可花现金。',
+ '118股参与并集、90行业（含0参与）、148原入场键；原118层、R0 131层。金融runner导入0、金融事件0，仅读已审JSON；未读取或修改主C20恢复态。',
+ '',
+ '按实际entry层桥（匹配键sid+原signal_at+role+pool，101配对再核原canonical receipt/source/epoch/purpose/opened均相同；匹配不代表后续退出相同）：',
+ '类别 | 层数 | 净差 | 其中真实R0 C授权层',
+ ]
+ labels={'matched_smaller':'原同入场实际缩量','matched_larger':'原同入场实际放大','matched_equal_quantity':'同入场同量、后续路径变化','new_actual_entry':'全路径新增入场层','old_actual_entry_absent':'原入场层未出现（减原贡献）'}
+ for k in ['matched_smaller','matched_larger','matched_equal_quantity','new_actual_entry','old_actual_entry_absent']:
+  z=b['layer_category_differences'][k];lines.append(f"{labels[k]} | {z['entries']} | {money(z['delta']['total_contribution'])} | {z['R0_C_authorized_entries']}")
+ lines += [
+ '前三项合计+19,158.7369504390145；新增30层（28股）贡献−8,194.518721389252，原有17层未出现失去+2,815.321363893106，合成+8,148.8968651566565。新增层不是30只净新增股；全股净新增/缺失为20/10。',
+ '缩量29层中仅23层有对应R0 C批准记录，其余6层也是完整路径反馈；不能把整行24,021.09全宣称为局部R0单笔直接因果。',
+ '',
+ '最少主体与负控制（全股净差，费用已含；全部正股差+29,917.57、全部负股差−21,768.67）：',
+ '股票 | 原贡献 | R0贡献 | 净差',
+ ]
+ selected=['688425.SH','000528.SZ','000425.SZ','300201.SZ','688585.SH','300436.SZ','300170.SZ','000680.SZ']
+ for sid in selected:
+  z=ss[sid];lines.append(f"{z['name']} {sid} | {money(z['OLD']['total_contribution'])} | {money(z['R0']['total_contribution'])} | {money(z['delta']['total_contribution'])}")
+ sub=sum((D(ss[s]['delta']['total_contribution']) for s in selected),Z);lines.append('其余全部股票净差合计 '+money(D(b['NAV_difference'])-sub)+'；完整逐股/行业/entry表互为正交视图，不相加。')
+ lines += [
+ '• 铁建重工首层：Jul24实际12844→5385股，Jul28两档同按CP1旧线退出、同成交价6.616690，首层净差+6,594.4266452800265。Jul30再入13828→13935股、Jul31同CP1退出，多亏19.5991512604895，全股+6,574.827494019537。首层R0批准Q0=13564，实际5385；在实际价格/保护线下独立执行Q0风险约为R0的2.52倍。实际旧12844不是新路径批准13564。',
+ '• 柳工：Jul23实际7800→3900股，Jul28同CP1退出、同价11.074460，净差+5,903.07；新路径Q0=8200，实际3900。徐工：同日10300→5500股，Jul28同CP1退出、同价8.535730，净差+5,175.02；新路径Q0=10800，实际5500。这两条加铁建全股改善17,652.92，其他全股合计−9,504.02。',
+ '• 后排补入海伦哲：Jul22两路径均批准计划16500；原Jul23 OPEN实际因account_risk6拒绝，R0前排缩量后实际买16500、毛款97,398.675，Jul28按筹资退出、实际净亏4,811.58。不能拿删去该股后现金必能赚到其他收益当反事实。',
+ '• 山推不是固定诊断2200：连续Jul23计划Q0=2000、实际1600，Jul28筹资卖净亏1,156.63；Jul25再买6900、Jul29又买1600，Jul31原CP1退出再亏1,869.19/1,139.48。原路径仅Jul25买9200、净亏2,492.25；全股差−1,673.05，包含提前参与与追加/再入，不能仅比较首次股数。',
+ '• 未获资负控上纬：原Jul24 mobile/probe/T实际352股后净赚3,425.45，R0无此实际层、没有该股R0 C批准。Jul23 CLOSE两路径C目标均0且原trace有cash_reserve10；R0 Jul24 OPEN独立T路由的原拒因为probe_risk.5，core分支还含core_risk.25。这是全路径资源/试探池取舍，不是R0直接删掉其C资格。',
+ '• 缩量赢家负控广生堂：Jul31同入场900→700股，原批准Q0=900、R0实际700；月末未实现贡献13,458.58→10,467.79，差−2,990.80，尚未兑现，不称已实现少赚。',
+ '• 放大负控汉得：Jul28同入场500→4800，R0新路径Q0=4800全成；Jul30同筹资退出，实际多亏2,697.86。并不是所有原票都被R0缩量。',
+ '',
+ '剩余损耗的主体：R0全月仍亏75,097.79。工程机械净亏50,739.44（占整户净损失67.56%），比原少亏13,453.02；其他行业净差合计−5,304.12，形成整户改善8,148.90。',
+ '工程机械按实际入场日归属整层生命周期：',
+ '入场日 | 原层数/买款/贡献 | R0层数/买款/贡献',
+ ]
+ for z in eng['cohorts']:
+  lines.append(f"{z['entry_day']} | {z['OLD_layers']}/{money(z['OLD']['buy_gross'])}/{money(z['OLD']['total_contribution'])} | {z['R0_layers']}/{money(z['R0']['buy_gross'])}/{money(z['R0']['total_contribution'])}")
+ lines += [
+ 'Jul23原5股买款491,141.448，R0同5股372,955.3845，减少118,186.0635；同日后排海伦哲/山推承接114,495.219，形成连续实际487,450.6035/7股，不使用固定诊断493,861.8075/山推2200。',
+ 'Jul23收盘工程资本461,749→462,002，权重47.9738%→47.8121%，行业资本几乎没降。',
+ 'Jul23七层随后合计净亏35,249.07，占R0工程行业损失69.47%；原5股仍亏29,280.86，两个后排补入亏5,968.21。其余入场日再亏15,490.36。故剩余工程损失主要仍来自同批同业大额参与，后排补入又消耗一部分缩量收益；不支持把所有损失都解释成后排替补。这里是实际损失归属，不声称对照证明了独立的行业集中因果效应。',
+ '其余主要亏损行业：军工装备−15,473.94、其他电源设备−11,833.29、IT服务−11,326.95；行业正贡献抵消后才是整户−75,097.79，不把这些负项直接当总亏。',
+ '',
+ '下一判断依据仅限：逐股R0守约产生了实际缩量收益，但账户继续将资本投向同一行业后排与后续重入；剩余主要缺口是组合集中和资源反馈，不是已证R0参数应另调，也不是少亏就足够实盘。',
+ '证据入口：EXACT_BRIDGE、ENTRY_BRIDGE148键、STOCK_BRIDGE118股、INDUSTRY_BRIDGE90行业、ENGINEERING_REMAINING_LOSS全部12工程层、ACTUAL_CHAIN_EVIDENCE原计划/拒因/实际逐层买卖/R0批准风险。',
+ '只读检查：原/新C10末态JSON分别对已审原清单与69事件清单SHA核同；全部读入来源前后SHA不变；股票/行业/entry/权益/费用闭合，容差1e-11元（原逐层费用分配保留原Decimal舍入）。未运行新历史、未导入金融runner、未碰C20恢复文件。',
+ ]
+ (O/'REPORT.txt').write_text('\n'.join(lines)+'\n')
+ save('DELIVERY_SHA256.json',{str(p.relative_to(O)):sha(p) for p in sorted(O.rglob('*')) if p.is_file() and p.name!='DELIVERY_SHA256.json' and '__pycache__' not in p.parts})
+ print('REPORT',sha(O/'REPORT.txt'),'PACKAGE',sha(O/'DELIVERY_SHA256.json'))
+if __name__=='__main__':main()

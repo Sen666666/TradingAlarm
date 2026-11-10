@@ -1,0 +1,19 @@
+Unique root-authorized <=10min sector LOCAL20 permission pure table.
+Use existing INDUSTRY_MANIFEST90 CP1_input.close/segment_id only, each original
+observation clock contiguous source segment, allwarm through2026Jun30 inclusive.
+No global reindex, source stitching, ffill, originalI/CP1/volume recomputation.
+Each source starts UNESTABLISHED. PRIOR20 closes excltoday define H20/L20.
+Known current positivefinite C plus complete20known prior prices: strict C>H20
+=>LOCAL_ON; strictC<L20=>LOCAL_OFF; otherwise keep state. Segment change resets
+state/history. Unknown current or window gives no new permission but does NOT
+manufactureOFF; retain state and append unknown to window (no compressing gaps).
+Only known && LOCAL_ON yields local_new_risk_permission=True; unknown distinct
+from knownOFF. Initialwarm unknown not silentlyOFF. No added EPS/window/MA/ATR.
+LOCAL_ON is only new-risk price clue, NOT maturity/fullrisk/stock tradability;
+originalI/CP1/Q/H/native finance/execution remain necessary. No old holding sold,
+no floatingPNL use, no risk budget/cap, no new Account/Stage/canonical/RiskBook.
+All90 rawmanifest refs/hash checked before/after. Source null/noncontiguous units
+stop (do not borrow old source state); no download/repair/alternate pool.
+Loss joins ALL3436original buy-layer records+177tail by sectorURFI and exact
+original budget_order decisionCLOSE, not filltime/nearestfuture. Macro cross is
+existing labels only, not computed by this script and not capital/economic result.

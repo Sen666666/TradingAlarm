@@ -1,0 +1,39 @@
+FIRST_REJECT_SHADOW_LABELS.jsonl.gz: stable matching interface
+
+Identity: key, window, sid, signal_day, OPEN, source_I_epoch,
+original_source_I_epoch, industry, classification, failure_tags.
+These remain original observed refusals; no filled industry/cash policy is implied.
+
+known_net=True indicates the isolated single-asset economic path is source
+continuous. status=closed means its native shadow exit filled completely;
+censored_open retains shares at the original window end. entry_nonfill and
+source/mark unknown statuses have no comparable candidate net-return label.
+
+filled_shares: actual hypothetical native entry fill, possibly less than the
+original dated-minimum submitted order when the original capacity proxy causes
+a partial fill. entry_partial marks this. No extra buys after entry-day expiry.
+entry_cash_actual=Cn is actual shadow gross+buy fee, not original account budget.
+initial_seed_cash is the isolated ledger's upfront minimum-order financing.
+Unspent seed is returned at entry-day expiry and excluded from matching wealth.
+
+net_pnl_original_ledger = terminal_NAV - initial_seed_cash, using original cash,
+settlement, dividend entitlement and native mark. With censored shares this is
+mark-to-market, not realized cash profit.
+wealth_from_invested_Cn_excluding_unspent_seed = Cn + net_pnl_original_ledger.
+wealth_from_invested_Cn_net_liquidation = previous value - estimated terminal
+slippage and incremental sell fee if shares remain. This is candidate Vn for
+root's equally financed old-basket comparison. For a fully closed path the two
+wealth fields agree.
+terminal_net_liquidation_estimate is the whole isolated ledger's net NAV,
+including uninvested seed. Do not use that value directly as candidate Vn.
+
+horizon_CLOSE_day is the full shadow exit OPEN's same-day CLOSE, with proceeds
+held as cash through that CLOSE; if unclosed it is the original window end.
+terminal_qty and terminal_censored distinguish remaining stock. Terminal net
+liquidation is an estimate without an actual fill or a feasible common portfolio.
+
+Native RuleUnavailable is a structured unknown; programming failures stop the
+pass. Missing terminal dates/wealth are retained as unknown, never zero profit.
+All labels freeze the original baseline ACT environment. A real rotation would
+change wealth/ACT and shared resource competition, so these are local conditions,
+not an executable rotation return or additive account-profit estimate.

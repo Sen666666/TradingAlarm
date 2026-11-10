@@ -1,0 +1,55 @@
+{
+  "frozen_before_new_run": true,
+  "formula": "mu5 EMA of log close returns; alpha=1/3; initialize first return; inherit original G publication warm-up of 64 returns; right iff all three consecutive common-session published mu5 > 0",
+  "missing": "Any absent/invalid price-volume bar or source segment change resets all EMA/warm-up. No forward fill. UNKNOWN until 64 new contiguous returns and 3 known mu5 observations. Nonpositive including exact zero fails.",
+  "diffusion": "t versus t-3 on identical member intersection with known three-day status at both endpoints; report entered and left separately; not subtraction of varying-denominator fractions",
+  "clock": "Union of actual 90-industry index source dates, not weekday calendar; close-known only; raw next-session executions not generated",
+  "scope": [
+    "2022-01-04",
+    "2026-06-30"
+  ],
+  "fixed_cases": [
+    "2022-01-11",
+    "2022-03-03",
+    "2022-07-25",
+    "2022-10-14",
+    "2022-12-01",
+    "2024-09-20",
+    "2024-09-23",
+    "2024-09-24",
+    "2024-09-25",
+    "2024-09-26",
+    "2024-09-27",
+    "2024-09-30",
+    "2024-10-08",
+    "2026-01-05",
+    "2026-01-15",
+    "2026-01-30",
+    "2026-03-03",
+    "2026-04-08",
+    "2026-04-17",
+    "2026-05-15",
+    "2026-05-29",
+    "2026-06-11",
+    "2026-06-16",
+    "2026-06-30"
+  ],
+  "N": 1709,
+  "industries": 90,
+  "limitation": [
+    "Static current survivors/membership not PIT",
+    "Original causal-adjusted source prices; corporate-action announcement availability not verified",
+    "mu5 is price-only pace from G, not full price-volume G grade; volume is validity only",
+    "Three overlapping days not three independent forecasts",
+    "No CP/authorization/order/account or claim of net round win rate"
+  ],
+  "quick_start": "Existing original I/fast-launch probe route is retained unchanged, never gated on waiting for three positive days. New breadth is observation only.",
+  "input_hashes": {
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/momentum_persistence_breadth_v1/analyze.py": "1f07697ae392125f7fc509ea6b221d486f6e2c35928286c656f4a96ff6cc6a89",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/candidate-snapshot-20261023/full-roster.csv": "3d804dc5cedea488e1fe5bc910da2d71a597d5fac4d1b60a3f268d4249f53292",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/INDUSTRY_MANIFEST.json": "339c89777f488b3bbd5685cd93e38ad47748585b783808e7da35c685ad0775cd",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-b4-20261025/code/model.py": "0beb0b16f2f2cac4f1aff23258b7c45722dc12f16e495be27bf5635c03888cf1",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/grade.py": "faadd14be9ffbe79b5f92fceb92e480b9bf5eb4cce283b354e4dda7e0775b5c9"
+  }
+}

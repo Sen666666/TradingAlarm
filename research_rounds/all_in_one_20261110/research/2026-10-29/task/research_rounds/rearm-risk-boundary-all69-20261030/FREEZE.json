@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-30T11:50:31.064534+00:00",
+  "before_full69_behavior_and_economics": true,
+  "core_and_spec_unchanged": true,
+  "expanded_adapter_changes": "69 mother and date-only old69 reference; same behavior loop; no return-based selection",
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rearm-risk-boundary-design-20261030/SPECIFICATION.txt": "86977b0cb60c27218a4071a57de6da5101e0fe1ebed726de44fc0483bed7e0cc",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rearm-risk-boundary-design-20261030/risk_boundary_v2.py": "47dc7fa6d63fea2a1e1740d8c9c14c5caa9cbe5dd3aba484e15fe1010cb44c19",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rearm-risk-boundary-design-20261030/TEST_RESULTS.json": "d53aca3e6bb263cced7cbe944849661717355035ea9f5774c8771c2548718ede",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rearm-risk-boundary-historical13-20261030/adapter.py": "9b3c618908effcd2dd5d3a2b3b66bff3bf7adcfffdc6cf5e72b4da9df868b76d",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/old-side-exit-all69-20261030/FROZEN_69_CYCLES.csv": "08b33a8b8f08d717af11b93b800615c94db8f4b48e45818cde44c645dbad161a",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rearm-risk-boundary-all69-20261030/FROZEN_CASES.csv": "04424342f66adf8222f56135c4e42cb11b6b9f844c79f4404e41766f97d47d82",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/rearm-risk-boundary-all69-20261030/stage_a.py": "50ef94a9fd990144ec0a3a9d5b4b7094e5ccc138be071a9a757cc3b10caeac60"
+  }
+}

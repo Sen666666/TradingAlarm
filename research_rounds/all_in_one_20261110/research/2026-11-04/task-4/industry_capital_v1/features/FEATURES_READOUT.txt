@@ -1,0 +1,40 @@
+行业CORE拒单的事前诊断特征｜仅特征，未读未来净收益
+
+已完成8335个固定首拒事件（long5264、strong3071），仅按事件候选和S0旧仓所需股票
+读取1636股，生成16131个stock/window/signal-CLOSE点。全构建57.276秒，限额90秒。
+没有读取labels_new、拒单未来净标签或匹配净收益文件，没有创建账户、ledger或策略。
+
+主文件
+EXANTE_EVENT_FEATURES.jsonl.gz：一事件一行。key可直接连原母体/后续匹配；candidate为
+原signal CLOSE特征；old_stocks逐同业旧股票保留层ID、S0股数、真实OPEN及权重、原PVR、
+COR指标、I/E0/G1和已知原锁。没有根据未来表现选择或排序旧donor。
+POINT_FEATURES.jsonl.gz：单点去重复核表。
+SUMMARY.json：全固定分组与15个物理截断核验。
+DIAGNOSTIC_COVERAGE.json：无未来结果的覆盖诊断和OPEN源元数据检查。
+
+精确口径
+PVR从两原冻结scores文件按同日读取并核SHA；所有候选对原frozen intent的PVR一致
+（绝对差<1e-10）。旧PVR按真实OPEN资本加权，gap>=15、0<=gap<15、gap<0固定，不拟合。
+COR只直接调用旧model.py::evidence原函数，用当前facts因果close+同日raw.amount及已知
+price/observed flags投影；完整历史预热，不改EMA21/R10/U10/暖态门。
+new_ok需要26个同段有效观察和最近5个原暖态输入已知；weak需要23个同段有效观察，
+不把原函数因未预热而填False的单元冒充已知False。COR_return10和up_amount10是比例，
+非百分数；PVR为原0–100分；资本为CNY；加权weak fraction为0–1。
+OPEN权重只读open/observed，不读该日high/low/close用于权重或signal特征；raw OPEN
+落在声明源可用段、非unavailable_from的检查暴露0。有旧库存但权重未知17事件保留未知。
+5个按SID序位确定股票×2023末/2024Sep30/2026Mar31共15物理截断，函数及known掩码全exact。
+
+纯覆盖数字，不能解释为预测成功或换仓许可
+PVR gap>=15：long269、strong183；负gap分别3201、2082；无旧库存724、290；其余gap
+0..15为1028、501；未知42、15。旧PVR加权均值只是全部旧库存的描述，不能当可执行FIFO比例卖。
+旧COR无weak：long4386、strong2598；mixed124、158；全部weak16、14；unknown14、11。
+候选COR new_ok共2124（已知8329、未知6）；与任一旧weak同时成立仅long5、strong17。
+其中与整个旧篮子全部weak同时成立6。后者不是弱donor总数，mixed和unknown篮子中的
+每股弱态均另存，不能把整个篮子分类偷换为单股可卖条件。
+原COR完整规则还有RS/年龄/周频/约束，本文件没有复刻其完整策略，也没有把PVR差称
+旧COR的RS差。只有根把未来四象限/净差按预固定组并列后，才能评价是否存在稳定事前差异。
+
+限制
+S0旧股数量正确不代表当日全部可卖：原退出锁、CA新股可卖日、FIFO、容量/停牌和
+已提交订单责任还须原执行状态核对。本特征不给donor行动许可。
+当前幸存者/行业回溯母体与原日线代理限制保持；没有PIT/OOS/实盘或策略收益证明。

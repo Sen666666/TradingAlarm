@@ -1,0 +1,35 @@
+结论：current G1 grade>=2新mobile门不是原资格的冗余，但不能解释主要损耗，不值得据此启动新试验。0新模型、0账户、0中性导出、0接线卡；仅一个简短原数据分组脚本。未测试过滤后的账户行为，以下原net绝非可避免损失、新收益或NAV。
+
+原语义已核：G1_I的机会日要求ready且grade>=2；激活后只沿E0/floor存续，不因grade转非暖退出。Facts.packet(I)中core的buy_allowed含当日i_buy，但mobile continuing改回纯market_buyable；S0其它Q字段没有g_grade。market_buyable仅历史来源/身份/availability，不读G1；fresh CP1也不读G1 grade。旧rotation replacement_ok另有grade>=2，非当前PVR/No60实际资金路径。故可以有I_target=True、freshCP1=True、当前grade<2的新mobile资本承诺；这不是原实现bug。
+
+非暖=grade<2，包含修复1、中性0及负级，不把全组泛称COLD。
+全原母体mobile关联（含费买款/原net，元；grade读actual decision CLOSE）：
+范围                 | 非暖(<2)层/买款/net              | 暖(>=2)层/买款/net
+2022—24连续全体      | 117 / 1264112.47 / −3246.76    | 1650 / 18387798.61 / −302379.05
+其中2022—23          | 73 / 846618.61 / −20517.57     | 1126 / 13085282.64 / −199507.63
+L03原decision cohort | 8 / 66003.15 / −1427.37        | 227 / 2379077.52 / −35343.33
+L04原decision cohort | 16 / 151007.58 / +3084.78      | 124 / 1309999.69 / −28979.99
+Oct8后strict303新层  | 14 / 116367.57 / +4543.07      | 236 / 2555431.57 / −105839.23
+strong全体           | 34 / 437432.65 / −10013.52     | 833 / 16153313.55 / +1207170.51
+
+全部3436实际层的grade未知0、g_ready=False为0。另core498/304全部暖；三年core原net−56384.57，strict303 core53层原net−11161.44。不能把mobile分母漏报成全账户。strict303合303层原净−112457.60，非暖14层却原净正；这与主要损耗来自非暖态继续投入的解释相反。
+三年非暖mobile原正+50660.58/原负−53907.34，warm原正+754033.82/原负−1056412.88；strong非暖原正+16066.60/原负−26080.12。负额与正额均保留，没有只统计亏损单。核心广泛损耗仍在原暖组；不能据未暖组较小原亏宣称删后收益。
+
+非暖mobile first/add/reentry完整规模（层/含费买款/原net）：
+三年 first46 /531249.98/−6917.92；add21 /176452.52/−3880.20；reentry50 /556409.97/+7551.36。
+两年 first32 /410639.42/−8176.60；add15 /131743.33/−5170.69；reentry26 /304235.86/−7170.28。
+strict303 first2 /11191.30/−1472.66；add1 /329.18/−26.51；reentry11 /104847.08/+6042.24。
+strong first22 /291240.88/+2022.04；add5 /73271.67/−4415.87；reentry7 /72920.09/−7619.69。
+全部warm对应组、probe/confirmed、正负/closed-open/AR、L03/L04 actual-fill cohort另在SUMMARY.json，不以独立胜率解释同股重复层。
+
+固定原PVR tail83/94全成员同clock：
+三年83 = core暖22 + mobile暖58 + mobile非暖3，无未知。非暖3为广深铁路(2023Apr12)、太平洋(2024Sep11)、绿地控股(2024Sep19)，合含费买款1743.98、原net+737.26。这里只表明原赢家凭据同clock关联，不等于实际新政策必失去这些钱。
+strong94 = core暖11 + mobile暖82 + unknown1，已知非暖0；unknown为凯格精机301338.SZ原层559/2025Dec23、原net+14819.44，不在此前1205份facts范围，保持未知，不扩读第1206份或填0。固定名单中的旧strictreal/unreal/AR/fee拆项原来未保存，此处null；不冒称这些拆项为0。
+原赢家主群基本已暖，不能据此说此门损伤很大；本方向关闭的主要理由是没有覆盖当前主要损耗，关键303非暖组净正，且旧同机制已研究过，不是以调高门槛救结果。
+
+排重/语义反例：2026Nov1旧g1-current-state-readonly精确研究同一“current grade与I持有态不同”问题，旧confirmed mobile576/602中67/62未暖、但88.43%/89.06%本批闭合负仍在暖组，已停止此门主修复方向。旧129不是本次No60 151非暖mobile，口径/母体不能混加。g_grade带晋升记忆，不等当日proposal；旧宏和科技2025Aug6 grade−3但proposal4/promotion_blocked、原追加净+8617.93，是“当前grade非暖不等全部当日原始证据非暖”的已核反例。本次未扩读proposal，不把旧例冒称本次No60同单，也不改成grade3或proposal门。
+
+边界：全层net是原真实生命周期含mark/div贡献；L03/L04按decision进入的层cohort是关联，不是该市场阶段财富变化。strict303严格actual fill>Oct8CLOSE，原旧层回吐另−54596.72未归新非暖层；两年子集末全清，原层净和原两年桥可核同。原source/费用/执行/财务均未更动，不重投释放资本，不推导新费用/NAV。原1m开发账不线性外推用户计划120万。
+文件：SCOPE.json、SUMMARY.json、FIXED_ORIGINAL_TAILS.json、两完整ROWS、SOURCES_AND_LIMITS.json、analyze.py；源/排重及独审绑定另存。实际原grade源沿此前1205 SHA范围，当前177尾部中上述1个范围外未知保留。
+
+独审已PASS：independent_review/MOBILE_CURRENT_WARM_QUICK_AUDIT.json；独核3436原行、1205原facts与全部phase/83+94分组。仅支持原关联诊断及STOP，不证明新政策收益。

@@ -1,0 +1,70 @@
+原No60执行时钟：静态源码结论（不调用Market/Account/window）
+
+实际目录：/Users/bytedance/Documents/Codex/2026-11-04/task-4/execution_clock_evidence_v1/code
+原样代码/配置行号及SHA见SOURCE_EXCERPTS.txt、SOURCE_INDEX.json。
+
+1. 原配置与时钟
+mainline-I-quarter-2025Q3 adapter.py65实际把FastMarket接到：
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-act-comparison-20261027/execution-rules-v2.json
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/inputs-v2/economic-protocol.json
+rules的A OPEN均09:30:00+08:00，决策CLOSE均15:10:00+08:00；10/9–11原行分别
+5246–5248、2376–2378。calendar_basis明写90行业源日期union的研究日历代理。
+protocol19–32：participation=.01、conservative_hl_proxy、reject_flat_day=true、5bps；
+sellable_lag_sessions.A=1，settlement_lag_sessions.A=0。后者是模型可用现金时钟，
+不是实际证券交收/可取现金制度的证明。协议明确批准A_same_day_sell_cash_reuse代理。
+
+2. J.opening真实调用顺序，不能把买卖侧混写
+joint_v3.py304–306：先对旧a.exits逐股调用window(...,'sell',1)，再fill_exit。
+307：执行settle_due并sync，模型中已实际卖出净款可按lag0到账。
+308–318：按已冻结原排序逐单，读取当日raw OPEN，LR.preview作保护/合法数量/费用检查；
+route检查资金，reserve_quantity扣真实gross+fee，记录reserved及同股done。
+319–323：所有候选资助完成后，才逐个调用window(...,'buy',1)，符合后实际fill_buy。
+324：再结算sync。买方未成交或部分成交的剩余预留不能事后拿给同批后排候选。
+
+因此：卖方全天HLV代理在新买资助之前，能影响本次卖款及后续可用资金；买方全天HLV
+代理在所有reserve之后，不用于事先筛掉不能成交的买单再重排资金。不能概括为所有
+资金决策都未受全天HLV影响，也不能把reserved当实际成交。
+
+3. FastMarket.window45–67到底读什么
+49要求at精确属于原OPEN sessions；53要求该日有效价格和正有限volume；55要求此前
+至少20个正量观察。59用该日全日high<=low把buy_allowed/sell_allowed都置False；
+60容量=int(min(此前20正量日均量*.01,当日总volume))；62成交价=raw OPEN*(1±.0005)。
+注意flat时通常仍返回FillWindow，只是allowed=False，由ledger._eligible_event675拒成交；
+不能一概写成window=None。缺bar/规则/20量历史等才可能提前返回None。
+窗口记录execution_basis='explicit_daily_bar_proxy_past20_capacity_same_day_hlv_postcheck'。
+H/L和当日总V在09:30并未完整可知，属于原日线执行后验代理，不是盘前可得信号或盘口。
+
+4. 最小一次买卖时序（仅解释配置，非新交易模拟）
+10/9 15:10：原已知CLOSE形成买意图，冻结cap/预算/保护，earliest=下一交易OPEN。
+10/10 09:30：先旧退出/到账；在已知raw OPEN按原合同预览和reserve，再经当日HLV
+代理决定能否按OPEN+5bps实际填单。只有fill_buy成功才产生FillReceipt和InventoryLot。
+InventoryLot(count,window.sellable_at)的sellable_at按lag1为10/11 09:30；不得把新买
+股数当10/10已可售。fill count还受dated buy_floor/fill_step、容量及费用支持的数量约束。
+10/10 15:10：若原收盘退出触发，登记目标层及退出单；只提案，不用此收盘价成交。
+同一CLOSE expire_day_buys取消当天未成交买单余额，部分已买股数仍留真实库存。
+10/11 09:30：先经过卖方window及ledger检查。fill_exit751只计sellable_at<=at的真实
+lot；758按提交余量/实际可售量/容量/fill_step取成交。成功才减物理lot、生成净卖款
+及FillReceipt，随后lag0的settle_due把可用净款到账。没有可售/allowed/容量则不假成交。
+10/11是此例最早可卖时点；若不足成交，余量继续待退出，不保证该OPEN全部完成。
+
+5. 部分成交、费用、锁待退出的边界
+ledger.fill_buy688–743保留remaining_shares/budget/fee_reserved/submitted_remaining；
+部分匹配用fill_step，首次提交仍用dated BUY最小单位，不把每次partial当新的完整订单。
+fill_exit746–797维护submitted_remaining/remaining_target，直到退出目标或全部仓位完成。
+FeeSchedule115–139和_fee/_remember461–472沿同一订单累计accrued/paid，计算增量费用；
+不是每次partial重扣整单最低费。真实gross/fee/at/settlement_id写入FillReceipt。
+pilot.fill_exit74–85在物理成交后只对sell_layers目标逻辑层分配，非全live逻辑FIFO。
+pilot.sell104–115合并已提目标；J235跳过已锁层、247把exit_pending挡住新买，后续OPEN
+继续尝试。底层cancel_reduction仅对structure_exit明确报不可撤，annual reduction API
+另有语义；不能声称所有底层reduction都不可撤。但现行趋势流程没有因价格恢复调用
+该取消API，不能将未成交退出责任自行删掉或把预计卖款提前花掉。
+
+6. 执行证据的限度
+账上at=09:30且成交价取OPEN±滑点，是这套日线代理的模型假设；不证明观察OPEN后
+才确定数量、发单，仍能成交于同一个OPEN。无逐笔/盘口/委托时间和排队资料，不能
+保证涨停/跌停排队、成交顺序或实际容量。原H<=L代理同时封买卖，也不等于精确限价。
+也不能随口把所有交易改成09:31：当前window只接受09:30日历session，且没有09:31
+价量；只改标签不会产生09:31成交证据，更不能继续沿用原OPEN价证明可实现。
+
+本次只解析现有源码与JSON配置、摘录原行；Market/Account/FillWindow未实例化，window/
+fill/lag等函数未调用，未运行任何模型、账户或回测，未修改原源或配置。

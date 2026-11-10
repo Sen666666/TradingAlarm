@@ -1,0 +1,68 @@
+PVR η：单项结构候选与必要作用域（尚无候选账户收益）
+
+核心假设：原PVR按近期有符号幅度E排序；保持原e、21观察、0.9权重，
+改用η=Σwe/Σw|e|，让新资金先序反映净方向幅度占比。原E0/I/CP、
+角色/目标/资金/退出/ACT不改，不再加门或统一缩量。
+完整数学、原合同冲突、反例和排重见PROPOSAL.md、事前PROTOCOL.json。
+
+冻结合同：rawη round12降序；保原H1 unique-stock numeric slots；NA固定
+原H1槽，同η按原H1先序，绝无原E二级tie。原E未ready或分母<=0/非有限
+为UNKNOWN，不补ε。η不是持续天数/概率，全正单脉冲和微涨也可η=1；
+快速V与正常往返的持续赢家可能降位。这些反例不临时加通道救。
+
+0新模型/账户。全1709原source纯rolling47.48秒，4,049,899原观察、
+968原决策日、1,654,312导出格。原全部133542个ready pending-stock-day
+PVR查询逐值exact，原native priority slots逐项一致；新排序先落盘，
+随后才接旧交易标签。新增分母没有改变原准备/缺失母体。
+
+                         2022—24          strong
+原pending股票日            79892             53821
+η改位                      73476             50409
+η未知（原H1槽）              141                30
+真实不等η反序pair         1564047            934019
+ηround12 tie反序                0                 0
+触及NA固定槽反序pair          2460               354
+有资源拒绝/已reserved反序背景 9840              7947
+其中真不等η背景              9821              7941
+背景unique rejected股票日    7727              5968
+背景日期                     378               197
+
+各日平均ordinal相关.92267/.92682；归一化绝对序位位移.07784/.07687。
+改位很多不等于换掉90%股票。当前pending η=+1仅弱2行、强0，没有η tie；
+全原机会1240734/413578行里旧E ready且分母0均为0。数学反例仍保留。
+旧资源背景仅是必要先后作用域：没有释放现金/行业容量、没有新成交，
+不同role/行业/minimum/池仍可能使候选无法替换。绝非新账户收益。
+
+完整旧赢家代价（排序降位≠一定失去资金/利润）
+原83/94全成员保留，当前No60实际对应45/67。
+其中弱16提前/9同位/20降位，降位原贡献123603.03；
+strong16提前/9同位/42降位，降位原贡献713673.36。
+strong自身123个>=30%评价赢家中79降位，原贡献1004912.79。
+原strong全部1171层中745降位，原净+749465.93；
+原弱2265层中1358降位，原净−258776.94。不能拿这些静态金额相减
+当组合收益，也不能因降位把未来赢家豁免。
+
+近邻已明确：仓库10bar量权return效率调KAMA alpha及63bar原始价格路径
+效率持有投影属于同族思想；不是新发明。本项精确原e/21exp/rawη/原生
+slot-only合同尚需经济证伪，不能拿旧不等价研究称已通过或必失败。
+
+数据/接口
+SCORES_MANIFEST.json与scores/*.parquet可直接交原N.configure_scores。
+列score是rawη，另保原E、absolute_energy、original_score、source_segment。
+prepare_eta.py不导入/推进Account，原score函数原文exec；priority_plan
+从原native_rank AST抽原文，仅做纯rank。FEATURE_SOURCE_BINDING和
+RANKING_PRE_LABEL_FREEZE保准备来源/先排名再连接旧net的时钟。
+
+RANK_TIE_NONTIE_NA_ANNEX、OPPORTUNITY_TIE_ZERO_NUMERIC_COUNTS、
+COMPETITION_TIE_NONTIE_ANNEX、FIXED83_94_ETA_SUMMARY及两完整固定成员、
+ACTUAL_COMPETITION_TOUCH_ANNEX保全作用域。小序列化注：旧OPPORTUNITY
+TIE_ZERO_ANNEX里的numpy计数是数字字符串；NUMERIC_COUNTS仅规范为int，
+值及旧文件不改。producer funding matched/unmatched混合了CLOSE的
+size/no_nominal-gap日志，不是纯OPEN漏斗；真正资源背景已逐行assert
+09:30，因此背景统计不受此解释边界影响。
+
+当前裁决：具备非冗余且真正资源竞争的必要作用域，但没有效果保证。
+根任务若独审公式/数组/前缀/slot与母体通过，只做预注册的两条完整
+跨周期账户，保原基准与全部反例；不扫描参数、不据强窗挑最优。
+原数据当前快照非PIT、全部开发历史已消费，成本/公司行为/日线成交
+代理限制不变；不称OOS或实盘认证。

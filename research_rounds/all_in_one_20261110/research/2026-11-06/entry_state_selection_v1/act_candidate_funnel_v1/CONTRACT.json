@@ -1,0 +1,38 @@
+{
+  "arms": [
+    "PVR",
+    "NOACT"
+  ],
+  "periods": {
+    "ALL": [
+      "2022-01-01",
+      "2026-05-15"
+    ],
+    "2022": [
+      "2022-01-01",
+      "2022-12-31"
+    ],
+    "2024": [
+      "2024-01-01",
+      "2024-12-31"
+    ],
+    "2024_0920_1015": [
+      "2024-09-20",
+      "2024-10-15"
+    ],
+    "2026Jan": [
+      "2026-01-01",
+      "2026-01-31"
+    ]
+  },
+  "account_runs": 0,
+  "indicator_runs": 0,
+  "source": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/act_only_ablation_continuous_v1",
+  "native_birth_definition": "stock + first e0_target 0->1 within segment; forward fill only within that segment while e0_target is on; identical to joint_v3.py 190-194; NOT original-I big60",
+  "period_clock": "stock-day, role and funnel statistics use signal close date; actual entry clock also separately reported",
+  "unknown": "No economic return assigned to untraded candidate. Missing trace stages UNKNOWN. Raw overlapping reasons separate from exclusive stage categories.",
+  "fixed_future_pool": 1709,
+  "industry_count": 90,
+  "rank_policy": "PVR_SLOT1 original unique-stock slot permutation; no TopK cutoff; same-stock core before mobile",
+  "descriptive_only": true
+}

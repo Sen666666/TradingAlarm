@@ -1,0 +1,38 @@
+净推进锚范围更正：主提案从“上一次新规则确认”起保留路径
+
+对上一审查的明确更正
+READOUT.txt/MATH_REVIEW.json关于“保留原down/SEEK新低重锚并清L”的部分，只适用于原local-anchor机制诊断或另一假设，不是本次主净推进提案。原数学符号/量纲推导仍成立，主状态合同以下文替代；旧文件保留原文及哈希，不冒称当时已审核此主合同。
+旧local锚下若9/9显示ER=1，只证明原锚不断重设后的局部直线，不证明本主规则也会给9张确认。从last_original_receipt作诊断也只能逐原锚读数，不能直接当新规则路径。
+
+两个锚，禁止混用
+N：net confirmation memory。字段domain_id、net_anchor_obs、net_anchor_log_price、net_scale、net_path_L、last_accepted_G_receipt_id；可另存锚后net_peak作DD诊断。net_anchor只在“新G规则在当时真正发出的市场receipt”之后更新。这里的接受是G市场公式确认，不是订单获资助或实际成交；本轮没有账户。
+S：local structure。字段local_anchor_obs/price、local_frontier、local_phase、market_line_state、failure_id；只描述当前局部形状/旧参考线状态。
+原e0_down、SEEK新低、OLD_LINE破坏进入REPAIR都可以更新S，不能清N的A/L、不能换N的sigma、不能把旧原CP receipt当作新G接受。
+
+N的精确定义与初始化
+在已有新G确认q之后，A_N(t)=p_t-p_q；L_N(t)=Σ(j=q+1..t)|r_j|；ER=A/L，G=A|A|/L，DD_N=max(p_q,...,p_t)-p_t。L0时ER/G=NULL。
+新候选确认的门先用q时冻结的net_scale。若新G于t确认，保存本次完整A/L/ER/G及旧net_scale，再把N锚设p_t、L清0，下一段net_scale=z63_t。不能使用旧缓存原CP在t发了receipt这件事代替此接受条件。
+没有任何新G确认时，需显式以同一source/domain首次ready且I有效观察作domain_seed：p作初始锚、L0、冻结当时z63，首观察不发证。不得在案例展示起点重建，也不得事后挑最低点作初始N锚。domain_seed不是一个已确认receipt。
+原source变化、未热/I域失效可按已授权域规则结束该N活动段，保留结束原因/旧锚及终态读数；重新有效首观察另作domain_seed。I重启会带来另一次洗路径，这是显式域合同的代价，不能泛称跨所有失败都有记忆。source缺失/unknown不等于下行结构确认，必须另标。
+
+每个有效CLOSE的最小先后分工
+0 先检查source/domain/readiness；禁止跨source拼收益，域结束记录原因。
+1 对活动N无条件计入本次|r_t|，即使本日将破OLD_LINE、down或创新局部低，也先得到并保存A_N/L_N/ER_N/G_N/DD_N。这里只是CLOSE算式，不意味着已经确认或成交。
+2 使用进入当日时已知的OLD_LINE比较当前C。若破线，S置REPAIR，记failure_id/old_line/当日观察，在当日C建local恢复锚，禁止本日新receipt/抬线；N保持第1步后的累计值，不因market failed归零。
+3 若旧线未破，原down或局部新低仅重建S的anchor/frontier；N保留。若保留原“重锚日不出票”时钟，仅作用于候选资格，不能顺手清N。
+4 后续观察可抬local frontier，记录local_rebound及local_new_high。这些是局部恢复观测，不等于G已达门。保fresh时必须明确它是local_frontier的新高身份；不能偷加整波/净锚后的历史最高点门。
+5 只有当时原域和候选资格满足且G_N>=sqrt5*net_scale，才发accepted_G_market_receipt，并按上述先保存/后reset顺序更新N。REPAIR中如获接受才建立新趋势episode；REPAIR标记本身不是接受，更不是清N授权。
+6 局部新结构若已明显、但G_N仍不通过，只能输出local_repair_observed/G_rejected及原完整N数值。不能为了立即参与V形而把local repair改叫确认、偷偷清路径；如用户要允许这种例外，应另立明确候选合同，而不是声称现有G自然支持。
+OLD_LINE的具体保护式属于另一个合同；本补充不引入V2/V3或放宽原保护。如果OLD_LINE是某账户的某逻辑层实际线，只能标该层事件，不能直接把它等同于全股统一市场失败。market failure与实际退出ACK严格分开，实际卖不成不会被公式伪造成已经flat。
+
+盈新口径如何避免偷换
+若原Jan20在last_original_receipt锚下A<0，新G应拒绝，则该日之后仍保留同一个“最后新G确认”锚及累计L。Jan21/24需继续从它计算，不能因原缓存Jan20/21发证就清到局部ER1。本轮只定义，未计算这几天的新G状态或断言其最终接受/拒绝。
+
+保留记忆必然付出的V形反例
+令上次确认p_q=0，随后跌d>0再恢复至净涨u>0：A=u，L=2d+u，G=u²/(2d+u)。过k=sqrt5*net_scale须u>=(k+sqrt(k²+8kd))/2。若恢复仍在旧确认价格以下，A<=0而G<=0，绝不可能通过。
+因此即便从谷底反弹d+u很大、形成新的局部结构，本G仍可能长期拒绝。没有固定冷却天数不等于没有V形延迟；不能让失败自动洗ER，再宣称同时保住V形和失败记忆。
+更强一点：若某一旧净锚后的历史最高收盘曾因G不足被拒，在没有域/接受reset的情况下，之后回到该高点以下时A不大于当时、L不小于当时，G也不可能更大。只恢复旧局部高点不足以自然重启。保留local fresh而不强加全波前高门，并不能消除这个G本身的代价。
+另一方面，较深失败路径被保留后，已出现新且高效的局部趋势也要补偿旧往返；是否值得此延迟没有经济证明。
+
+本轮范围
+只补主合同与数学反例。0新状态计算、0原CP重跑、0账户/策略/收益回测。V2/V3与旧local ER诊断原样保留；主锚必须由未来冻结后新G自己的接受路径驱动，不能借旧receipt路径出结果。

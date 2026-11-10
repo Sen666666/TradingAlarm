@@ -1,0 +1,8 @@
+{
+  "first_features_completed": true,
+  "failure": "Summary had old gate field and new gate field, resulting gate_x/gate_y",
+  "change": "Only select early sid/day before summary merge",
+  "same_formula_exact_repeat": true,
+  "full_pre_post_source_hash_record_added": true,
+  "first_pass_csv_hashes_preserved": true
+}

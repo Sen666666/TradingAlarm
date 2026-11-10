@@ -1,0 +1,19 @@
+{
+  "completed": false,
+  "last_verified_close": "2026-02-05",
+  "verified_closes": 150,
+  "total_intended_closes": 182,
+  "load_seconds": 77.57624520827085,
+  "stopped_at_total_budget_seconds": 180,
+  "no_B_daily_or_trade_prefix_mismatch_before_stop": true,
+  "current_blocker": "Budget exhausted; partial export FileNotFoundError because technical parent directory was not created. Diagnostic in-memory aggregate logs were not retained. First three exact snapshots and posthoc stock table survived.",
+  "save_fix_implemented_not_rerun": true,
+  "frozen_actual_B_strategy_or_results_unchanged": true,
+  "complete_226_receipt_counterfactual_counts": "unknown; not claimed from lost partial aggregates",
+  "next_estimate_load_plus_complete_diagnostic_seconds": [
+    210,
+    240
+  ],
+  "no_repeat_or_expanded_budget_started": true,
+  "source_sha256": "274cc9889d680dfec70ee71b2d6337bd6a6e2034884e405a6a1de7db22731f4d"
+}

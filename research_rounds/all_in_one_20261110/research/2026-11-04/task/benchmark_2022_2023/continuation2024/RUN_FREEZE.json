@@ -1,0 +1,13 @@
+{
+  "before_account_events": true,
+  "at_UTC": "2026-11-04T10:17:14.709924+00:00",
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/continuation2024/run_extension.py": "49fdbc91cebe32c41447195e89b1e84b374aa9519e7bef445069b3004a7f25e6",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/continuation2024/extension_adapter.py": "9b02ee58d98c214f6cc0f03e67fe57b48241919126f31e25ce4795ec15140e87",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/continuation2024/CONTINUATION_CARD.txt": "bf77d305b6333e17a671d9c3c6e3f1e1d65d686ec51f5eb5213371687c362597",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/continuation2024/INPUT_AVAILABILITY.json": "73175a67852d51ebf9030034f2b1f6585f14a4d25b731e23c2f7c824d6641e59",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/continuation2024/PARENT_STATE.json": "3609dbe5db255a4e4c8b8a421a27300613689a2e6f6305e31e4d70d34a176f27",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/continuation2024/derived_continuation_function.py.txt": "bea1e47a92311cde886307b43e94be318dfda115ad2f97058fc1854130fd2aac",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/continuation2024/CONTINUATION_SOURCE_DIFF.patch": "15cf7f0d2a01b8225e0b8bc32c9d8b34e139a3c333ac4530b0eda931aaff935c"
+  }
+}

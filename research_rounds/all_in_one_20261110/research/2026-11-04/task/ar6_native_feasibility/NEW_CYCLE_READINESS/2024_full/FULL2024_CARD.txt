@@ -1,0 +1,5 @@
+2024全年拟执行合同｜仅准备，必须另root grant后执行
+仅Original PVR_SLOT1和NO_CONFIRMED60两政策，各自真实2023末状态接2024。复用已提交Jan2 full-input技术检查点，严格从Jan2CLOSE之后接续至2024-12-31；不重跑Jan2、不重置100万、不缩放120万、不407或换名单、不新参数。完整2022→2024历史及账户/ACT/损耗/层/预算/应收/锁/消费receipt随自己的账户延续。
+输入沿2024 DATA/LOADER独审通过资料，政策方法沿本代技术gate冻结adapter，唯一政策差分仍No60三处。run_cycle2024.py是新独立启动器，新增执行source/card/rootgrant元数据，不修改已审CP.source_freeze、金融方法或旧full/2023源。native事件序列/会计/费用/行动/支付保持。保留完整全年不利环境及九月重大行情后的持有/纠错，含实际季末CP。
+全年仅parent具体JSON grant可激活：每侧cycle2024/POLICY/FULL_2024_RUN_AUTHORIZATION.json。必须approved、scope ONE_OWN_STATE_2024_CONTINUATION、policy、end2024-12-31、resume_after2024-01-02CLOSE、执行freeze/adapter/binding SHA完全匹配。prepare只生成待审manifest/proposal，不等于授权。无授权不构造执行账户；completed拒绝重复、异常保留原FAILURE不自动重试，时间预算partial仅显式own-checkpoint恢复。准备与首日技术证据不声称2024账户已经完成。
+报告全年各自期初归一化结果及2022→2024累计财富/回撤、完整费用/实际损耗/闭合和开放贡献/尾部/真实筹资和参与。1709当前A股/90分类、HK0及日线执行代理/开发历史偏差仍保留，35%不是成功门槛，不凭单年结果晋升。

@@ -1,0 +1,198 @@
+{
+  "counterexample": [
+    {
+      "name": "last_recovery",
+      "advance": -0.7578439820021268,
+      "entry_score": -0.7578439820021268,
+      "sigma": 0.004954152889564432,
+      "r5": 0.035999999999999956,
+      "recent_q25": -0.017792950920490245,
+      "recent_q50": 0.0,
+      "recent_q75": 0.021029609353353386,
+      "target": 0.0
+    },
+    {
+      "name": "last_decline",
+      "advance": -0.7578439820021265,
+      "entry_score": -0.7578439820021265,
+      "sigma": 0.004954152889564434,
+      "r5": -0.03300000000000011,
+      "recent_q25": -0.017792950920490245,
+      "recent_q50": 0.0,
+      "recent_q75": 0.021029609353353386,
+      "target": 0.0
+    }
+  ],
+  "entry_n": 196,
+  "entry_r5_negative": 46,
+  "entry_r21_negative": 0,
+  "exit_n": 195,
+  "exit_advance_positive": 123,
+  "cases": [
+    {
+      "id": "S1",
+      "symbol": "USHJ518880",
+      "rows": 299,
+      "held": 169,
+      "held_advance_nonpositive": 19,
+      "held_r5_negative": 58,
+      "entries": 2,
+      "exits": 2,
+      "flat_score_gt1": 0
+    },
+    {
+      "id": "S2",
+      "symbol": "HK00002",
+      "rows": 306,
+      "held": 41,
+      "held_advance_nonpositive": 1,
+      "held_r5_negative": 17,
+      "entries": 2,
+      "exits": 2,
+      "flat_score_gt1": 0
+    },
+    {
+      "id": "F1",
+      "symbol": "USHJ512480",
+      "rows": 102,
+      "held": 48,
+      "held_advance_nonpositive": 14,
+      "held_r5_negative": 21,
+      "entries": 1,
+      "exits": 0,
+      "flat_score_gt1": 0
+    },
+    {
+      "id": "F2",
+      "symbol": "HK09618",
+      "rows": 103,
+      "held": 11,
+      "held_advance_nonpositive": 6,
+      "held_r5_negative": 8,
+      "entries": 1,
+      "exits": 1,
+      "flat_score_gt1": 0
+    },
+    {
+      "id": "R1",
+      "symbol": "HK00700",
+      "rows": 246,
+      "held": 73,
+      "held_advance_nonpositive": 0,
+      "held_r5_negative": 27,
+      "entries": 2,
+      "exits": 2,
+      "flat_score_gt1": 0
+    },
+    {
+      "id": "R2",
+      "symbol": "USHJ518880",
+      "rows": 242,
+      "held": 153,
+      "held_advance_nonpositive": 39,
+      "held_r5_negative": 57,
+      "entries": 1,
+      "exits": 1,
+      "flat_score_gt1": 0
+    },
+    {
+      "id": "B1",
+      "symbol": "USHJ512480",
+      "rows": 132,
+      "held": 45,
+      "held_advance_nonpositive": 0,
+      "held_r5_negative": 17,
+      "entries": 1,
+      "exits": 1,
+      "flat_score_gt1": 0
+    },
+    {
+      "id": "B2",
+      "symbol": "HK03033",
+      "rows": 246,
+      "held": 15,
+      "held_advance_nonpositive": 0,
+      "held_r5_negative": 7,
+      "entries": 1,
+      "exits": 0,
+      "flat_score_gt1": 0
+    },
+    {
+      "id": "C1",
+      "symbol": "USHJ510300",
+      "rows": 242,
+      "held": 17,
+      "held_advance_nonpositive": 6,
+      "held_r5_negative": 9,
+      "entries": 1,
+      "exits": 1,
+      "flat_score_gt1": 0
+    },
+    {
+      "id": "C2",
+      "symbol": "HK00101",
+      "rows": 243,
+      "held": 45,
+      "held_advance_nonpositive": 0,
+      "held_r5_negative": 18,
+      "entries": 0,
+      "exits": 1,
+      "flat_score_gt1": 0
+    },
+    {
+      "id": "W1",
+      "symbol": "HK03033",
+      "rows": 243,
+      "held": 32,
+      "held_advance_nonpositive": 0,
+      "held_r5_negative": 18,
+      "entries": 0,
+      "exits": 1,
+      "flat_score_gt1": 0
+    },
+    {
+      "id": "W2",
+      "symbol": "HK03690",
+      "rows": 208,
+      "held": 0,
+      "held_advance_nonpositive": 0,
+      "held_r5_negative": 0,
+      "entries": 0,
+      "exits": 0,
+      "flat_score_gt1": 0
+    },
+    {
+      "id": "S3",
+      "symbol": "600919.SH",
+      "rows": 242,
+      "held": 104,
+      "held_advance_nonpositive": 12,
+      "held_r5_negative": 29,
+      "entries": 2,
+      "exits": 1,
+      "flat_score_gt1": 0
+    },
+    {
+      "id": "C3",
+      "symbol": "600059.SH",
+      "rows": 242,
+      "held": 50,
+      "held_advance_nonpositive": 3,
+      "held_r5_negative": 26,
+      "entries": 1,
+      "exits": 0,
+      "flat_score_gt1": 0
+    },
+    {
+      "id": "C5",
+      "symbol": "600917.SH",
+      "rows": 242,
+      "held": 43,
+      "held_advance_nonpositive": 2,
+      "held_r5_negative": 19,
+      "entries": 1,
+      "exits": 1,
+      "flat_score_gt1": 0
+    }
+  ]
+}

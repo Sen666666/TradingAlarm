@@ -1,0 +1,203 @@
+{
+  "status": "COMPLETE_BOUNDED_NO_FUTURE_CAP_RESEARCH_VIEW",
+  "rows": 38619,
+  "symbols": 5517,
+  "dates": [
+    "2022-01-10",
+    "2022-01-24",
+    "2024-09-24",
+    "2024-10-08",
+    "2026-01-15",
+    "2026-01-20",
+    "2026-05-15"
+  ],
+  "coverage": [
+    {
+      "day": "2022-01-10",
+      "requested_series": 5517,
+      "observed_target_bars": 4503,
+      "missing_target_bars": 1014,
+      "pvr_warmup_or_invalid_on_observed": 167,
+      "no_cap_PVR_pool": 4336,
+      "snapshot_cap_PVR_pool": 1427,
+      "additional_no_cap_PVR_candidates": 2909,
+      "pool_known_current_cap_false": 2893,
+      "pool_current_cap_unknown": 2,
+      "pool_not_in_current_roster": 14,
+      "prior20_known_all_observed": 4468,
+      "prior20_known_in_no_cap_pool": 4336,
+      "historical_legal_status_unknown_in_pool": 4336,
+      "executable_eligibility_true": 0
+    },
+    {
+      "day": "2022-01-24",
+      "requested_series": 5517,
+      "observed_target_bars": 4518,
+      "missing_target_bars": 999,
+      "pvr_warmup_or_invalid_on_observed": 162,
+      "no_cap_PVR_pool": 4356,
+      "snapshot_cap_PVR_pool": 1430,
+      "additional_no_cap_PVR_candidates": 2926,
+      "pool_known_current_cap_false": 2910,
+      "pool_current_cap_unknown": 2,
+      "pool_not_in_current_roster": 14,
+      "prior20_known_all_observed": 4487,
+      "prior20_known_in_no_cap_pool": 4356,
+      "historical_legal_status_unknown_in_pool": 4356,
+      "executable_eligibility_true": 0
+    },
+    {
+      "day": "2024-09-24",
+      "requested_series": 5517,
+      "observed_target_bars": 5309,
+      "missing_target_bars": 208,
+      "pvr_warmup_or_invalid_on_observed": 28,
+      "no_cap_PVR_pool": 5281,
+      "snapshot_cap_PVR_pool": 1619,
+      "additional_no_cap_PVR_candidates": 3662,
+      "pool_known_current_cap_false": 3643,
+      "pool_current_cap_unknown": 2,
+      "pool_not_in_current_roster": 17,
+      "prior20_known_all_observed": 5300,
+      "prior20_known_in_no_cap_pool": 5281,
+      "historical_legal_status_unknown_in_pool": 5281,
+      "executable_eligibility_true": 0
+    },
+    {
+      "day": "2024-10-08",
+      "requested_series": 5517,
+      "observed_target_bars": 5306,
+      "missing_target_bars": 211,
+      "pvr_warmup_or_invalid_on_observed": 31,
+      "no_cap_PVR_pool": 5275,
+      "snapshot_cap_PVR_pool": 1613,
+      "additional_no_cap_PVR_candidates": 3662,
+      "pool_known_current_cap_false": 3643,
+      "pool_current_cap_unknown": 2,
+      "pool_not_in_current_roster": 17,
+      "prior20_known_all_observed": 5296,
+      "prior20_known_in_no_cap_pool": 5275,
+      "historical_legal_status_unknown_in_pool": 5275,
+      "executable_eligibility_true": 0
+    },
+    {
+      "day": "2026-01-15",
+      "requested_series": 5517,
+      "observed_target_bars": 5451,
+      "missing_target_bars": 66,
+      "pvr_warmup_or_invalid_on_observed": 49,
+      "no_cap_PVR_pool": 5402,
+      "snapshot_cap_PVR_pool": 1641,
+      "additional_no_cap_PVR_candidates": 3761,
+      "pool_known_current_cap_false": 3742,
+      "pool_current_cap_unknown": 2,
+      "pool_not_in_current_roster": 17,
+      "prior20_known_all_observed": 5436,
+      "prior20_known_in_no_cap_pool": 5402,
+      "historical_legal_status_unknown_in_pool": 5402,
+      "executable_eligibility_true": 0
+    },
+    {
+      "day": "2026-01-20",
+      "requested_series": 5517,
+      "observed_target_bars": 5461,
+      "missing_target_bars": 56,
+      "pvr_warmup_or_invalid_on_observed": 49,
+      "no_cap_PVR_pool": 5412,
+      "snapshot_cap_PVR_pool": 1642,
+      "additional_no_cap_PVR_candidates": 3770,
+      "pool_known_current_cap_false": 3751,
+      "pool_current_cap_unknown": 2,
+      "pool_not_in_current_roster": 17,
+      "prior20_known_all_observed": 5448,
+      "prior20_known_in_no_cap_pool": 5412,
+      "historical_legal_status_unknown_in_pool": 5412,
+      "executable_eligibility_true": 0
+    },
+    {
+      "day": "2026-05-15",
+      "requested_series": 5517,
+      "observed_target_bars": 5495,
+      "missing_target_bars": 22,
+      "pvr_warmup_or_invalid_on_observed": 54,
+      "no_cap_PVR_pool": 5441,
+      "snapshot_cap_PVR_pool": 1665,
+      "additional_no_cap_PVR_candidates": 3776,
+      "pool_known_current_cap_false": 3772,
+      "pool_current_cap_unknown": 1,
+      "pool_not_in_current_roster": 3,
+      "prior20_known_all_observed": 5478,
+      "prior20_known_in_no_cap_pool": 5441,
+      "historical_legal_status_unknown_in_pool": 5441,
+      "executable_eligibility_true": 0
+    }
+  ],
+  "fixed35": {
+    "fresh_no_cap": 32,
+    "fresh_current_cap_comparator": 17,
+    "hold_no_cap": 34,
+    "hold_current_cap_comparator": 19,
+    "rows": 35,
+    "day": "2024-09-24",
+    "no_cap_all_PVR": 35,
+    "current_cap_PVR": 20,
+    "additional_fresh": 15,
+    "global_signal_qualified_pool_computed": false
+  },
+  "score_bits_unchanged": true,
+  "retained_pair_order_unchanged": true,
+  "liquidity_no_threshold_no_rank_weight": true,
+  "account_or_new_market_model_calls": 0,
+  "network_calls": 0,
+  "source_inputs": {
+    "/Users/bytedance/repos/my-quant/data/processed/adjusted_daily_bars/adjusted_daily_bars.parquet": {
+      "sha256": "11e7f9e38798e6e411f33b3250c564bcd5fcfbe34af2bda74e04c02cf8d08d9b",
+      "bytes": 671483800,
+      "mtime_ns": 1778987315515277565
+    },
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/local_observable_selection_v1/features/LOCAL_FIXED_DATE_FEATURES.parquet": {
+      "sha256": "e257fdf858504be681fe1bdad5a11a1516aaf19ec44f19a85ecd2a7ae8439b50",
+      "bytes": 5152673,
+      "mtime_ns": 1793901968095454851
+    },
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/local_observable_selection_v1/ranks/ALL_FIXED_DATE_RANKS.parquet": {
+      "sha256": "3dfc6c295c174e8bdbbaa6f74404e8d58c76f920de8488fd4b6b0c4db9d7e065",
+      "bytes": 8320168,
+      "mtime_ns": 1793902086997322719
+    },
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/inputs-v2/roster-dispositions.json": {
+      "sha256": "0b9eb58315c2a16d6cefadf29fc419caef0f562b670ee45aed7da6ae51f7d009",
+      "bytes": 2178190,
+      "mtime_ns": 1792855228275538196
+    },
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/selection_qualification_closeout_v1/eligibility_source/fixed35/FIXED35_2024_09_24.parquet": {
+      "sha256": "67ee97e29b889f14ffc3b6799501f96afdc2406b2c9cfb3d34574fe595ca71af",
+      "bytes": 52417,
+      "mtime_ns": 1793903804750150800
+    },
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/no_future_cap_selection_v1/FREEZE.json": {
+      "sha256": "4e98f7d46a6a678c9fa3e4b8318b88fe0b3241fc7b1009f62c9f236c8c0b5a00",
+      "bytes": 2288,
+      "mtime_ns": 1793905508743681992
+    },
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/no_future_cap_selection_v1/candidate_view.py": {
+      "sha256": "dc042fa51da5bf78b8a251476eb2a3fcde795799bbd445701de9e33705e1d80e",
+      "bytes": 4106,
+      "mtime_ns": 1793905678914498319
+    },
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/no_future_cap_selection_v1/run_comparison.py": {
+      "sha256": "9d89ad2f93701b0650e8958b17d46de198b1d3a116a5c80b46de04d5ea5282da",
+      "bytes": 10653,
+      "mtime_ns": 1793905679358787634
+    }
+  },
+  "outputs": {},
+  "elapsed_seconds": 9.245444708038121,
+  "caveats": [
+    "Not full historical all-A/PIT; canonical survivor/provider mother and239retired separate.",
+    "Historical listing/ST/halt/limit status unknown; no executable permission.",
+    "Global E0/I/sector/H1/CP gates not recomputed; fixed35 only.",
+    "Native amount feature not marketcap, order capacity, or tradability proof.",
+    "Qfq factor vintage and daily bar publication time not PIT certified."
+  ]
+}

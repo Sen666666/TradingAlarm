@@ -1,0 +1,37 @@
+海能达002583：原No60逐日变量与实际动作
+
+范围：2024-09-23至2024-11-27，共43个实际股票观察/CLOSE；起点原qty0，终点原qty0。
+这是现成原facts/CP/E0states/events/G1来源/PVR缓存与原B/daily日志的只读提取。
+没有模型、Market、Account、指标计算、风险设计或新回测。
+
+先读HYTERA_DAILY_NATIVE.csv。每行分开原CLOSE变量、当日原计划、前CLOSE给本OPEN的
+计划、OPEN实际资金拒因/买卖、CLOSE退出提案和真实持层。只有20个观察有实际
+rank-policy行，其余slots/rank为NONE；43日PVR_source_score均来自实际long的2024_full
+缓存，存在分数不代表入选或有排名。不能将成交原trade.pvr别名当真PVR源。
+
+实际动作：10/15 OPEN CORE100股；10/21 OPEN MOBILE1100股；10/22 OPEN MOBILE1000股。
+11/4 CLOSE两Mobile提出CP退出，11/5 OPEN卖2100股；Core100仍持有。
+11/26 CLOSE原I失效提退出，11/27 OPEN卖剩100股。原10/16、17的Mobile资金记录是
+probe_risk拒绝，后续还有行业/现金拒因，表内保留原组合字符串而不伪称第一约束。
+
+三处来源边界
+1. 实际I_target/i_floor/i_buy只取long真正消费的facts。旧IX与I有19/43日不同，不能
+   用旧IX的G1冷却退出解释实际I；I_entered/exited/exit_reason在actualfacts未导出，
+   记NOT_SAVED。E0entered/event可从原E0states/events旁取，但不称actualfacts导出。
+   E0target43日核同，E0floor42个共同已知日核同，11/27两边SOURCE_NULL。
+2. CORE1994的stored x.floor一直42.59907875674594，但11/20起saved last_core_line与
+   actualfacts I参考已为111.27463844110417。主CSV两者已分列，不能把Core静态stored
+   floor一概当直接价格止损。Mobile逐层CP floor也来自每日快照，不取最终book回填。
+   intra-CLOSE提线之前的即时floor没有独立日志，明确NOT_SAVED；以前CLOSE/真实买入
+   初始线/当前CLOSE三种已保存边界比较。补充LAYER_FLOOR_TIMELINE.csv可逐层查看。
+3. 原source observed_at为空，发布时间不详；表中的15:10是原账户实际消费CLOSE时钟，
+   不是供应商发布时间。OPEN成交为原日线执行代理记录，不声称真实排队必成交。
+
+KEY_DAYS_ORIGINAL_OUTPUTS.json保留7个关键日原字段；ALL_DAYS_ORIGINAL_STOCK_OUTPUTS.json
+保留43日完整股票切片。DATA_DICTIONARY.json逐列说明来源和NOT_SAVED/SOURCE_NULL/NONE。
+SOURCE_REFERENCE_MAP.json钉实际long文件路径，SOURCE_SHA256.json绑定原输入。
+主CSV补列前版本保留.v1，DAILY_TABLE_CORRECTION_RECEIPT.json记录前后SHA；原源未改。
+
+成功原源提取内部计时1.118088秒；其前I/IX身份断言中止、空值
+序列化错误与读取方式修正均为只读提取，不是金融运行。初次中止日志已留存。
+新增账户/回测/参数/模型/行情/特征均0。

@@ -1,0 +1,18 @@
+{
+  "approved": true,
+  "engine_sha256": "5cdfa190071396559f1dbb97c9dd7fc4f89ec501766f2d63bbe3d2b3f24064e8",
+  "contract_sha256": "7ea6fc192f889c75aea3c66a8b1a05eab14ffb7297ebab727d0ce8a80cb8c7c8",
+  "scope": "One frozen M6 historical research run 2024-09-02 through 2024-10-08 only. No live trades, parameter search or outcome-based tuning.",
+  "actual_method_assertions": 32,
+  "only_behavior_changes": [
+    "CLOSE ADD budget removes 4%-of-original-NAV less current marked round value term",
+    "OPEN ADD budget removes same term"
+  ],
+  "inherited_validation": "M5 unchanged methods retain prior 234-assertion admission; inherited atomic source exactly unchanged.",
+  "audit_files": {
+    "synthetic_m6.py": "0abc5f6827ab1efc6163abc9237f149008378b4415028116acdfc8dede26db7b",
+    "SYNTHETIC_QA.json": "4059c7680174b6a3b3d01c65a659660a1f06b4f9d9142e1058fe5b1fa1ce3fde"
+  },
+  "base_engine_sha256": "54f3d42846c97e63bf79b886564e186df182c5b9a1d0b69c1a8797dec7de9fa9",
+  "timestamp_utc": "2026-11-09T20:38:19.190940+00:00"
+}

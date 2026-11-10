@@ -1,0 +1,12 @@
+{
+  "status": "STOP_BEFORE_FEATURE_CALCULATION",
+  "formula": "withhold new original initial ticket only when B<=C<Q; never implemented",
+  "reason": "Rejection-domain economic justification absent; nonmonotonic boundary not repaired by early-reversal exemption",
+  "fixed_identities": 80,
+  "dates": 46,
+  "new_features": 0,
+  "new_model_fits": 0,
+  "new_economic_runs": 0,
+  "source_changes": false,
+  "created_utc": "2026-11-09T07:18:38.272872+00:00"
+}

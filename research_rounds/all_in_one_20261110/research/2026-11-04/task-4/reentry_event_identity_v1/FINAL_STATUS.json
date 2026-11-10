@@ -1,0 +1,46 @@
+{
+  "status": "ORIGINAL_DAILY_EVENT_CHAINS_AND_IDENTITIES_REVIEWED_NO_NEW_STRATEGY",
+  "environment_restored_and_aerospace_snapshots_read": true,
+  "daily_tables": {
+    "shandong": {
+      "observations": 27,
+      "unique_dates": true,
+      "sorted_dates": true,
+      "first": "2023-03-28",
+      "last": "2023-05-09",
+      "sha256": "596d9f3ae26afd3f2950a8c569dcdc1b6230bde9444ed3fa334774089a10444c"
+    },
+    "aerospace": {
+      "observations": 40,
+      "unique_dates": true,
+      "sorted_dates": true,
+      "first": "2025-11-20",
+      "last": "2026-01-16",
+      "sha256": "9dd3a2f5fc9012194ca3da63f67e9eed7d94afd818430bf533ff4dce3932fa2f"
+    },
+    "yingxin": {
+      "observations": 21,
+      "unique_dates": true,
+      "sorted_dates": true,
+      "first": "2022-01-04",
+      "last": "2022-02-08",
+      "sha256": "88fabd6258c7c0b299dd088bd2b86b1654bcc9bfce2a8ac2a7a1f8e868ab1f11"
+    }
+  },
+  "arithmetic_review": "calendar_bridge_review.json",
+  "identity_source_review": "identity_review/READOUT.txt",
+  "final_text_review": "identity_review/FINAL_READOUT_REVIEW.json",
+  "readout_sha256": "857412046cae9fca73f8ebaca7eccdc97f7ac19413680695fa2435b69744b13b",
+  "numeric_scope": "Original layer outcomes, and static three-layer calendar bridge; no alternative financial path",
+  "no_new": {
+    "models": 0,
+    "rolling_indicators": 0,
+    "strategies_or_parameters_tested": 0,
+    "accounts_or_backtests": 0,
+    "downloaded_market_data": 0,
+    "original_files_modified": 0
+  },
+  "price_and_execution_boundary": "Raw and adjusted coordinates labeled. Saved CLOSE clock not provider publication certification; fills original daily-bar proxies.",
+  "at_utc": "2026-11-05T05:39:41.957309+00:00",
+  "readout_post_review_changes": "READOUT_POST_REVIEW_CHANGES.json"
+}

@@ -1,0 +1,15 @@
+{
+  "status": "STOP_NO_GATE_NO_RANK_NO_ACCOUNT_NO_SIGN_REVERSAL",
+  "rows": 40,
+  "known": 40,
+  "actual_old_rounds": 33,
+  "old_pairs_usable": 7,
+  "pairs_higherZ_oldwin": 4,
+  "pairs_higherZ_oldloss": 3,
+  "Q1_all5_tails_negative": true,
+  "six_early_context_negative": true,
+  "tail11_in_negative": 9,
+  "tail11_in_positive": 2,
+  "mathematically_non_equivalent_to_prior_kernel": true,
+  "predictive_increment_not_supported": true
+}

@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "financial_events": 0,
+  "source": {
+    "checkpoint": "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-month-resume-v2-20261102/runs/2022-C10/full/2022-01-17-CLOSE.pkl",
+    "checkpoint_sha256": "75f28e1eec170fa9a6ab1050108423c84f740721fd4942c975ca574b6e061056",
+    "provenance_sha256": "53c457ef5e985f0a793ef857f528544ff523721779165362cf9676e197b171e3",
+    "cursor": "2022-01-17 15:10:00+08:00",
+    "certificate": "b529f58c3841a3af705eaa0bf955c889b780020174963b2a1acbf1620a8cd7de",
+    "trusted_id": "b09c2a24fab572afc1241bf45c1da1a778b2e3c06ad0ae8745cc2b9e0032a49a",
+    "C2_source_sha256": "3093ca9ffc24708fd157353071956cb31b758a15fb925bebcbbe6812037495f1",
+    "original_class_module_sha256": "2ba83f647a31c9628d9f814b856f32481a25e110086c8ac583aae485d901c281",
+    "financial_events": 0,
+    "account_restore_calls": 0
+  },
+  "full_candidates": 87,
+  "original_positive_Q": 6,
+  "C2_positive_Q": 10,
+  "original_QD_static_identity": true,
+  "seconds": 2.371644541155547,
+  "checkpoint_source_unchanged": true,
+  "technical_limit": 250000
+}

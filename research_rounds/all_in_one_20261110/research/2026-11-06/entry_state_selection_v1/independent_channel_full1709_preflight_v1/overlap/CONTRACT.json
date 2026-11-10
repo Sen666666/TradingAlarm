@@ -1,0 +1,25 @@
+{
+  "stock_price_receipts_independent": true,
+  "industry_fields_only_descriptive": [
+    "sector_known",
+    "sector_observed_today",
+    "sector_rs_ready_fresh",
+    "sector_up"
+  ],
+  "new_industry_policy": "NOT_FIXED_BY_THIS_PREFLIGHT",
+  "original_fast_arm": "AB_FAST_SMALL",
+  "full_fast_executed_coverage": "2022 only; 2024/26 native fact prerequisites do not include consumption, occupancy, PVR/size/queue outcomes",
+  "original_ab_2026_coverage": "semiconductor permits only; fixed46 repair does not rebuild coherent selection or occupancy",
+  "new_parent_quantities": "Not created. Per-receipt size is only hypothetical never-started parent; any existing parent must keep fixed Q and resume remaining Q-F only after real terminal ACK plus later fresh receipt.",
+  "old_flat": "Only original independent-stock reference state, never proof the new path is flat",
+  "same_day_close_check_uses_no_next_open": true,
+  "open_current_HLC_flags_not_used": true,
+  "factor_bridge": "Original repaired engine can translate some pending cash-event coordinates; this preflight does not evaluate that bridge and marks factor changes UNKNOWN, not NOFILL.",
+  "one_price_is_fill_evidence": false,
+  "tradeability": "UNKNOWN",
+  "new_accounts": 0,
+  "new_fills": 0,
+  "new_strategy_returns": 0,
+  "ranking": "NOT_ASSUMED",
+  "old_outcome_labels": "postprocessing only; no parameter or entry gate use"
+}

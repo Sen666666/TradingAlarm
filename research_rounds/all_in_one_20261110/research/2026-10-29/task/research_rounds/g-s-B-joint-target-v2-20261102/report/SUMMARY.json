@@ -1,0 +1,358 @@
+{
+  "2025_26": {
+    "A_Q": {
+      "603936.SH": 1500,
+      "002487.SZ": 0,
+      "001267.SZ": 0,
+      "002466.SZ": 0
+    },
+    "A_donor_layers": 0,
+    "B_increment_names": 5,
+    "B_new_mobile_names": 5,
+    "B_existing_mobile_add_names": 0,
+    "B_donor_names": 20,
+    "B_buy_cash": "441995.0288166228750",
+    "B_donor_net": "627422.8285525432500",
+    "B_core_fixed_capital": "136.00",
+    "B_conditional_terminal": {
+      "nav": "996853.8623565870250",
+      "available": "368490.3623565870250",
+      "capital": "628363.50",
+      "risk": "59602.96379124444011355930097"
+    },
+    "B_conditional_exposure": "0.6303466573470791857532178982",
+    "A_conditional_terminal": {
+      "nav": "998019.7536987059000",
+      "available": "167433.7536987059000",
+      "capital": "830586.00",
+      "risk": "59818.00244309178187130221248"
+    },
+    "B_minima": {
+      "cash_reserve10": {
+        "stage": "reserve:688353.SH",
+        "constraint": "cash_reserve10",
+        "value": "99803.35626206666500",
+        "limit": "368490.3623565870250",
+        "residual": "268687.00609452036000"
+      },
+      "account_capital90": {
+        "stage": "reserve:688353.SH",
+        "constraint": "account_capital90",
+        "value": "628584.328750",
+        "limit": "897367.22199592832250",
+        "residual": "268782.89324592832250"
+      },
+      "account_risk6": {
+        "stage": "reserve:688353.SH",
+        "constraint": "account_risk6",
+        "value": "59823.79254124444011355930097",
+        "limit": "59824.481466395221500",
+        "residual": "0.68892515078138644069903"
+      },
+      "industry_target": {
+        "stage": "reserve:688700.SH",
+        "constraint": "industry_target",
+        "value": "99772.561350",
+        "limit": "199606.71252413333000",
+        "residual": "99834.15117413333000"
+      },
+      "sector_risk5": {
+        "stage": "amend-before-conditional-fill:688353.SH",
+        "constraint": "sector_risk5",
+        "value": "13867.14132663108414345379697",
+        "limit": "49843.952787829351250",
+        "residual": "35976.81146119826710654620303"
+      },
+      "stock10": {
+        "stage": "reserve:688700.SH",
+        "constraint": "stock10",
+        "value": "99772.561350",
+        "limit": "99803.35626206666500",
+        "residual": "30.79491206666500"
+      }
+    },
+    "A_minima": {
+      "cash_reserve10": {
+        "stage": "reserve:603936.SH",
+        "constraint": "cash_reserve10",
+        "value": "99803.35626206666500",
+        "limit": "167433.7536987059000",
+        "residual": "67630.39743663923500"
+      },
+      "account_capital90": {
+        "stage": "reserve:603936.SH",
+        "constraint": "account_capital90",
+        "value": "830593.807500",
+        "limit": "898224.80507883531000",
+        "residual": "67630.99757883531000"
+      },
+      "account_risk6": {
+        "stage": "reserve:603936.SH",
+        "constraint": "account_risk6",
+        "value": "59825.80994309178187130221248",
+        "limit": "59881.653671922354000",
+        "residual": "55.84372883057212869778752"
+      },
+      "industry_target": {
+        "stage": "reserve:603936.SH",
+        "constraint": "industry_target",
+        "value": "15622.807500",
+        "limit": "46966.28529979607764705882353",
+        "residual": "31343.47779979607764705882353"
+      },
+      "sector_risk5": {
+        "stage": "reserve:603936.SH",
+        "constraint": "sector_risk5",
+        "value": "1146.249793616900083547052525",
+        "limit": "49901.378059935295000",
+        "residual": "48755.12826631839491645294748"
+      },
+      "stock10": {
+        "stage": "reserve:603936.SH",
+        "constraint": "stock10",
+        "value": "15622.807500",
+        "limit": "99803.35626206666500",
+        "residual": "84180.54876206666500"
+      }
+    },
+    "recipients": [
+      {
+        "sid": "301345.SZ",
+        "name": "涛涛车业",
+        "rank": 3,
+        "old_mobile_qty": 0,
+        "increment": 700,
+        "target": 700,
+        "use": "G"
+      },
+      {
+        "sid": "002987.SZ",
+        "name": "京北方",
+        "rank": 5,
+        "old_mobile_qty": 0,
+        "increment": 4700,
+        "target": 4700,
+        "use": "G"
+      },
+      {
+        "sid": "688700.SH",
+        "name": "东威科技",
+        "rank": 6,
+        "old_mobile_qty": 0,
+        "increment": 2310,
+        "target": 2310,
+        "use": "G"
+      },
+      {
+        "sid": "603936.SH",
+        "name": "博敏电子",
+        "rank": 7,
+        "old_mobile_qty": 0,
+        "increment": 9500,
+        "target": 9500,
+        "use": "S"
+      },
+      {
+        "sid": "688353.SH",
+        "name": "华盛锂电",
+        "rank": 8,
+        "old_mobile_qty": 0,
+        "increment": 1266,
+        "target": 1266,
+        "use": "S"
+      }
+    ],
+    "financial_events": 0,
+    "actual_source_orders_preserved": 16
+  },
+  "2022": {
+    "A_Q": {
+      "000877.SZ": 1900
+    },
+    "A_donor_layers": 9,
+    "B_increment_names": 8,
+    "B_new_mobile_names": 4,
+    "B_existing_mobile_add_names": 4,
+    "B_donor_names": 27,
+    "B_buy_cash": "629663.3148331564500",
+    "B_donor_net": "728572.5471337754500",
+    "B_core_fixed_capital": "28574.00",
+    "B_conditional_terminal": {
+      "nav": "996422.0152100450500",
+      "available": "220957.0152100450500",
+      "capital": "775465.00",
+      "risk": "59486.03676497090597483492986"
+    },
+    "B_conditional_exposure": "0.7782495651067409737877743868",
+    "A_conditional_terminal": {
+      "nav": "998169.8571438859500",
+      "available": "99918.8571438859500",
+      "capital": "898251.00",
+      "risk": "51487.46077356837973969130437"
+    },
+    "B_minima": {
+      "cash_reserve10": {
+        "stage": "reserve:300418.SZ",
+        "constraint": "cash_reserve10",
+        "value": "99825.27829094260500",
+        "limit": "220957.0152100450500",
+        "residual": "121131.73691910244500"
+      },
+      "account_capital90": {
+        "stage": "reserve:300418.SZ",
+        "constraint": "account_capital90",
+        "value": "775779.583500",
+        "limit": "897062.93883904054500",
+        "residual": "121283.35533904054500"
+      },
+      "account_risk6": {
+        "stage": "reserve:300418.SZ",
+        "constraint": "account_risk6",
+        "value": "59800.62026497090597483492986",
+        "limit": "59804.195922602703000",
+        "residual": "3.57565763179702516507014"
+      },
+      "industry_target": {
+        "stage": "reserve:600572.SH",
+        "constraint": "industry_target",
+        "value": "395793.970000",
+        "limit": "798602.22632754084000",
+        "residual": "402808.25632754084000"
+      },
+      "sector_risk5": {
+        "stage": "amend-before-conditional-fill:002603.SZ",
+        "constraint": "sector_risk5",
+        "value": "25313.45538438059202697479101",
+        "limit": "49833.855485502252500",
+        "residual": "24520.40010112166047302520899"
+      },
+      "stock10": {
+        "stage": "reserve:600572.SH",
+        "constraint": "stock10",
+        "value": "99609.780000",
+        "limit": "99825.27829094260500",
+        "residual": "215.49829094260500"
+      }
+    },
+    "A_minima": {
+      "cash_reserve10": {
+        "stage": "reserve:000877.SZ",
+        "constraint": "cash_reserve10",
+        "value": "99825.27829094260500",
+        "limit": "99918.8571438859500",
+        "residual": "93.57885294334500"
+      },
+      "account_capital90": {
+        "stage": "reserve:000877.SZ",
+        "constraint": "account_capital90",
+        "value": "898266.342500",
+        "limit": "898366.67967949735500",
+        "residual": "100.33717949735500"
+      },
+      "account_risk6": {
+        "stage": "reserve:000877.SZ",
+        "constraint": "account_risk6",
+        "value": "51502.80327356837973969130437",
+        "limit": "59891.111978633157000",
+        "residual": "8388.30870506477726030869563"
+      },
+      "industry_target": {
+        "stage": "reserve:000877.SZ",
+        "constraint": "industry_target",
+        "value": "30700.342500",
+        "limit": "30715.47024336695538461538462",
+        "residual": "15.12774336695538461538462"
+      },
+      "sector_risk5": {
+        "stage": "reserve:000877.SZ",
+        "constraint": "sector_risk5",
+        "value": "1510.613623139908547773952376",
+        "limit": "49909.259982194297500",
+        "residual": "48398.64635905438895222604762"
+      },
+      "stock10": {
+        "stage": "reserve:000877.SZ",
+        "constraint": "stock10",
+        "value": "30700.342500",
+        "limit": "99825.27829094260500",
+        "residual": "69124.93579094260500"
+      }
+    },
+    "recipients": [
+      {
+        "sid": "002987.SZ",
+        "name": "京北方",
+        "rank": 1,
+        "old_mobile_qty": 1000,
+        "increment": 1600,
+        "target": 2600,
+        "use": "S"
+      },
+      {
+        "sid": "000810.SZ",
+        "name": "创维数字",
+        "rank": 2,
+        "old_mobile_qty": 3200,
+        "increment": 4600,
+        "target": 7800,
+        "use": "S"
+      },
+      {
+        "sid": "002603.SZ",
+        "name": "以岭药业",
+        "rank": 3,
+        "old_mobile_qty": 100,
+        "increment": 4700,
+        "target": 4800,
+        "use": "S"
+      },
+      {
+        "sid": "000999.SZ",
+        "name": "华润三九",
+        "rank": 4,
+        "old_mobile_qty": 900,
+        "increment": 1600,
+        "target": 2500,
+        "use": "S"
+      },
+      {
+        "sid": "000719.SZ",
+        "name": "中原传媒",
+        "rank": 5,
+        "old_mobile_qty": 0,
+        "increment": 10700,
+        "target": 10700,
+        "use": "S"
+      },
+      {
+        "sid": "600285.SH",
+        "name": "羚锐制药",
+        "rank": 6,
+        "old_mobile_qty": 0,
+        "increment": 5700,
+        "target": 5700,
+        "use": "S"
+      },
+      {
+        "sid": "600572.SH",
+        "name": "康恩贝",
+        "rank": 7,
+        "old_mobile_qty": 0,
+        "increment": 19000,
+        "target": 19000,
+        "use": "S"
+      },
+      {
+        "sid": "300418.SZ",
+        "name": "昆仑万维",
+        "rank": 8,
+        "old_mobile_qty": 0,
+        "increment": 2000,
+        "target": 2000,
+        "use": "S"
+      }
+    ],
+    "financial_events": 0,
+    "actual_source_orders_preserved": 9
+  }
+}

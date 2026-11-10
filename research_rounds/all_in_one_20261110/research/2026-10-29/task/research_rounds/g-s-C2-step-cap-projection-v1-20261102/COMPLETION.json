@@ -1,0 +1,47 @@
+{
+  "status": "READY_FOR_INDEPENDENT_STATIC_AUDIT",
+  "completed_utc": "2026-11-02T03:50:25.557580+00:00",
+  "synthetic_tests": 12,
+  "passed": true,
+  "input_qualification_priority_resources_receipts_same": true,
+  "sole_change": "max_q per fresh mobile upper bound 2% gross vs C10",
+  "C10_recomputed": false,
+  "C10_inputs_code_and_results_unchanged": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-industry-first-projection-v1-20261102": 62,
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-B-joint-target-v2-20261102": 73
+  },
+  "actual_cash_released": 0,
+  "actual_risk_released": 0,
+  "financial_events": 0,
+  "new_indicators": 0,
+  "new_industry_gate": false,
+  "static_projections": [
+    "2025-07-03",
+    "2022-01-06"
+  ],
+  "crossprocess_exact": true,
+  "stats": {
+    "2025_26": {
+      "C2_positive": 24,
+      "C10_positive": 6,
+      "new_target_minlot_rejects": 2,
+      "C10_funded_lost_by_minlot": 0,
+      "seconds": 16.861898249946535
+    },
+    "2022": {
+      "C2_positive": 25,
+      "C10_positive": 9,
+      "new_target_minlot_rejects": 0,
+      "C10_funded_lost_by_minlot": 0,
+      "seconds": 1.8096166253089905
+    }
+  },
+  "source_sha256": {
+    "C2": "3093ca9ffc24708fd157353071956cb31b758a15fb925bebcbbe6812037495f1",
+    "C10": "8a4b89cec342763f922ae65b3d138792cc6945f452595d86a263f5c0b15bc130",
+    "B": "44e7345ef2b3fc494e9854216579aa5faa0e0557b4ecbc207b1027b102e401a8",
+    "JF2": "b76660a053a09a4e394b32b9ccc61f709cdc98ac6bf900a425f476700c7771cf",
+    "amendment": "0ddfbaa8fe3b5cfc4d057de9767cca6c3cc0269870942538c0570231ba74ec07"
+  },
+  "market2026": "not computed; old list errata recorded separately and not used"
+}

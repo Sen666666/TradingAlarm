@@ -1,0 +1,20 @@
+{
+  "result": "PASS_SELF_ACCOUNT_RECONSTRUCTION_PENDING_INDEPENDENT_AUDIT",
+  "last_day": "2024-10-08",
+  "days": 20,
+  "orders": 515,
+  "cohort": {
+    "signals": 35,
+    "actual_rounds": 2,
+    "not_entered": 33,
+    "closed": 2,
+    "unfinished": 0,
+    "closed_net": "-150.4930744293500"
+  },
+  "confirmed_rounds": 107,
+  "ADD_rounds": 25,
+  "confirmed_never_ADD": 82,
+  "ADD_fills": 30,
+  "ADD_floor_loss_exceeds_old_net": 24,
+  "blockers": []
+}

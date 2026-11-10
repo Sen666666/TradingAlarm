@@ -1,0 +1,50 @@
+2×2全部逐股变化（计划，不是成交；同一天相同F/S0）
+
+2023-01-20 gate_effect_given_singlepass gained=002465.SZ,300251.SZ,300660.SZ lost=300398.SZ
+002465.SZ 海格通信：无 → mobile/confirmed/1500股 gross=12936.47 fee=6.01810 floor=8.278605
+300251.SZ 光线传媒：无 → mobile/confirmed/1400股 gross=12802.40 fee=6.00755 floor=8.680000
+300398.SZ 飞凯材料：mobile/confirmed/700股 gross=12592.29 fee=5.99101 floor=17.010000 → 无
+300660.SZ 江苏雷利：无 → mobile/confirmed/400股 gross=10969.48 fee=5.86330 floor=23.867512
+600595.SH 中孚实业：mobile/confirmed/4200股 gross=13152.57 fee=6.03511 floor=2.920000 → mobile/confirmed/800股 gross=2505.25 fee=5.19716 floor=2.920000
+
+2023-01-20 gate_effect_given_twopass gained=002465.SZ,002648.SZ,300660.SZ,600378.SH,600595.SH,600888.SH,603993.SH lost=
+002465.SZ 海格通信：无 → mobile/confirmed/1500股 gross=12936.47 fee=6.01810 floor=8.278605
+002648.SZ 卫星化学：无 → mobile/confirmed/700股 gross=12284.14 fee=5.96676 floor=15.201850
+300398.SZ 飞凯材料：mobile/confirmed/700股 gross=12592.29 fee=5.99101 floor=17.010000 → mobile/confirmed/100股 gross=1798.90 fee=5.14157 floor=17.010000
+300660.SZ 江苏雷利：无 → mobile/confirmed/400股 gross=10969.48 fee=5.86330 floor=23.867512
+600378.SH 昊华科技：无 → mobile/confirmed/200股 gross=9214.60 fee=5.72519 floor=41.937913
+600595.SH 中孚实业：无 → mobile/confirmed/4200股 gross=13152.57 fee=6.03511 floor=2.920000
+600888.SH 新疆众和：无 → mobile/confirmed/1400股 gross=12396.19 fee=5.97558 floor=8.342991
+603993.SH 洛阳钼业：无 → mobile/confirmed/2600股 gross=13136.57 fee=6.03385 floor=4.639237
+
+2023-01-20 allocator_effect_given_coupling gained=000032.SZ,000630.SZ,300251.SZ,600388.SH lost=002648.SZ,002739.SZ,600378.SH,600595.SH,600888.SH,603993.SH
+000032.SZ 深桑达Ａ：无 → core/probe/100股 gross=2546.27 fee=5.20039 floor=20.000000
+000630.SZ 铜陵有色：无 → core/probe/100股 gross=351.18 fee=5.02764 floor=3.040000
+002648.SZ 卫星化学：mobile/confirmed/700股 gross=12284.14 fee=5.96676 floor=15.201850 → 无
+002739.SZ 儒意电影：core/probe/100股 gross=1500.75 fee=5.11811 floor=13.510000 → 无
+003006.SZ 百亚股份：core/probe/300股 gross=5159.58 fee=5.40606 floor=12.400000 → core/probe/100股 gross=1719.86 fee=5.13535 floor=12.400000
+300251.SZ 光线传媒：无 → mobile/confirmed/1400股 gross=12802.40 fee=6.00755 floor=8.680000
+600378.SH 昊华科技：mobile/confirmed/200股 gross=9214.60 fee=5.72519 floor=41.937913 → 无
+600388.SH 紫金龙净：无 → core/probe/100股 gross=1715.86 fee=5.13504 floor=12.840000
+600595.SH 中孚实业：mobile/confirmed/4200股 gross=13152.57 fee=6.03511 floor=2.920000 → 无
+600873.SH 梅花生物：mobile/confirmed/1200股 gross=12918.46 fee=6.01668 floor=9.990390 → core/probe/100股 gross=1076.54 fee=5.08472 floor=9.830000
+600888.SH 新疆众和：mobile/confirmed/1400股 gross=12396.19 fee=5.97558 floor=8.342991 → 无
+603993.SH 洛阳钼业：mobile/confirmed/2600股 gross=13136.57 fee=6.03385 floor=4.639237 → 无
+
+2023-01-20 allocator_effect_given_decoupling gained=000032.SZ,000630.SZ,300398.SZ,600388.SH lost=002739.SZ
+000032.SZ 深桑达Ａ：无 → core/probe/100股 gross=2546.27 fee=5.20039 floor=20.000000
+000630.SZ 铜陵有色：无 → core/probe/100股 gross=351.18 fee=5.02764 floor=3.040000
+002739.SZ 儒意电影：core/probe/100股 gross=1500.75 fee=5.11811 floor=13.510000 → 无
+003006.SZ 百亚股份：core/probe/300股 gross=5159.58 fee=5.40606 floor=12.400000 → core/probe/100股 gross=1719.86 fee=5.13535 floor=12.400000
+300398.SZ 飞凯材料：无 → mobile/confirmed/100股 gross=1798.90 fee=5.14157 floor=17.010000
+600388.SH 紫金龙净：无 → core/probe/100股 gross=1715.86 fee=5.13504 floor=12.840000
+600595.SH 中孚实业：mobile/confirmed/800股 gross=2505.25 fee=5.19716 floor=2.920000 → mobile/confirmed/4200股 gross=13152.57 fee=6.03511 floor=2.920000
+600873.SH 梅花生物：mobile/confirmed/1200股 gross=12918.46 fee=6.01668 floor=9.990390 → core/probe/100股 gross=1076.54 fee=5.08472 floor=9.830000
+
+2022-06-29 gate_effect_given_singlepass gained= lost=
+
+2022-06-29 gate_effect_given_twopass gained= lost=
+
+2022-06-29 allocator_effect_given_coupling gained= lost=
+
+2022-06-29 allocator_effect_given_decoupling gained= lost=

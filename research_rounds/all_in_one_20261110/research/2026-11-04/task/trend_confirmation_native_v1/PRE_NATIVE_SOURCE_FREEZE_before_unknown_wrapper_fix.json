@@ -1,0 +1,20 @@
+{
+  "time_UTC": "2026-11-04T16:16:54.346617+00:00",
+  "before_new_accounts": true,
+  "arms": [
+    "B",
+    "UNIFORM50",
+    "A_ONLY",
+    "A_OR_B"
+  ],
+  "new_exit_or_ACT_recovery": false,
+  "full_authorized": false,
+  "source_SHA256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_native_v1/trend_size_plugin.py": "37796d4d1812369d79629650aa5062804d129a139bb4dfbc4e962d750289edab",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_native_v1/run_trend_small.py": "6acb11a6ef78e10c164c3ecd3256c274374eff65d54585139b90a4b94b8f7fad",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_native_v1/TECHNICAL_SMALL_CARD.txt": "45c48b87b961e5f83351d8059fb135ff34cdac4c8add4531b61e40bf6c0bbb2c",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_dedup_v1/compute_flags.py": "b535fc27dc7a6445013d4ee442a4f2b88ea8d56d6a927e2c20686d04bf0fe3a5",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/trend_confirmation_dedup_v1/FORMULA_AND_ABLATION_CARD.txt": "61e817c0e420be7b2025aea14d4d3d2993b4ea2e55f1e718ea9efa739f43c754",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_v1/capacity_inputs.py": "083bcce4f96c6cd02d3c2e1ea3d7b4522781b26cf1ac8e70a93fccafc582b0f8"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "version": "native_dmi_january_followthrough_v1",
+  "status": "Single frozen continuation; independent audit and parent release required before economic launch",
+  "end": "2026-05-15",
+  "arms": ["2022Jan_DMI", "2026Jan_DMI"],
+  "starting_point": "Full sealed same-arm January final checkpoint, no repeated January or reset. DMI persists at every later CLOSE and later normal full-pool signals remain allowed.",
+  "policy": "Exactly original native ACT, initial/add sizing, I/CP, fees, T+1, cash budget and shared capital. No profit add gate, no AB+PRICE contract, no forced liquidation. PVR internal account label retained for original ledger IDs.",
+  "DMI": "Same frozen competitive Wilder14 pure calc/rma functions and same original reorder: known PVR and DMI flat active stock slots only, within sector plus exact pending role set; held ADD and UNKNOWN fixed; no threshold, no TopK. Driver CLOSE reorder is part of effective policy, not stored native method identity.",
+  "restoration": "Verified exact source freeze and generation-time method identity. One unpickle, all runner/account fields assigned by identity from same object graph, retaining cross-field aliases; only market/facts and immutable source context reconstructed. Single PVR account, no NOACT. No append-log trimming required at restoration.",
+  "engineering": "Restored clones only, each PVR January checkpoint through first next OPEN and following CLOSE, with all intervening corporate action/payment events in original E.event order. Exact original retained baseline histories, daily and all original outputs checked. No retained PVR economic suffix and no full-period PVR re-run.",
+  "freeze": "Original sources and outputs remain byte unchanged. New-only O_EXCL locks. Failed/uncertain economic run is not retried, retains failed event and partial diagnostic state. Two economic suffixes sequentially, each once.",
+  "feature_validation": "Same signal.parquet hashes and calendar, 2013 warmup, invalid/missing/segment resets and no fill. All original 66651 feature rows exact, every stock physical prefixes at January endpoints and 2024-09-24, plus 2026-01-30 and 2026-03-31. Features are causal date extension, not tuning or training expansion.",
+  "report": "Whole account and January first-BUY 0-to-0 rounds separately, including January already closed. 2026 inherited positions separate. Later same-stock reentries are separate rounds, never inserted in January win denominator. Complete and independently closed first BUY layer statistics, fee-net >=30% tails, open/UNKNOWN denominators, annual NAV/drawdown/cash/fees and event-path entry matching.",
+  "limits": "Original ACT single-factor research without profit add gate, not final user strategy. Known development history not untouched OOS. Fixed future 1709 stocks/90 sectors NON-PIT. Daily conditional known OPEN +/-5bp and dated volume rules, historical tradability UNKNOWN. Same end date does not make unequal exposure periods equally mature. Research cash ledger, not brokerage fills."
+}

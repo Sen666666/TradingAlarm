@@ -1,0 +1,20 @@
+{
+  "status": "ONE_FIXED_DIAGNOSTIC_COMPLETE_NO_POLICY_PROMOTION",
+  "births": 1814,
+  "scored": 1299,
+  "primary_mature_H": 1040,
+  "primary_W": 283,
+  "primary_L": 757,
+  "primary_U": 0,
+  "primary_stocks": 733,
+  "primary_dates": 295,
+  "account_runs": 0,
+  "parameter_searches": 0,
+  "new_candidate_reorders": 0,
+  "new_model_specifications": 1,
+  "comparison_models": 2,
+  "first_prediction": "2023-02-03",
+  "history": "Repeatedly researched history, not untouched OOS",
+  "ultimate_probability": "Partially identified interval only; pW is not final win probability",
+  "seconds": 0.40264820912852883
+}

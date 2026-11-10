@@ -1,0 +1,45 @@
+{
+  "updated_UTC": "2026-11-05T01:11:25.755866+00:00",
+  "stage": "COMPLETE_2024_EXPLANATION_BOUNDED_INDEPENDENT_REVIEW_NOT_PROMOTED",
+  "priority": "2024 own-capital account losses and 924 old/new trade-chain explanation, ahead of new robustness full",
+  "outcome": "Both 2024 paths poor; D own annual return worse than No60. Own-ACT late recovery and NOT_DOWN new-risk losses are separate mechanisms.",
+  "report": "explanation_2024_root_v2/READOUT.md",
+  "own_2024": {
+    "No60": {
+      "initial_NAV": "745426.9583780900535",
+      "terminal_NAV": "637989.6123510238600",
+      "wealth_change": "-107437.3460270661935",
+      "return_pct": "-14.4128602836"
+    },
+    "D_GROSS10": {
+      "initial_NAV": "858950.8970369426975",
+      "terminal_NAV": "718642.0995626711180",
+      "wealth_change": "-140308.7974742715795",
+      "return_pct": "-16.334903"
+    }
+  },
+  "new_reviews": [
+    "audit_2024_account_v2/ACCOUNT_2024_INDEPENDENT_AUDIT.json",
+    "audit_2024_account_v2/POST_OCT8_CLASSIFICATION_REVIEW.json",
+    "audit_2024_account_v2/BENCHMARK_SLICE_REVIEW.json",
+    "audit_2024_account_v2/FOLLOWUP_924_THREE_WITNESSES_REVIEW.json"
+  ],
+  "new_account_or_backtest_events": 0,
+  "resumption": {
+    "small87_final_ledger_review": "PASS_EXISTS_SHA_546cb7814f7d0b6fa79331b296e5ff1b646e9f161ba0b3d37a73321ada36fafa",
+    "robustness_full": "No authorization/final manifest/results found; not run or repaired this task",
+    "latent_entry_block": "run_window.py:60 exact PASS predicate rejects existing scoped final status before loader/account",
+    "OS_process_liveness": "UNKNOWN; ps sandbox EPERM; no rerun or termination"
+  },
+  "not_verified": [
+    "PIT or unseen samples/HK/1200000 CNY discrete execution",
+    "intraday DD/exchange queue/complete issuer external economic rights",
+    "all-industry independent reaggregation",
+    "deleting trades or changed-rule executable counterfactual gains"
+  ],
+  "next_priority": [
+    "NOT_DOWN new-risk quality/feedback failure, retaining full profitable counterexamples",
+    "Separately own-ACT flat recovery timing with false-recovery costs",
+    "Do not tune DOWN alpha as if it covered all-NOT_DOWN post-Oct8 loss; no full experiment until mechanism coverage and implementation/review cost clear"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-30T10:29:35.617551+00:00",
+  "status": "design_revised_and_synthetic_tests_completed_stop",
+  "version": "v1_minimal_first_warning_boundary",
+  "rejected_version_retained": true,
+  "cases_passed": 9,
+  "synthetic_observations": 42,
+  "historical_market_files_read": 0,
+  "historical_trigger_checks": 0,
+  "economic_tests": 0,
+  "product_changes": 0,
+  "follow_on_started": false,
+  "sha256": {
+    "DESIGN_REVIEW.txt": "04faf3a8b513324c21b4d04cd84403e1baafbbaa7dae2a275eb94ced3cea84e4",
+    "DESIGN_REVIEW_v0_REJECTED.txt": "bc42dc76095a2205041e32ecb072764ad7dfdd2802da288df273a461bf391d7c",
+    "minimal_boundary.py": "de8287b60387f4fef52d2974833b11788abef7ad47f3d43b4eced9c0b89c00a5",
+    "synthetic_checks.py": "fb25e477f1294f0a381e8920bd1719124ec4d84ffb44a6a1eeb3694453117f3d",
+    "synthetic-expectations.csv": "926d1ec271e150a035f497e78ff325b6deb91934ee2f7dc76be2087a17ffb66b",
+    "synthetic-trace.csv": "4dc63c331fa58160408638fed11347e9a8af6ec51e8f10133c40f0874683afb6",
+    "SYNTHETIC_RESULTS.json": "65c856eb5b43f3729c08b59084b75528c5badc6994d5ea4b5e5b7e8f58068fe3"
+  }
+}

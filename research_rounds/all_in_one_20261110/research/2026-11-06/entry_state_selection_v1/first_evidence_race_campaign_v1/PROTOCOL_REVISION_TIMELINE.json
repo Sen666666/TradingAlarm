@@ -1,0 +1,9 @@
+{
+  "original_ABC_sample_protocol_hash": "071ee1ef9c4bd706979112ee42ce04cefd4277cc2e34d123ae8a34059c310bd5",
+  "ABC_snapshot_current_hash": "071ee1ef9c4bd706979112ee42ce04cefd4277cc2e34d123ae8a34059c310bd5",
+  "snapshot_matches_sample": true,
+  "ABC_technical_sample": "sample/RUN_ONCE.json",
+  "revision": "User requested native natural-retry D after the 33-permit ABC technical sample and before any full run. No outcome-selected D parameter.",
+  "four_arm_protocol_hash": "ca666e39b98b29cedd90c29cb74672ed9ad0b1ce42a3d89454ab9da051263c73",
+  "full_runs": 0
+}

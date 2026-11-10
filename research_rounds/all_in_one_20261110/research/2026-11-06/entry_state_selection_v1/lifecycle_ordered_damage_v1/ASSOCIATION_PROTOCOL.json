@@ -1,0 +1,11 @@
+{
+  "status": "FIXED_AFTER_19_CASES_BEFORE_ALL_FIRST_ENTRY_STATE_EXTRACTION",
+  "reason": "Parent requested whole existing real first-entry distribution checks rather than selected cases. This is follow-up descriptive validation, not new blind/OOS pre-registration.",
+  "universe": "All existing PVR account 2693 original zero-to-position first entries, 1220 stocks. No new qualification, candidate, holdings or account path.",
+  "state": "Exactly PROTOCOL.json formula, no changed rho, windows, transforms or cutoffs. A bare-array implementation must reproduce the earlier 16-stock prefix values.",
+  "ablation": "Drop prior advance_fraction only: H0=rho*H0+(1-rho)*(negative_r/sigma)^2; healthy0=1/(1+H0). This is ordinary normalized downside-variance EMA. Tests whether ordered prior-advance factor adds anything beyond downside volatility. Not a new traded strategy.",
+  "primary": "2022 closed by 2022 year-end, other years closed by 2026-05-15, label original entire net round>0. Separate terminal-closed-all-years sensitivity so year-end and terminal labels never mix silently. Unclosed and unknown scores always reported.",
+  "statistics": "Year x original winner/loss group count, median/Q25/Q75 of health, plain_health and advance_fraction; continuous ROC AUC health-higher=win without any cutoff, PVR baseline and plain_health ablation; Spearman versus original full-round return/cumulative_cost and existing forward20 returns. Same-year within original role x market regime paired win/loss AUC as a descriptive confounding check. Pair weighting is not statistical independence.",
+  "missing": "All finite state main; fully warmed n>=63 sensitivity fixed before extraction. No fill of unknown scores. Retain missing common-date reset and original unclosed outcomes explicitly.",
+  "claims": "Actual filled first-entry selection is conditioned on the original account, not a complete opportunity pool. Association cannot establish new strategy win rate, causal selection gain, NAV or 35% target. No future outcome is used in state; labels join only after state file and hash sealed. No parameter/threshold search."
+}

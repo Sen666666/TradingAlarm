@@ -1,0 +1,125 @@
+{
+  "finished_at": "2026-10-22T23:44:48.002586+08:00",
+  "reports": [
+    {
+      "node": "9602",
+      "symbol": "USHA600000",
+      "attempts": [],
+      "responses": [
+        {
+          "kind": 200,
+          "received_at": "2026-10-22T23:44:46.151252+08:00",
+          "query": {
+            "id": 200,
+            "instance": 860002,
+            "zipversion": 3,
+            "market": "USHA",
+            "codelist": "600000",
+            "datatype": "55"
+          },
+          "body_sha256": "566a5ccf56a0f96ecb6fcd432056a10786687a2ecff912517a73f29d26d2244d",
+          "records": 1
+        },
+        {
+          "kind": 210,
+          "received_at": "2026-10-22T23:44:46.552466+08:00",
+          "query": {
+            "id": 210,
+            "instance": 860003,
+            "zipversion": 3,
+            "market": "USHA",
+            "code": "600000",
+            "start": -9,
+            "end": "20261022",
+            "datatype": "1,7,8,9,11,13,19,74",
+            "period": 16384
+          },
+          "body_sha256": "204714cfa3b5889aa5423ae8cc82b1ed1ecc6c004ff9f5931bb807dce65c1bc2",
+          "records": 10,
+          "rows": 10,
+          "first": "2026-10-09",
+          "last": "2026-10-22"
+        },
+        {
+          "kind": 211,
+          "received_at": "2026-10-22T23:44:46.997362+08:00",
+          "query": {
+            "id": 211,
+            "instance": 860004,
+            "zipversion": 3,
+            "market": "USHA",
+            "code": "600000",
+            "start": 0,
+            "end": 0,
+            "datatype": "1,471",
+            "period": 16384
+          },
+          "body_sha256": "97b88e6b6b0f888a216abd59336f48114fa9e5916e56752dccf145b22af2efc2",
+          "records": 27
+        }
+      ],
+      "requests": 3,
+      "status": "responses_saved"
+    },
+    {
+      "node": "9603",
+      "symbol": "UHKMHK0700",
+      "attempts": [],
+      "responses": [
+        {
+          "kind": 200,
+          "received_at": "2026-10-22T23:44:47.163341+08:00",
+          "query": {
+            "id": 200,
+            "instance": 960002,
+            "zipversion": 3,
+            "market": "UHKM",
+            "codelist": "HK0700",
+            "datatype": "55"
+          },
+          "body_sha256": "07ca39636f2a5821ec3f66ede920edce5bde5f3db36faf950a2e0d60edb29328",
+          "records": 1
+        },
+        {
+          "kind": 210,
+          "received_at": "2026-10-22T23:44:47.573498+08:00",
+          "query": {
+            "id": 210,
+            "instance": 960003,
+            "zipversion": 3,
+            "market": "UHKM",
+            "code": "HK0700",
+            "start": -9,
+            "end": "20261022",
+            "datatype": "1,7,8,9,11,13,19,74",
+            "period": 16384
+          },
+          "body_sha256": "c10863d4f9208e0511ac55f98e9f2f086807c3cadf85d743325a1f83bd82bc82",
+          "records": 10,
+          "rows": 10,
+          "first": "2026-10-08",
+          "last": "2026-10-22"
+        },
+        {
+          "kind": 211,
+          "received_at": "2026-10-22T23:44:48.002445+08:00",
+          "query": {
+            "id": 211,
+            "instance": 960004,
+            "zipversion": 3,
+            "market": "UHKM",
+            "code": "HK0700",
+            "start": 0,
+            "end": 0,
+            "datatype": "1,471",
+            "period": 16384
+          },
+          "body_sha256": "3de04a88758ea5f71bb029d6c274cbc88ff8ac0bfd4705d499115fc957546425",
+          "records": 27
+        }
+      ],
+      "requests": 3,
+      "status": "responses_saved"
+    }
+  ]
+}

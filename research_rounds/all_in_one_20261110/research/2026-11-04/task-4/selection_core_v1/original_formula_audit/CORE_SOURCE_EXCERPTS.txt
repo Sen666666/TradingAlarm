@@ -1,0 +1,646 @@
+
+FIXED_SELECTION
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/current_fixed_pool.py
+SHA256 dca04eaa0d3fcf1e37c39f21e64d58aaae97b30202d537f3007ef271ecfea5c1
+  18  RESEARCH_BASIS = 'current_pool_historical_development'
+  19  SELECTION_LIMIT = (
+  20      'Current surviving stocks, current cap/southbound/industry selection; '
+  21      'survivorship and current-classification bias retained; not PIT or unseen.'
+  22  )
+  89  class SelectionFact:
+  90      """Only fixed selection fields may bypass the historical knowledge clock."""
+  91      field: Literal['issuer_id', 'sector_id', 'company_cap_cny']
+  92      value: Any
+  93      evidence: SelectionEvidence
+  94  
+  95      def __post_init__(self):
+  96          if self.field not in ('issuer_id', 'sector_id', 'company_cap_cny'):
+  97              raise ValueError('Only fixed identity/classification/cap selection fields allowed')
+  98  
+  99      def read(self, clock: admission.Clock, *, for_execution: bool = False):
+ 100          # Deliberate research assumption; observed_at is retained, not backdated.
+ 101          return self.value
+ 147  def build_security(line: PoolLine, historical: HistoricalInputs,
+ 148                     evidence: SelectionEvidence) -> admission.Security:
+ 149      """Build a compatibility view; never alter original Fact or algorithm state."""
+ 150      if line.security_id != historical.security_id:
+ 151          raise ValueError('Fixed pool and historical observation IDs must match')
+ 152      return admission.Security(
+ 153          security_id=line.security_id,
+ 154          issuer_id=SelectionFact('issuer_id', line.issuer_id, evidence),
+ 155          sector_id=SelectionFact('sector_id', line.sector_id, evidence),
+ 156          common_ready=historical.common_ready,
+ 157          buy_allowed=FixedSelectionBuyAllowed(line.selected_market,
+ 158                                                historical.market_buyable, evidence),
+ 159          company_cap_cny=SelectionFact('company_cap_cny', line.company_cap_cny, evidence),
+ 160          trend_up=historical.trend_up,
+ 161          rank=historical.rank,
+ 162      )
+
+S0_ELIGIBILITY_AND_OLD_UNUSED_PRIORITY
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_stock_admission.py
+SHA256 0ad8c13c87081f1b64657ee987130d1e90f9ff4fd1728a319844af073313ebb8
+ 185  def eligibility(s: Security, sectors: Mapping[str, Sector], clock: Clock,
+ 186                  variant: Variant) -> Eligibility:
+ 187      if variant not in ('T0', 'T1', 'S0', 'S1'):
+ 188          raise ValueError('Unknown strategy variant')
+ 189      issuer = s.issuer_id.read(clock, for_execution=True)
+ 190      sector = s.sector_id.read(clock, for_execution=True)
+ 191      if issuer is not None and (not isinstance(issuer, str) or not issuer):
+ 192          raise ValueError('Invalid issuer ID')
+ 193      if sector is not None and (not isinstance(sector, str) or not sector):
+ 194          raise ValueError('Invalid sector ID')
+ 195      common = _bool_fact(s.common_ready, clock)
+ 196      buy = _bool_fact(s.buy_allowed, clock, for_execution=True)
+ 197      cap = s.company_cap_cny.read(clock)
+ 198      if cap is not None and (isinstance(cap, bool) or not isinstance(cap, (int, float))
+ 199                              or not math.isfinite(cap) or cap < 0):
+ 200          raise ValueError('Invalid company market cap')
+ 201      stock_up = _bool_fact(s.trend_up, clock)
+ 202      checks = {'common_ready': common, 'buy_allowed': buy,
+ 203                'cap_above_10bn': None if cap is None else cap > 10_000_000_000,
+ 204                'stock_up': stock_up,
+ 205                'issuer_known': True if issuer is not None else None,
+ 206                'sector_known': True if sector is not None and sector in sectors else None}
+ 207      checks['stock_rs_ready_fresh'] = True if s.rank and s.rank.read(clock) is not None else None
+ 208      if variant != 'T0':
+ 209          sector_object=sectors.get(sector)
+ 210          trend_at=sector_object.trend_up.observed_at if sector_object else None
+ 211          checks['sector_observed_today'] = True if trend_at and trend_at.date()==clock.session_date else None
+ 212          if variant in ('S0','S1'):
+ 213              checks['sector_rs_ready_fresh'] = True if sector_object and sector_object.rank and sector_object.rank.read(clock) is not None else None
+ 214          checks['sector_up'] = (None if sector not in sectors
+ 215                                 else _bool_fact(sectors[sector].trend_up, clock))
+ 216      unknown = tuple(k + ':unknown' for k, v in checks.items() if v is None)
+ 217      failed = tuple(k + ':false' for k, v in checks.items() if v is False)
+ 218      # Unknown is retained even if a separate known component is false.
+ 219      q = None if unknown else not failed
+ 220      return Eligibility(s.security_id, issuer, sector, q, unknown + failed)
+ 230  def _priority(ids: Iterable[str], securities: Mapping[str, Security],
+ 231                sectors: Mapping[str, Sector], resolved: Mapping[str, Eligibility],
+ 232                clock: Clock, variant: Variant, fallbacks: list[str], batch: str) -> list[str]:
+ 233      ids = sorted(ids)
+ 234      stock_scores = {i: securities[i].rank.read(clock) if securities[i].rank else None for i in ids}
+ 235      if variant not in ('S0', 'S1'):
+ 236          return _ordered(ids, stock_scores, batch + ':stocks', fallbacks)
+ 237      groups: dict[str, list[str]] = defaultdict(list)
+ 238      for i in ids:
+ 239          groups[resolved[i].sector_id].append(i)
+ 240      sector_scores = {g: sectors[g].rank.read(clock) if sectors[g].rank else None for g in groups}
+ 241      sector_order = _ordered(groups, sector_scores, batch + ':sectors', fallbacks)
+ 242      queues = {g: _ordered(groups[g], stock_scores, batch + ':stocks:' + g, fallbacks)
+ 243                for g in sector_order}
+ 244      result = []
+ 245      # First stock from each sector, then second; capacity is applied separately.
+ 246      for n in range(max((len(v) for v in queues.values()), default=0)):
+ 247          result.extend(queues[g][n] for g in sector_order if n < len(queues[g]))
+
+ACTUAL_PACKET_RANK
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/current_pool_bridge.py
+SHA256 a483e213ec18a4065323a8b4c1d85e2443724700b7a421a4aa682e757f1ae805
+ 329          if set(market_buyable) != {x.security_id for x in self.lines}:
+ 330              raise ValueError('Explicit historical market availability required for every fixed line')
+ 331          if not hasattr(self, '_h1_cache'):
+ 332              z=np.load(Path(__file__).resolve().parents[1]/'h1/matrix.npz')
+ 333              self._h1_cache=(pd.DatetimeIndex(z['dates']),{sid:j for j,sid in enumerate(z['symbols'])},z['score'])
+ 334          dates,columns,scores=self._h1_cache
+ 335          d=pd.Timestamp(clock.session_date); ti=dates.get_indexer([d])[0]
+ 336          def facts(series_id):
+ 337              row, at, source = self._last(series_id, clock)
+ 338              if at is None:
+ 339                  unknown = admission.Fact(None, clock.decision_at, clock.decision_at,
+ 340                                            source_id='unavailable:' + str(series_id))
+ 341                  return unknown, unknown, None
+ 342              ready = bool(row.ready)
+ 343              kwargs = dict(known_at=at, valid_from=at, observed_at=at, source_id=source)
+ 344              trend = admission.Fact(bool(row.target) if ready else None, **kwargs)
+ 345              j=columns.get(series_id)
+ 346              score=scores[ti,j] if ti>=0 and j is not None else np.nan
+ 347              rank = admission.Rank(None if pd.isna(score) else float(score), clock.decision_at, clock.decision_at)
+ 348              return admission.Fact(ready, **kwargs), trend, rank
+ 349          sectors = []
+ 350          sector_ready = {}
+ 351          for sector_id, series_id in sorted(self.sector_series.items()):
+ 352              ready, trend, rank = facts(series_id)
+ 353              sector_ready[sector_id] = ready.read(clock)
+ 354              sectors.append(admission.Sector(sector_id, trend, rank))
+ 355          histories = []
+ 356          for line in self.lines:
+ 357              ready, trend, rank = facts(line.security_id)
+ 358              a, b = ready.read(clock), sector_ready.get(line.sector_id)
+ 359              common = None if a is None or b is None else bool(a and b)
+ 360              # This is a derived historical readiness fact, never selection metadata.
+ 361              common_fact = admission.Fact(common, clock.decision_at, clock.decision_at,
+ 362                                            source_id='derived_common_readiness')
+ 363              histories.append(HistoricalInputs(line.security_id, common_fact,
+ 364                                market_buyable[line.security_id], trend, rank))
+ 365          return DecisionInputs(clock, self.evidence, self.lines, tuple(histories), tuple(sectors))
+
+ACTUAL_I_PACKET
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/actual-risk-recovery-20261027/code/engine.py
+SHA256 781589c0a80a6713bf03ee4abb0bb3ab6ba649f7482f13179ab458809dc2e374
+  31   def packet(self,at,mode):
+  32    p=policy(mode)
+  33    if self.day!=at:self.day=at;self.cache={}
+  34    if p in self.cache:return self.cache[p]
+  35    clock=admission.Clock(at,self.market.sessions['A'][bisect_right(self.market.sessions['A'],at)],at.date())
+  36    inputs=self.b.at_decision(clock,market_buyable=self.market.market_buyable(at));stocks=[]
+  37    for l,h in zip(inputs.lines,inputs.historical):
+  38     assert l.security_id==h.security_id;sid=l.security_id;r=self.row(sid,at)
+  39     if p!='E0':
+  40      up=h.trend_up.read(clock)
+  41      if up is not None:h=replace(h,trend_up=replace(h.trend_up,value=bool(r[p.lower()+'_target'])))
+  42     s=pool.build_security(l,h,inputs.evidence)
+  43     if p!='E0':
+  44      allowed=s.buy_allowed.read(clock,for_execution=True);f=self.f[sid];today=pd.Timestamp(at.date());event=today in f.index and bool(f.loc[today,p.lower()+'_buy'])
+  45      s=replace(s,buy_allowed=admission.Fact(None if allowed is None else bool(allowed and event),at,at,source_id='original_'+p+'_daily_event'))
+  46     stocks.append(s)
+  47    result=(clock,tuple(stocks),inputs.sectors);self.cache[p]=result;return result
+
+I_OPPORTUNITY
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/policies_g1.py
+SHA256 079a70ac83aa98a3824aeaecc46186081d83f5148e9630a3ad0435cb01b05af1
+   6  def project(e,base,g,kind):
+   7      if kind not in ['G1_I','G1_X','G1_IX']:raise ValueError(kind)
+   8      use_i=kind in ['G1_I','G1_IX'];use_x=kind in ['G1_X','G1_IX']
+   9      active=False;floor=math.nan;segment=None;rows=[]
+  10      for dt,r in e.iterrows():
+  11          b=base.loc[dt];a=g.loc[dt]
+  12          if r.segment_id!=segment:active=False;floor=math.nan;segment=r.segment_id
+  13          valid=bool(r.valid_price_observation)
+  14          if not valid:
+  15              rows.append(dict(date=dt,target=np.nan,entered=0,exited=0,floor=np.nan,exit_line=np.nan,buy_event=False,entry_kind='',exit_reason='',grade=a.grade));continue
+  16          shadow=bool(b.target);ready=bool(a.ready);entered=exited=0;reason='';entry_kind=''
+  17          fresh=bool(a.fresh_up) if ready else False
+  18          warm=ready and a.grade>=2
+  19          cold=ready and (a.grade<=-2 or bool(a.acute_down))
+  20          if active:
+  21              if not shadow or float(r.close)<=floor:reason='E0_structure_boundary'
+  22              elif use_x and cold:reason='G1_cold_or_acute'
+  23              if reason:active=False;exited=1
+  24              elif np.isfinite(b.floor):floor=max(floor,float(b.floor))
+  25          # Entry-only is a new-evidence gate and restoration channel, while
+  26          # exit-only preserves E0's new-cycle entry stream. An exit-only entry
+  27          # is first checked by the extra exit rule on the next observation,
+  28          # matching the original sensitive-policy ordering.
+  29          opportunity=shadow and warm and (bool(b.entered) or fresh) if use_i else bool(b.entered)
+  30          if not active and not exited and opportunity:
+  31              active=True;entered=1;floor=float(b.floor)
+  32              entry_kind='G1_fresh_warm_evidence' if use_i else str(b.entry_kind)
+  33          buy=bool(active and opportunity) if use_i else bool(active)
+  34          rows.append(dict(date=dt,target=int(active),entered=entered,exited=exited,floor=floor if active or exited else np.nan,exit_line=floor if active or exited else np.nan,buy_event=buy,entry_kind=entry_kind,exit_reason=reason,grade=a.grade))
+  35      return pd.DataFrame(rows).set_index('date')
+
+H1_RAW
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/rs_h1_model.py
+SHA256 cb28e8fafd0fe1c45612175be7a42695e34ba5061aa700aa653bcfc1324df9d0
+   1  """RS-H1 pure ranking prototype. No E0, execution, portfolio or network imports."""
+   2  import numpy as np
+   3  
+   4  WEIGHTS=(.4,.2,.2,.2)
+   5  MIN_OBSERVATIONS=6
+   6  MIN_REFERENCE=20
+   7  
+   8  def raw_momentum(prices,segments,observations,t,h):
+   9      """All columns use exactly h intervals of the same market-date clock."""
+  10      n=prices.shape[1]
+  11      if h<5 or h>252 or t<h:return np.full(n,np.nan)
+  12      b=np.minimum(np.arange(5)*63,h)
+  13      result=np.zeros(n);valid=np.isfinite(prices[t])&(prices[t]>0)&(observations[t]>=MIN_OBSERVATIONS)
+  14      for j,w in enumerate(WEIGHTS,1):
+  15          near,far=int(b[j-1]),int(b[j])
+  16          if near==far:continue
+  17          p,q=prices[t-near],prices[t-far]
+  18          valid&=np.isfinite(p)&np.isfinite(q)&(p>0)&(q>0)&(segments[t-near]==segments[t])&(segments[t-far]==segments[t])
+  19          with np.errstate(divide='ignore',invalid='ignore'):
+  20              result+=w*(p/q-1)
+  21      return np.where(valid,np.round(result,12),np.nan)
+  22  
+  23  def mid_percentile(values,value):
+  24      ref=values[np.isfinite(values)]
+  25      if len(ref)<MIN_REFERENCE or not np.isfinite(value):return np.nan,len(ref)
+  26      return 100*(np.count_nonzero(ref<value)+.5*np.count_nonzero(ref==value))/len(ref),len(ref)
+
+H1_INITIAL_GENERATOR
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/prepare_h1.py
+SHA256 818f9a23eb48d4a4411d40ca221c6e109339c29f5823d6431cda679192a36467
+  12   pm={x['series_id']:x for x in read(HERE/'prepared-v2/manifest.json')['series']}
+  13   records={x['series_id']:x for x in read(HERE/'inputs-v2/input-manifest.json')['series']}
+  14   stock=sorted(x['security_id'] for x in read(HERE/'inputs-v2/selection.json')['lines'] if (x.get('company_cap_cny') or 0)>1e10)
+  15   sector=sorted(k for k,x in records.items() if x['kind']=='sector_index')
+  16   historical_dates=set()
+  17   for sid in sector:
+  18    f=pd.read_parquet(HERE/'prepared-v2'/pm[sid]['files']['signal']['path'],columns=['observed_bar'])
+  19    historical_dates.update(f.index[(f.index<'2015-01-01')&f.observed_bar.astype(bool)])
+  20   rules=read(HERE/'inputs-v2/market-rules.json')
+  21   days=[pd.Timestamp(x).tz_localize(None).normalize() for x in rules['calendars']['A'] if x[:10]<='2026-10-22']
+  22   calendar=pd.DatetimeIndex(sorted(historical_dates|set(days)))
+  23   assert len(stock)==1709 and len(sector)==90
+  24   symbols=stock+sector;n=len(symbols);shape=(len(calendar),n)
+  25   arr={k:np.full(shape,np.nan) for k in ['close','segment']};counts=np.zeros(shape,dtype=np.int32);origins=np.zeros(n,dtype=np.int32);sources=[]
+  26   for j,sid in enumerate(symbols):
+  27    x=pm[sid];assert x['blocked_reason'] is None
+  28    ref=x['files']['signal'];p=HERE/'prepared-v2'/ref['path'];assert sha(p)==ref['sha256'];sources.append(dict(symbol=sid,path=str(p.resolve()),sha256=ref['sha256']))
+  29    f=pd.read_parquet(p,columns=['open','high','low','close','observed_bar','synthetic_event_bar','source_invalid','raw_volume','segment_id'])
+  30    o=f[['open','high','low','close']]
+  31    valid=(np.isfinite(o).all(axis=1)&o.gt(0).all(axis=1)&f.high.ge(f.low)&f.high.ge(f[['open','close']].max(axis=1))&f.low.le(f[['open','close']].min(axis=1))&f.observed_bar.astype(bool)&~f.synthetic_event_bar.astype(bool)&~f.source_invalid.astype(bool)&f.raw_volume.gt(0)&np.isfinite(f.raw_volume))
+  32    real=f.loc[valid];a=real.reindex(calendar);arr['close'][:,j]=a.close;arr['segment'][:,j]=a.segment_id
+  33    c=pd.Series(np.arange(1,len(real)+1),index=real.index);counts[:,j]=c.reindex(c.index.union(calendar)).sort_index().ffill().reindex(calendar).fillna(0).astype(int)
+  34    origins[j]=calendar.searchsorted(real.index[0])
+  35    if j%400==0:print({'loaded':j},flush=True)
+  36   score=np.full(shape,np.nan);horizons=np.minimum(np.maximum(np.arange(len(calendar))[:,None]-origins,0),252).astype(np.int16);raw=np.full(shape,np.nan);nref=np.zeros(shape,dtype=np.int16)
+  37   for t in range(len(calendar)):
+  38    if calendar[t]<pd.Timestamp('2015-01-01'):continue
+  39    for left,right in [(0,len(stock)),(len(stock),n)]:
+  40     age=horizons[t,left:right];ready=np.isfinite(arr['close'][t,left:right])&(counts[t,left:right]>=6)&(age>=5)
+  41     for h in np.unique(age[ready]):
+  42      values=raw_momentum(arr['close'][:,left:right],arr['segment'][:,left:right],counts[:,left:right],t,int(h));ref=np.sort(values[np.isfinite(values)])
+  43      target=np.flatnonzero((age==h)&ready);j=target+left;raw[t,j]=values[target];nref[t,j]=len(ref)
+  44      if len(ref)>=MIN_REFERENCE:
+  45       v=values[target];pct=100*(np.searchsorted(ref,v,'left')+.5*(np.searchsorted(ref,v,'right')-np.searchsorted(ref,v,'left')))/len(ref)
+  46       score[t,j]=np.where(np.isfinite(v),pct,np.nan)
+  47    if t%500==0:print({'scored_date':str(calendar[t].date())},flush=True)
+
+H1_RUNTIME_EXTENSION
+PATH /Users/bytedance/Documents/ChatGPT/money/TradingAlarm/desk/refresh.py
+SHA256 6a144503d62891ae8856fe35b0475797226d2370b44ceb328d420dcc7084cdfc
+ 221  def extend_h1(old,signals,target):
+ 222      model=module('desk_rs_h1',ROOT/'research_rounds/rs-h1-execution-20261025/code/rs_h1_model.py')
+ 223      with np.load(old.h1_path) as z:a={k:z[k] for k in z.files}
+ 224      dates=pd.DatetimeIndex(a['dates']);new=pd.DatetimeIndex(sorted(set().union(*(set(f.index) for f in signals.values()))));new=new[new>dates[-1]];cal=dates.append(new);n=len(a['symbols']);nnew=len(new)
+ 225      if not nnew:raise ValueError('没有新的完整市场观察')
+ 226      for key in ['close','segment','raw','score']:a[key]=np.vstack([a[key],np.full((nnew,n),np.nan)])
+ 227      for key in ['obs_count','h','nref']:a[key]=np.vstack([a[key],np.zeros((nnew,n),int)])
+ 228      for j,s in enumerate(a['symbols']):
+ 229          f=signals[str(s)];count=int(a['obs_count'][len(dates)-1,j])
+ 230          for i,day in enumerate(new,len(dates)):
+ 231              a['h'][i,j]=min(252,int(a['h'][len(dates)-1,j])+i-len(dates)+1)
+ 232              if day in f.index:
+ 233                  r=f.loc[day]
+ 234                  if bool(r.observed_bar) and bool(r.price_eligible) and np.isfinite(r.volume) and r.volume>0:
+ 235                      a['close'][i,j]=r.close;a['segment'][i,j]=r.segment_id;count+=1
+ 236              a['obs_count'][i,j]=count
+ 237      for t in range(len(dates),len(cal)):
+ 238          for left,right in [(0,1709),(1709,n)]:
+ 239              age=a['h'][t,left:right];ready=np.isfinite(a['close'][t,left:right])&(a['obs_count'][t,left:right]>=6)&(age>=5)
+ 240              for h in np.unique(age[ready]):
+ 241                  v=model.raw_momentum(a['close'][:,left:right],a['segment'][:,left:right],a['obs_count'][:,left:right],t,int(h));ref=np.sort(v[np.isfinite(v)]);indices=np.flatnonzero((age==h)&ready);jj=indices+left;a['raw'][t,jj]=v[indices];a['nref'][t,jj]=len(ref)
+ 242                  if len(ref)>=20:
+ 243                      vv=v[indices];pct=100*(np.searchsorted(ref,vv,'left')+.5*(np.searchsorted(ref,vv,'right')-np.searchsorted(ref,vv,'left')))/len(ref);a['score'][t,jj]=np.where(np.isfinite(vv),pct,np.nan)
+ 244      a['dates']=cal.values;np.savez_compressed(target,**a)
+
+ACTUAL_CONTEXT
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-I-quarter-2025Q3-20261031/adapter.py
+SHA256 2e9555d639c7db2a874e59c83cfa0df8889da0f41bf51e14313699292feea417
+   6  O=Path(__file__).resolve().parent;W=O.parent;ROOT=Path('/Users/bytedance/Documents/ChatGPT/money');RR=ROOT/'research_rounds'
+   7  def load(n,p):
+   8   s=importlib.util.spec_from_file_location(n,p);m=importlib.util.module_from_spec(s);sys.modules[n]=m;s.loader.exec_module(m);return m
+   9  C=load('mainline_frozen_L0',W/'lr1-cp1-add-preflight-20261031/adapter.py')
+  10  BP,LR,N,E,R,D=C.BP,C.LR,C.N,C.E,C.R,C.D
+  11  save,read,sha=C.save,C.read,C.sha
+  12  IC=W/'native-I-cache-interface-20261031';P=ROOT/'TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared'
+  13  F=W/'market-mainline-measurement-20261031/FEATURE_MATRIX_90.parquet'
+  14  START='2025-07-01';END='2025-09-30'
+  58  def context(cut=None,ids=None):
+  59   b=BP.C.load_bundle(BP.C.OLD/'inputs-v2/input-manifest.json');allids=read(IC/'FREEZE.json')['stocks'];keep=set(ids or allids);b.lines=tuple(l for l in b.lines if l.security_id in keep);assert {l.security_id for l in b.lines}==keep
+  60   sectors={l.sector_id for l in b.lines};b.series={s:v for s,v in b.series.items() if s in keep|sectors};b.sector_series={s:v for s,v in b.sector_series.items() if s in sectors};records={r['series_id']:r for r in read(P/'manifest.json')['series']};frames={}
+  61   for sid,item in b.series.items():
+  62    item.record=records[sid];path=(O/'industry-facts' if sid.startswith('URFI') else IC/'facts')/f'{sid}.parquet';f=pd.read_parquet(path).loc[:cut or END];frames[sid]=f
+  63    item.states=f[['e0_ready','e0_target','segment_id']].rename(columns={'e0_ready':'ready','e0_target':'target'})
+  64   h=np.load(P/'h1.npz');dates=pd.DatetimeIndex(h['dates']);mask=dates<=pd.Timestamp(cut or END);b._h1_cache=(dates[mask],{str(s):j for j,s in enumerate(h['symbols'])},h['score'][mask].copy())
+  65   rules=read(RR/'pvr-act-comparison-20261027/execution-rules-v2.json');m=E.FastMarket(b,rules,[],read(BP.C.OLD/'inputs-v2/economic-protocol.json'))
+  66   if cut:
+  67    for sid,f in m.raw.items():
+  68     m.raw[sid]=f.loc[:cut].copy();n=len(m.raw[sid]);a=m.arr[sid];m.arr[sid]={k:(v[v<n] if k in ['good','positive'] else v[:n] if isinstance(v,np.ndarray) else v) for k,v in a.items()}
+  69    m.actions={s:[e for e in es if e['effective_date']<=cut] for s,es in m.actions.items()}
+  70   facts=E.Facts.__new__(E.Facts);facts.b=b;facts.market=m;facts.f=frames;facts.cache={};facts.day=None;facts.structure_lookup={}
+
+H1_PHYSICAL_CUT
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/wire.py
+SHA256 87287700466328aa767ee28e0791853ca33d87a406e4b125256cc96c587f42fe
+  40  def physical(shared,end):
+  41   b,m,f=shared;date=pd.Timestamp(end);b2=copy.copy(b);b2.series={k:copy.copy(v) for k,v in b.series.items()}
+  42   for v in b2.series.values():v.states=v.states.loc[:end]
+  43   d,col,score=b._h1_cache;mask=d<=date;b2._h1_cache=(d[mask],col,score[mask]);m2=copy.copy(m);m2.bundle=b2;m2.raw={k:v.loc[:end] for k,v in m.raw.items()};m2.arr={}
+  44   for sid,a in m.arr.items():
+  45    n=len(m2.raw[sid]);m2.arr[sid]={k:(v[v<n] if k in ['good','positive'] else v[:n] if isinstance(v,np.ndarray) else v) for k,v in a.items()}
+  46   m2.actions={sid:[e for e in es if e['effective_date']<=end] for sid,es in m.actions.items()};m2.cache_at=None;m2.mark_verified=set();m2.window_verified=set();m2.notices=[];m2._notice_keys={};f2=M.E.Facts.__new__(M.E.Facts);f2.b=b2;f2.market=m2;f2.f={k:v.loc[:end] for k,v in f.f.items()};f2.cache={};f2.day=None;f2.structure_lookup={};return b2,m2,f2
+
+ACTUAL_PLANNER
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py
+SHA256 fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425
+ 195   def industry(self,a,at):
+ 196    day=gidday(at);bar=ordinal(day);b=a.budget
+ 197    for sector,rows in self.industry_rows.items():
+ 198     r=rows[day];ep=r['E0_episode'];current=b.sectors.get(sector)
+ 199     if r['E0_valid'] and (not current or current.episode!=ep):b.start(sector,ep,self.episode_starts[ep])
+ 200     if sector not in b.sectors:continue
+ 201     if not r['E0_valid'] or r['action']=='end_attempt':
+ 202      b.observe(sector,bar,failure=True);result='invalidated'
+ 203     elif r['receipt']:
+ 204      cp=self.industry_cp[sector+'|'+day];tok=V.Evidence(cp['receipt_id'],sector,'industry_cp1','21',ordinal(cp['formation_start_exclusive']),bar,bar,b.sectors[sector].episode)
+ 205      result=b.observe(sector,bar,token=tok)
+ 206     else:result='unchanged'
+ 207     a.pools_from_model()
+ 208     for sid,real in tuple(a.buys.items()):
+ 209      bid=a.order_bridge[real.order_id]
+ 210      if b.orders[bid].status=='cancel_pending':a.cancel_buy(sid)
+ 211     a.sync(at)
+ 212     if result!='unchanged':self.stage_events.append(dict(account=a.label,day=day,sector=sector,market_stage=r['stage_name'],result=result,episode=b.sectors[sector].episode,attempt=b.sectors[sector].attempt,financial_level=b.sectors[sector].level))
+ 213   def planning(self,at):
+ 214    clock,stocks,sectors=self.facts.packet(at,'I');sd={s.security_id:s for s in stocks};ss={s.sector_id:s for s in sectors};buyable=self.market.market_buyable(at);day=pd.Timestamp(at.date());event={};continuing={}
+ 215    for sid,s in sd.items():
+ 216     row=self.facts.row(sid,at);key=(bool(row.i_target),int(row.segment_id)) if row is not None else (False,-1)
+ 217     if self.last_epoch.get(sid)!=key:self.epoch[sid]+=1;self.global_watch.pop(sid,None);self.last_epoch[sid]=key
+ 218     ep=(key[1],self.epoch[sid]);event[sid]=BP.A.eligibility(s,ss,clock,'S0');continuing[sid]=BP.A.eligibility(replace(s,buy_allowed=buyable[sid]),ss,clock,'S0')
+ 219     if event[sid].q is True:self.global_watch[sid]=ep
+ 220    ordered=sorted(sd,key=lambda sid:(-(sd[sid].rank.read(clock) if sd[sid].rank and sd[sid].rank.read(clock) is not None else -1),sid))
+ 241     a.sync(at);self.industry(a,at)
+ 242     for rank,sid in enumerate(ordered):
+ 243      cpr=self.receipts[sid].get(gidday(at));roles=[];why=[];held=bool(a.quantity(sid));epoch=self.global_watch.get(sid);sector=self.sector_by_sid[sid]
+ 244      if event[sid].q is True and not held and a.core_epoch.get(sid)!=epoch:roles.append('core')
+ 245      if cpr and continuing[sid].q is True:roles.append('mobile')
+ 246      if not a.risk_state['on']:why.append('ACT_paused')
+ 247      if sid in a.exits:why.append('exit_pending')
+ 248      if sid in a.buys:why.append('buy_pending')
+ 249      if event[sid].q is not True and not (cpr and continuing[sid].q is True):why.extend(event[sid].reasons or ['no_fresh_signal_or_Q'])
+ 250      self.opportunities.append(dict(account=a.label,day=gidday(at),sid=sid,sector=sector,rank=rank,core_Q=event[sid].q,mobile_Q=continuing[sid].q,CP1_id=cpr['receipt_id'] if cpr else None,roles=roles,held=held,barriers=why))
+ 251      if why or not roles:continue
+ 252      q=self.market.quote(sid,at);floor=self.facts.floor(sid,at,'I')
+ 253      if q is None or floor is None:continue
+ 254      for role in roles:
+ 255       fline=max(floor,D(str(self.cp[sid].loc[day,'candidate']))) if role=='mobile' else floor;budget=min(a.current_nav*D('.02'),max(Z,a.current_nav*D('.1')-a.quantity(sid)*q.raw_price));i=dict(sid=sid,clock=clock,quote=q,budget=budget,cap=q.quantity.buy_floor(int(budget/q.raw_price)),weight=1.,group=0,score=sd[sid].rank.read(clock),kind='add' if role=='mobile' else 'core',role=role,floor=fline,epoch=epoch,reason='fresh_CP1_mobile' if role=='mobile' else 'I_early_core',rank=rank,CP1_id=cpr['receipt_id'] if role=='mobile' else None,CP1_trace=cpr if role=='mobile' else None)
+ 256       if role=='core':LR.resize_core(i,a.current_nav,self.facts.factor(sid,at))
+ 257       if not i.get('size_reject') and i['cap']>0:a.pending.append(i)
+ 258       else:self.funding.append(dict(account=a.label,at=at,sid=sid,role=role,result=i.get('size_reject','no_nominal_gap')))
+ 259     a.decisions.append(dict(at=at,nav=a.current_nav,on=a.risk_state['on'],intents=[{k:v for k,v in i.items() if k not in ['quote','clock','CP1_trace']} for i in a.pending]));bal=a.sync(at);a.check();self.daily.append(dict(account=a.label,at=at,**bal,on=a.risk_state['on'],positions={s:p.shares for s,p in a.positions.items()},layers=[dict(x,**a.jmeta[x['id']]) for x in a.layers if x['qty']],pending_sells=tuple(a.exits),pending_intents=len(a.pending),counts=dict(a.counts),pool_probe=a.budget.resources('probe'),pool_confirmed=a.budget.resources('confirmed'),shared_loss=a.budget.shared_loss));self.daily_bridge(a,at,bal)
+ 302   def opening(self,a,at):
+ 303    C.activate(a)
+ 304    for sid in sorted(a.exits):
+ 305     win=self.market.window(sid,at,'sell',1)
+ 306     if win:a.fill_exit(sid,win)
+ 307    a.settle_due(at);a.sync(at);funded=[];done=set()
+ 308    for i in sorted([i for i in a.pending if i['clock'].earliest_execution_at==at],key=lambda x:(x['rank'],x['role']!='core')):
+ 309     sid=i['sid']
+ 310     if sid in done or sid in a.buys or sid in a.exits:continue
+ 311     raw=self.market.raw[sid];day=pd.Timestamp(at.date())
+ 312     if day not in raw.index or not np.isfinite(raw.loc[day].open) or raw.loc[day].open<=0:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='missing_open'));continue
+ 313     x,why=LR.preview(i,D(str(raw.loc[day].open)),self.facts.factor(sid,at),self.market.quantity(sid,at),self.market.fees(sid,at))
+ 314     if why:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result=why));continue
+ 315     x['known_open']=D(str(raw.loc[day].open))
+ 316     route,why=self.route(a,i,x,at)
+ 317     if why:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result=why));continue
+ 318     q,pool=route;a.reserve_quantity(i,q,x['price'],x['schedule'],at);a.sync(at);done.add(sid);funded.append((sid,i,x,q));self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='reserved',pool=pool,shares=q,price=x['price'],CP1_id=i.get('CP1_id')))
+ 319    # Execution proxies are consulted only after all H1-ranked funding decisions.
+ 320    for sid,i,x,q in funded:
+ 321     win=self.market.window(sid,at,'buy',1)
+ 322     if win:assert win.execution_price==x['price'];a.fill_buy(sid,win)
+ 323     else:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='no_execution_window_after_reservation'))
+ 324    a.settle_due(at);a.sync(at);a.minimum_available=min(a.minimum_available,a.available);a.check()
+
+ORIGINAL_PVR
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-current-v3-information-capital-20261101/original_score_function.py
+SHA256 9328109bada26c53b04cf0f3e84d719917cb528ff8608b3e9faa5d1c55ba8cb2
+   1  def score(f):
+   2   """Independent finite-window calculation, no state/account/future input."""
+   3   out=pd.DataFrame(index=f.index,columns=['r','scale','amount_ref','u','b','e','E','score'],dtype=float)
+   4   valid=(f.close.gt(0)&np.isfinite(f.close)&f.amount.gt(0)&np.isfinite(f.amount))
+   5   for k in ['price_eligible','observed_bar','is_observed_bar']:
+   6    if k in f:valid &= f[k].fillna(False).astype(bool)
+   7   for k in ['source_invalid','synthetic_event_bar']:
+   8    if k in f:valid &= ~f[k].fillna(True).astype(bool)
+   9   # Invalid rows and declared source changes restart the full preparation.
+  10   seg=f.segment_id if 'segment_id' in f else pd.Series(0,index=f.index)
+  11   block=((~valid)|(~valid.shift(fill_value=False))|seg.ne(seg.shift())).cumsum()
+  12   weights=.9**np.arange(20,-1,-1);weights/=weights.sum()
+  13   for _,g in f.loc[valid].groupby(block[valid],sort=False):
+  14    r=np.log(g.close).diff();s=r.abs().shift().rolling(63,min_periods=63).median().mul(1.4826).clip(lower=1e-8)
+  15    ar=g.amount.shift().rolling(21,min_periods=21).median()
+  16    u=np.tanh(r/s);b=np.tanh(np.log(g.amount/ar));e=u*(1+.5*u.abs()*b)
+  17    z=e.rolling(21,min_periods=21).apply(lambda x:np.dot(weights,x),raw=True)
+  18    out.loc[g.index]=pd.DataFrame({'r':r,'scale':s,'amount_ref':ar,'u':u,'b':b,'e':e,'E':z,'score':50+50*np.tanh(2*z)},index=g.index)
+  19   return out
+
+PVR_SLOT1
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/native_rank.py
+SHA256 5ec91c2323b2d3b8fa5c99df504139e2ac7af9b5b84359222c3d6353d0cd697c
+  25  class FrozenScores:
+  26      def __init__(self, path):
+  27          self.path = str(Path(path).resolve()); self.manifest_sha256 = sha(path)
+  28          m = json.loads(Path(path).read_text())
+  29          assert m['stocks'] == len(set(m['fixed_stock_ids'])) == 1709
+  30          self.values = {}
+  31          for r in m['entries']:
+  32              p = Path(path).parent/'scores'/f"{r['symbol']}.parquet"
+  33              assert sha(p) == r['output_sha256']
+  34              f = pd.read_parquet(p)
+  35              assert f.index.is_unique
+  36              self.values[r['symbol']] = MappingProxyType({str(t.date()): float(v) for t, v in f.score.items()})
+  37          self.values = MappingProxyType(self.values)
+  38      def at(self, sid, day):
+  39          v = self.values.get(sid, {}).get(day)
+  40          return v if v is not None and math.isfinite(v) else None
+  47  def priority_plan(intents, score_at, day):
+  48      """Pure planning: preserve unique-stock original slots, not role slots."""
+  49      ordered = sorted(intents, key=lambda i: (i['rank'], i['role'] != 'core'))
+  50      original = []; rank = {}; roles = {}
+  51      for i in ordered:
+  52          sid = i['sid']
+  53          if sid not in rank:
+  54              original.append(sid); rank[sid] = i['rank']; roles[sid] = []
+  55          assert rank[sid] == i['rank'], ('inconsistent same-stock original key', sid)
+  56          assert i['role'] not in roles[sid], ('duplicate native role', sid)
+  57          roles[sid].append(i['role'])
+  58      assert len(set(rank.values())) == len(rank), 'original stock priority keys must be unique'
+  59      values = {s: score_at(s, day) for s in original}
+  60      values = {s: float(v) if v is not None and math.isfinite(v) else None for s, v in values.items()}
+  61      ready = [s for s in original if values[s] is not None]
+  62      oldpos = {s: n for n, s in enumerate(original)}
+  63      ready.sort(key=lambda s: (-round(values[s], 12), oldpos[s]))
+  64      ready_iter = iter(ready)
+  65      final = [s if values[s] is None else next(ready_iter) for s in original]
+  66      assert set(final) == set(original) and len(final) == len(original)
+  67      assert all(final[n] == s for n, s in enumerate(original) if values[s] is None)
+  68      # Retain original numeric slot keys (including full-universe rank gaps).
+  69      slots = [rank[s] for s in original]
+  70      keys = {s: slots[n] for n, s in enumerate(final)}
+  71      finalpos = {s: n for n, s in enumerate(final)}
+  72      return keys, [dict(sid=s, day=day, original_H1_rank=rank[s], priority_rank=keys[s],
+  73                        original_slot=oldpos[s], final_slot=finalpos[s], PVR=values[s],
+  74                        PVR_ready=values[s] is not None, roles=roles[s]) for s in original]
+  75  
+  76  def apply_priority(account, score_at, day):
+  77      """Only rank keys change; original target/price/floor/role/receipt stay exact."""
+  78      keys, log = priority_plan(account.pending, score_at, day)
+  79      before = [{k: v for k, v in i.items() if k != 'rank'} for i in account.pending]
+  80      d = account.decisions[-1]
+  81      assert str(d['at'])[:10] == day
+  82      by = {r['sid']: r for r in log}
+  83      added = {'original_H1_rank', 'priority_rank', 'PVR_score', 'PVR_ready', 'priority_policy'}
+  84      for i in account.pending+d['intents']:
+  85          r = by[i['sid']]
+  86          i.update(original_H1_rank=r['original_H1_rank'], priority_rank=keys[i['sid']],
+  87                   PVR_score=r['PVR'], PVR_ready=r['PVR_ready'], priority_policy=POLICY)
+  88          # Compatibility alias consumed by the UNCHANGED native opening sort.
+  89          # The original H1 key/score and explicit frozen new key remain separate.
+  90          i['rank'] = i['priority_rank']
+  91      assert before == [{k: v for k, v in i.items() if k != 'rank' and k not in added} for i in account.pending]
+  92      return log
+  93  
+  94  class Runner(BASE.Runner):
+  95      def __init__(self, *args, rank_mode='PVR_SLOT1', **kw):
+  96          assert rank_mode in ('H1', 'PVR_SLOT1') and SCORES is not None
+  97          super().__init__(*args, **kw)
+  98          self.rank_mode = rank_mode
+  99          self.integration_policy = POLICY+':'+rank_mode
+ 100          self.rank_scores_manifest_sha256 = SCORES.manifest_sha256
+ 101          self.rank_log = []
+ 102          self.assert_native_wiring()
+ 103  
+ 104      def assert_native_wiring(self):
+ 105          assert self.integration_policy == POLICY+':'+self.rank_mode
+ 106          assert SCORES is not None and self.rank_scores_manifest_sha256 == SCORES.manifest_sha256
+ 107          assert self.opening.__func__ is J.Runner.opening
+ 108          assert self.route.__func__ is BASE.Runner.route
+ 109          assert self.planning.__func__ is Runner.planning
+ 110          for a in self.accounts.values():
+ 111              assert type(a) is J.Account and type(a.budget) is BASE.NoAccountBudget
+ 112              for name in ('reserve_quantity', 'fill_buy', 'fill_exit', 'cancel_buy', 'split', 'sync', 'assert_budget_view'):
+ 113                  assert getattr(a, name).__func__ is getattr(J.Account, name)
+ 114  
+ 115      def planning(self, at):
+ 116          J.Runner.planning(self, at)
+ 117          if self.rank_mode == 'H1': return
+ 118          for a in self.accounts.values():
+ 119              log = apply_priority(a, SCORES.at, str(at.date()))
+ 120              self.rank_log.extend(dict(account=a.label, **r) for r in log)
+
+NO60_BINDING
+PATH /Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/native_adapter.py
+SHA256 7f451011b97bccbae863fa098e5520e7af4b6107fb9ed96b4d105eaa84d8a208
+   9  POLICY='PVR_SLOT1_NO_CONFIRMED60_ONLY'
+  10  
+  11  class NoConfirmed60Budget(N.BASE.NoAccountBudget):
+  12      request=P.MOD.Contract.request
+  13      def migrate(self,sector):
+  14          return P.MOD.Contract.migrate(self,sector) if self.expand else False
+  15  
+  16  class Runner(N.Runner):
+  17      route=P.ROUTES[True]
+  18      def __init__(self,*args,**kwargs):
+  19          self._cap_bootstrap=True
+  20          super().__init__(*args,**kwargs)
+  21          self.remove_confirmed60=True
+  22          for a in self.accounts.values():a.budget.__class__=NoConfirmed60Budget
+  23          self.integration_policy=POLICY+':'+self.rank_mode
+  24          self._cap_bootstrap=False
+  25          self.assert_native_wiring()
+  26  
+  27      def assert_native_wiring(self):
+  28          bootstrap=getattr(self,'_cap_bootstrap',False)
+  29          assert self.integration_policy==(N.POLICY if bootstrap else POLICY)+':'+self.rank_mode
+  30          assert self.rank_scores_manifest_sha256==N.SCORES.manifest_sha256
+  31          assert self.opening.__func__ is J.Runner.opening
+  32          assert self.planning.__func__ is N.Runner.planning
+  33          assert self.route.__func__ is P.ROUTES[True]
+  34          for a in self.accounts.values():
+  35              assert type(a)is J.Account and type(a.budget)is (N.BASE.NoAccountBudget if bootstrap else NoConfirmed60Budget)
+  36              if not bootstrap:
+  37                  assert a.budget.request.__func__ is P.MOD.Contract.request
+  38                  assert a.budget.migrate.__func__ is NoConfirmed60Budget.migrate
+  39              for name in ('reserve_quantity','fill_buy','fill_exit','cancel_buy','split','sync','assert_budget_view','expire_day_buys'):
+  40                  assert getattr(a,name).__func__ is getattr(J.Account,name)
+
+NO60_OFF
+PATH /Users/bytedance/Documents/Codex/2026-11-04/task-4/new_price_trend_v1/funding/entry_adapter.py
+SHA256 5b07f2eef495219adc799d7f3773153f2200e9c48437831762dfc4bedeb1574c
+ 113      def planning(self, at):
+ 114          if self.entry_mode == 'OFF':
+ 115              return N.Runner.planning(self, at)
+ 116          GATED_PLANNING(self, at)
+ 117          if self.rank_mode == 'H1': return
+ 118          for a in self.accounts.values():
+ 119              log = N.apply_priority(a, N.SCORES.at, str(at.date()))
+ 120              self.rank_log.extend(dict(account=a.label, **r) for r in log)
+
+MARKET_BUYABLE
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/ix-a-share-entry-20261025/code/multi_runner.py
+SHA256 8272c400fcee074a3902db9430dcf22d7ea3f0e0b3abb3caed3dc1e2a344d285
+ 165      def market_buyable(self, at):
+ 166          result = {}
+ 167          for sid in self.lines:
+ 168              try:
+ 169                  self.source_available(sid, at)
+ 170                  market_identity_on(self.rules, sid, at.astimezone(TZ).date(),
+ 171                                     self.protocol['approved_proxy_ids'])
+ 172                  row = self._version('availability_versions', sid, at)
+ 173                  value = row['buy_allowed']
+ 174                  if value is not None and type(value) is not bool:
+ 175                      raise ValueError('Availability must be a boolean or unknown')
+ 176                  source = row['source_id']
+ 177              except RuleUnavailable as exc:
+ 178                  value, source = None, str(exc)
+ 179              result[sid] = admission.Fact(value, at, at, source_id=source)
+ 180          return result
+
+EXECUTION_PROXY
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/temperature-sizing-20261026/code/fast_market.py
+SHA256 55f9ccf4085ace9f476afde4d29f250f7317dea405cbd9dffa69f5d7e366f36a
+  45   def window(self,sid,at,side,cost_multiplier):
+  46    self._cache(at);key=(sid,side,cost_multiplier)
+  47    if key in self.wc:return self.wc[key]
+  48    self.wc[key]=None;market=self.lines[sid].market
+  49    if at not in self.sessions_set[market]:return None
+  50    try:self.source_available(sid,at)
+  51    except RuleUnavailable:return None
+  52    a=self.arr[sid];day=pd.Timestamp(at.date()).value//86400000000000;p=np.searchsorted(a['days'],day)
+  53    if p>=len(a['days']) or a['days'][p]!=day or not a['valid'][p] or not np.isfinite(a['volume'][p]) or a['volume'][p]<=0:return None
+  54    j=np.searchsorted(a['positive'],p)
+  55    if j<20:return None
+  56    try:
+  57     market_identity_on(self.rules,sid,at.date(),self.protocol['approved_proxy_ids']);availability=self._version('availability_versions',sid,at);buy,sell=availability.get('buy_allowed'),availability.get('sell_allowed');policy=self.protocol['daily_execution'][market]
+  58     assert policy['price_limit_policy']=='conservative_hl_proxy'
+  59     if policy['reject_flat_day'] and a['high'][p]<=a['low'][p]:buy=sell=False
+  60     prior=a['volume'][a['positive'][j-20:j]];capacity=int(min(prior.mean()*float(self.protocol['participation_rate']),a['volume'][p]));slip=D(policy['slippage_bps'])/10000
+  61     if cost_multiplier==2 and policy['stress_slippage']:slip*=2
+  62     op=D(str(a['open'][p]));price=op*(1+slip if side=='buy' else 1-slip)
+  63     w=ledger.FillWindow(f'{sid}:{at.isoformat()}:{side}',sid,at,op,price,self.rate('CNY',at),self.quantity(sid,at),self.fees(sid,at),capacity,True,buy,sell,self.lag(market,at,self.protocol['sellable_lag_sessions'][market]),self.lag(market,at,self.protocol['settlement_lag_sessions'][market]),self.bundle.series[sid].record['raw']['sha256'],'explicit_daily_bar_proxy_past20_capacity_same_day_hlv_postcheck',self.rules.get('security_metadata',{}).get(sid,{}).get('par_value'))
+  64    except RuleUnavailable:return None
+  65    if key not in self.window_verified:
+  66     assert w==super().window(sid,at,side,cost_multiplier),(sid,at,'window identity');self.window_identity_checks+=1;self.window_verified.add(key)
+  67    self.wc[key]=w;return w
+
+PILOT_ADMISSION_BRIDGE
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/probe-pyramid-pilot-20261029/code/pilot.py
+SHA256 38ac36ba3b9da599c66307451f4173249efc229f54dfb6a0d8469517431f94b4
+  10  O=Path(__file__).resolve().parents[1];ROOT=O.parents[1]
+  11  sys.path.insert(0,str(ROOT/'research_rounds/pvr-act-comparison-20261027/code'))
+  12  import experiment as P
+  13  C,E,R=P.C,P.E,P.R
+  14  L,A,N=C.ledger,C.admission,C.native
+
+EXPERIMENT_COMMON_BRIDGE
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-act-comparison-20261027/code/experiment.py
+SHA256 124cf2f65ad6e2befac6c0e945b4574b64ff68ed75692bff5234bf47b81509bf
+   4  O=Path(__file__).resolve().parents[1]; ROOT=O.parents[1]
+   5  BASE=ROOT/'research_rounds/tech-finite-compound-20261026'
+   6  ACT=ROOT/'research_rounds/actual-risk-recovery-20261027'
+   7  FORM=ROOT/'research_rounds/pv-rank-q1-20261027/FORMULA.json'
+   8  sys.path[:0]=[str(ACT/'code'),str(BASE/'code')]
+   9  import common as C
+  10  import engine as E
+  11  import run_v2 as R
+
+COMMON_ADMISSION_IMPORT
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/tech-finite-compound-20261026/code/common.py
+SHA256 743d94910cc229a485ffca09b27797deac8f2477adaff2cffc8994042f280439
+   6  HERE=Path(__file__).resolve().parents[1];ROOT=HERE.parents[1]
+   7  OLD=ROOT/'research_rounds/rs-h1-execution-20261025';IX=ROOT/'research_rounds/ix-a-share-entry-20261025'
+   8  G1=ROOT/'research_rounds/b5-g1-20261025';B5=ROOT/'research_rounds/pv-strength-b5-20261025'
+   9  TEMP=ROOT/'research_rounds/temperature-sizing-20261026';DESIGN=ROOT/'research_rounds/tech-compound-design-20261026';ROT=ROOT/'research_rounds/tech-amount-rotation-20261026'
+  10  CORE=HERE/'data/core-v3';PREP=HERE/'prepared-v2'
+  11  for p in [OLD/'code',IX/'code',ROOT/'research_rounds/unlimited-capital-20261026/code']:sys.path.append(str(p))
+  12  import multi_runner as native
+  13  import sector_account as ledger
+  14  import sector_stock_admission as admission
+  15  from current_pool_bridge import load_bundle,read_raw as original_read_raw,read_actions,prepare_signal,source_segments

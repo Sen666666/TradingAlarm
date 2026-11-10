@@ -1,0 +1,28 @@
+{
+  "version": "native_dmi_two_month_continuous_v1",
+  "status": "Frozen implementation review before economic launch",
+  "authorization": "Parent requested two January dual-arm bounded continuous conditional validations, independent cash/holdings/lifecycle, fixed DMI, baseline exact, one retained run per arm, independent review; no live orders.",
+  "windows": {
+    "2022Jan": {
+      "start": "2022-01-04",
+      "end": "2022-01-28",
+      "closes": 19,
+      "initial": "Exact original 1200000 empty stock ledger and historical industry warm state; not a reset or fabricated checkpoint."
+    },
+    "2026Jan": {
+      "start": "2026-01-05",
+      "end": "2026-01-30",
+      "closes": 20,
+      "initial": "Full original PVR account and runner from verified2025-12-31 checkpoint, existing inventory/dividend receivable/ACT/epochs/tickets/pending/exits; first Jan5OPEN unaltered Dec31 pending."
+    }
+  },
+  "consumer": "After native CLOSE planning and PVR sizing/rank complete, only flat industry-active original pending stocks with knownPVR&d move within exact sector+pending role-set numeric stock slots. Sort(-d,-PVR,sid), core/mobile together CORE first, heldADD and UNKNOWN fixed. No TopK.",
+  "dmi": "Original competitive Wilder14 DM, SMA seed then1/14RMA; d=(A-B)/(A+B), zero denominator0, missing/invalid/segment resets; UNKNOWN separate; no threshold.",
+  "implementation": "Native planning/opening/route identities unchanged; driver applies finalrank afterwards. Native rank-policy rows stay originalPVR audit; DMI_RANK_AUDIT has finalranks. Only pending+decision rank/priority_rank changed.",
+  "risk": "Original PVR ACT, NoConfirmed60, no account3%risk gate, original size/fees/protection/add/exit/reentry unchanged. No NOACT or new profit gate.",
+  "isolation": "Independent process/runner per arm; initial full economic payload hashes match. PVR native label retained for identical ledger IDs; directory separates arm.",
+  "gates": "Baseline both windows exactly match old daily/trades/decisions/audit/journal/opportunities/funding/industry/balances/rank before DMI. Original checkpoint identity/provenance+source checks; equivalent one-unpickle fullrestore; audited outputlogs only trimmed with economicdigest equality; account histories retained. OPEN restart/poison engineering clones restored before officialevent. Feature physicalprefix precheck. Additional full CLOSE physicalprefix gate before DMI release.",
+  "once": "O_EXCL perwindow/arm, failures savepartial and stop no automaticrerun; one retainedPVR andDMI loop perwindow. End JanuaryfinalCLOSE, finalpending right-censored, noFebruaryadded.",
+  "metrics": "Wholeaccount monthly NAV/cash/fees; inherited position monthlycontribution separate from lifetime; new0to0 rounds; independentinitiallayer closes evenifroundopen; fullclosednet/totalbuycost>=30%tail; open/unknown separate. NoMFE orfuturelabelsubstitution.",
+  "limits": "Knownopen5bp/prior20volume1% datedrules conditionalproxy, tradabilityUNKNOWN, fixed1709/current90NONPIT. Developmentseen history, no35% orcrossregimeclaim."
+}

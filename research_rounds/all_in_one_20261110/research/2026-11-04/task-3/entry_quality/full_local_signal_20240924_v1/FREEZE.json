@@ -1,0 +1,16 @@
+{
+  "status": "SINGLE_DATE_SCOPE_FIXED_BEFORE_FULL_SIGNAL_RESULTS",
+  "day": "2024-09-24",
+  "mother": "5517 existing local canonical series, all5517 requests retained;5309 exact target bars,208 missing. Not historical all-A/PIT,239 retired archives remain separate.",
+  "source": "/Users/bytedance/repos/my-quant/data/processed/adjusted_daily_bars/adjusted_daily_bars.parquet",
+  "source_sha256": "11e7f9e38798e6e411f33b3250c564bcd5fcfbe34af2bda74e04c02cf8d08d9b",
+  "signal": "Original stock_signal.calculate: original numeric/participation/E0(decline_candidate=False)/B5/B4/G1/G1_I. Every official stock model call receives only bars with trade_date<=2024-09-24, preserving full available historical prefix, no truncation/warm-start invented for speed.",
+  "reuse": "Only same original algorithm-code and canonical source SHA, exact target row, field equality and saved provenance. Existing72 partial/fixed35/bounded6 target union110, with overlap deduplicated; no old native-cache price coordinates.",
+  "unknown": "Missing target/model error/unready is not an observed False signal. Raw original fields retained; stock-hold research boolean UNKNOWN when E0 not ready; i_buy research boolean also UNKNOWN when G1 not ready. Historical listing identity/ST/halt/limit/executable eligibility UNKNOWN for all; no marketcap/roster/classification gate.",
+  "PVR": "Reuse exact same-source original frozen PVR. Research score pool requires exact valid target bar and finite ready score. Scores unmodified. Existing PVR may be unavailable even with price, handled separately from E0/I readiness.",
+  "amount_history_percentile": "Descriptive only: (#previous252 valid same-block source observations with amount<A_t +0.5*#with amount=A_t)/252. Exclude t, need full252, else UNKNOWN. Native amount, no CNY/capacity certification, no threshold or ranking weight. Keep prior20 median as separate feature.",
+  "rankings": "PVR score descending, symbol ascending exact ties. Three research queues: bare PVR, PVR+ready I_target, PVR+ready I_target+i_buy. Within each report ALL_LOCAL, OLD1709_EXACT_STATIC_REFERENCE, OUTSIDE_OLD1709 separately. No global H1/industry/CP qualification claimed.",
+  "named_cases": ["000620.SZ", "300085.SZ", "002583.SZ", "300666.SZ", "603061.SH", "301611.SZ", "300604.SZ", "301308.SZ", "002371.SZ", "688012.SH", "688498.SH", "301348.SZ", "600198.SH", "300925.SZ", "688479.SH"],
+  "causal_test": "Small original-function comparisons of target prefixes against extended prefixes are diagnostic only. Extended outputs never used as official historical signals. Any shared-prefix revision blocks full results until resolved.",
+  "execution": "Pilot-based ETA before one full batch. Per-stock durable output, bounded chunks and source/code identities for safe resume. No account runs/orders/forward-return labels/parameter search/network. No strategy engine modification. Current qfq factor vintage and publication time remain uncertified."
+}

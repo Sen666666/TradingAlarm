@@ -1,0 +1,9 @@
+{
+  "contract_sha256": "9c63ef8ee35b653304b535cabaf43a24221489be74d75a6fd9c115faf285c51f",
+  "code_sha256": "ebe325674da6a27eb8a596e2bec71f01992afd4fa0da06cc28cc084afc2b3942",
+  "formula_count": 1,
+  "economic_runs": 0,
+  "numeric_CP_recomputations": 0,
+  "fixed_before_full_gate_values": true,
+  "known_cases_already_observed": true
+}

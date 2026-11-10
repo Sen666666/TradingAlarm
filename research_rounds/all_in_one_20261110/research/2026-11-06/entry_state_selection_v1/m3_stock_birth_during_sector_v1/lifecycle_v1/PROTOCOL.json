@@ -1,0 +1,52 @@
+{
+  "name": "A_AND_B_CAUSAL_STOCK_LIFECYCLES_V1",
+  "frozen_before_new_lifecycle_outcomes": true,
+  "exploratory_not_OOS": true,
+  "scope": "Two event-entry arms, per-stock continuous lifecycle in each fixed birth window. NOT full strategy, NOT shared account. Original fast channel excluded in both arms. No capital-rule expansion.",
+  "arms": {
+    "A_ONLY": "Only existing A_SECTOR_BIRTH",
+    "A_UNION_B": "A plus B_STOCK_BIRTH_DURING_SECTOR; all other rules identical"
+  },
+  "windows": [
+    [
+      "2022",
+      "2022-01-01",
+      "2022-12-31",
+      null
+    ],
+    [
+      "2024_924",
+      "2024-09-01",
+      "2024-12-31",
+      null
+    ],
+    [
+      "2026H1_SEMI",
+      "2026-01-01",
+      "2026-06-30",
+      "URFI881121"
+    ]
+  ],
+  "start_end": "Each arm/window begins flat, no inherited actual account inventory. Shifted M/S computed on full warm panels, not restarted. Stop new birth admission at window end; manage held positions including profitable fresh-CP adds until existing data end 2026-06-30. No forced liquidation.",
+  "events": "Use already sealed A/B identities unchanged. A=Sprev0,St1,Mt1; B=Sprev1,St1,Mprev0,Mt1. UNKNOWN/left excluded, not false. Full original M3 window and common domain unchanged.",
+  "queue": "At each t close/industry, record every A/B birth; separate held/buy pending/sell pending/UNKNOWN stock first. Require original I-qualified and known exact-t PVR. Rank PVR descending, sid ascending. First2 passing original t-close price/lot/2% nominal/.25% plan risk/prior20 capacity proxy. No H1 or amount20 common-domain restriction. This is NOT a reproduction of previous three-ranking comparison table.",
+  "clock": "Process OPEN actions then CLOSE facts then new birth queues. New receipt can reenter only after previous sell_all actually executed, including same day OPEN exit then CLOSE new edge. No stored receipt replay. Next common OPEN failure never replaced by another candidate.",
+  "sizing": "1200000 CNY fixed sizing reference; initial cash<=24000 including fees, planned floor loss<=3000 including fees; close proxy quantity not a fixed order. Next-open quantity recomputed from same frozen budget/risk/capacity, may increase on lower OPEN as original simulator. 5bp adverse buy and sell slippage. Dated minimum-lot/fee rules. Capacity original last20 positive raw-volume observations through signal close,1% mean, inherited proxy not improved. Full-day execution liquidity not known.",
+  "holding": "Actual simulated same-stock state per arm/window. All A/B receipts while held/pending are blocked, never convert losing position to add. Existing profitable freshCP at t and profitable net liquidation at next OPEN required for single add; original one max2% nominal add,cumulative marked slot<=4%, original3000 plan-risk algorithm. I exit and CP add-floor exit unchanged. Industry0/UNKNOWN blocks fresh adds, never forces exit. Held management continues after birth window.",
+  "unknown": "Missing/invalid OPEN, source lineage change, factor change, unavailable dated rules, ambiguous entry outcome lock this stock UNKNOWN for remainder of window. Explicit known nofill (OPEN<=protection or zero affordable quantity) returns flat. Held missing/invalid CLOSE or I/CP facts locks UNKNOWN. Source/adjustment metadata only comparable-path condition, not historical open-time exchange permission. End pending/held censored, not loss/win.",
+  "fees": "Original dated fee engine and adverse slippage, no fee waiver. Results only conditional completed stock-round net win, average win/loss in CNY and return units, tail>=30%, fees and not-completed. No sum interpreted as account return. Costs and original shared capital feasibility separate.",
+  "attribution": "Report A/B separately; in union B can occupy stock and displace later A. Compare same A event decisions to A-only, show held/UNKNOWN blocks and differences. Three windows separately, do not aggregate unequal followup.",
+  "limitations": [
+    "static future stock pool/industry membership NON-PIT",
+    "historical limit-up/down, suspension, open queue/orderability unknown",
+    "current prepared daily source facts may carry revision risk",
+    "common calendar and M3 mu warm-history inherited",
+    "earlier prices/research already seen, not out-of-sample",
+    "not complete quick-entry strategy or shared account; no strategy win-rate claim"
+  ],
+  "audit_notes": [
+    "Independent event audit found0/26702 mismatches",
+    "No future H/L/C/volume in OPEN decisions; close flags checked after OPEN",
+    "All source files read-only; only isolated lifecycle_v1 outputs written"
+  ]
+}

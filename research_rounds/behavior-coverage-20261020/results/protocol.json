@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-20",
+  "frozen_utc": "2026-10-20T03:25:14.134805+00:00",
+  "purpose": "保留前12例，追加3例弥补慢推、纯区间、A股个股覆盖；只按价格路径选择，不看模型收益",
+  "windows": [
+    "2024",
+    "2025"
+  ],
+  "minimum_observations": 200,
+  "slow": {
+    "log_return_min": 0.15,
+    "log_return_max": 0.5,
+    "max_drawdown_abs_max": 0.15,
+    "linear_logprice_r2_min": 0.65,
+    "largest_positive_5step_log_return_over_total_max": 0.35
+  },
+  "range": {
+    "absolute_log_return_max": 0.05,
+    "log_high_low_min": 0.1,
+    "log_high_low_max": 0.35,
+    "absolute_fitted_full_window_log_displacement_max": 0.06,
+    "smoothed5_median_crossings_min": 6,
+    "bottom_and_top_quartile_observations_min": 10
+  },
+  "selection": "按(year,symbol)字典序第一个合格者；A慢推、A区间、HK证券区间各一；不同证券；现有12例保留且不改。若无合格者记录缺口，不松阈值。",
+  "status": "全窗价格筛选是事后开发覆盖，不是因果交易因子、独立验证或参数优化；当年状态不能使用这些年度分类。A485为存续选择池，理论除权信号价不是账户收益。"
+}

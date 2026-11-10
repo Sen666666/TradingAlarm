@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-20",
+  "created_utc": "2026-10-20T03:33:38.462252+00:00",
+  "status": "Frozen before any new model output; all historical data and behavior cases already development",
+  "hypothesis": "成交活动价格区域整体上移是推进证据；结构下沿仍未破坏时，推进减慢不单独触发退出。日线收盘的活动权重是代理，不是真实成交价分布/持仓成本。",
+  "formula": {
+    "price": "y=log(close/first_valid_close); valid price and volume positive finite",
+    "volume_weights": "sqrt(V/first_valid_V); each 21-observation block normalized separately; price ablation uses1",
+    "weighted_quantiles": "sort y, midpoint weighted CDF (cumsum(w)-0.5w)/sum(w), linear interpolate q=.25,.5,.75 with endpoint bounds",
+    "windows": "recent t-20..t; prior t-41..t-21, disjoint equal length21",
+    "noise": "sigma_t=RMS previous63 log returns excluding current, numerical lower bound1e-8; b=sqrt(5)*sigma",
+    "advance": "min(recent_quantiles-prior_quantiles)/(sqrt(21)*sigma); conservative upward shift, NOT probability or sign-symmetric drift",
+    "entry_score": "min(advance, 1+(y-current_q50)/b); >1 upward crossing or first valid>1 establishes state",
+    "survival": "state floor at establishment=q25-b; while active floor=max(previous_floor,q25-b); close below updated floor invalidates; slowing advance alone does not invalidate",
+    "reentry": "fresh entry_score crossing only; exit branch cannot reenter same observation; score remaining above1 after exit does not create new entry until it resets",
+    "missing": "skip invalid observation in estimator; target persists, no new event; warmup target0",
+    "state_scope": "derived only from past/current price-volume, independent of accounts, fills and profit"
+  },
+  "differences": "No pair of confirmed swing highs/lows, no leg switch resetting score. Advancement and survival are separate, floor derives from weighted price region rather than raw high minus buffer. Floor ratchet is still hysteretic protection, not inherently novel; quantify its added value with matched exit control. Distributions discard within-block order; daily close proxy and isolated volume concentration may fail.",
+  "comparators": [
+    "same region model price-only weights",
+    "same PV entry but exit advance<=0, isolating survival rule conditional on feedback/reentry path; not additive causal PNL decomposition",
+    "existing competing-state and SMA63 results remain historical controls"
+  ],
+  "scope": "27 asset trajectories, fixed15case panel; ETF17/HK7 full accounts if mechanically valid and interpretable after review; A3 signal-only",
+  "synthetic": [
+    "drift",
+    "range",
+    "jump_flat",
+    "one_bar_shock",
+    "recover",
+    "reverse",
+    "drift_flat"
+  ],
+  "checks": [
+    "prefix invariance7synthetic+27real",
+    "price and volume unit scaling",
+    "identical prefix before divergent future",
+    "nondecreasing floor within active state",
+    "no future or account inputs"
+  ],
+  "failures": "Numerical/causal/invariant failures block accounts; no automatic demand of zero range trades. Review advance/flat survival/reversal and volume concentration before accounts. Large ordinary churn, systematic trend mutilation or absence of volume increment deny promotion. No parameter grid or post-result threshold changes.",
+  "accounts": {
+    "period": [
+      "2022-01-01",
+      "2026-10-16"
+    ],
+    "initial_capital": 1000000,
+    "initial_entry_budget": "0.9/N; no daily equal rebalancing",
+    "execution": "existing repaired next-tradable execution, raw-price share/FX/claims and volume cap; same saved assets",
+    "scenarios": "PV base15bps+FX10, cost2, delay1; price base; momentum-exit base =>10 accounts",
+    "attribution": "closed net>=30% tail; other closed ordinary; open/claims separate; independent ledger1e-6",
+    "ETF_stocks": "existing sector comparisons retained; new sector comparison after main candidate assessment, not automatic expansion of a failed model"
+  },
+  "source_sha256": {
+    "run_price_region.py": "483b136eebd08f34b997f840268299089135941d7da6cb9363fed609d8ca0c8c",
+    "trend_price_region.py": "47de029173dfecf17a1fee68d8528b0219b8c8a9dcbc11e6f880a0388580330d"
+  }
+}

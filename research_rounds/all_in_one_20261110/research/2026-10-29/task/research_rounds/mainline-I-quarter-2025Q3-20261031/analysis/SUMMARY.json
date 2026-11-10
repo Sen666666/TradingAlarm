@@ -1,0 +1,229 @@
+[
+  {
+    "account": "H1",
+    "net_return": 0.26641023930289687,
+    "final_nav": "1266410.2393028967995",
+    "max_drawdown": 0.08626327223319152,
+    "underwater_at_end": false,
+    "longest_underwater_observations": 11,
+    "fees": "3350.6714671032005",
+    "slippage": "1334.012830",
+    "mean_exposure": 0.8864745394589068,
+    "peak_positions": 198,
+    "end_positions": 198,
+    "end_cash_available": "125577.2557028967995",
+    "end_order_reserved": "0",
+    "buy_fills": 370,
+    "sell_fills": 172,
+    "buy_orders": 370,
+    "cycles": 370,
+    "closed": 172,
+    "open": 198,
+    "all_negative_cycle_loss": "30578.9423313812405",
+    "closed_tail30_net": "20330.2413311699000",
+    "closed_ordinary_net": "17883.8418279022220",
+    "open_marked_net": "228196.1561438246775",
+    "open_tail30_marked_cycles": 46,
+    "ACT_pauses": 0,
+    "ACT_resumes": 0,
+    "ACT_paused_closes": 0,
+    "raw_I_stock_days": 19706,
+    "common_P_stock_days": 12939,
+    "rank_unknown_common_excluded": 0,
+    "selected_stock_days": 6487,
+    "attention_le1_selected_stock_days": 2486,
+    "intent_count": 4846,
+    "post_Q_counts": {
+      "Q_pass": 6445,
+      "intent_after_sizing": 3977,
+      "size_or_floor_reject": 869,
+      "Q_unknown": 39,
+      "already_held": 1599,
+      "Q_fail": 3
+    },
+    "Q_reasons": {
+      "stock_rs_ready_fresh:unknown": 39,
+      "sector_up:false": 3
+    },
+    "final_counts": {
+      "intent_core": 4846,
+      "size_minimum_unit_exceeds_risk_or_nominal_cap": 869,
+      "buy_fills": 370,
+      "whole_order_unfunded": 3532,
+      "allocation_open_minimum_exceeds_frozen_contract": 29,
+      "sell_fills": 172,
+      "allocation_missing_open": 1
+    },
+    "unknown_price_position_days": 10,
+    "unknown_position_cases": [
+      [
+        "000070.SZ",
+        "2025-07-08"
+      ],
+      [
+        "001267.SZ",
+        "2025-07-22"
+      ],
+      [
+        "001267.SZ",
+        "2025-07-23"
+      ],
+      [
+        "001267.SZ",
+        "2025-07-24"
+      ],
+      [
+        "001267.SZ",
+        "2025-07-25"
+      ],
+      [
+        "000697.SZ",
+        "2025-09-24"
+      ],
+      [
+        "002185.SZ",
+        "2025-09-25"
+      ],
+      [
+        "002185.SZ",
+        "2025-09-26"
+      ],
+      [
+        "002185.SZ",
+        "2025-09-29"
+      ],
+      [
+        "002185.SZ",
+        "2025-09-30"
+      ]
+    ],
+    "max_stock_weight": 0.03759582326726721,
+    "max_industry_weight": 0.17859939973993685
+  },
+  {
+    "account": "ATT",
+    "net_return": 0.23787726564755318,
+    "final_nav": "1237877.2656475531070",
+    "max_drawdown": 0.06509307328039071,
+    "underwater_at_end": false,
+    "longest_underwater_observations": 8,
+    "fees": "4112.4262574468930",
+    "slippage": "1358.670895",
+    "mean_exposure": 0.8858020965862946,
+    "peak_positions": 266,
+    "end_positions": 266,
+    "end_cash_available": "122450.1528475531070",
+    "end_order_reserved": "0",
+    "buy_fills": 479,
+    "sell_fills": 213,
+    "buy_orders": 479,
+    "cycles": 479,
+    "closed": 213,
+    "open": 266,
+    "all_negative_cycle_loss": "38799.9010560249815",
+    "closed_tail30_net": "28484.0114072560790",
+    "closed_ordinary_net": "18021.4873861378840",
+    "open_marked_net": "191371.7668541591440",
+    "open_tail30_marked_cycles": 53,
+    "ACT_pauses": 0,
+    "ACT_resumes": 0,
+    "ACT_paused_closes": 0,
+    "raw_I_stock_days": 19706,
+    "common_P_stock_days": 12939,
+    "rank_unknown_common_excluded": 0,
+    "selected_stock_days": 6487,
+    "attention_le1_selected_stock_days": 186,
+    "intent_count": 5193,
+    "post_Q_counts": {
+      "Q_pass": 6443,
+      "intent_after_sizing": 4500,
+      "size_or_floor_reject": 693,
+      "Q_unknown": 39,
+      "already_held": 1250,
+      "Q_fail": 5
+    },
+    "Q_reasons": {
+      "stock_rs_ready_fresh:unknown": 39,
+      "sector_up:false": 5
+    },
+    "final_counts": {
+      "intent_core": 5193,
+      "size_minimum_unit_exceeds_risk_or_nominal_cap": 693,
+      "buy_fills": 479,
+      "sell_fills": 213,
+      "whole_order_unfunded": 3933,
+      "allocation_open_minimum_exceeds_frozen_contract": 27,
+      "allocation_missing_open": 3,
+      "allocation_open_at_or_below_protection": 1
+    },
+    "unknown_price_position_days": 16,
+    "unknown_position_cases": [
+      [
+        "600208.SH",
+        "2025-07-30"
+      ],
+      [
+        "600208.SH",
+        "2025-07-31"
+      ],
+      [
+        "600208.SH",
+        "2025-08-01"
+      ],
+      [
+        "600208.SH",
+        "2025-08-04"
+      ],
+      [
+        "600208.SH",
+        "2025-08-05"
+      ],
+      [
+        "600208.SH",
+        "2025-08-06"
+      ],
+      [
+        "600208.SH",
+        "2025-08-07"
+      ],
+      [
+        "600208.SH",
+        "2025-08-08"
+      ],
+      [
+        "600208.SH",
+        "2025-08-11"
+      ],
+      [
+        "600208.SH",
+        "2025-08-12"
+      ],
+      [
+        "600711.SH",
+        "2025-08-13"
+      ],
+      [
+        "000697.SZ",
+        "2025-09-24"
+      ],
+      [
+        "002185.SZ",
+        "2025-09-25"
+      ],
+      [
+        "002185.SZ",
+        "2025-09-26"
+      ],
+      [
+        "002185.SZ",
+        "2025-09-29"
+      ],
+      [
+        "002185.SZ",
+        "2025-09-30"
+      ]
+    ],
+    "max_stock_weight": 0.049249278490692994,
+    "max_industry_weight": 0.1922393292494445
+  }
+]

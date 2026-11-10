@@ -1,0 +1,16 @@
+{
+  "status": "PHASE_MATH_AND_RAW_NUMBERS_COMPLETE",
+  "at_utc": "2026-11-05T10:03:06.202612+00:00",
+  "short_anchor": "last confirmed E0 low, confirmation-time available",
+  "long_anchor_table": "last confirmed E0 high; active barrier retirement proposed separately, not a live FSM",
+  "point_score_rows": 7,
+  "new_CP_permission_state_runs": 0,
+  "new_accounts": 0,
+  "new_backtests": 0,
+  "new_orders": 0,
+  "new_return_estimates": 0,
+  "three_point_finite_checks": 60,
+  "maximum_finite_residual": "3.16e-15",
+  "independent_scope": "raw original anchors/paths/scales and scalar scores only; no full active-barrier or grant consumption test",
+  "blockers": "No missing data for requested cases. Full new permission FSM, structural rollover and evidence consumption remain unimplemented; no account test authorized."
+}

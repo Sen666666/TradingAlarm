@@ -1,0 +1,29 @@
+入场价格/保护距离：独立全量数值审（2026-11-04）
+状态 PASS_WITH_SCOPE_LIMITS；全部3436原实际成交层核验，不是抽样。
+
+2416源SHA匹配。直接读取1205只原facts及原signal quote，核全部3436
+decision snapshot：prior20 close最大严格排当前；OHLC high为独立描述，
+20个精确原行的source/观察/价格几何与close价域均通过。r5/r20分别取
+6/21原同source有效价格观察，6872个calendar span核同，未因I/CP/root
+重启窗口。context_unknown为0是这批实际成交的观察结果，不泛指全池。
+
+width与decision nominal risk只用原intent.floor、当时factor、原raw
+CLOSE×1.0005及原cap/NAV。3436原intent与原book decision/实际floor
+逐一核同，没有填入fillfactor或后来抬线。原raw buycost、q/split、真实
+first/add/flat后reentry身份另从原交易重建；财务净额继续对应既有已审
+原全账，不新造收益或用NAV残差补账。
+
+独立按feature值重算pooled3436的12个quartile切点、13744个成员标签，
+没有未来net/MFE参与cut构造。1119个实际组的成本、净额、正/负来源、
+strictreal/open/AR、买卖费，3278个母体资金份额及54831个分布值均通过；
+32个分区完整覆盖各自母体。三年原83/strong94尾名单全保留，45/67实际
+精确对应及未对应身份核同；未把局部layer ID跨arm强配。CSV的24052个
+主数值字段也核同。
+
+这是入场特征/原路径结果的事实一致性审查。并未证明某个quartile格
+能预测亏损，也未把未来MFE或退出理由接到交易门。当前RESULTS只保存
+observed非空pair格；另补完整空格CSV时仍需薄核其分母/零行和标签网格，
+本收据不冒称完整空格已存在。持有/退出标签join也不在本收据数值范围。
+
+证据：DECISION_FEATURE_AUDIT.json包含全部检查计数、源码及输出SHA、
+原源绑定和母体金额。0新账户/模型/数量动作，无主文件修改。

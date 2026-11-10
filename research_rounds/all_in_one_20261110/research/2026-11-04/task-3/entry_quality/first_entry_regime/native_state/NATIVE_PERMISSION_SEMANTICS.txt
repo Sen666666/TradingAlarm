@@ -1,0 +1,24 @@
+原权限语义与完整交叉补充，2026-11-04
+
+1. ACT on 不因fast变False直接撤销。
+原 actual-risk-recovery-20261027/code/risk_policy.py advance 的on分支只比较本账户phase峰值回撤是否>=20%；fast/BREAK不在此分支充当每日维持条件。暂停后才要求实际flat且BREAK恢复，并重置peak、episode+1。故已有on时fastFalse仍可出现合法新买。这是原政策，不是日志bug。恢复当日raw episode_drawdown沿step前峰算，post-transition峰已重设，所以本交付另报nav/peak对应DD。
+
+2. 行业expanded不是每天等待BREAK或股票创63高。
+原budget_v3.Contract.industry以新的合法行业CP1使第一次active level0/probe，其后新行业凭证升level1/2；没有凭证的observe保持状态。原行业E0无效或end_attempt会使active false并取消同段未完订单。市场ACT恢复BREAK与行业stage是不同状态机。expanded表示当前行业原attempt已累计获得相应行业证据及资金权限，不代表每只新股票已有成功交易或中期趋势一定成功。
+
+3. 为什么一只股票第一次实际参与就可能mobile、约2%NAV gross且confirmed。
+原joint_v3.planning：core角色要求当日event_Q真、未持股且core_epoch未用；mobile角色独立要求当日新的合法股票CP1且continuing_Q真，未要求先有实际core成交，也不要求这是该股票第二次参与。当日没有fresh I event时，continuing I/Q仍可能成立，所以mobile可成为该股票第一次真实持有。
+原预算是min(2%决策NAV,10%单股资本剩余)，这是名义买入毛目标上限，不是2%NAV本金风险保证。core另走原LR风险尺寸(.25%NAV约束)，两种不同合同不能互换。
+opening按相同股票core优先，core实际reserve成功后done抑制同股mobile；若core未提交或尺寸/资源不成立，不自动禁止一个独立合法CP1 mobile。route只有mobile且行业active、level>0、合法迁池/资金资源满足时才允许比较confirmed路径；按合法最大股数择路，probe赢同量平局。No60仅移除confirmed总60%上限，仍保留原probe、行业/单股、现金/费及其它真实约束；不把原3%账户风险上限错误写回当前No60。
+FIRST_MOBILE_ROLE_FACTS.json另存实际first-mobile、confirmed和是否同日还存在core intent的全分母。未提交core的原因不能仅凭没有intent确定，未声称逐笔都是fresh I缺席；上文解释的是源码允许条件。
+
+实际OPEN角色排队复核（不是猜测core没提交）：两年firstmobile537笔、其中503笔实际confirmed；468笔原decision同时有core intent，均精确找到OPEN core未获资事件，376笔原因含probe_risk、304笔含sector_capital（这些原因集合重叠）。另69笔未提交core，不能从缺失反推唯一原因。Strong firstmobile454笔、419笔confirmed；390笔同时有core intent，全部有精确OPEN失败记录，272笔含probe_risk、242笔含sector_capital，2笔open_minimum_exceeds_frozen_contract；另64笔无core intent。逐笔原事件见两个FIRST_MOBILE_CORE_FUNDING，未知0。
+因此在原系统中，“同股core先尝试”并不保证“首次真实参与一定按CORE风险”。当probe共用风险或probe路径行业2%资本空间不足时，具有独立fresh CP1的mobile可以在confirmed路径取得更大合法数量。此机制是目前合同的明确允许，不是重放旧凭证或会计错误；其正负与尾部都需保留，不能只把该组原亏损当可节约。
+FIRST_ROLE_FUNDING_GROUPS.json进一步把“core已提交但OPEN未获资后的firstmobile”“无core intent的firstmobile”“firstcore实际成交”三个互斥组完整列出资本、正负、终态net与tail；三组合计精确回到772/671首次母体。它仍是原路径归因，不是强制小试探政策收益。
+
+4. 与父price_risk精确join。
+按window/layer/sid/decision_at四键，并核opened/budget_order/role/fillpool及所有原金融字段严格相同。父三年first968中只选本轮两年772，排除196个2024首次；strong671全选。772+671=1443，全部无丢行，无时钟借用。此前消息/说明中的1433为加法笔误，原逐笔与分组结果一直是772/671，不曾删10笔。
+完整fast(2)×行业stage(3)×股票prior63closehigh(2)×role(2)=24格，两条cohort并列共48行，空格保留。文件JOINT_COMPLETE_CROSS.json/.csv；原正净/负净/买款及其母体份额、净额、开放与AR、尾层数/贡献全部在。没有按表现挑格或阈值搜索，全部分组金额精确加回两母体。
+同状态可以经济不同：例如fastFalse、expanded、已创prior63高、mobile首次，两年124层正+76807.61/负−77133.61/净−326.00；strong150层正+227075.68/负−174009.11/净+53066.57。两边都有赢家与输家，原方向成熟并不等于无需试错控制。反过来某个小格同为净负，也不等于关闭它后的账户会机械多出那笔钱；资源重排与后续信号都未模拟。
+
+完整状态表用于与已有近期账户/行业试错证据并列研究，不将交叉标签升级成新的交易筛选。各观察非独立、历史已消费和当期行业快照限制不变。

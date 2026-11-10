@@ -1,0 +1,40 @@
+{
+  "at": "2026-11-01T07:39:35.217269+00:00",
+  "status": "independent facts PASS; separate explicitly exploratory trial design, original strict gate remains failed; contract pending review",
+  "new_economic_paths": 0,
+  "new_price_label_values_read": 0,
+  "new_scores_generated": 0,
+  "policy_implemented": false,
+  "proposal_files_sha256": {
+    "research_rounds/pvr-current-v3-information-capital-20261101/native-ranking-trial-design/SOURCE_SUPPORT_NA.json": "2735f9ed593efb0a121f807f3f3cfdfcf9116f3fafd99582ce0ea88806bca473",
+    "research_rounds/pvr-current-v3-information-capital-20261101/native-ranking-trial-design/NA_NATIVE_EVENTS.json": "cc28a96ac098ce87270f26492a2ccfe203b7e6754b84f34f1bde33114448c96e",
+    "research_rounds/pvr-current-v3-information-capital-20261101/native-ranking-trial-design/CONTRACT_PROPOSAL.txt": "291bed90043cf156a6de6c99257a637313bbcf776efd77482633a46fffeb4f0c",
+    "research_rounds/pvr-current-v3-information-capital-20261101/native-ranking-trial-design/readiness_only.py": "08805884157a33389cd8f637c364b47d4db4486d2f3c08bac511e1bf7e726d2d",
+    "research_rounds/pvr-current-v3-information-capital-20261101/native-ranking-trial-design/READINESS_INPUT_SHA256.json": "3a2aa8def850b309cec0a6a106329bb1d806d2c0f181b0045598de7a6f837eae",
+    "research_rounds/pvr-current-v3-information-capital-20261101/native-ranking-trial-design/NATIVE_NA_READINESS.json": "75626e1ceaf6cfe80d1c1a8fc4746a057ccc241a6a3396e07e2a46becd41f247",
+    "research_rounds/pvr-current-v3-information-capital-20261101/native-ranking-trial-design/ADJUDICATION_NOTE.txt": "a9c5a8cd6777eaf34776d950e6586bcc3af2e438a44449149858734ddf21823d",
+    "research_rounds/pvr-current-v3-information-capital-20261101/native-ranking-trial-design/audit/FACTUAL_EVIDENCE.json": "d4154d735e43f5bd02294833ffdb179c7d3831273620651f7ce554d6ef76c2ef"
+  },
+  "preserved_original_decision_and_results_sha256": {
+    "global-analysis/GLOBAL_CONTRACT.txt": "30c45dc60293cbe27638479e6e83e0911029966e2750df6103ce60667ff8c243",
+    "global-analysis/GLOBAL_CONTRACT_FREEZE.json": "0c20dbbd7f7fd469c78a3a58b349758f9e494c76f543044ed8e6c3d33c00d87b",
+    "global-analysis/DECISION.json": "14fe1c126c3e13ac3ac5556e392964b232f5b2b9c2c9220b43922445a3e3b64c",
+    "global-analysis/RESULTS.txt": "c002ca937cb91862e25f94ede2a4f746a910dcd4a3868622a5acdb6f75c6f918",
+    "global-analysis/analyze_once.py": "814203d2f80ce8dcdc55ec549d1465d2ace959c802ee1afb783b2b02f1623915",
+    "global-analysis/GLOBAL_RANK_FREEZE.json": "423c53934058c4289d19c119de71869a9aa0ad2d6706b1a958dea8b818010928",
+    "CONTRACT.txt": "0c28802f07901d00da5eca29247cba289094d75743ce4e113aefdb1ed44d79d8",
+    "PAIR_ID_FREEZE.json": "38a7a50cf36364c71f920b69253550a2fdf91c0c904a9184dc4233ff09f0c6b4"
+  },
+  "native_references_sha256": {
+    "research_rounds/case-stage-ledger-20261031/v3/joint_v3.py": "fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425",
+    "research_rounds/account-risk-ablation-20261031/route_without_account_check.py": "7bc31864d1d3944e800bb3f51297f01c417ecf8ac8487b857aa897bde22d66a1",
+    "research_rounds/pvr-current-v3-information-capital-20261101/original_score_function.py": "9328109bada26c53b04cf0f3e84d719917cb528ff8608b3e9faa5d1c55ba8cb2"
+  },
+  "conditional_freeze_unchanged": true,
+  "not_a_preexisting_financial_trial_authorization": true,
+  "independent_factual_audit": {
+    "source": "/tmp/pvr-global-results-independent.72yBh2/FACTUAL_EVIDENCE.json",
+    "copy": "research_rounds/pvr-current-v3-information-capital-20261101/native-ranking-trial-design/audit/FACTUAL_EVIDENCE.json",
+    "sha256": "d4154d735e43f5bd02294833ffdb179c7d3831273620651f7ce554d6ef76c2ef"
+  }
+}

@@ -1,0 +1,51 @@
+NO60 own2022 ->2023 explicit horizon transition; technical scope only.
+Root delegation2026-11-04 authorizes zero-event import, negative guards,
+Jan3 full/physical prefix and independent-process checkpoint recovery.
+No2023 full-year economic path is authorized by this card.
+
+Own parent ONLY: ../runs/2022/checkpoint.pkl, cursor2022-12-30 15:10+08,
+NAV704487.8470098769005, NoConfirmed60Budget, original generating A.Runner.
+Freeze checkpoint/meta/provenance/DONE/book/event streams and old source map.
+Invoke unchanged engine identity guard under actual A.Runner BEFORE copy.
+Do not import old PVR715009 account or relax a mismatched class/source guard.
+Parent original financial/card/source files remain byte-immutable.
+
+New horizon data: same1709 A shares/90 industries, existing original2023
+canonical18781stock/1270industry receipts, warm facts/CP1/stage/H1/ACT.
+Reuse exact original2023 inputs function by AST extraction, redirect logging
+only to this subdirectory. No indicators recalculated, no download/refresh.
+Reuse old PVR2023 extended score manifest4d764fb1...65bf. All413578 old2022
+score cells must be exact against parent manifest22077458...27f.
+
+All account fields and old strategy fields copy dynamically, including ACT
+peak/pause/recovery, holdings/layers/protection/roles, pending native orders,
+Dec30 frozen intents and sort keys, consumed receipts/core epochs, losses,
+attempt/pool state, historical streams, settlement and unpaid receivables.
+No cash/position/ACT/loss reset and no hardcoded old field/position counts.
+Only named metadata differs: new score manifest SHA, explicit source/binding,
+and verified pure episode-start lookup extension. Every old lookup key equal;
+new keys must start after own parent cursor. It is input extension, not state.
+Checkpoint excludes this pure derived lookup so restore retains future map.
+
+Zero-event proof: compare all fields under original exact equal helper,
+final own book and5 complete event streams; current NAV/budget/cash mirror
+must match own final state. Import single use and exact cursor claim; wrong
+parent/policy/source/score/checkpoint identity and skipped/replayed Jan3 fail.
+Full-year entry rejects before any account handler absent new root grant.
+
+Jan3 technical prefix only: original native event loop/trading/NO60 three-gate
+contract unchanged. Starts strictly AFTER Dec30 completed event. Preserve
+inflight Dec30 intent clocks, no re-ranking from Jan3 future score. Full input
+vs physically truncated facts/market/receipts/stage and PVR scores <=Jan3
+must match all economic state/history and actual share/fee/NAV bridges.
+Independent process restores imported Dec30 CP and executes Jan3 OPEN+close,
+then compares complete state/book/exports against first full-input branch.
+Report actual Jan3 simulated fills/events; zero-event import and financial
+year gates are separate scopes. NoJan4/account event beyondJan3.
+
+Planned later unique economic path (NOT run): same account through2023-12-29,
+start from preserved Jan3 full-input CP to avoid repeating Jan3 if granted.
+Old original PVR's own2023 continuation is read-only comparison. Normalize
+each2023 segment to its own2022 close; also report2022→2023 cumulative wealth
+and drawdown. Different inherited states are not pure calendar-year alpha.
+Current snapshot/development data remain non-PIT/non-OOS. No financing or HK.

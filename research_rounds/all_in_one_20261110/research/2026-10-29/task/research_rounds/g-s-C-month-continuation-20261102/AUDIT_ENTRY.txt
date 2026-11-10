@@ -1,0 +1,12 @@
+审计入口：
+POLICY_INPUT_IDENTITY.json、MONTH_INPUT_FREEZE.json、SOURCE_BINDINGS.json：整月数据和固定源码。
+grants/001_first_migration.json：只授权Jan7/Jul4；READ_ONLY_GATE.json为旧前缀/映射/真实动作预检。
+month_runtime.py、run_month.py：同一月度数据入口、旧态显式导入、不可变旧grant、截止guard。
+runs/*/import/IMPORT.json：旧账户/预算/goal/receipt/F1/ACT全前缀相等，未新建账户。
+runs/*/FIRST_MIGRATION.json、FIRST_MIGRATION_FOLLOWUP_CLOSE.json：真实D实卖→结算→新买/失效、New/Carry。
+FINANCIAL_CHECKS.json：10新事件×7差0、股数/lot/asof；RESULTS.json：各臂行为及完整终态。
+CONTINUATION_CHECKPOINTS.json：四旧账户终态，仅可凭新的执行截止授权继续。
+只读复核命令（账户事件0）：
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B analyze_first.py
+不要重跑run_first_migration.py或当前grant的金融日期。没有创建整月执行授权。
+一般零股/G备用子集/部分mandatory升级/未提交C授权送转、Jan13配股等仍原子停，未绕过。

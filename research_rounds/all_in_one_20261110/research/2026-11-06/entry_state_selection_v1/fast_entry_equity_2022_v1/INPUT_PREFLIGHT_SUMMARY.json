@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "no_accounts": true,
+  "no_lifecycles": true,
+  "no_numeric_model_recomputation": true,
+  "all2022_rows": 413578,
+  "trading_days2022": 242,
+  "stocks": 1709,
+  "candidate_rows": 52453,
+  "startup_rows": 654,
+  "preflight_rows": 54,
+  "canonical_receipts": 99031,
+  "canonical2022": 16932,
+  "canonical_trace_unknown": 0,
+  "original2022_receipt_exact": true,
+  "event_Q": {
+    "False": 315180,
+    "<NA>": 58684,
+    "True": 39714
+  },
+  "continuing_Q": {
+    "True": 196504,
+    "False": 158390,
+    "<NA>": 58684
+  },
+  "epoch_lineage_unknown_candidates": 3443,
+  "seconds": 328.8926392090507,
+  "limits": [
+    "Original S0 Q retains stock/sector H1 readability, original sector E0, static current cap/classification and market availability proxies. PVR is an independent extra queue requirement.",
+    "Epoch equality follows native I/segment transition counter. Lineage reliability is separate and never manufactures a new epoch after a data gap.",
+    "CP receipt identity follows original E0 episode/segment/scale/anchor/confirmation trace. Original CP numeric input validity uses I, while canonical episode name uses original E0.",
+    "Sizing preflight is a new 2%/.25% per-role contract, no real tradability or full lifecycle inference.",
+    "Source lineage/receipt UNKNOWN is preserved; missing input is not a negative result."
+  ],
+  "AB_whitelist_repaired": true,
+  "original_invalid_candidate_rows": 55662,
+  "AB_only_event_types": [
+    "A_SECTOR_BIRTH",
+    "B_STOCK_BIRTH_DURING_SECTOR"
+  ]
+}

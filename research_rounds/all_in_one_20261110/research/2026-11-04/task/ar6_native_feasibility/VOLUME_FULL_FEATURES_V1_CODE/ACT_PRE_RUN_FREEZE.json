@@ -1,0 +1,26 @@
+{
+  "root_approved_once_ACT_only": true,
+  "authorization_scope": "root thin implementation and one full-roster original ACT true/known-volume-neutral pure-feature gate only; no1799 batch/account/financial states",
+  "max_ACT_seconds": 180,
+  "input_manifest": "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/VOLUME_FULL_FEATURES_V1_CODE/ACT_INPUT_MANIFEST.json",
+  "compute_recovery_source": "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/desk/refresh.py",
+  "reference_recovery_csv": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/recovery.csv",
+  "at_UTC": "2026-11-04T11:37:28.825754+00:00",
+  "source_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/VOLUME_FULL_FEATURES_V1_CODE/shared_act.py": "679fe67db66676f94b8c2d6840f09beed7e35359c7f3b0a3162d542089fc7965",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/VOLUME_FULL_FEATURES_V1_CODE/controller.py": "ccea3afa35865e94baf7cb5928f5d43dd309be2b28c3c11ad93beae19fa36630",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/VOLUME_FULL_FEATURES_V1_CODE/feature_worker.py": "6607a93ef7dea4cee2112745423ca91e543c2a98203838d80e3b9d8ff8f6b286",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/VOLUME_FULL_FEATURES_V1_CODE/ACT_INPUT_MANIFEST.json": "970fcb769015ad13e817fcc0e4c4b9899ba7fa0ef5017432f42833112f1b17a9",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/inputs-v2/metadata.json": "36ec5a8358db213f96c9716d056fe6fab5d8fdca6b60e67693afbe72f2cb8a54",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/native-I-cache-interface-20261031/FREEZE.json": "ab8b86fae4bcfdbbf9b2a7f92bb605a97fbe3dc7a38289548999a3d6de592537",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/prepared-v2/manifest.json": "0362aff5fd4c45a903fd4a4713520b6e8895e218dd5ddfb7089522cdbb55db29",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/recovery.csv": "76599d9013946bc5fc501a57b046f36a2868ad61f147ef1a6c73c9575b35906a",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/experiment.py": "a9f64b48568df34ec7f6617854006da3e8aee232742df54b6536191c1739902f",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/desk/refresh.py": "6a144503d62891ae8856fe35b0475797226d2370b44ceb328d420dcc7084cdfc"
+  },
+  "per_stock_input_SHA_frozen_in_manifest": 1709,
+  "neutral_delta": "only original known min1sqrt(q) becomes1, original unknown mask retained; prior63MAX unchanged",
+  "strict_true_gate": "cold numeric original-runtime CSV values exact; any discrepancy saves failure and no neutral/full worker",
+  "full_export_authorized": false
+}

@@ -1,0 +1,19 @@
+{
+  "approved": true,
+  "engine_sha256": "35f8edfd8af9719b7878d2c0dcbbaebacd555a2f2c7201543456bc6747efd0d1",
+  "contract_sha256": "511d559702d0f115d007c869325ad724a7d99c154951aa1d341c0e203f3ce157",
+  "scope": "One frozen-M7 historical extension through 2024-10-31 with only the reviewed 605499.SH 2024-10-09 Q0 never-seeded retained-ticket split/cash bridge. No held split support, suspension rule, alpha changes or live trades. Stop atomically on any next genuine blocker.",
+  "fact_sha256": "f7e7ff5994fbefd843eaf3e378b1ab4b6b2df1baf62f67a9009f4f8c891b962d",
+  "author_tests_independently_repeated": 62,
+  "independent_audit_checks": 67,
+  "factor_validation": "All four factor locations require finite positive Decimal before division; missing, malformed, nonfinite and nonpositive values raise Blocked.",
+  "prefix": "Existing actual 10/8 prefix independently rechecked across 33 families; new run must pass checkpoint-only prefix gate before continuing.",
+  "audit_files": {
+    "independent_q0_admission.py": "77cb3882e052bc3eaf1c037972688834ba5cc9a29662bf476a1ffc9b4b625c3b",
+    "INDEPENDENT_QA.json": "e12323a1a5c12d420605062097fdda0a304ab3b6eae7fdb4a46c50ed93ca0148",
+    "synthetic_q0.py": "baec80717d74a832132a8bbae27819d06c1fdb4bbe4aea2388e269a117409d20",
+    "SYNTHETIC_QA.json": "c253596a81d3d0c3bd480251098d49f275130c077a12a4a4bb40ff400e949575"
+  },
+  "timestamp_utc": "2026-11-09T21:05:52.243675+00:00",
+  "notice_review_limit": "Existing reviewed official PDF hash independently verified; dates and terms are bound by frozen fact artifact. PDF text was not independently re-extracted in this audit."
+}

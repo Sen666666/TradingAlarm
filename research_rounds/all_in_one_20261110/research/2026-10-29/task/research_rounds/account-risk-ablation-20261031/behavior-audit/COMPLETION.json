@@ -1,0 +1,29 @@
+{
+  "read_only": true,
+  "new_account_paths": 0,
+  "seconds": 6.5529208751395345,
+  "source_hashes": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/run-universe/pair/B.json.gz": "71fcbca4ba72c0685c4c868261c879a15634d0fa668178a02d88ace41b7d8b94",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/run/pair/B.json.gz": "39601ce5b3cabdcb7b72ac5a3584c87110e3436dcf69fe9695a83e2ad60a2f60"
+  },
+  "limitations": [
+    "No opening pre-route holdings/risk snapshots were saved; exact migration refusal holder attribution remains unknown. Saved preceding close labeled separately.",
+    "No new indicators, signals, strategy thresholds or unit exceptions.",
+    "Layer classifications are retrospective descriptions, not causal decomposition."
+  ],
+  "read_only_behavior_audit_completed": true,
+  "first_block_supplement": "FIRST_BLOCK_EVIDENCE.json",
+  "closed_layer_loss_partition": "LOSS_SUMMARY.json",
+  "original_attempt_grouping": "ORIGINAL_ATTEMPT_LOSSES.json",
+  "failure_cycles_include_native_requests_and_real_fills": true,
+  "v4_unit_policy_enabled": false,
+  "blocks": [
+    "No general pre-route opening snapshot saved; exact all-event holder attribution not attempted",
+    "Within-day prior floating profit unobserved; daily-close positive history used explicitly"
+  ],
+  "scope_notes": {
+    "energy": "original B: 2025-09-05 Shengxin 1200 shares; B_diag: 2025-07-02 Huayou 500 shares; each only one Q3 buy. This is different first participation, not one shared holding failing to add.",
+    "physical_prefix": "new-policy assertion only through 2025-07-07; truncated-side artifact not separately persisted; not a full-window independent prefix audit.",
+    "exit_counts": "555 requests, 549 actual sell fills, 6 terminal pending; 637 mobile receipts reserved, 616 with fill, 21 unfilled."
+  }
+}

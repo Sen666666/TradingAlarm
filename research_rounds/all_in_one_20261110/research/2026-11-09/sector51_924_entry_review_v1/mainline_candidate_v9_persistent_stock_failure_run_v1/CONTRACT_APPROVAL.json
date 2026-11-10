@@ -1,0 +1,21 @@
+{
+  "approved": true,
+  "engine_sha256": "33f5f38042f1aecd0040952355cb9c139654183365a44497a93f39d19e403277",
+  "contract_sha256": "c8d81b4a6ba1f8d65c2a2840d5abd4abc62e955319b5b94ffc07aaffa88b83ef",
+  "test_sha256": "9f6a574856c80c16648796d9d940d55ea7a2c397050340c7b527e230efd3ab2e",
+  "runner_sha256": "e89e32bc265467ce50fa34bbee505055a002a85d986fb545c6713f6527e83e84",
+  "reviewer": "independent_parent_review",
+  "reviewed_utc": "2026-11-09T22:19:31.972041+00:00",
+  "scope": "One historical M9 single-factor research comparison Sep2-Nov6 with Oct31 and Nov6 matched endpoints; already seen development window, NOT out of sample; no live trades",
+  "checks": [
+    "Independent rerun 102 synthetic/static checks PASS",
+    "Stored prior evidence not reconstructed; same round and immediately previous canonical session required",
+    "All three known states zero and true inherited whole-round net nonpositive",
+    "Hard I/CP protection has priority; INITIAL untouched; grouped EXPANSION sale only",
+    "No allocation/sizing/reentry/shared-trial-pool change",
+    "Original atomic run loop byte-identical; state stored inside atomic rounds",
+    "No guarantee of profit retention; pending hypothesis, not strategy promotion",
+    "All frozen dependencies verified"
+  ],
+  "sealed_dependencies": 500
+}

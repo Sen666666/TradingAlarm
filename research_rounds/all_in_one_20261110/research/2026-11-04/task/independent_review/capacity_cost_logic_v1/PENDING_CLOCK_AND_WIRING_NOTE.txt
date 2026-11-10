@@ -1,0 +1,11 @@
+追加源时钟边界｜2026-11-04
+
+J.Runner.planning的a.pending和decisions.intents是收盘未获资候选，初期可有421条。它们没有全部形成资金预留，不能被统统计作本guard的pending成本；否则研究会被人为卡死。
+准入占用中的O只包含原真实a.buys/budget.orders open或cancel_pending的剩余本金及费用预留。按原排序逐候选纯preview、实际reserve后才逐个占用；失败候选的stock_requests/consumed/epoch消费按原合同，不以新guard任意重放或删除。
+订单投影与成交各自必须用当时最新原价格/旧保护/权益；OPEN不能提前使用当日CLOSE新保护。
+
+现有native_adapter.assert_native_wiring固定type(a)isJ.Account及方法identity是旧适配器验证，不是禁止已授权的单项guard。新独立adapter可显式检查自己的私有subclass/新增hooks，以及其余原方法identity和source freeze；不需修改公共J源或制造用户approval。
+none对照须证明真实cash/qty/fees/决定/成交/原退出等完整native trace一致。新增成本basis可作为原账观察元数据，但不能令none路径出现新准入、未预期重排或经济差异。
+跨进程checkpoint须能以明确importable private types恢复所有新观察状态及alpha/release开关，不可只在当前进程猴补方法而称重启通过。
+
+此文为既有逻辑审追加，不代替实现源码审或小样本账务审。

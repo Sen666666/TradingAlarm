@@ -1,0 +1,17 @@
+{
+  "status": "COMPLETED_NEGATIVE_CANDIDATE_NOT_PROMOTED",
+  "candidate_count": 1,
+  "monthly_cuts": 4,
+  "marked_fits": 4,
+  "binary_control_fits": 4,
+  "pvr_control_fits": 4,
+  "parameter_scans": 0,
+  "refits": 0,
+  "economic_runs": 0,
+  "account_runs": 0,
+  "source_hashes_unchanged": true,
+  "predictions_unchanged": true,
+  "pre_and_post_independent_audit_pass": true,
+  "report": "READOUT.md",
+  "utc": "2026-11-08 15:36:38.842319+00:00"
+}

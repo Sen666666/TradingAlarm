@@ -1,0 +1,49 @@
+原 No60 行业 E0 / CP 与股票 I 资格：只读原值提取
+
+全量168行：主84、辅助21、探索性反例63。case_id/date与feature_paths完全一致。
+原行业7类存表全168日均exact，没有在信号缺日填旧receipt。股票静态成员239只，原事实行11,025；其中10,031日exact、44行stale-asof、950行无prior。
+没有运行信号、模型、Market、账户或新回测；只读原parquet，按T过滤既有事件，聚合原字段。
+
+关键接线
+原No60没有行业I门，industry_I_permission统一N/A_NOT_USED_BY_NO60。
+1. 实际input_loader.py:52–65以J.M.context提供行业，再仅替换股票facts。wire.py:9–10将M.O指到mainline-absolute-Q4，行业源因此是其industry-facts。
+2. mainline-I-quarter adapter.py:62–63将行业states只接e0_ready/e0_target/segment_id。
+3. engine.py:36–47循环只替换股票I_target与当天i_buy，返回的inputs.sectors没有被I替换。
+4. S0 sector_stock_admission.py:209–216检查行业当日可得、H1已知与sector_up；没有行业I字段、没有H1行业TopK门。
+以上原样片段及绝对路径/行号/SHA见INDUSTRY_I_PERMISSION_ORIGINAL_CODE_EXCERPTS.txt。
+实际行业facts七列是close/segment_id/e0_ready/e0_target/e0_floor/factor/raw_close，无I/G1列。
+
+ALT_RUNTIME_I_G1_NOT_CONSUMED表
+另外读取update-20261030 prepared/facts下已有行业I/G1。只作为ALT_RUNTIME_I_NOT_CONSUMED参考，不是原No60权限。
+半导体/通信/软件有该runtime源；本参考runtime中房地产/多元金融文件未保存，source_exists=False、字段未知，绝不伪造。
+I_entered未存。此表i_target按asof保source_date；fresh i_buy/g_fresh_up/g_acute_down只exact当日，不ffill；G1旧快照另列*_asof_raw，不作当日事件。
+
+原字段表与坐标
+ORIGINAL_INDUSTRY_E0_CP_EVENT_PATHS：native_E0__*、CP_input__*、CP__*、market_state__*、upstream_events/states/signal__*分别保留来源身份。
+CP_input.i_floor由trace.py:25直接赋值facts.e0_floor，是行业E0线别名，不因列名就成为行业I线。
+CP anchor/frontier为自然对数价格坐标，不是E0已确认结构高点。native行业facts没有结构high/frontier字段，明确标NOT_SAVED_IN_NATIVE_FACTS。
+upstream_events confirmed_pivot_date是历史极值位置；行索引才是确认可知日。last_confirmed_high/low只在原event行<=T且同segment中取最新-1/+1，另存confirmation_date/pivot_date，不回填信号。
+event=-1表示高点反转确认，不等于E0_target失效。开发中的extreme与已确认pivot分列。
+上游states是来源存表，不假称与No60重新配置后的E0 policy逐日同一输出；实际No60目标以native_E0为准。
+行业指数为raw price index，factor=1；原amount单位source_index_amount_units，不叫股票CNY或跨行业净流入。
+
+市场CP与真实财务权限
+market_state保存E0_episode、attempt、stage、authorization与financial_state_owned=False。其authorization_usable是纯市场状态，不能据此断言原账户active、现金、池额度或可下单。
+H1行业分数/排名也不是No60行业TopK资金许可。
+
+股票聚合
+STATIC_MEMBERS_ORIGINAL_STOCK_FACTS：当前静态行业成员逐股、逐case日原facts，只读STOCK_MANIFEST.refs.facts；源SHA均与原manifest输出绑定核同。
+ORIGINAL_STOCK_FACTS_SECTOR_AGGREGATES：每个原布尔字段各known/true/false/unknown，分母whole_static_sector_N。持久E0/I_target用asof，保逐股source_date/exact_date与聚合source_date分布；未有prior时unknown。
+i_buy_exact_field在缺exact行时unknown；i_buy_original_daily_event按原engine.py:44的today-in-index逻辑在无exact时False，这是原规则派生的事件结果，不是原i_buy观测False。这一event字段不是最终buy_allowed，更不是完整S0 Q。
+g_fresh_up/g_acute_down只exact当日提取；旧行值另列*_asof_raw。独审发现原初稿若沿asof会把9个旧fresh_up/5个旧acute_down延续，现已修正，不影响持久I_target与E0_target。
+原股票I/G1字段不是行业I权限；单看E0/I/i_buy聚合也没有计算市场可买、cap、issuer、H1、ACT、pending或财务许可。
+U_N_from_saved_industry_aggregate只复用已存U人数。semis已在同一read pass交付burst_raw/U_T_MASK_ALL_FIXED_DATES.parquet（76日×1709=129,884行）；join_saved_U.py只join现成mask与本目录11,025行facts，不重读股票源、不重算U。
+168/168行U人数与原行业聚合精确相等，U_*单列known/true/false/unknown，与whole-static不混。STATIC_MEMBERS_ORIGINAL_STOCK_FACTS_WITH_SAVED_U另保逐股资格成员身份。
+当前1709静态池与行业桥非PIT，不称历史全市场或当时全部成员。
+
+核验
+EXTRACTION_INVARIANTS.json：168行无重复；native E0 target=CPinput.valid=market_state.valid，原CP receipt=state receipt，input i_floor=E0floor，down=确认日event-1，均逐值通过。
+全部last-confirmed事件确认日<=T；全部股票asof source_date<=T；known+unknown与true+false分母核平。
+只验提取和接线正确，未检验任何新增策略或收益。
+
+复核顺序是extract_original.py → join_saved_U.py → verify_saved_extraction.py；前两步均只做存表读取/原字段映射/分组计数，第三步验时钟与代数，不运行原信号模块。最终SHA见OUTPUT_SHA256.json，source路径/hash/列名分别见SOURCE_SHA256、SOURCE_SCHEMAS_AND_ROLES及CODE_SOURCE_INDEX。

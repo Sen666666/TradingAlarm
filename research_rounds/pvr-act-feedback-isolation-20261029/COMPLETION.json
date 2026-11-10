@@ -1,0 +1,22 @@
+{
+  "completed": true,
+  "status": "diagnostic_complete_not_promoted_branch_stopped",
+  "recorded_at": "2026-10-29T14:13:18.063571+00:00",
+  "full_economic_paths": 4,
+  "new_paths_during_recovery": 0,
+  "economic_reruns": 0,
+  "correctness_passed": true,
+  "sign_reversal_persists": false,
+  "post_hoc_calendar_not_deployable": true,
+  "product_changes": 0,
+  "remaining_blockers": [],
+  "previous_archive_failure": "exec-server transport disconnected before process creation; resolved by writing only final report and completion",
+  "files_sha256": {
+    "FINAL_REPORT.txt": "453794f42969d48c4838aeee42f88e704052eec8a9cd1a81891a01e0d42380b3",
+    "RESULTS.json": "166c0cb8a33c309a6b20c6664451a23c71e2cc5631f966b6c2d7f5eaa3cd693d",
+    "summary.csv": "84018b8b88f912c75d8a1e8e9eef78eef3b06ffde49923958b35e28bd9c2fe90",
+    "REPLICATION_VERIFICATION.json": "5beace6d114d23c400e2bb80b239595a0f45557b421dad01537a66d73e812e73",
+    "key-date-positions-budgets-actions.csv": "d6e7c366f8e79072abde0f1e1f542a679650e7bf9f7bb60ca05701cbcd4976f9",
+    "COMPUTE_BUDGET.json": "d1cfdc7e849bbc1070c29a2063fb2886c81a272cf6641caf8d3684114d5638d8"
+  }
+}

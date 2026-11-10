@@ -1,0 +1,17 @@
+{
+  "status": "synthetic_wiring_passed_design_choice_pending",
+  "passed": 12,
+  "failed": 0,
+  "execution_blockers": [],
+  "pending_design": [
+    "whether to retain additional restore-to15pct concentration ceiling"
+  ],
+  "unknown": [
+    "actual cached I/Q and corporate-action role integration awaits fixed13 history behaviour",
+    "fixed-cash control only specified, not implemented/run",
+    "broker/live execution not validated"
+  ],
+  "new_economic_runs": 0,
+  "next": "parent review then fixed13 no-return behaviour gate",
+  "automatic_next_run": false
+}

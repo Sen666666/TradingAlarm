@@ -1,0 +1,10 @@
+2026-11-04 participation recovery: finite read-only evidence audit
+Purpose: recover latest actual work and quantify cross-window market-signal coverage without repeating policy trials.
+Inputs: four complete frozen industry tables (2022, 2023, OLD924, LOCAL2026), original C10_NO_AR6 five-snapshot SUMMARY.
+No signal/policy/threshold/price-label changes. No account restore/events or hypothetical financial PnL.
+Questions fixed before new aggregation:
+(1) Count global-only, local-only, both and neither industry-observations and available original stock opportunities. This measures asynchronous coverage, not expected return.
+(2) Count local mature+permit when global permit is false, plus canonical CP1+Q observations; old924 canonical remains unknown.
+(3) Recover compact all-five C10 account6 static ablation outcome, identify whether predeclared focus stocks become funded.
+Stock observations are repeated stock x day evidence, not independent episodes/orders/fills. Four domains/windows remain separate; old924 is 407 stocks/11 industry candidates, others 1709/90. All are historical development material.
+Future price columns will not be read into calculations, rule choice, ranking, or labels. Source tables are post-result archival inputs; this protocol is new descriptive analysis, not a preregistered efficacy test.

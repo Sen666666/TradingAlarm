@@ -1,0 +1,93 @@
+[
+  {
+    "open_day": "2024-09-13",
+    "probe_names": 4,
+    "new_I_structure": 0,
+    "I_line_cost_protected": 0,
+    "positive_CLOSE_OPEN": 1,
+    "eligible": 0,
+    "nominal_risk": "6114.220000000000970184198096",
+    "remaining_principal": "5077.941299343216470184198096",
+    "profit_giveback": "1036.2787006567845",
+    "potential_probe_release": "0",
+    "all_account_risk_release": "0"
+  },
+  {
+    "open_day": "2024-09-24",
+    "probe_names": 6,
+    "new_I_structure": 0,
+    "I_line_cost_protected": 0,
+    "positive_CLOSE_OPEN": 2,
+    "eligible": 0,
+    "nominal_risk": "6139.930000000000640273962414",
+    "remaining_principal": "5041.025973392616140273962414",
+    "profit_giveback": "1098.9040266073845",
+    "potential_probe_release": "0",
+    "all_account_risk_release": "0"
+  },
+  {
+    "open_day": "2024-09-25",
+    "probe_names": 4,
+    "new_I_structure": 0,
+    "I_line_cost_protected": 0,
+    "positive_CLOSE_OPEN": 1,
+    "eligible": 0,
+    "nominal_risk": "6112.590000000000970184198096",
+    "remaining_principal": "4739.428709434416470184198096",
+    "profit_giveback": "1373.1612905655845",
+    "potential_probe_release": "0",
+    "all_account_risk_release": "0"
+  },
+  {
+    "open_day": "2024-09-26",
+    "probe_names": 4,
+    "new_I_structure": 2,
+    "I_line_cost_protected": 0,
+    "positive_CLOSE_OPEN": 1,
+    "eligible": 0,
+    "nominal_risk": "6268.260000000000942346374482",
+    "remaining_principal": "4752.043407244266442346374482",
+    "profit_giveback": "1516.2165927557345",
+    "potential_probe_release": "0",
+    "all_account_risk_release": "0"
+  },
+  {
+    "open_day": "2024-09-27",
+    "probe_names": 3,
+    "new_I_structure": 1,
+    "I_line_cost_protected": 0,
+    "positive_CLOSE_OPEN": 2,
+    "eligible": 0,
+    "nominal_risk": "6698.500000000000951997457247",
+    "remaining_principal": "4816.326601533366451997457247",
+    "profit_giveback": "1882.1733984666345",
+    "potential_probe_release": "0",
+    "all_account_risk_release": "0"
+  },
+  {
+    "open_day": "2024-09-30",
+    "probe_names": 2,
+    "new_I_structure": 1,
+    "I_line_cost_protected": 0,
+    "positive_CLOSE_OPEN": 1,
+    "eligible": 0,
+    "nominal_risk": "2218.999999999999834781202697",
+    "remaining_principal": "2157.385302190149834781202697",
+    "profit_giveback": "61.6146978098500",
+    "potential_probe_release": "0",
+    "all_account_risk_release": "0"
+  },
+  {
+    "open_day": "2024-10-08",
+    "probe_names": 1,
+    "new_I_structure": 1,
+    "I_line_cost_protected": 0,
+    "positive_CLOSE_OPEN": 0,
+    "eligible": 0,
+    "nominal_risk": "1163.999999999999528536724927",
+    "remaining_principal": "1154.361098753899528536724927",
+    "profit_giveback": "9.6389012461000",
+    "potential_probe_release": "0",
+    "all_account_risk_release": "0"
+  }
+]

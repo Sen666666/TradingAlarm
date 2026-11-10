@@ -1,0 +1,4 @@
+{
+  "status": "failed_partial",
+  "error": "ValueError(\"Timestamp('2026-10-23 00:00:00') is not in list\")"
+}

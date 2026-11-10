@@ -1,0 +1,150 @@
+{
+  "series": [
+    {
+      "symbol": "URFI881155",
+      "name": "THS Bank",
+      "source_rows": 4635,
+      "full": {
+        "first": "2007-08-01",
+        "last": "2026-10-16",
+        "observations": 4635,
+        "state_1_observations": 3227,
+        "entries": 100,
+        "exits": 99,
+        "memory_created": 17,
+        "independent_recovery_entries": 1,
+        "base_consumptions": 5,
+        "changed_state_vs_original": 2,
+        "extra_state_vs_original": 2,
+        "less_state_vs_original": 0
+      },
+      "plot_windows": {
+        "full": {
+          "first": "2013-01-04",
+          "last": "2026-10-16",
+          "observations": 3344,
+          "state_1_observations": 2348,
+          "entries": 70,
+          "exits": 70,
+          "memory_created": 10,
+          "independent_recovery_entries": 1,
+          "base_consumptions": 3,
+          "changed_state_vs_original": 2,
+          "extra_state_vs_original": 2,
+          "less_state_vs_original": 0
+        },
+        "2014-2016": {
+          "first": "2014-01-02",
+          "last": "2016-12-30",
+          "observations": 733,
+          "state_1_observations": 515,
+          "entries": 12,
+          "exits": 13,
+          "memory_created": 1,
+          "independent_recovery_entries": 0,
+          "base_consumptions": 1,
+          "changed_state_vs_original": 0,
+          "extra_state_vs_original": 0,
+          "less_state_vs_original": 0
+        },
+        "2024-2026": {
+          "first": "2024-01-02",
+          "last": "2026-10-16",
+          "observations": 673,
+          "state_1_observations": 555,
+          "entries": 10,
+          "exits": 10,
+          "memory_created": 2,
+          "independent_recovery_entries": 0,
+          "base_consumptions": 1,
+          "changed_state_vs_original": 0,
+          "extra_state_vs_original": 0,
+          "less_state_vs_original": 0
+        }
+      },
+      "ledger_outcomes": {
+        "rejected": 11,
+        "base_confirmed": 5,
+        "reclaimed": 1
+      },
+      "independent_recovery_dates": [
+        "2019-12-11"
+      ]
+    },
+    {
+      "symbol": "URFI881121",
+      "name": "THS Semiconductor",
+      "source_rows": 4666,
+      "full": {
+        "first": "2007-08-01",
+        "last": "2026-10-16",
+        "observations": 4666,
+        "state_1_observations": 3798,
+        "entries": 79,
+        "exits": 79,
+        "memory_created": 0,
+        "independent_recovery_entries": 0,
+        "base_consumptions": 0,
+        "changed_state_vs_original": 0,
+        "extra_state_vs_original": 0,
+        "less_state_vs_original": 0
+      },
+      "plot_windows": {
+        "full": {
+          "first": "2013-01-04",
+          "last": "2026-10-16",
+          "observations": 3344,
+          "state_1_observations": 2798,
+          "entries": 51,
+          "exits": 52,
+          "memory_created": 0,
+          "independent_recovery_entries": 0,
+          "base_consumptions": 0,
+          "changed_state_vs_original": 0,
+          "extra_state_vs_original": 0,
+          "less_state_vs_original": 0
+        },
+        "2014-2016": {
+          "first": "2014-01-02",
+          "last": "2016-12-30",
+          "observations": 733,
+          "state_1_observations": 653,
+          "entries": 7,
+          "exits": 8,
+          "memory_created": 0,
+          "independent_recovery_entries": 0,
+          "base_consumptions": 0,
+          "changed_state_vs_original": 0,
+          "extra_state_vs_original": 0,
+          "less_state_vs_original": 0
+        },
+        "2024-2026": {
+          "first": "2024-01-02",
+          "last": "2026-10-16",
+          "observations": 673,
+          "state_1_observations": 549,
+          "entries": 11,
+          "exits": 12,
+          "memory_created": 0,
+          "independent_recovery_entries": 0,
+          "base_consumptions": 0,
+          "changed_state_vs_original": 0,
+          "extra_state_vs_original": 0,
+          "less_state_vs_original": 0
+        }
+      },
+      "ledger_outcomes": {},
+      "independent_recovery_dates": []
+    }
+  ],
+  "account_runs": 0,
+  "mechanism_changes": 0,
+  "figures": 6,
+  "prefix_dates": [
+    "2015-12-31",
+    "2021-12-31",
+    "2024-09-30"
+  ],
+  "validation_failed": 0,
+  "disposition": "technical evidence only; parent visual review pending; no economic admission"
+}

@@ -1,0 +1,157 @@
+{
+  "status": "PASS_SAVED_CARRY_REQUEST_AND_FILL_TIMING_ONLY",
+  "seconds": 1.3002671250142157,
+  "carry_rows": 241,
+  "spells": 3,
+  "examples": 5,
+  "summary": [
+    {
+      "spell_id": "DOWN_04",
+      "start": "2023-04-24",
+      "end": "2023-06-16",
+      "carry": {
+        "layer_spell_rows": 90,
+        "stocks": 72,
+        "wealth": "48332.3210037899072307692307673",
+        "positive_rows": 30,
+        "negative_rows": 60,
+        "zero_rows": 0,
+        "positive_wealth": "75842.9197850054000",
+        "negative_wealth": "-27510.5987812154927692307692327"
+      },
+      "by_timing": {
+        "ALREADY_REQUESTED_BEFORE_START": {
+          "layer_spell_rows": 14,
+          "stocks": 9,
+          "wealth": "-896.8997295419500",
+          "positive_rows": 3,
+          "negative_rows": 11,
+          "zero_rows": 0,
+          "positive_wealth": "350.2012949198000",
+          "negative_wealth": "-1247.1010244617500"
+        },
+        "FIRST_REQUEST_DURING_SPELL_MIXED_MONEY_UNKNOWN": {
+          "layer_spell_rows": 65,
+          "stocks": 55,
+          "wealth": "34611.3607333318572307692307673",
+          "positive_rows": 17,
+          "negative_rows": 48,
+          "zero_rows": 0,
+          "positive_wealth": "60691.8584900856000",
+          "negative_wealth": "-26080.4977567537427692307692327"
+        },
+        "NO_LAYER_EXIT_REQUEST_BY_END": {
+          "layer_spell_rows": 11,
+          "stocks": 10,
+          "wealth": "14617.8600000000000",
+          "positive_rows": 10,
+          "negative_rows": 1,
+          "zero_rows": 0,
+          "positive_wealth": "14800.8600000000000",
+          "negative_wealth": "-183.0000000000000"
+        }
+      },
+      "requests_before_or_inside": 79,
+      "next_OPEN_actual_fills": 79,
+      "delayed_actual_first_fill": 0,
+      "unknown_pre_post_amount_rows": 65
+    },
+    {
+      "spell_id": "DOWN_05",
+      "start": "2023-06-21",
+      "end": "2023-07-13",
+      "carry": {
+        "layer_spell_rows": 72,
+        "stocks": 60,
+        "wealth": "-41376.0330988121750",
+        "positive_rows": 19,
+        "negative_rows": 53,
+        "zero_rows": 0,
+        "positive_wealth": "7493.3993842942500",
+        "negative_wealth": "-48869.4324831064250"
+      },
+      "by_timing": {
+        "ALREADY_REQUESTED_BEFORE_START": {
+          "layer_spell_rows": 1,
+          "stocks": 1,
+          "wealth": "-37.6609456472000",
+          "positive_rows": 0,
+          "negative_rows": 1,
+          "zero_rows": 0,
+          "positive_wealth": "0",
+          "negative_wealth": "-37.6609456472000"
+        },
+        "FIRST_REQUEST_DURING_SPELL_MIXED_MONEY_UNKNOWN": {
+          "layer_spell_rows": 41,
+          "stocks": 33,
+          "wealth": "-33805.9321531649750",
+          "positive_rows": 3,
+          "negative_rows": 38,
+          "zero_rows": 0,
+          "positive_wealth": "1153.6393842942500",
+          "negative_wealth": "-34959.5715374592250"
+        },
+        "NO_LAYER_EXIT_REQUEST_BY_END": {
+          "layer_spell_rows": 30,
+          "stocks": 26,
+          "wealth": "-7532.4400000000000",
+          "positive_rows": 16,
+          "negative_rows": 14,
+          "zero_rows": 0,
+          "positive_wealth": "6339.7600000000000",
+          "negative_wealth": "-13872.2000000000000"
+        }
+      },
+      "requests_before_or_inside": 42,
+      "next_OPEN_actual_fills": 42,
+      "delayed_actual_first_fill": 0,
+      "unknown_pre_post_amount_rows": 41
+    },
+    {
+      "spell_id": "DOWN_06",
+      "start": "2023-07-18",
+      "end": "2023-07-25",
+      "carry": {
+        "layer_spell_rows": 79,
+        "stocks": 68,
+        "wealth": "-22220.4466392066489999999999955",
+        "positive_rows": 20,
+        "negative_rows": 59,
+        "zero_rows": 0,
+        "positive_wealth": "3831.0029239614499999999999996",
+        "negative_wealth": "-26051.4495631680989999999999951"
+      },
+      "by_timing": {
+        "ALREADY_REQUESTED_BEFORE_START": {
+          "layer_spell_rows": 4,
+          "stocks": 4,
+          "wealth": "-215.1324349774500",
+          "positive_rows": 1,
+          "negative_rows": 3,
+          "zero_rows": 0,
+          "positive_wealth": "60.9632853268000",
+          "negative_wealth": "-276.0957203042500"
+        },
+        "FIRST_REQUEST_DURING_SPELL_MIXED_MONEY_UNKNOWN": {
+          "layer_spell_rows": 75,
+          "stocks": 64,
+          "wealth": "-22005.3142042291989999999999955",
+          "positive_rows": 19,
+          "negative_rows": 56,
+          "zero_rows": 0,
+          "positive_wealth": "3770.0396386346499999999999996",
+          "negative_wealth": "-25775.3538428638489999999999951"
+        }
+      },
+      "requests_before_or_inside": 79,
+      "next_OPEN_actual_fills": 79,
+      "delayed_actual_first_fill": 0,
+      "unknown_pre_post_amount_rows": 75
+    }
+  ],
+  "ACK_known": false,
+  "new_account": 0,
+  "new_signal_or_stop": 0,
+  "new_price_loader": 0,
+  "new_pre_post_wealth_engine": 0
+}

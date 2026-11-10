@@ -1,0 +1,26 @@
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py
+SHA256 fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425
+LINES302-324
+  302  def opening(self,a,at):
+  303   C.activate(a)
+  304   for sid in sorted(a.exits):
+  305    win=self.market.window(sid,at,'sell',1)
+  306    if win:a.fill_exit(sid,win)
+  307   a.settle_due(at);a.sync(at);funded=[];done=set()
+  308   for i in sorted([i for i in a.pending if i['clock'].earliest_execution_at==at],key=lambda x:(x['rank'],x['role']!='core')):
+  309    sid=i['sid']
+  310    if sid in done or sid in a.buys or sid in a.exits:continue
+  311    raw=self.market.raw[sid];day=pd.Timestamp(at.date())
+  312    if day not in raw.index or not np.isfinite(raw.loc[day].open) or raw.loc[day].open<=0:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='missing_open'));continue
+  313    x,why=LR.preview(i,D(str(raw.loc[day].open)),self.facts.factor(sid,at),self.market.quantity(sid,at),self.market.fees(sid,at))
+  314    if why:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result=why));continue
+  315    x['known_open']=D(str(raw.loc[day].open))
+  316    route,why=self.route(a,i,x,at)
+  317    if why:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result=why));continue
+  318    q,pool=route;a.reserve_quantity(i,q,x['price'],x['schedule'],at);a.sync(at);done.add(sid);funded.append((sid,i,x,q));self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='reserved',pool=pool,shares=q,price=x['price'],CP1_id=i.get('CP1_id')))
+  319   # Execution proxies are consulted only after all H1-ranked funding decisions.
+  320   for sid,i,x,q in funded:
+  321    win=self.market.window(sid,at,'buy',1)
+  322    if win:assert win.execution_price==x['price'];a.fill_buy(sid,win)
+  323    else:self.funding.append(dict(account=a.label,at=at,sid=sid,role=i['role'],result='no_execution_window_after_reservation'))
+  324   a.settle_due(at);a.sync(at);a.minimum_available=min(a.minimum_available,a.available);a.check()

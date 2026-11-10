@@ -1,0 +1,60 @@
+[
+  {
+    "window": "2022",
+    "candidates": 5728,
+    "stocks": 1406,
+    "stock_months": 4964,
+    "selected": 2732,
+    "known": 4612,
+    "unknown": 1116,
+    "selected_known": 2214,
+    "selected_unknown": 518,
+    "queues": 1725,
+    "competing_queues": 669,
+    "queues_with_2plus_known": 876,
+    "RM_changed_queues": 481,
+    "RM_replaced_slots": 614,
+    "RAW_changed_queues": 476,
+    "RAW_replaced_slots": 589,
+    "RM_vs_RAW_changed_queues": 303,
+    "RM_vs_RAW_different_slots": 338,
+    "RM_unique_new_vs_both": 243,
+    "spearman_RM_RAW_MOM11": 0.6650048360259603,
+    "spearman_RM_PVR": 0.02374767194246825,
+    "spearman_RM_RAW_standardized": 0.6243903396923549,
+    "status_counts": {
+      "CALENDAR_COMPUTABLE_RELEASE_UNKNOWN": 4612,
+      "UNKNOWN_MONTH_END_PRICE": 1109,
+      "UNKNOWN_SOURCE_SEGMENT": 7
+    }
+  },
+  {
+    "window": "2024_924",
+    "candidates": 3505,
+    "stocks": 1561,
+    "stock_months": 3056,
+    "selected": 1354,
+    "known": 3012,
+    "unknown": 493,
+    "selected_known": 1194,
+    "selected_unknown": 160,
+    "queues": 819,
+    "competing_queues": 377,
+    "queues_with_2plus_known": 494,
+    "RM_changed_queues": 297,
+    "RM_replaced_slots": 383,
+    "RAW_changed_queues": 297,
+    "RAW_replaced_slots": 388,
+    "RM_vs_RAW_changed_queues": 209,
+    "RM_vs_RAW_different_slots": 240,
+    "RM_unique_new_vs_both": 168,
+    "spearman_RM_RAW_MOM11": 0.5004020490635968,
+    "spearman_RM_PVR": 0.031660226555368216,
+    "spearman_RM_RAW_standardized": 0.5144496580748833,
+    "status_counts": {
+      "CALENDAR_COMPUTABLE_RELEASE_UNKNOWN": 3012,
+      "UNKNOWN_MONTH_END_PRICE": 486,
+      "UNKNOWN_SOURCE_SEGMENT": 7
+    }
+  }
+]

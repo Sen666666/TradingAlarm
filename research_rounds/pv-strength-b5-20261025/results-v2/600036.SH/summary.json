@@ -1,0 +1,78 @@
+{
+  "id": "600036.SH",
+  "group": "same_seven_original_adapter",
+  "rows": 3338,
+  "price_observations": 3338,
+  "strength_observations": 3338,
+  "events": 270,
+  "entries": 61,
+  "exits": 60,
+  "floor_updates": 78,
+  "memories": 35,
+  "ledger_records": 35,
+  "first": "2013-01-04",
+  "last": "2026-10-22",
+  "historical_b4_compared": true,
+  "historical_e0_compared": true,
+  "prefixes": [
+    {
+      "rows": 65,
+      "completed": true,
+      "differences": 0,
+      "details": {
+        "rows": 65,
+        "last": "2013-04-15",
+        "price_observations": 65,
+        "ledger_records": 0,
+        "open_memories": 0
+      }
+    },
+    {
+      "rows": 1112,
+      "completed": true,
+      "differences": 0,
+      "details": {
+        "rows": 1112,
+        "last": "2017-08-16",
+        "price_observations": 1112,
+        "ledger_records": 3,
+        "open_memories": 0
+      }
+    },
+    {
+      "rows": 2225,
+      "completed": true,
+      "differences": 0,
+      "details": {
+        "rows": 2225,
+        "last": "2022-03-17",
+        "price_observations": 2225,
+        "ledger_records": 20,
+        "open_memories": 0
+      }
+    },
+    {
+      "rows": 3337,
+      "completed": true,
+      "differences": 0,
+      "details": {
+        "rows": 3337,
+        "last": "2026-10-21",
+        "price_observations": 3337,
+        "ledger_records": 35,
+        "open_memories": 0
+      }
+    }
+  ],
+  "differences": 0,
+  "passed": true,
+  "sha256": {
+    "evidence.parquet": "d4cce009da340f16ae62499ed5f24f19d6bfc9e1b15c097b7b36b88d6c4c8dcf",
+    "evidence.parquet.schema.json": "1ff2f963a4b0fe0b2e9836b9a4aba1a049eb447983d962c53b7964f68e329f2b",
+    "journal.json": "9a8c5ff5f4f3f9233c7d8209dcc802b5dbb78920049ed20dac308f2b8328a201",
+    "ledger.parquet": "de10baf515e070048097dfdfe00b5817c89acd40a077f0400a40fec353ca6893",
+    "ledger.parquet.schema.json": "533c94a5daee82a5cef5494aec944fd6764bee26a884a321ae15ac97f20dc2ca",
+    "state.parquet": "411eb094395ff11149dac93bd475168024f03a0b8385225ca08b517cdc21e61a",
+    "state.parquet.schema.json": "95f251b694e9aea7994dc9c17a883cb6360ffa0a29e4c75cfd456f761f59ec2c"
+  }
+}

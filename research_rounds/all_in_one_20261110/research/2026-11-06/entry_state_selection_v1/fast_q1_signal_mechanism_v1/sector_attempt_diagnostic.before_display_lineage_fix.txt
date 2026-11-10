@@ -1,0 +1,111 @@
+"""Read-only source audit and market-only reconstruction. Writes only new diagnostics here.
+No account, position, order, quantity, lifecycle, numeric indicator or economic path is run.
+"""
+from pathlib import Path
+from types import SimpleNamespace
+import ast, collections, hashlib, json, math, time
+import numpy as np
+import pandas as pd
+O=Path(__file__).resolve().parent;R=O.parent;F=R/'fast_entry_equity_2022_v1'
+W=Path('/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds');U=W/'universe-cp1-inputs-20261031'
+RR=Path('/Users/bytedance/Documents/ChatGPT/money/research_rounds')
+SOURCES={};t0=time.monotonic()
+def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def source(p,expected=None):
+ p=Path(p);h=sha(p)
+ if expected is not None:assert h==expected,(str(p),'source hash differs')
+ SOURCES[str(p)]=h;return p
+def extract(p,names,env):
+ p=source(p);txt=p.read_text();found=set()
+ for node in ast.parse(txt).body:
+  if isinstance(node,(ast.FunctionDef,ast.ClassDef)) and node.name in names:
+   exec(compile(ast.get_source_segment(txt,node),str(p)+':definitions_only','exec'),env);found.add(node.name)
+ assert found==set(names)
+def clean(x):
+ if x is pd.NaT or x is pd.NA:return None
+ if isinstance(x,dict):return {str(k):clean(v) for k,v in x.items()}
+ if isinstance(x,(tuple,list)):return [clean(v) for v in x]
+ if isinstance(x,np.generic):return clean(x.item())
+ if isinstance(x,(pd.Timestamp,Path)):return str(x)
+ if isinstance(x,float) and not math.isfinite(x):return None
+ return x
+def save(n,x):(O/n).write_text(json.dumps(clean(x),ensure_ascii=False,indent=2,allow_nan=False)+'\n')
+model=source(RR/'continuous-protection-lines-20261028/code/model.py')
+env=dict(np=np,pd=pd,math=math,hashlib=hashlib,json=json,collections=collections,BEGIN='1900-01-01',END='2026-06-30',SCALE='CP1-original:'+sha(model)[:16])
+extract(W/'cp1-evidence-trace-20261031/trace.py',{'ident','norm','trace'},env)
+menv=dict(EPS=4*2**-53/(1-4*2**-53));extract(model,{'ge'},menv)
+T=SimpleNamespace(ident=env['ident'],norm=env['norm'],M=SimpleNamespace(ge=menv['ge']))
+senv=dict(T=T,pd=pd,math=math);extract(W/'industry-mobile-stage-20261031/stage.py',{'Stage','run'},senv)
+manifest=json.loads(source(U/'INDUSTRY_MANIFEST.json').read_text());parts=[];checks=[]
+for n,item in enumerate(manifest):
+ sid=item['series'];refs=item['refs']
+ for key in ['state','CP1_input','CP1']:source(refs[key],item['output_sha256'][refs[key]])
+ f=pd.read_parquet(refs['CP1_input']);z=pd.read_parquet(refs['CP1']);cached=pd.read_parquet(refs['state']);assert f.index.equals(z.index)
+ ep=next(p for p in item['source_sha256'] if p.endswith('/events.parquet'));ev=pd.read_parquet(source(ep,item['source_sha256'][ep])).reindex(f.index)
+ receipts,_,ch=env['trace'](sid,f,z,ev,f.e0_valid)
+ receipt_ids={r['confirmed_day']:r['receipt_id'] for r in receipts};rows=senv['run'](sid,f,z,receipt_ids)
+ rebuilt=pd.DataFrame(rows);pd.testing.assert_frame_equal(rebuilt,cached,check_exact=True,check_dtype=False)
+ exact22=cached[cached.day.between('2022-01-01','2022-12-31')]
+ q=cached.copy();q['sector']=sid;q['day']=pd.to_datetime(q.day)
+ q['attempt_started_day']=q.day.where(q.action.eq('probe'));q['attempt_started_day']=q.groupby('attempt_id',dropna=True).attempt_started_day.transform('first')
+ q['episode_attempt_number']=q.action.eq('probe').groupby(q.E0_episode).cumsum().where(q.E0_valid)
+ q['episode_started_day']=q.day.where(q.E0_valid & q.E0_episode.ne(q.E0_episode.shift()));q['episode_started_day']=q.groupby('E0_episode',dropna=True).episode_started_day.transform('first')
+ q['last_failure_day']=q.day.where(q.action.eq('end_attempt')).ffill();q['last_failure_reason']=q.reason.where(q.action.eq('end_attempt')).ffill()
+ q['episode_receipt_count']=q.receipt.groupby(q.E0_episode).cumsum().where(q.E0_valid)
+ q['episode_failure_count']=q.action.eq('end_attempt').groupby(q.E0_episode).cumsum().where(q.E0_valid)
+ q['episode_unknown_count']=q.action.eq('unknown').groupby(q.E0_episode).cumsum().where(q.E0_valid)
+ q['attempt_known']=q.action.ne('unknown') & q.close.notna() & q.E0_valid.notna()
+ q['attempt_active']=pd.Series(pd.NA,index=q.index,dtype='boolean');q.loc[q.attempt_known,'attempt_active']=(q.E0_valid & q.attempt_id.notna() & q.authorization_usable)[q.attempt_known]
+ q['post_failure_wait']=pd.Series(pd.NA,index=q.index,dtype='boolean')
+ known=q.attempt_known & (~q.E0_valid | q.episode_unknown_count.eq(0))
+ q.loc[known,'post_failure_wait']=(q.E0_valid & ~q.attempt_active.fillna(False) & q.episode_failure_count.gt(0))[known]
+ q['first_CP_wait']=known & q.E0_valid & ~q.attempt_active.fillna(False) & q.episode_receipt_count.eq(0) & q.episode_attempt_number.eq(0) & q.episode_failure_count.eq(0)
+ q['failure_only_fast_gate']=pd.Series(pd.NA,index=q.index,dtype='boolean')
+ q.loc[known,'failure_only_fast_gate']=(q.E0_valid & ~q.post_failure_wait.fillna(False))[known]
+ q['attempt_gate_reason']=np.where(~known,'UNKNOWN_MARKET_STATE_OR_EPISODE_HISTORY',np.where(~q.E0_valid,'E0_OFF',np.where(q.attempt_active.fillna(False),'ACTIVE_MARKET_ATTEMPT',np.where(q.post_failure_wait.fillna(False),'AWAITING_FRESH_CP_AFTER_FAILURE_CURRENT_EPISODE',np.where(q.first_CP_wait,'CURRENT_EPISODE_BEFORE_FIRST_CP','INACTIVE_OTHER_KNOWN')))))
+ parts.append(q)
+ checks.append(dict(sector=sid,full_rows=len(f),first_day=str(f.index.min().date()),last_day=str(f.index.max().date()),all_state_fields_exact=True,canonical_full_receipts=len(receipts),canonical_trace_unknown=sum(bool(r['trace_unknown']) for r in receipts),rows2022=len(exact22),unknown2022=int(exact22.action.eq('unknown').sum()),no_financial_state=not bool(cached.financial_state_owned.any()),no_existing_loss_reset=not bool(cached.existing_exposure_or_loss_reset.any())))
+ if (n+1)%15==0:print('INDUSTRY_REBUILD',n+1,round(time.monotonic()-t0,2),flush=True)
+allstate=pd.concat(parts,ignore_index=True);assert not allstate.duplicated(['sector','day']).any()
+statecols=['sector','day']+[c for c in allstate if c not in ['sector','day']]
+ren={c:'sector_'+c for c in allstate if c not in ['sector','day']};market=allstate[statecols].rename(columns=ren)
+def join(df):
+ out=df.merge(market,on=['sector','day'],how='left',validate='many_to_one',indicator='_market_join')
+ out.loc[out._market_join.ne('both'),'sector_attempt_gate_reason']='UNKNOWN_MISSING_EXACT_DAY'
+ out['sector_attempt_active']=out.sector_attempt_active.astype('boolean')
+ return out.drop(columns='_market_join')
+dec=pd.read_csv(source(F/'economic/DECISIONS.csv'),low_memory=False);sel=dec[dec.decision.eq('SELECTED_PENDING')].copy();assert len(sel)==5031;sel.day=pd.to_datetime(sel.day)
+rounds=pd.read_csv(source(F/'economic/ROUNDS.csv'),usecols=['round_id','status','entry_status','entry_role','entry_source','entry_day','status_day','failure_phase'],low_memory=False);assert len(rounds)==5031
+sel=sel.merge(rounds,on='round_id',how='left',validate='one_to_one');sel['quarter']=sel.day.dt.to_period('Q').astype(str);out=join(sel)
+out['AB_passing_I_role']=[any(c.get('close_check')=='PASS' and 'AB' in c.get('sources','') for c in json.loads(x)) for x in out.role_checks]
+out['selected_role_blocked_by_failure_only']=out.sector_post_failure_wait.fillna(False) & ~out.AB_passing_I_role
+out.to_csv(O/'sector_attempt_permits_2022.csv',index=False)
+startup=pd.read_parquet(source(F/'STARTUP_MARKET_INPUTS.parquet'));assert len(startup)==654;st=join(startup)
+st.to_csv(O/'sector_attempt_startup_rows.csv',index=False)
+ss=allstate[allstate.day.dt.year.eq(2022)].copy();ss.to_csv(O/'sector_attempt_daily_2022.csv',index=False)
+summ=[]
+for key,g in [('ALL',out)]+list(out.groupby('quarter')):
+ for active in [True,False,None]:
+  z=g[g.sector_attempt_active.isna()] if active is None else g[g.sector_attempt_active.eq(active).fillna(False)]
+  summ.append(dict(period=key,sector_attempt_active=active,permits=len(z),execution_UNKNOWN=int(z.status.astype(str).str.contains('UNKNOWN').sum()),initial_positive_fills=int(pd.to_numeric(z.entry_day.astype(str).str[:4],errors='coerce').notna().sum()),sources=z.source_mask.value_counts().to_dict(),stage=z.sector_stage_name.value_counts(dropna=False).to_dict(),gate_reasons=z.sector_attempt_gate_reason.value_counts(dropna=False).to_dict(),economic_effect_not_estimated=True))
+save('sector_attempt_permit_summary.json',summ)
+failure_summary=[]
+for period,g in [('ALL',out)]+list(out.groupby('quarter')):
+ for reason,z in g.groupby('sector_attempt_gate_reason',dropna=False):
+  failure_summary.append(dict(period=period,reason=reason,permits=len(z),AB_passing_I_role=int(z.AB_passing_I_role.sum()),all_current_passing_roles_held=int(z.selected_role_blocked_by_failure_only.sum()),execution_UNKNOWN=int(z.status.astype(str).str.contains('UNKNOWN').sum()),sources=z.source_mask.value_counts().to_dict(),economic_effect_not_estimated=True))
+save('sector_attempt_failure_only_summary.json',failure_summary)
+cases=pd.read_csv(source(R/'dynamic_entry_formation_mechanism_v1/STARTUP_CLOCK_CASES.csv'));crows=[]
+def first(g,mask):
+ a=g.loc[mask,'day'];return str(a.min().date()) if len(a) else None
+for case in cases.to_dict('records'):
+ g=st[st.sid.eq(case['sid'])].sort_values('day');active=g.sector_attempt_active.fillna(False)
+ core=g.event_Q.fillna(False)&g.epoch_lineage_known.fillna(False);cp=g.continuing_Q.fillna(False)&g.cp_fresh.fillna(False)&g.cp_trace_known.fillna(False)
+ ab=g.AB_event_id.notna() & g.AB_I_qualified.fillna(False)
+ cr=dict(case,sector=g.sector.iloc[0],window_days=len(g),attempt_active_days=int(active.sum()),attempt_inactive_days=int(g.sector_attempt_active.eq(False).sum()),attempt_unknown_days=int(g.sector_attempt_active.isna().sum()),first_market_attempt_active=first(g,active),first_qualified_core=first(g,core),first_core_with_attempt=first(g,core&active),first_qualified_CP=first(g,cp),first_CP_with_attempt=first(g,cp&active),first_core_with_failure_only=first(g,core&g.sector_failure_only_fast_gate.fillna(False)),first_CP_with_failure_only=first(g,cp&g.sector_failure_only_fast_gate.fillna(False)),failure_only_wait_core_days=int((core&g.sector_post_failure_wait.fillna(False)).sum()),failure_only_wait_CP_days=int((cp&g.sector_post_failure_wait.fillna(False)).sum()),first_AB_qualified=first(g,ab),first_AB_with_attempt=first(g,ab&active),core_days=int(core.sum()),core_pass_attempt_days=int((core&active).sum()),CP_days=int(cp.sum()),CP_pass_attempt_days=int((cp&active).sum()),no_economic_effect_estimated=True)
+ fixed={pd.Timestamp(case[k]) for k in ['first_AB_day','first_i_buy_in_window','first_CP_in_window']};fixed|={pd.Timestamp('2024-09-24')} if g.day.min().year==2024 else set()
+ cr['fixed_observations']=g[g.day.isin(fixed)][['day','event_Q','continuing_Q','i_buy','cp_fresh','AB_event_type','sector_E0_valid','sector_attempt_active','sector_failure_only_fast_gate','sector_first_CP_wait','sector_post_failure_wait','sector_stage_name','sector_attempt_gate_reason','sector_attempt_started_day','sector_episode_attempt_number','sector_mobile_before','sector_mobile_after','sector_close']].to_dict('records');crows.append(cr)
+save('sector_attempt_startup_summary.json',crows)
+source(Path(__file__));save('sector_attempt_source_hashes.json',SOURCES)
+save('sector_attempt_verification.json',dict(passed=True,sectors=len(checks),all_full_warm_state_fields_exact=all(x['all_state_fields_exact'] for x in checks),numeric_models_recomputed=False,no_accounts=True,no_orders=True,no_lifecycles=True,no_economic_paths=True,permits2022=len(out),startup_rows=len(st),permit_market_join_unknown=int(out.sector_attempt_active.isna().sum()),startup_market_join_unknown=int(st.sector_attempt_active.isna().sum()),source_warning='Static universe/sector mapping and historical publication time are not proven PIT. Original joint active route lacked explicit unknown-state suspension; diagnostic preserves UNKNOWN rather than asserting identical behavior on gaps.',checks=checks,seconds=time.monotonic()-t0))
+save('sector_attempt_output_hashes.json',{p.name:sha(p) for p in sorted(O.glob('sector_attempt_*')) if p.is_file() and p.name!='sector_attempt_output_hashes.json'})
+print(json.dumps(clean(dict(summary=summ,startup=crows)),ensure_ascii=False,indent=2),flush=True)

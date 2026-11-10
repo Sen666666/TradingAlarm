@@ -1,0 +1,143 @@
+{
+  "seconds": 5.321425749920309,
+  "rows": [
+    {
+      "account": "I__C10_S0_base",
+      "budget_completed": 17,
+      "episode_rows": 17,
+      "same_structure_reentries": 0,
+      "outcomes": {
+        "no_same_structure_fresh_I": 9,
+        "fresh_I_without_submitted_order": 8
+      },
+      "first_primary": {
+        "no_observed_fresh_I": 9,
+        "total_slots_full": 6,
+        "Q_not_true_components_unlogged": 1,
+        "sector_issuer_slots_full": 1
+      },
+      "fresh_I_days": 38,
+      "application_primary": {
+        "total_slots_full": 30,
+        "Q_not_true_components_unlogged": 6,
+        "sector_issuer_slots_full": 2
+      },
+      "unknown_episode_count": 0
+    },
+    {
+      "account": "I__C10_S0_delay1",
+      "budget_completed": 24,
+      "episode_rows": 24,
+      "same_structure_reentries": 2,
+      "outcomes": {
+        "no_same_structure_fresh_I": 7,
+        "fresh_I_without_submitted_order": 12,
+        "same_structure_actual_reentry": 2,
+        "submitted_without_same_structure_fill": 3
+      },
+      "first_primary": {
+        "no_observed_fresh_I": 7,
+        "Q_not_true_components_unlogged": 3,
+        "total_slots_full": 7,
+        "order_submitted": 5,
+        "ACT_paused": 1,
+        "sector_slots_full": 1
+      },
+      "fresh_I_days": 75,
+      "application_primary": {
+        "Q_not_true_components_unlogged": 4,
+        "total_slots_full": 44,
+        "ACT_paused": 14,
+        "order_submitted": 11,
+        "sector_slots_full": 1,
+        "sector_issuer_slots_full": 1
+      },
+      "unknown_episode_count": 0
+    },
+    {
+      "account": "I__C20_S0_base",
+      "budget_completed": 4,
+      "episode_rows": 4,
+      "same_structure_reentries": 0,
+      "outcomes": {
+        "no_same_structure_fresh_I": 2,
+        "fresh_I_without_submitted_order": 2
+      },
+      "first_primary": {
+        "no_observed_fresh_I": 2,
+        "total_slots_full": 2
+      },
+      "fresh_I_days": 18,
+      "application_primary": {
+        "total_slots_full": 10,
+        "Q_not_true_components_unlogged": 8
+      },
+      "unknown_episode_count": 0
+    },
+    {
+      "account": "I__C20_S0_delay1",
+      "budget_completed": 7,
+      "episode_rows": 7,
+      "same_structure_reentries": 1,
+      "outcomes": {
+        "no_same_structure_fresh_I": 4,
+        "same_structure_actual_reentry": 1,
+        "fresh_I_without_submitted_order": 2
+      },
+      "first_primary": {
+        "no_observed_fresh_I": 4,
+        "order_submitted": 1,
+        "total_slots_full": 1,
+        "Q_not_true_components_unlogged": 1
+      },
+      "fresh_I_days": 8,
+      "application_primary": {
+        "order_submitted": 5,
+        "total_slots_full": 2,
+        "Q_not_true_components_unlogged": 1
+      },
+      "unknown_episode_count": 0
+    },
+    {
+      "account": "I__C30_S0_base",
+      "budget_completed": 1,
+      "episode_rows": 1,
+      "same_structure_reentries": 0,
+      "outcomes": {
+        "fresh_I_without_submitted_order": 1
+      },
+      "first_primary": {
+        "total_slots_full": 1
+      },
+      "fresh_I_days": 9,
+      "application_primary": {
+        "total_slots_full": 5,
+        "Q_not_true_components_unlogged": 4
+      },
+      "unknown_episode_count": 0
+    },
+    {
+      "account": "I__C30_S0_delay1",
+      "budget_completed": 2,
+      "episode_rows": 2,
+      "same_structure_reentries": 1,
+      "outcomes": {
+        "no_same_structure_fresh_I": 1,
+        "same_structure_actual_reentry": 1
+      },
+      "first_primary": {
+        "no_observed_fresh_I": 1,
+        "order_submitted": 1
+      },
+      "fresh_I_days": 4,
+      "application_primary": {
+        "order_submitted": 4
+      },
+      "unknown_episode_count": 0
+    }
+  ],
+  "all_episodes": 55,
+  "all_application_days": 152,
+  "all_slot_intents": 52,
+  "natural_release_batches": 0
+}

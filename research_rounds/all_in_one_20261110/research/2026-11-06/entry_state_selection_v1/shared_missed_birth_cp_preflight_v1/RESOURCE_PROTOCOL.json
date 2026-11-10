@@ -1,0 +1,6 @@
+{
+  "purpose": "Diagnose original-path opportunity compatibility only, not implement consumer or execute new path.",
+  "queue": "Original selected A/B keep all their existing two-sector slots. CP group ranks descending original PVR then sid within leftover slots. Report all217 and primary215 separately. This is the concrete AB-first diagnostic requested after initial signal freeze, not assumed policy effectiveness.",
+  "resource": "Use original post-sell holdings and actual original reservations, fees, cash, industry and pool limits. Each candidate's minimum legal lot tested independently; never reserve it or decrement balance for next CP. First real extra fill would change subsequent state.",
+  "window": "Next OPEN must fall through 2024-10-16. No later outcomes."
+}

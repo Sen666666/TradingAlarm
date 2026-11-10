@@ -1,0 +1,50 @@
+{
+  "created_at_UTC": "2026-11-04T19:04:26.631835+00:00",
+  "status": "DIAGNOSTIC_SCOPE_FROZEN_NO_MECHANISM_CHOSEN_YET",
+  "main_reference": "Original No60 BASELINE, not failed H2 or its best parameter",
+  "windows": {
+    "2022_2024": [
+      "2022-01-01",
+      "2024-12-31"
+    ],
+    "strong": [
+      "2025-07-01",
+      "2026-06-30"
+    ]
+  },
+  "account_scope": "Original fresh1m continuous2022-24, independent fresh1m strong; reuse full audited old books, no intermediate import.",
+  "mechanism_axes": [
+    "trend_start_and_selection",
+    "capital_size_and_PVR_authority",
+    "holding_exit_and_reversal",
+    "ACT_pause_and_recovery",
+    "stock_sector_concentration"
+  ],
+  "attribution_rule": "Realized/unrealized/AR/cost and actual layer/cohort capital accounting can add. Mechanism categories overlap and are not an additive causal attribution. Only executed coupled-account interventions can claim conditional account delta.",
+  "case_selection": "Original stock campaigns and stage wealth; chain agent freezes concrete10 and positive/tail countercases before choosing mechanism, no isolated loser-only reverse rule.",
+  "local_counterfactuals": "Ex-ante trigger, next legal OPEN, originalT+1/capacity/quantity/fees/minimum/partial/quote and corporate-action constraints. Same original shares/local capital must be explicit. No future best-price/MFE execution, selective losing trades deletion, or static savings called portfolio return. Missing other-portfolio cash feasibility means local contract diagnostic only.",
+  "previous_failures_preserved": [
+    "Uniform first CORE shrink/wait harmed tails",
+    "Same-stock repeated failures low coverage",
+    "Fixed-age5day feedback failed separation",
+    "Heat/narrow-floor overlap",
+    "Relative/EMA doubleweak parameter/cost fragility",
+    "H2 post-deauthorization formation-start gate zeroDec/strong coverage",
+    "Filtering old-structure price-frontier source hits most real winners"
+  ],
+  "candidate_gate": [
+    "One largest economically relevant ex-ante identifiable structural failure, not another parameter rescue",
+    "Explicit state/formula/clock/capital and exact original rule conflict",
+    "Does not duplicate existing holding/defense line",
+    "Coverage and true winner cost before full account",
+    "Pre-registration and independent implementation/prefix review before cross-cycle full account"
+  ],
+  "no_full_account_yet": true,
+  "all_past_data_consumed_development_not_OOS": true,
+  "research_only_no_download_live_sharing": true,
+  "existing_reference_bindings": {
+    "entry_quality/trend_exit_controls_v1/runs/BASELINE/2022_2024/FULL_BASELINE_EQUALITY.json": "025e4ed9ea84bce124b4e1d0a7e8e2b2eec3de31c71a52d73b736bded76c65d6",
+    "entry_quality/trend_exit_controls_v1/runs/BASELINE/strong/FULL_BASELINE_EQUALITY.json": "db837590980809105a1582ea93287337d02af727e47d204bd9a841c1d5d020bb",
+    "entry_quality/dec2022_authorization_v1/followup_robustness_v1/FINAL_BINDING_SHA256.json": "76ef28c7fb0793b031d04eaf7d8b1cfb91ab60eb0373c682e8273b264776c191"
+  }
+}

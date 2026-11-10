@@ -1,0 +1,14 @@
+{
+  "/Users/bytedance/Documents/Codex/2026-11-04/task-4/core_confirmed_v1/saved_batches/CORE_CP_LOOKUP_2026-02-11.json": "32aedc22d635f66a3129dae27f6c743214b5fb82d58fee742088e2ce5427f63e",
+  "/Users/bytedance/Documents/Codex/2026-11-04/task-4/core_confirmed_v1/saved_batches/CORE_CP_LOOKUP_2026-06-30.json": "99a9ca9bb90ec4b4fb2036e0705381ac96b1f10ee32010d17044b19d42b9b754",
+  "/Users/bytedance/Documents/Codex/2026-11-04/task-4/core_confirmed_v1/saved_batches/EXPECTED_OFF_2026-02-11.json": "b2d1e9b5639df9d3b1b3cfbc5288c083086ca1ee8b6fcfa9e4a103b8ea4e5189",
+  "/Users/bytedance/Documents/Codex/2026-11-04/task-4/core_confirmed_v1/saved_batches/EXPECTED_OFF_2026-06-30.json": "2706ec805212c048117b4d7de8a0e4bcc7c37e3e514adde880433a504bd25db1",
+  "/Users/bytedance/Documents/Codex/2026-11-04/task-4/core_confirmed_v1/saved_batches/INPUT_SOURCE_SHA256.json": "1545af4d4d0fe0d5c529ab20a3ac7e5b5fedd8e28f3f68bd8832074f6c514637",
+  "/Users/bytedance/Documents/Codex/2026-11-04/task-4/core_confirmed_v1/saved_batches/PREPARATION.json": "d601290ebbe5621bcfe8d99a644e826c2aa1c9b9d5bb03caaa4160df002190dd",
+  "/Users/bytedance/Documents/Codex/2026-11-04/task-4/core_confirmed_v1/saved_batches/PREVIEWS_2026-02-11.json": "4d7dd90d377852c77b9da7e24215cc0e24749419364dc030947077ac6a7c512f",
+  "/Users/bytedance/Documents/Codex/2026-11-04/task-4/core_confirmed_v1/saved_batches/PREVIEWS_2026-06-30.json": "7d49ee5e4d7c96d5ef93ec8d9fe6d12f36c49b12f52d8de318c40209085c629b",
+  "/Users/bytedance/Documents/Codex/2026-11-04/task-4/core_confirmed_v1/saved_batches/PROTOCOL.txt": "51a175973178f053dadf441e1f6896be389422567ee64583e0ca2a2bd1b95c8e",
+  "/Users/bytedance/Documents/Codex/2026-11-04/task-4/core_confirmed_v1/saved_batches/S0_2026-02-11.json": "f4715bd8514e2538df1e2ace9d3e4685c0b8c1cceaae851d72d8e9175416845f",
+  "/Users/bytedance/Documents/Codex/2026-11-04/task-4/core_confirmed_v1/saved_batches/S0_2026-06-30.json": "c4fa89e9d745160ad8776efe35876a755619db1fc6856649ff5bdb2ae78e0af5",
+  "/Users/bytedance/Documents/Codex/2026-11-04/task-4/core_confirmed_v1/saved_batches/prepare_inputs.py": "13c02c1e1ddf6138dab8c4164d2cdea1a093f6dd0a6c9229da958e68b1a3b8dd"
+}

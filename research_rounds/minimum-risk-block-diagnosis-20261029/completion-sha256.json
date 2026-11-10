@@ -1,0 +1,20 @@
+{
+  "as_of": "2026-10-29T14:15:56.418790+08:00",
+  "sha256": {
+    "REPORT.txt": "5530c7aefbd0d15215be85d0ef9ade7171fe862126d374df1af18ca99f13d3db",
+    "SCOPE.txt": "816082a23fb3fda189d1c2acf5bc5f1830f2ec554ba12583d321a9b1a495793c",
+    "STATUS.json": "2a93ad4c8aaca6c29a0541d52c7e31a2c32626c92ace6a732ad289f22005c370",
+    "SUMMARY.json": "9b36c88baaa792e971fda2fd152e373565e765a7838f5ab60c95e05d55b8fd18",
+    "VERIFICATION.json": "66f15734e451837ca50ad41efb94baf9f14ba992881908fe372bdeb8d348ca74",
+    "charts/300308.SZ-2025-06-27.png": "a514d16e0c067080f062a2f7fd8827b6067658f35a3b7b97b2f91b06eb333e39",
+    "charts/688498.SH-2025-10-20.png": "2a43d1028088540db9e79bafc6c29f1b7b2f08198ad6b0037160f877d4f2c9a1",
+    "code/diagnose.py": "284c12bf84167bc104cc8fc0bd169ac16ae1584c41c4df6b9d25d5d97041e94a",
+    "code/plots.py": "18178be6134c4f4b52d85c3d9f211d3d3e5774dbb2b87f280a95829c6d1652b7",
+    "data/all-core-orders.csv": "d38739c5ac98a921952fc0a6d87430b1a2d927f757fd39e0cd9b867db7b7c42b",
+    "data/case-peer-context.csv": "b2c3baf7664c6c1cdf020343eecf10690b814c85ced3af7bf021acab0a2d5784",
+    "data/cases.csv": "c345e38fcf01aa7f66b5be510824ddf29bb653db0b480bb87a4d31a2463fdd60",
+    "data/named-orders.csv": "5e96f4b2e348cea64645eaa3e3ed394fd3bb734b7d7ccdbff92bc242167ad0d2",
+    "diagnose-v1.log": "cd38f88963b8c14b85278cee24f4b9a0cf301daa49e378d34dc6e1f538557cf8",
+    "plots.log": "b1a51df87b592c87935a7acb0645594431eb2e9445e9c4623085128d69623414"
+  }
+}

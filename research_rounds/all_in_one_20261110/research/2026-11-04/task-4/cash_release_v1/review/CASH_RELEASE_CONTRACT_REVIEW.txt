@@ -1,0 +1,104 @@
+现金缓冲释放：独立排重与合同审查，2026-11-04
+状态：PASS_READ_ONLY_DIAGNOSIS_ONLY；未批准新账户、金融重放或新策略。
+
+核心结论
+本线可以先做原账户全母体的单笔现金必要能力诊断；不能称已发现更好的行情识别。
+原native available已扣已预留买入本金/费用，已发生买入付款也已锁定。额外10%是研究政策
+缓冲，不是第二份待支付订单。若已知未扣额外义务U=0，且许可仅为原ACT+原行业stage，
+本候选在这些合格事件上就是取消额外10%缓冲的政策消融。它并非凭订单/费用变化产生的
+新自适应信息。可以研究，但必须用这个真实名称和范围，不能重复发明账本available。
+
+1. 原账本和可用现金
+原sector_account.py:balance将available、order_reserved、settlement_locked/payable、
+sale_receivable、dividend_receivable分开。reserve_budget/reserve_quantity锁gross+buyfee，
+从available扣除；fill_buy只对fee超出已留金额的部分从available补扣。实际买入gross/fee
+转入debit settlement后，现金仍不回到available；settle_due明确debit已锁、不得再扣。
+取消真实ack后才释放remaining gross+fee。cancel_pending不是可释放现金。
+卖出只有实际执行并到原settlement时点才转available，不能动用未来拟卖收入。股息AR
+进入NAV不等于现金；必须有原payment证据和时点才可支付。不得把NAV或账面利润花两次。
+
+原No60 route的两个现金检查面是同一约束的不同表示：
+ cost(q)=gross(q)+dated incremental buyfee(q)
+ cost(q) <= min(a.available-0.1*a.current_nav, b.cash-existing_order_reserve)
+后者扣的是mirror已承诺gross+fee；前者already-net available再减额外10%政策缓冲。
+不能令新spendable=available-order_reserved-全部旧buyfee-10%NAV，那会重复扣费/本金。
+No60只移除confirmed60相关三门；未取消probe、sector、stock、fresh receipt等门。
+原a.current_nav是OPEN读取的最近decisionNAV，不用当日尚未知CLOSE或新mirror NAV替代。
+
+2. U必须有确定的账本对象
+定义A=当前原native available，U=当时已知、未计入A且未锁在原订单/settlement的必要付款。
+每一项U需金额/币种、已知时点、到期时点、原对象ID和未重复扣除证明。无对象则U=0，
+不能用未来潜在买点、未知高开、未来保护卖费、预计下跌或模糊次日费用造一个U。
+已预留买费属于order_reserved；已发生gross+fee付款属于locked/payable；都不是U。
+新候选q的buyfee在本单cost(q)准确计一次。保护位假设卖费是风险定量，不是今天付款。
+原fee不足的未来topup可在实际执行时按当时schedule重验和缩量；若另留价格/费率意外
+contingency，须承认是新政策参数，不能称已知必要费用。旧日费率数据不自动证明前一天
+实时已知未来费率。未知/未支持的现金动作不能猜0，须显式UNKNOWN并停止相关推断。
+
+3. 旧研究排重
+A. broad-admission-attribution-20261029/REPORT.txt第7B已提出硬现金底线H与机会资金
+分开：新试仓/有效买回用max(cash-H,0)，机动追加仍用分配后cash-10%NAV。H未冻结，
+只有原BSR/N1诊断，无新账户。当前概念已有先例；不能称首次提出。新候选若全部原
+角色都释放，与该提案的角色差异有实质不同，但仍属相邻资金政策，非新信号算法。
+该报告已有18769现金拒绝的初始10%/前组/组内三类归因，不能与No60母体直接拼分母。
+B. loss-switch-reparticipation-20261029/PROTOCOL.json明确no buffer/10% limit，并有
+FINAL_REPORT.txt/8完整路径。它是407科技、最多1股/1单、独立现金循环、无ACT；两臂
+共同无buffer，只比较亏损后是否加CP通道。未产生CP独有成交、政策净差0。因此它不是
+No60共享多股账户conditional-no-buffer消融，也不能用零差额否定/验证现金缓冲价值。
+C. lot-risk-allocation-20261029/RULES.txt和旧probe-batch/min-first研究明确保留10%。
+budget-ownership-isolation改变现金归属，不等同释放此10%；ACT-first-Q局部再入slice
+只用原已卖净收入，不是整户动态buffer。当前搜索未定位到同域同母体、仅取消No60
+10%且保留全部其他门的已完成对照；此为有界查重结果，不是全库不存在的证明。
+
+4. 许可合同不能偷换
+主No60现有市场许可是原decision.on/ACT_on。行业是原CP1 stage/active attempt，且
+角色、原core_epoch、fresh stock CP1和mobileQ各有自己的门。要明确释放是否覆盖core、
+probe、confirmed、expanded、ADD；不能把所有confirmed订单称首次小试仓。原合法
+probe若因新定义被拒绝，这又改变资格，不是单纯现金释放。主诊断先保留所有原角色，
+再按role/stage/实际flat重入/行业分层，不能只挑三股或半导体。
+
+现成数据：
+No60 strong原pair/daily.jsonl.gz有on和全部余额/AR；B.json.gz decisions有at/nav/on/
+完整intents；opportunities有roles/barriers/freshCP1/mobileQ；budget及原INDUSTRY_MANIFEST
+refs.state有CP1 stage_name/行业attempt。long独立账有同结构，不能拼接财富。
+F1 global现成NATIVE1709_global_daily.parquet，完整2013-2026前史；90行业由
+industry-coverage/run-v1/NODE_CATALOGUE.json定位daily_result_path。输出有mode、
+permit_next_open、pending_failure_at、events、unknown/source；不能用ACTIVE替代permit。
+该F1不是原ACT，也不是原CP1 stage。native1709不要替换成old407 global。
+
+建议静态分层：先报告全部原母体/原on+stage，不改变候选；为每条同一signal-CLOSE
+附F1 global permit、行业permit四格(++,+-,-+,--)及UNKNOWN，保留所有分母。最多另给
+F1 global AND industry这一候选释放条件的描述，不把其false当原信号无效。若将来真以
+F1控制buffer，false应保留原10%而非拒掉原本可买单，否则偷偷叠了入口过滤。不能根据
+2026异步局部主线结果，看到哪种联合更好便改OR/AND。2026局部强/全局弱正是代价反例。
+所有标签用信号当时已知收盘，permit_next_open供下一OPEN消费；不能接fill日CLOSE。
+空值严格UNKNOWN，不用bool(NaN)，不跨source猜补或用后来修复后的context回填。
+
+5. 全OPEN现金代数重建的必要前提
+在已验证原执行先卖后结算再分配、当日买reservations到CLOSE全部成交/释放的合同下：
+ S0.available(after original exits/settlement,before new-buy reservations)
+   = EOD.available + sum(actual buy gross+actual buyfee of that OPEN).
+原卖收入已经在右侧EOD.available中，不能再加一遍。13已捕获S0逐字段exact可作交叉，
+但全部日期仍需独立完整性断言：
+ (i) 卖出cash_due_at在本次买分配前到期并原settle；EOD saleAR=0本身不证明上午到账。
+ (ii) OPEN后到EOD无其他现金动作，含dividend、rights/现金替代、FX、费用topup等；
+      不能只检查一种dividend_payment名称。无可解释动作则相关日UNKNOWN。
+ (iii) 所有原gross+fee预留到EOD闭合，无overnight remaining/cancel_pending cash。
+ (iv) prefix按真实reserve审计顺序扣gross+fee，fill不重复扣；OPEN内取消释放须回加。
+ (v) 用funding完整序、sid/role/decisionID确定拒绝前缀，不仅sid/day；迁池不释放现金。
+ (vi) 全部原trade时间确为该OPEN；若日内现金/不同到期时点存在，要保留事件顺序。
+EOD order_reserved/locked/payable/saleAR全0、交易均09:30是必要有力证据，不单独代替(i)-(vi)。
+
+6. 不利年和上界该怎样解释
+对原冻结状态，L(t)=min(max(A(t),0),0.1*Ndecision(t))是原额外buffer锁住的现金存量。
+qmin完整cost<=A但>max(A-10%N,0)只说明原prefix下本单有现金必要能力；仍可能违反
+sector/probe/stock风险或原预算/最小量，不能叫可成交。原cash拒绝可能同时列其他原因。
+同日众单共享A，跨日相同现金反复循环；不可相加说新增本金、总可买金额或节省亏损。
+应给2022/2023/2024/strong各年完整日数、可释放存量/N分布、全部现金拒绝/stockday/
+receipt分母、单笔必要能力及UNKNOWN。2022-24不利年已有下跌下的流动性能力不是
+no-buffer回测损失，10%也不等于未来损失上限。原保护距离非跳空实际损失上限。
+若完整重分配，pool argmax/迁池/后排资源会反馈；必须同时核新、丢、缩量，不能把逐单
+原prefix能力的并集当组合。原标签/原账户PnL仅描述旧路径，不能线性缩放或计算释放收益。
+
+独审范围：源函数/已有合同/数据schema/现金代数；0新Account/Runner/恢复/成交/收益标签。
+后续准入只到只读全母体上界诊断；是否值得完整private allocation另凭完整结果冻结。

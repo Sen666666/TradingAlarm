@@ -1,0 +1,22 @@
+{
+  "recorded_at": "2026-10-25T15:51:59.044056+00:00",
+  "status": "before_economic_results",
+  "policy_accounts": 2,
+  "identity_control": 1,
+  "initial_capital": 1000000,
+  "stock_entry_cap": "0.15 * own whole-account NAV in both arms",
+  "changes_only": "sector settled cash funding limit",
+  "sha256": {
+    "research_rounds/budget-ownership-isolation-20261025/PROTOCOL.md": "e3467feaf522f5cb168fb59c129788f94b9717a42f2ea90f5a589453afecb8af",
+    "research_rounds/budget-ownership-isolation-20261025/scope.json": "9609158b96695ce17bc5a0d773753ece7d671cc6cd665a62eea368b7d39ba911",
+    "research_rounds/budget-ownership-isolation-20261025/technical/tests-v4.json": "4753456fff3a7f204ea7425781518b4442d63d95c9720a34b5637ac289e269cf",
+    "research_rounds/budget-ownership-isolation-20261025/pre-account-review.json": "4f2be4bbab055e498019fbdd22fd7a1a7259a24cb0694d0813bf082444cd1c16",
+    "research_rounds/budget-ownership-isolation-20261025/pre-account-price-review.png": "14f5431d6f9dbf0a8b28d0856c2a7b1cffd98f2498596e6da1a3cce6685dc80d",
+    "research_rounds/budget-ownership-isolation-20261025/code/owned_account.py": "08d2eab21aa47f31acbbd588c3f25979ce773119856f09b19dedda2697042d65",
+    "research_rounds/budget-ownership-isolation-20261025/code/prepare_scope.py": "15f4a81d01c222476a790e12cec5768014861a8365ac4fe3d74bf54f3490f317",
+    "research_rounds/budget-ownership-isolation-20261025/code/run_budget.py": "e94fa8b4fd8aafbbbd6e26254e34ce6a601978cdfe37ec87a7467a14d023b7d7",
+    "research_rounds/budget-ownership-isolation-20261025/code/budget_common.py": "a7ed2f09f3be67a2dd8b348758d574d1de785955c9028ff93b29f4ca0e0b52b2",
+    "research_rounds/budget-ownership-isolation-20261025/code/tests_owned.py": "e3635798c6bcf588157d473b57e1b6c6ab5441fd5aaa603c05350027889ffc62"
+  },
+  "old_finance_sha256": "48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb"
+}

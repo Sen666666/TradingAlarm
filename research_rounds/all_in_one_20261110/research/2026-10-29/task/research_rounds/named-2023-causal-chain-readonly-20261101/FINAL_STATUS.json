@@ -1,0 +1,24 @@
+{
+  "status": "complete_readonly",
+  "new_account_replays": 0,
+  "new_strategy_rules": 0,
+  "named_rows": 318,
+  "named_distinct_canonical_receipts_per_arm": 51,
+  "core_signal_days_per_arm": 108,
+  "named_opportunity_episodes": 161,
+  "owner_snapshots": 166,
+  "owner_exact": 164,
+  "owner_unknown": 2,
+  "no_relaxed_PnL": true,
+  "no_latest_restart": true,
+  "deliverables": [
+    "READOUT.txt",
+    "OPPORTUNITY_EPISODES.txt",
+    "VERIFICATION.json",
+    "SOURCE_MANIFEST.json",
+    "Bdiag/OPPORTUNITIES_NAMED.json",
+    "C1/OPPORTUNITIES_NAMED.json",
+    "XINYISHENG_EXIT_REENTRY.json",
+    "CONTROLS_FUNDED_PATHS.json"
+  ]
+}

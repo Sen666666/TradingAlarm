@@ -1,0 +1,28 @@
+L0可执行准入边界（2026-10-31，本轮仅离线）
+
+规则冻结：原L0无追加；初次CORE至floor的名义风险0.25% NAV、毛单上限10% NAV、原10%现金reserve和整单分配；原I入口/资格、I/E0核心退出、core_epoch消费锁、内生ACT20_BREAK全部不变。无6股3行业数量限制，所以历史正常科技峰值195只。此风险是到floor的名义损失，不是概率风险或跳空损失封顶。所有旧历史已消费，今日成员/行业/市值倒查，不是OOS。
+
+已能核实
+1. 最低佣金确实逐订单累计计费，不按整池摊薄：旧期正常科技5731张成交订单/5731笔fill，每单net_brokerage最低5元，无低于5元订单；佣金合计30435.923103733元，总显性费66592.9131664013865元，均入NAV。真实部分成交的同一order累计费用由FeeSchedule.incremental/ledger维护，本次历史5731单没有多fill案例，不能据它声称真实多fill压力已验。
+2. 冻结quantity_versions含主板/创业板100股起100递增、科创200起1递增、北交100起1递增；完整退出零股和撮合fill_step另列。它是带日期的研究映射，不是今日交易所规则重新认证。各池mapping计数见DATA_AND_QUANTITY.json。
+3. InventoryLot.sellable_at按原A股下一交易日；卖款settlement lag=0，可同日复用，未把持股T+1误当现金T+1。请求卖出锁定、只从实际可卖lots扣股；日单按市场日历过期，原生delay信用同新鲜信号合同，core_epoch不因清仓自动解锁。
+4. 现金实际available/预留/应收/待支付分列，原10%reserve依上一收盘NAV和真实可用现金，新单整手不足会拒；不会因有浮盈凭空补钱。ACT全清和强制卖出先于买入。
+
+仍属代理、不能冒称实盘已解决
+5. 日线HL平价日全部拒买拒卖，并非逐股票真实涨跌停/ST/退市历史身份；无行情/无volume不构造fill。容量=min(过去20个正量观察平均量×1%,当日总量)，使用当日总量和HL作后验检查；未含开盘集合竞价深度、排队、盘口冲击。观察开盘再分配并模拟该同一开盘价，实盘无法保证。
+6. 费率版本保留，cost2只按原named stress字段，不是所有税费乘2。未证明本账户券商实际佣金、税费或成交回报完全匹配。没有券商接线。
+7. 净分红统一80%代理，不是实际按持有期限动态税；缺派息到账日仅记应收、不用于买股；送转可卖日缺失用下一交易日代理，分数股floor/writeoff，部分历史并股会推迟可卖。送转重启一致不等于权益资料无缺。
+8. 现有研究mark可沿用旧价，不能称当天全池可交易；原缺价、缺floor及历史基准暖机条件继续保留。缺数据不能被当低风险或零风险。
+
+只读数据状态
+9. runtime/market/current.json指向update-20261030-153010-c551af/prepared：1799条series，1797的coverage.last=2026-10-30，另2条仍停10-20/10-23（以DATA_AND_QUANTITY.json逐项记录为准）。L0本轮仍用冻结到10-27的旧输入，不自动切换新快照。
+10. 已有只读来源类别：本人同花顺既有会话的行情/历史/权益查询、本地股池/行业当前快照及离线facts/signals/H1；源码入口market.py、research/fetch_history.py、ths_refresh_batch.py、fetch_ths_rights.py、ths_industry_snapshot.py，说明见money/docs/DATA_SOURCES.md。只核本地元数据，没有调用网络、认证或服务，没有输出任何凭据。
+11. 历史点时成员/退市与部分状态缺口仍在。前瞻应逐日追加保存当日可得股池/行业/市值/上市状态、原始价格和权益的known_at与revision、日历、输入哈希/决策时刻、策略版本和完整检查点；不能用后来快照覆盖当日依据。现有最新行情不等于前瞻研究已经启动。
+
+运行模式
+12. 本轮最小runner仅同冻结快照的研究日重放。检查点不等于可跨新行情版本接续；新增快照需原历史前缀恒等、来源断点/已知权益时点以及依赖facts/H1/资格字段全齐，才能只追加未来日。完整性/滞后标志尚无真实外部输入适配，测试的missing gate是调用合同，不是在线数据质量保证。
+13. 195只持仓及大量订单的委托、撤单、成交回报/对账责任，不能据脚本可跑就声称适合人工执行。当前既无自动券商回报闭环，也未验证人手操作负荷；不开调度、不发委托。可做研究日志观察，不具备自动实盘资格。
+
+下一最小步骤：在本轮一致性通过后，只读对照现有10-27→10-30两份prepared的历史前缀与新增字段可用性，明确哪些原依赖可以追加；用人工触发一次研究日包和检查点，不启服务。若权益已知时点/关键资格输入缺失即条件或阻塞，不扩大为券商工程。起点敏感性四条按独立批准执行，不选择部署日期。
+
+证据定位：本轮shadow.py/test_replay.py/CASE_FREEZE/ENGINEERING_GATE/MINIMUM_FEE_CHECK；原sector_account.py:FeeSchedule.incremental、expire_day_buys、fill_buy/fill_exit、split；fast_market.py:window；history_runner.py:_actions/_payments；execution-rules-v2.json；a-share-selection-e0-20261024/inputs-v2/economic-protocol.json。源路径完整哈希另记FREEZE。

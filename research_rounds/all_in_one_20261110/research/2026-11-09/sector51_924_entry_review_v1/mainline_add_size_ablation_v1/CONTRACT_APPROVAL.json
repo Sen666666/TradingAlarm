@@ -1,0 +1,14 @@
+{
+  "approved": true,
+  "reviewer": "independent_account_audit",
+  "engine_sha256": "c2132d1411fe00d46f6bf350bcec6f9bf8cd98e25935d350fc046f6c83facc21",
+  "runner_sha256": "efe35b7432411df5f7a68bcb5b8f24ad13dc54cf32c023ae9c91a24867cd8ffd",
+  "contract_sha256": "149a7cea5610860c851fbc67dfdda6ff5b7ac638b83a28e91a63fa15919a498d",
+  "independently_run_synthetic_checks": 38,
+  "full_module_AST_original_mode_exact": true,
+  "authorized_window": "2024-09-02 through2024-09-23 only,14sessions",
+  "gate": "Original capped mode17families exact replay before exactly one uncapped arm",
+  "sole_difference": "Remove actual-holding-share quantity cap in the3documented ADD sizing expressions",
+  "not_profit_financed": true,
+  "not_real_execution_certification": true
+}

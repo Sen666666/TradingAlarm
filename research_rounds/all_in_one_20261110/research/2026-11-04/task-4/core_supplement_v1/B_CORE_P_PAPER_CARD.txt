@@ -1,0 +1,46 @@
+2026-11-05｜替代机制纸面卡：B-CORE-P，未实现、未获金融准入
+
+来源与停止原假设
+固定A类(E0真、I从未启动)突破后EMA20回踩再收回P不改参数；它的全母体必要覆盖、
+原I启动重合与资源审查单独保留。不能用B结果替A晋级或把A失败改名救回。
+P无出现不代表旧账户没买，原I往往很快已启动；更值得核的替代是原I已有效但尚未
+实际建立CORE时，P能否在新CP重创新高之前提供新的首次结构持有证据。
+这与旧BP1/TRE补入口架构重合，新增只能是P证据和精确当前No60资源合同，不宣称新架构。
+
+唯一可能干预（当前仅纸面）
+保留原i_buy入口、原尺寸及规则。仅当原i_buy已知False、原i_target已知True，且
+PRICE_EVENT_PRECARD定义的P=True，才拟把该一次i_buy证据项改为True；其余真实market
+buyable、stock/sector/RS/身份、S0、ACT、pending和原sort/risk/funding均不变。
+不把原i_buy未知当False；任一原资格未知不借P填真。I_target=False完全不在本卡。
+原i_buy上游实际包含G1暖态 AND(E0新进入 OR G1新fresh)。当前S0没有另一个独立G1暖态
+检查，因此上述OR替换的是这个复合许可，并非只补fresh时钟。若希望保留原G1暖态，
+须另明确warm AND P的证据合同并单列必要母体；不能把两种合同混记为同一策略成绩。
+全P证据替代warm也可作为不同假设研究，但须如实说明放行G1未暖时点及其失败风险。
+只允许真实全股flat且同原source/I epoch未有实际CORE fill；原MOBILE全清不是CORE
+消费，但已有MOBILE或未决退出均不许建CORE/自动转role。P只建当前原epoch watch，
+不解锁已消费core_epoch、不延寿receipt、不生成/消费伪CP1。
+若原i_buy同日也真，原入口及原尺寸优先，不因Ponly2%缩小原买单。
+若P与原合法CP同日竞争，沿原native角色次序、去重和实际唯一预留，不发双份同股预算。
+
+尺寸、持有及失败责任
+Ponly CORE以原合法I floor和native含双边估费/滑点的0.25%NAV风险定量，再加2%NAV
+名义资本上界；不满足dated BUY最低单位/step则拒绝，不放宽最小手、现金10%或任一
+原probe/行业/股风险上限。不得用更近EMA或回踩low定量后换更远I线持有。
+按原次OPEN(5bps及原fees)重验，股数、锁定退出、T+1、权息/停牌/容量/日单全沿native。
+成交后就是原CORE持有：原I结构/ACT退出，原last_core_line进入预算；不增加EMA退出，
+不把MOBILE旧仓改为CORE。原实际CORE fill消费原epoch，因此P假恢复可能使后续
+更好的原i_buy在同epoch被锁；它还可能挤资金、改变ACT及原赢家参与，均必须计成本。
+“原入口规则未改”不等于旧实际订单/金额/收益被保住。
+
+先验必要界/排重问题（未回答前不实现adapter）
+1 所有B-P中的真实flat/未消费CORE epoch/无pending/ACT/其余S0/已知I floor交集有多大？
+2 原CP同日、先于P、晚于P、截至期末无新CP分别多少？必须保留普通失败、多行业和老赢家。
+3 当前No60的新增CORE只route probe且行业sc计全部资本，migrate后也不自动给新CORE
+  重开行业2%。先审这条真实限制是否令新价格证据几乎无可用金额；不能默改confirmed。
+4 已知dated最小手+现金必要界不等于全OPEN资源通过；13精确快照不能外推全部日期。
+5 若覆盖价值只能靠事后挑选少数赢家才成立，或必要可达规模不足以解释主要缺口，
+  停止P证据金融接线；报告实际阻挡（并列多门不伪造第一因），
+  不改EMA周期/回踩定义、不为了它默认卖健康赢家。替代应直接针对已证实资源/持有问题。
+
+无新Account/Runner/RiskBook/订单、无收益成绩。相同连续账户消融只有在必要增量和
+资源/epoch闭环经独审后才能另冻卡；当前不自动开启新的长回测或参数矩阵。

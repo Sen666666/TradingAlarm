@@ -1,0 +1,27 @@
+{
+  "completed_at": "2026-10-30T07:16:02.431459+00:00",
+  "passed": true,
+  "symbols": 6,
+  "cycles": 7,
+  "trade_engines_run": 0,
+  "new_exit_PnL_computed": false,
+  "source_hashes_unchanged": true,
+  "seconds": 7.694397875107825,
+  "finalized_at": "2026-10-30T07:20:04.893644+00:00",
+  "six_parent_rows": 9491,
+  "legal_candidates": 5,
+  "no_legal_candidate": 2,
+  "preserved_missing_observations": [
+    "688143.SH 2026-06-17",
+    "688143.SH 2026-06-18",
+    "688143.SH 2026-06-22"
+  ],
+  "sha256": {
+    "check.py": "25398fd3837f62f005b1999ea41dc51f40e94efceb14cc8007db18c8c8a3fe70",
+    "INPUT_IDENTITY.json": "fbb265b8a0e0cf3638856e75a0d8aa35179358c48821c12353c5edba7655d0cb",
+    "REPRODUCTION_VERIFICATION.json": "4048d359bae360e5a099794ce9696315c75c0d9a70ddbc6d7bb3ac836b3ea4ee",
+    "cycle-timelines.csv": "19f565e7c4795dd9c61e1b28c59ea4a8a8dab472513d13fa6ca8115fd87a6a4a",
+    "observed-cycle-states.csv": "eb3ca3e9f759c4ffca4d2ec50acdc34bcc63f45e8d500b9062a8d5c2832971e2",
+    "READOUT.txt": "4ae8a8567fd6bd188fbb7c54cb6c2c64065a073cd426f1ca04ff1e1159fa12ba"
+  }
+}

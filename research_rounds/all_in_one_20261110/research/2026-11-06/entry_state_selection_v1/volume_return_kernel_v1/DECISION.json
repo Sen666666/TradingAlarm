@@ -1,0 +1,84 @@
+{
+  "status": "REJECT_FROZEN_DIRECT_KERNEL_NO_PROMOTION_NO_RESCAN",
+  "source": "Llorente, Michaely, Saar and Wang (2002), Eq12 and §2.2, https://web.mit.edu/wangj/Public/Publication/Llorente-Michaely-Saar-Wang02.pdf",
+  "mechanism_increment": "Original PVR preserves return sign and assigns larger same-sign contribution to high abnormal amount. This candidate uses per-stock previously observed response coefficients and allows conditional reversal through h=b+cV. Not a capital flow estimator.",
+  "not_original_paper_replication": "V is log amount / previous21 median, not original log turnover detrended over prior200. Main target is next-open to following-open log return, not CRSP close-to-close. Ridge, rolling504, frozen I coefficients and historical21 kernel are proposed engineering choices, not proven by the paper.",
+  "formula": "At each original I start tau fit y_s=a+b*r_s+c*r_s*V_s using at most previous504 source observations, min252 valid rows, maturity strictly before tau. Standardize predictors on training rows, ridge penalty20 on standardized coefficients. For each day j use its own latest-I-frozen coefficients, h_j=b+cV_j, e_j=tanh(h_j*r_j/s_j), then original21 normalized0.9 weights and score50+50*tanh(2E). No nuisance intercept in kernel; previous e never recomputed with newer coefficients.",
+  "alternatives": "AR-only ablation removes c*rV but otherwise identical. CC is mechanism-control training target, not a selected alternative. No tuning after results.",
+  "source_queue_rows": 53121,
+  "source_stocks": 1631,
+  "dates": 796,
+  "picks_each_arm": 14185,
+  "model_known_rows": 51430,
+  "unknown_keep_original_slot": 1691,
+  "mean_return_day_difference_pp": {
+    "h5": -0.1369,
+    "h20": -0.3139,
+    "h60": -0.6641
+  },
+  "h20_month_block_descriptive_interval_pp": [
+    -0.5802,
+    -0.0373
+  ],
+  "h60_month_block_descriptive_interval_pp": [
+    -1.4012,
+    -0.0814
+  ],
+  "h20_common": {
+    "dates": 625,
+    "picks_each": 10828,
+    "original_return_day_pct": 0.7363,
+    "new_return_day_pct": 0.4225,
+    "original_price_positive_pct": 42.3716,
+    "new_price_positive_pct": 42.1592,
+    "original_avg_win_pct": 14.793,
+    "new_avg_win_pct": 13.658,
+    "original_close_MAE_pct": -8.6189,
+    "new_close_MAE_pct": -8.3936
+  },
+  "h20_year_difference_pp": {
+    "2022": 0.0156,
+    "2023": -0.4306,
+    "2024": -0.2745,
+    "2025": -0.2906,
+    "2026_to0515": -1.2617
+  },
+  "root_right_tail": {
+    "known_big60": 1993,
+    "original_captured": 715,
+    "new_captured": 655,
+    "lost": 275,
+    "added": 215,
+    "net": -60
+  },
+  "actual_round_caution": "Old original PVR all first campaigns:2693,closed2626,wins675,25.70%. New strategy complete-campaign win rate is UNKNOWN because no account rerun. In 2025 original Top20 existing MOBILE rounds, retained166 closed wins60=36.14% is selected old-cohort association only. Removed179 closed rounds had net+108939.39 and44.21% of original positive PNL; not evidence target35% reached.",
+  "major_periods": "2024-09-24..Oct31:20-date mean7.709% vs8.367%;60-date7.159% vs6.615% but only10 matched dates and lower MFE. 2026Q1:20-date−0.472% vs+0.584%;60-date only6 matched dates, not completeH1.",
+  "costs": "No new actual fees or turnover measured. Constant40/100bp path sensitivities are explicitly price-return proxies; 20-date event mean after40bp0.0713% new vs0.4336% original, after100bp−0.5287% vs−0.1664%. Equal-K does not establish equal realized turnover.",
+  "deduplication": [
+    "pvr_contribution_attribution_v1 five-day standing amount discount and fresh-break exemption",
+    "pvr_dual_memory_v1 historical-e fast/slow recombination",
+    "h1_failure_mechanism_v1 recent trend and ATR taper",
+    "cp_timing_quality_v1/candidate_test CE",
+    "Parent-described prior CP amount-decay experiment w=min(1,exp(V_current−V_previous)), PVR*w; no independent persisted directory."
+  ],
+  "QA": "All source hashes unchanged; original native PVR exact error0;6 physical-prefix score checks;66741 complete selected path source-segment checks passed; main/AR training last signal at least3 common dates before root, CC at least2.",
+  "limits": [
+    "Already consumed history, not untouched out-of-sample; fixed future pool and sector mapping non-PIT.",
+    "Repeated stock/date paths and selection-induced common-complete support; month bootstrap is descriptive, not joint cluster or multiple-testing certification.",
+    "Open quotes not certified fills; no complete historical ST/limits/halts/queue/size/slippage proof.",
+    "Paper one-step response does not validate21-day average of old forecasts or complete campaign profitability; true failure/winner cases overlap."
+  ],
+  "files": [
+    "PROTOCOL.json",
+    "run.py",
+    "supplement.py",
+    "SAME_DATE_K_RESULTS.csv",
+    "MONTH_BLOCK_DIAGNOSTIC.csv",
+    "ROOT_COVERAGE_SUMMARY.csv",
+    "EXISTING_MOBILE_ROUND_MEMBERSHIP.csv",
+    "CASES_ACTUAL_ROUNDS.csv",
+    "CASE_RANK_PATHS.csv",
+    "FINAL_QA.json",
+    "COMPLETION.json"
+  ]
+}

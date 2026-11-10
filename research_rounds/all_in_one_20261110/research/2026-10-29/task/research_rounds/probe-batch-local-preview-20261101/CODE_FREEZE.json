@@ -1,0 +1,16 @@
+{
+  "before_final_fixed_opening_previews": true,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/probe-batch-local-preview-20261101/planner.py": "0701eb1418e08e30b17e56477d6729d44b07a167fe5fd844d8ef30951c2702c1",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/probe-batch-local-preview-20261101/test_planner.py": "894c7ef936de925ec2570b798c02a768c345e00f237c94a851e9e0a6fff2f770",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/probe-batch-local-preview-20261101/real_views.py": "a21b7f91f9bf4f7f8a3b9c1df2ba8aa14cab66853a0ebde330aa52aba7fb39f5",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/route_without_account_check.py": "7bc31864d1d3944e800bb3f51297f01c417ecf8ac8487b857aa897bde22d66a1",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/model_without_account_check.py": "2fb801bcadfe3aa0fe0ecac97a9730861079bc16d908a3674a404b255729c2c3",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/probe-batch-design-review-20261101/CONTRACT_PROPOSAL.v2.txt": "8691014a092b4ca6018cd271820df8d26fb65c36899a13e8eb5ad7fa3be1d19b",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/lot-risk-allocation-20261029/code/study.py": "2e7cfbdded269ae5430c9146d0b1f5c2b2281e5a5c774fdffb088b620d72bff4",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/actual-risk-recovery-20261027/code/engine.py": "781589c0a80a6713bf03ee4abb0bb3ab6ba649f7482f13179ab458809dc2e374",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py": "fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425"
+  },
+  "contract_version": "v2",
+  "new_financial_paths": 0
+}

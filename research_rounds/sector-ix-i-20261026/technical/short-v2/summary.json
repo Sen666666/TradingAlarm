@@ -1,0 +1,23 @@
+{
+  "research_basis": "current_pool_historical_development",
+  "synthetic": true,
+  "historical_account_runs": 0,
+  "technical_accounts": 4,
+  "initial_capital_cny": 1000000,
+  "accounts": [
+    "SEMI_IX__S1_base",
+    "SEMI_I__S1_base",
+    "COMM_IX__S1_base",
+    "COMM_I__S1_base"
+  ],
+  "daily_rows": 40,
+  "final_nav": {
+    "SEMI_IX__S1_base": "982052.9838727427455",
+    "SEMI_I__S1_base": "989071.4653628443180",
+    "COMM_IX__S1_base": "1000766.2984244801000",
+    "COMM_I__S1_base": "1007373.6462022998500"
+  },
+  "limitations": [],
+  "execution_basis": "explicit_daily_proxy_and_frozen_known_fx_settlement",
+  "final_positions_closed": false
+}

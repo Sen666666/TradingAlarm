@@ -1,0 +1,48 @@
+{
+  "original_label_receipts": 883,
+  "original_label_stocks": 107,
+  "positive_budget_blocked_receipts": 883,
+  "positive_budget_blocked_stocks": 107,
+  "zero_remaining_stock_gap_receipts": 0,
+  "positive_budget_CNY": {
+    "n": 883,
+    "minimum": 20000.0,
+    "p25": 21603.670228448245,
+    "median": 21815.432829753612,
+    "p75": 22704.21886891415,
+    "maximum": 23237.62928141683
+  },
+  "legal_minimum_gross_CNY": {
+    "n": 883,
+    "minimum": 20437.0,
+    "p25": 26244.0,
+    "median": 32494.0,
+    "p75": 44641.0,
+    "maximum": 317582.0
+  },
+  "minimum_gross_minus_positive_budget_CNY": {
+    "n": 883,
+    "minimum": 7.16898758660883,
+    "p25": 4084.098272740526,
+    "median": 10610.37071858317,
+    "p75": 22240.29162797561,
+    "maximum": 295850.5126120188
+  },
+  "minimum_gross_minus_positive_budget_pct_decision_NAV": {
+    "n": 883,
+    "minimum": 0.0006228802481535923,
+    "p25": 0.3700772630681315,
+    "median": 0.9537264050405013,
+    "p75": 2.0120878017674384,
+    "maximum": 27.22781992139585
+  },
+  "minimum_quantity_counts": {
+    "100": 222,
+    "200": 661
+  },
+  "unit": "unique canonical CP1 receipt; repeated stocks/dates are not independent market samples",
+  "original_file_unchanged": true,
+  "original_funding_sha256": "d5052d2f36727ee164649c4aa087b19df762ce9251ddd60984bc27dd6ee87717",
+  "no_replay_or_policy_change": true,
+  "minimum_cost_definition": "signal-date legal gross unit only; fees/slippage additional; diagnoses original pre-intent cap=0"
+}

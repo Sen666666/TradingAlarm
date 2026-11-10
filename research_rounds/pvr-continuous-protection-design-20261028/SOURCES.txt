@@ -1,0 +1,38 @@
+一手资料复核，2026-10-28。以下支持条件性研究依据，不给本稿参数或A股收益背书。未复制长段原文。
+
+1. Blume, Easley & O'Hara (1994), Market Statistics and Technical Analysis: The Role of Volume, Journal of Finance 49(1),153–181.
+期刊原文页：https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.1994.tb04424.x
+可读原论文副本：https://www.kevinsheppard.com/files/teaching/mfe/advanced-econometrics/Blume_Easley_O%E2%80%99Hara.pdf
+核查：期刊摘要。模型中量价序列可带来价格统计之外的信息。不能由此推出成交额等于买卖共识、净流入，或大额上涨必持续。本稿量价交互和信用公式为研究设计。
+
+2. Campbell, Grossman & Wang (1993), Trading Volume and Serial Correlation in Stock Returns, Quarterly Journal of Economics 108(4),905–939.
+作者所在机构原论文：https://web.mit.edu/wangj/www/pap/CampbellGrossmanWang93.pdf
+工作论文元数据：https://www.nber.org/papers/w4193
+核查：原文摘要/引言。成交量与收益序列关系可由流动性交易解释；高量下跌不必表示持续坏消息。这是对“一见放量下跌就认为后面必跌”的反证背景，非买跌建议，也非本稿事件无用的证明。
+
+3. Leung & Zhang, Optimal Trading with a Trailing Stop, 本轮核对版本为arXiv首版2017、v2 2019。
+作者论文：https://arxiv.org/abs/1701.03960
+全文：https://arxiv.org/html/1701.03960v2
+核查：Introduction、Model Formulation。运行最高价的递增函数可形成动态追踪下界，无需先有回调低点。最优停止结论依赖连续扩散/目标函数；不能推出本项目最优带宽、日线成交价格保证或A股实际收益。本稿不采用其目标价卖单，也不把论文示例30%当参数。
+
+4. Lo & Remorov (2017), Stop-loss strategies with serial correlation, regime switching, and transaction costs, Journal of Financial Markets 34,1–15.
+期刊原文页：https://www.sciencedirect.com/science/article/pii/S1386418117300472
+DOI：https://doi.org/10.1016/j.finmar.2017.02.003
+核查：检索返回的原期刊摘要、研究概述；直接打开一度403，未假装取得付费正文全部内容。紧止损的表现取决于序列相关、状态和交易成本，美国股票样本中频繁交易可使表现较差。支持保留重入/全成本评价，不支持止损越紧越好，也不确定本项目的b/k。
+
+额外背景，未作为本稿新增公式的依据：
+Moskowitz/Ooi/Pedersen (2012), Time Series Momentum，作者论文 https://w4.stern.nyu.edu/facdir/lpederse/papers/TimeSeriesMomentum.pdf 。期货跨资产自身历史方向研究不能直接证明A股日线保护或PVR参数。
+Gârleanu/Pedersen, Dynamic Trading with Predictable Returns and Transaction Costs，NBER https://www.nber.org/papers/w15205 。官方摘要可检索，直接访问本次403；仅作成本与信号持续性的既有背景，不从不可读正文推导新结论。
+Page (1954), Continuous Inspection Schemes, https://doi.org/10.1093/biomet/41.1-2.100 。仅核对题录。本稿Q是确定性量价信用，不是已校准似然比/CUSUM，也不声称统计显著性或误报概率保证。
+
+本地依据：
+../pv-rank-q1-20261027/FORMULA.json、registry.json：原PVR-Q1固定公式身份。
+../pvr-act-comparison-20261027/code/experiment.py、CONCLUSION.txt、raw-review-2026.png：实际实现、排序结果与已见原图。
+../pvr-rotation-20261027-v2/CONCLUSION.txt：评分差换仓的失败与容量问题。
+../swf-pvr-combination-20261028/CONCLUSION.txt：PVR与SF/W组合未晋升。
+../gradual-recovery-rc1-20261025/PROTOCOL.md、CONCLUSION.md：渐进新前沿收据及弱背景反弹局限。
+../directional-amount-20261027/ALGORITHM.md、CONCLUSION.md：双向金额信用与冷退出旧失败。
+../s-amount-confirmation-20261028/RULES.txt、../s-amount-cross-sector-20261028/CONCLUSION.txt：S-AMT1口径、用途与两板块取舍。
+../ph1-cross-sector-20261028/ITERATION_DECISION.txt：F阶段交接和风险定仓不具普遍优势。
+../intent-support-20261027/code/fast_kernel.py、../strict-entry-fast-support-20261027/code/study.py：旧F确认与保护政策。
+../f-e0-visual-explanation-20261028/README.txt、explanation.json：源杰/京北方的共同起点解释。

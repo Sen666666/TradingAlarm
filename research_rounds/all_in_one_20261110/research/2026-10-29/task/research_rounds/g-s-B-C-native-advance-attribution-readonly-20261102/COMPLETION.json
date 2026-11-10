@@ -1,0 +1,20 @@
+{
+  "status": "READONLY_ATTRIBUTION_COMPLETE",
+  "completed_utc": "2026-11-02T03:09:12.419129+00:00",
+  "receiving_requests": 28,
+  "receiving_industry_policy_rows": 15,
+  "receiving_new_advance_today": 0,
+  "tests": 4,
+  "passed": true,
+  "original_artifact_files_unchanged": {
+    "g-s-B-joint-target-v2-20261102": 73,
+    "g-s-C-industry-first-projection-v1-20261102": 62
+  },
+  "model_recomputed": false,
+  "target_projection_recomputed": false,
+  "financial_events": 0,
+  "gate_implemented": false,
+  "market_may7_no_account": true,
+  "deleted_trade_profit_claim": false,
+  "limitation": "No industry migration consumption field exists in original policy; once-unused-event feasibility UNKNOWN. Same-day labels are not rescaled target/PnL counterfactuals."
+}

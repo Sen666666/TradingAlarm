@@ -1,0 +1,43 @@
+{
+  "status": "PASS_FROZEN_INTERPRETATION_SOURCE_AND_ALL3436_ORIGINAL_DECISION_FACTS_ONLY",
+  "counts": {
+    "2022_2024": {
+      "all_actual_layers": 2265,
+      "core": 498,
+      "core_i_target_True": 498,
+      "core_i_buy_True": 498,
+      "mobile": 1767,
+      "mobile_i_target_True": 1767,
+      "mobile_i_buy_True": 1627,
+      "mobile_i_buy_False": 140
+    },
+    "strong": {
+      "all_actual_layers": 1171,
+      "core": 304,
+      "core_i_target_True": 304,
+      "core_i_buy_True": 304,
+      "mobile": 867,
+      "mobile_i_target_True": 867,
+      "mobile_i_buy_True": 829,
+      "mobile_i_buy_False": 38
+    }
+  },
+  "facts_sources_SHA_and_saved_rows_checked": 1205,
+  "native_sources_SHA_checked": 12,
+  "protocol_source_SHA_checked": 24,
+  "source_semantics": "Read original Facts.packet I daily-event buy_allowed -> S0 checks -> J.planning event core vs continuing mobile. Core needs same-day i_buy with persistent I/otherS0, then unheld/unconsumed epoch. Mobile freshCP1+continuing Q substitutes market_buyable and does not need i_buy. Not just function-name inference.",
+  "reader_scope": "Two axes Istate/freshI and freshCP1 plus completebotharm streams; old financialstate/ACTcontext not neutral eligibility. Allfixed83/94 retained. Raw I floor/candidate/factor/source clocks separated; unknowns not False/0. Original money associated only; lifetime entrynet distinct phasewealth.",
+  "remaining_unverified": [
+    "This confirms original filled rows, not all unfilled candidates or complete newneutral Q.",
+    "No neutral features generated, no fullACT/stage output or account outcomes under thisprotocol.",
+    "Reader fields such as execution masks/RS freshness must carry actual available source/time scope; not all declared interfacefields are already populated."
+  ],
+  "reviewer_new_model_or_account_runs": 0,
+  "inputs": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/volume_neutral_interpretation_v1/PROTOCOL.txt": "fd36ee4c3313b1ee081ce7a73580ceff2550c93afacc7aa5e195a34b33d03257",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/volume_neutral_interpretation_v1/READER_FIELDS.json": "a457864a937c96166aab52367239f24346b9e8d2ebe291e436f110109693bf37",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/volume_neutral_interpretation_v1/MOTHER_AND_SOURCE_FREEZE.json": "bb792af0cd676587c8368dd43d941b6186877e664c46f145b34248d965b4ccf9",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/volume_neutral_interpretation_v1/NATIVE_ENTRY_SEMANTICS_AUDIT.json": "6210954c7533f73084d5a41c7c6388b16d354bf7886f000cbfa9a60ed08f63ee",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/independent_review/review_volume_interpretation_protocol.py": "8b00b9440c654fc18a0f8e0015fcf77c1ef80751f848092997fc9aba53774343"
+  }
+}

@@ -1,0 +1,16 @@
+只读源码审查：CP1 fresh 与 previous63 close-high 的条件性冗余
+
+源：/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py，calculate。
+未实现新门、未生成历史信号、未运行账户。
+
+fresh=p-frontier 仅在gt(p,frontier)时为正；随后frontier=p。receipt又要求fresh、位移和量价credit均达到冻结尺度。UP普通回撤既不降低frontier也不清空它；receipt_consumed虽然把anchor和credit重新设定，但frontier仍为刚刚创新高的p，没有降低。
+
+因此，在最近一次会降低/清空frontier的重置后，frontier保持为该连续run已观察log-close最高值。若此前63个原始价格观察都在这个run内，fresh CP1已经蕴含current close严格高于prior63 close maximum。新增prior63-high门在这些观察上冗余。数值gt带保守EPS不破坏这个蕴含。
+
+真正边界是source change、unprepared、e0_valid=False导致清空，phaseNone/start、e0_down重置，以及SEEK lower_anchor可能降低frontier。不能仅用同source segment、同E0/I epoch、同attempt或距离最近receipt推定63观察同run；一次receipt并不是会降低frontier的重置。
+
+非冗余主要可能在重置后不足63个观察，而prior63窗口仍保留旧run高点时出现。这与原CP1允许的新转折/早期试错有关；将其拦掉不自动改善质量，必须先核规模及赢家误伤，不能跳过此前正方向仍大亏的负证据。不同源的旧高不可直接跨越比较。
+
+反方向不成立：达到prior63-high仍未保证ready、有效结构、位移及真实amount乘子的credit达到阈值，所以CP1不能被纯价格新高替代。CP1_input.e0_valid实际映射按原绑定入口解释（股票可为I target），不可误叫raw E0 id。
+
+此为精确条件下的源码推论，不声称已统计其在2265/1171母体的比例，也不授权新63-high过滤或账户。旧three-layer explicit63-high family有更复杂hot/z/q等条件，验证范围由所有者另审，不把上面的逻辑蕴含变成旧经济实验已等价。

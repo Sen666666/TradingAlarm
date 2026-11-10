@@ -1,0 +1,270 @@
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py
+SHA256 85f21ad1622863645618f570b5f2e832558ebaca218ff2c71d0b4a0b545dd0bf
+
+    1 """CP1 market-only receipt calculation. No account/trade engine imports."""
+    2 import math
+    3 import numpy as np
+    4 import pandas as pd
+    5 A=math.sqrt(5);K=math.sqrt(21);S_MIN=math.log1p(.001)
+    6 EPS=4*2**-53/(1-4*2**-53)
+    7 def ge(a,b):return a>=b or abs(a-b)<=EPS*max(abs(a),abs(b),1e-300)
+    8 def gt(a,b):return a>b and not abs(a-b)<=EPS*max(abs(a),abs(b),1e-300)
+    9 def features(f):
+   10  if not isinstance(f.index,pd.DatetimeIndex) or f.index.hasnans or not f.index.is_unique or not f.index.is_monotonic_increasing:raise ValueError('ordered unique daily index required')
+   11  if not f.index.normalize().is_unique:raise ValueError('daily only')
+   12  if not {'close','amount','segment_id','e0_valid','e0_down'}<=set(f):raise ValueError('required facts absent')
+   13  for k in ['close','amount']:
+   14   if not (np.isfinite(f[k]).all() and f[k].gt(0).all()):raise ValueError('no missing/nonpositive price or amount')
+   15  for k in ['e0_valid','e0_down']:
+   16   if not pd.api.types.is_bool_dtype(f[k]) or f[k].isna().any():raise ValueError('explicit Boolean facts required')
+   17  if f.segment_id.isna().any():raise ValueError('source identity required')
+   18  blocks=f.segment_id[f.segment_id.ne(f.segment_id.shift())]
+   19  if blocks.duplicated().any():raise ValueError('noncontiguous source')
+   20  out=pd.DataFrame(index=f.index,columns=['r','s','z','B','u','v','m'],dtype=float)
+   21  for _,g in f.groupby('segment_id',sort=False):
+   22   r=np.log(g.close).diff();s=r.abs().shift().rolling(63,min_periods=63).median().mul(1.4826).clip(lower=1e-8)
+   23   B=g.amount.shift().rolling(21,min_periods=21).median();u=np.tanh(r/s);v=np.tanh(np.log(g.amount/B))
+   24   out.loc[g.index]=pd.DataFrame(dict(r=r,s=s,z=s.clip(lower=S_MIN),B=B,u=u,v=v,m=1+.5*u.abs()*v),index=g.index)
+   25  return out
+   26 def calculate(f,price_only=False):
+   27  z=features(f);out=[];phase=None;anchor=frontier=scale=None;credit=0.;segment=None
+   28  for day,row in f.iterrows():
+   29   q=z.loc[day];p=math.log(row.close);fresh=0.;receipt=False;candidate=math.nan;reason=None;disp=math.nan
+   30   if row.segment_id!=segment:
+   31    phase=None;segment=row.segment_id;reason='source_reset'
+   32   ready=math.isfinite(q.z)
+   33   if not ready or not row.e0_valid:
+   34    phase=None;anchor=frontier=scale=None;credit=0.;reason='unprepared' if not ready else 'E0_invalid'
+   35   elif phase is None or row.e0_down:
+   36    phase='SEEK';anchor=frontier=p;credit=0.;scale=float(q.z);reason='E0_down_reset' if row.e0_down else 'start'
+   37   elif phase=='SEEK' and gt(anchor,p):
+   38    anchor=frontier=p;credit=0.;scale=float(q.z);reason='lower_anchor'
+   39   else:
+   40    fresh=p-frontier if gt(p,frontier) else 0.
+   41    if fresh:
+   42     frontier=p;credit=math.fsum((credit,fresh*(1. if price_only else float(q.m))))
+   43    disp=frontier-anchor
+   44    receipt=bool(fresh and ge(disp,A*scale) and ge(credit,A*scale))
+   45    if receipt:candidate=float(row.close)*math.exp(-K*scale)
+   46   used_anchor,used_scale,used_credit=anchor,scale,credit
+   47   used_phase=phase
+   48   if receipt:
+   49    phase='UP';anchor=frontier=p;credit=0.;scale=float(q.z);reason='receipt_consumed'
+   50   out.append(dict(ready=ready,phase=used_phase,reset_reason=reason,anchor=used_anchor,frontier=frontier,scale=used_scale,credit=used_credit,delta_frontier=fresh,displacement=disp,receipt=receipt,candidate=candidate,next_anchor=anchor,next_scale=scale,next_credit=credit,next_phase=phase))
+   51  cols=['ready','phase','reset_reason','anchor','frontier','scale','credit','delta_frontier','displacement','receipt','candidate','next_anchor','next_scale','next_credit','next_phase']
+   52  result=pd.DataFrame(out,index=f.index,columns=cols)
+   53  for k in ['phase','reset_reason','next_phase']:result[k]=result[k].astype('string')
+   54  for k in ['ready','receipt']:result[k]=result[k].astype(bool)
+   55  for k in set(cols)-{'ready','receipt','phase','reset_reason','next_phase'}:result[k]=result[k].astype(float)
+   56  result=result.join(z)
+   57  result['e0_valid']=f.e0_valid;result['e0_floor']=f.i_floor if 'i_floor' in f else np.nan
+   58  return result
+   59 
+   60 def project(f,z,start,initial,start_at_open=False):
+   61  """One absorbing price-only shadow, old floor checked before today's receipt."""
+   62  P=float(initial);out=[]
+   63  for day,r in f.loc[start:].iterrows():
+   64   reason='E0' if not r.e0_valid else 'protection' if ge(P,float(r.close)) else None
+   65   new=P
+   66   if not reason:
+   67    if math.isfinite(float(r.i_floor)):new=max(new,float(r.i_floor))
+   68    if (start_at_open or day>pd.Timestamp(start)) and bool(z.loc[day,'receipt']):new=max(new,float(z.loc[day,'candidate']))
+   69   out.append(dict(date=str(day.date()),close=float(r.close),P_before=P,P_after=new,exit=reason is not None,reason=reason,receipt=bool(z.loc[day,'receipt']),candidate=None if not math.isfinite(float(z.loc[day,'candidate'])) else float(z.loc[day,'candidate'])))
+   70   P=new
+   71   if reason:break
+   72  return out
+
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/common.py
+SHA256 966cd8aed9a205152cfdeb7a63fa96b3484fad8073ad89454bca9ebfa94d2a79
+
+   17 def frame(sid,cut=None):
+   18  f=pd.read_parquet(PREP/'facts'/f'{sid}.parquet').loc[:cut]
+   19  raw=pd.read_parquet(PREP/'signals'/f'{sid}.parquet').reindex(f.index)
+   20  ev=pd.read_parquet(PH/'events/TECH'/f'{sid}.parquet').reindex(f.index)
+   21  assert (f.close==raw.close).all() and set(raw.amount_unit)=={'CNY'}
+   22  out=f[['close','segment_id','i_target','i_floor']].copy()
+   23  out['amount']=raw.amount;out['e0_down']=ev.event.eq(-1);out['e0_valid']=f.i_target.astype(bool)
+   24  return out
+
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/native-I-cache-interface-20261031/cache.py
+SHA256 fe800283edacb57d1581b50b2bcfdb800ffe4d5f0a22114d0180d3836f6ec969
+
+   16 def derive(sid,cut=END):
+   17  start=time.monotonic();rec=RECORDS[sid];paths={k:OLD/rec['files'][k]['path'] for k in ['signal','events','states']}
+   18  for k,p in paths.items():assert sha(p)==rec['files'][k]['sha256'],(sid,k)
+   19  ip=IX/'signals'/f'{sid}.parquet';assert sha(ip)==IXRECORDS[sid]['output_sha256']
+   20  signal=pd.read_parquet(paths['signal']).loc[:cut];x=pd.read_parquet(ip).loc[:cut];event=pd.read_parquet(paths['events']).reindex(x.index);state=pd.read_parquet(paths['states']).reindex(x.index);valid=eligible_prices(signal);assert valid.index.equals(x.index),(sid,'same price-observation clock')
+   21  if x.empty:return pd.DataFrame(columns=COLS,index=pd.DatetimeIndex([],name=signal.index.name)),dict(sid=sid,status='no_observation_before_cut',rows=0,seconds=time.monotonic()-start)
+   22  for c in ['open','high','low','close','volume','segment_id']:np.testing.assert_equal(x[c].to_numpy(),valid[c].to_numpy(),err_msg=sid+'/'+c)
+   23  e=x[['segment_id','open','high','low','close','volume']].copy();e['valid_price_observation']=True;e['price_observation']=e.groupby('segment_id',sort=False).cumcount();e['event']=event.event;e['confirmed_pivot_price']=event.confirmed_pivot_price;e['ready']=state.ready;e['previous_close']=e.groupby('segment_id',sort=False).close.shift()
+   24  v=e.volume.where(np.isfinite(e.volume)&e.volume.gt(0));e['volume_baseline']=v.groupby(e.segment_id,sort=False).transform(lambda q:q.shift().rolling(21,min_periods=21).median())
+   25  for c in ['volume_ratio','high_effort','declined']:e[c]=state[c]
+   26  e['decline_candidate']=False;e['candidate_lower']=np.nan;e['candidate_reclaim']=np.nan
+   27  base,_=e0_policy(e);assert not base.pending.fillna(0).any()
+   28  g=x[['grade','strength_ready','fresh_up','acute_down']].rename(columns={'strength_ready':'ready'});out=project(e,base,g,'G1_I')
+   29  keep=x[['close','segment_id']].copy()
+   30  for mode,frame in [('e0',base),('i',out)]:
+   31   for c in ['target','floor']:keep[mode+'_'+c]=frame[c]
+   32  keep['i_buy']=out.buy_event
+   33  for c in ['grade','fresh_up','acute_down','ready']:keep['g_'+c]=g[c]
+   34  keep['e0_ready']=base.ready;keep['factor']=signal.adjustment_factor.reindex(keep.index);keep['raw_close']=signal.raw_close.reindex(keep.index);keep=keep[COLS]
+   35  return keep,dict(sid=sid,status='derived',warm_from=str(keep.index.min().date()),warm_rows=len(keep),rows=len(keep.loc[BEGIN:]),i_events=int(keep.loc[BEGIN:,'i_buy'].sum()),unknown_grade=int(keep.loc[BEGIN:,'g_grade'].isna().sum()),IX_target_difference=int((out.target.astype(float)!=x.ix_target.astype(float)).sum()),seconds=time.monotonic()-start,input_sha={str(p):sha(p) for p in list(paths.values())+[ip]})
+
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stock-cp1-warmup-20261031/generate.py
+SHA256 ddd2999adc15bb6f8b2bad9d46bd89ed4199ba6a2d68eaf4c674aebf4e2bf2f9
+
+   23 def frame(sid,f,cut):
+   24  if f.empty:
+   25   return pd.DataFrame({'close':pd.Series(dtype=float),'segment_id':pd.Series(dtype=int),'i_target':pd.Series(dtype=bool),'i_floor':pd.Series(dtype=float),'amount':pd.Series(dtype=float),'e0_down':pd.Series(dtype=bool),'e0_valid':pd.Series(dtype=bool)},index=f.index)
+   26  rec=N.RECORDS[sid];sig=pd.read_parquet(N.OLD/rec['files']['signal']['path']).loc[:cut];ev=pd.read_parquet(N.OLD/rec['files']['events']['path']).reindex(f.index);out=f[['close','segment_id','i_target','i_floor']].copy();out['amount']=sig.amount.reindex(f.index);out['e0_down']=ev.event.eq(-1);out['e0_valid']=f.i_target.astype(bool)
+   27  if not np.isfinite(out[['close','amount']]).all().all() or not out[['close','amount']].gt(0).all().all():raise ValueError('missing/nonpositive same-source CP1 price or amount; no row removal allowed')
+   28  return out
+
+   41   t=time.monotonic();f,r=N.derive(sid,END);f.to_parquet(O/'full-facts'/f'{sid}.parquet');old=pd.read_parquet(W/'native-I-cache-interface-20261031/facts'/f'{sid}.parquet').loc[BEGIN:END];exact(f.loc[BEGIN:END],old)
+   42   paths={k:N.OLD/N.RECORDS[sid]['files'][k]['path'] for k in ['signal','events','states']};paths['IX_G1']=N.IX/'signals'/f'{sid}.parquet';source_hashes={str(p):sha(p) for p in paths.values()}
+   43   try:
+   44    q=frame(sid,f,END);z=M.calculate(q);q.to_parquet(O/'CP1-input'/f'{sid}.parquet');z.to_parquet(O/'CP1'/f'{sid}.parquet');status='not_applicable_no_market_observation_by_end' if f.empty else 'complete';unknown=None
+   45   except ValueError as e:
+   46    status='blocked_CP1_input';unknown=str(e);z=None
+   47   row=dict(sid=sid,status=status,source_sha256=source_hashes,warm_from=str(f.index.min().date()) if len(f) else None,warm_observations=len(f),audit_observations=len(f.loc[BEGIN:END]),CP1_receipts=int(z.loc[BEGIN:END,'receipt'].sum()) if z is not None else None,CP1_ready_observations=int(z.loc[BEGIN:END,'ready'].sum()) if z is not None else None,unknown_reason=unknown,I_E0_audit_fields_exact=True,seconds=time.monotonic()-t,output_sha256={str(p.relative_to(O)):sha(p) for p in [O/'full-facts'/f'{sid}.parquet',O/'CP1-input'/f'{sid}.parquet',O/'CP1'/f'{sid}.parquet'] if p.exists()})
+
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/prepare.py
+SHA256 f2c2e80103f75f5575bf8d45c7a20e6005eccf5daaea54b58f9cc2c1e433cf59
+
+   20 def emit_stock(sid,case,prefix_sample):
+   21  start=time.monotonic();refs={};checks={};old_source_status=None;CP_reuse=False;facts_reuse=False
+   22  if case is not None:
+   23   assert all(sha(p)==h for p,h in case['source_sha256'].items())
+   24   assert all(sha(W/'case-stock-cp1-warmup-20261031'/p)==h for p,h in case['output_sha256'].items())
+   25   root=W/'case-stock-cp1-warmup-20261031';refs=dict(facts=str(root/'full-facts'/f'{sid}.parquet'),CP1_input=str(root/'CP1-input'/f'{sid}.parquet'),CP1=str(root/'CP1'/f'{sid}.parquet'));f=pd.read_parquet(refs['facts']).loc[:END];q=pd.read_parquet(refs['CP1_input']).loc[:END];z=pd.read_parquet(refs['CP1']).loc[:END];source_hash=case['source_sha256'];CP_reuse=facts_reuse=True;checks['previous_case_full_chain_verified']=True;mode='verified_case_reuse'
+   26  else:
+   27   f,receipt=N.derive(sid,END);paths=source_paths(sid);source_hash={str(p):sha(p) for p in paths.values()};native=pd.read_parquet(W/'native-I-cache-interface-20261031/facts'/f'{sid}.parquet').loc[BEGIN:END];G.exact(f.loc[BEGIN:END],native);checks['native_I_export_all_fields_exact']=True;q=G.frame(sid,f,END);z=M.calculate(q);old=C.O/'signals'/f'{sid}.parquet';mode='new_fixed_chain'
+   28   if old.exists():
+   29    try:
+   30     G.exact(q,C.frame(sid,END));G.exact(z,pd.read_parquet(old).loc[:END]);refs['CP1']=str(old);CP_reuse=True;old_source_status='full_input_and_CP1_exact';checks['old_CP1_current_source_exact']=True
+   31     oldfacts=C.PREP/'facts'/f'{sid}.parquet';ff=pd.read_parquet(oldfacts)
+   32     if set(N.COLS)<=set(ff):G.exact(f,ff.loc[:END,N.COLS]);refs['facts']=str(oldfacts);facts_reuse=True
+   33    except (AssertionError,ValueError,FileNotFoundError) as e:old_source_status='incompatible_or_unavailable:'+str(e)[:350]
+   34   if 'facts' not in refs:
+   35    path=O/'facts'/f'{sid}.parquet';f.to_parquet(path);refs['facts']=str(path)
+   36   path=O/'CP1-input'/f'{sid}.parquet';q.to_parquet(path);refs['CP1_input']=str(path)
+   37   if 'CP1' not in refs:
+   38    path=O/'CP1'/f'{sid}.parquet';z.to_parquet(path);refs['CP1']=str(path)
+   39   if sid in prefix_sample and not f.empty:
+   40    short,_=N.derive(sid,CUT);G.exact(short,f.loc[:CUT]);G.exact(M.calculate(G.frame(sid,short,CUT)),z.loc[:CUT]);checks['physical_I_CP1_prefix_exact']=True
+   41  if f.empty:rs=[];status='not_applicable_no_local_observation_by_end'
+   42  else:
+   43   events_path=next(p for p in source_hash if p.endswith('/events.parquet'));ev=pd.read_parquet(events_path).reindex(q.index);rs,_,_=T.trace(sid,q,z,ev,f.e0_target.reindex(q.index).astype(bool));status='complete';checks['trace_unknown_receipts']=sum(bool(r['trace_unknown']) for r in rs)
+   44  rpath=O/'receipts'/f'{sid}.json';save(rpath,compact(rs));refs['receipts']=str(rpath);checks['old_cache_source_compatibility']=old_source_status
+   45  audit=f.loc[BEGIN:END];zz=z.loc[BEGIN:END];required=f.loc[BEGIN:REQUIRED_END];r=dict(symbol=sid,status=status,mode=mode,CP1_reused=CP_reuse,facts_reused=facts_reuse,contract_signature=SIGNATURE,refs=refs,source_sha256=source_hash,output_sha256={p:sha(p) for p in refs.values()},warm_from=str(f.index.min().date()) if len(f) else None,cache_through=END,required_account_end=REQUIRED_END,full_warm_observations=len(f),audit_observations=len(audit),audit_CP1_ready=int(zz.ready.sum()),audit_CP1_unready=int(len(zz)-zz.ready.sum()),audit_CP1_receipts=int(zz.receipt.sum()),required_account_observations=len(required),required_account_CP1_receipts=int(z.loc[BEGIN:REQUIRED_END,'receipt'].sum()),checks=checks,seconds=time.monotonic()-start)
+
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/cp1-evidence-trace-20261031/trace.py
+SHA256 bac0d77f7cc6aac767c24e70147d6d711e493ede57a30a8130eeeb0a122d00fe
+
+   30 def trace(canonical,f,z,events,episode,alias=None):
+   31  assert f.index.equals(z.index);out=[];points=[];anchor_at=anchor_obs=frontier_obs=scale_at=None;anchor_idx=None;last_receipt=None;global_last=None;consumed=set();ep=None;prevtarget=None;seg=None;epknown=True;checks=collections.Counter();allinc=[]
+   32  dates=list(f.index);fr=f.to_dict('records');zr=z.to_dict('records');ev=events.reindex(f.index);epvals=episode.reindex(f.index)
+   33  for i,(day,r,q) in enumerate(zip(dates,fr,zr)):
+   34   d=str(day.date());segment=str(int(r['segment_id']));obs=ident('price-observation',canonical,segment,d);target=bool(epvals.iloc[i]) if pd.notna(epvals.iloc[i]) else None
+   35   if segment!=seg:seg=segment;prevtarget=None;ep=None;last_receipt=None
+   36   if target is None:epknown=False;ep=None
+   37   elif not target:ep=None;epknown=True
+   38   elif prevtarget is False:ep=ident('original-E0-episode',canonical,segment,obs);epknown=True;last_receipt=None
+   39   elif prevtarget is None:epknown=False;ep=None
+   40   prevtarget=target;reason=q['reset_reason'] if pd.notna(q['reset_reason']) else None
+   41   if reason in ['unprepared','E0_invalid']:
+   42    points=[];anchor_at=anchor_obs=frontier_obs=scale_at=None;anchor_idx=None
+   43   elif reason in ['start','E0_down_reset','lower_anchor']:
+   44    points=[];anchor_at=d;anchor_obs=frontier_obs=obs;scale_at=d;anchor_idx=i
+   45   fresh=float(q['delta_frontier']) if pd.notna(q['delta_frontier']) else 0.
+   46   if fresh>0:
+   47    event=ev.iloc[i];native_sign=int(event.event) if pd.notna(event.get('event')) else None;point=dict(price_event_id=obs,day=d,from_observation_id=frontier_obs,to_observation_id=obs,log_displacement=fresh,log_frontier_to=math.log(r['close']),volume_multiplier=float(q['m']),native_event_known=native_sign is not None,native_event_sign=native_sign,derived_native_event_id=ident('cached-native-event-derived',canonical,segment,d,native_sign) if native_sign in [-1,1] else None,amount_background_start=str(dates[max(0,i-21)].date()),amount_background_end=str(dates[i-1].date()) if i else None);points.append(point);frontier_obs=obs
+   48   if bool(q['receipt']):
+   49    rid=ident('market-CP1-receipt',canonical,SCALE,segment,ep,anchor_obs,obs);unknown=[]
+   50    if not epknown:unknown.append('original_E0_episode_start_unknown')
+   51    if anchor_at is None or anchor_idx is None:unknown.append('CP1_anchor_origin_unknown')
+   52    if any(not p['native_event_known'] for p in points):unknown.append('native_event_row_missing_in_advances')
+   53    assert points and points[-1]['day']==d and fresh>0;assert all(p['price_event_id'] not in consumed for p in points),(canonical,d,'old impulse reused');assert all(p['day']>anchor_at for p in points)
+   54    if last_receipt:assert all(p['day']>last_receipt['confirmed_day'] for p in points)
+   55    checks['new_unconsumed_advance_receipts']+=1;used_ids=[p['price_event_id'] for p in points];signature=ident(canonical,segment,anchor_obs,obs,[(p['price_event_id'],p['log_displacement'],p['volume_multiplier']) for p in points]);row=dict(canonical_series=canonical,source_alias=alias or canonical,scale_id=SCALE,source_segment=segment,original_E0_episode_id=ep,confirmed_day=d,receipt_id=rid,decision_evidence_key=ident('one-series-scale-observation',canonical,SCALE,obs),formation_start_exclusive=anchor_at,formation_end_inclusive=d,anchor_observation_id=anchor_obs,confirmation_observation_id=obs,previous_market_receipt_id=last_receipt['receipt_id'] if last_receipt else None,previous_market_confirmed_day=last_receipt['confirmed_day'] if last_receipt else None,previous_global_market_receipt_id=global_last['receipt_id'] if global_last else None,previous_consumed_frontier_log=last_receipt['frontier_log'] if last_receipt else None,original_candidate=float(q['candidate']),original_scale=float(q['scale']),scale_frozen_at=scale_at,scale_old_return_end_observations=[ident('price-observation',canonical,segment,str(t.date())) for t in dates[max(1,anchor_idx-63):anchor_idx]] if anchor_idx is not None else [],new_advance_price_event_ids=used_ids,new_advance_observations=len(points),new_log_price_displacement=float(q['displacement']),original_credit=float(q['credit']),evidence_signature=signature,trace_unknown=unknown,native_event_id_note='derived from cached event observation; provider supplies no original eventID',live_publication_time='unknown; confirmation day only',stage_controller_consumed=False)
+   56    if BEGIN<=d<=END:out.append(row);allinc.extend(dict(receipt_id=rid,canonical_series=canonical,**p) for p in points)
+   57    consumed.update(used_ids);last_receipt=global_last=dict(receipt_id=rid,confirmed_day=d,frontier_log=math.log(r['close']));points=[];anchor_at=d;anchor_obs=frontier_obs=obs;scale_at=d;anchor_idx=i
+   58  return out,allinc,dict(checks)
+
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py
+SHA256 fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425
+
+  223    for sid in tuple(a.positions):
+  224     row=self.facts.row(sid,at);cp=self.cp[sid].loc[day] if day in self.cp[sid].index else None;quote=self.market.quote(sid,at);assert quote
+  225     if not a.risk_state['on'] or not bool(row.i_target):
+  226      if not bool(row.i_target):
+  227       for x in a.live(sid):
+  228        if x['kind']=='core':a.jmeta[x['id']]['pending_I_exit_reference']=True
+  229      a.sell(sid,clock,quote,[x['id'] for x in a.live(sid)],'ACT_pause' if not a.risk_state['on'] else 'I_structure_exit');continue
+  230     for x in a.live(sid):
+  231      if x['kind']=='core':
+  232       known_floor=self.facts.floor(sid,at,'I')
+  233       if known_floor is not None:a.jmeta[x['id']]['last_core_line']=str(known_floor)
+  234       continue
+  235      if x['kind']!='add' or x['id'] in a.sell_layers.get(sid,set()):continue
+  236      if D(str(row.close))<=x['floor']:a.sell(sid,clock,quote,[x['id']],'CP1_add_protection')
+  237      else:
+  238       floor=self.facts.floor(sid,at,'I')
+  239       if floor is not None:x['floor']=max(x['floor'],floor)
+  240       if cp is not None and bool(cp.receipt):x['floor']=max(x['floor'],D(str(cp.candidate)))
+
+  243     cpr=self.receipts[sid].get(gidday(at));roles=[];why=[];held=bool(a.quantity(sid));epoch=self.global_watch.get(sid);sector=self.sector_by_sid[sid]
+  244     if event[sid].q is True and not held and a.core_epoch.get(sid)!=epoch:roles.append('core')
+  245     if cpr and continuing[sid].q is True:roles.append('mobile')
+  246     if not a.risk_state['on']:why.append('ACT_paused')
+  247     if sid in a.exits:why.append('exit_pending')
+  248     if sid in a.buys:why.append('buy_pending')
+  249     if event[sid].q is not True and not (cpr and continuing[sid].q is True):why.extend(event[sid].reasons or ['no_fresh_signal_or_Q'])
+  250     self.opportunities.append(dict(account=a.label,day=gidday(at),sid=sid,sector=sector,rank=rank,core_Q=event[sid].q,mobile_Q=continuing[sid].q,CP1_id=cpr['receipt_id'] if cpr else None,roles=roles,held=held,barriers=why))
+  251     if why or not roles:continue
+  252     q=self.market.quote(sid,at);floor=self.facts.floor(sid,at,'I')
+  253     if q is None or floor is None:continue
+  254     for role in roles:
+  255      fline=max(floor,D(str(self.cp[sid].loc[day,'candidate']))) if role=='mobile' else floor;budget=min(a.current_nav*D('.02'),max(Z,a.current_nav*D('.1')-a.quantity(sid)*q.raw_price));i=dict(sid=sid,clock=clock,quote=q,budget=budget,cap=q.quantity.buy_floor(int(budget/q.raw_price)),weight=1.,group=0,score=sd[sid].rank.read(clock),kind='add' if role=='mobile' else 'core',role=role,floor=fline,epoch=epoch,reason='fresh_CP1_mobile' if role=='mobile' else 'I_early_core',rank=rank,CP1_id=cpr['receipt_id'] if role=='mobile' else None,CP1_trace=cpr if role=='mobile' else None)
+
+/Users/bytedance/Documents/Codex/2026-11-04/task-3/entry_quality/selection_qualification_closeout_v1/eligibility_source/stock_signal.py
+SHA256 d64c985413f027f213dd2e6b36734b88a63eeded34639056b0b7761aa7c3e438
+
+   18 def calculate(frame):
+   19     """frame is already full-available-prefix-clipped OHLCV single-source data.
+   20 
+   21     Exactly mirrors cache.py:23-34, generating its numeric events, participation
+   22     ready/effort fields and G1 grade rather than borrowing old cached values.
+   23     Not S0: no sector/cap/issuer/listing/trading eligibility is manufactured.
+   24     """
+   25     assert frame.index.is_unique and frame.index.is_monotonic_increasing
+   26     f=eligible_prices(frame).copy()
+   27     if f.empty:return pd.DataFrame(index=f.index)
+   28     assert f.segment_id.nunique()==1
+   29     events=event_frame_numeric(f.close,f.volume,joint=True,event_exit=False)
+   30     state,_=participation_frame(f,events,mode='volume')
+   31     e=f[['segment_id','open','high','low','close','volume']].copy()
+   32     e['valid_price_observation']=True
+   33     e['price_observation']=e.groupby('segment_id',sort=False).cumcount()
+   34     e['event']=events.event;e['confirmed_pivot_price']=events.confirmed_pivot_price
+   35     e['ready']=state.ready;e['previous_close']=e.groupby('segment_id',sort=False).close.shift()
+   36     v=e.volume.where(np.isfinite(e.volume)&e.volume.gt(0))
+   37     e['volume_baseline']=v.groupby(e.segment_id,sort=False).transform(lambda q:q.shift().rolling(21,min_periods=21).median())
+   38     for field in ['volume_ratio','high_effort','declined']:e[field]=state[field]
+   39     e['decline_candidate']=False;e['candidate_lower']=np.nan;e['candidate_reclaim']=np.nan
+   40     base,_=e0_policy(e);assert not base.pending.fillna(0).any()
+   41     inputs=f[['open','high','low','close','volume','segment_id']].copy()
+   42     inputs['valid_price_observation']=True
+   43     inputs['valid_strength_observation']=np.isfinite(inputs.volume)&inputs.volume.gt(0)
+   44     evidence,_=build_evidence(inputs)
+   45     g,_=classify(evidence)
+   46     projected=project(e,base,g,'G1_I')
+   47     out=pd.DataFrame(index=f.index)
+   48     for n in ['ready','target','floor','entered','exited']:out['e0_'+n]=base[n]
+   49     for n in ['target','floor','entered','exited','buy_event','exit_reason']:out['i_'+n]=projected[n]
+   50     out=out.rename(columns={'i_buy_event':'i_buy'})
+   51     for n in ['grade','ready','fresh_up','acute_down','up_reasons']:out['g_'+n]=g[n]
+   52     out['numeric_event']=events.event
+   53     out['numeric_leg_direction']=events.leg_direction
+   54     out['close']=f.close
+   55     return out

@@ -1,0 +1,369 @@
+[
+  {
+    "sid": "002151.SZ",
+    "name": "北斗星通",
+    "signal_day": "2026-01-09",
+    "entry_day": "2026-01-12",
+    "trigger_day": "2026-01-13",
+    "trigger_reason": "CP1_add_protection",
+    "net": -1628.58214828,
+    "prior_floors": [
+      {
+        "layer": 3284,
+        "q": 200,
+        "old_floor_adjusted": "113.49445373793638",
+        "old_floor_raw": "60.96997834317927221224115878",
+        "close_le_prior_floor": true
+      }
+    ],
+    "missing_observed_open_days_before_fill": [],
+    "post_exit_prices": {
+      "2026-05-15": {
+        "raw_close": 40.18,
+        "adjusted_close": 74.79430492040572,
+        "same_basis_price_return_from_exit_open": -0.26003683241252296,
+        "post_exit_descriptive_not_strategy_pnl": true
+      },
+      "2026-06-30": {
+        "raw_close": 31.75,
+        "adjusted_close": 59.10202043859835,
+        "same_basis_price_return_from_exit_open": -0.4152854511970534,
+        "post_exit_descriptive_not_strategy_pnl": true
+      }
+    },
+    "post_exit_flat_cp_count": 2,
+    "post_exit_flat_cp_categories": {
+      "open_rejected": 2
+    },
+    "post_exit_open_reasons": {
+      "cash_or_original_reserve,sector_capital": 1,
+      "cash_or_original_reserve": 4
+    },
+    "next_actual_buy": null
+  },
+  {
+    "sid": "300666.SZ",
+    "name": "江丰电子",
+    "signal_day": "2026-01-15",
+    "entry_day": "2026-01-16",
+    "trigger_day": "2026-01-29",
+    "trigger_reason": "CP1_add_protection",
+    "net": -1405.2665018008,
+    "prior_floors": [
+      {
+        "layer": 3298,
+        "q": 100,
+        "old_floor_adjusted": "119.8160403837654",
+        "old_floor_raw": "117.5320671454540579878757621",
+        "close_le_prior_floor": true
+      }
+    ],
+    "missing_observed_open_days_before_fill": [
+      "2026-01-30",
+      "2026-02-02",
+      "2026-02-03",
+      "2026-02-04",
+      "2026-02-05"
+    ],
+    "post_exit_prices": {
+      "2026-05-15": {
+        "raw_close": 189.86,
+        "adjusted_close": 193.5495050819547,
+        "same_basis_price_return_from_exit_open": 0.6715971121676352,
+        "post_exit_descriptive_not_strategy_pnl": true
+      },
+      "2026-06-30": {
+        "raw_close": 368.6,
+        "adjusted_close": 376.52377098447636,
+        "same_basis_price_return_from_exit_open": 2.2518607989910047,
+        "post_exit_descriptive_not_strategy_pnl": true
+      }
+    },
+    "post_exit_flat_cp_count": 9,
+    "post_exit_flat_cp_categories": {
+      "open_rejected": 6,
+      "stock_eligibility": 3
+    },
+    "post_exit_open_reasons": {
+      "cash_or_original_reserve,probe_risk,sector_capital": 7,
+      "industry_invalidated": 1,
+      "cash_or_original_reserve,probe_risk": 1
+    },
+    "next_actual_buy": null
+  },
+  {
+    "sid": "301611.SZ",
+    "name": "珂玛科技",
+    "signal_day": "2026-01-15",
+    "entry_day": "2026-01-16",
+    "trigger_day": "2026-01-29",
+    "trigger_reason": "CP1_add_protection",
+    "net": -1475.64360181225,
+    "prior_floors": [
+      {
+        "layer": 3311,
+        "q": 100,
+        "old_floor_adjusted": "123.01133473929426",
+        "old_floor_raw": "122.6020898056296947106050891",
+        "close_le_prior_floor": true
+      }
+    ],
+    "missing_observed_open_days_before_fill": [],
+    "post_exit_prices": {
+      "2026-05-15": {
+        "raw_close": 125.2,
+        "adjusted_close": 125.61791674004931,
+        "same_basis_price_return_from_exit_open": 0.027914614121510528,
+        "post_exit_descriptive_not_strategy_pnl": true
+      },
+      "2026-06-30": {
+        "raw_close": 180.07,
+        "adjusted_close": 180.87345964443327,
+        "same_basis_price_return_from_exit_open": 0.4800633325258348,
+        "post_exit_descriptive_not_strategy_pnl": true
+      }
+    },
+    "post_exit_flat_cp_count": 2,
+    "post_exit_flat_cp_categories": {
+      "open_rejected": 2
+    },
+    "post_exit_open_reasons": {
+      "cash_or_original_reserve,probe_risk,sector_capital": 1,
+      "industry_invalidated": 1,
+      "cash_or_original_reserve,sector_capital": 3
+    },
+    "next_actual_buy": null
+  },
+  {
+    "sid": "688362.SH",
+    "name": "甬矽电子",
+    "signal_day": "2026-01-15",
+    "entry_day": "2026-01-16",
+    "trigger_day": "2026-01-26",
+    "trigger_reason": "CP1_add_protection",
+    "net": -2227.0859252975047,
+    "prior_floors": [
+      {
+        "layer": 3305,
+        "q": 448,
+        "old_floor_adjusted": "46.54997643182731",
+        "old_floor_raw": "46.39466192514341950508856048",
+        "close_le_prior_floor": true
+      },
+      {
+        "layer": 3315,
+        "q": 381,
+        "old_floor_adjusted": "46.54997643182731",
+        "old_floor_raw": "46.39466192514341950508856048",
+        "close_le_prior_floor": true
+      }
+    ],
+    "missing_observed_open_days_before_fill": [],
+    "post_exit_prices": {
+      "2026-05-15": {
+        "raw_close": 50.3,
+        "adjusted_close": 50.46838833094213,
+        "same_basis_price_return_from_exit_open": 0.09849312076872674,
+        "post_exit_descriptive_not_strategy_pnl": true
+      },
+      "2026-06-30": {
+        "raw_close": 96.4,
+        "adjusted_close": 96.72271640363462,
+        "same_basis_price_return_from_exit_open": 1.1052631578947367,
+        "post_exit_descriptive_not_strategy_pnl": true
+      }
+    },
+    "post_exit_flat_cp_count": 3,
+    "post_exit_flat_cp_categories": {
+      "open_rejected": 3
+    },
+    "post_exit_open_reasons": {
+      "cash_or_original_reserve,probe_risk,sector_capital": 1,
+      "industry_invalidated": 6,
+      "cash_or_original_reserve,probe_risk": 2,
+      "cash_or_original_reserve": 2,
+      "cash_or_original_reserve,sector_capital": 1
+    },
+    "next_actual_buy": null
+  },
+  {
+    "sid": "300672.SZ",
+    "name": "国科微",
+    "signal_day": "2026-01-16",
+    "entry_day": "2026-01-19",
+    "trigger_day": "2026-03-26",
+    "trigger_reason": "CP1_add_protection",
+    "net": 2365.30671692,
+    "prior_floors": [
+      {
+        "layer": 3318,
+        "q": 100,
+        "old_floor_adjusted": "275.64258815604734",
+        "old_floor_raw": "168.2834599979577493896802439",
+        "close_le_prior_floor": true
+      }
+    ],
+    "missing_observed_open_days_before_fill": [],
+    "post_exit_prices": {
+      "2026-05-15": {
+        "raw_close": 235.63,
+        "adjusted_close": 385.953931824302,
+        "same_basis_price_return_from_exit_open": 0.47268750000000015,
+        "post_exit_descriptive_not_strategy_pnl": true
+      },
+      "2026-06-30": {
+        "raw_close": 295.0,
+        "adjusted_close": 483.1999740617455,
+        "same_basis_price_return_from_exit_open": 0.84375,
+        "post_exit_descriptive_not_strategy_pnl": true
+      }
+    },
+    "post_exit_flat_cp_count": 4,
+    "post_exit_flat_cp_categories": {
+      "open_rejected": 4
+    },
+    "post_exit_open_reasons": {
+      "industry_invalidated": 1,
+      "cash_or_original_reserve": 3,
+      "open_minimum_exceeds_frozen_contract": 1,
+      "cash_or_original_reserve,sector_capital": 1
+    },
+    "next_actual_buy": null
+  },
+  {
+    "sid": "002156.SZ",
+    "name": "通富微电",
+    "signal_day": "2026-01-20",
+    "entry_day": "2026-01-21",
+    "trigger_day": "2026-01-29",
+    "trigger_reason": "I_structure_exit",
+    "net": -151.78316829985,
+    "prior_floors": [
+      {
+        "layer": 3327,
+        "q": 300,
+        "old_floor_adjusted": "68.94711824277883",
+        "old_floor_raw": "51.79999999999999670930409011",
+        "close_le_prior_floor": true
+      }
+    ],
+    "missing_observed_open_days_before_fill": [],
+    "post_exit_prices": {
+      "2026-05-15": {
+        "raw_close": 57.02,
+        "adjusted_close": 75.89507108500482,
+        "same_basis_price_return_from_exit_open": 0.1266548113021142,
+        "post_exit_descriptive_not_strategy_pnl": true
+      },
+      "2026-06-30": {
+        "raw_close": 75.87,
+        "adjusted_close": 101.09940095351894,
+        "same_basis_price_return_from_exit_open": 0.5008105911972536,
+        "post_exit_descriptive_not_strategy_pnl": true
+      }
+    },
+    "post_exit_flat_cp_count": 3,
+    "post_exit_flat_cp_categories": {
+      "open_rejected": 3
+    },
+    "post_exit_open_reasons": {
+      "cash_or_original_reserve,sector_capital": 3,
+      "industry_invalidated": 2,
+      "cash_or_original_reserve,probe_risk": 3,
+      "cash_or_original_reserve": 6
+    },
+    "next_actual_buy": null
+  },
+  {
+    "sid": "300623.SZ",
+    "name": "捷捷微电",
+    "signal_day": "2026-01-27",
+    "entry_day": "2026-01-28",
+    "trigger_day": "2026-02-02",
+    "trigger_reason": "CP1_add_protection",
+    "net": -1127.73293053705,
+    "prior_floors": [
+      {
+        "layer": 3342,
+        "q": 300,
+        "old_floor_adjusted": "233.6920587392415",
+        "old_floor_raw": "32.53246079535433156303025917",
+        "close_le_prior_floor": true
+      }
+    ],
+    "missing_observed_open_days_before_fill": [],
+    "post_exit_prices": {
+      "2026-05-15": {
+        "raw_close": 30.97,
+        "adjusted_close": 222.46835567347622,
+        "same_basis_price_return_from_exit_open": -0.06123067596241305,
+        "post_exit_descriptive_not_strategy_pnl": true
+      },
+      "2026-06-30": {
+        "raw_close": 44.99,
+        "adjusted_close": 324.35042954793937,
+        "same_basis_price_return_from_exit_open": 0.3686900888723692,
+        "post_exit_descriptive_not_strategy_pnl": true
+      }
+    },
+    "post_exit_flat_cp_count": 1,
+    "post_exit_flat_cp_categories": {
+      "filled": 1
+    },
+    "post_exit_open_reasons": {
+      "sector_capital": 1,
+      "reserved": 1
+    },
+    "next_actual_buy": "2026-02-04"
+  },
+  {
+    "sid": "300623.SZ",
+    "name": "捷捷微电",
+    "signal_day": "2026-02-03",
+    "entry_day": "2026-02-04",
+    "trigger_day": "2026-03-03",
+    "trigger_reason": "I_structure_exit",
+    "net": -3048.7072831358996,
+    "prior_floors": [
+      {
+        "layer": 3375,
+        "q": 200,
+        "old_floor_adjusted": "236.33222155819723",
+        "old_floor_raw": "32.89999999999999919257730181",
+        "close_le_prior_floor": true
+      },
+      {
+        "layer": 3379,
+        "q": 500,
+        "old_floor_adjusted": "236.33222155819723",
+        "old_floor_raw": "32.89999999999999919257730181",
+        "close_le_prior_floor": true
+      }
+    ],
+    "missing_observed_open_days_before_fill": [],
+    "post_exit_prices": {
+      "2026-05-15": {
+        "raw_close": 30.97,
+        "adjusted_close": 222.46835567347622,
+        "same_basis_price_return_from_exit_open": 0.03752093802345047,
+        "post_exit_descriptive_not_strategy_pnl": true
+      },
+      "2026-06-30": {
+        "raw_close": 44.99,
+        "adjusted_close": 324.35042954793937,
+        "same_basis_price_return_from_exit_open": 0.5126661987236001,
+        "post_exit_descriptive_not_strategy_pnl": true
+      }
+    },
+    "post_exit_flat_cp_count": 2,
+    "post_exit_flat_cp_categories": {
+      "open_rejected": 2
+    },
+    "post_exit_open_reasons": {
+      "industry_invalidated": 1,
+      "cash_or_original_reserve": 6,
+      "cash_or_original_reserve,probe_risk": 4
+    },
+    "next_actual_buy": null
+  }
+]

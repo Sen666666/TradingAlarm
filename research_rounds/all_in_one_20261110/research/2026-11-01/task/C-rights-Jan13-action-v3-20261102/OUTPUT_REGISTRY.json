@@ -1,0 +1,38 @@
+{
+  "identity_sha256": "f4e5ceb5ba7cf94025280a2bee6b56e889c25a2ea6282b8248b040dda414fc75",
+  "source_freeze_sha256": "0a5c09403d15fd290af0ee1ce93f39a66446bb1f4e09de58e3776f14147bc703",
+  "outputs": [
+    {
+      "arm": "2022-C10",
+      "checkpoint": "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v3-20261102/outputs/2022-C10/JAN13_ACTION.pkl",
+      "sha256": "ee6ea284a1effe79a793b8c32c3cb097573168b60266e84bfb0a299e4dc2621d",
+      "provenance_sha256": "8a4e0b09398ac1c53db5b2a04eed2d3f09d415f73edbb138025f311908131634",
+      "input_checkpoint_sha256": "734dadf044ce78e52d7574d22a439dda08f63549db5dd56fefcede48f54107c4",
+      "grant_sha256": "00653807c0f77d7b3b7f07dffcc7b04acdf097d9ff25ba22b1d5223c8d9daa2c",
+      "identity_sha256": "f4e5ceb5ba7cf94025280a2bee6b56e889c25a2ea6282b8248b040dda414fc75",
+      "phase": "ACTION",
+      "cursor": "2022-01-13T00:00:00+08:00",
+      "prefix_sha256": "ebde81599f32e2c9059889b39c1cb400ac922f92ea9aca9d75c96a58ee1e4a5c",
+      "state_file": "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v3-20261102/outputs/2022-C10/POST_STATE_FIELDS.json",
+      "state_file_sha256": "b4ff821a783722417a7d21d0596dc2a23a2c43660fb05ffe13299cb16e43877e",
+      "evidence_file": "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v3-20261102/outputs/2022-C10/ACTION_EVIDENCE.json",
+      "evidence_file_sha256": "02a7ed5081aaed09a97b57c44eb094ff99ec1e49a53902ed361f1510af646c8f"
+    },
+    {
+      "arm": "2022-C_BATCH20",
+      "checkpoint": "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v3-20261102/outputs/2022-C_BATCH20/JAN13_ACTION.pkl",
+      "sha256": "9eab5470d9b2e01c1c8149c82f9ad66cb194c1b54f6dc2d3edc2f6f7aeab9a0b",
+      "provenance_sha256": "cbfc382a1095d624d57b2552bc8c0853ccfb2b3403980da87151c743022fc9fb",
+      "input_checkpoint_sha256": "9f80f70cfaa4c66a954bfb68a2fea0b4cdce9a57d6091176a45c39230d449647",
+      "grant_sha256": "36eb109d948e02e4db90a8b74fa125ae03cd8f35e290d33ba13630cbb65d2bd7",
+      "identity_sha256": "f4e5ceb5ba7cf94025280a2bee6b56e889c25a2ea6282b8248b040dda414fc75",
+      "phase": "ACTION",
+      "cursor": "2022-01-13T00:00:00+08:00",
+      "prefix_sha256": "3c5aef1a975fe5927cefdc5da683ed30d884b5c9fe20a6bbfaf7f3a102631ccb",
+      "state_file": "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v3-20261102/outputs/2022-C_BATCH20/POST_STATE_FIELDS.json",
+      "state_file_sha256": "40ec3e2a655119a44bdc3c1680cb72cf586b6c97221b9e91a10b6267493c2404",
+      "evidence_file": "/Users/bytedance/Documents/Codex/2026-11-01/task/C-rights-Jan13-action-v3-20261102/outputs/2022-C_BATCH20/ACTION_EVIDENCE.json",
+      "evidence_file_sha256": "d132bbe6785f17b739be2e208cd6705cbde0e14b92d0165c751e305e46d66c63"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "audit_path": "/Users/bytedance/Documents/Codex/2026-11-04/task/independent_review/BENCHMARK_2024_CONTINUATION_INDEPENDENT_AUDIT.json",
+  "audit_sha256": "30f4a0dc3881390e3ca6c53851ec315cf6ce2fc4eb294b60638b03cf10acbb25",
+  "recorded_at_UTC": "2026-11-04T10:20:14.371723+00:00",
+  "execution_verified": false,
+  "original_results_preserved": true,
+  "scope": "two frozen own-state benchmark continuations; no new PVR strategy paths"
+}

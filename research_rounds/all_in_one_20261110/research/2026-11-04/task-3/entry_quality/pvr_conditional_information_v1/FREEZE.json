@@ -1,0 +1,22 @@
+{
+  "status": "FROZEN_BEFORE_CONDITIONAL_FUTURE_PATH_COMPARISONS",
+  "purpose": "Determine whether RS20 and two separate fixed price-structure descriptions differentiate subsequent20-session paths within original PVR deciles. No residual fit, new composite score, account, funding or orders.",
+  "mother": "133713 saved original legal unique-stock candidate CLOSEs; same CORE/MOBILE sid/day counted once; original account-path-dependent, static universe and sector nonPIT.",
+  "primary_group": ["window", "day", "sector"],
+  "eligibility": "Original PVR finite; same-date/sector known-PVR N>=10. Unknowns and N<10 remain in denominator reports. No residual is fitted at any N.",
+  "decile": "Sort original PVR descending with the saved original pending PVR slot order (native round12 then H1 tie). d=1+floor(10*(ordinal_rank-1)/N); d=1 is highest. Keep all10 bins, including singleton bins.",
+  "features_separate": {"RS20": "Existing relative_return20, stock simple20-observation return minus exact aligned sector simple return; same original clock.", "frontier": "Existing close_gap_prior_high20 = C_t/max(previous20 valid closes)-1.", "low_improvement": "Previously frozen L=min(current5 valid closes)/min(preceding disjoint5 valid closes)-1, pre2022 source warmup preserved."},
+  "arms": "For each feature separately, within the FIXED cell compute median of finite at-CLOSE values. HIGH iff strictly above median; LOW iff strictly below; exact median/ties neutral, missing feature UNKNOWN. Need at least1 in each arm. Freeze membership before loading future labels, never relabel after future censoring.",
+  "future_path": "Native shared-calendar sessions t+1..t+20, not20 surviving valid rows. Current, nextOPEN and all20 future closes must be observed, positive finite, valid original PVR domain, same source block/segment. Otherwise UNKNOWN or source-tail censored; no forward fill.",
+  "complete_cell": "Evaluate an arm pair only if every original known-PVR member of that fixed decile cell has complete20-session path, not just favorable members. Future attrition never changes decile, feature median or arms.",
+  "outcomes": ["C_(t+20)/O_(t+1)-1", "max(C_(t+1)..C_(t+20))/O_(t+1)-1", "min(C_(t+1)..C_(t+20))/O_(t+1)-1"],
+  "secondary_coordinate": "Save the same three outcomes using decision CLOSE denominator. Positive maximum/negative minimum are not clipped to zero; only daily-close extrema, no executable intraday path.",
+  "cell_comparison": "HIGH arithmetic mean outcome minus LOW arithmetic mean outcome; each feature separately. No tuned thresholds or grouping on future labels.",
+  "aggregation": "First equal-weight evaluable decile deltas within date/sector. Then equal-weight sectors within date. Then equal-weight dates within each requested period. Also report sector-date distributions and each-decile results. Do not treat overlapping stock-days or cells as IID samples.",
+  "periods": {"2022_23": "Decision dates2022-2023, future horizon may cross year if present in same source window.", "2024": "Decision dates2024; source ends2024 and right tail stays censored.", "2025H2_2026H1": "Original strong candidate/calendar starts2025-07, ends2026-06; 2025H1 missing, not reconstructed."},
+  "time_stability": "Fixed nonoverlapping20-native-calendar-decision-session blocks starting at the beginning of each original source window. Report block mean signs and spread only. Adjacent blocks' forward paths can overlap near boundaries: no independent-block claim, IID standard error, p-value or significance.",
+  "remaining_PVR_balance": "Report HIGH-LOW raw PVR score and within-date/sector PVR percentile. Same decile is not exact PVR equality; differences remain descriptive conditional association, not proven independent information.",
+  "global_diagnostic": "Use all original same-date finite-PVR candidates with N>=10 to construct same equal-count PVR deciles. Report source arm/pair coverage and future complete-cell coverage only, plus sector mix and the potential coverage if each global bin is further split by sector. No global-bin future-performance selection or additional regression.",
+  "decision": "No introduction of residual ranking on these data. If these conditional features do not show stable cross-period discrimination or only alter favorable/adverse tails together, state this directly; do not change bins, horizon or add a regression to rescue it.",
+  "new_accounts": 0
+}

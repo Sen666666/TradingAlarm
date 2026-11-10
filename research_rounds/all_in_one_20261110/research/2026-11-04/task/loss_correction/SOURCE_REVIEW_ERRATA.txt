@@ -1,0 +1,22 @@
+2026-11-04 设计排重纠正；原金额/8表/源账完全不变。
+
+误读：仅沿g-s-C-UP-loss-capital-design-readonly-20261102/CANDIDATE.txt，曾建议未实施的
+max_iR(q*)共享S证明预算作下一卡。漏读其后g-s-C-shared-risk-design-check-readonly-
+20261102/REPORT.txt的明确STOP：未获资宽线股票抬额度、参考域/继承冻结钟不唯一、
+G/S绑定不唯一、持续主线集中速度不足。原共享问题保留不等于允许复活这个公式。
+NEXT_CARD.retracted-max-v1.txt是本轮失败设计留档，不能恢复执行；没有任何实现或金融。
+
+root进一步提醒actual budget继承，核source得：
+- g-s-C-approved-risk-native-v1/native_risk.py RiskBook key=certificate|stock，R0按
+  原该单Q0*(p0-f0)冻结，test19明确same_certificate_no_borrow：不是跨股票共享行业风险。
+- g-s-C-native-synthetic-v3/native_c.py OffBook只关闭BatchBook.preview的predicate；
+  g-s-C-batch20-projection-r2/batch_book.py begin()按每新CLOSE冻结NAV*.2 gross健康
+  供资责任（carry/new），不是行业证明新增资本预算，也不是成本亏损/2%买入目标。
+- AugustMixin._solve→exact250与January Runner._exact均继承上述C10 OffBook或
+  C_BATCH20 BatchBook，budget_before/after仍持久保存，不能把新账户当没有预算状态。
+
+root新提C_MOBILE2排重：既有g-s-C2-step-cap-projection-v1-20261102/REPORT.txt已实现
+12项合成、Jan6/Jul3两静态投影。唯一买入增量上界为min(C10 max_q,合法向下整手的
+2%冻结NAV/含原5bp预览价)，股票累计10%不改。尚无金融/OPEN或连续经济。后续若
+以此为候选应直接继承原定义和反例，不再当新机制，不重复设计/不调系数。
+目前root主线仍是NO_AR6；我仅准备后验分析，不自动推进C2或共享预算。

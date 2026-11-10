@@ -1,0 +1,123 @@
+CP与PVR原始算法：按有效No60接线读取，未运行模型
+
+一、上面alias的直接后果
+原joint intent.score来自sd[sid].rank.read(clock)，是原H1。native_rank只替换rank，
+另外保存PVR_score，不改变score；pilot.fill_buy却将meta['score']放进trade.pvr。
+因此book里的字段名pvr本身不能证明真正PVR数值。真正值取冻结intent.PVR_score、
+rank-policy.PVR，或本账户所绑定score缓存的score列。原H1数值也不能误作PVR概率。
+
+只核旧保存证据的四行，不重研究账户：2024四大亏真PVR_score分别银之杰98.277831、
+润和软件94.988912、软通动力95.108011、新相微95.648956。对应旧score/H1分别
+99.968632、99.843162、99.654956、97.396487。旧“PVR高”说法可由冻结intent真列
+支持，不能由trade.pvr列支持。LEGACY_ALIAS_924_FOUR_SAVED_INTENTS保存精确原值。
+
+二、PVR不是P+V+R三个分数相加
+真正执行公式位于：
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-current-v3-information-capital-20261101/original_score_function.py:1-19
+SHA256 9328109bada26c53b04cf0f3e84d719917cb528ff8608b3e9faa5d1c55ba8cb2
+它与下面原score函数24-42行逐字相同（只AST解析和文本比较，未exec）：
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-act-comparison-20261027/code/experiment.py
+
+源码没有名为P、V、R的三个组件列，没有一个独立“R相对强弱/行业排名”项。
+原始列是r/scale/amount_ref/u/b/e/E/score。按含义解释价格、成交金额和近期净响应：
+  r_t = log(C_t/C_(t-1))
+  s_t = max(1.4826*median(|r_(t-63)|,...,|r_(t-1)|),1e-8)
+  a_ref_t = median(A_(t-21),...,A_(t-1))
+  u_t = tanh(r_t/s_t)
+  b_t = tanh(log(A_t/a_ref_t))
+  e_t = u_t*(1+0.5*abs(u_t)*b_t)
+  E_t = sum(0.9^j*e_(t-j), j=0..20)/sum(0.9^j, j=0..20)
+  score_t = 50+50*tanh(2*E_t)
+C是既有因果复权close，A是同源成交金额amount，非volume股数、更非资金净流入。
+s是过去绝对log收益的中位数乘1.4826，不是中心化MAD、标准差或ATR。
+s与a_ref都shift一次，背景不含今日；u/b/e用今日close与amount，E含今日及前20个e。
+权重在旧→新方向为0.9^20,...,1；21项归一，不是无限期EMA状态，不是横截面百分位。
+金额只修正价格证据绝对值；涨和跌都有符号。价格不动u=0，放量本身不生成有向e。
+50表示E=0，不是胜率50%。原式没有score>50买门，也不承诺下降初期立即低分。
+
+时间/准备/未知：每个连续有效来源片段独立计算；price/amount需正且finite。
+若存在observed/price_eligible标记，缺失按False；source_invalid/synthetic_event_bar
+缺失按True处理为无效。无效行和segment变更重置全准备，不能删坏行压缩成连续窗口。
+单个e最早第65个有效close，21个e齐全最早第85个close输出score；这来自静态窗口
+推导及原已保存规范，本文未跑一次指标。未准备输出NaN，不补50。
+
+三、真实缓存到真实候选的时间对齐
+strong2025-07至2026-06用：
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/pvr-slot1-native-readiness-20261101/SCORES_MANIFEST.json
+long2022-24实际用：
+/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/SCORES_MANIFEST.json
+input_loader.py12-17选这两份，run_entry.py150在历史账户运行前configure_scores。
+二者formula SHA相同。前者484个共同决策日，后者726日，均1709固定股票；不是
+拿strong默认缓存冒充2024。构建器从原signal.parquet完整历史暖起再reindex共同决策日。
+本次只读manifest、源码和4股各窗缓存字节SHA，未运行export/prepare/score。
+
+native_rank.FrozenScores26-40逐文件验证SHA，将score列读成stock/day映射；at仅取
+准确当天，缺日/非finite返回None，无forward-fill。该分是当天close已知后的排序输入，
+不是开盘前可得的同日完整成交金额。研究按CLOSE决策、下一合法OPEN执行；真实供应商
+发布时间不由这些日线缓存证明。
+
+最关键接线：native_rank.Runner.planning115-120先完整调用J.Runner.planning。
+原I/S0资格、CORE not-held/epoch、CP/mobile_Q、pending、尺寸拒绝已决定哪些意图
+进入account.pending；PVR只在这些意图上改股票优先次序，不能新造E0/I/CP资格。
+unique-stock去重使同股CORE/MOBILE共享槽；仍保留core-first。ready股按
+round(score,12)降序，同分保持原unique-stock相对顺序；NA股票保留原位置，其余
+ready仅在ready槽之间置换。pending目标/数量cap/保护线/role/receipt不改。
+原数值rank槽可有全股票序号空隙，PVR没有另造资金总量或单独赢家队列。
+next OPEN原joint302-324先卖/结算，再按冻结rank与CORE-first检查实际预算、保护、
+最小量及执行代理。高PVR只是先被考虑，既非准入许可，也非一定买到。
+
+原FORMULA.json旧文档说“缺评分不参与新评分排序、同分ID”，与后来的native SLOT1
+NA留槽/同分保原序并不完全一致。当前账户行为以native_rank有效源码为准，不能拿旧
+说明替代接线。PVR数值式不读行业label、I、E0、CP；但固定1709池及S0/预算仍依赖
+行业映射。原FREEZE明确not_PIT=True，不能将数值前缀因果等同完整PIT成员/行业验证。
+
+四、CP真正计算式与状态机
+原式：
+/Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py:1-58
+SHA256 85f21ad1622863645618f570b5f2e832558ebaca218ff2c71d0b4a0b545dd0bf
+features9-25先用与上面相同的r、s、过去21 amount中位数B、u=tanh(r/s)、
+v=tanh(log(A/B))；另给 z=max(s,log1p(0.001))，m=1+0.5*abs(u)*v。
+注意u分母仍是s，不是z。z用于冻结的位移尺度；s的数值floor为1e-8。
+输入索引必须唯一有序日线，close/amount全正finite，显式布尔e0_valid/e0_down及
+非空连续source segment；坏输入直接ValueError，不默默删行或补中性。
+
+calculate26-58维护phase、log anchor、log frontier、冻结scale与credit：
+  未准备/许可失效：清状态；source改变也重置。
+  初次/下行事件重置：SEEK，anchor=frontier=log(C)，credit=0，scale=当日z。
+  SEEK创新低：anchor/frontier降到当日log(C)，credit清零并冻结当日z。
+  其它日仅当log(C)>frontier（带EPS浮点比较）时生成fresh=log(C)-frontier。
+  credit累积fresh*m；无新frontier不累积，普通回撤不会创造负/正新credit。
+  displacement=frontier-anchor。
+  receipt = 当日fresh>0 AND displacement>=sqrt(5)*冻结scale
+                                  AND credit>=sqrt(5)*冻结scale。
+  candidate=C*exp(-sqrt(21)*冻结scale)。
+  一旦receipt：转UP，anchor=frontier=当日log(C)，credit=0，next_scale=当日z。
+threshold和candidate用旧anchor冻结scale，不是偷换成当前noise；receipt以后才冻结
+下一轮新scale。UP阶段一般回落不按SEEK lower_anchor分支重新起锚，要等新frontier。
+ge/gt的EPS容差源码5-8行完整保存。price_only=True只作原对照，正常prepare调用
+M.calculate(q)默认False；不能把价格版shadow当现行量价CP。
+
+一个容易误读的输入名：stock CP的e0_valid实际被common.frame23及native生成器
+generate.py26赋值为f.i_target，而不是裸e0_target；e0_down来自原event==-1。
+industry CP的trace.source_frame25则用行业e0_target/e0_floor。相同字段名跨股票/
+行业并非相同上游授权。本文不改命名，不把这件事当算法新增或错误修复。
+
+CP receipt是日线市场证明，不是成交。trace30-65以canonical series、模型scaleID、
+source segment、原E0 episode、anchor/confirmation observation生成receipt_id，并
+检查新advance ids未消费。provider原始eventID未提供，源注明derived；live发布时间
+unknown，仅确认day已知。原模型不懂账户池、预算、股数、涨停、现金或实际可卖。
+
+五、CP进入现行持仓的先后顺序
+joint213-259：先原ACT/I整体退出；CORE只跟I结构，不以CP线当CORE快止损。
+MOBILE每个CLOSE先对进入今日前stored floor判C<=floor并提退出；未触发才用
+max(旧floor,当日I floor,当日receipt candidate)更新。不能今天先抬CP线再回看触发。
+当日canonical CP+mobile_Q才可提原MOBILE；其初始线max(I,当日CP candidate)。
+原I/CP资格和尺寸完成后，PVR才排序，下一OPEN再验费用/实际价/单位/资金/代理。
+model.project60-72是原价格shadow，不应替代这一真实账户顺序。
+
+交付与未核事项
+snippets目录25段原样行切片；SNIPPET_INDEX保存绝对路径、行号、源文件SHA与切片SHA；
+TEXT_PROVENANCE_CHECK只证明原函数文本一致；ACTUAL_SCORE_MANIFEST_BINDINGS证明
+两个实际缓存manifest及选定4股字节hash绑定，未声称重验全部1709缓存。
+本轮无算法执行、缓存构建、价格/指标计算、新账户或风险方案。真实live发布时间、
+PIT成员、供应商eventID和实际交易所队列仍非这些源码能确认的字段。

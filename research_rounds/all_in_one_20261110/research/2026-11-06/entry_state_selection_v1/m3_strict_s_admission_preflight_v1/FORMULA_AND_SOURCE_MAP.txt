@@ -1,0 +1,33 @@
+本轮精确公式与源职责
+
+本文件只解释已冻结公式，未报告新胜率或收益。完整实现preflight.py只从指定源抽取函数定义，不执行旧实验顶层代码。
+
+1 严格 S 不是 PVR 倍率
+原核：money/research_rounds/strict-entry-capacity-20261027/code/entry_kernel.py:entry_events；状态包装来自同目录prepare.py:calc。四步浮点tie使用pv-strength-b5-20261025/code/arithmetic.py:compare/log_ratio。
+每个原segment独立。正且有限C/V进入E0观察序列；r_j为原local log_ratio(C_j,C_{j-1})，保留log1p与gamma4分支。
+首个可用极点最早为观察t=64，sigma_t=max(sqrt(sum(r_j^2,j=t-63...t-1)/63),1e-8)，不含当日r_t。Vref_t=median(V_{t-21}...V_{t-1})。
+初方向d=-1。下行时新低价更新极点，上行时新高价更新极点；每次更新即改变后续sigma_e/Vref_e的冻结锚。
+activity_e,t=clip(sqrt([sum(V_{e+1}...V_t)/(t-e)]/Vref_e),0.5,2)。
+confirmation_e,t=(-d)*log_ratio(C_t,C_e)*activity_e,t/(1.5*sqrt(5)*sigma_e)。
+用原compare(max(confirmation,0),1)>=0确认反向摆动；event=-d，pivot=C_e，随后direction=event，ext=t。上下两方向都乘1.5，不只提高买门。
+up-active状态独立于最后一次摆动方向：先检C触旧floor即退出；event=+1时已有active仅max提floor，若刚退出不在同日重入，否则建立active。event=-1本身不是持仓退出。下一日已知inactive且floor空，仍是FALSE，不是UNKNOWN。
+因此较大尺度不是原E0事件统一延迟，不保证其active区间是原active的子集；真正B1准入因AND B0仍为B0市场机会子集。
+使用volume股数量，不是成交额或净资金流；sigma是RMS，不是PVR的绝对收益中位数尺度。原segment之外的source名称变动未强行重暖，保留旧语义和限制。
+
+2 M3 与行业共同known
+原native_mu/state来自momentum_persistence_breadth_v1/canonical_mu3_comparison_v2/run.py。
+mu5按首个收益初始化，然后mu_t=r_t/3+2mu_{t-1}/3，原64收益预热后可见。M3三个立即共同日都正，且三日价量有效、相同segment/source_kind/source_path。
+原mu5在同segment的缺口/source变化前后可能继承历史；本合同只要求三日状态重暖，不冒称底层完全源隔离。
+PVR三日state已知是共同K的一部分，但state=0仍然是known；B0和B1都没有新增PVR>=60或PVR3真硬门。
+行业N是1709固定池中当前行业成员，而非当年历史真实全行业；K=M3_known AND PVR3_known，n=sum(M3_true AND共同known)。t/t-3同成员交集计算d，不减两个变化分母的比例。
+行业TRUE n>=3且[(3n>=N且J>0且d>0)或2n>=N]。FALSE/UNKNOWN用原n+U上界逻辑；未知成员扩散不是完整全界认证。
+
+3 票、资格、名额和资金不是一回事
+原A/B票没有被新strict S重新定义。原I/PVR/静态close可行后，B1先筛strict S，再按PVR排每业前二。原前二被拒可由同日同业原有合法A/B票补位；次OPEN失败不补第三名。
+本轮机会逐次假设FLAT，仅做原24000/3000预算和合法手数/费用的close必要条件，不判断真实已持仓/待单/现金/共享风险。没有新账户也没有真实订单。
+严格门阻挡一次旧票后，不自动在S变真时买入。描述表把首次S成熟、下张原A/B可行票、下张行业前二分别记录。新票可跨I正常重入，但不能把旧票永久排队。
+
+4 价格与时点
+同源raw日线至2026-10-22；facts虽至10/27，仅读取<=10/22。旧M3/PVR至6/30重叠逐点回归，新7至10月用同公式扩展，非沿用旧末值。
+旧源theoretical_ex_price坐标及volume调整沿用，尚无历史发布版本/公司行动known_at完全认证。本预检不把当日H/L/V回灌次OPEN成交。
+所有预测/资格只到各自signal CLOSE；未来延迟描述在信号身份封存后生成，非买入许可或新净收益标签。

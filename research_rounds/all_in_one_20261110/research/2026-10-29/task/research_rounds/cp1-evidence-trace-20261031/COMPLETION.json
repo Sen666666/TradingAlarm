@@ -1,0 +1,22 @@
+{
+  "completed": true,
+  "no_new_economic_paths": true,
+  "engineering_checks_passed": true,
+  "market_semantics_unconditional_CP1_count_promotions": "not_sufficient_counterexample",
+  "counterexample": "negative event tail22; same E0 and unchanged floor; new receipts tail31/32 before positive event tail33",
+  "unknown_pure_market_Q_overlap": true,
+  "real_case_CP1_fullwarm_coverage": "0/79 unique stocks",
+  "synthetic_input_sha256": "0c44f66ad943192d68cdfbcf94666e24cf38437e575f52f6091b0a733b8cbbd0",
+  "artifacts_sha256": {
+    "trace.py": "bac0d77f7cc6aac767c24e70147d6d711e493ede57a30a8130eeeb0a122d00fe",
+    "finish.py": "b444c6ee7d35340703b0f59e30764d1b66baeabb09e9c3e0fcc9373b5c65e418",
+    "PROTOCOL.txt": "691c9ea4c811e0b0cb45dcfc4675675484ff2dca75fb2ef48dd950c6fe009539",
+    "FINAL_REPORT.txt": "c50dcfe0fa4b1f466553951e11c1e3b39edcf59e4d40bcb454de949242e71c0f",
+    "RECEIPTS.json": "dca6d7b84464ffcf5d4c308f4e090c9248d6cc5baabd368578ff9ba98d925acf",
+    "CASE_RECEIPT_BEHAVIOR.json": "2ee9558074a1353e35c6b49a381d4d71b224776cd147e79fb7a56888e9884d1f",
+    "SIX_PATHS_RESULTS.json": "a69576c5fe6a8fbe644a9b6412bd52589d1eb8b15b6d45ccd2f47d37e1802b5d",
+    "SIX_PATHS_PREFIX.json": "00ec3e220ce28f4c7c54d315edb55d45a89adb60e0e260a52f14c37704b430a3"
+  },
+  "active_calculations": 0,
+  "compute_seconds": 4.867
+}

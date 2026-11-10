@@ -1,0 +1,17 @@
+父新阈值版本：旧Hstar及其Top5结果保留，本版本资格完全不使用Hstar或TopK。
+CONT：行业20共同会话相对CSI300自然log收益>0，且静态子池breadth20_t>=.60。
+START：当日所有行业R5已知者中mid-percentile>=.80，且breadth20_t-breadth20_tminus5>0。
+mid-percentile=(#更低+.5#同值)/N，R5分母只依该原量known，不借旧Hstar四项complete集合。
+CONT/START各自必需输入未知则该通道NA；UNION按nullable逻辑OR，任一已知true可确认为机会，否则保未知。各通道标签/缺项独立保存。
+金额份额仅诊断，不进入任何资格、排名阈值或资金授权。
+
+每T U_t完全沿父此前已冻规则：1709静态池中t-24..t全部25个共同会话observed/priceeligible/finite positive OHLC/volume/原CNYamount、非synthetic/source_invalid且单segment；prior21median amount>=20m，prior5mean>=10m，两窗均排T。
+当前B用这同一T U_t中C_t>mean(C_t-19..t)比例；基线B用同一T U_t中C_t-5>mean(C_t-24..t-5)比例。不是用U_t-5另换成员。
+N_U_t=0则两端及差均NA，不把0成员/缺失当0广度。差用(当前above数-基线above数)/同一N精确表达，正负不靠epsilon。
+记录Nstatic/Nobserved/N25valid/N_U_t，以及U成员前1/5会话加入/退出/交集数，供覆盖与稳定性评价。
+该母体仍是2026静态池/当前行业桥子池，formal PIT机会未知；真实行业指数只供RS，不用静态成员造价格指数。
+
+完整窗口固定为2022-01-01—2026-06-30真实CSI会话，2022—23/2024/2025—2026H1均包含，不挑局部行情，包含2025H1。
+为精确记录首日的前5日U状态，仅额外带29个此前共同会话预热，不把这些日期算研究评价样本。
+先公布原三日2024-09-24/2026-01-15/2022-01-24的counts、全sectorlist、软件/地产配对广度差；旧三日U_t与当前B逐股核同。
+0账户、0订单、0新CP、0未来路径/收益标签。未来误入/稳定性评价由父其他任务处理。

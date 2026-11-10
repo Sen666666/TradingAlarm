@@ -1,0 +1,22 @@
+{
+  "reports": [
+    {
+      "policy": "Bdiag",
+      "snapshots": 69,
+      "exact": 69,
+      "unknown_or_mismatched": 0,
+      "original_source_totals_never_repaired": true
+    },
+    {
+      "policy": "C1",
+      "snapshots": 97,
+      "exact": 95,
+      "unknown_or_mismatched": 2,
+      "original_source_totals_never_repaired": true
+    }
+  ],
+  "new_accounts": 0,
+  "account_strategy_calls": 0,
+  "accounting_uses_only_observed_journal_actions": true,
+  "seconds": 26.30528120836243
+}

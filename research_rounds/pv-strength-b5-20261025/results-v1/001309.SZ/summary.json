@@ -1,0 +1,43 @@
+{
+  "id": "001309.SZ",
+  "group": "same_seven_original_adapter",
+  "rows": 1044,
+  "price_observations": 1044,
+  "strength_observations": 1044,
+  "events": 81,
+  "entries": 16,
+  "exits": 15,
+  "floor_updates": 25,
+  "memories": 1,
+  "ledger_records": 1,
+  "first": "2022-07-01",
+  "last": "2026-10-22",
+  "historical_b4_compared": true,
+  "historical_e0_compared": true,
+  "prefixes": [
+    {
+      "rows": 65,
+      "completed": false
+    },
+    {
+      "rows": 348,
+      "completed": false
+    },
+    {
+      "rows": 696,
+      "completed": false
+    },
+    {
+      "rows": 1043,
+      "completed": false
+    }
+  ],
+  "differences": 6,
+  "passed": false,
+  "sha256": {
+    "evidence.parquet": "4184f828c292836c819439d7a3e2c0d97c40716ecfc16a47ea2d0fc626485756",
+    "journal.json": "71b6ac93f8cc3a1e7699ed4a4a75f290462bbaba1ad6ef797c4ae3eeddfa9b76",
+    "ledger.parquet": "b46b71353296c6e988f557cfcb3eb2621ca16645c43507ce5015b5f146ad7c54",
+    "state.parquet": "426f78f3c81631f636d991819bf5891f6fc9d54e350322e474786cbd95953f8f"
+  }
+}

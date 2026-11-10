@@ -1,0 +1,34 @@
+{
+  "strict112": {
+    "buy_gross": "163390.054200",
+    "buy_fees": "65.4733024742200",
+    "buy_paid": "163455.5275024742200",
+    "sell_gross": "134265.743545",
+    "sell_fees": "118.3274919427345",
+    "sell_net": "134147.4160530572655",
+    "ending_inventory": "20644.00",
+    "wealth_contribution": "-8664.1114494169545",
+    "unique_stocks": 112,
+    "bought_stocks": 8,
+    "buy_layers": 11,
+    "ending_stocks": 1,
+    "closed_contribution": "-8699.4948422433545",
+    "open_marked_contribution": "35.3833928264000"
+  },
+  "retrospective_double51": {
+    "buy_gross": "116015.378700",
+    "buy_fees": "42.4365857746700",
+    "buy_paid": "116057.8152857746700",
+    "sell_gross": "92634.569545",
+    "sell_fees": "79.8433466893345",
+    "sell_net": "92554.7261983106655",
+    "ending_inventory": "20644.00",
+    "wealth_contribution": "-2859.0890874640045",
+    "unique_stocks": 51,
+    "bought_stocks": 6,
+    "buy_layers": 7,
+    "ending_stocks": 1,
+    "closed_contribution": "-2894.4724802904045",
+    "open_marked_contribution": "35.3833928264000"
+  }
+}

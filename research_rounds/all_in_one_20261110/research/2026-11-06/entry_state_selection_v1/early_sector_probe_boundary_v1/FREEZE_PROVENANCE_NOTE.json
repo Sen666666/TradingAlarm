@@ -1,0 +1,79 @@
+{
+  "created_at_utc": "2026-11-06T21:49:46.585946+00:00",
+  "classification": "POST_SELECTION_INDEPENDENT_QA_ENHANCEMENT_NOT_PRE_SELECTION_FREEZE",
+  "selection_hash_file": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/early_sector_probe_boundary_v1/SELECTION_INPUT_HASHES.json",
+    "sha256": "02e1fa9edb140554d73680de4bf3062be2e5a28989c4571e2fd2e1641bcbe818",
+    "mtime_utc": "2026-11-06T21:46:31.929966+00:00"
+  },
+  "comparison": {
+    "risk_reconstruction.py": {
+      "selection_recorded_sha256": "817824a2cc0207a41dd2a028b5c297041a82e5879286e6981358f1298522aeb2",
+      "current_sha256": "0f383113e30e98c624066b1b386b1fdcbc45091db2f98a3b9e85044709104b6f",
+      "current_mtime_utc": "2026-11-06T21:46:47.153173+00:00",
+      "byte_identical": false
+    },
+    "ORIGINAL_OPEN_RESOURCES.json": {
+      "selection_recorded_sha256": "1f87fc2109544407f9965b6c4a4899866901e0dfb7d40aad7f3df12c45e4938a",
+      "current_sha256": "1f87fc2109544407f9965b6c4a4899866901e0dfb7d40aad7f3df12c45e4938a",
+      "current_mtime_utc": "2026-11-06T21:47:23.505724+00:00",
+      "byte_identical": true
+    },
+    "RISK_RECONSTRUCTION_QA.json": {
+      "selection_recorded_sha256": "14ad94377c81672df9897916cfa6989df7b639dcf056a8550ef2e8f5493a87ea",
+      "current_sha256": "ca033dd32b94bdfd5329ef9b500d00567474ce4293b1453fcef42b3438f08f49",
+      "current_mtime_utc": "2026-11-06T21:47:23.531650+00:00",
+      "byte_identical": false
+    },
+    "ORIGINAL_OPEN_RESERVATION_SNAPSHOTS.json": {
+      "selection_recorded_sha256": "ddf3a08723063e659f4b11e598bed89e2fd4050d3cc178da16a1ea6b08ee4f54",
+      "current_sha256": "ddf3a08723063e659f4b11e598bed89e2fd4050d3cc178da16a1ea6b08ee4f54",
+      "current_mtime_utc": "2026-11-06T21:38:36.891383+00:00",
+      "byte_identical": true
+    }
+  },
+  "original_script_copy": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/early_sector_probe_boundary_v1/risk_reconstruction_used.py",
+    "sha256": "817824a2cc0207a41dd2a028b5c297041a82e5879286e6981358f1298522aeb2",
+    "recovery_method": "Recovered exact original script text by reversing the recorded enhancement-only edits; SHA256 exactly equals selection-recorded original script."
+  },
+  "original_qa_copy": {
+    "path": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/early_sector_probe_boundary_v1/ORIGINAL_RISK_QA_USED.json",
+    "sha256": "14ad94377c81672df9897916cfa6989df7b639dcf056a8550ef2e8f5493a87ea",
+    "recovery_method": "Removed only enhancement-added migration counters, silent-reset list and three extra per-reservation checks, then serialized identically; SHA256 exactly equals selection-recorded original QA."
+  },
+  "enhancements": [
+    "Explicit raw industry E0 episode starts even when no stage event is logged.",
+    "Counts of eligible/blocked migration evaluations, distinguishing unsuccessful candidates.",
+    "Original reservation cash 10-percent decision-NAV floor, single-stock capital cap, and order episode/attempt identity checks."
+  ],
+  "enhanced_result": {
+    "passed": true,
+    "exact_verified_dates": 1054,
+    "unknown_dates": 0,
+    "migration_counts": {
+      "eligible_evaluations": 44968,
+      "eligible_success_candidates": 2572,
+      "unblocked_evaluations": 43822,
+      "eligible_failed_candidates": 42396,
+      "blocked_by_pending_probe": 1146
+    },
+    "actual_open_pool_migrations": 0,
+    "silent_new_episode_resets": 1867,
+    "silent_resets_previously_active": 0
+  },
+  "facts": [
+    "The enhancement process was already running when the parent freeze request arrived.",
+    "A stop was attempted but the process completed before termination; enhanced script and QA now occupy their original paths.",
+    "ORIGINAL_OPEN_RESOURCES.json is byte-for-byte identical to the hash recorded by selection; selection numerical inputs did not change.",
+    "No selection, evaluation, 45-trial result, or original account data was modified by this worker.",
+    "The original successful script and QA have separate exact-hash-matching copies; enhanced QA must not be represented as pre-selection evidence."
+  ],
+  "snapshot_reproduction": {
+    "script": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/early_sector_probe_boundary_v1/extract_open_snapshots.py",
+    "sha256": "1cae3e3d94657065dd3cacd990a9348db5946edd27f54e5a927a37a9202c9970",
+    "command": "python3 -B /Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/early_sector_probe_boundary_v1/extract_open_snapshots.py",
+    "verified_sha256": "ddf3a08723063e659f4b11e598bed89e2fd4050d3cc178da16a1ea6b08ee4f54",
+    "default": "verify-only; optional --out creates a new JSON in this directory and refuses overwrite"
+  }
+}

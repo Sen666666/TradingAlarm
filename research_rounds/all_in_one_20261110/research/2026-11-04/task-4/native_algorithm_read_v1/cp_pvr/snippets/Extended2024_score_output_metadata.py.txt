@@ -1,0 +1,16 @@
+   if not industry:
+    sr=oldscore[sid];src=Path(sr['source']);assert sha(src)==sr['source_sha256']
+    oldpath=H/'scores'/(sid+'.parquet');assert sha(oldpath)==sr['output_sha256']
+    f=pd.read_parquet(src).loc[:END];v=score(f);past=pd.read_parquet(oldpath)
+    pd.testing.assert_frame_equal(v[['score']].reindex(past.index),past,check_exact=True,check_freq=False)
+    pd.testing.assert_frame_equal(score(f.loc[:CUT]),v.loc[:CUT],check_exact=True,check_freq=False)
+    if sid in samples:
+     altered=f.copy();altered.loc[altered.index>CUT,'close']*=7;altered.loc[altered.index>CUT,'amount']*=.013
+     pd.testing.assert_frame_equal(score(altered).loc[:CUT],v.loc[:CUT],check_exact=True,check_freq=False)
+    keep=v[['score']].reindex(dates);sp=O/'scores'/(sid+'.parquet');sp.parent.mkdir(exist_ok=True)
+    tmp=sp.with_name(sp.name+'.tmp');keep.to_parquet(tmp);tmp.replace(sp)
+    m['score']=dict(symbol=sid,source=str(src),source_sha256=sha(src),formula_sha256=sha(FORMULA),
+      output_sha256=sha(sp),input_cutoff=END,full_warm_start=str(f.index.min())if len(f)else None,
+      output_rows=len(keep),ready_2024=int(keep.loc[days24].score.notna().sum()),NA_2024=int(keep.loc[days24].score.isna().sum()),
+      old2022_2023_score_cells_exact=len(past),physical_June28_all_original_fields_exact=True,
+      future_poison_prefix_exact=True if sid in samples else None,old_score_file_sha256=sha(oldpath))

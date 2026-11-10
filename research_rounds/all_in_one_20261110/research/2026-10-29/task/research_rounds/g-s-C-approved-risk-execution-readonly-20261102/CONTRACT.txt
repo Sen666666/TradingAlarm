@@ -1,0 +1,30 @@
+Static source/ledger check: does existing native C hold each CLOSE-approved new risk?
+No account replay, order submission, provider mutation, new score or financial policy run.
+
+All actual saved positive C certificates in July, both original C10/C20, are the mother.
+Record Q_C, original decision mark/preview price/floor/R_C, native reserve qty/price/floor,
+pre-fill amendment qty, actual fill qty/risk and corporate quantity coordinate. Separate
+no-reserve, zero-fill, terminal-censored and partial-capacity outcomes. Do not infer
+original order quantity from fills. Actual post-OPEN data used only for this diagnosis.
+
+Fixed causal batches Jul1/22/23 and original profit controls 千方/汇绿/上纬. Core/probe/T
+may have only a CLOSE eligibility intent, not a certified quantity/risk: absent stays N/A,
+never backfill a fictitious approval from actual fill. Add largest actually profitable
+positive-risk-multiple C order as a deterministic lost-upside control if present.
+
+Risk R=q*max(preview_buy_price-actual_effective_floor,0), excluding fees which retain
+original real cash/equity checks. Decision preview uses original mark*(1+5bps). OPEN
+uses source actual reserve/amend preview and dated factor, NOT final mark/floor.
+Do not substitute frozen exit-lock risk origin for actual order protection.
+
+If no native per-order risk invariant, show LOCAL risk-keeping upper quantity:
+min(original approved remaining qty, old native preview qty, floor_to_original_rule(
+original unconsumed approved currency risk/(current preview price-current legal floor))).
+No new allocation, Q/D re-solve, fees feedback, later account progression or PnL savings.
+If price<=floor original gap guard still refuses; a raised line never raises qty above
+original approval; remaining risk cannot be refilled by cancelling/recreating receipt.
+Splits need original normalized quantity/currency-risk identity; unsupported data N/A.
+
+Source confirmation must separate quantity authority at CLOSE from cash reservation
+at actual OPEN, and distinguish actual single-name risk from account6/sector5 guards.
+This would be an explicit execution economic policy change, not a historical bugfix.

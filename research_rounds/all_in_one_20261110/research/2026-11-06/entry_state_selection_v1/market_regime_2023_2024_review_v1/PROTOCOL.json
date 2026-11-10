@@ -1,0 +1,107 @@
+{
+  "purpose": "Retrospective subjective market map, not entry signal or new strategy evidence",
+  "phases": [
+    [
+      "2023_early_AI",
+      "2023-01-03",
+      "2023-04-28"
+    ],
+    [
+      "2023_AI_second_leg",
+      "2023-05-04",
+      "2023-06-20"
+    ],
+    [
+      "2023_downtrend",
+      "2023-06-21",
+      "2023-10-23"
+    ],
+    [
+      "2023_late_rebound",
+      "2023-10-24",
+      "2023-12-29"
+    ],
+    [
+      "2024_early_decline",
+      "2024-01-02",
+      "2024-02-05"
+    ],
+    [
+      "2024_reversal_and_resources",
+      "2024-02-06",
+      "2024-05-20"
+    ],
+    [
+      "2024_summer_decline",
+      "2024-05-21",
+      "2024-09-23"
+    ],
+    [
+      "2024_924_reversal",
+      "2024-09-24",
+      "2024-10-08"
+    ],
+    [
+      "2024_late_diffusion",
+      "2024-10-09",
+      "2024-12-31"
+    ]
+  ],
+  "additional_fixed_aggregates": [
+    [
+      "2023_H1",
+      "2023-01-03",
+      "2023-06-30"
+    ],
+    [
+      "2023_full",
+      "2023-01-03",
+      "2023-12-29"
+    ],
+    [
+      "2024_full",
+      "2024-01-02",
+      "2024-12-31"
+    ]
+  ],
+  "representatives_preselected": [
+    "300308.SZ",
+    "300502.SZ",
+    "300394.SZ",
+    "000977.SZ",
+    "601138.SH",
+    "300418.SZ",
+    "300624.SZ",
+    "300364.SZ",
+    "002558.SZ",
+    "300735.SZ",
+    "300045.SZ",
+    "601398.SH",
+    "601939.SH",
+    "600547.SH",
+    "601899.SH",
+    "601088.SH",
+    "600900.SH",
+    "688981.SH",
+    "688256.SH",
+    "300085.SZ",
+    "300059.SZ",
+    "000158.SZ",
+    "300339.SZ",
+    "601127.SH",
+    "002085.SZ",
+    "001696.SZ",
+    "601012.SH",
+    "300750.SZ",
+    "600519.SH"
+  ],
+  "representatives_missing_from_manifest": [
+    "300624.SZ",
+    "300045.SZ"
+  ],
+  "stocks_NON_PIT": true,
+  "industry_composition_PIT_unverified": true,
+  "returns": "Adjusted close for stocks; raw THS industry index close. Prior session close to phase end.",
+  "MDD": "Ordered close drawdown with prior close as initial point; not intraday drawdown.",
+  "runup": "Ordered trough-before-peak descriptive statistic; never captureable return claim."
+}

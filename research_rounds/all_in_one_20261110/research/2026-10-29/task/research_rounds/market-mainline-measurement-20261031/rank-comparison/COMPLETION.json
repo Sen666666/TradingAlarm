@@ -1,0 +1,23 @@
+{
+  "status": "complete_cached_only",
+  "at": "2026-10-31T09:29:42.070775+00:00",
+  "calculation_seconds": 0.4538335418328643,
+  "unknown_common_mask_exclusions": 0,
+  "new_economic_paths": 0,
+  "new_indicators": 0,
+  "labels_recomputed": false,
+  "matched_budget_stockdays": 99738,
+  "attention_coverage": 1260,
+  "attention_first": 436,
+  "R21_upper_stockdays": 104024,
+  "R21_upper_coverage": 1229,
+  "R21_upper_first": 487,
+  "H1_upper_stockdays": 103862,
+  "H1_upper_coverage": 1192,
+  "H1_upper_first": 511,
+  "within_all4_quarters_attention_later_window_coverage_higher": true,
+  "front_anchor_dominance_not_shown": true,
+  "full_native_I_interface_3_not_available": true,
+  "current_result_remains_price_proxy": true,
+  "next": "small nativeI identity closure then one short controlled gating contract, no automatic long accounts"
+}

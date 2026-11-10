@@ -1,0 +1,28 @@
+{
+  "scope": "fixed calendar2022 readonly readiness; no economic paths",
+  "complete_readonly_audit": true,
+  "new_account_paths": 0,
+  "new_I_CP1_stage_cache_generation": 0,
+  "direct_run_ready": false,
+  "pending_items": [
+    "canonical2022 receipt trace/export",
+    "date/fee/quantity/causal prefix identity engineering gates before any future authorization"
+  ],
+  "hard_source_or_permission_blockers": [],
+  "files_SHA256": {
+    "research_rounds/2022-full-year-readiness-20261031/audit.py": "38f7c8d85e142b863cbcc570f51ed55fb5046748246fd7e875b9a7ea5ba1a234",
+    "research_rounds/2022-full-year-readiness-20261031/READINESS_CONCLUSION.txt": "816c67568929a7b94f67207674fc7a3a08b5e0af9f36fdefe01ab747a9c9d686",
+    "research_rounds/2022-full-year-readiness-20261031/READINESS.json": "04bb87cb99fa78cec3c979b37b7e75db1827fc206c75ffc422a594e2ca87a71a",
+    "research_rounds/2022-full-year-readiness-20261031/STOCK_COVERAGE.json": "33039809f9178de30c991cdbc8fd2bbd5c65bea4e18d6b6079bc5cf7fb1964ce",
+    "research_rounds/2022-full-year-readiness-20261031/INDUSTRY_COVERAGE.json": "4570a9d014d0bf2abecb77e338220df1612cbad290b017842205a049f87aa441",
+    "research_rounds/2022-full-year-readiness-20261031/MARKET_STATE_2022.json": "044d9afffc3c5ca9c86bf38794ce94b6889d34da8a712a1da810ab96ec6c10f3",
+    "research_rounds/2022-full-year-readiness-20261031/MARKET_STATE_QUARTERS.json": "ef7cc1cfe140cff6ec8bd128fcf0e329d7be101722dcf74395f41b72c6feb1ec",
+    "research_rounds/2022-full-year-readiness-20261031/PROTOCOL.json": "0764835c78d35ec2c4761c78705a524a40cea12b65457e36cd1886651350ef70",
+    "research_rounds/2022-full-year-readiness-20261031/DAILY_STOCK_COUNTS.csv": "a2c3c55a8c61a1df921431e878dfd72bc4977f346205b86233f2390b570fa614",
+    "research_rounds/2022-full-year-readiness-20261031/DAILY_INDUSTRY_STAGE_COUNTS.csv": "5a846732e7e3099aedda6d7a40fc9b14a00c8e266117e5f07c1e2f913c1d5c4f"
+  },
+  "project_checkpoint": {
+    "path": "research_rounds/CURRENT_RESEARCH_CHECKPOINT.txt",
+    "sha256": "df8b5e805c0c89e0e08deeed49a9983563da7ecc7c2213dfb618608d55d20a75"
+  }
+}

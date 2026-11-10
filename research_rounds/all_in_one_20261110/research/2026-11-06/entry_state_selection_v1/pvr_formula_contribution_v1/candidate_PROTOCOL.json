@@ -1,0 +1,134 @@
+{
+  "status": "FROZEN_BEFORE_ANY_CANDIDATE_CASE_SCORE",
+  "created_utc": "2026-11-08T17:27:20.232680+00:00",
+  "case_list_sha256": "3351cbc82a07f08dcaec58c014c6e89c9a2f2deca494533a935a9e827d19ec59",
+  "cases": [
+    [
+      "000977.SZ",
+      "2022-01-05",
+      "prior_fixed_19"
+    ],
+    [
+      "600100.SH",
+      "2022-01-04",
+      "prior_fixed_19"
+    ],
+    [
+      "688256.SH",
+      "2022-03-04",
+      "prior_fixed_19"
+    ],
+    [
+      "605118.SH",
+      "2022-08-22",
+      "prior_fixed_19"
+    ],
+    [
+      "605020.SH",
+      "2022-07-15",
+      "prior_fixed_19"
+    ],
+    [
+      "002174.SZ",
+      "2022-11-08",
+      "prior_fixed_19"
+    ],
+    [
+      "688248.SH",
+      "2022-05-12",
+      "prior_fixed_19"
+    ],
+    [
+      "688660.SH",
+      "2024-09-25",
+      "prior_fixed_19"
+    ],
+    [
+      "600396.SH",
+      "2024-10-28",
+      "prior_fixed_19"
+    ],
+    [
+      "605488.SH",
+      "2024-09-30",
+      "prior_fixed_19"
+    ],
+    [
+      "002241.SZ",
+      "2024-09-30",
+      "prior_fixed_19"
+    ],
+    [
+      "600126.SH",
+      "2024-12-11",
+      "prior_fixed_19"
+    ],
+    [
+      "605099.SH",
+      "2024-12-11",
+      "prior_fixed_19"
+    ],
+    [
+      "002126.SZ",
+      "2024-12-25",
+      "prior_fixed_19"
+    ],
+    [
+      "002583.SZ",
+      "2024-09-25",
+      "prior_fixed_19"
+    ],
+    [
+      "300666.SZ",
+      "2025-12-15",
+      "prior_fixed_19"
+    ],
+    [
+      "300666.SZ",
+      "2025-12-17",
+      "prior_fixed_19"
+    ],
+    [
+      "300666.SZ",
+      "2026-01-05",
+      "prior_fixed_19"
+    ],
+    [
+      "300666.SZ",
+      "2026-01-15",
+      "prior_fixed_19"
+    ],
+    [
+      "301611.SZ",
+      "2026-01-15",
+      "prior_semiconductor_fixed"
+    ],
+    [
+      "603061.SH",
+      "2026-01-15",
+      "prior_semiconductor_fixed"
+    ],
+    [
+      "002317.SZ",
+      "2022-10-14",
+      "prior_long_gate_counterexample"
+    ]
+  ],
+  "candidate_source_sha256": "a13388dbdfe603fb4c143be04470fa9609496c3b0e080f0b29e886b2c4e1e8b5",
+  "original_source_sha256": "9328109bada26c53b04cf0f3e84d719917cb528ff8608b3e9faa5d1c55ba8cb2",
+  "formula": "Original r,s,Aref,b,valid-observation/segment reset unchanged. d=log(C/O), n=log(O/Cprev), q=r/s, v=tanh(d/s); e_new=tanh(q+0.5*b*v); E_new=sum old normalized 0.9^lag e_new for 21 rows; score_new=50+50*tanh(2E_new).",
+  "decomposition": "e_link=tanh(q+0.5*b*tanh(q)) is attribution bridge only, no policy/rank/economics. Delta E=sum w*(link-old e)+sum w*(new-link). New amount correction=new-u. Score is nonlinear and not additively attributed.",
+  "missing": "Same-source actual open required; missing/nonpositive O leaves new daily kernel UNKNOWN and any 21-observation aggregation containing it UNKNOWN, without changing original r/s/Aref clock. Original invalid/segment warmup inherited. No open fabrication. Original18 strict known/4 factor-change UNKNOWN retained.",
+  "accepted_costs": [
+    "Not a new economic hypothesis: prior lagged-m overnight/body attribution on 53121 opportunities was negative; disclose that failure.",
+    "b=0 restores u exactly; n=0 does NOT restore old volume formula.",
+    "No gap small q: new e approx (1+.5*b)q; old e approx q+.5*b*q*abs(q), volume first-order instead of second-order.",
+    "|new e|<1 versus |old e|<1.5; volume credit on strong upside compressed. New displayed range approx1.7986..98.2014, no reuse of old score cutoffs.",
+    "q=0 and nonzero body can yield evidence; low-volume negative body can yield positive adjustment; daily amount includes opening auction, not pure intraday flow or real buy/sell party identification.",
+    "Original63 scale, daily saturation,21 memory retained; not a repair of every original weakness.",
+    "|q|>.5 cannot have price sign flipped by bounded amount pressure; fixed past/O/A derivative positive.",
+    "External additive-body and Sharpe alternatives rejected on mathematical properties before any case scores; not case-performance selection."
+  ],
+  "scope": "One frozen formula once on all22 existing seen development cases. No case selection, fitted parameters, new gates/budgets/ADD/exits/reentry changes, consumer, account, wins/losses or shadow PnL. Existing conditional complete fee-net outcomes joined only as labels; q0 not winners; NON-PIT retained.",
+  "QA": "r=n+d; exact physical prefix and future C/O/A poison; C/O common units, A units; mirror price/O while amount fixed; b=0; bounds; current-C monotonic holding past/O/A; same C/A/H/L differentO non-equivalence; no-gap discrepancy and first-order term; O=C gap-only no volume credit; badamount/missingO/segment unknown."
+}

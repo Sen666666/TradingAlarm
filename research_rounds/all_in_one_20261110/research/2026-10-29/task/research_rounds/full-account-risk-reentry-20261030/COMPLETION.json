@@ -1,0 +1,13 @@
+{
+  "status": "completed_not_promoted",
+  "economic_paths_successful": 6,
+  "off_paths_exact": 6,
+  "prefix_paths_exact": 2,
+  "report": "FINAL_REPORT.txt",
+  "remaining_blockers": [],
+  "remaining_limitations": [
+    "conditional historical data gaps and original declared execution/company-action proxies",
+    "no OOS or broker validation; no universal improvement"
+  ],
+  "no_further_runs": true
+}

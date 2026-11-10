@@ -1,0 +1,7 @@
+The first diagnostic invocation stopped before window statistics were produced.
+Matplotlib warned that the system fontconfig cache directories were not writable;
+the local Matplotlib cache was used. The blocking diagnostic-script error was:
+TypeError: float() argument must be a string or a real number, not 'Series'
+window_stats used g.T to address the temporary-state column, but DataFrame.T
+means transpose. Corrected to g['T'] in the diagnostic script only.
+No B1 equation, frozen input, old output, old script or core file was modified.

@@ -1,0 +1,60 @@
+现行算法风险合同与实际绑定：有界独立源码核查
+
+结论
+“每笔小仓位”不是现行策略的账户试探状态，也不是累计可亏金额上限。当前版本允许多个行业confirmed许可在同一个OPEN获得资金，资源随卖出释放；累计负损耗记录不阻断资金。原No60首买日即接近90%股票仓位，属于已发生路径，不只是理论风险。
+本次0账户、0回测、0参数测试；未import或exec策略/金融引擎。只读绑定源码与保存原账，未修改原源。
+
+一、版本链必须分清
+1. 原J.v3母版：joint_v3.py:292、budget_v3/model.py保留全账户名义风险3%检查。
+2. 当前同1709池原PVR_SLOT1：native_rank.py:14–16、94、115–116已继承account-risk-ablation/adapter.py:9–19的NoAccountBudget；route_without_account_check.py和model_without_account_check.py都已删除3%检查。源码原diff明确只删除account_risk两行。
+3. No60：pvr_pool_feasibility/component.py:20–27一致删除confirmed60的migrate/request/route三处；native_adapter.py:11–22把真实预算类换为该派生类、route使用新函数。因此“删除全账户3%”不是No60相对该同池原PVR新增的改动。
+4. D_GROSS10：gross_adapter.py:19–24、61–70在No60 route之上增加条件性TOTAL gross10%门；full_adapter.py:24–33明确断言NoConfirmed60Budget实际绑定。NOT_DOWN不施加这条附加限制，UNKNOWN不新授。
+所读12个关键实际源SHA与D完整manifest逐项一致；原B通过该manifest的archived_B_xref及原控制绑定定位，没有重跑。ACT risk_policy代码SHA另与既有act_recovery_candidate_v2/INPUT_FREEZE核同；该文件不冒称在上述12项full manifest内。
+
+二、现行资金与风险约束
+joint_v3.py:255先对每个意图设mobile budget=min(.02*decision_NAV, max(0,.10*decision_NAV−该股已有raw市值))；core随后由LR.resize_core覆写。因而2%是单次计划gross，不是账户合计风险，不适合描述全部core或所有层。
+LR study.py:16、21–22、42–54：core以.0025*decision_NAV为含买费、假设保护价卖费和5bp滑点的保护风险预算，同时最多10%gross；nextOPEN preview还检查冻结合同。但这是假设按保护价附近退出的数量合同，不是成交损失保证。
+实际No60 route仍有：probe总gross10%、probe总名义风险.5%、单行业总名义风险1%、probe行业gross2%、confirmed行业gross按level为10%/20%、单股票gross10%、决策NAV的10%现金留存。全局3%名义风险及confirmed60均已无效。现金留存不等于始终按current NAV强制90%gross。
+model resources:106–117只累计活仓及状态open/cancel_pending的真实剩余买单；risk=qty*max(当前mark−floor,0)，不含真实跳空尾部、不含全部费用、不等于初始本金风险。已穿保护线的活仓在这一坐标中可变为0名义风险，实际退出和隔夜风险仍在。
+行业CP1使level推进并migrate，model:127–151、188–208；No60只删60%门。迁池要求行业当前attempt有效、未完成probe买单已ACK，但不要求每股盈利、股价上行或保护线≥其入场价。迁池不创造财富，也不改变全账户resources，却会释放probe池容量；这是授权分类变化，不能叫本金已经安全。
+没有在实际route/request看到跨行业相关性矩阵、共同风险因子预算或共享行业簇限制。它只按当前sector ID各自检查。真实25行业不是25种独立风险的证明；本次没计算收益相关矩阵，不能给出相关性数值。
+
+三、共享亏损与重入：既有约束和缺口同时保留
+joint_v3.py:16明确shared_loss_budget=20000、exhausted_policy='record_only'。model:87–93和236–238均以policy!='record_only'为阻断条件，故现行到2万不会撤单/拒新单。
+shared_loss按买费、卖出gross负差及卖费累计，正盈利不抵扣；keys保留sector+原episode，卖出不会清除旧负损耗。然而资源库存释放，record_only不检查累计损失，因此可继续使用现金和新信号试错。不能把losses有记录误说成累计风险已受限。
+不能简单把record_only翻成all_new_risk就称修复：当前shared_loss是跨历史累计gross负损耗+费用，没有正常的盈利抵扣或资金再授权规则；直接生效可能在长期中永久冻结，连盈利策略累计交易费也会触及固定2万。需要明确损失预算的范围、不可随意重置的负担与基于新证据的再授权，未实施或验证。
+也不能称“毫无去重，任意重复买”：model:218–230有oid去重、canonical CP1 consumed、mobile当日fresh CP1要求；core有core_epoch锁；joint_v3:246–248对exit_pending/buy_pending封新单；行业失败后需严格晚于failed_bar的新行业CP1才重启。缺少的是基于股票/账户实际失败反馈的额外严厉度/累计预算，不是完全没有fresh信号。一个新CP1仍不等于旧失败已被有效修复。
+
+四、原保存路径独核：首次买入就已高仓
+原No60与D_GROSS10：2022/1/4 CLOSE账户均100万元、0股/0层；两边1/4各有421个意图。1/5真实trades+journal均为53笔买入、53股票、53层、25行业，成交gross899637.523965元、显式买费344.797848元。
+53笔原实际fill中，50笔是confirmed mobile、3笔probe core；当日末3个core也已经迁入confirmed。收盘NAV996027.708187、库存896010.03=89.95834379%；probe0、confirmed库存896010.03；原保存名义风险62970.896559=6.32220329%权益。这不是0.25%core预算简单乘53，因为只有3个core、50个mobile。
+为何没有先经历账户级小试：joint_v3:181–189按START以前历史行业stage/attempt/新CP1暖机，账户0持仓不会重置行业状态。已成立的历史行业许可可让mobile直接confirmed；core fill后的cancel ACK又可触发migrate。并无“本账户先赚到钱才允许其他行业大规模试错”的前置条件。不能叫实现违规，源码本来如此；是否符合用户的小试后加仓目标是设计审查问题。
+No60 1/17 shared_loss22092.713141>20000且on=True，当日真实买5笔、卖3笔；1/18又买2笔。D 1/17同样shared_loss20293.862172>20000、on=True，但当日0买，受市场门及原机会/资源路径影响，不能把No60的5笔移给D。
+直接证据EARLY_SAVED_DAILY_WITNESSES.json、EARLY_ACTUAL_TRADE_COUNTS.json；仅读取原1/4—1/18保存日账及原book trades/journal，不是构造反事实账户。
+
+五、退出不是保护价保证，core与mobile还不同
+joint_v3:222先以CLOSE NAV调用ACT；225–229当on=False或i_target=False才对全层请求退出。
+core在231–234仅更新last_core_line而continue；没有该段“CLOSE<=last_core_line则卖core”的分支。core实际结构退出依据i_target失效，不能把用于仓位/名义风险的I保护参考线直接称为强制触价止损。
+mobile在235–240先用当天CLOSE检测旧floor，触及才请求CP1退出；否则才以I/CP1抬floor。这保留了明确保护，却不保证当日触价成交。opening:302–306下一OPEN才取sell window并fill_exit，不能以事后日内低点假定保护价成交。
+底层sector_account.py:746–759还要求sell_allowed、sellable_at、合法数量、容量；T+1或日线HL proxy可能使下一OPEN也不能卖。20% ACT是收盘阈值触发请求、不是20%财富损失保证；paused时峰冻结，真实flat且BREAK才reset峰恢复，所以多episode累计亏损可超过20%。
+精确ACT源为risk_policy.py:8–18、21–29：活动期P_t=max(P_(t−1),当次CLOSE NAV)，d_t=1−NAV_t/P_t；ACT20_BREAK在d_t>=.20时on=False，原pause事件之后由joint_v3同CLOSE创建全层退出请求。它没有20%前的分级降新风险权限。pause后即使次日仍有不能卖的股，也不提前算flat；flat要求无真实shares、无exits、无buys。确认flat之后还需当日BREAK63真，才on=True并把peak设为自身当时NAV、episode+1，下一合法OPEN执行原全部许可计划；没有账户级恢复分批状态。ACT20_BREAK不要求fast先关后开（只有ACT20_FAST要求该edge）。
+这里BREAK63为原合成市场M严格高于此前63个观察高点、当日M上涨、原广度B>.6；不是股票数量、指数MA63或账户自创新高。此前亏损没有从现金/NAV中删除，却不再按新episode的peak计旧回撤。纯数学例：100万→80万、flat恢复后以80万为新峰、再损20%→64万，累计36%；此为规则可能性的算术例，不是声称某条原路径恰好这样成交。跳空及次OPEN执行还可使每次实际损耗越过20%阈值。
+风险日志resume行的episode_drawdown在旧peak下先算、peak随后重设，不能把同一行旧dd直接当新阶段刚恢复又亏20%。
+原最终总账已核例子如银之杰可支持跳空损失，但本次不再复算该个股账，不将源审扩称所有亏损都是执行卡单。
+
+六、隐藏约束误读与审查边界
+底层sector_account.py的GROSS=.90以及accept_decision的6股/3行业容量通道，在现行自定义planning/opening→reserve_quantity路径中未调用；实际53股/25行业也反证它不是现行容量上限。它仍提供真实账本、成交、T+1/结算等函数。不能只搜到常量就说有全局6股或90%硬门。
+“无限风险”亦过强：现金、单股、单行业、probe预算、原结构退出与ACT均在；“每笔都是.25%最大亏”同样不成立：mobile不同合同，参考保护不是保证成交，累计失败也没有生效预算。
+本审只证明实际源绑定、规则与若干已发生资金足迹，不给任何新阈值、相关性统计或账户收益，不证明恢复提早、加风险门或停重入可以赚钱。新机制须先说明风险合同、失败反馈、赢家保全及成本，不能把已有失败的F>=entry额度方案改名再上。
+
+文件
+SOURCE_BINDING_AUDIT.json：12实际源对full manifest SHA exact，ACT额外source freeze exact，纯静态检查。
+EARLY_SAVED_DAILY_WITNESSES.json：原B/D关键保存日账统计。
+EARLY_ACTUAL_TRADE_COUNTS.json：原B/D首日trades+journal及计划数。
+本读本由独立代理直接读原源/原book，未导入根或兄弟的解析函数。全部既有文件只读。
+
+追加：原No60后60日与303层的有界独核
+直接原daily逐60行比较兄弟POST60表保存字段、每日gross/NAV与nominal/NAV，均exact；50个CLOSE当前nominal>旧3%、47个CLOSE confirmed资金>旧60%、55日非空，皆核同。原buy journal303个role/pool、真实buygross及两侧fee核平。并发当前到线风险不是303层初始风险累加，不是每层最大可亏，且全账户资源还包含10/8旧仓，不能当303队列独享。
+原No60后60日nominal均值约6.1171%、中位7.2209%、最大9.6911%；gross均值74.2859%、中位86.9311%。独立Decimal28的原序求和/中点相加与producer排序求和/权重插值在均值/中位末位有1e−27至1e−26个百分点差，最初strict全位断言FAIL与三条差值均保留于STRICT_DESC_OPERATION_ORDER_DIFF.json，未修改生产表、未改金融容差。所有逐日原始字段和ratio exact，展示6位完全相同。收据POST60_SAVED_RESOURCE_REVIEW明确有界通过，不伪称所有派生小数全位exact，也不扩大成策略风险有效性验证。
+再直接原native post-Oct8买入trade定义303 IDs，不导入兄弟解析函数；原audit首次pilot_layer_exit→原trade.parts完整核对：301层在下一OPEN首次并完整卖出，0层分多次卖出；2241粤传媒和2265通鼎互联均12/23请求、应有下一OPEN12/24、实际12/25卖出，延迟一交易日。两例原账未提供明确逐次阻挡原因，保留UNKNOWN，不自行标跌停。303层卖出parts数量全部与实际买入股数相等。收据POST303_EXIT_AND_ACT_SYNTHESIS_REVIEW。
+该收据也只读交叉核根ACT_FREEZE_CODE_REVIEW_V3.md（具体版本SHA已绑）：阈值、phasepeak、暂停冻结、真实flat&&BREAK、CLOSE决策/nextOPEN、无FAST edge、恢复无账户分批均与原源码一致，未见严重因果超说；不声称又独审了该报告所有ACT历史金额。继续研究仍应保留上述实际及时退出的反证，不能因个别执行受阻而把后段主亏写成普遍卡单。

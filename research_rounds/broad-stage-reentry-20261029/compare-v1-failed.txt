@@ -1,0 +1,80 @@
+"""Fixed-window participation, all retries, capital and full loss disclosure."""
+from study import *
+import gzip
+def load(p):return json.loads(Path(p).read_text())
+def rows(p):
+    with gzip.open(p,'rt') as f:return [json.loads(x) for x in f]
+def main():
+    a=O/'analysis';w=pd.read_csv(a/'winner-windows.csv');stocks=pd.read_csv(a/'stocks.csv')
+    old=load(BASE/'analysis/price-3x-universe.json');new=load(a/'price-3x-universe.json');assert old==new
+    pairs=[];stats=[]
+    for control in ['P0','P1']:
+        left=w[w.account.eq(control)].set_index('symbol');right=w[w.account.eq('N1')].set_index('symbol')
+        assert left.index.equals(right.index) and left.trough.equals(right.trough) and left.peak.equals(right.peak)
+        for sid in left.index:
+            x=left.loc[sid];y=right.loc[sid]
+            pairs.append(dict(control=control,new='N1',symbol=sid,name=x['name'],is_price_3x=x.is_price_3x,
+                old_coverage=x.holding_coverage,new_coverage=y.holding_coverage,
+                coverage_change=y.holding_coverage-x.holding_coverage,old_gap=x.max_absent_days,new_gap=y.max_absent_days,
+                old_weight=x.mean_weight,new_weight=y.mean_weight,old_profit=x.whole_period_net_profit,new_profit=y.whole_period_net_profit))
+    for name in ['P0','P1','N1']:
+        z=w[w.account.eq(name)&w.is_price_3x]
+        s=stocks[stocks.account.eq(name)]
+        stats.append(dict(account=name,price_3x_stocks=len(z),mean_coverage=z.holding_coverage.mean(),
+            median_coverage=z.holding_coverage.median(),mean_max_gap=z.max_absent_days.mean(),
+            mean_window_weight=z.mean_weight.mean(),participated=int(z.held_days.gt(0).sum()),
+            winner_net_profit=s[s.is_price_3x].net_profit.sum(),other_net_profit=s[~s.is_price_3x].net_profit.sum()))
+    pd.DataFrame(pairs).to_csv(a/'winner-paired.csv',index=False);save(a/'participation-summary.json',stats)
+    obj=load(O/'results/N1.json');daily=[r for r in rows(O/'results/daily.jsonl.gz') if r['account']=='N1']
+    ls=pd.read_csv(a/'layers.csv');lr=ls[ls.account.eq('N1')].set_index('id');seeds={};retries=[];promoted=[]
+    for z in obj['layers']:
+        sid=z['sid']
+        if z['origin']=='trial':
+            previous=seeds.get(sid)
+            same=bool(previous is not None and previous['epoch']==z['epoch'])
+            retries.append(dict(symbol=sid,layer=z['id'],episode=z['episode'],opened=z['opened'],
+                previous_exit=z['prior_flat_exit'],same_i_epoch_retry=same,was_promoted=z['promoted_at'] is not None,
+                closed=z['closed'],net_pnl=float(lr.loc[z['id'],'net_pnl']),exit_reason=z['reason']))
+            seeds[sid]=z
+        if z['promoted_at']:
+            promoted.append(dict(symbol=sid,layer=z['id'],opened=z['opened'],promoted_at=z['promoted_at'],
+                closed=z['closed'],frozen_floor=z['bridge_floor'],entry_cost=z['entry_cost'],
+                sources=z.get('promotion_sources'),net_pnl=float(lr.loc[z['id'],'net_pnl'])))
+    pd.DataFrame(retries).to_csv(a/'all-trial-episodes.csv',index=False)
+    pd.DataFrame(N.encoded(promoted)).to_csv(a/'promotions.csv',index=False)
+    rr=pd.DataFrame(retries);same=rr[rr.same_i_epoch_retry]
+    loss=lambda x:float(-x[x.net_pnl.lt(0)].net_pnl.sum())
+    roles=[]
+    for label,ids in [('unpromoted_trial',[z['id'] for z in obj['layers'] if z['origin']=='trial' and not z['promoted_at']]),
+                      ('promoted_seed_whole_life',[z['id'] for z in obj['layers'] if z['origin']=='trial' and z['promoted_at']]),
+                      ('mobile',[z['id'] for z in obj['layers'] if z['origin']=='mobile'])]:
+        z=ls[ls.account.eq('N1')&ls.id.isin(ids)]
+        roles.append(dict(role=label,layers=len(z),net_profit=z.net_pnl.sum(),positive_net=z[z.net_pnl.gt(0)].net_pnl.sum(),
+                          all_negative_net=loss(z),open_layers=int(z.final_shares.gt(0).sum())))
+    save(a/'stage-summary.json',dict(roles=roles,trial_layers=len(rr),promotions=len(promoted),
+         same_i_epoch_retries=len(same),retry_names=int(same.symbol.nunique()),retry_net=same.net_pnl.sum(),
+         retry_positive_net=same[same.net_pnl.gt(0)].net_pnl.sum(),retry_all_negative_net=loss(same),
+         unpromoted_net=rr[~rr.was_promoted].net_pnl.sum(),
+         note='Promoted-seed P&L is its entire life from original trial, not just post-promotion. Retry and role subsets overlap; never add them twice.'))
+    events=[]
+    funded={(r['sid'],r['signal_at']):r for r in obj['audit'] if r['kind']=='lot_risk_funded'}
+    filled={(r['security_id'],r['signal_at']):r for r in obj['trades'] if r['side']=='buy'}
+    for d in obj['decisions']:
+        for i in d['intents']:
+            k=(i['sid'],d['at']);t=filled.get(k)
+            events.append(dict(symbol=i['sid'],signal_at=d['at'],kind=i['kind'],reason=i['reason'],
+                score=i['score'],floor=i['floor'],desired=i['budget'],cap=i['cap'],
+                outcome='filled' if t else 'funded_no_fill' if k in funded else 'unfunded_or_open_guard',
+                actual_shares=t['shares'] if t else 0))
+    pd.DataFrame(events).to_csv(a/'all-buy-intents.csv',index=False)
+    buy_rows=[]
+    for t in obj['trades']:
+        if t['side']=='buy':buy_rows.append({k:t[k] for k in ['security_id','at','signal_at','kind','shares','price','floor','pvr','reason','layer']})
+    pd.DataFrame(buy_rows).to_csv(a/'actual-buys-with-reasons.csv',index=False)
+    save(a/'comparison-summary.json',dict(participation=stats,pairs={control:dict(
+        coverage_better=sum(p['coverage_change']>1e-12 for p in pairs if p['control']==control and p['is_price_3x']),
+        coverage_worse=sum(p['coverage_change']< -1e-12 for p in pairs if p['control']==control and p['is_price_3x']),
+        newly_participated=sum(p['old_coverage']==0 and p['new_coverage']>0 for p in pairs if p['control']==control and p['is_price_3x']),
+        lost_participation=sum(p['old_coverage']>0 and p['new_coverage']==0 for p in pairs if p['control']==control and p['is_price_3x'])) for control in ['P0','P1']}))
+    print(json.dumps(N.encoded(dict(participation=stats,roles=roles,retries=len(same),retry_net=same.net_pnl.sum())),ensure_ascii=False))
+if __name__=='__main__':main()

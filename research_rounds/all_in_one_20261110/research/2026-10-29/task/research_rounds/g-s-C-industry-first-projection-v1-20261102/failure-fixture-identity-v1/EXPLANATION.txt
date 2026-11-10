@@ -1,0 +1,1 @@
+First synthesis: 15 pass, one ERROR. The STAR fixture gave existing NEW sector OLDSEC/key10 but fresh NEW sector NEW/key1. C correctly rejected inconsistent identity. Fix only fixture to same sector/key; preserve production rank guard. Add separate mismatch rejection regression. No actual snapshot projection or account event had run.

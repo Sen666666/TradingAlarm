@@ -1,0 +1,17 @@
+{
+  "before_new_risk_feature_results": true,
+  "account_events": 0,
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/entry_risk_commitment_review/PROTOCOL.txt": "6bd0b8f1c09716d85656f037db36876c0c28f8e55fa39caf6d8d26b4b5c969a8",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/lot-risk-allocation-20261029/RULES.txt": "590e0e7ab905f480123c4e2fcbc165b69fce7452138da0d80a6d513e8980cf17",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/lot-risk-allocation-20261029/CONCLUSION.txt": "4874250fe71a5f15aac0b03b30ae22702dda3cc2432ffa7b0ebb08480605ffca",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/lot-risk-allocation-20261029/code/study.py": "2e7cfbdded269ae5430c9146d0b1f5c2b2281e5a5c774fdffb088b620d72bff4",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/entry-risk-holding-review-20261026/CANDIDATE_I_RB1.md": "5e85c9d6755144eb498a6c6cf6593f36b31b9664d92b165f18b40eb29a41599e",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lr1-cp1-add-preflight-20261031/PROTOCOL.txt": "2cbf8564134362a2eea62d4042f82822f655c9135da33bc93aa0c8b1c5575967",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lr1-cp1-add-preflight-20261031/COMPLETION.json": "763015f14632256f5c2088fbcb0335981808b2010821a6cebbd465bd7d7569ff",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/analyze_ma63_information.py": "8e9b619150699f735812b3d18d0f0f882453016d86b3a5bac5ae4683256d4b26",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/ma63_information_diagnostic_v1/2022_2024_ENTRIES.json": "f0b83639daed99b0e594753608b2314506455d4b9beec885065ca7ac0944d830",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/ma63_information_diagnostic_v1/strong_ENTRIES.json": "a4a18f1b31b9bfe5ae5b1dc5ca248c2fb67d3b7185f9510e2d4191672cbf438d",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/risk_constraints/ma63_information_diagnostic_v1/ORIGINAL_FIXED_TAIL_COHORT_PRE_FEATURE.json": "c9f6290120e51ab6be894452c5618e64bdce54b69f79cfe1e4bb4d8df1c8eb6f"
+  }
+}

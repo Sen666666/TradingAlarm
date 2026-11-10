@@ -1,0 +1,26 @@
+C混合角色排序薄接线：仅原生合成，无历史账户
+
+9项受影响用例＋原17项基线＋12项协调回归通过。V3原件和全部索引文件核同；新版本是薄子类与dispatch_order.py，复用冻结V3，不覆盖原件。
+
+合同核对和边界：
+- G/S同股有合法fresh CP1先mobile，试探同股先core、core不合法才mobile；成功预留即占slot，零fill也不补第二单。源：capital-capability-design-only-20261101/G_BROAD_S_CONCENTRATED_CONTRACT_PROPOSAL.txt:19。
+- C的H∪E是合法旧mobile与fresh扩张域，core-only不冒充mobile；core/试探/旧单为固定资源负担。源：g-s-C-industry-first-target-design-20261102/CONTRACT_PROPOSAL.txt:10,14。
+- 跨股票新资源沿GS基底的扩张→试探剩余分层，C只替换扩张内部为行业H1→业内PVR。没有让core-only插入C行业队列。若要让core-only按行业H1与C共同争新资金，那是另一个未定义/未实施的政策，不是本次类型修复。
+- 原生未完成买单先重验，先于新买执行，沿原创建/插入顺序而不按今日排名重排；源：g-s-historical-native-prefix-20261101/native_capital.py:620。V3的裸priority全混排不具备可比较schema；本版本显式恢复该原生待单先行规则，而非另造强度分数。
+
+实现：
+每张实际成功预留保存原完整priority不改，并另存有类型标记的等价键、原use/role/pool、单调原生创建sequence。数值仍按数值排序（10不会排在2前），文本按原文本；None/非有限值拒绝，不填中性分。
+窗口调度为既有合法待单（原native创建序）→新C扩张（原冻结C键）→新T试探（原冻结股票键），全批预留后才咨询窗口。C/T不再对异构原tuple直接比较；S降G备用不改role/pool或原优先键。原资格、保护、目标、费用、预算、receipt/deadline一律由冻结V3执行。
+同股无fresh只有core仍必须通过原股票Q/I/结构锁、G或S对应F1新买许可/ACT用途身份及行业合并资本/风险。core仍T/probe小目标与.25%风险，不能因有G/S就变大。行业H1作为C分配排序与F1用途门不是同一个条件；缺股票H1源就绪不能被core绕过。
+
+新增真实用例：core-only/mobile-only/同股两角色全批实单；无行业许可拒绝；C开盘保护不合法→合法T core预留零fill而不再补mobile；S0 core远线风险不合法→同一CP1 mobile小试一次；原PVR NA槽与同分；股票H1未知不入新意图、相关C行业H1未知阻塞配置；行业同分稳定sector ID；既有原生待单保持创建序。100/200、部分/撤ACK/费用、异常回滚和跨进程恢复沿29项回归。
+“既有单”用例是在原earliest clock先建真实原生预留、尚未咨询窗口，再让剩余批次完整预留；不是为延续旧单而造GTC。曾尝试9:32创建新单被原生earliest断言拒绝，已保留failures/01，修正fixture没有放宽引擎时钟。
+
+复放（工作目录本包，新输出目录）：
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B test_mixed.py --out /tmp/C-mixed-unique
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B test_native.py --out /tmp/C-mixed-base-unique
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python -B test_coordination.py --out /tmp/C-mixed-coord-unique
+
+入口更新另存g-s-C-two-day-entry-preparation-r2-20261102：保留core/T原完整股票键，C provider用副本计算H∪E键，不反写原试探意图；不修改已预留旧单。只读输入核验，无历史Account构造；仍pending independent review，不放行金融路径。
+
+用户验收澄清保留：短促大涨能抓更好，但要与新增骗线损耗、持续趋势参与和换手代价并列；不把慢策略当偏好、不预判C20赢。只保留C10/C20，不新增门槛/指标/风险档或收益运行。

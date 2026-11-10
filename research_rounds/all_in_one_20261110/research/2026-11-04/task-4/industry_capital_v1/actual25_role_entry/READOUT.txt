@@ -1,0 +1,63 @@
+原No60 2026H1半导体25实际买层：原入口/CORE角色链，只读事实
+
+25层/18股完整覆盖，1 CORE、24 MOBILE，实际原账身份与旧逐层材料精确核同。
+逐层ALL25_ACTUAL_ENTRY_ROLE_CHAIN保存原op、原facts、原CORE epoch/真实既有同股层、
+原CORE intent/信号尺寸日志/OPEN日志、原I和MOBILE线、dated最小手到I含费风险及原.25%预算。
+数据仅原strong_OFF book/opportunities/funding/daily、18份已冻facts和dated规则；无新
+Account、marks、RiskBook、路由预览、成交或收益标签。最后纯join1.287秒；此前1.080/1.153秒。
+
+24 MOBILE当日全部 i_buy=True、i_target有效、G1 ready且grade>=2且fresh_up=True。
+全部op.core_Q=True，因此这25层材料不支持“G1未暖/无fresh导致没建CORE”的解释。
+原planning控制流顺序给出以下事实分支；不是从sorted多门取唯一首因：
+
+6 已有同股持仓，原flat条件挡新CORE
+  640 北斗星通1/9：已有真实CORE636、原epoch已消费；保留该CORE，不是缺CORE。
+  677/684/702 金海通1/19、1/20、1/28：仅已有MOBILE，原CORE epoch未消费。
+  743 捷捷微电2/5、1075 长电科技5/26：也仅已有MOBILE，原CORE epoch未消费。
+  这5层不能用已有MOBILE冒称CORE已消费；也不能自动把持仓转换CORE来解flat门。
+
+7 原flat且其余CORE资格已过，但原CLOSE size合并拒绝
+  658 江丰电子1/15；670 珂玛科技1/15；674 金海通1/16；780 微导纳米2/13；
+  1033 天岳先进5/14；1060 先锋精科5/20；1168 神工股份6/29。
+  逐条信号dated最小手到I含费风险均>.25%原NAV预算；最小毛额都<=10%NAV。
+  原日志是minimum_unit_exceeds_risk_or_nominal_cap，不能把全母体该合并标签拆因；
+  仅这7条由保存信号算术独立证明风险项足以拒绝，未声称第一实际内部数值分支。
+  另3个held金海通层同样risk-min失败，故24 MOBILE共10 risk-min失败；与7重复/非新增，
+  不把10+7相加。换confirmed本身不能解除原CLOSE风险尺寸拒绝。本轮不提出放松风险。
+
+11 有真实原CORE intent及OPEN尝试，失败后原MOBILE confirmed真实填
+  664 甬矽电子1/15：probe_risk+sector_capital。
+  704 新洁能1/28：probe_risk+sector_capital+sector_risk。
+  737 捷捷微电2/3：sector_capital。
+  1019 立昂微5/8：probe_risk。
+  1058 安路科技5/20：probe_risk+sector_capital。
+  1059 长电科技5/20：probe_risk+sector_capital。
+  1079 颀中科技5/26：probe_risk+sector_capital。
+  1084 华天科技5/27：sector_capital。
+  1085 新洁能5/27：sector_capital+sector_risk。
+  1166 有研新材6/26：probe_risk。
+  1171 芯联集成-U6/29：probe_risk+sector_capital。
+  联合门分布5 probe+sectorcap、1 probe+sectorcap+sectorrisk、2 sectorcap、2 probe、
+  1 sectorcap+sectorrisk；原11集合均不含现金标签，2仍有不因换池消失的行业1%风险门。
+  9条只见probe/sector-cap相关门仅为必要作用点，未进行confirmed CORE合法路由检查，
+  不等于9单新CORE必填/可填原max股数。I线较远，不能照抄实际Mobile数量或PnL。
+  逐条signal CLOSE原industry.jsonl最后状态（unchanged日沿用金融level）为9 expanded
+  level2、2 confirmed level1；11原实际MOBILE池均confirmed，同日canonical CP1与原
+  real_buy_fill逐条一致。因此原行业成熟与共证均已存在，不需再等新的价格确认。
+
+唯一真实CORE636 北斗星通1/8，原风险/尺寸和probe OPEN预留成功；原I结构退出。
+
+分母边界
+这11次包括同source-I后续原fresh重试，以及仅probe_risk（不在行业门母体）事件。
+行业首拒167→同日共证62→原同OPEN Mobile填1是另一分层，不能拿1覆盖这11。
+此表是已买股票/层的条件样本，不能推论未买的全部半导体或全市场，也不是政策效应。
+股票事后涨幅与原账户利润没有混用：JSON仅继承原已平净额/未平现金余额，未计算任何新收益。
+
+下一可测试机制只可精确指向：原flat完整CORE i_buy与同日fresh CP共证、且行业原已
+confirmed/expanded时，允许原CORE竞争既有confirmed额度，保留原I floor、.25%含费
+风险定量、CORE epoch、canonical token单次消费及Mobile fallback排他。它是资金角色
+许可，不是新信号、转旧仓或混合holding。9条仅为原前缀最小手余门未挡的必要机会；
+2条sector_risk留原拒，5个only-mobile held和7个尺寸拒绝保持各自边界，不一并救。
+此纸面方向不需再加EMA/G1买点，亦不授权自动Mobile→Core、松风险、解epoch、复活
+N1、取消订单或卖旧健康仓。仍须独审typed role/token/epoch/行业风险/保留现金及量价
+执行闭环，不以本表直接启动账户。

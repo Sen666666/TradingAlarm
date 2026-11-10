@@ -1,0 +1,20 @@
+{
+  "before_join": true,
+  "time_UTC": "2026-11-04T13:24:31.817389+00:00",
+  "source_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/macro_new_risk_association_v1/2022_2024_ROWS.json": "945cae8a0e88077ed77330e15013134bbd80c9a80d4b0dfaa47524c04684e1f5",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/macro_new_risk_association_v1/strong_ROWS.json": "ee9db502a7593c1b485c9a1638ee0139e4548b9acfd4a5b374695ada076ae507",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/macro_new_risk_association_v1/FIXED_ORIGINAL_TAILS.json": "a285c8293bd26cdc79f9a1714b30c8cead68d9b4a66b52a880fbb063fc2cc160",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/macro_new_risk_association_v1/SUMMARY.json": "f640afe2508b0200d23a88350816756d76ef7346421f6be23ec2d961fd48e7e7",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/macro_new_risk_association_v1/join_saved.py": "f86127fd53416e4943889de9bc27fd81ebc45053b8869e9891a953d3cc6ca0a3",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/sector_local_price_permission/DAILY.jsonl.gz": "8861e07113ecb6ce59fa3d8c92eb98aacb7967afc040c6fa8bf063638ec7c631",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/sector_local_price_permission/SCHEMA.json": "a577e8ed4e5123b1b0b1731b52faf2c8bb90e0c86486afb5d4b7abd67da66e7a",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/sector_local_price_permission/RESULTS.json": "0527010fbd7b207ccbeaa8944247b46e55d208293f23a7bc50279fb19d4825a3",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/sector_local_price_permission/SERIES_INDEX.json": "75c1de971ba2c783cba729ba06e9767e72978220fb303c2ca1934e07e3a27275",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/sector_local_macro_association_v1/PROTOCOL.txt": "60a75e1faf8624872ac1d4606da8d0ccbef4e68df8aa79ed2e53fe41a419bceb",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/sector_local_macro_association_v1/join_saved.py": "41cc4c85598ca24426a6cb75c92424cf7cfd8e632471bdf9bac10dffad2a3da7"
+  },
+  "new_models": 0,
+  "new_accounts": 0,
+  "local_rule": "one frozen prior20 high/low only, no grid"
+}

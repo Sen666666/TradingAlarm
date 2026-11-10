@@ -1,0 +1,25 @@
+def incremental(self, side: str, local_notional: Decimal, paid: Mapping[str, Decimal],
+                accrued: Mapping[str, Decimal], multiplier: int, *, shares=None,
+                par_value=None) -> dict[str, Decimal]:
+    if multiplier not in (1, 2):
+        raise ValueError('Only base and frozen cost2 are supported')
+    result = {}
+    for c in self.components:
+        if c.side not in ('both', side):
+            continue
+        rate = dec(c.rate) * (multiplier if c.stress_rate else 1)
+        minimum = dec(c.minimum_local) * (multiplier if c.stress_minimum else 1)
+        base = self.amount(c, local_notional, shares, par_value)
+        if c.basis == 'order':
+            total = max(minimum, accrued.get(c.name, ZERO)+base*rate)
+        else:
+            total = max(minimum, base*rate)
+        if c.maximum_local is not None:
+            maximum = dec(c.maximum_local)*(multiplier if c.stress_maximum else 1)
+            total = min(total, maximum)
+        if c.rounding_unit is not None:
+            unit = dec(c.rounding_unit)
+            rounding = ROUND_CEILING if c.rounding_mode == 'ceil' else ROUND_HALF_UP
+            total = (total/unit).to_integral_value(rounding=rounding)*unit
+        result[c.name] = max(ZERO, total-paid.get(c.name, ZERO)) if c.basis == 'order' else total
+    return result

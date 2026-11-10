@@ -1,0 +1,64 @@
+{
+  "status": "completed_and_stopped_no_promotion",
+  "at": "2026-10-30T06:22:30.588661+00:00",
+  "mother": 69,
+  "new_arm_rows": 276,
+  "total_five_arm_rows": 690,
+  "new_local_paths": 162,
+  "new_account_paths": 0,
+  "ABC_reruns": 0,
+  "D_previous_selection_exact57": true,
+  "CR_date_changes": 0,
+  "base_effects": {
+    "D_minus_B": "1059215.5816065006470",
+    "D_minus_CR": "-929991.0367352232480",
+    "CR_minus_C": "-25743.5684322903700",
+    "D_minus_A": "-1383643.3609683389685",
+    "CR_minus_A": "-453652.3242331157205"
+  },
+  "cost2_effects": {
+    "D_minus_B": "1049704.8238192318640",
+    "D_minus_CR": "-927836.4985924751200",
+    "CR_minus_C": "-25081.0272244546800",
+    "D_minus_A": "-1391288.8742488935980",
+    "CR_minus_A": "-463452.3756564184780"
+  },
+  "timing": {
+    "started_at": "2026-10-30T06:10:27+00:00",
+    "first_sample_passed_at": "2026-10-30T06:15:27.713208+00:00",
+    "full_passed_at": "2026-10-30T06:15:56.920549+00:00",
+    "design_implementation_to_sample_wall_seconds": 300.713208,
+    "selection_compute_seconds": 5.056531459093094,
+    "sample_compute_seconds": 1.7942296247929335,
+    "full_compute_seconds": 7.959540874697268,
+    "successful_compute_seconds": 14.810301958583295,
+    "verification_summary_archival_after_full_wall_seconds": 393.668112,
+    "total_wall_seconds": 723.588661
+  },
+  "resolved_error": "启动文件select.py遮蔽标准库select导致pandas导入失败；改名selection.py，select.log保留；无经济结果/信号/规则修改。",
+  "execution_blockers": [],
+  "preserved_unknowns": [
+    "原3缺事件行",
+    "D的4周期21左端历史缺失，现金计账独立unknown"
+  ],
+  "scope": "封闭局部资金片、冻结原ACT与历史条件资源；非整户结果。",
+  "sha256": {
+    "PROTOCOL.txt": "b658dd43e3561ba8116e33b725a540a9df88d062bf5af58c4d01dbe144ea300f",
+    "selection.py": "130c18bcd625edd2248c3952b9f2d4c756714df2cfec9232322285876ebd1d29",
+    "study.py": "453fef9844aea82ca1d4374cb86115a02f98940557aadcfc9ee9d0b8fee72537",
+    "finish.py": "92e92e6d2dd4a4361dfcbb0fd862a3f90dd87808f9bcaf6a98e604a3889ab6ef",
+    "INPUT_IDENTITY.json": "a8c853b18b72f941429617e09128a65046697ad6fd5ef30dc2f226b0926a285a",
+    "SELECTION_FREEZE.json": "4a47ad789f42c229101055aac2c89f90f38b58e9f02645d2cafdb60d46db834f",
+    "EXECUTION_IDENTITY.json": "88e99c25b4b68d214200f002f973f8a551f771dc87ef909d1a3e002fbdd7fe67",
+    "FROZEN_SELECTIONS.csv": "07eb2439e119d5e70292e2b9b6281e88bc151fbaf4bbbfdbd859a2d30b82fb54",
+    "paired-differences.csv": "70ea381d79f539f526ad928cf9f9e3fb1fd70745341a8ce5af2cca9a58d4d063",
+    "all-five-ledgers.csv": "c4e3945220a09c74c1b14ee3ccb8da24557d7748fb177682aa8314ac867aba34",
+    "RESULTS.json": "555ec98af6f0962c5da0f4cad750947f50445473ebf44c90b45162c2d85d42aa",
+    "full/new-unit-ledgers.csv": "0ca7394f60d4a6fcf1c4df49c0b6241701b2351598d8375640ea228836f9c016",
+    "full/audit.json.gz": "4cb0240725aa2e6dbf2287f52cc5beb37421ac08298104a3cf6b44db09b4e7e9",
+    "full/equity.parquet": "418e6fca0495c173a4a3cc9c353457a64539d3f5c3059e614fc83f58743a843d",
+    "full/VERIFICATION.json": "3d57ee6cd282dc11f0061ca3ce1758355beacc1ec650537780e7f65c8989f156",
+    "FINAL_CHECKS.json": "23003eb8a9900a84b6f29f3a024b96a76df055af72a0a4dd7c6e5f9d3fee0f57",
+    "REPORT.txt": "c0189457fda47b9376cc89d367f5de8d4f4293c4c5224c5fc16eee7c0034eee7"
+  }
+}

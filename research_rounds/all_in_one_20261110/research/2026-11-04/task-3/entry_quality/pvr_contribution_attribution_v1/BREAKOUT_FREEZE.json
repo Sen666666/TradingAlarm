@@ -1,0 +1,19 @@
+{
+  "status": "EXPLORATORY_ALL_PERIODS_ALREADY_SEEN_NOT_NEW_HOLDOUT",
+  "code_sha256": "4ec5d017f7d654f983794b1423bea03369929fd125b2e53306dac4e7f3ad9e6d",
+  "features": {
+    "break_distance": "ln(Ct/max(C[t-20:t-1])) / original_scale_t",
+    "stretch5": "ln(Ct/C[t-5])/(original_scale_t*sqrt5)",
+    "stretch5_ATR": "(Ct-C[t-5])/mean(TR[t-20:t-1]); TR=max(H-L,abs(H-Cprev),abs(L-Cprev))",
+    "hold5": "mean over j=t-4..t of 1[Cj>max(C[t-24:t-5])]; fixed resistance known before this 5-day window",
+    "close_location": "(2Ct-Ht-Lt)/(Ht-Lt); zero range unknown"
+  },
+  "high_delta_selection": "Within same date, original PVR 2-point bin, exact I age, choose top half delta_amt by value then sid; require parent group>=8. Outcome independent.",
+  "pair": "Extreme inward pair by feature within selected high-delta pool; exclude exact feature ties, report ties; no replacement for censoring.",
+  "candidates": {
+    "E_support": "E - amt_up_high*(1-hold5); only amount amplification on up-days is gated by prior-resistance acceptance",
+    "E_breakout": "E - amt_up_high*1[break_distance<0]; sharp single-condition comparison, no weighted multi-feature sum"
+  },
+  "candidate_origin": "Designed after original contribution outcomes and four-quadrant diagnosis. No claim of untouched time-out sample.",
+  "no_signal_or_account_calls": true
+}

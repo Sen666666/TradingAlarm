@@ -1,0 +1,36 @@
+{
+  "completed": true,
+  "scope": "Original-ledger all cash-reject diagnosis and frozen four-arm shared static comparison",
+  "cash_reject_role_events": 132742,
+  "complete_original_market_OPENs": 966,
+  "matrix": {
+    "arms": 4,
+    "complete_OPEN_plans": 52,
+    "intents_per_arm": 4172,
+    "controls_exact": 26,
+    "compute_wall_seconds": 105.38270862493664
+  },
+  "target_remaining14": {
+    "native_cash_release_newly_plannable": 1,
+    "minfirst_cash_release_incrementally_plannable": 4
+  },
+  "disposition": {
+    "read_only_component_validation": "PASS",
+    "standalone_release_as_primary_major_trend_fix": "STOP",
+    "minfirst_interaction": "Retain reachability evidence only; three Jiangfeng signals in one wave plus one Jinhaitong; economic account unverified",
+    "new_continuous_account": "STOP_ACCOUNT"
+  },
+  "new_accounts": 0,
+  "new_restores": 0,
+  "real_fills": 0,
+  "new_outcome_labels": 0,
+  "new_policy_PnL": 0,
+  "blockers": [],
+  "remaining_limits": [
+    "Independent13 selected strong-window snapshots do not identify continuous returns or adverse-year policy liquidity cost",
+    "Original current universe and industry snapshot; no PIT or OOS claim",
+    "Price path labels are fixed signal-CLOSE stock-observation horizons, not fills or held returns"
+  ],
+  "report": "/Users/bytedance/Documents/Codex/2026-11-04/task-4/cash_release_v1/RESEARCH_READOUT.txt",
+  "final_review": "/Users/bytedance/Documents/Codex/2026-11-04/task-4/cash_release_v1/review/FINAL_CASH_RELEASE_REVIEW.json"
+}

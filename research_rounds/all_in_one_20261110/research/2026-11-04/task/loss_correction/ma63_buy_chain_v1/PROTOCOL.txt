@@ -1,0 +1,5 @@
+10–15min唯一薄关联：原No60 2022–23全部1557实际buy layers，原2023Dec29共同截止钱账；原benchmark510300 causal totalreturn信号/原inclusive MA63与原前一观察MA比较的共享slope，exact真实budget_order decision CLOSE。0新price/MA/账户，不复用v2DPC或LOCAL20作门、不进入买入质量主线。
+母体2023截止LAYERS逐层与原风险ENTRY元数据sid/cost/net/value/qty/closed核同且全部flat后，只读现成actual_initial_nominal_risk；其定义原实填q*(actualexecprice−原初始rawfloor)，不含手续费、不用终态抬高floor，不重算价格。求和是累计新风险承诺量，不是同时存量风险/回撤/可省损失。
+主状态严格price_position BELOW且原ma63_slope_direction down；ABOVE/BELOW/EQUAL/UNKNOWN与up/down/flat/unknown全保，不把等于MA当BELOW、缺失当bear。原source是总回报而非HS300price index/个股MA；含今日63观察的原均值不改。原首日logs prior_on=False是benchmark bootstrap，不算真UP_CROSS；共享history prior_on及Jan4继承ON保留。
+24个月全部输出，按decision进入的cohort原钱账与按actualfill月份的cost分别保留；现成NO60 actual buy/sell月表只取含费买款、净卖款、费用、fillcounts作交易链context，不重算月NAV/存量/期间财富。原cutoff贡献不叫当月亏损/收益。完整22ON/OFF episodes与全部真UP_CROSS（含0原买单）保留，不挑成功反弹。
+保first/add/reentry/core-mobile/pool/原signal_at/fill日和ACT历史context；市场下降时原净正全部层单独完整保存作反例，原结果不输入实时信号，不删负造NAV/可避损或赢家豁免。只父允许的强行业price进展probe讨论，不在本支套gate或定预算。

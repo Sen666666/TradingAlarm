@@ -1,0 +1,19 @@
+来源版本收口（主EVENTS离线tail修订后）
+
+本容量输出消费的EVENTS v1与当时SOURCE_MANIFEST原字节已逐SHA定位到：
+../pre_calendar_tail_fix/<view>/EVENTS.json
+../pre_calendar_tail_fix/SOURCE_MANIFEST.json
+
+详见SOURCE_VERSION_RECONCILIATION.json（PASS）。原SOURCE_SHA256记录的
+路径在主目录部分已被v2覆盖，本sidecar提供其精确v1 archive路径和hash；
+旧SHA及旧容量输出本身不改写。
+
+容量消费的全部root/date/quote/成交额/前20中位额字段在v1/v2逐值相同，
+原NAV context和quantity_versions原SHA未变，原542日asof曲线逐值相同。
+容量金额、最小单位及统计不重算，也不增加任何容量筛选。
+
+三个*_ROWS.json及ALL_FIRST_SIGNALS.csv复制的primary_return5、
+primary_final_label_status明确绑定v1 archive。strong其中140个事件的
+v2离线tail标签有变化；2022/2024容量事件的复制标签无变化。
+这些标签没有参与容量结论。任何最新五收盘收益分析应读主目录v2
+EVENTS，不能使用容量CSV中的v1标签再计算新收益/容量子集结论。

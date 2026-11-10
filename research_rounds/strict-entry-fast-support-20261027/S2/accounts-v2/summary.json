@@ -1,0 +1,25 @@
+{
+  "status": "complete",
+  "accounts": [
+    "ACT__S0_base",
+    "ACT__S0_delay1",
+    "S__S0_base",
+    "S__S0_delay1",
+    "F__S0_base",
+    "F__S0_delay1",
+    "SF__S0_base",
+    "SF__S0_delay1"
+  ],
+  "daily_rows": 3512,
+  "technical": false,
+  "final_nav": {
+    "ACT__S0_base": "3184334.5185428864725",
+    "ACT__S0_delay1": "3900347.3863570045715",
+    "S__S0_base": "2595694.8188872092870",
+    "S__S0_delay1": "3900347.3863570045715",
+    "F__S0_base": "2746806.5499767830165",
+    "F__S0_delay1": "1882410.5500186417810",
+    "SF__S0_base": "1960459.1213718417015",
+    "SF__S0_delay1": "1892093.9722120393620"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "status": "contract_ready_for_parent_review",
+  "new_economic_paths": 0,
+  "product_changes": 0,
+  "account_access": 0,
+  "rule_candidates": 1,
+  "planned_economic_paths": 6,
+  "blockers": [],
+  "files_sha256": {
+    "CONTRACT_DRAFT.txt": "9b4ea693836514a7ca897b2db4a9ae9097981e0d32204acd793debe06a9c2df0",
+    "INPUT_IDENTITY.json": "ce7e0202ebd367530a5375c6efc8b84598e2c57b4dfedad2755e002d464d7adc",
+    "potential-queues.csv": "6489f7f02e72e8bedf4f21a37cf35902e5c1ad203037a885b7bae0a820d59fda",
+    "potential-industry-heads.csv": "8c659c78fb10f011df565bbf1af406b9ab552f8e0cc8a7642b209bd027dce3c4",
+    "PREFLIGHT.json": "5f5e1ada4e861521027fd3b56fcf5f7ba49cf992197fc61dcd9be07c96880f81",
+    "potential-selection-steps.csv": "8d60b3ce3444a56161516acb617fb1fff2576e2bf8c67dbbf8277a92d68885d8",
+    "code/preflight.py": "36e615ad9e6e69bbd99a29bc7d9d9f2721c2b7d34feb097b4c5eb2453db253bd"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "days": 41,
+  "orders": 1580,
+  "blockers": [],
+  "last": {
+    "day": "2024-11-06",
+    "cash": "184579.4413188901275",
+    "receivable": "0.00000",
+    "market_value": "1296464.20",
+    "NAV": "1481043.6413188901275",
+    "net_liquidation_NAV": "1479230.1995549177375",
+    "stocks": 72,
+    "shares": 185292,
+    "weight_pct": "87.53720443007880935110041342",
+    "fees_paid": "12699.6653711098725"
+  },
+  "planned_end": "2024-11-06",
+  "completed_horizon": true,
+  "retirement_orders": 11
+}

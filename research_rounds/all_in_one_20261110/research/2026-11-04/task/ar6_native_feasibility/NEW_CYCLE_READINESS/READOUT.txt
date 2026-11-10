@@ -1,0 +1,36 @@
+后续完整周期就绪调查｜只读输入与最小接线，账户0
+
+结论：2024无需下载或重算I/CP1/stage。1709股/90行业的暖历史数值、H1、原ACT时钟已有；尚缺该窗口全域PVR分数、canonical收据物化、独立原PVR_SLOT1账户基线和NO_CONFIRMED60同起点账户。2023所需1709输入、分数和旧原PVR连续对照均已存在，后续仅需为新政策自身2022父状态做一次明确horizon身份交接。两项都不是正在运行的两个full窗口的前置门。
+
+本轮实际范围
+读取全部1709事实/CP1索引及receipt布尔列、90行业日期，检查引用文件存在；固定代码顺序首3股000001/000002/000009和首3行业881101/102/103做原函数纯检验。实际9.03秒，经济事件0，I/CP1/stage模型重算0，下载0，没有修改pvr_pool_feasibility或旧研究文件。全域逐文件SHA没有重新审计，仅6样本的原始/数值源SHA全核同；全部1709分数、canonical全导出尚未做。
+
+2024真实覆盖
+原H1市场日历为2024-01-02..12-31共242日；1709身份不删。1549股有242日观察，74股全年无观察，其余86股部分观察；共392346实际股日、21232缺股票日格。缺格未判为停牌/退市，不填造信号，继续保留原NA。90行业均有242日state。缓存数值CP1在2024有股票25251和行业1762个receipt日；这是数值receipt计数，不冒称全域canonical起源/ID已验证。
+现有universe stock receipt JSON仅2025/26（15464/13096条），2024没有物化。原native score manifest仅2022、2025Jul..2026Jun，2023扩展仅2022+2023；没有2024分数导出。
+6样本的2024原trace与CP1日期精确、3行业state receipt_id精确、2024六月物理前缀精确；各自重算原2022/23canonical完整body与原导出精确。3股原PVR公式保留2022旧分数精确，2024物理截断及未来价格/金额扰动不改前缀。样本检验记录在INPUT_AUDIT.json和SAMPLE-*。
+
+具体来源
+1 universe-cp1-inputs-20261031/{STOCK_MANIFEST,INDUSTRY_MANIFEST,FREEZE}.json：同一1709/90身份；每条refs指向充分暖机facts/CP1_input/CP1、行业state和原始signal/events。
+2 pvr-current-v3-information-capital-20261101/original_score_function.py：原公式SHA9328109b...ba8cb2，必须全暖历史计算再按完整市场日历取score；NA保留原H1槽，不能仅用2024起算或改窗口。
+3 mainline-absolute-Q4-20261031/recovery.csv：2013..2026Jun原1709/90 ACT时钟；prepared/h1.npz覆盖2007..2026Oct、1799序列，包含所需身份。沿原因果时钟读取，不新造市场标签。
+4 2022-normal-reference-20261031/export_receipts.py:one 与 cp1-evidence-trace-20261031/trace.py:trace：既有canonical物化方法，不调用calculate/derive。recovery-2023-readiness-20261101/export_all.py已有换年封装先例。每条必须跟MANIFEST.output_path，不能按目录拼接；2023有pilot复用路径。
+
+2024最小后续路径（没有执行）
+A 独立目录冻结同1709/90、2024完整自然年和源SHA。按原trace仅物化2024 canonical，逐全域核原CP1 receipt日期、trace_unknown、唯一ID、行业state ID和物理前缀；不重算数值模型。现有2024 numeric计数只是核对期望，不替代这一步。
+B 原PVR公式全暖机计算并导出1709×242 score格（413578），补全域ready/NA计数；复用旧分数精确和物理/未来扰动检查，不增加指标、排序、名单或参数。
+C 独立inputs_2024读取原warm facts/CP1、2024 canonical、行业state；按原context读取原始市场/行动/H1。在独立进程显式设原J.START/END为2024范围。当前execution_support只支持2022/2025_26，不能仅改WINDOWS硬套旧receipt JSON；不能编辑当前正在使用的模块/冻结源。
+D 若主研究证据支持这个周期，原PVR_SLOT1和NO_CONFIRMED60各自从同原100万元新起点、同市场暖机连续到12/31，完整保留九月前不利期及九月后持有/纠错。不从九月赢家名单出发，不仅截取上涨几天；技术前缀/恢复和金融桥沿已审方法，金融执行另由parent决定。
+本调查未找到1709同合同的2024已完成原PVR账。market-proof-lifecycle-readonly-20261101里的924旧RS/PVR ACT20_BREAK是407科技/11行业正控制，策略/股票池不同，不能充当这对账户的基线。既往2024资料均为已见开发历史；没有因本轮新接线获得样本外身份。
+
+2022新政策自身→2023恢复的最小交接
+既有目录pvr-slot1-native-readiness-20261101/continuation-2023-readiness内已有SCORES_MANIFEST.json、horizon_import.py、VERIFIED_HORIZON_IMPORT.json、原PVR run-2023完整账及独立审计。2023有242市场日、1709格413578，原分数ready377036/NA36542，97身份无2023观察；canonical原导出股票18781/行业1270。原PVR该段承接自身2022末715009.3354426633890，未重置资金。
+新NO60自身2022 DONE已纯JSON观察为704487.8470098769005，Dec30末CP登记SHA1bcec7054c58555e76084e03d80b375dde2f1cf13a2938fedb27e1437c625f7b。正式使用前由该运行所有者收口/独审后冻结CP、provenance、源与账，不在本任务恢复它。
+旧horizon_import不是通用入口：硬绑定旧父CP、原715009 NAV、NoAccountBudget、原integration_policy和score SHA。直接调用应拒绝；不能改断言让旧父状态冒充新政策。
+可复用其明确交接模式：用新NO60原生成类/真实provenance验证新自身父CP；完整核账后复制所有账户和策略字段（动态字段集合，包括新remove_confirmed60及NoConfirmed60Budget），只保留被明确证明为未来扩展的episode_starts、新score manifest身份和新source_freeze元数据。保存现金/全部损耗、ACT峰/暂停/恢复、持仓/层、挂单/跨界pending意图及优先序、收据消费、core锁、pool/行业状态、费用/应收及历史。禁止硬编码沿用旧63/26字段数或旧NAV/持仓数。
+旧2023扩展score的413578个2022前缀已核同，可直接复用相同原分数；不需要再做1709数值生成。episode_starts须保留旧键全等，新增只在父cursor之后；禁止generic restore把2023查表覆盖回2022版本。cursor严格从2022-12-30 15:10之后接Jan3 OPEN，旧全年/首日不得重跑。继承新NO60 budget类型/三门差分，不换成原NoAccountBudget。
+原2023 PVR账可只读复用作为各政策自身连续路径对照。新政策2023区间收益按自身2022末归一化，同时报告2022→2023累计财富/回撤；不能把不同继承资金/ACT状态称为纯当年alpha，不能补回100万元。
+
+预算依据与未完成项
+本次输入清点+6样本9.03秒。既有全域2023 canonical纯导出实际126.10秒，旧1709原PVR2023输入/完整路径总307.67秒（其中事件181.38秒）；仅作为后续预算参考，不是本轮2024实测承诺。
+2024缺全域canonical/score导出、输入冻结、两臂horizon技术证据及原PVR经济基线；2023缺绑定新NO60父状态的薄适配和新实际首日前缀/恢复。未实现这些适配、未跑经济，不把准备工作延伸为新参数扫描或平台重建。下一执行范围由parent根据当前两full证据决定。

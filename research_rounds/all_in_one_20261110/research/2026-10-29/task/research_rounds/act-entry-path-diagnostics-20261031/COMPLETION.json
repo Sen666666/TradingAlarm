@@ -1,0 +1,58 @@
+{
+  "status": "completed_path_observation_no_new_economic_policy",
+  "completed_at": "2026-10-31T02:18:19.174317+00:00",
+  "first_protocol_written_at": "2026-10-31T02:11:48.444098+00:00",
+  "wall_since_protocol_seconds": 390.730219,
+  "pre_protocol_read_time_not_fully_instrumented": true,
+  "read_and_aggregate_seconds": 4.28367383312434,
+  "summary_seconds": 0.012191833928227425,
+  "verification": {
+    "passed": true,
+    "checks": [
+      {
+        "sector": "TECH",
+        "cycles": 69,
+        "cycle_net": "2984160.2756603511085",
+        "account_net": "2984160.2756603511085",
+        "residual": "0"
+      },
+      {
+        "sector": "DRUG",
+        "cycles": 84,
+        "cycle_net": "-110036.5127407436895",
+        "account_net": "-110036.5127407436895",
+        "residual": "0"
+      }
+    ],
+    "cycles": 153,
+    "close_rows": 5463,
+    "unknown_cycles": 2,
+    "unknown_rows": 5,
+    "one_actual_buy_per_cycle": true,
+    "one_actual_sell_per_closed_cycle": true,
+    "no_new_trades": true,
+    "seconds": 4.28367383312434
+  },
+  "remaining_unknown": [
+    "Two original cycles contain five unknown market/event rows; all retained and marked.",
+    "Daily close and actual fills do not reveal all intraday paths.",
+    "First positive NAV is not a verified sustained-trend or risk-handoff criterion."
+  ],
+  "deliverables": {
+    "SUMMARY.json": "88a1636c40fd1034abb25890f9a19ce3f5d754eca2dbf2e9ca5c6cfa9c9d676b",
+    "summary.log": "ec7a3cec7f9f75df910cb70663772f458bf844bcf59f6024bdcf909b9551b97c",
+    "NATIVE_CONFIRMATION_EVENTS.csv": "0bbc1b4dab3804598fbcf0d8923ebefe46917694fe7b912c77671ec39b7fe31e",
+    "ACTUAL_TRANSACTIONS.csv": "874d9b2d2a3f79a6ffa305e98308ddd3426f5df2e5116322204cc3775160f7a0",
+    "LEGACY_PLUS10_RECONCILIATION.csv": "9078c5942e70738b035223a487b7d467743e8edb97a9a9a8ee89611d6df18a1d",
+    "CYCLE_PATH_FACTS.csv": "ed69f1406d7a0f4300a2a394f33d0c3043f32c34e72a4b8eda9e8c1a6d71c369",
+    "INPUT_IDENTITY.json": "39bc4062d90c5964310035578f2f27ac46a45c43395907f3ddbd9f540959123a",
+    "DAILY_PATHS.csv": "5cc9d86d86027e454ba2c06eb1812fbed495b1ea774d99fb9dbc33d8368a1986",
+    "run.log": "b085812e5de93d5bc4944d049fd21154713e21bad1466e701eec15da5bfe0ada",
+    "PROTOCOL.txt": "6475a3848c97412dfefba8e60d08ea219f8bcd6f33bc4e9b9f0039b6e0f01bfe",
+    "summarize.py": "423f8d7819d188529e50d695c5baa5a0aeee2a47a70fbef3a1aabcaec8ecf310",
+    "diagnose.py": "c597dcd2943ab06a0c85e408c6ce1d0fb8b6aebb6c26b3cf26ab3051ab0ab64a",
+    "SAMPLE_VERIFICATION.json": "1533c100c101e26868487c01dd85ea8fa00df4516d22619e499edc05d69f9083",
+    "REPORT.txt": "bb36356c0ccc39e27d59b2b965cd7b5a12299f593f5d404646ddf9201e76a90d",
+    "VERIFICATION.json": "32dcf7e2d917abc4c5a82087ded0607ca424e43af6cca610346a933074bec962"
+  }
+}

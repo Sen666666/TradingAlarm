@@ -1,0 +1,30 @@
+Main source: unchanged saved July C10/C20, prior audited CP1 cohort (3336) and real layer parts.
+No new account events, original indicator computation, source refresh, ranking change or allocator.
+
+Read CONTRACT.txt -> REPORT.txt -> CANDIDATE.txt + DESIGN_CLARIFICATION.txt.
+RESULTS.json: all UP actual layers, actual negative-sale loss denominator, full sector/batch/proof
+aggregation, minimum majority batch prefix, causal timing and deterministic profit controls.
+INDUSTRY_ASOF.json: all90 x23 original F1 states/permissions/H1 ranks/last same-context proof,
+source price/breadth/prior21 and original prior-only scale. Native warm seed parsed by original
+F1.loads, no state.step. Last proof filtered by actual known ordinal, not future receipt or price.
+RISK_ENVELOPES.json: original positive S plans, one max-original-independent-order reference
+per proof and optimistic fractional G support lower-bound inequalities; NEVER produces a new
+Q/D, certificate or executable order. Actual opening quantities are evaluation only.
+
+Gross negative actual-sale parts differ from earlier closed-negative-layer net contributions.
+Role/pool/purpose and all open/closed components retained, no row used as future-selection gate.
+Engineering first-order risk/quantity comparisons can be verified against the already-audited
+three-batch package; reuse those exact baseline results rather than repeat financial QA.
+
+Pure analysis entry (direct outputs already frozen; auditor should override HERE to /tmp):
+  sys.path.insert(0, '/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-UP-loss-capital-design-readonly-20261102')
+  import analyze,tempfile,pathlib
+  analyze.HERE=pathlib.Path(tempfile.mkdtemp(prefix='UP-loss-independent-'))
+  analyze.main()
+About14.19s read-only extraction. No native Account constructor/step/planning is invoked.
+Original CP1/financial physical-prefix audits reused, not redone. stock prior21 unavailable
+from saved prefix stays N/A; sinceJun30 is labelled separately. All post-decision cold/exit
+fields are evaluation-only, not admission features.
+
+Failure retained failures/01_seed_schema: wrong seed-wrapper level, original parser fix.
+No original financial file, policy, cache or indicator changed. No follow-on financial scope.

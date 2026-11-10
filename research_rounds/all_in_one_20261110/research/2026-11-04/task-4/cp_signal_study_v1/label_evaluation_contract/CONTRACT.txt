@@ -1,0 +1,72 @@
+SUPERSEDED_BY_ROOT_FROZEN_DESIGN: ../FROZEN_DESIGN.txt。以下仅保留冻结前提案，禁止用于实际执行参数。
+CP信号级标签与有限分组评估合约 v1 PROPOSED_NOT_FROZEN
+本文件是研究规范提案；不因写入即视为已经获批的CP模型、交易规则或拟合结果。
+
+1. 母体、身份与分母
+母体是既有冻结股票池的原canonical CP receipt，不是买入层、合格订单、成交通知、事后行业赢家或只挑已买18股。全池是历史开发current-pool条件母体，不能泛称当时全A股。每期source manifest、其固定股票清单及其覆盖缺口须单列。
+基本键：canonical_series + receipt_id；保存confirmed_day、source_segment、original_E0_episode_id、formation interval、原candidate/scale及其known-at。不要用I/账户epoch替代E0 episode。重复相同ID只按源重复处理；同股同日不同ID先审原身份，不猜合并。只存快照而无canonical身份须标unknown，不能偷偷造receipt。
+各级漏斗计数都保留：原receipt N -> 已绑定源N -> signal基点有效N -> X特征逐字段可用N -> 20有效观察成熟N -> 各组N。缺特征与缺标签分开，未知不填0；MFE、MAE、final共同成熟用同一20条路径，不能各挑不同可用子样本。
+冻结源候选索引（只复用，不运行构建器）：
+2022 /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/2022-normal-reference-20261031/inputs/MANIFEST.json
+2023 /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/recovery-2023-readiness-20261101/inputs/MANIFEST.json
+2024 /Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/inputs/MANIFEST.json
+2025–26H1 /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json 的refs.receipts；各期读取范围/完备性由根先核定。
+原CP bool与canonical receipt需核对，但不能为追平数量重新运行CP。缺口在输出中保留。
+
+2. 有效观察、起点与时钟
+信号日t0=原canonical confirmed_day收盘；C0=同源原CP_input.close，须与原facts/source signal同尺度同segment的close核对。t0是否满足以下有效条件也需保存；无效基点不生成正式标签。
+未来日期严格d>t0。资格E(d)是原事实的 observed_bar==True AND price_eligible==True AND finite(volume) AND volume>0，并要求同尺度close为finite且>0。
+observed_bar/is_observed_bar别名须在源schema层确认并核对相同；两字段矛盾不任选其一。正成交量优先用原同源volume（若另用raw_volume，记录等价依据），不能从amount>0或close存在反推volume。facts若只保存close、I等而不含原标记，必须连接同源signal/raw的原标记；缺字段为unknown，绝不采用get(..., True)默认。
+synthetic_event_bar==True或source_invalid==True与“有效”三条件矛盾时先隔离并标冲突，不能在未核前把合成事件当实际交易观察。它们若为unknown，保存该审计缺口，是否纳入由根冻结，不能在脚本里暗加新默认。
+d1...d20是按时序满足E(d)的前20条原观察。日历天数≠有效股票观察数≠沪深300观察数；保存三者跨度。跳过的已知原行按原标志逐项计数；行缺失/零量/无效价可能有多种原因，未有原停牌证据不能统称停牌。不可前填价格/volume，也不可把假日补成有效日。
+若跨原source_segment或未解决源换算断点，标签为SOURCE_DISCONTINUITY；不能重新锚定C0后把两段缝成一个20日结果。普通公司行为若原同尺度理论除权价格已连续，可按原尺度使用并标factor变化，不把raw机械除权缺口当实际亏损。
+原manifest close_available_time/日期通常只是声明，不证明历史真实发布/接收时间；每个X的来源、窗口、shift和known-at必须另由特征合约精确冻结。
+
+3. 标签公式（算术收盘变化，小数单位）
+p_j = C(d_j)/C0 - 1, j=1...20；p0=0。
+MFE20 = max(p0,p1,...,p20)。
+MAE20 = min(p0,p1,...,p20)。
+final20 = p20。
+future_max20_unclipped=max(p1,...,p20)，future_min20_unclipped=min(p1,...,p20)，用来显式看全跌/全涨路径。
+MFE/MAE仅用收盘，不用日内high/low；不能把收盘MFE称为可实现最高收益。保存首次到达最大/最小的原日期及有效观察序号；并列第20日期、原20个有效日期、自然日跨度，避免只剩三个无时钟标签。
+价格是原CP理论除权signal close；它是价格路径标签，不认证总回报，不计费用、滑点、资金、持仓、分红现金/应收、涨停队列或nextOPEN价差。raw_price敏感性若另做，单列raw标签和factor，不能择更有利版本；主口径由根冻结且跨所有时期保持相同。
+不足20：MFE20/MAE20/final20及future extrema全部null。保留followup_eligible_count、last_observed_day、截止日、censor reason；禁止把k<20的max/min或末次收盘填进正式20标签。可将部分路径另存纯审计，但不能进入成熟20统计。已知退市/长停/无恢复按缺口保留，不填0或-100%，也不因没有标签而从原receipt母体消失；它可能造成非随机删失，须按X组/股票/月报告成熟率。
+
+4. 执行边界
+基点是signal close，既不是在该close买到，也不是nextOPEN成交。T+1使次日买入后同日收盘的卖出通常不构成合法完整往返；标签不模拟这种往返。有效涨跌停日仍可能是20观察之一，不能因不可成交把不利/有利日删掉。
+如果原数据已保存次session/涨跌停/执行拒绝等，仅另标原记录；没有则unknown。禁止用涨幅猜ST/板块限幅或撮合可达性。无tick、盘口、postOPEN价格、停复牌接收时钟时，不能据日OHLCV认证买入/卖出可达。
+本研究的分组是解释性条件分布，不授予新CORE/MOBILE权限，不触发账户、资金或仓位结论。
+
+5. 时间划分、purge与冻结
+DEV：signal_date 2022-01-01—2023-12-31；开发比较/选择及所有dev分位点只用t20<=2023-12-31且正式标签成熟的记录。跨入2024的开发receipt仍保留于母体并标PURGED_FROM_DEV_FIT，不偷读验证未来做训练。
+V2024：signal_date 2024-01-01—12-31；V2025：2025-01-01—12-31；V2026H1：2026-01-01—06-30。三段分别报告；2025–26H1汇总只作已冻结的辅助汇总，不能替代坏年份。
+全局标签源截止先提案2026-06-30。2024/2025的完整20观察可越自然年进入下一段（因为验证阈值已经冻结且这确是未来20），必须有label_cross_calendar_year/phase、共享cluster标志；再报告t20在本段内的within-phase固定敏感性。末段不得偷偷使用7月或10月源延长，若根决定label-only延长源则须在首算前另冻结统一截止及所有源SHA，不能在看到结果后补到有利位置。
+X暖机可以读取signal日前的历史；不得读取t0之后。每个RS变化/EMA/通道/回撤/amount21/近5涨跌分布的公式、窗口、是否含当前close、shift、尺度、缺失处理，由根另一个特征合约精确枚举后才计算。不得临时加入未来label导出的股票池、趋势期或权重。
+开发拟合冻结产物须含：版本、候选字段有限列表、分组清单、X quantile cutpoints、标签tail cutpoints、源SHA、时间切分、去重算法、所有输出指标。验证只加载冻结值，不按各期重新算分箱边界、不迭代选更好组合。当前2024/2026已被看过，不能称真正未触碰测试集；应称按本协议固定的跨时期复核，并保留假设受哪些已知案例启发。
+
+6. 有限分组（最小仅边际，不做穷举交叉）
+连续X：每个预列字段，开发集非缺失且purged完整样本的经验q20/q80，固定quantile method='linear'。low: x<=q20；middle: q20<x<=q80；high: x>q80；missing单列。边界/相等值/各组实际质量全部保存；若q20==q80或某组为空，标DEGENERATE/TIES，不抖动阈值或强行切20%。
+离散的近5涨/跌/零次数保留原合法类别0...5（及missing），不凭验证结果合并；布尔/状态字段保留其原类别及unknown。强相关X仍分别报告，不以多个相似字段多数通过当独立证据。预先枚举字段总数与每字段组数，所有结果完整输出；不报告只留下最好的字段。
+不做不同EMA/RS窗口组合、网格寻优、数据驱动阈值或事后新增交叉组。若根确需少数联合组，必须在首看验证结果前写出完整穷举清单及固定算子；不能以验证分组胜出再称独立验证。
+
+7. 每个时期/每个组的必报统计
+分母：receipt N、distinct stock N、canonical E0 cluster N、月份数、X valid/missing N、正式label mature/censored N及成熟率；所有覆盖分母同时注明。
+连续结果：MFE20、MAE20、final20各自mean、median、q05/q20/q80/q95、min/max；极值须附原receipt ID而非只给平均；MFE/MAE的0点质量单列。数据少也完整报N，不填虚假的稳定估计。
+上/下尾（仅评估身份，不作为实时候选信号）：以purged完整DEV固定MFE20 q80、final20 q80、MAE20 q20、final20 q20。上尾用>=、下尾用<=；保存阈值处ties与DEV实际尾部比例，不能暗称每尾恰为20%。
+每个验证组报告selection_coverage=N组成熟/N全体成熟、tail_retention=N组且在固定尾/N全体在固定尾、conditional_tail_rate=N组尾/N组成熟；再报tail_retention/coverage的lift（coverage=0或尾分母=0则null）。上尾保留高同时下尾保留低才值得继续研究，但不压缩成事后择优的单一分数。缺X组失去多少上下尾也要报告，不只在完整特征交集内看好结果。
+按signal年月、年度、预注册日期行情窗报同一套；不能按最终收益切“行情”。月度样本未来20可跨月，标注而不当作月账户收益。预注册行情窗不得以股票事后高点界定；若根未冻结额外行情窗，最小只做月/年自然时间分层。
+原母体与任何子组的平均都非资金加权、非行业预算、非订单收益。重复CP可能把一波趋势多次计入，这恰需下一节敏感性，不能按receipt N称独立样本量。
+
+8. 重叠、同股同波与最小稳健性
+主结果保留所有原receipt，单位是信号而非独立市场机会。
+Cluster：优先stock+source_segment+原canonical E0 episode ID；未知ID不由I/账户epoch、未来低高或盈利补造。输出cluster大小、跨度、跨split/跨年情况；同一市场行情还会造成跨股票相关，不能以stock-wave簇消除一切相关。
+敏感性A：每个stock/canonical E0 cluster只留原时序首张CP，先全母体选样，再分X组，不能在每组内部各挑有利首张。未知E0 ID单列并不伪造波次。
+敏感性B：逐股全CP按时序贪心：保留第一张，之后仅在已走过超过20条有效股票观察时选下一张。选样只按时间和资格，不按X、target成熟/高低或盈亏；完整与censored都先入候选取样再标标签。它是回顾性不重叠评估取样，不是新交易冷却规则。
+补充可报equal-cluster权重：簇内每条w=1/n，给均值/尾部保留的簇等权敏感性；若需要加权分位点须先冻结定义，最小不必增加。
+最小版本不做IID bootstrap、常规t检验或把数千重叠CP计成独立N的置信区间。只给上述去重敏感性、样本量和跨月/跨年方向一致性。若未来需要区间，由根在看验证分组前冻结stock-wave与共同calendar-block两类重抽样、随机种子及次数；不能宣称单一簇bootstrap同时解决市场共振。无显著性/因果结论。
+
+9. 可继续/应停止的证据边界
+可继续的问题是：原CP之外的某个已冻结X分组，在各验证段的覆盖和删失可接受，连续路径分布及上/下尾保留有可复核且不只由一波/一股驱动的差别。这里只提出评估维度，尚不设事后“通过”数值或选优标准。
+若差异只在已知半导体赢家、某一年、极少簇、缺失过滤、某种复权版本或重叠计数下成立，应原样报告，不靠加阈值救结果。即使分布稳健，也只说明后续设计值得研究，不能证明能成交、应加钱、可提高净账户收益或能避开全部亏损。
+
+执行闸：当前仅合约设计；根冻结前不计算全量标签、阈值或验证结果。本文件未允许创建新账户/CP/模型。

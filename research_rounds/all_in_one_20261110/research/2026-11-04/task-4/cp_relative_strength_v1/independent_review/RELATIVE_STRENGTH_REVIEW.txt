@@ -1,0 +1,53 @@
+CP后的相对强度：独立公式/时钟/来源审查（不计算新指标或账户）
+
+结论
+RSstock_h=log(S_t/S_tau)-log(I_t/I_tau)，RSind_h=log(I_t/I_tau)-log(M_t/M_tau)可在现有固定来源上计算，h固定5/20/60。root事前指定沪深300为M，不另按案例选基准。
+这是本股之外的行业/市场对照输入，相对CP本体amount/m有新增比较；但整个框架已有行业E0准入和跨股排序，不能称一切信息全新，更不能称两轴/三窗口相互统计独立。当前用途仅解释CP后的相对位置，不新增硬筛或资金。
+
+1 共同端点与确认时钟
+必须先冻结同一个参考会话钟，tau为该钟向前h个间隔、需要h+1个端点位置。三条序列使用完全相同t/tau，不能各自dropna后找各自第20条观察。
+如已有可信A股会话表则使用它；若仅用沪深300保存观察日历，则明标benchmark_observation_clock，不自动认证其无来源缺口。需要记录t/tau实际日期和source segment。
+当前三个已观测收盘均在声明的研究CLOSE可用后才输出本日值；最早下一合法OPEN用于任何提案。研究15:05/15:10可用约定不等于供应商received_at/vintage认证。
+端点缺失不补0/不各自移到另一日期。可观察固定快照的比较仍能算，不因历史行业分类缺失把全部固定index数值停掉；需独立标metadata限制。
+
+2 价格/总回报与复权
+stock原prepare_signal145–218的theoretical_ex_price是连续信号坐标，文档明确不是股东总回报。它消除现金除权跳变的方式不等于严格股息再投资总回报。
+现有URFI及沪深300来源为raw price index；若直接使用股票prepared close对它们相减，必须命名SIGNAL_CONTINUOUS_STOCK_MINUS_PRICE_INDEX，不能无说明叫经济超额总收益。
+一致price-return比较需先冻结拆股/现金处理口径；一致total-return比较需三方都具同类TR方法与as-of公司行为。资料不足时保留可计算研究特征和basis标记，不现造全市场TR平台、不回填未来因子。
+指数点数与股价金额量纲不同不妨碍各自log ratio后比较；但不同币种/市场时区需要额外同币/同可知性约定，不能直接混用未收盘市场。
+
+3 行业历史与PIT分类是两件事
+本地URFI不是用2026成员自造的回溯行业组合。原manifest将其标sector_index/unadjusted_index，来源路径指向保存的THS index history；代表URFI881101为种植业与林业，已有供应商日线历史。这支持固定指定行业index比较，不认证官方历史成分、divisor修订或供应商历史vintage。
+stock→行业bridge观测2026-10-22不PIT，原1709固定池亦非PIT/缺退市覆盖。使用该bridge评价2022/2024股票时须标FROZEN_20261022_CLASSIFICATION_NOT_PIT，不可声称当时策略确会归到这行业。
+不应把‘历史分类未知’说成‘真实行业指数不存在’，也不能因指数历史真实就反证当前分类也是PIT。基准沪深300固定且来源可追踪，同样只说明比较对象明确，不自动认证所有历史版本。
+行业更换时应明确本日分类选定的同一个index覆盖整个h窗，不能t用新行业、tau用旧行业拼出假指数回报；若无当时分类则保持固定映射研究标签。
+
+4 精确恒等式与机械相关
+同h、同端点、两轴同一I返回时，RSstock_h+RSind_h=log(S_t/S_tau)-log(M_t/M_tau)精确成立。第二轴是把stock-market spread拆为个股相对行业和行业相对市场；不是两次独立确认。
+若行业index确含该股，行业收益与本股机械相关。单期简单收益、已知权重且一致divisor条件下，r_I=w*r_S+(1-w)*r_peer，所以r_S-r_I=(1-w)*(r_S-r_peer)。log多日形式不是这个简单线性等式。
+不能用2026权重假造历史leave-one-out。无PIT成员/权重就标SELF_INCLUSION_UNKNOWN；保留原index比较可算。行业与CSI300也可重叠，进一步不能相乘为独立概率。
+RS是benchmark-relative变化，不是beta/style回归alpha，不是bounded RSI。大盘大涨而个股少涨时RS可负；熊市行业少跌也可RS正，均不自动代表买/卖资格。
+
+5 5/20/60互补的预设反例
+5更快反映启动，也更容易被单日脉冲/假突破/尾部噪声驱动。20较平滑但会把刚启动与窗口中旧跌混合；60可长期保留旧赢家优势，急V首腿可能仍弱，慢趋势当前转弱也未必立即翻负。
+窗口嵌套、共享当日端点；一个当日价格冲击会同时进入三项，不是三票独立确认。不能根据盈新/海能输赢挑哪个窗口当硬门。
+RS_h(t)-RS_h(t-1)=当日超额log r-窗口滚出日超额log r。改善可能只是旧弱日滚出，即使今日没有超额正推进；不能把每次RS改善当新独立信用。
+强行业中本股大涨仍可能落后行业；强市场中行业也大涨仍可能相对弱。旧持仓和新机会都上涨时，相对高低不自动证明值得换仓；本任务不推导机会成本或资金。
+
+6 与原H1/PVR的有限源码排重
+实际链已定位：当前input_loader54调用J.M.context；mainline-I-quarter adapter58–64读取runtime update-20261030.../prepared/h1.npz；engine.packet36传bundle.at_decision，其current_pool_bridge334–347读取缓存score；J.planning220据此排序，wire.physical仅截断缓存。
+缓存生成器refresh.extend_h1调用rs_h1_model.raw_momentum8–21：成熟h=252时为.4*(C/C63-1)+.2*(C63/C126-1)+.2*(C126/C189-1)+.2*(C189/C252-1)。年轻样本h截断、端点同市场钟，并再做跨股/行业参考分组百分位，不应把输出H1直接叫该raw分数。旧sector_stock_admission.rs_score是固定253观察版本；不能只读它就宣称实际缓存所有行均直接用该函数。
+PVR original_score_function为本股价格标准化冲击u、amount基准乘数及21观察加权E的分数，没有stock-industry/industry-market减法。native_rank50–90在原唯一H1槽位内重排ready PVR候选，保留其它原意图字段。
+本轮核的是实际读取链与生成源码含义，没有逐行重造/对拍旧H1/PVR数值或证明所有旧研究无相同特征。行业E0及跨股排序已含横截面对照，故新轴相对CP新，不代表相对整个框架全新。
+原CP m=1+.5|tanh(r/s)|tanh(log(amount/B))只把本股金额作用于本股新高credit速度，与固定bench return差不是同一公式；两者仍共享本股当日价格，不是完全独立样本。
+
+7 精确状态标记，数值可算与可交易分离
+每h保存sid、stock/industry/market index_id与sourcehash、benchmark定义版本、t/tau、return_basis、classification_asof、source_segment、研究/供应商可知时钟、端点年龄。
+value_status：VALID_FIXED_COMPARISON；UNKNOWN_NO_ENDPOINT；UNKNOWN_NOT_ENOUGH_HISTORY；INVALID_NONPOSITIVE；UNKNOWN_SOURCE_BREAK；STALE_CURRENT_ENDPOINT。未知不记0/false。
+metadata_flags独立：CLASSIFICATION_NOT_PIT、INDEX_CONSTITUENTS_UNVERIFIED、SELF_INCLUSION_UNKNOWN、RETURN_BASIS_MIXED_SIGNAL_PRICE_INDEX、VINTAGE_UNCERTIFIED。固定数值可算时不因这些标签自动抹掉，但不能据此声称完整PIT因果实验。
+freshness：current endpoint必须正好t且原观察有效；age_sessions>0为STALE，不以旧RS重复铸新许可。tau端点也必须是同一共同日期，不用价格回填冒充真实当日观察。中间缺口需区分明确停牌/官方非交易日与来源缺失，跨源/除权不明单列。
+tradability单独标：NEXT_OPEN_UNKNOWN、SUSPENDED_VERIFIED、LIMIT_OR_CAPACITY_CONSTRAINED_VERIFIED或已有原执行代理标记。不能从RS数值正负或零成交量一概推断可交易/不可交易，不能把研究daily proxy当真实盘口。
+同一CP来源的stockRS/indRS及5/20/60组合成一个解释packet，不是六张receipt；值持续/符号翻转/旧弱日滚出不自行恢复已消费凭据。只有未来明确授权的新策略契约才可改变许可，不由指标输出暗中产生订单/追加风险或覆盖旧保护。
+
+审查范围
+只读本地原公式、manifest/来源与数学推导。基准由root事前固定，不另挑指数；不拉新数据、不构造新RS状态/指标、无账户/回测/金额参数/收益论证。数值准备可继续，但应保留上述独立口径标签；此报告不是RS改善策略效果的通过结论。

@@ -1,0 +1,92 @@
+FILE /Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-b5-20261025/code/evidence.py SHA256 c2d48324161628c18daee7e13717516049889d172081286ab06a4cfcb4eb6c38
+100:     raw = bars[["close", "volume"]]
+101:     d = raw.loc[raw.gt(0).all(axis=1) & np.isfinite(raw).all(axis=1)]
+102:     numeric_columns = [column for column in EVENT_COLUMNS if column not in EVENT_DATE_COLUMNS]
+103:     blank = pd.DataFrame(np.nan, index=bars.index, columns=numeric_columns)
+104:     blank["event"] = 0.0
+105:     for column in EVENT_DATE_COLUMNS:
+106:         blank[column] = pd.Series(pd.NA, index=bars.index, dtype="string")
+107:     if d.empty:
+108:         return blank[EVENT_COLUMNS], pd.Series(np.nan, index=bars.index)
+109:     prices, volumes = d.close.to_numpy(), d.volume.to_numpy()
+110:     returns = [math.nan] + [log_ratio(prices[t], prices[t - 1])
+111:                            for t in range(1, len(d))]
+112:     sigma = np.full(len(d), np.nan)
+113:     baseline = d.volume.shift().rolling(21).median().to_numpy()
+114:     for t in range(64, len(d)):
+115:         sigma[t] = max(math.sqrt(math.fsum(x * x for x in returns[t - 63:t]) / 63), 1e-8)
+116:     direction, ext = -1, None
+117:     rows = []
+118:     for t, date in enumerate(d.index):
+119:         row = dict(confirmation=math.nan, leg_direction=math.nan,
+120:                    developing_extreme=math.nan, confirmed_pivot=math.nan,
+121:                    event=0.0, pivot_age=math.nan,
+122:                    developing_extreme_price=math.nan, confirmed_pivot_price=math.nan,
+123:                    confirmed_pivot_date=None, developing_extreme_date=None)
+124:         if not math.isfinite(sigma[t] + baseline[t]):
+125:             rows.append(row)
+126:             continue
+127:         if ext is None:
+128:             ext = t
+129:         extreme_order = compare(prices[t], prices[ext])
+130:         if (direction == -1 and extreme_order < 0) or (direction == 1 and extreme_order > 0):
+131:             ext = t
+132:         if t > ext:
+133:             activity = math.sqrt(
+134:                 (math.fsum(float(x) for x in volumes[ext + 1:t + 1]) / (t - ext))
+135:                 / baseline[ext]
+136:             )
+137:             activity = min(max(activity, 0.5), 2.0)
+138:             confirmation = (-direction) * log_ratio(prices[t], prices[ext]) * activity / (math.sqrt(5) * sigma[ext])
+139:             row["confirmation"] = confirmation
+140:             if compare(max(confirmation, 0.0), 1.0) >= 0:
+141:                 event = -direction
+142:                 pivot = float(prices[ext])
+143:                 row.update(event=float(event), confirmed_pivot=math.log(pivot),
+144:                            confirmed_pivot_price=pivot, pivot_age=float(t - ext),
+145:                            confirmed_pivot_date=str(d.index[ext].date()))
+146:                 direction, ext = event, t
+147:         row.update(leg_direction=float(direction),
+148:                    developing_extreme=math.log(float(prices[ext])),
+149:                    developing_extreme_price=float(prices[ext]),
+150:                    developing_extreme_date=str(d.index[ext].date()))
+151:         rows.append(row)
+152:     result = pd.DataFrame(rows, index=d.index).reindex(bars.index)
+153:     result["event"] = result.event.fillna(0.0)
+154:     for column in EVENT_DATE_COLUMNS:
+155:         result[column] = result[column].astype("string")
+156:     observations = pd.Series(np.arange(len(d), dtype=float), index=d.index).reindex(bars.index)
+157:     return result[EVENT_COLUMNS], observations
+FILE /Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-participation-response-20261020/code/numeric.py SHA256 b07f92f309864ba1cfdb84f76adbf7c4d97d5eff6d90b6b25acd62577be0c2e3
+94:             ext = t
+95:         if active and not event_exit and compare(prices[t], floor) <= 0:
+96:             active, row["exited"] = False, 1.0
+97:         extreme_order = compare(prices[t], prices[ext])
+98:         if (direction == -1 and extreme_order < 0) or (direction == 1 and extreme_order > 0):
+99:             ext = t
+100:         if t > ext:
+101:             activity = math.sqrt(
+102:                 (math.fsum(float(x) for x in volumes[ext + 1:t + 1]) / (t - ext))
+103:                 / baseline[ext]
+104:             ) if joint else 1.0
+105:             activity = min(max(activity, 0.5), 2.0)
+106:             confirmation = (-direction) * log_ratio(prices[t], prices[ext]) * activity / (math.sqrt(5) * sigma[ext])
+107:             row["confirmation"] = confirmation
+108:             # A numerically indistinguishable exact threshold is inclusive.
+109:             if compare(max(confirmation, 0.0), 1.0) >= 0:
+110:                 event = -direction
+111:                 pivot = float(prices[ext])
+112:                 row.update(event=float(event), confirmed_pivot=math.log(pivot),
+113:                            confirmed_pivot_price=pivot, pivot_age=float(t - ext),
+114:                            confirmed_pivot_date=str(d.index[ext].date()))
+115:                 if event == 1:
+116:                     if active:
+117:                         floor = higher(floor, pivot)
+118:                     elif not row["exited"]:
+119:                         active, floor, row["entered"] = True, pivot, 1.0
+120:                 elif event_exit and active:
+121:                     active, row["exited"] = False, 1.0
+122:                 direction, ext = event, t
+123:         row.update(leg_direction=float(direction),
+124:                    developing_extreme=math.log(float(prices[ext])),
+125:                    developing_extreme_price=float(prices[ext]),

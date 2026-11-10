@@ -1,0 +1,50 @@
+独立结果审查：PASS_FULL_CASH_ALGEBRA_AND_STATIC_ENDPOINT_ADMISSION
+
+audit_full_cash_bounds.py只用原book/funding/audit、原dated quantity/fee规则和保存的上界行，
+不导入策略、Account、Runner或native fee函数，3.41秒完成。没有金融路径或新价格标签。
+
+已独算
+1. 726+242=968个原EOD可用现金均由初始1m及实际交易毛额/费用完全桥接，Decimal残差0。
+   结算fx1、due_at=实际settle_at；每笔卖净款结算在当日全部新reserve之前。
+2. 2321+1198=3519原reserve与funding获准顺序逐单一致；全部reserve先于buyfill和release；
+   reserveID与releaseID闭合，journal cancel_ack全在CLOSE；完整原audit事件类别已检查。
+   因此S0=EOD.available+实际买gross+fee，以及A=S0-此前reserve gross+fee在本账成立。
+3. 全132742现金拒绝行与原funding/intent逐key重接；A/S0/prefix/decisionNAV/held数量/
+   first/flat-reentry/ADD/原拒因等全核同，现金算术残差0。
+4. 全部最小量按dated rule核同；所有最低买费用独立Decimal公式重算，覆盖5个venue、
+   14个venue/schedule/qmin组合，费用及完整最低现金cost残差0；未调用原LR.fees。
+5. long74185/strong58557均有物理A支付各自qmin的必要能力；角色/成熟stage/F1联合/
+   raw-cash-only汇总与完整行复算一致。唯一stock-OPEN分别54693/42988，角色行有重复。
+
+判断边界
+“全部有物理现金”只证明原prefix单笔现金必要条件；它们被额外10%挡住不等于移除
+缓冲就全部能下单。原raw-cash-only子集也不等于完整共享重排实际获准集合。风险/
+sector/pool/stock/receipt和重排反馈须完整保留，不能把必要能力数加总为并发成交。
+U=0限于原spot账本未出现额外未扣款，不是未来所有费用/机会/跳空都为0。
+
+独立代码没有重读全部原raw OPEN/factor文件或重跑每条core risk preview；本审计重点是
+完整现金前缀及费用。原full_cash_bounds.py对此有源hash与原frozen cap/预算/core risk
+检查；不夸称本次独立重建了全部原金融quote。源3507SHA只由原分析末复核，本独审
+单独绑定9份算术输入及审计代码；没有第二次全库hash工程。
+
+后续准入
+可进入有限、完整13已审S0/4172原意图的共享静态资金端点，先证明两种allocation各13
+reference_cash10原结果身份。每个S0独立，不拼接财富，不恢复/新建Account。先冻结
+总计算预算/invalid停止语义；保留全部新/丢/缩量、角色、pool及费用，最终组合再验。
+
+native singlepass的cash10→0是原资金政策一因子对照；confirmed-min-first的cash10→0
+是另一allocation条件下的同一组件对照，四格交互不得冒充单一政策增益。0buffer只是
+乐观端点，不是所有reserve政策的全局上界，也不是已冻结的动态释放方案；接口没有
+ACT+成熟stage的额外释放条件时，不能称已实现该条件策略。F1只作明确分层。
+
+ACT+confirmed/expanded是本卡拟议成熟行业释放范围，不涵盖全部原合法core/probe；
+其余stage不应描述成原策略无效或不许可。未来F1控制释放时，false仍保留旧10%，
+不额外禁止原本可买单。不能用2026结果改变AND/OR或给三股专属资金。
+
+原ADVERSE_YEAR_LIQUIDITY_STOCK_SUMMARY最初只含有原OPEN资金尝试的日期；parent已
+在补真实完整market OPEN和F1 UNKNOWN说明。本审查不把旧表冒称全部熊市开盘。
+该展示补充不影响已证的132742原cash拒绝及968日cash bridge；最终结论前须替换分母。
+
+审计自身第一次立即因局部变量R遮蔽全局roots的UnboundLocalError中止，0数据处理/0
+金融事件。已改局部名Rbuf后运行上述只读算术，工具原错误保留；未改原分析或金融结果。
+当前无现金代数实质阻塞，不批准连续账户或盈利结论。

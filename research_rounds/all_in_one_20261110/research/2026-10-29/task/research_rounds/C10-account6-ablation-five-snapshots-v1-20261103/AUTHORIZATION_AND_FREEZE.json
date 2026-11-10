@@ -1,0 +1,51 @@
+{
+  "parent_authorized": true,
+  "scope": "FIVE_COMPLETE_ORIGINAL_C10_SNAPSHOTS_STATIC_AR6_ONLY",
+  "dates": [
+    "2025-07-08",
+    "2025-07-22",
+    "2025-08-05",
+    "2025-08-13",
+    "2025-08-15"
+  ],
+  "financial_events": 0,
+  "account_runner_allowed": false,
+  "ablation_enabled_false": "original account risk6 enforced",
+  "ablation_enabled_true": "only account risk6 admission removed, risk still fully measured",
+  "unchanged": [
+    "sector risk5",
+    "account capital90",
+    "cash10",
+    "stock10",
+    "original eligibility/role/priority/target",
+    "probe/core constraints",
+    "fees",
+    "protection",
+    "ACT",
+    "actual exit locks/reservations"
+  ],
+  "full_candidate_inputs": {
+    "INPUT-2025-07-08.json": "823e5fe270ff4c143deb968dbcde25d9bcf7c20bac6d629cd2c8fd7227f62ea7",
+    "INPUT-2025-07-22.json": "a49742390ad2741476fdd6950a997a4165f7c4deeeb44303a1071366a77c9bdf",
+    "INPUT-2025-08-05.json": "4e0fb706cb62d6377dcd6f01f8fa1aa39e6c815017cb470f2a933af2a356807f",
+    "INPUT-2025-08-13.json": "4da063367aac80758448ac989dea545ca70d0556bf862449259e87ef25f0f585",
+    "INPUT-2025-08-15.json": "876e76a4c5e476f7a18079d485098a68f31f1b81bc6e1a2105232b76d9630170"
+  },
+  "sources_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-three-batch-causal-preview-20261102/INPUT-C10-2025-07-08.json": "62cb497c12c77d4395fde0d40db529687a89f851d20cbff649d4a59b403ecbb8",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/replacement-six-package-projection-v1-20261103/INPUT-C10-2025-07-22.json": "0752b6fa14b68f8a29bc3b4f94f7b0114ded80cd3f988a45e54c23e7d80f7341",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/replacement-six-package-projection-v1-20261103/INPUT-C10-2025-08-13.json": "ad18f36b984ce34699ece1cffa93fb9629fe9a390201794b814ff6d5d7387261",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/replacement-aug15-package-projection-v1-20261103/INPUT.json": "5db07b45f4f1834d813cd39fd5d13955a792bbd3d0aed71ec02a6b082e87370b",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-August-continuation-v1-20261102/runs/C10/2025-08-05-CLOSE.pkl.gz": "f3524660d5baeb5f652ce8d4dca8deb384398d89a00e444348aa539c9b030d24",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-August-continuation-v1-20261102/runs/C10/2025-08-05-CLOSE.provenance.json": "61a5df6cb4030bbd18ea0b8aad341a963d19003f4b76d6f7677d3f7df9472703",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-B-joint-target-v2-20261102/selector.py": "44e7345ef2b3fc494e9854216579aa5faa0e0557b4ecbc207b1027b102e401a8",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-joint-funding-projection-jf2-20261102/projector.py": "b76660a053a09a4e394b32b9ccc61f709cdc98ac6bf900a425f476700c7771cf",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-industry-first-projection-v1-20261102/c_selector.py": "8a4b89cec342763f922ae65b3d138792cc6945f452595d86a263f5c0b15bc130",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-native-synthetic-v3-20261102/native_c.py": "363d879d55b87669c6ef3d05a70756d91541c8a2a4f6316942d58945c112e8df",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/C10-account6-ablation-five-snapshots-v1-20261103/ar6_policy.py": "55c74381c88e93ccdd1978b2a38422dbf49b02ce2b67b49f0c0c7e77af544b77",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/C10-account6-ablation-five-snapshots-v1-20261103/prepare.py": "f9b5e67c9f38b4f0d9d686aeaa50f3f4327232db701a1ac3ff15d15bbd13b8f6"
+  },
+  "technical_native_check_ceiling": 250000,
+  "not_continuous_paths": true,
+  "no_Pareto_no_R0_no_C20": true
+}

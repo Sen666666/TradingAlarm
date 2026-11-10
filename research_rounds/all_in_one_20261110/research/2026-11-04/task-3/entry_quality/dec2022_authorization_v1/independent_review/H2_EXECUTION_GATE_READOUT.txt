@@ -1,0 +1,9 @@
+PASS: no unresolved H2 source/numerical/native-prefix execution gate.
+
+All 1709 symbols / 1731880 retained rows were independently reconstructed from original exact common-market endpoints with same-source stock and industry. 1806 hashes checked; inherited EMA20 arrays compared directly to the previously fully audited artifact. All 3436 entry contexts, Dec122 actual-fill contexts and 57213 original held CLOSEs reconcile. First eligibility 388/124 layers; December37; CORE overlay events0.
+
+Ten production-AST fixtures passed 220 physical-prefix/future-mutation comparisons; exact-date lookup and source/sector/future identity rejections passed. R and P readiness is mode specific.
+
+Five same-physical-cutoff Jan4-Jan21 prefixes: BASE exact full book and daily against original native. R_ONLY/P_ONLY/JOINT made26/20/10 mobile requests;25/18/9 actual overlay sell parts,296/27/24 denied fresh mobile roles. All52 overlay sale parts obey original next OPEN, T+1 and fees; all held live mobile membership and pending precedence checked. No overlay CORE sales. Prefix NAV is not strategy validation.
+
+Complete six-path accounting and mechanism audit remains separate; no rule, input or account source edited by independent review.

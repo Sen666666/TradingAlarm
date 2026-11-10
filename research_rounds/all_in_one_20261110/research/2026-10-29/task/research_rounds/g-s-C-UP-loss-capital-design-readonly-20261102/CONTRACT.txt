@@ -1,0 +1,31 @@
+Read-only UP actual-loss decomposition and one design candidate, no account/policy run.
+Use original Jul1--31 C10/C20 ledgers and the already-verified UP_CONTINUATION cohort.
+Loss denominator = sum of NEGATIVE ACTUAL SALE-PART realized PNL (magnitude), attributed
+to each original buy layer/authorization close. Do not net winners into the loss
+denominator or call open-layer contribution unrealized. Also retain capital, positive
+sales, actual realized net, unrealized and booked-dividend contribution separately.
+All UP funded layers, sectors and authorization batches retained.
+
+Choose the shortest descending-loss batch prefix covering >50% of that denominator;
+report every batch and cumulative share, not only chosen ones. This majority rule is
+descriptive case concentration, NOT a trading threshold. Profit controls: preserve all
+positive actual UP layers; report largest closed positives in distinct industries and
+largest open positive separately with censoring, never use them in trade selection.
+
+As-of features use existing source CP1/facts/H1/F1 snapshots only. Industry first
+market-qualified fresh CP1+Q+G/S permission differs from first provider/minlot-valid,
+first C-positive plan, first actual fill. Financial window starts Jul1: earlier delay
+left-censored, never invented. Actual C queue differs from all-90 H1 rank.
+Latest industry price_advance must be in SAME actual live F1 context with original
+known/confirmed clock <= decision close. Warm inherited proof records retained;
+past permit state unknown when not stored. No unsupported prior-state inference.
+Current source CP1 always has positive delta on fresh day, so also report previous
+positive frontier/receipt and return relative to native lagged scale. This is
+descriptive existing-source normalization, no new strength threshold.
+Industry prior21 return may use saved native 63-close history; stock prior21 lacking
+saved observations stays N/A. Stock since-Jun30 progression is not falsely called21.
+Initial floor and actual next-open gap are distinct from decision-close floor distance.
+
+Design may be formulated AFTER inspecting existing attribution (explicitly exploratory),
+but no target selector/financial replay/size-grid or ranking change is implemented.
+Must cover the main loss case structurally and expose UP winner/fast-capital costs.

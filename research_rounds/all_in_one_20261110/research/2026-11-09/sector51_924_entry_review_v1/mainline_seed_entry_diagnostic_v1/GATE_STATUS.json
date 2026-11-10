@@ -1,0 +1,18 @@
+{
+  "status": "COMPLETE_DEVELOPMENT_DIAGNOSTIC_NOT_FROZEN",
+  "fixed_formula": "MATURE new SEED only: tri_or(original F, valid CP receipt_day >= original_signal_day)",
+  "no_formula_variants_or_parameter_sweep": true,
+  "no_production_edits": true,
+  "no_strategy_engine_or_portfolio_replay": true,
+  "all_local_only": true,
+  "prior_sealed_outputs_verified": 72,
+  "original49_unchanged": true,
+  "review_boundary_fixes_checked": true,
+  "actual833_classification_difference_count": 0,
+  "focus26_timing_difference_count": 0,
+  "synthetic_checks": 22,
+  "known_limitation": "Diagnostic applies only to observed complete source/quote/factor chains. Not a substitute for production known_origin and original Q0 action_inventory interval recovery; actual inspected sentinel/gap count zero.",
+  "readout_sha256": "38cac952b856034696a8c7527a08acd102af783f27a2d47c970a4332ac404d93",
+  "structure_readout_sha256": "08b0ec93b93ea0ed3e75507321158a776bf358b9e20ba6190160776752b1b003",
+  "contract_sha256": "79ebeb73457914656eb70e4ecb59a58008e57d7cb92dd1296dd86d3577efbe12"
+}

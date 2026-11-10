@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "1_warning_then_flat",
+      "expected": "边界固定；横盘不触发、不按时间增加压力",
+      "actual": "B固定；0退出请求",
+      "passed": true
+    },
+    {
+      "case": "2_continuous_decline_cross_boundary",
+      "expected": "首次收盘<=B才锁定额外退出，下一合法时点执行",
+      "actual": "95首次穿B；第4观察锁定1次请求",
+      "passed": true
+    },
+    {
+      "case": "3_V_repair_without_crossing",
+      "expected": "未穿B的V形不退出，也不凭价格修复自动抹掉边界",
+      "actual": "0请求；边界保留",
+      "passed": true
+    },
+    {
+      "case": "4_cross_then_repair_cannot_cancel",
+      "expected": "先穿B后反弹/正event不可取消退出或重复请求",
+      "actual": "原第2观察退出保持锁定；请求仍1次",
+      "passed": true
+    },
+    {
+      "case": "5_positive_event_floor_below_boundary",
+      "expected": "正event但新floor<B不能移交；有效保护仍max(floor,B)",
+      "actual": "floor=90<B；B仍生效",
+      "passed": true
+    },
+    {
+      "case": "6_safe_handoff_and_original_floor_priority",
+      "expected": "floor>=B方可移交；以后原floor保护不弱于B",
+      "actual": "96.5安全接管；随后95由原floor退出",
+      "passed": true
+    },
+    {
+      "case": "7_repeat_warning_never_lowers_boundary",
+      "expected": "重复警报不得改P/σ或下移B；仍按第一次边界检查",
+      "actual": "较低P/较大σ被忽略；仍在原B触发",
+      "passed": true
+    },
+    {
+      "case": "8_unknown_sigma_keep_original_protection",
+      "expected": "缺失/不可用首次σ标未知，不用后日尺度补；原floor继续工作",
+      "actual": "None/NaN/0/负/Inf均未知；79仍按原floor退出",
+      "passed": true
+    },
+    {
+      "case": "9_warning_day_shock_blind_spot",
+      "expected": "警报当日冲击已发生；新边界不倒填到冲击之前",
+      "actual": "200到100当日不由新B提前退出；100生成B，之后横盘不触发",
+      "passed": true
+    }
+  ],
+  "case_count": 9,
+  "observations": 42,
+  "fixture": {
+    "warning_price": 100.0,
+    "sigma": 0.02,
+    "boundary": 95.62638985171495,
+    "original_floor": 80.0
+  },
+  "state_machine_only": true,
+  "native_E0_event_generator_tested": false,
+  "real_market_files_read": 0,
+  "historical_trigger_checks": 0,
+  "return_or_profit_tests": 0,
+  "product_changes": 0,
+  "models_or_parameter_search": 0,
+  "seconds": 0.0023228339850902557,
+  "sha256": {
+    "minimal_boundary.py": "de8287b60387f4fef52d2974833b11788abef7ad47f3d43b4eced9c0b89c00a5",
+    "synthetic_checks.py": "fb25e477f1294f0a381e8920bd1719124ec4d84ffb44a6a1eeb3694453117f3d",
+    "synthetic-trace.csv": "4dc63c331fa58160408638fed11347e9a8af6ec51e8f10133c40f0874683afb6",
+    "synthetic-expectations.csv": "926d1ec271e150a035f497e78ff325b6deb91934ee2f7dc76be2087a17ffb66b"
+  }
+}

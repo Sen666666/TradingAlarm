@@ -1,0 +1,4 @@
+既有标签join首次执行时，缩量组使用了与producer不同的status字符串，显示0份。
+原producer真实值是shrunk_original_intent/lost_original_intent，已按这两个精确值修正，
+28缩量订单全部保留、均有原标签。116新增及其分组结果未变；政策、候选、价格标签
+与原源均未修改。修正后的源码/输出SHA见ADDED_LABEL_SOURCE_SHA256.json。

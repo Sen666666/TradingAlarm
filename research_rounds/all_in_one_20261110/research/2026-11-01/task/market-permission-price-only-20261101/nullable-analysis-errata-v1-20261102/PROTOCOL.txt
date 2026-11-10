@@ -1,0 +1,16 @@
+2026-11-02，独立分析勘误，不改任何原文件，计算前冻结。
+
+授权仅修复旧analyze_static.py:242在市场分析读取层把pending_failure_at NaN误作非None的问题。范围：2026-04-30与2026-05-07全部1709股票/90行业市场列表、原B/PVR_SLOT1排名、原C行业H1先序市场排名、May7推进归因。没有金融loader、账户构造/恢复/推进、资金求解、订单或指标重算；不运行F1.step，不下载。原Jan6/Jul3 B/C目标与28条接收（15个industry-policy组）直接按原hash保留，不重算，不称账户bug。
+
+所有旧稿保留在原位置。新目录输出替代市场分析视图、逐文件替代清单、输入/输出hash、nullable测试和影响边界。哈希只绑定原字节完整性；不把旧完整性断言继续当正确经济/市场分母。原金融target、source/指标文件、原完整覆盖诊断均不得覆盖。
+
+统一nullable失败时间：字段存在且值为None或标量NaN/pandas NA/NaT时，规范为ABSENT；合法原ISO日期或日期对象为PENDING；字段缺失、格式错误、bool、0、非空非日期、数组/映射一律UNKNOWN。UNKNOWN不等于ABSENT，不授ACTIVE支持/permit/成熟。真实PENDING拒绝新增许可。保留原pending值类型和规范状态，不抹掉观察失败。合成测试覆盖None/NaN/真实pending/缺字段及异常类型。
+
+原始有效股票资格、价格、I/CP1保护、因子必须全部已知且合法；缺失/NaN/非正因子和保护不补0，不用nullable时间修复扩展到其他未知。候选只来自原canonical fresh精确confirmed_day收盘，已知股票Q且原价高于两条保护；全1709/90保留false/UNKNOWN与零机会。只读原缓存的H1与PVR，PVR NA沿原slot/tie，不建立新分数。
+原facts的I标志按原已有缓存0/1编码读取；仅已知0/1解码为False/True，缺失/NaN/其他值保持UNKNOWN，不用任意truthy值授资格。合成测试单列此解码边界。
+
+先从已审F1日表完整左端读取context事件到固定收盘；break_started/repair_restored创建context，任何price_failure*或source_changed_context_ended清旧context。成熟定义、0.6、原尺度、事件、permit不改。仅normalize缺省失败时间读取；绝不将历史推进解读为未用资金凭证。
+
+B顺序精确复用原纯priority_plan（AST仅提取该函数，无模块/金融loader导入）。C市场顺序按原prepare.py：90行业既有行业H1，降序12位小数、sector码tie；行业内沿原B顺序。原最小量/最小费用只为保存市场元数据，使用原纯日期规则/费用类AST片段；不生成目标/资金容量，不调用账户或C/B求解器。未知最小资料保持UNKNOWN。
+
+May7归因对全部90行业保留当前context、当天原price_advance、permit/成熟与纠正后的fresh计数，不把推进事件独立造机会。当天推进门仍不晋升，不改阈值。分析信号不代表下一开盘可成交或资金可承接。

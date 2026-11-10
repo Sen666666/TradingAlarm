@@ -1,0 +1,18 @@
+{
+  "old_pair_abandoned": true,
+  "reason": "mobile_candidates_do_not_test_initial_selection",
+  "new_pair": [
+    "300857.SZ",
+    "603039.SH"
+  ],
+  "new_at": "2024-03-14 09:30:00+08:00",
+  "new_pair_preflight_passed": true,
+  "new_pair_account_paths_started": 0,
+  "old_partial_original_closes": 476,
+  "budget_now_authorized_seconds": 600,
+  "prior_calculation_and_preservation_seconds": 302.2126391669735,
+  "full_iteration_not_complete": true,
+  "normal_base_reusable": true,
+  "reference_prefix_exact": true,
+  "shared_qualification_cache_prefix_exact": true
+}

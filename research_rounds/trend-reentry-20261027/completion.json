@@ -1,0 +1,20 @@
+{
+  "status": "complete_not_adopted",
+  "new_economic_paths": 9,
+  "full_original_controls": 3,
+  "economic_reruns": 0,
+  "post_result_parameter_revisions": 0,
+  "platform_changed": false,
+  "artifacts": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/trend-reentry-20261027/CONCLUSION.txt": "620b1cc44997322d12633bcd4f9c62d3230f66e9da9f88d386916196610a7f17",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/trend-reentry-20261027/RULES.txt": "d2450252d2f598329bc573ec7749a8a65b46cff89dc3a05de5cfedac6c6d5053",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/trend-reentry-20261027/verification.json": "2d79bf6ef5c624f2f5521dc08007051e4d3832767cbf24bfed241c4c90d450ca",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/trend-reentry-20261027/summary.csv": "9a85ce36b821f28cbba426ba8c27038ab1e75f69613d83542fcd6580355a9af0",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/trend-reentry-20261027/local-contribution.csv": "022f9e333811310b920986f1d3ce8c2c30c683ff3695eb3e524dff5d7a1680f0",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/trend-reentry-20261027/event-funnel.csv": "da75a498b8a09605839f295176d23e7f24b7ac949f96c0476b9efdcbc09ebb07",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/trend-reentry-20261027/profit-bridge.csv": "e579c9f0b40149a14a78ae1027e63063aaf498909e2af0cfeb50007770e1f64a",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/trend-reentry-20261027/resource-diagnosis.csv": "4f44e8a2d6c9a6bc54f2eff21a90daf5ca36e42991337bb2dcad9e6468bc70bf",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/trend-reentry-20261027/comparison.png": "26b962e5ff65f0c58ce0ea0ed090bd785995655efb217e4af40886aaa0aff240",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/trend-reentry-20261027/cases.png": "07f595c2ede220119245dee159990730286c31aea6d4b98e67ac33543db8561d"
+  }
+}

@@ -1,0 +1,81 @@
+FILE /Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py SHA256 85f21ad1622863645618f570b5f2e832558ebaca218ff2c71d0b4a0b545dd0bf
+26: def calculate(f,price_only=False):
+27:  z=features(f);out=[];phase=None;anchor=frontier=scale=None;credit=0.;segment=None
+28:  for day,row in f.iterrows():
+29:   q=z.loc[day];p=math.log(row.close);fresh=0.;receipt=False;candidate=math.nan;reason=None;disp=math.nan
+30:   if row.segment_id!=segment:
+31:    phase=None;segment=row.segment_id;reason='source_reset'
+32:   ready=math.isfinite(q.z)
+33:   if not ready or not row.e0_valid:
+34:    phase=None;anchor=frontier=scale=None;credit=0.;reason='unprepared' if not ready else 'E0_invalid'
+35:   elif phase is None or row.e0_down:
+36:    phase='SEEK';anchor=frontier=p;credit=0.;scale=float(q.z);reason='E0_down_reset' if row.e0_down else 'start'
+37:   elif phase=='SEEK' and gt(anchor,p):
+38:    anchor=frontier=p;credit=0.;scale=float(q.z);reason='lower_anchor'
+39:   else:
+40:    fresh=p-frontier if gt(p,frontier) else 0.
+41:    if fresh:
+42:     frontier=p;credit=math.fsum((credit,fresh*(1. if price_only else float(q.m))))
+43:    disp=frontier-anchor
+44:    receipt=bool(fresh and ge(disp,A*scale) and ge(credit,A*scale))
+45:    if receipt:candidate=float(row.close)*math.exp(-K*scale)
+46:   used_anchor,used_scale,used_credit=anchor,scale,credit
+47:   used_phase=phase
+48:   if receipt:
+49:    phase='UP';anchor=frontier=p;credit=0.;scale=float(q.z);reason='receipt_consumed'
+50:   out.append(dict(ready=ready,phase=used_phase,reset_reason=reason,anchor=used_anchor,frontier=frontier,scale=used_scale,credit=used_credit,delta_frontier=fresh,displacement=disp,receipt=receipt,candidate=candidate,next_anchor=anchor,next_scale=scale,next_credit=credit,next_phase=phase))
+FILE /Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-b5-20261025/code/policy.py SHA256 72f6785d9ee37df086b88963623569f046479a1934d420a15e2d141f8240b660
+91:             price_event = int(fact.event) if pd.notna(fact.event) else 0
+92:             ready = bool(fact.ready)
+93:             c = float(fact.close)
+94:             q = float(fact.volume_ratio)
+95:             declined, high_effort = bool(fact.declined), bool(fact.high_effort)
+96:             entered = exited = created = response = consumed = independent = 0
+97:             ended_id = None
+98:             entry_kind = ""
+99:             if active and compare(c, floor) <= 0:
+100:                 active, exited = False, 1
+101:             if pending:
+102:                 if compare(c, pending["lower"]) < 0:
+103:                     response = -1
+104:                 elif compare(c, pending["reclaim"]) > 0:
+105:                     response = 1
+106:             if price_event == 1:
+107:                 pivot = float(fact.confirmed_pivot_price)
+108:                 if not math.isfinite(pivot):
+109:                     raise ValueError("up event lacks canonical pivot")
+110:                 if active:
+111:                     floor = higher(floor, pivot)
+112:                 elif not exited:
+113:                     active, entered, floor = True, 1, pivot
+114:                     entry_kind = "original_event"
+FILE /Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/policies_g1.py SHA256 079a70ac83aa98a3824aeaecc46186081d83f5148e9630a3ad0435cb01b05af1
+6: def project(e,base,g,kind):
+7:     if kind not in ['G1_I','G1_X','G1_IX']:raise ValueError(kind)
+8:     use_i=kind in ['G1_I','G1_IX'];use_x=kind in ['G1_X','G1_IX']
+9:     active=False;floor=math.nan;segment=None;rows=[]
+10:     for dt,r in e.iterrows():
+11:         b=base.loc[dt];a=g.loc[dt]
+12:         if r.segment_id!=segment:active=False;floor=math.nan;segment=r.segment_id
+13:         valid=bool(r.valid_price_observation)
+14:         if not valid:
+15:             rows.append(dict(date=dt,target=np.nan,entered=0,exited=0,floor=np.nan,exit_line=np.nan,buy_event=False,entry_kind='',exit_reason='',grade=a.grade));continue
+16:         shadow=bool(b.target);ready=bool(a.ready);entered=exited=0;reason='';entry_kind=''
+17:         fresh=bool(a.fresh_up) if ready else False
+18:         warm=ready and a.grade>=2
+19:         cold=ready and (a.grade<=-2 or bool(a.acute_down))
+20:         if active:
+21:             if not shadow or float(r.close)<=floor:reason='E0_structure_boundary'
+22:             elif use_x and cold:reason='G1_cold_or_acute'
+23:             if reason:active=False;exited=1
+24:             elif np.isfinite(b.floor):floor=max(floor,float(b.floor))
+25:         # Entry-only is a new-evidence gate and restoration channel, while
+26:         # exit-only preserves E0's new-cycle entry stream. An exit-only entry
+27:         # is first checked by the extra exit rule on the next observation,
+28:         # matching the original sensitive-policy ordering.
+29:         opportunity=shadow and warm and (bool(b.entered) or fresh) if use_i else bool(b.entered)
+30:         if not active and not exited and opportunity:
+31:             active=True;entered=1;floor=float(b.floor)
+32:             entry_kind='G1_fresh_warm_evidence' if use_i else str(b.entry_kind)
+33:         buy=bool(active and opportunity) if use_i else bool(active)
+34:         rows.append(dict(date=dt,target=int(active),entered=entered,exited=exited,floor=floor if active or exited else np.nan,exit_line=floor if active or exited else np.nan,buy_event=buy,entry_kind=entry_kind,exit_reason=reason,grade=a.grade))

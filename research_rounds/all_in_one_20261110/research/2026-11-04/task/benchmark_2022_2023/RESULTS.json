@@ -1,0 +1,70 @@
+{
+  "scope": "new diagnostic benchmarks only, not No60 candidate paths",
+  "dates": [
+    "2022-01-04",
+    "2023-12-29"
+  ],
+  "daily_count": 484,
+  "first_execution": "2022-01-05 OPEN at earliest",
+  "initial_cash": 1000000,
+  "no_annual_reset": true,
+  "results": {
+    "BUY_HOLD": {
+      "initial": 1000000.0,
+      "terminal_NAV": 729632.06575,
+      "return_pct": -27.036793425000006,
+      "max_DD_pct": 29.643293425000007,
+      "DD_day": "2023-12-20",
+      "fees": 1497.43425,
+      "dividends_accrued": 27869.5,
+      "dividends_paid": 27869.5,
+      "mean_exposure_pct": 97.20744028241478,
+      "same_quantity_cost_before_NAV": 731129.5,
+      "same_quantity_cost_before_return_pct": -26.887050000000002,
+      "fills": 1,
+      "execution_verified": false,
+      "execution_basis": "raw open daily proxy; historical dated limit/halt state unavailable"
+    },
+    "MA63_90": {
+      "initial": 1000000.0,
+      "terminal_NAV": 954870.366,
+      "return_pct": -4.512963399999991,
+      "max_DD_pct": 10.141639944471448,
+      "DD_day": "2023-09-06",
+      "fees": 29396.634,
+      "dividends_accrued": 14393.6,
+      "dividends_paid": 14393.6,
+      "mean_exposure_pct": 26.392608594163274,
+      "same_quantity_cost_before_NAV": 984267.0,
+      "same_quantity_cost_before_return_pct": -1.5732999999999997,
+      "fills": 22,
+      "execution_verified": false,
+      "execution_basis": "raw open daily proxy; historical dated limit/halt state unavailable"
+    },
+    "HS300_PRICE_INDEX": {
+      "initial": 1000000.0,
+      "terminal_NAV": 699095.1378687145,
+      "return_pct": -30.090486213128553,
+      "max_DD_pct": 32.812815178700596,
+      "DD_day": "2023-12-20",
+      "fees": 0.0,
+      "dividends_accrued": 0,
+      "dividends_paid": 0,
+      "mean_exposure_pct": 99.79338842975206,
+      "reference_only": true
+    },
+    "CASH": {
+      "initial": 1000000.0,
+      "terminal_NAV": 1000000.0,
+      "return_pct": 0.0,
+      "max_DD_pct": 0.0,
+      "DD_day": "2022-01-04",
+      "fees": 0.0,
+      "dividends_accrued": 0,
+      "dividends_paid": 0,
+      "mean_exposure_pct": 0.0,
+      "reference_only": true
+    }
+  },
+  "independent_audit": "pending"
+}

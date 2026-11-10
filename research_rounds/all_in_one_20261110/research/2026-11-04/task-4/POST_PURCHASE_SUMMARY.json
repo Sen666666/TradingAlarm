@@ -1,0 +1,53 @@
+{
+  "all": {
+    "stocks": 18,
+    "layers": 25,
+    "cost": "638473.4757517499900",
+    "actual_net": "-16783.5804624931475",
+    "closed_negative_layers": 15,
+    "negative_no_profitable_close_layers": 5,
+    "negative_earlier_profitable_close_layers": 10,
+    "actual_entry_actions": {
+      "first_actual_participation": 15,
+      "add_to_existing_stock": 6,
+      "fresh_reentry_after_actual_flat": 4
+    },
+    "original_exit_request_reasons": {
+      "I_structure_exit": 3,
+      "CP1_add_protection": 25
+    }
+  },
+  "new7_stocks_all_layers": {
+    "stocks": 7,
+    "layers": 8,
+    "cost": "214144.3891433298010",
+    "actual_net": "-24956.9625513459745",
+    "closed_negative_layers": 7,
+    "negative_no_profitable_close_layers": 4,
+    "negative_earlier_profitable_close_layers": 3,
+    "actual_entry_actions": {
+      "first_actual_participation": 6,
+      "fresh_reentry_after_actual_flat": 2
+    },
+    "original_exit_request_reasons": {
+      "CP1_add_protection": 8
+    }
+  },
+  "H1_stock_doubled": {
+    "stocks": 11,
+    "layers": 16,
+    "cost": "425310.3297877449000",
+    "actual_net": "8841.9012554735080",
+    "closed_negative_layers": 8,
+    "negative_no_profitable_close_layers": 3,
+    "negative_earlier_profitable_close_layers": 5,
+    "actual_entry_actions": {
+      "fresh_reentry_after_actual_flat": 4,
+      "first_actual_participation": 8,
+      "add_to_existing_stock": 4
+    },
+    "original_exit_request_reasons": {
+      "CP1_add_protection": 20
+    }
+  }
+}

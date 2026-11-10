@@ -1,0 +1,39 @@
+924前早试探：三固定最低合法单位样例已核，停止接口扩展
+
+结论
+三天最高已有原PVR分数的fresh mobile样本都是300085.SZ银之杰；分别对应9/25、9/26、9/27 OPEN，原单股最低100股均通过本次必要条件。原价格/合法单位/费用和最小资金不是这三个样例的阻碍。它们仍不证明完整预算授权、真实可成交资金或候选账户收益，当前不值得为此接新的恢复状态机/连续经济。
+
+冻结与纠错（不按结果换样本）
+先固定Sep24/25/26原retained mobile_Q=True、有fresh CP1_id且含mobile角色的全部母体，分别342/181/803只。首次THREE_FIXED_SAMPLES_FREEZE.json误把opportunities.rank当PVR；原native_rank.py说明该字段是原H1，PVR只在已形成原pending后替换。D暂停时pending为空、对应rank-policy为空。该首freeze及失败源原样保留，读任何样本执行价格前完成更正，未因涨跌或能否买换股。
+正式THREE_TRUE_PVR_SAMPLES_FREEZE.json按原2024冻结score缓存的有限已定义分数降序、tie sid，三日均300085：91.63783463882129、94.26743626989878、96.05877219720489；原H1 rank恰为4/2/1，不据此冒充PVR排序证据。
+Sep24另有600027.SH的原分数缺失；母体341 known/1 unknown，Sep25/26全部known。PVR_SELECTION_UNKNOWN_STOP.json保留它和首版“要求整个母体全分数已知”额外严格检查的失败。正式样本是最高已有分数，不给缺分补0；原native会保留缺分对象H1槽，因此不声称300085必为原生实际第一执行顺位。
+
+固定三个结果（独立必要样例，不顺序持仓）
+decision CLOSE → OPEN     最低股数  原OPEN    含原5bp价格   最低买费   最低现金   名义结构风险  原raw保护线
+2024Sep24 → Sep25         100      18.98     18.989490     5.12172   1904.07072  514.27127    13.84677734
+2024Sep25 → Sep26         100      19.36     19.369680     5.12416   1942.09216  275.70483    16.61263173
+2024Sep26 → Sep27         100      25.49     25.502745     5.16347   2555.43797  561.23831    19.89036190
+三日原source同股名义mobile预算16518.610213821144220元；按decision-known原close计算的原数量cap为1000/800/700股。它们只用于检查100股最低单位是否越界，没有把这些cap当成交或可分配量。
+以各自原D决策CLOSE真实资源为独立参考：NAV825930.5106910572110、available811077.7722910572110、股息应收14852.73840、库存/未完买卖为0。不能把应收当可花现金。100股最低现金保原10%NAV现金预留，并分别满足单股原2%目标、probe总gross10%及名义结构风险.5%、行业probe2%和单股10%的必要约束。每次假设只有这一笔、原P资源为空，不能相加为组合资金。
+
+原helper与数据时钟
+直接构造原FastMarket的单股原source视图，只提供真实原record、原raw/actions路径、原A日历及规则；没构造Account/Runner、没调用全3yr/1709 loader、没改原producer或造报价。原FastMarket源码为temperature-sizing-20261026/code/fast_market.py，FrozenMarket基类为ix-a-share-entry-20261025/code/multi_runner.py；原quantity/fee来自真实window。构造只读取该一股原bar/动作并缓存原执行字段，不计算E0/I/PVR/新指标。
+三次均调用literal原market.latest_mark(decision CLOSE)及market.window(next OPEN,buy,cost1)，不是自行编写成交引擎。每个decision mark known_at<=该CLOSE，原raw_close逐值核同facts；原I_target、CP1 receipt及其canonical id在该CLOSE核同；floor=max(原I_floor,原CP1 candidate)，仅用已冻结决策数据；next OPEN因子与前CLOSE相同且中间无原CA，未借next CLOSE抬线。
+费用与交易单位来自next OPEN日期有效的原rule/schedule，使用原FeeSchedule.incremental和原5bp；未用当天CLOSE、当天涨幅或后收益选费用/样本/保护线/预算。native window第一次自动与FrozenMarket逐字段核同（原source只对同sid/side/cost key首个event做identity check，本次真实计数1，未声称三次独立identity审计）。三次窗口/费用/marks完整原对象都保存在结果内。
+
+保守HL代理与未获证明的执行
+三日原buy_allowed均True，容量分别326680/363943/466778股，均>=100。原HL范围分别[17.98,18.98]、[18.36,22.78]、[25.49,27.34]，所以reject_flat_day未阻挡。第一日OPEN=当日high=18.98仍被原HL代理允许，不能据此证明涨停开盘排队可买；不存在为了得到失败而换样本的第四只。
+与原full D一致，原window用prior20正volume均值×1%再min当天volume，并以同日H/L/V/validity作研究成交后置检查。这些整日字段不是9:30已经知道的实时信息，未用于前CLOSE信号或选择；结果仅为原明示日线执行proxy下的必要条件。外部停牌/真实限价/开盘队列/真实成交可得仍UNKNOWN，没有重建它们，也没有反过来把原proxy结果改成真实执行结论。
+本次0订单、0reservation/consume/receipt、0预算状态或成交回报；原行业active attempt、排名竞争、并发cap/cash/锁、迁池及新试探自己的后续NAV/持仓都未完整重放。必要通过不是完整预算授权。D原H仍off、阶段峰/flat恢复死锁、暂停次CLOSE强卖试探的冲突也没有解决。
+
+覆盖体量与为什么不扩大接口
+原D6/11触H，6/12真实flat。原cached P20在夏季0触发，首9/24CLOSE；此证书最早只能在9/25OPEN使一批原小试探成为可能，最多提前三个OPEN，不能补9/24OPEN。10%NAV首次gross上限的未扣新增费示意82593.05元，.5%名义风险4129.65元；实际仍受单票/行业/单位等约束。最低1904.07元的首样例通过，证明非空小单位不只是rawQ数字；它不证明能有效部署8.26万，更不证明能赚回任何特定金额。三天同一股、同一行情，不是三个独立成功或新主线覆盖。
+完整旧B原三周期均保：2022Apr20暂停/Apr21flat→Jun17；2023Jul20/Jul21flat→2024May6；2024Dec23/Dec25flat→年末右删失。P20全原paused-flat增量11/13/0观察。2022May23次日fastFalse但未破S，后面还有持续反弹；2023Jul31之后Aug8 fastFalse、Aug11破其冻结S，原M相对触发价约-3.223%，不是账户止损收益。正常全资金旧REC21/P5/EMA的完整假恢复成本和真实赢家差异仍见主READOUT，不能用这三必要通过复活REC21全资金。
+这项候选只影响H清仓后的早参与。B本来在924前on；D自身提前清仓和未参与是改变后的路径，不能归成旧B同样失效。早试探不直接处理924后ACT一直on的新mobile损耗等主问题。
+原helper薄核已有，继续的主要成本将是重新定义/核验恢复动作与自身H状态，不在缺少价格或100股算术。三个样例给出的新增证据不足以量化早试探净收益覆盖假恢复/赢家机会损失，故暂不投入这些接口成本；保留纸假说即可。没有加第二个证书、参数、状态机或经济路径。
+
+交付
+THREE_TRUE_PVR_SAMPLES_FREEZE.json：正式选样及全部被读原分数源SHA；旧H1误标freeze和strict UNKNOWN失败独立保留。
+THREE_EXAMPLES_INPUT_FREEZE.json：读原market/计算价格与费用之前冻结的一股原raw、actions、facts、CP1、receipt、原source/rules/protocol/日账。
+THREE_EXAMPLES_RESULTS.json：三个完整同样本、全部条件与原window/mark/费用分项，SHA12fe6c9922cc7f56dd59e4271fffc6e627044b3511b54cd75e2491a9056d5f36。
+该结果等待独立限定审。全部原文件保持不变；未产生新收益、可追回利润或可执行资金结论。

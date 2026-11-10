@@ -1,0 +1,44 @@
+{
+  "version": "v1",
+  "created_at": "2026-10-29T09:44:24.025763+00:00",
+  "frozen_before_matching_and_outcomes": true,
+  "primary_question": "Among contemporaneous opportunities already G1 warm and PVR>50, does the first new CP1 receipt add discrimination for subsequent new capital? Not a test of the entire CP1/PVR composite confirmation or N1 cost promotion.",
+  "scope": "Same 407 frozen technology stocks and 2023-12-29 decision to 2026-10-27 terminal, source snapshot pinned to experiment one.",
+  "risk_set": "Full pool including never funded: continuous I state, first already-observed original full-Q I event anchor, common nonportfolio S0 eligibility, G1>=2, PVR>50, known valid PVR scale and CP1 observer ready; no prior qualifying CP1 confirmation in this I epoch.",
+  "qualification_retained": [
+    "common stock/sector preparation",
+    "legal market availability",
+    "current snapshot cap>10bn and issuer/sector identities",
+    "I trend valid",
+    "original stock/sector RS readiness and freshness only",
+    "sector observed today and sector E0 up"
+  ],
+  "qualification_removed": [
+    "ACT and account NAV state",
+    "cash or slot competition",
+    "ranking order",
+    "trial costs and physical holdings",
+    "2%/10% budgets",
+    "last actual buy price condition"
+  ],
+  "case": "First qualifying CP1 receipt in an I epoch; one case per I epoch, not every repeated receipt. Same-day first observation anchor allowed and separately disclosed.",
+  "control": "Same risk set and day without CP1 receipt; no requirement to remain unconfirmed in future.",
+  "matching": "Exact decision date, true sector, G1 grade and anchor-age bin 0-20/21-62/>=63 effective observations; nearest absolute anchor-to-date log price runup, distance <=max of both known PVR daily scales. One control per case; control epoch at most once as control, may later be a case.",
+  "ordering": "SHA256 of symbol/source/visible I-start/known observation anchor/decision date only, then deterministic ID tie-break. No future end dates or final ordinal segment number.",
+  "coverage_gate": "Publish all cases, matched/unmatched reasons, stocks/sectors/dates, age/runup/volatility/PVR balance before reading economic outcomes. No automatic relaxation or extra dimensions. Inadequate common support yields limited/inconclusive scope, never zero unmatched P&L.",
+  "weights": "Primary one equal 1m shadow initial-cash pair per matched case; case-stock equal robustness weights fixed before outcomes. No rematching for cost2, fill or closure. Control role reuse bounded and disclosed.",
+  "execution": "Existing experiment-one run_event with Q true only at matched decision, starts at decision date with no seed shares or gains. Next eligible open, original day-expiry, no later reapplication in this event. Uniform original I/E0 exit, actual costs, split/dividend/T+1/raw quote and terminal assets.",
+  "costs": [
+    "base",
+    "original cost2"
+  ],
+  "all_events": "Both legs of every frozen matched pair included even if not filled, still held or awaiting entitlements. Unmatched cases disclosed outside difference estimator.",
+  "tail": "Existing net_pnl/(buy_gross+buy_fees)>=30%, realized and terminal-valued/claims separately disclosed. Pair-tail partition if either leg has >=30% return, ordinary complement; only evaluation, no trading effect. Own-arm tail contributions and continuous contribution ranks also shown.",
+  "effects": "Delta=sum(C-N)=saved_negative_loss-foregone_positive. Pair-tail+ordinary delta=total. No preconfirmation gains included. Profit factor/payoff and capital-days reported; win rate descriptive only.",
+  "background": "After matching freeze only, reuse experiment-one full I-event ledger to disclose whole first-participation costs and failures by ever CP1-confirmed status. This is background, not a 2% probe strategy or additive incremental alpha. Never equate unconfirmed with failed.",
+  "verdict": "Pareto ordinary/tail plus net improvement sufficient, not necessary. Larger tail benefit covering ordinary cost increase is a positive tradeoff, not failure. Cost/weight reversal, poor coverage or pre-known imbalance means inconclusive. Negative result scoped to CP1 receipt increment under warm/PVR>50, not all composite confirmation or N1.",
+  "correctness": "Matching IDs/features fixed as of decision; truncated future cache leaves matching prefix unchanged. All required exact strata/caliper/control-role constraints; reusable native Decimal fee/cash/share/action/NAV checks plus independent available cash; terminal holdings/claims retained.",
+  "sample": "Representative matched/unmatched, future-confirming control, same-anchor-day and delayed, no-fill and corporate/terminal cases when present; deterministic examples, no profit selection.",
+  "budget": "Only sample then one full paired-unit calculation, 300s compute budget excluding development. Report matching/sample readiness promptly. No portfolio matrix, thresholds, new indicator models, account/product access or other task changes.",
+  "limitations": "Deterministic observational matching cannot establish causality. One first confirmation per I epoch and uniform E0 exit do not reproduce full P1/N1 pyramiding, CP1 tranche exits, finite shared cash or ACT."
+}

@@ -1,0 +1,27 @@
+{
+  "fixed25_J_status": {
+    "FALSE": 17,
+    "UNKNOWN": 7,
+    "TRUE": 1
+  },
+  "fixed25_known_only_records": 4,
+  "startup_target_days": 654,
+  "startup_J_status": {
+    "FALSE": 404,
+    "UNKNOWN": 247,
+    "TRUE": 3
+  },
+  "startup_known_only_records": 26,
+  "startup_unique_known_industry_days": 10,
+  "startup_unique_price_industry_days": 6,
+  "startup_unique_J_only_industry_days": 5,
+  "startup_J_only_all_fixed_status_unknown": true,
+  "startup_all_full_current_snapshot_unknown": true,
+  "same_mask_price_K_equal": true,
+  "J_participant_subset_of_price": true,
+  "natural_price_K_differences": 0,
+  "J_known_record_below_previous_day": 0,
+  "J_known_consecutive_records": 5,
+  "no_predictive_increment_demonstrated": true,
+  "no_gate_or_ranking_consumer": true
+}

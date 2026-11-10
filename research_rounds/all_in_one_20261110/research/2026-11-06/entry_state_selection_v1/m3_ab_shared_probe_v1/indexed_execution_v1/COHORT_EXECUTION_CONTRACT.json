@@ -1,0 +1,37 @@
+{
+  "scope": "TWO_INDEPENDENT_ORIGINAL_BIRTH_COHORTS_ONCE_EACH",
+  "seed": "1200000",
+  "end": "2026-06-30",
+  "wall_seconds": 900,
+  "peak_rss_bytes": 6442450944,
+  "cohorts": {
+    "2022": {
+      "start": "2022-01-01",
+      "first_common_day": "2022-01-04",
+      "birth_end": "2022-12-31"
+    },
+    "2024_924": {
+      "start": "2024-09-01",
+      "first_common_day": "2024-09-02",
+      "birth_end": "2024-12-31"
+    }
+  },
+  "code_hashes": {
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/engine_indexed_v1.py": "2a9a85117f7a7359513893448421b32a9b2beab7656d9fd4f7120229d197ae2d",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/source_split_v2.py": "39c9ab2d4cc438db6dcfe9a7fef8cb9e8ed6cce47dd1c0e0461e2af5af51c5ce",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/report_layers_v1.py": "83ddcb7fd09ebe65762b924c9740253738b2ecfd6b99a3eeb9ddde4a894ee9b9",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/cohort_runner_v1.py": "d1e8409b9b0e525a73e695ca2f77fc564cda9b3ee452af2bde650767b3620fc1",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/shared_feasibility_v1/limits_v3.py": "98373cc56e31a57719398faf22c76043d8f3a5405cf6be11b0fadee16fb71e35",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/source_bridge_v1/bridge.py": "21e654a3e686e85866afe8b574912ece978959aa780733d5a7412acf711808f7"
+  },
+  "baseline_equivalence_seal": "b8636e3ba49f18daafbc8a65793a75dd2799f897133137b6879dae0e0d167103",
+  "cost_evidence": {
+    "bounded_seconds": 18.003410916775465,
+    "bounded_peak_rss_bytes": 1273413632,
+    "synthetic_seconds": 33.30406241584569
+  },
+  "financial_contract": "All already frozen parameters, original daily M3 denominator/AB permits/NET80 equity clock unchanged",
+  "execution": "Historical observed OPEN +/- 5bp conditional proxy only",
+  "report_fee_allocation": "Whole actual fee once. core=fee*core_q/total_q without cents rounding; ADD=fee-core. Report attribution only.",
+  "unknown": "Retain all assets/orders/claims; no certified NAV or new risk/promotion; known exits/recognized rights continue."
+}

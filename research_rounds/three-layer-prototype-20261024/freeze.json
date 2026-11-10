@@ -1,0 +1,16 @@
+{
+  "created_at": "2026-10-24T03:32:54.458735+00:00",
+  "files": {
+    "model.py": "85b655e08e17462131b7e62b545c311560ce00b155ab254a6e4e494268c992c9",
+    "run_study.py": "d646755d4fb6998d8fbb9ce8c091d267421494a4f8104d50766fe741f2c5625d",
+    "PROTOCOL.md": "a5a9a3310d0583ed9e44b3c9e110d60b39fe1bb3dc810027f7f492a2c7192150",
+    "raw-review.json": "5c7b0cfc01e58ef5582533d07d9255504a7be557396b76ec4ffdf6267bfa4ed3",
+    "cases.json": "f10490b1facead645ec127759d649fbd8564a6a14aadf99fc94c69c322e11356",
+    "input-freeze.json": "f6463a327d28a47d77e3bf8dd3fc47835a27047617d79f1295dc426378ac05b9",
+    "prepare.py": "b791470c5696a29aac69788cfb773f9cf7f99345115cc31e32105a808c52f843",
+    "freeze.py": "256534917bb3fa2fccee435f60343b26c7968821b12815cfbbc4767548373147"
+  },
+  "candidate_count": 1,
+  "mechanism_revision_budget": 0,
+  "account_runs": 0
+}

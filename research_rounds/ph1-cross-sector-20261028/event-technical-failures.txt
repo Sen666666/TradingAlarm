@@ -1,0 +1,1 @@
+E0 event preparation v1 failed before writing any output table: DataFrame.pivot is a method, so confirmed.pivot.notna() raised AttributeError. The validation access was corrected to confirmed["pivot"]; kernel, formula, source data and policy unchanged. Failed source, log, metadata and empty events directories are retained. No economic account was run.

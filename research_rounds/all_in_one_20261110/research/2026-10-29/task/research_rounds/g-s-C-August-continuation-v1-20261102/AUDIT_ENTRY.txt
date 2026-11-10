@@ -1,0 +1,5 @@
+金融代码 august_runtime.py SHA 2147ffce2ac02a689adabb2d501d521c6618ae892a4b2ae27f4bfb48bb641a68
+AUTHORIZATION.json / INPUT_IDENTITY.json / ALL_FOUR_PREFIX_GATES.json
+各runs/<cell>/PROGRESS.json和终态pickle/provenance/JSON；中间完整字节见LOSSLESS_OUTPUT_ARCHIVE.json
+analysis/VERIFICATION.json七桥；RESULTS及每档STOCKS/SECTORS/LAYERS/SALES/DAILY/EXIT_REASONS/FIRST_OPPORTUNITIES/ACTUAL_CHAINS
+所有原July数据/源/账不改，先复用旧独审，仅核本次horizon及新交互。

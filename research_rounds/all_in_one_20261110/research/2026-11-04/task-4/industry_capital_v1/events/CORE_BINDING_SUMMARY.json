@@ -1,0 +1,17 @@
+{
+  "complete": true,
+  "events": 33569,
+  "by_window": {
+    "long": 18703,
+    "strong": 14866
+  },
+  "snapshots": 7634,
+  "seconds": 4.778116249945015,
+  "limit_seconds": 100,
+  "new_accounts": 0,
+  "new_market_marks": 0,
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/new_price_trend_v1/funding/runs/long_OFF/pair/B.json.gz": "a1b423fc1448439c0994df76e1115cfb6a0e0014db03e05a90ed9192373632cf",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task-4/new_price_trend_v1/funding/runs/strong_OFF/pair/B.json.gz": "9383b1b2111ddaeae9da47db1eebfc470630f1642b985a4bd38690261dceb57e"
+  }
+}

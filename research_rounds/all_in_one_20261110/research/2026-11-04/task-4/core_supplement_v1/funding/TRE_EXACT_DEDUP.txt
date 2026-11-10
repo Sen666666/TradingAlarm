@@ -1,0 +1,64 @@
+2026-11-05｜TRE-1精确排重：不覆盖本轮A提前I授权
+
+数据裁决
+audit_prior_tre.py只读旧冻结事实/信号coverage/原funnel，未重算信号或账户。
+PB原3710价格事件，其中315无当日i_buy；BOX1731/46；BOTH4318/320。
+旧additional-events.csv的PB315+BOX46共361行全部i_target=True；已逐行对回223个
+原源fact文件及其冻结SHA，不把没有当日i_buy说成I未激活。BOTH320另按base funnel
+逐行核I状态，结果在PRIOR_TRE_EXACT_AUDIT.json。当前A/I_target=false根本没有被
+旧实际许可：旧Facts.packet仅改buy_allowed，原packet('I')的stock_up=i_target和
+S0保持；未给I假时的新趋势授权。所以不能用旧TRE负结果作为A已测试失败的证据。
+
+旧精确价格规则（code/model.py，非EMA回踩）
+背景：E0当日及前10观察连续有效；G1 ready/grade>=2；同源/有效OHLC/真实正金额；
+至少22连续有效观察、E0 floor已知。ATR20用此前20真实波幅算术均值；金额参考此前
+21观察中位额，均不含当前。共同impulse：今日收涨且金额>=参考，或近3观察推进
+>=ATR且上涨日金额占比>=60%。当日close到floor须0<距离<=3ATR。
+PB：此前20观察最高close最近一次位置p，年龄3..15观察；p晚于上次消费事件；
+  从p之后到昨日的最低low比p close低>=1ATR；今日close严格高于此前3观察high。
+  floor=max(当日E0 floor,p之后至昨日最低low)。
+BOX：此前10观察high-low<=4ATR，窗口首/尾close相差<=1ATR，至少3次close下跌；
+  今日close严格突破此前10观察high，anchor晚于上次事件。
+  floor=max(E0 floor,此前10观察最低low)。
+PB/BOX各单流；BOTH共享last事件且同日PB先，不可将320当315+46独立相加。
+若同日原i_buy，原入场/原保护优先；新增事件仅替换原buy_allowed。
+没有EMA20条件，没有严格本轮B20-close→EMA收回形态，因此是同类补入口而非精确重复。
+
+持有/退出与所谓交接
+新增真实成交绑定local_positions，初始local_floor和entry_e0_floor冻结；只新增层使用。
+每个持仓CLOSE先把stop=max(old stop,当前有效E0 floor)，close<=stop提出原生退出。
+当E0 floor严格高于entry_e0_floor且>=local_floor、未触stop，记录handed=True。
+这里是E0/local保护接续，绝不是给I_target=false的股票授予trend_up=True；
+源码不取消原normal_exits/I失效或ACT退出，不撤已提交卖单。未增加同股持仓/自动CORE。
+原T+1、次OPEN、gap/不可交易/费用/权息、日单等均保留；局部线非保证成交价。
+
+旧母域/资源规则与本轮不能混用
+407科技股/11行业，2024-01首交易日至2026-10-27，fresh100万ACTIVE。
+6股/3行业/行业2股，15%NAV首次金额/90%新增投入，原ACT20_BREAK。
+不是本轮1709/90、2022–2024+2025Jul–2026Jun No60 probe/confirmed合同。
+旧base BOTH320新增事件：64 ACT暂停、9已有仓、6其他资格/记忆、240未接纳、1接纳。
+240的CLOSE决策后资源描述：220六槽满、14三行业满、6同行业两股。
+这些是原决策后占用标签，不是逐候选原route调用时唯一第一约束；不据此删除上限
+就宣称全可买，也不能把它当本轮No60现金/风险拒因。
+PBbase对应315：60暂停、9已有、6其他、239未接纳、1接纳；BOXbase46：15暂停、
+1已有、1其他、29未接纳、0接纳。全部cost2/delay1分母保留在JSON，不删失败。
+
+已发生经济事实与证据边界
+旧base PB/BOTH唯一新增实际成交太辰光：2025-06-27信号/6-30买，7-4局部保护提案/
+7-7卖，净亏13487.66；原整户收益298.42%→283.89%，差额也包含其他原单资金反馈，
+不能把新增单PnL直接加回原账户。BOX无新增成交。delay新增许可3次但实际成交0。
+新增实际持仓没有完成local→E0交接；旧结构轨迹170次交接是未计资金/成本的状态数。
+故旧研究提示先审资格/承接和失败成本，不能证明A授权无用或交接普遍无效。
+
+其他相关旧规则的必要区分
+LR1/L0_ADD：原I CORE已有含费0.25%NAV风险到I line，CORE实际fill消费epoch；
+  CP1 ADD须已有真实core；不是A新授权，也不是当前No60 flat MOBILE合同。
+N1/BSR-1：原I/新F/新CP1的2%试仓，必要最低手到10%；成本proof转核心，
+  core冻结底线等I/E0追上；取消到远E0的0.25%风险拒单。整套不等于本次保留风险/
+  probe约束的A。全套原负试仓/资金竞争证据仍需保留，不单引晋升幸存收益。
+EMA-G1：EMA9>21>50且都上升，严格AND原E0/I入口；未创建新I事件，不改holding。
+ENTRY_BB20_FLAT_CONFIRM：刚封存No60的减法过滤，未授权I假；两窗全账终值较差，
+  不等于本轮A新增授权的经济检验。不得据此自动救均线参数或复活旧负结果方案。
+
+本材料不提供新策略收益，不修改原源；新A如确有价格必要覆盖，仍须先独审完整授权/
+floor/持有失效/原I接续/epoch/风险预留合同，不能借旧TRE名义直接接金融账户。

@@ -1,0 +1,84 @@
+{
+  "created_utc": "2026-11-09T10:06:02.949913+00:00",
+  "complex_domain": 47,
+  "original437_permitted": 0,
+  "old_official_fixed50_mapped": 21,
+  "new_official_notices": 2,
+  "verified_official_pdfs": 23,
+  "official_notice_missing": 24,
+  "official_daily_date_sets_complete": 22,
+  "official_listing_later_than_ex": 17,
+  "official_listing_same_as_ex": 5,
+  "official_listing_date_missing_despite_notice": [
+    "002460.SZ"
+  ],
+  "stock_tax_evidence_counts": {
+    "TRANSFER_SOURCE_OR_EXEMPTION_NOT_EXPLICIT": 13,
+    "BONUS_TAX_BASIS_NOT_EXPLICIT": 3,
+    "NO_ORIGINAL_OFFICIAL_NOTICE": 24,
+    "CAPITAL_PREMIUM_AND_TRANSFER_EXEMPTION_EXPLICIT": 6,
+    "BONUS_TAX_BASIS_EXPLICIT": 1
+  },
+  "explicit_fractional_rule_count": 5,
+  "other_old_pdf_files_scanned": 125,
+  "other_old_pdf_additional_unique_matching_2022_notices": 0,
+  "other_old_source_limit": "130 total pdf-named artifacts before excluding this new directory. Relevant other hits: 688300 duplicate official notice; 600056 wrong-year 2024; 601377 old redirect and compressed challenge HTML, neither a PDF. No fresh network fetch performed for these.",
+  "separate_consumer_cases": [
+    {
+      "sid": "601377.SH",
+      "date": "2022-08-25",
+      "type": "RIGHTS_SUBSCRIPTION_REQUIRED"
+    },
+    {
+      "sid": "601016.SH",
+      "date": "2022-11-28",
+      "type": "RIGHTS_SUBSCRIPTION_REQUIRED"
+    },
+    {
+      "sid": "002366.SZ",
+      "date": "2022-12-22",
+      "type": "TARGETED_NON_PRO_RATA"
+    },
+    {
+      "sid": "600459.SH",
+      "date": "2022-12-22",
+      "type": "RIGHTS_SUBSCRIPTION_REQUIRED"
+    },
+    {
+      "sid": "600601.SH",
+      "date": "2022-12-23",
+      "type": "TARGETED_NON_PRO_RATA"
+    }
+  ],
+  "held_future_unpermitted_pure_cash": [
+    {
+      "sid": "600348.SH",
+      "date": "2022-07-13"
+    },
+    {
+      "sid": "601319.SH",
+      "date": "2022-07-29"
+    },
+    {
+      "sid": "002270.SZ",
+      "date": "2022-09-22"
+    },
+    {
+      "sid": "600050.SH",
+      "date": "2022-11-09"
+    }
+  ],
+  "narrow_same_day_consumer_cannot_certify_year_end": true,
+  "why": [
+    "All 47 complex events lack original437 permit.",
+    "17 officially documented events have listing date after ex date; 5 are same day; 1 is missing listing proof.",
+    "Only 6 current notices explicitly prove capital-premium origin and transfer exemption; 13 have unresolved transfer tax source/exemption; among 4 bonus events, 1 tax base is explicit and 3 remain unresolved.",
+    "24 complex events still lack a matching original official notice in available old evidence.",
+    "Three rights-subscription and two targeted/non-pro-rata events require a distinct action model, not the pro-rata bonus/capitalization consumer.",
+    "Four future pure-cash events of currently held stocks also lack original437 permits; actual future ownership is not predicted."
+  ],
+  "no_dynamic_account_paths_inferred": true,
+  "no_strategy_run": true,
+  "no_automatic_tax_admission": true,
+  "normalization_note": "Authoritative mapping uses both eligibility and review schemas. In preliminary COMPLEX_EVENTS.csv, SH announcement/hash may be blank because old SH review fields differ; this does not mean source evidence is absent. Use COMPLEX_EVENT_OFFICIAL_MAP.csv instead."
+}

@@ -1,0 +1,37 @@
+待退出层risk截0：资源作用与收盘输入边界（独立源码审查）
+
+结论
+exit_pending没有被resources排除。原公式仅把每层qty*max(mark-floor,0)截成0；未卖股份仍入lots、市值仍占capital，现金不会因此增加。probe层截0会减少probe总risk和行业risk；confirmed层截0只影响行业risk约束（当前No60没有account3%或confirmed总风险池门）。这只能说明某个算式较松，不能证明新申请得到更多股份，更不能证明获利。
+
+一、从原层到资源
+J.sync36–64按所有qty>0层重建budget.lots；50行保留其当前pool、sector、原episode、attempt、qty和保护线，既不看exit_pending删除层，也不因risk0改pool。CORE使用最后决策已知last_core_line；add用保留x.floor，均按factor换成raw价。
+actual model_without_account_check.py106–117：
+capital=Σlive q*mark + Σopen/cancel_pending q*limit；
+risk=Σlive q*max(mark-floor,0) + Σpending q*max(limit-floor,0)；
+reserve=Σpending q*(limit+fee_per_share)。
+每项单位CNY，q为股，mark/floor/limit为raw CNY/股。待退出MOBILE在J235因为已在sell_layers而跳过后续抬CP线；风险仍按其保留旧floor逐次重估，不是一次永久清零。CORE I失效时也保留上次已知线作退出参考。mark回到floor上方，未卖剩余q的risk会重回正数。
+mark下降还使q*mark的capital数值下降，但不是释放同额现金；它仍计当前市值，不是将原成本固定锁为capital。mark<=floor不表示股份已卖、最坏损失为0、或费用/跳空/停牌责任消失。
+
+二、不同pool与其他锁
+probe层risk项减少会降低所有行业合计probe_R及该行业sector_R，可使这两类新单风险不等式更松。confirmed层只降低该行业sector_R；不能声称释放account3%额度或confirmed统一风险池，因为当前No60没有这些准入谓词。详细有效文本已补存mobile_allocation_audit_v1/code_review。
+无论哪池，未卖q仍按当前pool计capital，仍按sector计行业capital；open/cancel_pending待买费、本金reserve不因这个risk算式改变。旧股不是待买reserve，不能将二者混称同一现金锁。
+J247/310仍挡同sid待退出后的新买；ACT暂停、行业inactive、未有freshreceipt/当前token、probe资本10%、行业capital、原现金10%预留、单股10%、前排reserve和整手等仍可阻挡。别的行业只有probe总risk可能受同probe层截0影响；confirmed层截0不会凭空给无关行业一份账户总风险额度。
+pool归属也不能说永远冻结：合法行业证明或route触发的migrate，仍可把当前行业attempt的probe层迁到confirmed；源码过滤不排除exit_pending。No60只删migrate的confirmed60检查，其余活动/level/待买订单条件保留。迁移改pool归属，可能改变probe池资本占用，但不变sector总资本/risk、shares/cash/NAV/loss；旧attempt层不被当前attempt迁移。它是另一个授权动作，不是risk0自动释放本金（J32–35、sync43；effective migrate见上轮静态文本）。
+
+三、哪些变化才更新真钱
+J225–240先提出ACT/I或旧CP层退出，pilot.sell104–115合并目标；仅提出退出不减少qty或增加cash。原物理ledger746–797只有实际日线代理fill才按sellable_at、target、交易单位和容量减少实物股数、创建净卖款结算。J.fill_exit130–135随后记负价差/费、sync真实剩余层；settle_due799–809只按到期净回款增加available。部分成交只释放真实已卖部分，剩余继续占用。
+J302–307次OPEN先尝试卖、结算，再用该OPEN可得原代理mark重新sync；316以后route才逐单准入，318每次reserve后再sync供后排使用。因此CLOSE时risk0不能直接当成次OPEN仍为0或实际多授资：未卖但OPEN反弹可恢复risk，部分卖按剩余q计，实际卖完才没有那层。NAV与cap阈值也同时重估。只有同一实际OPEN的完整原状态/候选/排序/前排reserve链才能判断真实数量变化，本审查没有做这项资金或经济归因。
+
+四、可见的收盘输入与并不存在的认证
+可用于以后人工定义问题的现成材料包括：已完成日线OHLCV/amount、raw/adjusted映射与source质量；原E0/I/G1 fields；原CP冻结scale/credit和r/s/z/B/u/v/m（其63收益与21金额背景滞后，当日r/金额需等收盘）；以及持仓层、旧保护线、exit target、sellable_at、现金/待买/结算、ACT和行业授权状态。它们是输入/状态，不代表已经证明某个预测器有效。本轮不构建新指标、预测概率、压力公式、阈值或策略。
+native事实接口只导出cache.py12的14列，I entered/exited/reason等没保存不能用IX代填。CP输出schema由原model.py50–58定义；是否某case某row ready仍须保留原缺失标记。运行时持有的sellable_at/ExitOrder字段不保证全都导出到每个daily CSV。
+quote/mark的known_at是协议声明Date+15:05或calendar OPEN，CLOSE为15:10，不是供应商真实历史received_at。此前六文件schema独审存在observed_at且非全空，但历史选样为空、非空采集记录未认证含义；本轮只读其已保存JSON，不重读行情。没有逐项目穷尽搜索分钟数据。
+
+五、停牌、涨跌限制、流动性在现行原路径中的事实
+对实际execution-rules-v2.json静态枚举：1711条身份的1711个availability版本全为buy_allowed=True、sell_allowed=True，basis=explicit_research_proxy，proxy_id=A_availability_no_historical_ST_delisting_tag。它们有起始日期，但不是逐日历史停牌/ST/退市许可表；market_buyable165–179只是读取它并声明Fact(value,at,at)。calendar_basis也明写研究来源日期并集，不是完整历史停复牌恢复。
+source_available145–152只查声明unavailable_from/来源段间断。原raw reader69–106要求日级日期；valid_price/observed_bar用于原价质量/mark选择。缺bar、非法价、零/缺volume会使执行窗口不可用；这些不是带真实公告时间的停牌原因判定。
+FastMarket.window53/59/60另用执行日完整volume、high<=low拒买卖，capacity=min(此前20正量均值*1%,执行日最终volume)，并按同日OPEN±5bp代理成交。这不是T收盘可知的T+1容量，更不是涨跌停队列/盘口；一字平盘可能被拒，但非一字日也不代表可按所需量卖出。native base虽写external_columns分支，当前有效FastMarket断言conservative_hl_proxy，不消费官方逐日limit_up/down分支。不能将未来完整HLV当风险预测输入或实盘流动性认证。
+协议T+1可卖、现金lag0、dated quantity/fee规则均存在；官方与research_proxy身份按版本来源区分，并不能认证每笔券商可用时钟。真实post-open报价/累计量、逐笔订单/队列、公告接收时间与真实成交回执未由该路径建立，不能指定无依据09:31替代或算修复后收益。
+
+范围
+本轮只读原源码、规则JSON和此前已保存schema审计；没有行情新读取、模型/指标/Market/Account/回测，未改变任何原项目或封存。存在的risk算式下降、资本估值下降和合法pool迁移都明确区别于实际新授资及获益，经济影响仍需原账数字线证明。

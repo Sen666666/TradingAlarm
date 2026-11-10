@@ -1,0 +1,11 @@
+{
+  "recorded_at": "2026-10-25T02:37:34.946956+08:00",
+  "campaigns_described": 9739,
+  "no_new_accounts": true,
+  "notes": [
+    "Contribution buckets are descriptive actual allocations, not a counterfactual profit effect of changing RS history or expiry separately.",
+    "h is source-age capped252 on the market calendar, not an asserted true IPO age.",
+    "Old persistent intents are classified by their original decision day, not eventual fill day.",
+    "No trading rule was changed after these results."
+  ]
+}

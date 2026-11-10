@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/mobile_first_probe_protection_v1/conditional_paths_v1/synthetic_callbacks.py", line 56, in <module>
+    try:main()
+        ~~~~^^
+  File "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/mobile_first_probe_protection_v1/conditional_paths_v1/synthetic_callbacks.py", line 42, in main
+    n=len(a.trades);a.fill_exit(r.sid,sellw);assert len(a.trades)==n and r.sid in a.exits
+                    ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py", line 131, in fill_exit
+    before={x['id']:dict(x) for x in self.live(sid)};r=super().fill_exit(sid,w)
+                                                       ~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/probe-pyramid-pilot-20261029/code/pilot.py", line 75, in fill_exit
+    receipt=super().fill_exit(sid,w)
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py", line 748, in fill_exit
+    if order is None or not self._eligible_event(order, window, 'sell'):
+                            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py", line 667, in _eligible_event
+    window.validate(); self._time(window.at)
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/sector_account.py", line 222, in validate
+    raise ValueError('Invalid execution event/availability/settlement facts')
+ValueError: Invalid execution event/availability/settlement facts

@@ -1,0 +1,1241 @@
+原样逐行摘录；未导入、执行任何模型。行号为原绝对路径文件行号。
+
+===========================================================================
+A_actual_2024_facts_loader
+PATH /Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/loader_2024.py
+SHA256 63d55480b70dbdff6739c22a60b885503ec089bc0c1f47ee70ba427726b2d5fd
+Actual original2024 loader reads STOCK_MANIFEST.refs.facts; no cache BEGIN2025 truncation.
+
+LINES 31-50
+   31  def inputs():
+   32   begun=time.monotonic();assert_data()
+   33   sm=read(L.U/'STOCK_MANIFEST.json');im=read(L.U/'INDUSTRY_MANIFEST.json')
+   34   fixed=read(L.U/'FREEZE.json')['stocks'];manifest=read(O/'inputs/MANIFEST.json');new={r['sid']:r for r in manifest}
+   35   assert len(sm)==len(fixed)==1709 and len(im)==90 and len(new)==1799
+   36   full={};cp={};receipts={}
+   37   for r in sm:
+   38    sid=r['symbol'];rec=new[sid];assert rec['original_output_sha256']==r['output_sha256']
+   39    for p,h in r['output_sha256'].items():assert sha(p)==h,('numeric cache changed',p)
+   40    assert sha(rec['output_path'])==rec['output_sha256']
+   41    f=pd.read_parquet(r['refs']['facts']).loc[:END];q=pd.read_parquet(r['refs']['CP1_input']).loc[:END];z=pd.read_parquet(r['refs']['CP1']).loc[:END]
+   42    assert f.index.equals(q.index)and q.index.equals(z.index)
+   43    for k in ['close','segment_id','i_target','i_floor']:pd.testing.assert_series_equal(f[k],q[k],check_exact=True,check_dtype=False,check_freq=False)
+   44    rr=read(rec['output_path']);assert len(rr)==int(z.loc[START:END].receipt.eq(True).sum())
+   45    full[sid]=f;cp[sid]=z;receipts[sid]={x['confirmed_day']:x for x in rr}
+   46   # The unchanged original context loads price/action/H1/execution inputs.
+   47   shared=J.M.context(END,ids=fixed);bundle,market,facts=shared
+   48   assert set(market.lines)==set(fixed)=={x.security_id for x in bundle.lines}
+   49   for sid,f in full.items():
+   50    facts.f[sid]=f;bundle.series[sid].states=f[['e0_ready','e0_target','segment_id']].rename(columns={'e0_ready':'ready','e0_target':'target'})
+
+===========================================================================
+B_completed_long_OFF_facts_loader
+PATH /Users/bytedance/Documents/Codex/2026-11-04/task-4/new_price_trend_v1/funding/input_loader.py
+SHA256 55deb37196a602296394a9ee1f018156c21d7a69c4c68026dc2b5073ea7d484d
+Completed long_OFF uses same frozen full refs.facts.
+
+LINES 21-25
+   21  def inputs(window, through=None):
+   22      begun=time.monotonic(); start,end=WINDOWS[window]; end=through or end
+   23      J.START,J.END=start,end
+   24      sm,im=read(L.U/'STOCK_MANIFEST.json'),read(L.U/'INDUSTRY_MANIFEST.json')
+   25      fixed=read(L.U/'FREEZE.json')['stocks']; assert len(sm)==len(fixed)==1709 and len(im)==90
+
+LINES 42-58
+   42      for r in sm:
+   43          sid=r['symbol']
+   44          for p,h in r['output_sha256'].items(): check(p,h)
+   45          f=pd.read_parquet(r['refs']['facts']).loc[:end]
+   46          q=pd.read_parquet(r['refs']['CP1_input']).loc[:end]
+   47          z=pd.read_parquet(r['refs']['CP1']).loc[:end]
+   48          assert f.index.equals(q.index) and q.index.equals(z.index)
+   49          for k in ('close','segment_id','i_target','i_floor'):
+   50              pd.testing.assert_series_equal(f[k],q[k],check_exact=True,check_dtype=False,check_freq=False)
+   51          rr=receipt_rows(r,sid); assert len(rr)==int(z.loc[start:end].receipt.eq(True).sum()),('receipt count',sid)
+   52          full[sid],cp[sid],receipts[sid]=f,z,{x['confirmed_day']:x for x in rr}
+   53          counts[sid]={'rows':len(f.loc[start:end]),'receipts':len(rr)}
+   54      shared=J.M.context(end,ids=fixed); bundle,market,facts=shared
+   55      assert set(market.lines)==set(fixed)=={x.security_id for x in bundle.lines}
+   56      for sid,f in full.items():
+   57          facts.f[sid]=f
+   58          bundle.series[sid].states=f[['e0_ready','e0_target','segment_id']].rename(columns={'e0_ready':'ready','e0_target':'target'})
+
+===========================================================================
+C_runtime_full_facts_formula
+PATH /Users/bytedance/Documents/ChatGPT/money/TradingAlarm/desk/refresh.py
+SHA256 6a144503d62891ae8856fe35b0475797226d2370b44ceb328d420dcc7084cdfc
+Actual runtime full-facts generation function; disables decline_candidate, uses G1_I.
+
+LINES 47-75
+   47  def prepare_facts(signal):
+   48      paths=[ROOT/'research_rounds/b5-g1-20261025/code',ROOT/'research_rounds/pv-strength-b5-20261025/code',ROOT/'research_rounds/pv-participation-response-20261020/code']
+   49      for p in reversed(paths):sys.path.insert(0,str(p))
+   50      from data_utils import eligible_prices
+   51      from api import run_b5
+   52      from grade import classify
+   53      from policy import e0_policy
+   54      from policies_g1 import project
+   55      f=eligible_prices(signal)[['open','high','low','close','volume','segment_id']].copy();f['valid_price_observation']=True;f['valid_strength_observation']=np.isfinite(f.volume)&f.volume.gt(0)
+   56      z=run_b5(f,enhancements=False);e=z['evidence'].copy();g,_=classify(e)
+   57      e['decline_candidate']=False;b,_=e0_policy(e);ip=project(e,b,g,'G1_I')
+   58      keep=f[['close','segment_id']].copy()
+   59      for prefix,frame in [('e0',b),('i',ip)]:
+   60          for c in ['target','floor']:keep[prefix+'_'+c]=frame[c]
+   61      keep['i_buy']=ip.buy_event
+   62      for c in ['grade','fresh_up','acute_down','ready']:keep['g_'+c]=g[c]
+   63      # B5 base readiness is unchanged by disabling decline recovery.
+   64      keep['e0_ready']=z['state']['ready']
+   65      keep['factor']=signal.adjustment_factor.reindex(keep.index);keep['raw_close']=signal.raw_close.reindex(keep.index)
+   66      return keep
+   67  
+   68  
+   69  def facts_job(args):
+   70      sid,signal_path,old_path,old_day,target=args
+   71      facts=prepare_facts(pd.read_parquet(signal_path));original=pd.read_parquet(old_path).loc[:old_day]
+   72      for c in ['e0_ready','e0_target','e0_floor','i_target','i_floor','i_buy','g_grade','g_ready','factor','raw_close']:
+   73          np.testing.assert_allclose(facts.loc[original.index,c].astype(float),original[c].astype(float),rtol=0,atol=0,equal_nan=True,err_msg=sid+'/'+c)
+   74      facts.to_parquet(target)
+   75      return dict(symbol=sid,rows=len(facts),prefix_rows=len(original),sha256=hashlib.sha256(Path(target).read_bytes()).hexdigest())
+
+===========================================================================
+D_full_cache_equivalence_path
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/native-I-cache-interface-20261031/cache.py
+SHA256 fe800283edacb57d1581b50b2bcfdb800ffe4d5f0a22114d0180d3836f6ec969
+derive returns complete full history; job alone truncates BEGIN output.
+
+LINES 4-12
+    4  O=Path(__file__).resolve().parent;ROOT=Path('/Users/bytedance/Documents/ChatGPT/money');R=ROOT/'research_rounds';OLD=R/'a-share-selection-e0-20261024/prepared-v2';IX=R/'ix-a-share-entry-20261025';NEW=ROOT/'TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared';END='2026-09-28';BEGIN='2025-07-01'
+    5  sys.path[:0]=[str(R/'pv-strength-b5-20261025/code'),str(R/'b5-g1-20261025/code'),str(R/'pv-participation-response-20261020/code')]
+    6  from policy import e0_policy
+    7  from policies_g1 import project
+    8  from data_utils import eligible_prices
+    9  sys.path.insert(0,str(ROOT));from TradingAlarm.desk.refresh import prepare_facts
+   10  RECORDS={r['series_id']:r for r in json.loads((OLD/'manifest.json').read_text())['series']}
+   11  IXRECORDS={r['symbol']:r for r in json.loads((IX/'signals/manifest.json').read_text())['series']}
+   12  COLS=['close','segment_id','e0_target','e0_floor','i_target','i_floor','i_buy','g_grade','g_fresh_up','g_acute_down','g_ready','e0_ready','factor','raw_close']
+
+LINES 16-35
+   16  def derive(sid,cut=END):
+   17   start=time.monotonic();rec=RECORDS[sid];paths={k:OLD/rec['files'][k]['path'] for k in ['signal','events','states']}
+   18   for k,p in paths.items():assert sha(p)==rec['files'][k]['sha256'],(sid,k)
+   19   ip=IX/'signals'/f'{sid}.parquet';assert sha(ip)==IXRECORDS[sid]['output_sha256']
+   20   signal=pd.read_parquet(paths['signal']).loc[:cut];x=pd.read_parquet(ip).loc[:cut];event=pd.read_parquet(paths['events']).reindex(x.index);state=pd.read_parquet(paths['states']).reindex(x.index);valid=eligible_prices(signal);assert valid.index.equals(x.index),(sid,'same price-observation clock')
+   21   if x.empty:return pd.DataFrame(columns=COLS,index=pd.DatetimeIndex([],name=signal.index.name)),dict(sid=sid,status='no_observation_before_cut',rows=0,seconds=time.monotonic()-start)
+   22   for c in ['open','high','low','close','volume','segment_id']:np.testing.assert_equal(x[c].to_numpy(),valid[c].to_numpy(),err_msg=sid+'/'+c)
+   23   e=x[['segment_id','open','high','low','close','volume']].copy();e['valid_price_observation']=True;e['price_observation']=e.groupby('segment_id',sort=False).cumcount();e['event']=event.event;e['confirmed_pivot_price']=event.confirmed_pivot_price;e['ready']=state.ready;e['previous_close']=e.groupby('segment_id',sort=False).close.shift()
+   24   v=e.volume.where(np.isfinite(e.volume)&e.volume.gt(0));e['volume_baseline']=v.groupby(e.segment_id,sort=False).transform(lambda q:q.shift().rolling(21,min_periods=21).median())
+   25   for c in ['volume_ratio','high_effort','declined']:e[c]=state[c]
+   26   e['decline_candidate']=False;e['candidate_lower']=np.nan;e['candidate_reclaim']=np.nan
+   27   base,_=e0_policy(e);assert not base.pending.fillna(0).any()
+   28   g=x[['grade','strength_ready','fresh_up','acute_down']].rename(columns={'strength_ready':'ready'});out=project(e,base,g,'G1_I')
+   29   keep=x[['close','segment_id']].copy()
+   30   for mode,frame in [('e0',base),('i',out)]:
+   31    for c in ['target','floor']:keep[mode+'_'+c]=frame[c]
+   32   keep['i_buy']=out.buy_event
+   33   for c in ['grade','fresh_up','acute_down','ready']:keep['g_'+c]=g[c]
+   34   keep['e0_ready']=base.ready;keep['factor']=signal.adjustment_factor.reindex(keep.index);keep['raw_close']=signal.raw_close.reindex(keep.index);keep=keep[COLS]
+   35   return keep,dict(sid=sid,status='derived',warm_from=str(keep.index.min().date()),warm_rows=len(keep),rows=len(keep.loc[BEGIN:]),i_events=int(keep.loc[BEGIN:,'i_buy'].sum()),unknown_grade=int(keep.loc[BEGIN:,'g_grade'].isna().sum()),IX_target_difference=int((out.target.astype(float)!=x.ix_target.astype(float)).sum()),seconds=time.monotonic()-start,input_sha={str(p):sha(p) for p in list(paths.values())+[ip]})
+
+LINES 55-55
+   55   f,r=derive(sid);path=O/'facts'/f'{sid}.parquet';f.loc[BEGIN:END].to_parquet(path);r['output_sha256']=sha(path);save(O/'receipts'/f'{sid}.json',r);return r
+
+===========================================================================
+E_full_facts_reuse_proof
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/prepare.py
+SHA256 f2c2e80103f75f5575bf8d45c7a20e6005eccf5daaea54b58f9cc2c1e433cf59
+Saved manifest selects runtime facts only after exact full-frame comparison; distinguish direct consumer from formula-equivalent cache.
+
+LINES 20-45
+   20  def emit_stock(sid,case,prefix_sample):
+   21   start=time.monotonic();refs={};checks={};old_source_status=None;CP_reuse=False;facts_reuse=False
+   22   if case is not None:
+   23    assert all(sha(p)==h for p,h in case['source_sha256'].items())
+   24    assert all(sha(W/'case-stock-cp1-warmup-20261031'/p)==h for p,h in case['output_sha256'].items())
+   25    root=W/'case-stock-cp1-warmup-20261031';refs=dict(facts=str(root/'full-facts'/f'{sid}.parquet'),CP1_input=str(root/'CP1-input'/f'{sid}.parquet'),CP1=str(root/'CP1'/f'{sid}.parquet'));f=pd.read_parquet(refs['facts']).loc[:END];q=pd.read_parquet(refs['CP1_input']).loc[:END];z=pd.read_parquet(refs['CP1']).loc[:END];source_hash=case['source_sha256'];CP_reuse=facts_reuse=True;checks['previous_case_full_chain_verified']=True;mode='verified_case_reuse'
+   26   else:
+   27    f,receipt=N.derive(sid,END);paths=source_paths(sid);source_hash={str(p):sha(p) for p in paths.values()};native=pd.read_parquet(W/'native-I-cache-interface-20261031/facts'/f'{sid}.parquet').loc[BEGIN:END];G.exact(f.loc[BEGIN:END],native);checks['native_I_export_all_fields_exact']=True;q=G.frame(sid,f,END);z=M.calculate(q);old=C.O/'signals'/f'{sid}.parquet';mode='new_fixed_chain'
+   28    if old.exists():
+   29     try:
+   30      G.exact(q,C.frame(sid,END));G.exact(z,pd.read_parquet(old).loc[:END]);refs['CP1']=str(old);CP_reuse=True;old_source_status='full_input_and_CP1_exact';checks['old_CP1_current_source_exact']=True
+   31      oldfacts=C.PREP/'facts'/f'{sid}.parquet';ff=pd.read_parquet(oldfacts)
+   32      if set(N.COLS)<=set(ff):G.exact(f,ff.loc[:END,N.COLS]);refs['facts']=str(oldfacts);facts_reuse=True
+   33     except (AssertionError,ValueError,FileNotFoundError) as e:old_source_status='incompatible_or_unavailable:'+str(e)[:350]
+   34    if 'facts' not in refs:
+   35     path=O/'facts'/f'{sid}.parquet';f.to_parquet(path);refs['facts']=str(path)
+   36    path=O/'CP1-input'/f'{sid}.parquet';q.to_parquet(path);refs['CP1_input']=str(path)
+   37    if 'CP1' not in refs:
+   38     path=O/'CP1'/f'{sid}.parquet';z.to_parquet(path);refs['CP1']=str(path)
+   39    if sid in prefix_sample and not f.empty:
+   40     short,_=N.derive(sid,CUT);G.exact(short,f.loc[:CUT]);G.exact(M.calculate(G.frame(sid,short,CUT)),z.loc[:CUT]);checks['physical_I_CP1_prefix_exact']=True
+   41   if f.empty:rs=[];status='not_applicable_no_local_observation_by_end'
+   42   else:
+   43    events_path=next(p for p in source_hash if p.endswith('/events.parquet'));ev=pd.read_parquet(events_path).reindex(q.index);rs,_,_=T.trace(sid,q,z,ev,f.e0_target.reindex(q.index).astype(bool));status='complete';checks['trace_unknown_receipts']=sum(bool(r['trace_unknown']) for r in rs)
+   44   rpath=O/'receipts'/f'{sid}.json';save(rpath,compact(rs));refs['receipts']=str(rpath);checks['old_cache_source_compatibility']=old_source_status
+   45   audit=f.loc[BEGIN:END];zz=z.loc[BEGIN:END];required=f.loc[BEGIN:REQUIRED_END];r=dict(symbol=sid,status=status,mode=mode,CP1_reused=CP_reuse,facts_reused=facts_reuse,contract_signature=SIGNATURE,refs=refs,source_sha256=source_hash,output_sha256={p:sha(p) for p in refs.values()},warm_from=str(f.index.min().date()) if len(f) else None,cache_through=END,required_account_end=REQUIRED_END,full_warm_observations=len(f),audit_observations=len(audit),audit_CP1_ready=int(zz.ready.sum()),audit_CP1_unready=int(len(zz)-zz.ready.sum()),audit_CP1_receipts=int(zz.receipt.sum()),required_account_observations=len(required),required_account_CP1_receipts=int(z.loc[BEGIN:REQUIRED_END,'receipt'].sum()),checks=checks,seconds=time.monotonic()-start)
+
+===========================================================================
+F_price_observation_mask
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-participation-response-20261020/code/data_utils.py
+SHA256 e5623d85b66ca575e9ba3066389d0a1119f757388ae68e2711e4a70852909668
+Price validity/source/synthetic mask; missing volume does not erase otherwise valid price.
+
+LINES 26-58
+   26  def eligible_prices(frame, symbol="", exclude_dates=()):
+   27      """Return valid price observations without inferring volume or intraday order."""
+   28      out = frame.copy()
+   29      if "date" in out:
+   30          out["date"] = pd.to_datetime(out["date"])
+   31          out = out.set_index("date")
+   32      out.index = pd.to_datetime(out.index)
+   33      if not out.index.is_unique or not out.index.is_monotonic_increasing:
+   34          raise ValueError("price input must have unique increasing dates")
+   35      ohlc = out[["open", "high", "low", "close"]].apply(pd.to_numeric, errors="coerce")
+   36      finite = np.isfinite(ohlc).all(axis=1) & ohlc.gt(0).all(axis=1)
+   37      geometry = (
+   38          ohlc.high.ge(ohlc.low)
+   39          & ohlc.high.ge(ohlc[["open", "close"]].max(axis=1))
+   40          & ohlc.low.le(ohlc[["open", "close"]].min(axis=1))
+   41      )
+   42      anomaly = (
+   43          out.source_anomaly.fillna("").astype(str).str.strip().ne("")
+   44          if "source_anomaly" in out else pd.Series(False, index=out.index)
+   45      )
+   46      keep = (
+   47          finite & geometry
+   48          & boolean_column(out, "observed_bar", True)
+   49          & ~boolean_column(out, "synthetic_event_bar", False)
+   50          & ~boolean_column(out, "source_invalid", False)
+   51          & ~anomaly
+   52          & ~out.index.isin(pd.to_datetime(list(exclude_dates)))
+   53      )
+   54      out.loc[:, ["open", "high", "low", "close"]] = ohlc
+   55      if "volume" not in out:
+   56          out["volume"] = np.nan
+   57      out["volume"] = pd.to_numeric(out.volume, errors="coerce")
+   58      return out.loc[keep].copy()
+
+===========================================================================
+G_E0_events_runtime
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-b5-20261025/code/evidence.py
+SHA256 c2d48324161628c18daee7e13717516049889d172081286ab06a4cfcb4eb6c38
+Runtime pure E0 event extraction; pinned B4 strength; event/price/strength clocks separate.
+
+LINES 21-51
+   21  ROOT = Path(__file__).resolve().parents[3]
+   22  B4_SOURCE = ROOT / "research_rounds/pv-strength-b4-20261025/code/model.py"
+   23  B4_SHA256 = "0beb0b16f2f2cac4f1aff23258b7c45722dc12f16e495be27bf5635c03888cf1"
+   24  INPUT_COLUMNS = [
+   25      "open", "high", "low", "close", "volume", "segment_id",
+   26      "valid_price_observation", "valid_strength_observation",
+   27  ]
+   28  EVENT_COLUMNS = [
+   29      "confirmation", "leg_direction", "developing_extreme", "confirmed_pivot",
+   30      "event", "pivot_age", "developing_extreme_price", "confirmed_pivot_price",
+   31      "confirmed_pivot_date", "developing_extreme_date",
+   32  ]
+   33  EVENT_DATE_COLUMNS = ["confirmed_pivot_date", "developing_extreme_date"]
+   34  FACT_COLUMNS = [
+   35      "price_observation", "event_observation", "strength_observation", "ready",
+   36      "previous_close", "volume_baseline", "volume_ratio", "declined",
+   37      "high_effort", "decline_candidate", "candidate_lower", "candidate_reclaim",
+   38  ]
+   39  
+   40  
+   41  def _load_frozen_b4():
+   42      """Verify the bytes before loading under an isolated, source-specific name."""
+   43      if hashlib.sha256(B4_SOURCE.read_bytes()).hexdigest() != B4_SHA256:
+   44          raise RuntimeError("Frozen B4 source SHA-256 mismatch")
+   45      spec = importlib.util.spec_from_file_location(
+   46          "_pvs_b5_frozen_b4_0beb0b16f2f2cac4", B4_SOURCE)
+   47      if spec is None or spec.loader is None:
+   48          raise RuntimeError("Cannot load frozen B4 source")
+   49      module = importlib.util.module_from_spec(spec)
+   50      spec.loader.exec_module(module)
+   51      return module
+
+LINES 92-157
+   92  def _event_facts(bars):
+   93      """Pure event portion extracted from numeric.event_frame_numeric.
+   94  
+   95      Every retained scalar operation, local fsum, median window, branch and
+   96      extreme update matches the source.  The source's active/floor/target and
+   97      entered/exited calculations have never been executed in this function.
+   98      An empty C/V-valid segment is a B5 extension: events remain unprepared.
+   99      """
+  100      raw = bars[["close", "volume"]]
+  101      d = raw.loc[raw.gt(0).all(axis=1) & np.isfinite(raw).all(axis=1)]
+  102      numeric_columns = [column for column in EVENT_COLUMNS if column not in EVENT_DATE_COLUMNS]
+  103      blank = pd.DataFrame(np.nan, index=bars.index, columns=numeric_columns)
+  104      blank["event"] = 0.0
+  105      for column in EVENT_DATE_COLUMNS:
+  106          blank[column] = pd.Series(pd.NA, index=bars.index, dtype="string")
+  107      if d.empty:
+  108          return blank[EVENT_COLUMNS], pd.Series(np.nan, index=bars.index)
+  109      prices, volumes = d.close.to_numpy(), d.volume.to_numpy()
+  110      returns = [math.nan] + [log_ratio(prices[t], prices[t - 1])
+  111                             for t in range(1, len(d))]
+  112      sigma = np.full(len(d), np.nan)
+  113      baseline = d.volume.shift().rolling(21).median().to_numpy()
+  114      for t in range(64, len(d)):
+  115          sigma[t] = max(math.sqrt(math.fsum(x * x for x in returns[t - 63:t]) / 63), 1e-8)
+  116      direction, ext = -1, None
+  117      rows = []
+  118      for t, date in enumerate(d.index):
+  119          row = dict(confirmation=math.nan, leg_direction=math.nan,
+  120                     developing_extreme=math.nan, confirmed_pivot=math.nan,
+  121                     event=0.0, pivot_age=math.nan,
+  122                     developing_extreme_price=math.nan, confirmed_pivot_price=math.nan,
+  123                     confirmed_pivot_date=None, developing_extreme_date=None)
+  124          if not math.isfinite(sigma[t] + baseline[t]):
+  125              rows.append(row)
+  126              continue
+  127          if ext is None:
+  128              ext = t
+  129          extreme_order = compare(prices[t], prices[ext])
+  130          if (direction == -1 and extreme_order < 0) or (direction == 1 and extreme_order > 0):
+  131              ext = t
+  132          if t > ext:
+  133              activity = math.sqrt(
+  134                  (math.fsum(float(x) for x in volumes[ext + 1:t + 1]) / (t - ext))
+  135                  / baseline[ext]
+  136              )
+  137              activity = min(max(activity, 0.5), 2.0)
+  138              confirmation = (-direction) * log_ratio(prices[t], prices[ext]) * activity / (math.sqrt(5) * sigma[ext])
+  139              row["confirmation"] = confirmation
+  140              if compare(max(confirmation, 0.0), 1.0) >= 0:
+  141                  event = -direction
+  142                  pivot = float(prices[ext])
+  143                  row.update(event=float(event), confirmed_pivot=math.log(pivot),
+  144                             confirmed_pivot_price=pivot, pivot_age=float(t - ext),
+  145                             confirmed_pivot_date=str(d.index[ext].date()))
+  146                  direction, ext = event, t
+  147          row.update(leg_direction=float(direction),
+  148                     developing_extreme=math.log(float(prices[ext])),
+  149                     developing_extreme_price=float(prices[ext]),
+  150                     developing_extreme_date=str(d.index[ext].date()))
+  151          rows.append(row)
+  152      result = pd.DataFrame(rows, index=d.index).reindex(bars.index)
+  153      result["event"] = result.event.fillna(0.0)
+  154      for column in EVENT_DATE_COLUMNS:
+  155          result[column] = result[column].astype("string")
+  156      observations = pd.Series(np.arange(len(d), dtype=float), index=d.index).reindex(bars.index)
+  157      return result[EVENT_COLUMNS], observations
+
+LINES 160-218
+  160  def build_evidence(f):
+  161      """Return (market_frame, {'events': list, 'strength': original_B4_list}).
+  162  
+  163      All rows are retained.  Price-invalid rows have unknown E0 facts; missing
+  164      volume on a price-valid row still permits price facts and ready to persist.
+  165      Extra input columns are intentionally not forwarded.  B4's 101 output
+  166      columns receive only a `strength_` prefix; its journal stays unchanged.
+  167      """
+  168      _validate(f)
+  169      out = f[INPUT_COLUMNS].copy()
+  170      facts = pd.DataFrame(np.nan, index=f.index, columns=FACT_COLUMNS + [
+  171          column for column in EVENT_COLUMNS if column not in EVENT_DATE_COLUMNS])
+  172      for column in EVENT_DATE_COLUMNS:
+  173          facts[column] = pd.Series(pd.NA, index=f.index, dtype="string")
+  174      event_journal = []
+  175      previous_segment = None
+  176      for segment, group in f.groupby("segment_id", sort=False):
+  177          if previous_segment is not None:
+  178              event_journal.append(dict(
+  179                  segment=str(segment), date=str(group.index[0].date()),
+  180                  kind="source_discontinuity", previous_segment=previous_segment,
+  181                  observation=None,
+  182              ))
+  183          previous_segment = str(segment)
+  184          bars = group.loc[group.valid_price_observation, ["open", "high", "low", "close", "volume"]].astype(float)
+  185          if bars.empty:
+  186              continue
+  187          events, event_clock = _event_facts(bars)
+  188          facts.loc[bars.index, EVENT_COLUMNS] = events
+  189          facts.loc[bars.index, "event_observation"] = event_clock
+  190          facts.loc[bars.index, "price_observation"] = np.arange(len(bars), dtype=float)
+  191          strength_dates = group.index[group.valid_strength_observation]
+  192          facts.loc[strength_dates, "strength_observation"] = np.arange(len(strength_dates), dtype=float)
+  193          v = bars.volume.where(np.isfinite(bars.volume) & bars.volume.gt(0))
+  194          volume_base = v.shift().rolling(21, min_periods=21).median()
+  195          ratios = v / volume_base
+  196          ready, previous_close = False, math.nan
+  197          for n, (date, bar) in enumerate(bars.iterrows()):
+  198              ev = events.loc[date]
+  199              ready = ready or bool(pd.notna(ev.leg_direction))
+  200              c, low = float(bar.close), float(bar.low)
+  201              q = float(ratios.loc[date])
+  202              declined = bool(math.isfinite(previous_close) and compare(c, previous_close) < 0)
+  203              high_effort = bool(math.isfinite(q) and compare(q, 2.0) >= 0)
+  204              candidate = bool(ready and declined and high_effort)
+  205              facts.loc[date, ["ready", "previous_close", "volume_baseline", "volume_ratio",
+  206                               "declined", "high_effort", "decline_candidate",
+  207                               "candidate_lower", "candidate_reclaim"]] = [
+  208                  int(ready), previous_close, float(volume_base.loc[date]), q,
+  209                  int(declined), int(high_effort), int(candidate),
+  210                  low if candidate else math.nan, previous_close if candidate else math.nan,
+  211              ]
+  212              if ev.event:
+  213                  event_journal.append(dict(
+  214                      segment=str(segment), date=str(date.date()), observation=int(n),
+  215                      event_observation=int(event_clock.loc[date]), kind="event_confirmed",
+  216                      direction=int(ev.event), confirmation=float(ev.confirmation),
+  217                      pivot_price=float(ev.confirmed_pivot_price), pivot_date=ev.confirmed_pivot_date,
+  218                      pivot_age=int(ev.pivot_age),
+
+LINES 226-236
+  226              previous_close = c
+  227      b4 = _load_frozen_b4()
+  228      strength, strength_journal = b4.strength_frame(f, joint=True)
+  229      out = pd.concat([out, facts[FACT_COLUMNS + EVENT_COLUMNS], strength.add_prefix("strength_")], axis=1)
+  230      out.attrs.update(
+  231          model="PVS-B5", strength_source=str(B4_SOURCE.relative_to(ROOT)),
+  232          strength_sha256=B4_SHA256, strength_attrs=strength.attrs.copy(),
+  233          clocks="price: explicit mask; event: price plus positive finite C/V; strength: explicit subset mask",
+  234          journal_contract="events: pure event/candidate receipts; strength: unchanged frozen B4 journal",
+  235      )
+  236      return out, {"events": event_journal, "strength": strength_journal}
+
+===========================================================================
+H_E0_scalar_arithmetic
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-b5-20261025/code/arithmetic.py
+SHA256 bee04c1ff88fd7a1c7571eada45380bafbbff524494f493c4a245dd9d19cafb2
+gamma4 comparison and exact local log_ratio operation order.
+
+LINES 13-42
+   13  UNIT_ROUNDOFF = np.finfo(np.float64).eps / 2
+   14  ROUNDING_STEPS = 4
+   15  GAMMA4 = ROUNDING_STEPS * UNIT_ROUNDOFF / (1 - ROUNDING_STEPS * UNIT_ROUNDOFF)
+   16  
+   17  
+   18  def compare(a: float, b: float) -> int:
+   19      """Order finite nonnegative magnitudes with the original gamma4 tie band."""
+   20      a, b = float(a), float(b)
+   21      if not (math.isfinite(a) and math.isfinite(b) and a >= 0 and b >= 0):
+   22          raise ValueError("finite nonnegative magnitudes required")
+   23      if abs(a - b) <= GAMMA4 * max(a, b):
+   24          return 0
+   25      return 1 if a > b else -1
+   26  
+   27  
+   28  def log_ratio(a: float, b: float) -> float:
+   29      """The original local log change, including its exact branch choices."""
+   30      a, b = float(a), float(b)
+   31      if not (math.isfinite(a) and math.isfinite(b) and a > 0 and b > 0):
+   32          raise ValueError("finite positive prices required")
+   33      if compare(a, b) == 0:
+   34          return 0.0
+   35      if 0.5 <= a / b <= 2:
+   36          return math.log1p((a - b) / b)
+   37      return math.log(a) - math.log(b)
+   38  
+   39  
+   40  def higher(old: float, new: float) -> float:
+   41      """Retain the old value on a numerical tie, as in the frozen E0 policy."""
+   42      return float(new) if compare(new, old) > 0 else float(old)
+
+===========================================================================
+I_E0_target_current
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-b5-20261025/code/policy.py
+SHA256 72f6785d9ee37df086b88963623569f046479a1934d420a15e2d141f8240b660
+Current E0 target/floor state; runtime decline_candidate=False leaves pending branch inactive.
+
+LINES 43-57
+   43  def e0_policy(frame, enhancements=False):
+   44      """Return (state, ledger), reproducing the frozen mode='volume' policy.
+   45  
+   46      Every segment starts inactive with no memory and candidate IDs starting at
+   47      one.  A still-open memory is recorded as open at that segment's end, not
+   48      rejected at the next segment.  Invalid price rows expose unknown state and
+   49      never advance the clock.  State integer columns always use nullable Int64,
+   50      including complete valid prefixes, so future invalid rows cannot change
+   51      the schema.  Ledger dtypes are unchanged.  segment_id is appended after
+   52      all original columns in both outputs.
+   53      """
+   54      if not isinstance(enhancements, (bool, np.bool_)):
+   55          raise ValueError("Scalar Boolean enhancements required")
+   56      if enhancements:
+   57          raise NotImplementedError("B5 strength-enhanced participation is not specified or implemented")
+
+LINES 79-163
+   79      for segment, group in frame.groupby("segment_id", sort=False):
+   80          bars = group.loc[group.valid_price_observation]
+   81          boolean_facts = ["ready", "declined", "high_effort", "decline_candidate"]
+   82          if not bars[boolean_facts].isin([0, 1]).all().all():
+   83              raise ValueError("Valid price rows require complete binary ready/decline/effort facts")
+   84          if not bars.event.isin([-1, 0, 1]).all():
+   85              raise ValueError("Valid price rows require complete event values in {-1, 0, 1}")
+   86          active, floor, pending = False, math.nan, None
+   87          next_id = 0
+   88          for n, (date, fact) in enumerate(bars.iterrows()):
+   89              if fact.price_observation != n:
+   90                  raise ValueError("Price observation clock must restart at zero and advance on valid rows")
+   91              price_event = int(fact.event) if pd.notna(fact.event) else 0
+   92              ready = bool(fact.ready)
+   93              c = float(fact.close)
+   94              q = float(fact.volume_ratio)
+   95              declined, high_effort = bool(fact.declined), bool(fact.high_effort)
+   96              entered = exited = created = response = consumed = independent = 0
+   97              ended_id = None
+   98              entry_kind = ""
+   99              if active and compare(c, floor) <= 0:
+  100                  active, exited = False, 1
+  101              if pending:
+  102                  if compare(c, pending["lower"]) < 0:
+  103                      response = -1
+  104                  elif compare(c, pending["reclaim"]) > 0:
+  105                      response = 1
+  106              if price_event == 1:
+  107                  pivot = float(fact.confirmed_pivot_price)
+  108                  if not math.isfinite(pivot):
+  109                      raise ValueError("up event lacks canonical pivot")
+  110                  if active:
+  111                      floor = higher(floor, pivot)
+  112                  elif not exited:
+  113                      active, entered, floor = True, 1, pivot
+  114                      entry_kind = "original_event"
+  115              if pending:
+  116                  outcome = None
+  117                  if response == -1:
+  118                      outcome = "rejected"
+  119                  elif active:
+  120                      outcome, consumed = "base_confirmed", 1
+  121                  elif response == 1:
+  122                      if exited:
+  123                          raise AssertionError("existing memory cannot coexist with active structure")
+  124                      active, entered, independent, floor = True, 1, 1, pending["lower"]
+  125                      entry_kind, outcome = "participation_reclaim", "reclaimed"
+  126                  if outcome:
+  127                      record = dict(pending)
+  128                      record.update(resolved_date=str(date.date()), outcome=outcome,
+  129                                    response=response, independent_entry=independent,
+  130                                    original_entry_same_day=int(entry_kind == "original_event"),
+  131                                    resolution_volume_ratio=q if math.isfinite(q) else None,
+  132                                    waiting_observations=n-pending["created_observation"],
+  133                                    segment_id=str(segment))
+  134                      ledger.append(record)
+  135                      ended_id, pending = pending["id"], None
+  136              if not active and pending is None and bool(fact.decline_candidate):
+  137                  next_id += 1
+  138                  pending = {
+  139                      "id": next_id, "created_date": str(date.date()),
+  140                      "created_observation": n, "reclaim": float(fact.candidate_reclaim),
+  141                      "lower": float(fact.candidate_lower),
+  142                      "event_open": float(fact.open), "event_high": float(fact.high),
+  143                      "event_close": c, "event_volume": float(fact.volume),
+  144                      "volume_ratio": q if math.isfinite(q) else None,
+  145                      "volume_baseline": float(fact.volume_baseline) if pd.notna(fact.volume_baseline) else None,
+  146                      "created_on_exit": exited,
+  147                  }
+  148                  created = 1
+  149              if active and pending is not None:
+  150                  raise AssertionError("active structure retained pending memory")
+  151              rows.append({
+  152                  "date": date, "target": int(active), "entered": entered, "exited": exited,
+  153                  "floor": floor if active or exited else math.nan,
+  154                  "pending": int(pending is not None), "pending_id": pending["id"] if pending else None,
+  155                  "pending_since": pending["created_date"] if pending else None,
+  156                  "pending_reclaim": pending["reclaim"] if pending else math.nan,
+  157                  "pending_lower": pending["lower"] if pending else math.nan,
+  158                  "created": created, "response": response, "consumed_by_base": consumed,
+  159                  "independent_entry": independent, "ended_id": ended_id,
+  160                  "entry_kind": entry_kind, "volume_ratio": q, "high_effort": int(high_effort),
+  161                  "declined": int(declined), "price_event": price_event, "ready": int(ready),
+  162                  "segment_id": str(segment),
+  163              })
+
+LINES 172-186
+  172      columns = list(STATE_TYPES) + ["segment_id"]
+  173      if rows:
+  174          state = pd.DataFrame(rows).set_index("date").reindex(frame.index)[columns]
+  175      else:
+  176          state = pd.DataFrame(index=frame.index, columns=columns)
+  177      # The original participation DataFrame builds its index from row dates,
+  178      # which drops an input DatetimeIndex.freq.  Preserve that exact contract.
+  179      state.index = pd.DatetimeIndex(state.index.to_numpy(), name="date")
+  180      state_types = {column: ("Int64" if dtype == "int64" else dtype)
+  181                     for column, dtype in STATE_TYPES.items()}
+  182      state = state.astype(state_types)
+  183      state["segment_id"] = frame.segment_id.astype("string")
+  184      ledger_types = dict(LEDGER_TYPES, segment_id="string")
+  185      records = pd.DataFrame(ledger, columns=ledger_types).astype(ledger_types)
+  186      return state, records
+
+===========================================================================
+J_B4_strength_full_equations
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-b4-20261025/code/model.py
+SHA256 0beb0b16f2f2cac4f1aff23258b7c45722dc12f16e495be27bf5635c03888cf1
+S21/S63 direction states, candidates, EW pace, scale, acute events and unknown/source handling.
+
+LINES 15-38
+   15  SCALES = (21, 63)
+   16  PACE_SPANS = (5, 21)
+   17  INPUT_COLUMNS = ['close', 'volume', 'segment_id', 'valid_strength_observation']
+   18  CANDIDATE_FIELDS = [
+   19      'active', 'anchor', 'anchor_price', 'anchor_observation',
+   20      'created_observation', 'threshold', 'scale_at_anchor', 'volume_reference',
+   21      'frontier', 'credit', 'x', 'new_frontier', 'frontier_increment',
+   22      'credit_increment', 'volume_weight',
+   23  ]
+   24  FIELDS = [
+   25      'r', 'r_bp', 'mu5', 'mu21', 'mu5_bp', 'mu21_bp',
+   26      'mu5_direction', 'mu21_direction', 'mu5_magnitude_bp', 'mu21_magnitude_bp',
+   27      's', 'volume_reference', 'activity', 'q', 'qeff', 'acute_down', 'acute_up',
+   28      'S21', 'S63', 'local', 'background', 'building_direction',
+   29  ]
+   30  for _h in SCALES:
+   31      FIELDS.extend([
+   32          f'delta_{_h}', f'confirmed_{_h}', f'confirmed_direction_{_h}',
+   33          f'running_extreme_{_h}', f'running_extreme_price_{_h}',
+   34          f'running_extreme_observation_{_h}',
+   35      ])
+   36      for _side in ('up', 'down'):
+   37          FIELDS.extend(f'{_side}_{field}_{_h}' for field in CANDIDATE_FIELDS)
+   38  DATE_FIELDS = [f'{side}_anchor_date_{h}' for h in SCALES for side in ('up', 'down')]
+
+LINES 42-61
+   42  def tol(a, b):
+   43      """The frozen 32-epsilon comparison tolerance, in normalized log units."""
+   44      return 32 * np.finfo(float).eps * max(1., abs(a), abs(b))
+   45  
+   46  
+   47  def ge(a, b):
+   48      return bool(a >= b - tol(a, b))
+   49  
+   50  
+   51  def le(a, b):
+   52      return bool(a <= b + tol(a, b))
+   53  
+   54  
+   55  def gt(a, b):
+   56      """Strict new extrema/frontiers must exceed floating-point noise."""
+   57      return bool(a > b + tol(a, b))
+   58  
+   59  
+   60  def lt(a, b):
+   61      return bool(a < b - tol(a, b))
+
+LINES 85-281
+   85  def _log_prices(close):
+   86      # Ratios remove the arbitrary price unit before log. Use differences of
+   87      # logs only where extreme but finite positive inputs overflow/underflow.
+   88      with np.errstate(over='ignore', under='ignore', invalid='ignore', divide='ignore'):
+   89          p = np.log(close / close[0])
+   90      exceptional = ~np.isfinite(p)
+   91      if exceptional.any():
+   92          p[exceptional] = np.log(close[exceptional]) - math.log(float(close[0]))
+   93      return p
+   94  
+   95  
+   96  def run_valid(f, joint=True):
+   97      """Compute one already validated, contiguous source segment.
+   98  
+   99      joint=False is the explicit price ablation: both structure-credit and
+  100      acute-event volume multipliers are one. Valid positive volume is still
+  101      required by strength_frame. Candidate columns are end-of-day states;
+  102      structure_confirmed journal entries retain the consumed candidate receipt.
+  103      """
+  104      if not isinstance(joint, (bool, np.bool_)):
+  105          raise ValueError('Scalar Boolean joint mode required')
+  106      if len(f) == 0:
+  107          out = pd.DataFrame(index=f.index, columns=FIELDS + DATE_FIELDS + ['phase'])
+  108          out.attrs['terminal'] = None
+  109          return out, []
+  110      close = f.close.to_numpy(float)
+  111      p = _log_prices(close)
+  112      r = np.r_[np.nan, np.diff(p)]
+  113      v = f.volume.to_numpy(float)
+  114      dates = [str(date.date()) for date in f.index]
+  115      rows, journal = [], []
+  116      states = {}
+  117      mu = {h: None for h in PACE_SPANS}
+  118  
+  119      def emit(t, kind, **fields):
+  120          journal.append(dict(observation=int(t), date=dates[t], kind=kind, **fields))
+  121  
+  122      def fresh_candidate(t, anchor_t, h, direction, scale, vref, reason, prior=None):
+  123          candidate = dict(
+  124              direction=int(direction), anchor=float(p[anchor_t]),
+  125              anchor_price=float(close[anchor_t]), anchor_observation=int(anchor_t),
+  126              anchor_date=dates[anchor_t], created_observation=int(t),
+  127              threshold=float(math.sqrt(h) * scale), scale_at_anchor=float(scale),
+  128              volume_reference=float(vref), frontier=0., credit=0.,
+  129              x=float(direction * (p[t] - p[anchor_t])), new_frontier=0.,
+  130              frontier_increment=0., credit_increment=0., volume_weight=1.,
+  131          )
+  132          emit(t, 'candidate_reset', horizon=h, reason=reason,
+  133               previous_candidate=copy.deepcopy(prior), candidate=copy.deepcopy(candidate))
+  134          return candidate
+  135  
+  136      def advance_candidate(t, h, candidate):
+  137          direction = candidate['direction']
+  138          x = float(direction * (p[t] - candidate['anchor']))
+  139          old_frontier, old_credit = candidate['frontier'], candidate['credit']
+  140          extension = gt(x, old_frontier)
+  141          weight = (float(np.clip(math.sqrt(float(v[t] / candidate['volume_reference'])), .5, 2.))
+  142                    if joint else 1.)
+  143          eligible = extension and direction * r[t] > 0.
+  144          # F and Q describe the same accepted frontier. Updating F for tiny
+  145          # sub-tolerance moves while leaving Q fixed would break .5F <= Q.
+  146          frontier = x if eligible else old_frontier
+  147          frontier_increment = float(frontier - old_frontier)
+  148          credit_increment = float((x - old_frontier) * weight) if eligible else 0.
+  149          candidate.update(
+  150              x=x, frontier=float(frontier), credit=float(old_credit + credit_increment),
+  151              new_frontier=float(eligible), frontier_increment=frontier_increment,
+  152              credit_increment=credit_increment, volume_weight=weight,
+  153          )
+  154          if extension:
+  155              emit(t, 'frontier_extended', horizon=h, direction=direction,
+  156                   prior_frontier=float(old_frontier), prior_credit=float(old_credit),
+  157                   direction_return=float(direction * r[t]), eligible_for_credit=bool(eligible),
+  158                   r=float(r[t]), volume=float(v[t]), candidate=copy.deepcopy(candidate))
+  159          confirmed = (eligible and ge(x, candidate['threshold'])
+  160                       and ge(candidate['credit'], candidate['threshold']))
+  161          return bool(confirmed)
+  162  
+  163      for t in range(len(f)):
+  164          if t >= 1:
+  165              for h in PACE_SPANS:
+  166                  alpha = 2. / (h + 1.)
+  167                  mu[h] = float(r[t]) if mu[h] is None else float(alpha * r[t] + (1. - alpha) * mu[h])
+  168          row = _blank_row()
+  169          if t < 64:
+  170              rows.append(row)
+  171              continue
+  172  
+  173          # Exactly the preceding 63 returns and 21 volumes; never today's data.
+  174          scale = max(1.4826 * float(np.median(np.abs(r[t - 63:t]))), 1e-8)
+  175          vref = float(np.median(v[t - 21:t]))
+  176          activity = float(v[t] / vref)
+  177          q = float(r[t] / scale)
+  178          qeff = float(q * math.sqrt(float(np.clip(activity, 1., 4.)) if joint else 1.))
+  179          row.update(
+  180              r=float(r[t]), r_bp=float(1e4 * r[t]), s=scale,
+  181              volume_reference=vref, activity=activity, q=q, qeff=qeff,
+  182              acute_down=float(le(qeff, -2.)), acute_up=float(ge(qeff, 2.)),
+  183          )
+  184          for h in PACE_SPANS:
+  185              row.update({
+  186                  f'mu{h}': mu[h], f'mu{h}_bp': 1e4 * mu[h],
+  187                  f'mu{h}_direction': float(np.sign(mu[h])),
+  188                  f'mu{h}_magnitude_bp': float(1e4 * abs(mu[h])),
+  189              })
+  190          if row['acute_down'] or row['acute_up']:
+  191              emit(t, 'acute_down' if row['acute_down'] else 'acute_up',
+  192                   r=float(r[t]), s=scale, q=q, qeff=qeff, volume=float(v[t]),
+  193                   volume_reference=vref, activity=activity, joint=bool(joint))
+  194  
+  195          for h in SCALES:
+  196              row[f'delta_{h}'] = float(math.sqrt(h) * scale)
+  197              row[f'confirmed_{h}'] = 0.
+  198              row[f'confirmed_direction_{h}'] = 0.
+  199              if h not in states:
+  200                  states[h] = dict(
+  201                      direction=0, high=float(p[t - 1]), low=float(p[t - 1]),
+  202                      high_observation=t - 1, low_observation=t - 1,
+  203                      candidates={
+  204                          1: fresh_candidate(t, t - 1, h, 1, scale, vref, 'initialization'),
+  205                          -1: fresh_candidate(t, t - 1, h, -1, scale, vref, 'initialization'),
+  206                      },
+  207                  )
+  208              state = states[h]
+  209              before = state['direction']
+  210              candidates = state['candidates']
+  211  
+  212              # Only extrema belonging to the active structure are maintained.
+  213              # Before first confirmation both initial candidates are available.
+  214              if before >= 0 and gt(float(p[t]), state['high']):
+  215                  state['high'], state['high_observation'] = float(p[t]), t
+  216                  candidates[-1] = fresh_candidate(
+  217                      t, t, h, -1, scale, vref, 'new_high', candidates.get(-1))
+  218              if before <= 0 and lt(float(p[t]), state['low']):
+  219                  state['low'], state['low_observation'] = float(p[t]), t
+  220                  candidates[1] = fresh_candidate(
+  221                      t, t, h, 1, scale, vref, 'new_low', candidates.get(1))
+  222  
+  223              # A single return cannot provide same-day directional extension in
+  224              # both directions. The assertion also prevents an accidental double
+  225              # confirmation if the implementation changes later.
+  226              confirmations = []
+  227              for direction, candidate in candidates.items():
+  228                  if advance_candidate(t, h, candidate):
+  229                      confirmations.append(direction)
+  230              if len(confirmations) > 1:
+  231                  raise AssertionError('At most one structure confirmation per scale and observation')
+  232              if confirmations:
+  233                  direction = confirmations[0]
+  234                  receipt = copy.deepcopy(candidates[direction])
+  235                  emit(t, 'structure_confirmed', horizon=h, previous_direction=before,
+  236                       direction=direction, r=float(r[t]), volume=float(v[t]),
+  237                       s=scale, lag_volume_reference=vref,
+  238                       close=float(close[t]), log_close=float(p[t]), joint=bool(joint),
+  239                       receipt=receipt)
+  240                  state['direction'] = direction
+  241                  row[f'confirmed_{h}'] = 1.
+  242                  row[f'confirmed_direction_{h}'] = float(direction)
+  243                  state['candidates'] = {
+  244                      -direction: fresh_candidate(
+  245                          t, t, h, -direction, scale, vref, 'direction_confirmed',
+  246                          candidates.get(-direction))
+  247                  }
+  248                  # On confirmation discard the old structure's extreme. The
+  249                  # new direction starts its running high/low at today's close.
+  250                  if direction == 1:
+  251                      state.update(high=float(p[t]), high_observation=t,
+  252                                   low=None, low_observation=None)
+  253                  else:
+  254                      state.update(low=float(p[t]), low_observation=t,
+  255                                   high=None, high_observation=None)
+  256              row[f'S{h}'] = float(state['direction'])
+  257              for direction, side in ((1, 'up'), (-1, 'down')):
+  258                  candidate = state['candidates'].get(direction)
+  259                  row[f'{side}_active_{h}'] = float(candidate is not None)
+  260                  if candidate is not None:
+  261                      for field in CANDIDATE_FIELDS:
+  262                          if field != 'active':
+  263                              row[f'{side}_{field}_{h}'] = candidate[field]
+  264                      row[f'{side}_anchor_date_{h}'] = candidate['anchor_date']
+  265              if state['direction'] != 0:
+  266                  extreme = 'high' if state['direction'] == 1 else 'low'
+  267                  extreme_t = state[f'{extreme}_observation']
+  268                  row[f'running_extreme_{h}'] = state[extreme]
+  269                  row[f'running_extreme_price_{h}'] = float(close[extreme_t])
+  270                  row[f'running_extreme_observation_{h}'] = float(extreme_t)
+  271                  row[f'running_extreme_date_{h}'] = dates[extreme_t]
+  272  
+  273          local, background = int(row['S21']), int(row['S63'])
+  274          phase, building_direction = phase_for(local, background)
+  275          row.update(local=float(local), background=float(background), phase=phase,
+  276                     building_direction=float(building_direction))
+  277          rows.append(row)
+  278  
+  279      out = pd.DataFrame(rows, index=f.index, columns=FIELDS + DATE_FIELDS + ['phase'])
+  280      out.attrs['terminal'] = copy.deepcopy(states) if states else None
+  281      return out, journal
+
+LINES 284-337
+  284  def strength_frame(f, joint=True):
+  285      """Return a causal indicator frame and journal, restarting per source segment.
+  286  
+  287      Invalid observations remain entirely unknown, and do not advance the valid
+  288      clock. A later valid close bridges their price gap. Missing/invalid source
+  289      identities are rejected; a new explicit segment restarts all warm-up and
+  290      structure state and archives the old state as a source discontinuity.
+  291      """
+  292      if not isinstance(joint, (bool, np.bool_)):
+  293          raise ValueError('Scalar Boolean joint mode required')
+  294      if not isinstance(f.index, pd.DatetimeIndex) or f.index.tz is not None:
+  295          raise ValueError('Naive DatetimeIndex required')
+  296      if not f.index.is_unique or not f.index.is_monotonic_increasing or f.index.hasnans:
+  297          raise ValueError('Ordered unique dated observations required')
+  298      if any(column not in f for column in INPUT_COLUMNS):
+  299          raise ValueError('close, volume, segment_id and valid_strength_observation required')
+  300      if f.segment_id.isna().any():
+  301          raise ValueError('Explicit source segment required')
+  302      if any(isinstance(segment, str) and not segment.strip() for segment in f.segment_id):
+  303          raise ValueError('Nonempty source segment identity required')
+  304      blocks = f.segment_id.loc[f.segment_id.ne(f.segment_id.shift())]
+  305      if blocks.duplicated().any():
+  306          raise ValueError('Noncontiguous segment identity')
+  307      if (not pd.api.types.is_bool_dtype(f.valid_strength_observation)
+  308              or f.valid_strength_observation.isna().any()):
+  309          raise ValueError('Non-null Boolean validity required')
+  310      out = pd.DataFrame(np.nan, index=f.index, columns=FIELDS)
+  311      for column in DATE_FIELDS:
+  312          out[column] = pd.Series(None, index=f.index, dtype=object)
+  313      out['phase'] = 'unknown'
+  314      journal, terminal, previous = [], None, None
+  315      for segment, group in f.groupby('segment_id', sort=False):
+  316          if terminal:
+  317              journal.append(dict(
+  318                  segment=str(segment), date=str(group.index[0].date()), observation=None,
+  319                  kind='source_discontinuity', previous_segment=previous,
+  320                  unresolved=terminal,
+  321              ))
+  322          good = group.loc[group.valid_strength_observation]
+  323          if len(good):
+  324              a = good[['close', 'volume']].to_numpy(float)
+  325              if not np.isfinite(a).all() or not (a > 0).all():
+  326                  raise ValueError('Finite positive valid price/volume required')
+  327              frame, events = run_valid(good, joint)
+  328              out.loc[good.index, frame.columns] = frame
+  329              journal.extend(dict(segment=str(segment), **event) for event in events)
+  330              terminal = frame.attrs['terminal']
+  331          else:
+  332              terminal = None
+  333          previous = str(segment)
+  334      out.attrs['terminal'] = terminal
+  335      out.attrs['model'] = 'PVS-B4'
+  336      out.attrs['pace_units'] = 'mu5/mu21: log return per valid observation; *_bp: log bp per valid observation'
+  337      return out, journal
+
+===========================================================================
+K_G1_grade_warm_fresh
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/grade.py
+SHA256 faadd14be9ffbe79b5f92fceb92e480b9bf5eb4cce283b354e4dda7e0775b5c9
+Exact ordered grade overrides, fresh evidence, promotion_block and source reset.
+
+LINES 6-63
+    6  LABELS={-3:'强冷',-2:'冷',-1:'弱冷',0:'未立/中性',1:'修复',2:'暖',3:'热',4:'扩张'}
+    7  COLORS={-3:'#425479',-2:'#648abd',-1:'#9cb9d4',0:'#c6cbd0',1:'#eadca6',2:'#efb97c',3:'#e88763',4:'#bd3d48'}
+    8  
+    9  def classify(e):
+   10      required=['segment_id','valid_strength_observation','close','event','strength_mu5','strength_mu21','strength_s','strength_S21','strength_S63','strength_r','strength_qeff','strength_acute_down','strength_acute_up','strength_confirmed_direction_21','strength_confirmed_direction_63','strength_running_extreme_price_21']
+   11      if any(c not in e for c in required):raise ValueError('Missing G1 evidence')
+   12      if not e.index.is_unique or not e.index.is_monotonic_increasing:raise ValueError('Ordered unique observations required')
+   13      rows=[];events=[];previous_segment=None;previous_grade=None;prior_extreme=math.nan;prior_s21=0
+   14      for dt,r in e.iterrows():
+   15          segment=str(r.segment_id)
+   16          if segment!=previous_segment:
+   17              previous_grade=None;prior_extreme=math.nan;prior_s21=0;previous_segment=segment
+   18          out=dict(date=dt,segment_id=segment,ready=False,proposal=np.nan,grade=np.nan,score=np.nan,label='未知',phase='unknown',z5=np.nan,z21=np.nan,fresh_up=False,up_reasons='',transition='unknown',promotion_blocked=False,acute_down=False,acute_up=False,display='未知')
+   19          if not bool(r.valid_strength_observation) or not np.isfinite(r.strength_mu21):rows.append(out);continue
+   20          a,b=int(r.strength_S21),int(r.strength_S63);m5=float(r.strength_mu5);m21=float(r.strength_mu21);scale=float(r.strength_s)
+   21          z5=math.sqrt(5)*m5/scale;z21=math.sqrt(21)*m21/scale
+   22          down=bool(r.strength_acute_down);up=bool(r.strength_acute_up)
+   23          reasons=[]
+   24          if int(r.event)==1:reasons.append('new_E0_price_volume_up_event')
+   25          for h in [21,63]:
+   26              if float(r[f'strength_confirmed_direction_{h}'])==1:reasons.append(f'new_S{h}_up_confirmation')
+   27          ext=float(r.strength_running_extreme_price_21)
+   28          if a==1 and prior_s21==1 and np.isfinite(prior_extreme) and ext>prior_extreme+32*np.finfo(float).eps*max(abs(ext),abs(prior_extreme),1):reasons.append('new_price_frontier_in_confirmed_up_structure')
+   29          fresh=bool(reasons)
+   30          if a==0 and b==0:g=0;why='structure_unconfirmed'
+   31          elif m21<0 and m5<=0:g=-3 if a==b==-1 else -2;why='both_paces_negative'
+   32          elif m21<0 and m5>0:g=1 if a==1 else -1;why='local_repair' if a==1 else 'countertrend_rebound'
+   33          elif m21>0:
+   34              if a==b==1:g=3;why='up_structure_and_positive_medium_pace'
+   35              elif a==1:g=2;why='local_up_with_positive_medium_pace'
+   36              elif m5>0:g=1;why='pace_recovery_not_locally_confirmed'
+   37              else:g=-1;why='local_support_missing'
+   38          else:g=1 if m5>0 else -1 if m5<0 else 0;why='medium_pace_zero'
+   39          if a==b==1 and z5>=1 and z21>=1:g=4;why='two_scale_pace_expansion'
+   40          launch=up and int(r.event)==1 and m5>0
+   41          if launch and g<2:g=2;why='acute_up_and_new_volume_price_up_event'
+   42          if z5<=-1 and g>-2:g=-2;why='fast_adverse_displacement'
+   43          if down:g=min(g,-3);why='acute_down_overrides_old_structure'
+   44          proposal=g;old=previous_grade
+   45          blocked=old is not None and proposal>old and not fresh
+   46          if blocked:g=old
+   47          transition='initialize' if old is None else 'upgrade' if g>old else 'downgrade' if g<old else 'blocked_upgrade' if blocked else 'unchanged'
+   48          if down:phase='acute_down'
+   49          elif launch:phase='fast_launch'
+   50          elif up:phase='acute_up'
+   51          elif a==b==1 and z5>=1 and z21>=1:phase='expansion'
+   52          elif m21<0 and m5>0:phase='local_repair' if a==1 else 'downtrend_rebound'
+   53          elif m21<0 and m5<=0:phase='decline'
+   54          elif a==b==1 and (m5<0 or abs(z21)<1):phase='up_structure_consolidation'
+   55          elif a==b==1:phase='up_continuation'
+   56          elif a==1:phase='up_structure_building'
+   57          elif a==b==0:phase='unconfirmed'
+   58          else:phase='mixed_evidence'
+   59          out.update(ready=True,proposal=proposal,grade=g,score=25*g,label=LABELS[g],phase=phase,z5=z5,z21=z21,fresh_up=fresh,up_reasons='|'.join(reasons),transition=transition,promotion_blocked=blocked,acute_down=down,acute_up=up,display=('freeze·' if down else '')+LABELS[g],reason=why)
+   60          if transition!='unchanged':events.append(dict(date=str(dt.date()),segment=segment,previous=old,proposal=proposal,grade=g,score=25*g,kind=transition,basis=why,new_up_evidence=reasons))
+   61          rows.append(out);previous_grade=g;prior_extreme=ext;prior_s21=a
+   62      f=pd.DataFrame(rows).set_index('date')
+   63      return f,events
+
+===========================================================================
+L_I_target_floor_buy_event
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/policies_g1.py
+SHA256 079a70ac83aa98a3824aeaecc46186081d83f5148e9630a3ad0435cb01b05af1
+Actual G1_I projection: use_x=False, old-floor-first, exact entry opportunities and i_buy.
+
+LINES 6-35
+    6  def project(e,base,g,kind):
+    7      if kind not in ['G1_I','G1_X','G1_IX']:raise ValueError(kind)
+    8      use_i=kind in ['G1_I','G1_IX'];use_x=kind in ['G1_X','G1_IX']
+    9      active=False;floor=math.nan;segment=None;rows=[]
+   10      for dt,r in e.iterrows():
+   11          b=base.loc[dt];a=g.loc[dt]
+   12          if r.segment_id!=segment:active=False;floor=math.nan;segment=r.segment_id
+   13          valid=bool(r.valid_price_observation)
+   14          if not valid:
+   15              rows.append(dict(date=dt,target=np.nan,entered=0,exited=0,floor=np.nan,exit_line=np.nan,buy_event=False,entry_kind='',exit_reason='',grade=a.grade));continue
+   16          shadow=bool(b.target);ready=bool(a.ready);entered=exited=0;reason='';entry_kind=''
+   17          fresh=bool(a.fresh_up) if ready else False
+   18          warm=ready and a.grade>=2
+   19          cold=ready and (a.grade<=-2 or bool(a.acute_down))
+   20          if active:
+   21              if not shadow or float(r.close)<=floor:reason='E0_structure_boundary'
+   22              elif use_x and cold:reason='G1_cold_or_acute'
+   23              if reason:active=False;exited=1
+   24              elif np.isfinite(b.floor):floor=max(floor,float(b.floor))
+   25          # Entry-only is a new-evidence gate and restoration channel, while
+   26          # exit-only preserves E0's new-cycle entry stream. An exit-only entry
+   27          # is first checked by the extra exit rule on the next observation,
+   28          # matching the original sensitive-policy ordering.
+   29          opportunity=shadow and warm and (bool(b.entered) or fresh) if use_i else bool(b.entered)
+   30          if not active and not exited and opportunity:
+   31              active=True;entered=1;floor=float(b.floor)
+   32              entry_kind='G1_fresh_warm_evidence' if use_i else str(b.entry_kind)
+   33          buy=bool(active and opportunity) if use_i else bool(active)
+   34          rows.append(dict(date=dt,target=int(active),entered=entered,exited=exited,floor=floor if active or exited else np.nan,exit_line=floor if active or exited else np.nan,buy_event=buy,entry_kind=entry_kind,exit_reason=reason,grade=a.grade))
+   35      return pd.DataFrame(rows).set_index('date')
+
+===========================================================================
+M_original_event_cache_producer
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/code/current_pool_bridge.py
+SHA256 f5d228529662dfe364d2465a8f6f2adad86ba521ca5bff05bb41d67da5de4cf4
+Prepared-v2 events come from numeric joint=True/event_exit=False per source segment.
+
+LINES 23-37
+   23  ROOT = Path(__file__).resolve().parents[3]
+   24  UPSTREAM = {
+   25      'numeric': ROOT / 'research_rounds/pv-participation-response-20261020/code/numeric.py',
+   26      'participation': ROOT / 'research_rounds/pv-participation-response-20261020/code/participation.py',
+   27      'data_utils': ROOT / 'research_rounds/pv-participation-response-20261020/code/data_utils.py',
+   28      'sector_stock_admission': ROOT / 'research_rounds/a-share-selection-e0-20261024/code/sector_stock_admission.py',
+   29  }
+   30  for p in [Path(__file__).parent, *(p.parent for p in UPSTREAM.values())]:
+   31      if str(p) not in sys.path:
+   32          sys.path.insert(0, str(p))
+   33  import sector_stock_admission as admission
+   34  from current_fixed_pool import PoolLine, SelectionEvidence, HistoricalInputs
+   35  from data_utils import eligible_prices, boolean_column
+   36  from numeric import event_frame_numeric
+   37  from participation import participation_frame
+
+LINES 224-237
+  224  def state_frame(signal):
+  225      eligible = eligible_prices(signal)
+  226      if eligible.empty:
+  227          raise ValueError('No eligible price observations')
+  228      if not (eligible.volume.gt(0) & np.isfinite(eligible.volume)).any():
+  229          raise ValueError('No real positive-volume observations for frozen joint model')
+  230      events = event_frame_numeric(eligible.close, eligible.volume, joint=True, event_exit=False)
+  231      state, memories = participation_frame(eligible, events, mode='volume')
+  232      # Call the frozen formula only for the 253-observation rolling window.
+  233      closes = eligible.close.to_numpy()
+  234      state['rs'] = pd.Series(
+  235          [admission.rs_score(closes[max(0, i-252):i+1]) for i in range(len(closes))],
+  236          index=state.index, dtype='float64')
+  237      return eligible, events, state, memories
+
+LINES 361-384
+  361  def build_series(record, base, scope_date):
+  362      """Build exactly one input; failure stays attached to its original identity."""
+  363      item = SeriesData(record)
+  364      try:
+  365          if record.get('status') != 'ready':
+  366              raise ValueError(record.get('blocked_reason', 'Input coverage is not ready'))
+  367          time.fromisoformat(record['close_available_time'])
+  368          item.raw = read_raw(checked_ref(record['raw'], base), record)
+  369          if item.raw.index[-1] > pd.Timestamp(scope_date):
+  370              raise ValueError('Raw input extends beyond frozen round end')
+  371          actions, policy = read_actions(record, base)
+  372          item.action_policy = policy
+  373          signals, events, states, memories = [], [], [], []
+  374          for segment_id, part in enumerate(source_segments(item.raw, record)):
+  375              raw_part = item.raw.loc[part['start']:part['end']]
+  376              signal = prepare_signal(raw_part, record, actions)
+  377              _, event, state, memory = state_frame(signal)
+  378              for frame in (signal, event, state, memory):
+  379                  frame['segment_id'] = segment_id
+  380              signals.append(signal); events.append(event); states.append(state); memories.append(memory)
+  381          item.signal = pd.concat(signals)
+  382          item.events = pd.concat(events)
+  383          item.states = pd.concat(states)
+  384          item.memories = pd.concat(memories, ignore_index=True)
+
+===========================================================================
+N_original_cached_E0_event_equations
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-participation-response-20261020/code/numeric.py
+SHA256 b07f92f309864ba1cfdb84f76adbf7c4d97d5eff6d90b6b25acd62577be0c2e3
+Original prepared-v2 numeric event source; current cache consumes event/pivot fields, not this function target as final current target.
+
+LINES 15-55
+   15  UNIT_ROUNDOFF = np.finfo(np.float64).eps / 2
+   16  # Two input encodings plus one unit multiplication on each side of a comparison.
+   17  # A machine-precision comparison policy motivated by that four-rounding model.
+   18  # The prior adjustment/serialization pipelines are not certified to obey it.
+   19  ROUNDING_STEPS = 4
+   20  GAMMA4 = ROUNDING_STEPS * UNIT_ROUNDOFF / (1 - ROUNDING_STEPS * UNIT_ROUNDOFF)
+   21  
+   22  
+   23  def compare(a: float, b: float) -> int:
+   24      """Order finite nonnegative magnitudes, treating the gamma4 band as a tie.
+   25  
+   26      Homogeneous in exact arithmetic. Independent rounded rescaling can move an
+   27      input on the band's boundary across it; universal scale invariance is NOT
+   28      promised. Comparisons outside this band remain strict.
+   29      """
+   30      a, b = float(a), float(b)
+   31      if not (math.isfinite(a) and math.isfinite(b) and a >= 0 and b >= 0):
+   32          raise ValueError("finite nonnegative magnitudes required")
+   33      if abs(a - b) <= GAMMA4 * max(a, b):
+   34          return 0
+   35      return 1 if a > b else -1
+   36  
+   37  
+   38  def log_ratio(a: float, b: float) -> float:
+   39      """Local log change without subtracting two origin-normalized logarithms."""
+   40      a, b = float(a), float(b)
+   41      if not (math.isfinite(a) and math.isfinite(b) and a > 0 and b > 0):
+   42          raise ValueError("finite positive prices required")
+   43      if compare(a, b) == 0:
+   44          return 0.0
+   45      # log1p preserves a small displacement. The far-down case avoids rounding
+   46      # (a-b)/b to -1. At the branch boundary, rounded rescaling can select the
+   47      # other algebraically equivalent expression; universal bit equality is not promised.
+   48      if 0.5 <= a / b <= 2:
+   49          return math.log1p((a - b) / b)
+   50      return math.log(a) - math.log(b)
+   51  
+   52  
+   53  def higher(old: float, new: float) -> float:
+   54      """The existing ratchet retains its actual old point on a numerical tie."""
+   55      return float(new) if compare(new, old) > 0 else float(old)
+
+LINES 58-136
+   58  def event_frame_numeric(close, volume, joint=True, event_exit=False):
+   59      """Numerical repair of frozen event+structure equations, separately named.
+   60  
+   61      Same observation clock, warmup, 21/63/5 constants, activity clipping,
+   62      confirmation >=1, floor <=, and same-day exit priority. Numerical changes:
+   63      raw-price extrema/floors with an explicit tie policy; local log returns;
+   64      local fsum instead of long cumulative-volume subtraction.
+   65      Original output log fields are display only; raw pivot fields are canonical.
+   66      """
+   67      if not close.index.is_unique or not close.index.is_monotonic_increasing:
+   68          raise ValueError("ordered unique index required")
+   69      raw = pd.concat([close.rename("close"), volume.rename("volume")], axis=1)
+   70      d = raw.loc[raw.gt(0).all(axis=1) & np.isfinite(raw).all(axis=1)]
+   71      if d.empty:
+   72          raise ValueError("no valid observations")
+   73      prices, volumes = d.close.to_numpy(), d.volume.to_numpy()
+   74      returns = [math.nan] + [log_ratio(prices[t], prices[t - 1])
+   75                                for t in range(1, len(d))]
+   76      sigma = np.full(len(d), np.nan)
+   77      baseline = d.volume.shift().rolling(21).median().to_numpy()
+   78      for t in range(64, len(d)):
+   79          sigma[t] = max(math.sqrt(math.fsum(x * x for x in returns[t - 63:t]) / 63), 1e-8)
+   80      direction, ext, active, floor = -1, None, False, math.nan
+   81      rows = []
+   82      for t, date in enumerate(d.index):
+   83          row = dict(confirmation=math.nan, leg_direction=math.nan,
+   84                     developing_extreme=math.nan, confirmed_pivot=math.nan,
+   85                     structure_floor=math.nan, event=0.0, target=0.0,
+   86                     entered=0.0, exited=0.0, pivot_age=math.nan,
+   87                     developing_extreme_price=math.nan, confirmed_pivot_price=math.nan,
+   88                     structure_floor_price=math.nan, confirmed_pivot_date=None,
+   89                     developing_extreme_date=None)
+   90          if not math.isfinite(sigma[t] + baseline[t]):
+   91              rows.append(row)
+   92              continue
+   93          if ext is None:
+   94              ext = t
+   95          if active and not event_exit and compare(prices[t], floor) <= 0:
+   96              active, row["exited"] = False, 1.0
+   97          extreme_order = compare(prices[t], prices[ext])
+   98          if (direction == -1 and extreme_order < 0) or (direction == 1 and extreme_order > 0):
+   99              ext = t
+  100          if t > ext:
+  101              activity = math.sqrt(
+  102                  (math.fsum(float(x) for x in volumes[ext + 1:t + 1]) / (t - ext))
+  103                  / baseline[ext]
+  104              ) if joint else 1.0
+  105              activity = min(max(activity, 0.5), 2.0)
+  106              confirmation = (-direction) * log_ratio(prices[t], prices[ext]) * activity / (math.sqrt(5) * sigma[ext])
+  107              row["confirmation"] = confirmation
+  108              # A numerically indistinguishable exact threshold is inclusive.
+  109              if compare(max(confirmation, 0.0), 1.0) >= 0:
+  110                  event = -direction
+  111                  pivot = float(prices[ext])
+  112                  row.update(event=float(event), confirmed_pivot=math.log(pivot),
+  113                             confirmed_pivot_price=pivot, pivot_age=float(t - ext),
+  114                             confirmed_pivot_date=str(d.index[ext].date()))
+  115                  if event == 1:
+  116                      if active:
+  117                          floor = higher(floor, pivot)
+  118                      elif not row["exited"]:
+  119                          active, floor, row["entered"] = True, pivot, 1.0
+  120                  elif event_exit and active:
+  121                      active, row["exited"] = False, 1.0
+  122                  direction, ext = event, t
+  123          row.update(leg_direction=float(direction),
+  124                     developing_extreme=math.log(float(prices[ext])),
+  125                     developing_extreme_price=float(prices[ext]),
+  126                     developing_extreme_date=str(d.index[ext].date()), target=float(active))
+  127          if active or row["exited"]:
+  128              row.update(structure_floor=math.log(floor), structure_floor_price=floor)
+  129          rows.append(row)
+  130      result = pd.DataFrame(rows, index=d.index).reindex(close.index)
+  131      for col in ("event", "entered", "exited"):
+  132          result[col] = result[col].fillna(0.0)
+  133      result["target"] = result.target.ffill().fillna(0.0)
+  134      for col in ("confirmed_pivot_date", "developing_extreme_date"):
+  135          result[col] = result[col].astype("string")
+  136      return result
+
+===========================================================================
+O_G1_old_cached_producer
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/ix-a-share-entry-20261025/code/prepare_ix.py
+SHA256 71ab72e741b1c05791f11448b17a5a2f0bfe83b2046f38a46956af3996561960
+G1 saved through B5/classify; old IX projection is NOT the current I projection, cache rebuilds G1_I.
+
+LINES 9-41
+    9  def worker(job):
+   10   sid,rec=job
+   11   sys.path.insert(0,str(B5/'code'))
+   12   import api
+   13   sys.path.insert(0,str(G1/'code'))
+   14   from grade import classify
+   15   from policies_g1 import project
+   16   sys.path.insert(0,str(ROOT/'research_rounds/pv-participation-response-20261020/code'))
+   17   from data_utils import eligible_prices
+   18   a=rec['files']['signal'];p=OLD/'prepared-v2'/a['path'];assert sha(p)==a['sha256']
+   19   signal=pd.read_parquet(p);f=eligible_prices(signal)[['open','high','low','close','volume','segment_id']].copy()
+   20   f['valid_price_observation']=True;f['valid_strength_observation']=np.isfinite(f.volume)&f.volume.gt(0)
+   21   t=time.time();r=api.run_b5(f,enhancements=False);e=r['evidence'];b=r['state'];g,j=classify(e);ix=project(e,b,g,'G1_IX');ee=events(g,ix)
+   22   oldp=OLD/'prepared-v2'/rec['files']['states']['path'];assert sha(oldp)==rec['files']['states']['sha256'];old=pd.read_parquet(oldp)
+   23   assert old.index.equals(b.index)
+   24   for col in ['ready','target','entered','exited','floor','pending','pending_lower','pending_reclaim']:
+   25    np.testing.assert_array_equal(b[col].to_numpy(dtype=float,na_value=np.nan),old[col].to_numpy(dtype=float,na_value=np.nan),err_msg=sid+':'+col)
+   26   out=HERE/'signals'/f'{sid}.parquet'
+   27   keep=pd.DataFrame(index=f.index)
+   28   for c in ['segment_id','open','high','low','close','volume','valid_strength_observation']:keep[c]=f[c]
+   29   for c in ['ready','target','entered','exited','floor','entry_kind']:keep['e0_'+c]=b[c]
+   30   for c in ['grade','score','proposal','phase','z5','z21','fresh_up','up_reasons','promotion_blocked','acute_down','acute_up']:keep[c]=g[c]
+   31   keep['strength_ready']=g.ready
+   32   for c in ['target','entered','exited','floor','entry_kind','exit_reason']:keep['ix_'+c]=ix[c]
+   33   keep=keep.join(ee)
+   34   oldentry=np.flatnonzero(b.entered.to_numpy(dtype=float,na_value=0)==1);ages=np.full(len(f),np.nan)
+   35   if len(oldentry):
+   36    loc=np.searchsorted(oldentry,np.arange(len(f)),side='right')-1;ok=loc>=0;ages[ok]=np.arange(len(f))[ok]-oldentry[loc[ok]]
+   37   keep['e0_age_observations']=ages
+   38   # All public compact fields are saved once; no account-dependent rewriting.
+   39   keep.to_parquet(out)
+   40   z=keep.loc['2015-01-01':'2026-10-22']
+   41   return dict(symbol=sid,rows=len(f),source_rows=len(signal),first=str(f.index[0].date()),last=str(f.index[-1].date()),E0_identity=True,events={k:int(z[k].sum()) for k in ENTRY_TYPES},raw_transition_counts={k:int(z['raw_'+k].sum()) for k in ENTRY_TYPES[1:]},strength_unknown=int(z.grade.isna().sum()),seconds=time.time()-t,source_signal=dict(path=str(p.resolve()),sha256=a['sha256']),source_states=dict(path=str(oldp.resolve()),sha256=rec['files']['states']['sha256']),output_sha256=sha(out))
+
+===========================================================================
+P_downstream_signal_clock
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/actual-risk-recovery-20261027/code/engine.py
+SHA256 781589c0a80a6713bf03ee4abb0bb3ab6ba649f7482f13179ab458809dc2e374
+Facts row/current I state and exact-day i_buy bound to next-session execution clock.
+
+LINES 25-47
+   25    f=self.f[sid];day=pd.Timestamp(at.date());i=f.index.searchsorted(day,side='right')-1
+   26    return None if i<0 else f.iloc[i]
+   27   def factor(self,sid,at):return D(str(self.row(sid,at)['factor']))
+   28   def floor(self,sid,at,mode):
+   29    r=self.row(sid,at);v=np.nan if r is None else r[policy(mode).lower()+'_floor']
+   30    return None if not np.isfinite(v) else D(str(v))
+   31   def packet(self,at,mode):
+   32    p=policy(mode)
+   33    if self.day!=at:self.day=at;self.cache={}
+   34    if p in self.cache:return self.cache[p]
+   35    clock=admission.Clock(at,self.market.sessions['A'][bisect_right(self.market.sessions['A'],at)],at.date())
+   36    inputs=self.b.at_decision(clock,market_buyable=self.market.market_buyable(at));stocks=[]
+   37    for l,h in zip(inputs.lines,inputs.historical):
+   38     assert l.security_id==h.security_id;sid=l.security_id;r=self.row(sid,at)
+   39     if p!='E0':
+   40      up=h.trend_up.read(clock)
+   41      if up is not None:h=replace(h,trend_up=replace(h.trend_up,value=bool(r[p.lower()+'_target'])))
+   42     s=pool.build_security(l,h,inputs.evidence)
+   43     if p!='E0':
+   44      allowed=s.buy_allowed.read(clock,for_execution=True);f=self.f[sid];today=pd.Timestamp(at.date());event=today in f.index and bool(f.loc[today,p.lower()+'_buy'])
+   45      s=replace(s,buy_allowed=admission.Fact(None if allowed is None else bool(allowed and event),at,at,source_id='original_'+p+'_daily_event'))
+   46     stocks.append(s)
+   47    result=(clock,tuple(stocks),inputs.sectors);self.cache[p]=result;return result

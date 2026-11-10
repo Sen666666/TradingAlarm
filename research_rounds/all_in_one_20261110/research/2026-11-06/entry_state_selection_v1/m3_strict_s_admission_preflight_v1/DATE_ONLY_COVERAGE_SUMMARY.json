@@ -1,0 +1,15 @@
+{
+  "stage": "date-index-only; no prices, new indicators, candidates or economics calculated",
+  "stocks": 1709,
+  "research_dates": 579,
+  "new_extension_dates": 76,
+  "research_grid": 989511,
+  "source_rows_present": 955983,
+  "source_dates_absent": 33528,
+  "stocks_all_dates_present": 1470,
+  "stocks_with_cutoff_row": 1708,
+  "extension_rows_present": 128937,
+  "extension_dates_absent": 947,
+  "stocks_all_extension_dates_present": 1672,
+  "limit": "Present row is not valid/tradable/known signal; absent date does not establish suspension; fixed survivors/member pool NON-PIT."
+}

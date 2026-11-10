@@ -1,0 +1,11 @@
+{
+  "nature": "protocol was appended between two sequential descriptive analyses; original results unchanged; stage snapshots reconstructed losslessly from current cumulative file, exact original recorded hashes verified",
+  "coverage_protocol_snapshot": "PROTOCOL_COVERAGE_SNAPSHOT.txt",
+  "coverage_protocol_sha256": "d56fdfa3686fbf5f1b014393381ec47a50f3ad9ffe68573e99dd232135a76d36",
+  "funding_protocol_snapshot": "PROTOCOL_FUNDING_SNAPSHOT.txt",
+  "funding_protocol_sha256": "896f11242ce698c3f29008f002c63822c510cd77270f3a7d2e15517b270311c3",
+  "financial_reruns": 0,
+  "analysis_reruns": 0,
+  "new_price_labels": 0,
+  "current_protocol_append_expected": true
+}

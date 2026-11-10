@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "scope": "2022 minimum dynamic FULL two-arm finite NET80 scenario; no strategy validity certification",
+  "financial": {
+    "rounds": 5467,
+    "closed_core_recomputed": 5250,
+    "claims": 829,
+    "common_market_events": 2553,
+    "common_action_rows": 6094,
+    "common_claim_ledger_rows": 784,
+    "evidence_usable_closed": 5229,
+    "coverage_insufficient_closed": 21,
+    "cash_and_core_error_max": 0,
+    "reviewed_engine_sha256": "77a5d6345a7f35cbfaffedc08320512140adc2cd853fc8fef560de6a1a1a303c",
+    "reviewed_driver_sha256": "98a05f8f5eaefffa6641f02fd57cd1b48dd5577bc3915ab7ff66e6c4e78e6121"
+  },
+  "queue": {
+    "decisions": 25834,
+    "sector_day_arm_queues": 5000,
+    "unknown_relative_feasible_slots_fixed": 160,
+    "next_common_open_filled": 5453,
+    "next_common_open_unconfirmed": 14,
+    "tianhua_april12_release_and_april29_slot2": true,
+    "actual_same_day_release_new_birth_examples": 0,
+    "synthetic_boundary_pass": true,
+    "bounded_baseline_prefix_pass": true
+  },
+  "remaining_blockers": []
+}

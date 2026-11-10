@@ -1,0 +1,8 @@
+唯一trend plan-size插件，技术小样本授权，未准入full
+四臂B(NONE)、UNIFORM50、A_ONLY、A_OR_B，全部原No60 E0/I/PVR/原ACT20 BREAK63与真实执行退出不变，不叠成本guard。
+只在原N.Runner.planning（其中原J规划/core风险定量/PVR排序均已完成）之后，对原已有且size合法的intent cap及budget各乘冻结m一次；两个实际pending与decisions同时改，0量从两表移除并存独立拒绝原因，原daily pending计数同步。原risk_budget/保护/expiry/CP1/原rank键不变；PVR先排序，避免最小单位消失后偷偷重排其它计划。
+B不改任何原intent/decision/原金融回调。其它臂只改尺寸；原candidate集合仍观察，资金资源真实重分配，UNIFORM50不等账户半仓。
+feature调用已冻compute_flags，mandatory原prepared mask priceeligible&observed&!synthetic，原facts source段/观察钟。lazy每股内存，physical小样本同时截事实/资格源至end后才计算；CLOSE冻结倍率，OPEN/partial/retry不调用/不再半，不创造新信号。
+新模块trend_size_plugin.py，避免adapter.py/inputs.py名字冲撞旧native imports。只复用capacity_inputs.one_year/load_strong/CombinedScores只读source及新输出，不实例任何GuardAccount、不开成本guard。
+只允许2022Jan4–Jan14、2025Jul1–Jul11两9CLOSE技术prefix，B必须逐日NAV/成交/费用与已审旧No60 gold一致。源/输入/四臂在运行前冻；原始失败保留，完成窗口不重复。
+0完整历史运行授权；若需新财务引擎、权益loader或指标pipeline，则停具体报告。

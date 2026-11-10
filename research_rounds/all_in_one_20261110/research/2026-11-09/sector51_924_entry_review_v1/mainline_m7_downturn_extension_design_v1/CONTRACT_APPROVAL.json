@@ -1,0 +1,7 @@
+{
+  "approved": true,
+  "engine_sha256": "dc39ab981035764ef055d66e7a48d2aa7495ca79570376237a092b9e0ed1f21e",
+  "contract_sha256": "6361f8becd09d4e6d3d6022f9c214b2884504d2428539a07a7bd62aa2e608a55",
+  "scope": "One unchanged frozen M7 research extension through2024-10-31; mandatory exact10/8 economic prefix; existing atomic blockers authoritative; no live orders or new suspension policy",
+  "review": "Parent inspected full wrapper and static method/loop identity; no economic methods changed"
+}

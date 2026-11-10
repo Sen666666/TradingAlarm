@@ -1,0 +1,20 @@
+{
+  "status": "COMPLETE_ONE_FROZEN_INTERACTION_TEST_NOT_NEW_POLICY",
+  "births": 1814,
+  "feature_known": 1814,
+  "months": 41,
+  "fit_months": 33,
+  "first_prediction": "2023-07-03",
+  "known_predictions": 995,
+  "main_rows": 736,
+  "main_wins": 221,
+  "main_stocks": 572,
+  "main_dates": 224,
+  "main_blocks": 19,
+  "condition_max": 1.826077038424045,
+  "interaction_sign_flip_months": 9,
+  "accounts": 0,
+  "parameter_scans": 0,
+  "new_unbought_predictions": 0,
+  "sources_unchanged": true
+}

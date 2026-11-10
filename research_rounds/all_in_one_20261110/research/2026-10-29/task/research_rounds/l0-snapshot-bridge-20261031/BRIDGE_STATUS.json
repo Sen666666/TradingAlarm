@@ -1,0 +1,42 @@
+{
+  "historical_content_continuity_passed": true,
+  "prefix_comparison_counts": {
+    "same_prefix": 1306,
+    "missing": 104
+  },
+  "TECH_safe_to_commit_under_frozen_clock": false,
+  "DRUG_safe_to_commit": false,
+  "new_day_replays": 0,
+  "old_state_or_decisions_changed": false,
+  "long_history_replays": 0,
+  "old_end": [
+    {
+      "account": "L0_base",
+      "at": "2026-10-27 15:10:00+08:00",
+      "ACT_on": false,
+      "positions": 0,
+      "pending_sells": 0,
+      "pending_intents": 0,
+      "nav": "3076085.8427823543785"
+    },
+    {
+      "account": "L0_delay1",
+      "at": "2026-10-27 15:10:00+08:00",
+      "ACT_on": false,
+      "positions": 0,
+      "pending_sells": 0,
+      "pending_intents": 0,
+      "nav": "2633604.3685009834335"
+    }
+  ],
+  "new_TECH_market_breakout": [
+    false,
+    false,
+    false
+  ],
+  "complete_10_27_checkpoint_not_saved": true,
+  "checkpoint_preparation_deferred": true,
+  "connection_or_permission_block": false,
+  "external_calls": 0,
+  "production_writes": 0
+}

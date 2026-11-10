@@ -1,0 +1,1 @@
+Initial source check compared full extended facts/CP through October to CP1_input through June. Actual consumer truncates all to 2026-05-15. Verified all 14 prefixes match exactly; correction applies that original cutoff only. No accounts or indicators ran. Original failure/script/cohort retained.

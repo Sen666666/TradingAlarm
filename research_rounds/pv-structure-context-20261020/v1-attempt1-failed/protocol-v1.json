@@ -1,0 +1,32 @@
+{
+  "created_utc": "2026-10-20T05:34:57.005659+00:00",
+  "phase": "algorithm charts only; no account",
+  "v0_protocol_sha256": "12deeded15c7ee2159734eb62655c11faa93f4e0daaf943418b7ee6244615ed4",
+  "v0_model_sha256": "2a1eb98c02c7b44fcd3b0df3ff3a20f1554a2fef01a114b322db86e65dbdffb9",
+  "review_v0_sha256": "f640383ffafca72f83edb64a0d718dc963c23e6aba5d67b9b0b30344f8f46857",
+  "change": "ONE mechanism: current volume/price description consumes developing segment from most recent confirmed pivot to current valid close, comparing with preceding completed leg. Existing structure, pivots, scale, RS and Bollinger unchanged.",
+  "formula": {
+    "before": "leg2 latest completed leg",
+    "after": "most recent confirmed pivot actual idx to current valid idx; (start,t]; abslog displacement per observation; mean(V/prior21median)",
+    "ratios": "e=after effort/before effort; s=after speed/before speed; retrace=after displacement/before displacement",
+    "meaning": "same conditional natural1 classifications; zero displacement contested; neutral unresolved; no available livepair unknown; no fallback to completed quality",
+    "provenance": "live start/end/count/direction/effort/speed; preserved completed_* values; phase_source developing_pair/unavailable",
+    "invalid": "carry previous known description only; invalid remains invalid; no fabricated events"
+  },
+  "predeclared_costs": [
+    "incomplete segments can change each observation",
+    "near-one ratios switch categorical labels",
+    "short shallow pullback speed can be large",
+    "deep slow declining leg may still be called orderly",
+    "structure stale-anchor and small-range promotion NOT fixed"
+  ],
+  "checks": [
+    "all27 prefix invariance",
+    "all15 charts rereview",
+    "exact equality of v0/v1 structure/pivots/RS/BB",
+    "price-volume scaling and positive-volume perturbation",
+    "mechanical independent properties"
+  ],
+  "stop": "This is the only substantive revision this round; retain both outcomes, do not scan parameters or enter account backtest.",
+  "history": "already-seen development history, not out-of-sample"
+}

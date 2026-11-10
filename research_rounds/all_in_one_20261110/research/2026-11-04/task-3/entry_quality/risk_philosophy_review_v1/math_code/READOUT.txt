@@ -1,0 +1,56 @@
+现行No60风险哲学：只读代码复盘
+状态：0模型、0新账户、0回测、0参数实验；未import/实例化任何模型或Runner，未改旧封版。
+
+最短结论
+最明显的设计断点是：CORE用“到参考线、按原slip/费用假设”的损失估算来授权仓位，却没有该参考线对应的独立价格止损动作。现行CORE仅更新last_core_line后continue；I_target失效或ACT才触发退出。故0.25%NAV不是实际最大损失保证。mobile有显式保护线触发，但它按2%NAV gross给资金而非统一的0.25%风险预算。亏损已发生后，库存风险额度可以释放，历史损耗仅record_only；fresh CP1不复用同一receipt，却可带来又一笔新gross授权。
+
+关键行引用（完整绝对路径见SOURCE_BINDING.json）
+E=entry_quality/trend_exit_controls_v1/load_inputs.py：8–10连接A/N/J；31–38规定长/强两窗和原score，未在此定义风控。
+A=/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/native_adapter.py：11–17使用NoConfirmed60Budget/P.ROUTES[True]；21–22把实际预算对象换为派生No60类。
+P=.../task/pvr_pool_feasibility/component.py：17–27从无account3%的原model/route字符串仅移除三处confirmed60谓词；30–34派生实际request与route。不能直接把原V.model的所有条件当现行No60。
+J=.../research_rounds/case-stage-ledger-20261031/v3/joint_v3.py：16预算record_only；43–56引用CORE last_core_line同步名义风险；225–240为实际退出/移动线；244–256为角色/初始金额；302–323为先处理卖单、再排序资金、再查询成交。
+LR=/Users/bytedance/Documents/ChatGPT/money/research_rounds/lot-risk-allocation-20261029/code/study.py：16、21–22、42–60为CORE风险预算和开盘复核。
+R=.../account-risk-ablation-20261031/route_without_account_check.py：13–22为现行保留的数量约束（其17的confirmed60再被P移除）。
+V=.../case-stage-ledger-20261031/budget_v3/model.py：106–117为resources；127–151为行业证据升stage；166–172只撤行业pending；188–207为原迁池；210–263为原request。现行No60 request来自P派生N.model，而loss/resources沿原继承。
+
+1. CORE 0.25%究竟是什么
+设V为决策NAV（元），Q为股数（股），p为执行/参考买价（元/股），f为经当时复权因子换算的参考线（元/股），s为原slip，Fee为已知费用（元）。
+LR protection_risk(Q,p,f)=max(0,Q[p−f(1−s)]+Fee_buy(Q,p)+Fee_sell(Q,f(1−s)))，单位元；不等于Qp（投入市值）。
+LR先令risk_budget=0.0025V、grosscap=0.10V，按信号参考价p_ref=raw_close(1+s)求最大合法Q；次日开盘preview再按已知开盘p核Qp≤冻结budget及CORE protection_risk≤冻结risk_budget。最低交易单位不满足则拒单，不造零碎股。
+这个预算只承诺在给定线价、费用和slip假设下的计算上限。它不覆盖跳空、跌停/停牌、次日交易时钟、无法成交、模型I失效与参考线不一致等尾部。
+
+CORE为何可能只贡献几百元“风险”
+CORE只能用probe pool，route对probe请求的sector_fraction恒为2%，且sc汇总该行业所有pool的旧仓+真实pending。CORE内部10%gross上限通常会被这个行业2%gross上限/剩余额度进一步收紧；成熟行业已有confirmed仓时也不例外。因此100万元NAV、2万元gross、参考线约低2%的量纲例子给约400元价格风险（另加费用），低于2500元风险上限。这只是公式算例，不是新参数/回测或实际CORE统计。
+不能由源码声称每笔CORE实际gross只有几百元。若“几百元”指投入本金，需要读原单证；若指名义损失预算，gross×较近参考线距离即可解释。0.25%是上界，不是必须用满的风险目标。
+
+2. mobile为何每次2%gross
+J244–245：CORE需新event Q、无持仓且未消费core epoch；mobile只需当日新cpr与continuing Q，不要求有CORE/原仓盈利。J255先设budget=min(0.02V,max(0,0.10V−现有该股市值))；仅CORE在256被resize_core覆盖。
+mobile floor=max(决策时I参考线,本次CP候选线)。LR preview只有kind==core才检查0.25%风险；mobile受gross、probe/industry名义风险和可用现金等约束。不同保护距离使相同2%gross对应不同名义风险，不是风险等额。
+“mobile”等于资金角色，不等于已有成功CORE之后才加仓；可以是该股第一笔、清仓后的重入或旧仓上的新层。每个receipt只消费一次、同日同股只成交一个角色，不能因此说证据被重复消费；新receipt仍可以反复授权新风险。
+
+3. stage和资金上限：现行hard admission predicates
+• 行业stage由当时合法的新industry CP证据按level0→1→2推进（V127–151），不是以该股真实盈利为晋升条件。
+• probe：全probe池资本≤10%NAV、全probe池名义风险≤0.5%NAV；每个probe请求行业总资本≤2%NAV。
+• confirmed：stage1/2下mobile可请求，行业总资本上限10%/20%NAV；旧probe lot迁入confirmed只换容量归属，不创造收益或股数。No60移除了confirmed总资本60%的三处约束，未删除probe上限。
+• 每行业名义风险≤1%NAV；每股已有股数按已知开盘市值+本次gross≤10%决策NAV；新单和费用必须留下10%决策NAV可用现金。不同谓词使用的NAV时钟/减pending费用细节不能一概当同一静态账户比例。
+• 原全账户名义risk≤3%NAV已在无account版本删除；P又删除confirmed60。没有隐藏的全账户3%budget约束，也没有因此自动启用另一个总相关风险上限。ACT20仍为回撤后响应，不能替代入场时风险预算。
+这些都是新增单时的实际拒单/缩量条件，不保证价格变动后所有持仓比例永不越界，也不自动为每个上限触发减仓。
+
+4. resources计量、累计与相关性
+资本C=Σ旧lot Q·当前mark+Σopen/cancel_pending Q·limit（元）。
+名义风险R=Σ旧lot Q·max(mark−floor,0)+Σpending Q·max(limit−floor,0)（元）。
+reserve=Σpending Q(limit+fee_per_share)（元）。reserve是订单占款，不是10%现金留存这个独立规则。
+CORE的floor是last_decision_known_core_line；mobile是逐层保存/收紧的floor。预算R不含未来卖出费用/slip/GAP，与LR CORE单笔protection_risk也不是同一公式。
+同股所有旧shares及同一行业跨pool/跨episode所有旧lot+真实pending会累计；cancel_pending未ack前不释放，迁池不释放行业/全局资本风险。新行业episode不会删除旧lot占资（V95–103）。因此不能说每个新层完全不计旧仓。
+但已卖出的损失不再占resources的R；重新开仓可以再次利用释放的库存容量。风险R加总没有相关系数、共同市场跳空或跨行业共同因子情景。行业1%只是粗粒度共同桶，无confirmed60/无3%后，跨行业名义风险可累积到更多行业之和，只有现金/各股各行业/ACT等剩余约束。
+
+历史已损：J111记录买费；J134记录卖出gross negative PnL+卖费（正收益不冲销以前负项）。V.loss按sector/原episode累计，shared_loss为所有key之和；J16给shared_loss_budget=20000但exhausted_policy='record_only'。故2万元不是现行硬止损线，也不是重新入场预算；loss继承原V逻辑，NoAccountBudget的request assignment不改变这点。打开all_new_risk会另成政策，不能把永久耗尽/锁死当已解决恢复。
+
+5. 实际退出动作与参考线的关键不一致
+CORE：J225–229在ACT off或i_target false时安排全部退出；J231–234只取I线、更新last_core_line后continue，没有close≤last_core_line的独立sell判断。参考线会进入预算资源，不因此自动成为可执行硬止损。
+mobile：J235–240在close≤保存floor时安排CP1_add_protection；否则用I线/新CP候选max收紧。触发是收盘判定，卖单次开执行；T+1、跳空和无法成交都使实际损失可能大于线价估算。J304–306无窗口则退出单继续悬而未成交。
+CORE“参考线风险小”不能证明真实亏损受0.25%保护；mobile“有明确保护触发”也不能叫损失保证。二者需要分别记录risk_reference与exit_trigger，不应共用“硬止损”名义。
+
+6. 哲学判断与唯一纸面合同
+小亏大赚不要求每笔都很小、也不禁止早期CP买入。当前最清楚的内部不一致是：按某条线测得很小的CORE预算风险，却没有同一条线的对应退出动作；其次是mobile改用gross单位且已损反馈只记录，使“每次看起来不大”不等于“同一相关试错阶段的总损失小”。本轮不能据代码推出哪个贡献了最多实际亏损。
+具体合同见MATHEMATICAL_CONTRACT.txt。它将risk reference/实际触发、所有角色的金额风险、不可由新CP重置的已损归属写成一份结构风险许可。只是可审查草案，不声称最优/有效/覆盖主要损失；与旧G成本budget/按亏损缩新增风险有明确近邻，不能作为全新已验证alpha。没有实施或建议立即启动回测。

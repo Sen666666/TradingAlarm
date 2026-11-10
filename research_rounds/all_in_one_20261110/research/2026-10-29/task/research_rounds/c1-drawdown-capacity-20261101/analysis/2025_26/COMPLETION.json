@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "original_daily_journal_bridges": 242,
+  "layer_and_stock_money_bridges": true,
+  "new_account_runs": 0,
+  "C1_book_sha256": "455e622912673b43c574e5d49556e0f9962ba55190358e288cbec5abce84acf8",
+  "analysis_code_sha256": "7d933987a56ff32ffc9de11c3b0384d79dc2a13a6f12eba4ac5ab454c7791e50"
+}

@@ -1,0 +1,30 @@
+{
+  "scope": "Exactly32 old entry-day anchors, each previous20 common sessions. Original33 contracts remain separate.",
+  "source": "Existing BaoStock0.9.4 public anonymous historical endpoint, adjustflag3, unchanged fields. No paid registration or new installation.",
+  "request_budget": {
+    "windows": 32,
+    "nominal_history_slots": 640,
+    "unique_stock_days": 601,
+    "queries": 64,
+    "frequency5": "960 expected labels per fully trading20-day window",
+    "daily_pairs": true,
+    "automatic_retries": 0
+  },
+  "clock": "Query start/finish/retrieved UTC are current acquisition times only. Original historical available_at, period completion, auction attribution remain UNKNOWN.",
+  "calendar": {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/runtime/market/update-20261030-153010-c551af/prepared/h1.npz",
+    "sha256": "416ddabacb9b16105cf3e5d93c961049ac1b48da433a62995a71311be17e4615",
+    "definition": "Original shared trading calendar; no per-stock replacement of suspension/missing dates."
+  },
+  "diagnostics": {
+    "current_prefix": "Old cached first4 provider labels through09:50 only",
+    "same_clock": "For each of4 fixed labels, current reported shares / median of20 strictly earlier same-clock reported shares",
+    "prefix": "Current first4 total volume / median of prior20 first4 totals",
+    "decay": "(current V4/V1)/(median(V4 prior)/median(V1 prior)); diagnostic clock-profile ratio, not an entry condition",
+    "distribution": "All20 raw past observations, quartiles, median, min/max and current empirical percentile retained. No threshold/sign/window chosen to separate labels."
+  },
+  "quality": "Count actual bars and provider daily tradestatus; absence does not imply suspension. Exact perbar OHLCVA checks; minute aggregates vs same-source daily and native raw separately. Nominal reported-volume and full-volume-reconciled coverage separately; no missing-as-zero or choosing19good days. Current full-day QA never used for decision-time coverage.",
+  "pit": "Historical source and share-capital status are not PIT-certified. Raw shares are not shares outstanding; no assertion of turnover, aggressor flow or independent demand.",
+  "evaluation": "Old labeled cases only, NOACT14 and PRICE19 separate by year. Descriptive distribution overlap only, no new returns/wins, no fitted classifier, no rule, no economic or account run.",
+  "failure": "First API/error/timeout saves response/log and stops. No route changes, registration, payment or auto retry."
+}

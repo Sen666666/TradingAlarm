@@ -1,0 +1,23 @@
+{
+  "status": "complete_not_adopted",
+  "paths": 63,
+  "ACT_controls": 21,
+  "mechanism_paths": 42,
+  "economic_reruns": 0,
+  "post_result_parameter_or_criteria_changes": 0,
+  "platform_changed": false,
+  "artifacts": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/portfolio-correction-20261027/CONCLUSION.txt": "9422ace0e1ed61f896dd6762d754d1bd7c8c825642f6a09dbf3f6642f5dc68f7",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/portfolio-correction-20261027/RULES_AND_EVALUATION.txt": "608bb18b3385a0ba919897919eeb0e37900cacf60926ffa2f0c79df95b1d1c09",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/portfolio-correction-20261027/protocol.json": "b74f34ef928a10500e35128127d6498630f2e21446d93a556c731e1f63963b44",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/portfolio-correction-20261027/evaluation.json": "1d073942dd59873a1f8389d2d7ccd1859aeb6530242dcd84d32beedeedcefe77",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/portfolio-correction-20261027/evaluation-repair.json": "df9fd8fca38dc5b56e8fc7eeec0f390639bc0740fc3084faf9191caa38ece246",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/portfolio-correction-20261027/summary.csv": "7f25529f0eedd207749b4dfa56104e19fc07a3e3bed0992d2ac8ca987c59c775",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/portfolio-correction-20261027/paired.csv": "e30e007695c931575651c3709a0804bddbfc4361fe85ffdfa58aa70879656d90",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/portfolio-correction-20261027/dispersion.csv": "1957f8474d8aeed37cd416f025d561effe9f76d7e9a792bd2bf140d582bcc83c",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/portfolio-correction-20261027/verification.json": "c23363d2347c5356567ede58344e423f94e637ae76889c7c9c8a21db22717e59",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/portfolio-correction-20261027/path-comparison.png": "0655ed9549a34f2280687007d30b9bc67ca6ea0e159f8d44087ee7135a5abdf6",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/portfolio-correction-20261027/poor-paths.png": "a97ae58cc0b3890060cb62b4a1bd8fc53c3ec79cf5907dfaa06172ebd010f326",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/portfolio-correction-20261027/code/evaluate_v2.py": "da8428797794383da1ce7256d40dd3fa964a1334f268b8807336ec4f81b740f4"
+  }
+}

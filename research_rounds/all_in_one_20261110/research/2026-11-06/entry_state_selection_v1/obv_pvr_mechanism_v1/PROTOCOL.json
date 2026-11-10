@@ -1,0 +1,9 @@
+{
+  "candidate": "OBV21 signed raw-share pressure, one unoptimized research hypothesis, not standard OBV trading rule",
+  "q": "sum(sign(log(Cj/Cprev))*raw_volume_j over21)/sum(raw_volume_j over21)",
+  "fusion": "E*=E-max(E,0)*max(0,-q); score*=50+50*tanh(2E*)",
+  "scope": "Original legal empty MOBILE only, preserve negative E, direct launch, E0/I/CP/exits; no hard q gate; no account or param search",
+  "unknown": "all22 price/quantity-valid observations, same original block, stable nonmissing source_kind and source_path, stable positive volume_factor; adjusted return sign; raw shares; zero volume/amount invalid; no imputation",
+  "stage": "Compute original actual 0-to-0 first entries and pre-existing fixed cases only. Proceed to frozen all-opportunity same-day/sector/K only if useful mechanism separation and nontrivial coverage. No formula changes after this print.",
+  "archival_notice": "Archived after the result; formula printed before first calculation. Not out of sample or pre-registered file."
+}

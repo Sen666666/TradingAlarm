@@ -1,0 +1,32 @@
+{
+  "status": "FROZEN_BEFORE_NEW_FULL_CANDIDATE_EVALUATION_ALREADY_SEEN_HISTORY_NOT_OOS",
+  "purpose": "Only amount-to-raw-share-count definition in original PVR m; no CP, permission, account or parameter changes.",
+  "formula": "bV=tanh(log(raw_shares_t/median(previous21 raw_shares))); mV=1+0.5*abs(original_u)*bV; eV=original_u*mV; original21 normalized .9 weights and 50+50*tanh(2E) unchanged.",
+  "clock": "Original PVR observation/reset clock; original u prior63 absolute log-return median scale unchanged; source85 price support for complete21 u contributions.",
+  "volume_support": "21 e contributions each uses current raw shares and previous21. Combined t-41..t =42 observed rows, full same source kind/segment, valid geometry/units, unchanged finite-positive volume_factor, declared shares and CNY. Never fit an empirical unit multiplier.",
+  "source_contract": "Raw amount/raw_shares must lie in raw low/high with fixed existing rounding tolerance .5CNY/raw_shares +1e-8 yuan; raw_close*factor agrees with native close. No true free-float denominator available; volume_factor stability is vendor unit-coordinate evidence, not proof of all capital changes.",
+  "unknown": "Every unknown new score OR original queue PVR unknown retains original within-sector queue slot. No unknown-to-zero substitution, gate, cap or fill.",
+  "queue": "53121 original PVR legal EMPTY MOBILE intentions. For each date K=min(20,N); baseline original priority ranks define each sector's K; re-rank only known slots within each sector, keep all sector Ks and total K exactly. 46 original PVR unknown rows fixed.",
+  "evaluation": "Seal feature scores/ranks before reading future labels. Main denominator all original candidates that day complete for each horizon; secondary selected-union-complete common support. Same days and counts for both methods; no per-arm drop.",
+  "horizons": [
+    5,
+    20,
+    60
+  ],
+  "periods": [
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026 through May15",
+    "2024-09-24..2024-10-31",
+    "2026Q1"
+  ],
+  "big_path": "Reuse fixed native I root birth anchor, complete60 closeMFE>=30% and terminal>=20%; capture selections in first5/20/60 common intervals lag0..h-1. Exclude unknown/pre2022 roots. Report all known roots and roots with original legal candidates separately. Windows may overlap and continue after I ends.",
+  "original_rounds": "Only original PVR actual first_kind=add campaigns, uniform closure through2026-05-15. Membership groups/old net PnL association are not hypothetical strategy economics.",
+  "uncertainty": "Fixed 60-session block bootstrap seed20261107,2000 resamples descriptive only; no statistical or OOS validation claim.",
+  "equivalence_search": "No persisted equivalent full-candidate raw-share ablation found in 2026-11-04 entry_quality or 2026-11-06 entry_state_selection outputs. Prior map_volume_price_methods only19 case points in memory. volume_return_kernel_v1 changes model using abnormal amount, not equivalent.",
+  "no_accounts": true,
+  "no_parameters": true,
+  "non_PIT_fixed_current_pool_sectors": true
+}

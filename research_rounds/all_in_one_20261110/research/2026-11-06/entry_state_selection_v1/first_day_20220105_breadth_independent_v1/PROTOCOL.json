@@ -1,0 +1,22 @@
+{
+  "signal_close": "2022-01-04",
+  "actual_fill_open": "2022-01-05",
+  "scope": "Exactly original 52 fills and their 25 industries; no selection by future return",
+  "old_formula": "n>=3 AND ((3*n>=N AND known paired t versus t-3 diffusion positive) OR 2*n>=N). Original research formula, NOT a user-prescribed meaning of many.",
+  "denominator": "Display own-known and common-known, fixed N and UNKNOWN bounds, never impute unknown as false",
+  "historical_dates": [
+    "2021-11-30",
+    "2021-12-17",
+    "2021-12-31",
+    "2022-01-04"
+  ],
+  "future_fixed_endpoints": [
+    "2022-01-28",
+    "2022-03-31",
+    "2022-06-30"
+  ],
+  "future_window": "All common industry days 2022-01-04 through 2022-06-30 inclusive; future max/min and chronological maximum drawdown are descriptive only",
+  "account_replays": 0,
+  "parameter_searches": 0,
+  "previous_cohort_and_results_seen": true
+}

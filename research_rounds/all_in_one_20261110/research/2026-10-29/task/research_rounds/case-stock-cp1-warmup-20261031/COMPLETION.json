@@ -1,0 +1,28 @@
+{
+  "completed": true,
+  "stocks": 79,
+  "engineering_only": 3,
+  "status_counts": {
+    "complete": 77,
+    "not_applicable_no_market_observation_by_end": 2
+  },
+  "CP1_receipts": 1133,
+  "seconds": 28.03220933303237,
+  "new_economic_paths": 0,
+  "no1709_expansion": true,
+  "full_warm_preserved": true,
+  "audit_stock_days": 18447,
+  "CP1_ready_stock_days": 18383,
+  "unready_stock_days": 64,
+  "unready_note": "301682.SZ first64 actual observations, not a known-zero opportunity",
+  "no_account_runner": true,
+  "deliverables_sha256": {
+    "PROTOCOL.txt": "77a910a7a064030d4de54b8f7a7bf974103a8b072787f5790266faf05d393137",
+    "generate.py": "ddd2999adc15bb6f8b2bad9d46bd89ed4199ba6a2d68eaf4c674aebf4e2bf2f9",
+    "RESULTS.txt": "323d24043ed888423b3e93f228e9e08309a7c5c30f487de463946d20bd1fe142",
+    "LEDGER_PLAN.txt": "7e0a677e9f2a1946acba0cfb1df173eae2f2fc0a98053ad170f08003cc04e8f0",
+    "MANIFEST.json": "49a2b474fdf52966353499d9a79da7a99b5953ece6ea4c7ce24f5b6d0f262e6b",
+    "ENGINEERING_GATE.json": "b9f406863f6e2539856fb8c588a8220bee4394b9be36fabeaac2103ac0620b4c"
+  },
+  "v2_budget_status": "parent-reviewed13/13 pure budget; real ledger not wired"
+}

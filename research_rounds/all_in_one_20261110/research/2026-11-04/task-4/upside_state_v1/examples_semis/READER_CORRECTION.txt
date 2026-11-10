@@ -1,0 +1,3 @@
+First read-only extraction stopped before output on pandas.NA JSON serialization.
+No Account, trading or policy object was created. Added explicit pandas.NA/NaT to
+null serialization; unknown remains unknown, no numeric or permission inference.

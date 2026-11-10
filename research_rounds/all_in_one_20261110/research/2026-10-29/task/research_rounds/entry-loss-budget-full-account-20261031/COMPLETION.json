@@ -1,0 +1,125 @@
+{
+  "status": "completed_full_architecture_tradeoffs_retained_not_deployed",
+  "completed_at": "2026-10-31T03:34:11.192703+00:00",
+  "wall_since_protocol_seconds": 2117.071466,
+  "pre_protocol_read_time_not_fully_instrumented": true,
+  "compute": {
+    "seconds": 207.82055395655334,
+    "stages": [
+      {
+        "sector": "TECH",
+        "stage": "off",
+        "status": "complete",
+        "seconds": 54.969724082853645
+      },
+      {
+        "sector": "TECH",
+        "stage": "on",
+        "status": "complete",
+        "seconds": 79.9425224578008
+      },
+      {
+        "sector": "TECH",
+        "stage": "prefix",
+        "status": "complete",
+        "seconds": 44.259120292030275
+      },
+      {
+        "sector": "DRUG",
+        "stage": "off",
+        "status": "complete",
+        "seconds": 8.631610082928091
+      },
+      {
+        "sector": "DRUG",
+        "stage": "on",
+        "status": "complete",
+        "seconds": 12.706471290905029
+      },
+      {
+        "sector": "DRUG",
+        "stage": "prefix",
+        "status": "complete",
+        "seconds": 7.311105750035495
+      }
+    ]
+  },
+  "verification": {
+    "passed": true,
+    "off_full_accounts_exact": 4,
+    "challengers_actually_run": 12,
+    "prefix_full_accounts_exact": 12,
+    "finance": [
+      {
+        "sector": "TECH",
+        "accounts": 6,
+        "rows": 4086,
+        "nav_residual": "0"
+      },
+      {
+        "sector": "DRUG",
+        "accounts": 6,
+        "rows": 4086,
+        "nav_residual": "0"
+      }
+    ],
+    "stock_bridge_max_residual": "0E-13",
+    "zero_exposure_accounts_also_proved_identical": 4,
+    "failed_economic_cells": 0,
+    "code_input_hashes_unchanged": true,
+    "compute_seconds": 207.82055395655334,
+    "unmeasured_cost2": true
+  },
+  "remaining_blockers": [
+    "42 account-stock-day observations lack fresh valid close prices; halt/cache causes not fully classified.",
+    "Cost2, genuine out-of-sample/forward execution and reduction of initial-selection dependence not verified.",
+    "Snapshot/survivorship and daily-HL/company-action execution proxies remain."
+  ],
+  "no_product_change": true,
+  "no_real_orders": true,
+  "no_additional_variants": true,
+  "deliverables": {
+    "synthetic-v1-pass.log": "f5cffac1dbd842f7ae3de2e00e5446876989345f7df6aa8818a3fbd9fdcbed9d",
+    "SUMMARY.json": "faf8a7443a2e9d746ae6140fc8c2defa63429089cda0d1c02786e431e7fa1065",
+    "SYNTHETIC.json": "3272100fb7e61803a8c0140dbc9806fb72301d3f98e789623dbda80f9c8eea9b",
+    "summary.log": "1d1480b914c1fa591fa4922b7cc717f55d479d87578bb45e291a0e0c0733d11b",
+    "summary-failed-policy-column-name.log": "4212a2c57117e1c824989c533a3f65d3a559cb8ada39c0a10636106a92ce6ce9",
+    "DRUG-off.log": "1015e46af7e91e4a342a82a9e62916bb72266c7432dd37ff5297e7512b58ee0d",
+    "STRUCTURE_TRIALS.csv": "ce3c372b2d592df027a2488ee76181d9f2d53f5ec3acb6c5fd8949ba87677352",
+    "COMPUTE_TIME.json": "88218e061a1fd8dd20497f7026b356df8fd2209b80df17a856a5b403402ecf00",
+    "TRANSMISSION.json": "291a69c3c153f14180a5eeaf8cec487f4474005be84126ef31b7b50b5fbaea42",
+    "run_stage.py": "17f0594341d6cdd4926f4e3b10c93a211a9155a6eaabd04bae032331c88a2642",
+    "DRUG-on.log": "76e438105fb32fe8fc27ecff967e02a461c6b10fa432b36c341a359b94a00fe7",
+    "REENTRIES.csv": "74e106626f2190f8c99870759dde1005c0c0b275921a8b73f534c7f550767ca6",
+    "KEY_CASE_CYCLES.csv": "fd4130a06193caa63dc12c0f1871d6abfc804b2c8ce890fde836b8fa7bd534da",
+    "TECH-off.log": "ef1432f547e302d509fec77709f83465fd946389573c7b3d6190bb8279930f75",
+    "NO_EXPOSURE_IDENTITY.json": "71a1e1cdcceb66e6f01cbe2d48640751ce2ce6650a79502824f259f5c3a112da",
+    "ACT_EVENTS.json": "6821ecc573d29420d0e4d3d38af131fb8c733f1e949417220cfb18928d461d35",
+    "PROTOCOL.txt": "d1dcdcffc93ac8293c32d31939499b8745114d01c9fac9642011dc09b71cfa6b",
+    "TARGET_COVERAGE.csv": "0633c29f537618b33a0ae1bbd5737d34fac091e54f63a8903c568b80593fa939",
+    "CHECKPOINT.txt": "2ebd8e32614cd6ed24dc316905aa5cfe64f2dcb0dcd6bb4b00ed105f7a1cd7bd",
+    "enrich_reference.py": "c0522f3bc824f2ee41d7164980c2fe6790b80ea245e851a386b98f460f109832",
+    "summarize.py": "74c25e821cc011ef88146f03452ff078a34cf8f7ecd854232b0f950f5a094fb3",
+    "CELL_STATUS.csv": "339f8c9bc7587ca9ebae8d5741f6168d162321d0ec9130a8acf54b404ba88cb9",
+    "test_wiring.py": "bfb2c9c949be965a83abb83af0bf87b3ce4186636c056f00cb3e2df24f3c68cb",
+    "ALL_CAMPAIGNS.csv": "31b5276219f9f2cca059952e6f41e62d7c52564371686a36c2af46305c842b33",
+    "STOCK_BRIDGE.json": "905a7056641b1a647e850154c72df8f609c1dd4b22d0f35a0102249b4731b6f9",
+    "wire.py": "cf3b0dcd9d35378b2448fb95a264c3fe6bad0e246fe84ae500b4396cdb169925",
+    "REPORT.txt": "09614211e2fc9efc60ba01e85d3119b37be4e4edeb8f018208a07dbe32834905",
+    "reference.log": "6fa0571b53fe1509fbf372927c54403e89f6196066faba785f2b1e980c76fd1a",
+    "UNKNOWN.json": "c35704882b467adafc3b201f2aa158d0989759b4fbf8b312640267cefb505ca6",
+    "TECH-on.log": "a960f0e3c0f7c5be82d547c3b34aa8c46fc2ebf2918d13f42923c5ac51c208d9",
+    "VERIFICATION.json": "09f45d5918d405a144777bc5493bb637cec622d64d56c3e5dcfedc0db4d426bf",
+    "SYNTHETIC-v1-pass.json": "6aeda1cdb4dca3657f0b7fc3b06ef6083d6e91910ddb4c0f38136dca883c5f5a",
+    "KEY_ADMISSION_TIMELINES.json": "8cdea92ae1317f776a7850ae7b102d0df17c723a5221adcbbdb54a5eacfe1fab",
+    "DRUG-prefix.log": "76a66cd644f7a5d04c931e94c56d93cf8c91663839be35cc8d069173a590bdb8",
+    "STOCK_PNL_DIFFERENCE.csv": "d67511e84e14c6e1416782f9f2e41a595c42d39d10909dac610946865441b5aa",
+    "synthetic-failed-partial-settlement-fixture.log": "a71bf0fecbd5367e453ea7e9a4c24ea40290639b727c3f96b36f5ca80cd10e71",
+    "synthetic.log": "a80167d39aa99807f2444f87c8b12eb74621dd1f11dc2db5538c0dccfb888aea",
+    "TECH-prefix.log": "3612f83c22de08573425a001fd727cb2d5b4577737c68c0916a829fea63942d4",
+    "WORST_EXECUTION_WINDOWS.json": "d06d96a8787735a47b478151c56c57742bdcececd07d1ec47f82b984fe130230",
+    "WORST_CYCLE_EXECUTION.json": "0de7889a5bc31d5ee99232192d2f2f3a5ee81b0b943e2d7250660006421bcef1",
+    "MATRIX_16.csv": "a03515a149a122b99f6070b928aeac1b0367f928a24f6dad20d3376677ef195b",
+    "FREEZE.json": "2ed16e2584d2656930b5f52213d51ff27fdeb7d93e4c659a06435d6f1ba9cbbb"
+  }
+}

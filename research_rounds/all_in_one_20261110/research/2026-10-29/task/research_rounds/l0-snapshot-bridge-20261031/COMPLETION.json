@@ -1,0 +1,21 @@
+{
+  "status": "complete_with_data_contract_blockers",
+  "at": "2026-10-31T08:31:09.024857+00:00",
+  "new_economic_paths": 0,
+  "new_day_replays": 0,
+  "preflight_packets": 6,
+  "all_packets_refused": true,
+  "historical_content_continuity": true,
+  "original_frozen_files_unchanged": 1873,
+  "reported_successful_audit_seconds": 13.841726041864604,
+  "packet_validation_seconds": 0.04879745887592435,
+  "wall_since_protocol_seconds": 767.129656,
+  "timing_caveat": "first sector/action-shape parsing failure not separately timed; source reading before protocol excluded",
+  "connection_or_permission_block": false,
+  "blockers": [
+    "source observed/exported after frozen15:10 clock",
+    "DRUG I/G1/E0 and own market not extended",
+    "new action preopen known_at not certified"
+  ],
+  "no_old_state_or_production_changes": true
+}

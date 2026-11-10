@@ -1,0 +1,27 @@
+{
+  "created_at_UTC": "2026-11-01T11:01:26.040735+00:00",
+  "scope": "proposed proof-clock contract frozen BEFORE coverage; design only, not implementation approval",
+  "coverage_runs": 0,
+  "new_indicators": 0,
+  "new_policy_account_paths": 0,
+  "proof_line_clock": "last line accepted after the completed signal-close old-line check and original update; valid for next observation/open proof only; never retroactive stop for completed signal bar",
+  "selection_basis": "existing original update/effect order, not selection to retain Shanghai; Mar17 alternative remains disclosed",
+  "decision_snapshot": "accepted line identity/value, campaign accounting and original decisionNAV frozen at signal close",
+  "opening_revalidation": "downward only; no earning proof from gap-up; accepted line capped by known rawopen*(1-original sell slip) solely as model price bound; no market.window/HLCV lookahead",
+  "held_line_breach": "if opening raw price <=any existing live campaign layer accepted rawline, withdraw all same-stock new buy permission; do not force earlier exits or invent fills",
+  "pending_exit": "no new permission; original cancellation/ack and sell obligation unchanged",
+  "original_guard_scope": "LR.preview guards new intent floor only; original opening skips known exit/buy/done, not every held protective line",
+  "original_new_buy_zero_risk": "op>new floor required by preview, so p=op*(1+slip)>floor; new qty risk is positive; existing risk max(mark-floor,0) can clip to0 on a gap and is not earned wealth",
+  "new_held_line_buy_guard_is_explicit_policy_change": true,
+  "real_execution_guarantee": false,
+  "causal_G1_clock": "buy-day closing G1 cold unavailable before same-day opening; no retroactive rejection",
+  "shanghai_clock_evidence_sha256": "1b73e0f79fc9c615dd366800e9d7b8daa0740524d3e1e472442b25e8ad5a7e8c",
+  "source_design_sha256": "06cac53e5de3c2e3b2ec8d4527f6773e7cb2489efbba4b21a3771466580d1976",
+  "original_sources": {
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/lot-risk-allocation-20261029/code/study.py": "2e7cfbdded269ae5430c9146d0b1f5c2b2281e5a5c774fdffb088b620d72bff4",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py": "fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/route_without_account_check.py": "7bc31864d1d3944e800bb3f51297f01c417ecf8ac8487b857aa897bde22d66a1",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/budget_v3/model.py": "c4e61fc6f12eb47aeaa9bfb7faea82f29467a2fb2627875c39308ef9f642af26"
+  },
+  "next_step": "independent design adjudication only; no coverage/implementation/finance until authorized"
+}

@@ -1,0 +1,20 @@
+唯一行业局部价格许可表已完成：90行业、364796观察，2.17988秒；0新账户/0量价重算/0Stage/0canonical/0RiskBook/0资金cap。
+
+只读原universe-cp1-inputs-20261031/INDUSTRY_MANIFEST.json的90条complete记录及各CP1_input.close/segment_id。全部90输入SHA与该旧manifest.output_sha256逐项exact，运行前后94源SHA均未变。未下载或修补数据，没有换池/新loader。每行业原观察钟独立，全warm到2026Jun30；最早起点2007Aug1、最晚起点2018Nov26，单行业1840–4594行，90条末日全为2026Jun30。
+
+固定唯一公式
+同连续source段此前20个原close取H20/L20，严格排今日；初UNESTABLISHED。current close已知且prior20全已知：C>H20进/留LOCAL_ON，C<L20进/留LOCAL_OFF，其余延续。未知当前/窗口不给新增许可，不制造OFF；未知仍占原观察钟窗口而非删行压缩，不ffill。来源段变化清状态与窗口，不跨段；未知/非连续source单位不擅衔接。未知20窗恢复后沿既定状态继承，不暗加“必须重新突破”门。
+实际90行业均只有1个来源段；多段/当前坏价分支本轮仅源码逻辑审，不冒称额外实际或合成多段验证。1800个unknown恰为每行业最初20观察的准备不足。全hist输出knownON194763、knownOFF167991、knownUNESTABLISHED242、unknown1800，合364796。这些是完整历史观察分母，不是母体买入层或独立交易结果。
+
+许可边界
+local_new_risk_permission=True仅known && LOCAL_ON，是行业价格层必要线索，绝非成熟/满risk/足额预算或实际成交证明。原stockI/CP1/Q/H、财务与native执行仍必要；现表没有替它们授资。LOCAL_OFF只限制新风险研究方向，不触碰任何旧仓；所有持仓保持原I/CP1退出，不按浮盈/亏损强卖。没有计算新H或macro，也不根据关联金额反调20窗。
+
+交接与字段
+DAILY.jsonl.gz（8.6MB）一条sector-native-day一行；SCHEMA.json给完整契约。
+Join key=sector(URFI881xxx) + decision_close(该行业观察日15:10+08)。来源字段source_segment/source_SHA256、current_close/current_known/prior20_known/known、H20/L20、state_before/local_state/local_permission_status/local_new_risk_permission/event完整保留。
+knownOFF只local_permission_status=='KNOWN_OFF'；knownON只'KNOWN_ON'；known但UNESTABLISHED与unknown不得混为OFF。缺sector/day必须UNAVAILABLE，禁止用lastknownON、fill-day、最近邻或未来日替代。行业自身计划钟不是每股可成交钟，不据此给OPEN价格或成交量。
+SERIES_INDEX.json逐sector保存输入路径/SHA、行数/起止/分段/status/eventcounts；RESULTS.json保存一次运行和范围；SPEC/SOURCE_FREEZE/OUTPUT_SHA可复核。
+
+loss owner已拿完整路径，复用原3436买入层/记录+177固定tail母体与已存macro标签，以真实budget_order decisionCLOSE精确join。目标cross macroC&&knownLOCAL_OFF的L03/strict303与macroD&&knownLOCAL_ON的AI/strong。原gross/net/旧PnL只做关联分母，不删交易拼新NAV，不将ON当实际可买，更不复用释放现金。母体/窗口/角色归属由其既定协议保持，本分支不选有利子组或建立第二关联管线。
+
+执行前pool/reviewer已读50行唯一compute，均无因果/时钟阻断；compute.py SHAa428e3252649fd9aa14a0afc96d2c334890a76f4e4de6656deff25d598118461。完整输出已送独审，等待收据及全母体关联；当前仅数据与许可接口通过，未证明能覆盖主损耗或保住赢家，不自动运行金融。

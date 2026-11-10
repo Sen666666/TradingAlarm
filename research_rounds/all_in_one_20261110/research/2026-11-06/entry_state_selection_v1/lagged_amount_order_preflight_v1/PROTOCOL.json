@@ -1,0 +1,22 @@
+{
+  "status": "FROZEN_BEFORE_CASE_CALCULATION_HISTORY_ALREADY_SEEN_NOT_OOS",
+  "hypothesis": "Within existing upward-qualified A/B opportunities, relative temporal ordering between daily amount and returns may contain information not in same-day PVR or simple marginal entry strata. Positive centered lag asymmetry is only a directional research conjecture; neither causal flow nor already validated quality.",
+  "formula": "At signal close t use 21 common-day returns r_j=log(C_j/C_j-1), j=t-20..t; 21 positive CNY amounts. x_j=r_j-mean21(r); y_j=log(A_j/A_first)-mean21(log(A/A_first)). F=sum_j=1..20 y_j*x_j+1; R=sum_j=1..20 x_j*y_j+1; D=sum(|y_j*x_j+1|+|x_j*y_j+1|). Z=(F-R)/D if D>0 else0 for known constant input. Also report F,R,D,variances, AR1 diagnostic. No fitted coefficients or param scan.",
+  "why_centered": "Uncentered constant activity produces endpoint-return term rather than volume-order information. Centering fixed before cases; it removes amount-level and average-return information, does not assert hidden investor flows.",
+  "limitations": "Sign includes positive and negative deviations, not uniquely high-amount-before-up. Positive Z is not market direction. Reverse observation-pair order flips Z; physically reversing log-price path also flips return signs, so Z is invariant. AR response of volume to price can create nonzero Z without informative volume. Normalized ratio can be large at small raw amplitude; D and variances retained, no invented significance threshold.",
+  "source": "Same original adjusted source+CP1_input CNY amount with 22 consecutive valid prices and21 amounts; same source kind/path/segment, facts and CP input close/segment agreement. No missing-day skipping; source invalid/amount<=0 =>UNKNOWN. All data only through signal close. Future next OPEN no execution created.",
+  "fixed_cases": "Exact union of previous frozen30 native-leg preflight identities and previous10 all-Q1-tail/same-day same-industry identities, no further case selection. Historical outcome-selected descriptive cases, not validation.",
+  "synthetic_controls": [
+    "constant amount zero",
+    "constant returns zero",
+    "amount-unit invariance",
+    "price-unit invariance in r",
+    "observation pair reversal flips sign",
+    "physical price reversal leaves Z unchanged",
+    "isolated amount-before-return and reverse-order pulses opposite",
+    "pure lagged price-driven volume may yield nonzero"
+  ],
+  "duplicate_comparison": "Original kernel fitted r and r*V for next-step y overpast504,min252,ridge20 atIbirth then21PVR aggregate; existing failed. 10/25 full second-order cumulative positive-activity signature has all pairs j<k and no financial consumer; current lag1 centered return/log-amount bilinear statistic differs but may not improve. No claim originality.",
+  "test": "One run. Print all cases with existing I/PVR/CP/M3 and corrected actual old CORE/FULL labels where applicable; eight original pair identities preserved, Q1pairs separately. Compute signs and pair direction only as development descriptions. If no credible separation or early/tail contraindications, stop without flipping sign, changing lag/window/normalization or adding exceptions. No ranking/gate/account.",
+  "parent_authorization": "Parent requested exact comparison with prior kernel and10/25 area; if enough non-equivalence and mechanism fix formula and existing bear/bull/early cases. Daily only."
+}

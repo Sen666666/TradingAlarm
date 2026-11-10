@@ -1,0 +1,28 @@
+{
+  "windows": {
+    "2022Jan": [
+      "2022",
+      "2022-01-04",
+      "2022-01-28"
+    ],
+    "2025Jul": [
+      "2025_26",
+      "2025-07-01",
+      "2025-07-31"
+    ]
+  },
+  "lookback": 21,
+  "improvement": "rank_at_previous21_valid_original_H1_market_observation minus current_rank; higher improves; source change or missing makes UNKNOWN",
+  "rank_A": "original cached H1 descending rounded12, sector ID tie",
+  "rank_B": "rank improvement descending, sector ID tie; no composite or TopK",
+  "row_weight": "one industry per decision day; stock label means formed inside industry/day, then industry/day and date equal summaries separately",
+  "universe_M1": "fresh canonical CP1 and original retained stock_Q true; unallocated kept",
+  "universe_M2": "same M1 stock actually present in original C10 requested projection trace, including Q=0; F1/ACT/obligation stage distinct from capital allocation",
+  "holdings": "all originally occupied industries shown even without fresh; no exit inference",
+  "future_industry_21_63": "UNKNOWN: existing frozen industry evaluation windows omit Jan2022 and Jul2025; no new industry future label computed",
+  "future_stock_proxy": "reuse existing 21/63 legacy-Q-reference canonical stock price labels when key matches, report absent label coverage",
+  "existing_tail": "original stock close MFE>=30%, no new threshold",
+  "no_account_events": true,
+  "no_signal_recompute": true,
+  "no_window_search": true
+}

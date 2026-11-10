@@ -1,0 +1,54 @@
+{
+  "layers": 303,
+  "stocks": 204,
+  "lifecycle_net": "-112457.6005694286215000000000",
+  "categories": [
+    {
+      "category": "existing_stock_add",
+      "layers": 85,
+      "stocks": 58,
+      "buy_cash": "816936.8507999592545",
+      "lifecycle_net": "-32488.11014774565024662210171",
+      "positive_layers": 20,
+      "negative_layers": 65,
+      "positive_net": "37368.60891258144376457389612",
+      "negative_net": "-69856.71906032709401119599783",
+      "role_kinds": {
+        "add": 85
+      }
+    },
+    {
+      "category": "flat_reentry",
+      "layers": 150,
+      "stocks": 138,
+      "buy_cash": "1335420.6459748503870",
+      "lifecycle_net": "-34373.71008784234062628691722",
+      "positive_layers": 52,
+      "negative_layers": 98,
+      "positive_net": "53781.18600512700986233328193",
+      "negative_net": "-88154.89609296935048862019915",
+      "role_kinds": {
+        "add": 112,
+        "core": 38
+      }
+    },
+    {
+      "category": "account_first_entry",
+      "layers": 68,
+      "stocks": 68,
+      "buy_cash": "687279.7262241270610",
+      "lifecycle_net": "-45595.78033384063062709098107",
+      "positive_layers": 12,
+      "negative_layers": 56,
+      "positive_net": "15613.5674289528995",
+      "negative_net": "-61209.34776279353012709098107",
+      "role_kinds": {
+        "add": 53,
+        "core": 15
+      }
+    }
+  ],
+  "same_sid_buy_and_sell_same_OPEN": [],
+  "category_definition": "Existing stock if earlier layer remains live immediately before this OPEN buy; flat reentry if prior same-stock layer existed but no live holding; otherwise first account entry. Crosschecked prior CLOSE positions where no same-day sell. Mobile kind=add does not imply an actual existing-stock add.",
+  "finance_scope": "Post-peak layer creation has zero wealth at Oct8 CLOSE and all303 are flat at yearend, so lifetime cash+recognized dividend is actual phase contribution. This is not an avoidable-loss or counterfactual claim."
+}

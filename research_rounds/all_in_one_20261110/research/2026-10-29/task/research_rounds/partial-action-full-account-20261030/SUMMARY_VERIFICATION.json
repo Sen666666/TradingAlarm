@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "accounts": 18,
+  "new_economic": 12,
+  "structure_money_exact": true,
+  "baseline_off6_exact": true,
+  "prefix_group_runs": 2,
+  "prefix_accounts": 4,
+  "seconds": 1.4227888332679868
+}

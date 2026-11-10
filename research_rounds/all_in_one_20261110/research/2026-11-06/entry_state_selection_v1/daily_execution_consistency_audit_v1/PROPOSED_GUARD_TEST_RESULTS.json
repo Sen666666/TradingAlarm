@@ -1,0 +1,29 @@
+{
+  "status": "PROPOSAL_SYNTHETIC_TESTS_ONLY_NOT_ENGINE_IMPLEMENTED",
+  "tests": 12,
+  "passed": [
+    "synthetic_upper_open_quotes_18_98_but_never_fills",
+    "missing_limit_unknown",
+    "future_limit_known_at_rejected",
+    "no_retroactive_auction_order",
+    "special_ipo_or_relist_unknown",
+    "no_receipt_never_books",
+    "old_yin_proxy_not_legal_execution_price",
+    "synthetic_receipt_not_a_real_fill_claim",
+    "receipt_before_order_rejected",
+    "lower_limit_sell_intent_only",
+    "future_HLCV_invariance_10",
+    "future_HLCV_invariance_11"
+  ],
+  "fixture_upper_intent": {
+    "status": "LEGAL_LIMIT_INTENT_ONLY",
+    "limit_price": "18.98",
+    "side": "buy",
+    "known_at": "2024-09-25T09:30:01+08:00",
+    "position_change": 0,
+    "fill_status": "UNKNOWN_NO_RECEIPT",
+    "note": "Clamp legal order limit, never clamp or create a fill. Quantity/reservation must be recalculated using this price and dated fees/lots before transmission."
+  },
+  "real_case_inputs_not_certified": true,
+  "historical_orders_or_accounts_run": 0
+}

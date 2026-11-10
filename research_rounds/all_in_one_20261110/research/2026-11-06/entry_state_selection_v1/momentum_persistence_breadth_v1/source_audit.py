@@ -1,0 +1,10 @@
+from pathlib import Path
+import pandas as pd,numpy as np,json,hashlib
+O=Path(__file__).resolve().parent;U=Path('/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031');IX=Path('/Users/bytedance/Documents/ChatGPT/money/research_rounds/ix-a-share-entry-20261025/signals');m=json.load(open(U/'STOCK_MANIFEST.json'));out=[];hashes={}
+for x in m:
+ p=Path(next(s for s in x['source_sha256']if s.endswith('/signal.parquet')));hashes[str(p)]=hashlib.sha256(p.read_bytes()).hexdigest();assert hashes[str(p)]==x['source_sha256'][str(p)];f=pd.read_parquet(p,columns=['source_kind','source_path','segment_id','close','volume','observed_bar','price_eligible','volume_eligible','source_invalid']).loc[:'2026-06-30'];g=pd.read_parquet(IX/(x['symbol']+'.parquet'),columns=['close','volume','segment_id','valid_strength_observation']).loc[:'2026-06-30']
+ if f.empty:out.append(dict(sid=x['symbol'],no_history=True,source_changes_unsegmented=0,G_bad_valid=0));continue
+ a=f.source_kind.astype(str)+'|'+f.source_path.astype(str);sw=a.ne(a.shift())&f.segment_id.eq(f.segment_id.shift());assert not sw.any(),x['symbol']
+ raw=f.reindex(g.index);valid=raw.observed_bar.eq(True)&raw.price_eligible.eq(True)&raw.volume_eligible.eq(True)&~raw.source_invalid.eq(True)&np.isfinite(raw.close)&raw.close.gt(0)&np.isfinite(raw.volume)&raw.volume.gt(0);bad=g.valid_strength_observation.eq(True)&~valid;assert not bad.any(),x['symbol'];np.testing.assert_equal(raw.close.to_numpy(),g.close.to_numpy());np.testing.assert_equal(raw.volume.to_numpy(),g.volume.to_numpy());np.testing.assert_equal(raw.segment_id.to_numpy(),g.segment_id.to_numpy())
+ out.append(dict(sid=x['symbol'],no_history=False,source_changes_unsegmented=int(sw.sum()),G_bad_valid=int(bad.sum()),source_rows=len(f),G_rows=len(g),same_close_volume_segments=True))
+pd.DataFrame(out).to_csv(O/'SOURCE_IDENTITY_AUDIT.csv',index=False);(O/'RAW_SOURCE_HASHES.json').write_text(json.dumps(hashes,indent=2));print('PASS',len(out),'stocks; no source identity changes unrepresented in segment; G price-volume and validity match raw signal')

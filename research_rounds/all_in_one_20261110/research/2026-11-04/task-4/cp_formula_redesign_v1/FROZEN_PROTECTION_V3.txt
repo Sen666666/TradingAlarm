@@ -1,0 +1,10 @@
+保护公式v3：仅修正V2把持续上涨当‘近期波动’的定义；金额分门/状态/原域/时钟不变。在本版影子计算前冻结，无资金/账户/收益回测。
+动机有解析反例：若r_j恒正为a，1.4826*median|r|=1.4826*a，包含单向趋势本身，不是去趋势噪声。V2 max(z63,z21)会因持续上涨撑宽保护。不能据放量输赢改金额阈值或找参数。
+保留原A=sqrt5、K=sqrt21、门V>=1、原21/63窗口。
+每个新TREND episode的首张新receipt，保存其当次确认使用的旧冻结proof sigma为sigma_init，不用确认后刚刷新的sigma偷换。
+下行尺度d21_t=sqrt((1/21)*sum_{j=t-21..t-1}min(r_j,0)^2)，仍同source、排当前观察。
+保护距离尺度sigmaH_t=max(sigma_init,d21_t)，首次receipt亦用此式。H_init=C_receipt*exp(-K*sigmaH)。
+未破旧线且创新趋势收盘高M时，H_new=max(H_old,M*exp(-K*sigmaH_t))；横盘/非新高不因尺度收缩抬线。先比较C_t<=H_old，失效当日不抬/不发证。
+原down只清proof，不改未破TREND的sigma_init/H/M。source/I域OFF或market failure后，旧episode结束；后续恢复receipt建立新的sigma_init，新episode可能较宽/较低，不称跨episode永不放宽。
+该式不用仓位成本/盈利，正收益不撑宽距离；保持入段风险活动尺度下限，避免纯上涨历史使下行RMS=0就抬极紧线。仍可能先天初始sigma宽、在趋势成熟后保护不足、首个急跌/次OPEN跳空来不及；下跌尺度也是价格风险描述，不是概率保证或预测。
+仅固定三股完整暖前缀纯CP状态，与保留的V2量价门/原始CP对照；不跑参数网格，不从结果再选window/K/金额阈值。本次增加这个明确定义的数学替代不表示经济改善已验证。

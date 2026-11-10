@@ -1,0 +1,9 @@
+{
+  "event_rows": 140941,
+  "I_spell_rows": 30628,
+  "source_files": 5127,
+  "seconds": 70.19442391721532,
+  "daily_sha256": "d2eb0f61280971c2e130203af2f34aed8697e4943c67a7a96117fb87e74e6e52",
+  "event_sha256": "e24ffff3a10c8522d851c3d8d313ec742435a25e46f6b578429db507429fa6ff",
+  "original_account_only_joined_no_replay": true
+}

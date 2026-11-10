@@ -1,0 +1,1 @@
+Original attempt failed only context CSV serialization: DatetimeIndex has no gt method. Original code/freeze and partial cycles retained. v2 uses the same comparison (index>d), and maximum after trigger includes entry M so maximum advance cannot be negative. No new feature/threshold/state/financial calculation. v2 outputs isolated in diagnostic_v2.

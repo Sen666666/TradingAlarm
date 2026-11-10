@@ -1,0 +1,66 @@
+{
+  "contract_version": "2022_COMPOUND_STOCK_HAIRCUT_V1_DRAFT",
+  "scope": "Original M3 A/B shared-account daily strategy, birth window all 2022, observe through 2022-12-30 or first unsupported responsibility.",
+  "initial_cash": "1200000",
+  "start": "2022-01-04",
+  "birth_end": "2022-12-31",
+  "observation_end": "2022-12-30",
+  "user_choice_verbatim": "同意以最高20%票面作为明确披露的研究保守代理并记录其影响，不宣称实税；完成后账期及统计明确标注，与未调整旧结果不可无条件混比。继续。",
+  "old_event_count": 437,
+  "old_original_engine_events": 436,
+  "old_previously_admitted_candidate_count": 1,
+  "additional_pure_cash_event_count": 4,
+  "additional_compound_event_count": 1,
+  "maximum_distinct_event_count": 442,
+  "compound_event_id": "000987.SZ|LOCAL_DISTRIBUTION_010",
+  "no_separate_duplicate_cash_event_for_compound": true,
+  "stock_research_haircut": {
+    "policy_id": "EX_OPEN_NONREFUNDABLE_PAR20_RESEARCH_HAIRCUT",
+    "recognition_phase": "EX_OPEN_BEFORE_ORIGINAL_EXITS_AND_NEW_RISK",
+    "new_quantity_basis": "Actual own registered old quantity times official transfer ratio, exact per active layer integer.",
+    "formula": "new_shares * independently evidenced CNY par_value * 0.20",
+    "rate": "0.20",
+    "nonrefundable": true,
+    "actual_tax_claim": false,
+    "actual_tax_payment_clock_claim": false,
+    "cash_posting": "Debit owner round cash exactly once. Global cash is seed plus archive cash and must not be separately debited.",
+    "cost_posting": "Separate research_stock_tax_total and per-layer expense. Do not mutate historical buy_cash, spent, buy quantity, Layer.cost or actual trading fees.",
+    "profit_and_risk": "Actual cash debit is included by unchanged source mark, round/layer net PnL and wallet snapshot. Both prior-CLOSE and current-OPEN profitable-CP gates retain original clocks.",
+    "negative_account_cash": "Fail closed before mutation if this explicit debit would make global available cash negative. Do not borrow or silently defer.",
+    "settlement": "Nonrefundable research expense is complete on ex OPEN, not an open actual-tax claim that prevents round closure.",
+    "no_later_refund": "Do not infer a later zero rate or release/rebate from holding duration."
+  },
+  "cash_dividend": {
+    "policy": "Original NET80",
+    "basis": "Actual registered OLD shares * official gross d_cash * 0.8",
+    "pay_clock": "Original pay CLOSE transfer, spendable no earlier than following common OPEN when intraday proof absent.",
+    "no_double_count": "Do not apply another 20% to cash dividend. Stock haircut is only on newly issued shares times evidenced par."
+  },
+  "source_coordinate": {
+    "formula": "new_factor = old_factor * source_split * previous_raw_close / (previous_raw_close - d_source)",
+    "source_cash_actual_cash_reference_separate": true,
+    "new_announcement_objects_contain_future_factor": false,
+    "600050_SH": "d_source=0.0663, d_cash=0.0663, d_ref=0.0652; future factor audit is separate QA, not an announcement input."
+  },
+  "supported_compound": "Only explicit same-ex-day unlimited share listing/credit and exact integer per active CORE/ADD layer. Original dated full/partial odd-lot rules mandatory.",
+  "unsupported": "Later listing, fractional allocation, bonus-share tax, source/clock gaps and other unadmitted actions remain responsibility UNKNOWN. No exclusion or tuning of stock selection.",
+  "reporting": {
+    "canonical_NAV": "Actual available cash after once-posted research stock haircut + confirmed receivable + raw CLOSE inventory market value, with original proven-halt stale-mark rules.",
+    "inventory_gross": "Raw inventory market value before hypothetical sell slippage/fees, reported separately.",
+    "same_path_addback": "If shown, canonical NAV plus cumulative stock haircut is same-path bookkeeping addback only, not an unadjusted strategy counterfactual.",
+    "hypothetical_liquidation": "Keep separate from wallet marked NAV; actual trading fees allocated once.",
+    "open_rounds": "No forced year-end sale. Open/settlement-open rounds excluded from closed win denominators; observation stop/phase always shown.",
+    "comparison": "Do not unconditionally combine or compare with old no-stock-haircut result; research expense can change cash, profitability and later path."
+  },
+  "prefix_test": {
+    "reference": "annual_2022_marked_nav_v1/economic_run_2022_annual_once",
+    "last_unchanged_phase": "2022-06-22 CLOSE",
+    "phases": 221,
+    "actions": 253,
+    "compare": "All action fields and all original phase/reconciliation economic fields; only elapsed time and peak RSS are nondeterministic and excluded. Separate new evidence/registration ledgers do not overwrite old economic fields.",
+    "first_permitted_path_change": "2022-06-23 OPEN",
+    "old_full_stop": "2022-06-23 OPEN has 222 phases/254 actions and is not claimed equivalent after new compound treatment."
+  },
+  "release": "Fact-layer release and exact new pre-run stage independent release both required; synthetic-stage PASS is not permission. New directory and new O_EXCL once lock. Never resume old locks.",
+  "created_utc": "2026-11-09T10:29:16.753550+00:00"
+}

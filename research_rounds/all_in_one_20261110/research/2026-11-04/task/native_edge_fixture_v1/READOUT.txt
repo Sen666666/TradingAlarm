@@ -1,0 +1,24 @@
+Actual native matching and split-callback fixture｜technical only
+
+One bounded original-input run used the real GuardAccount, original Jan4 CLOSE planning, original Jan5/Jan6 quotes, execution windows, quantity rules, fee schedules, order receipts, native cash ledger and cost observer. No producer source was edited. This is not another historical economic policy or a strategy-performance result.
+
+Meaningful native edges passed
+1. The original002246 buy order submitted700shares. Only matching capacity was set100 per event and event IDs explicitly marked TECH. Two actual native buy callbacks filled100+100 at original execution price11.235615. Actual fees were5.0996599050500 then0.0996599050500; the order minimum commission was not charged twice. Each actual fill created its own layer with basis=gross+actual allocated fees. The unfilled500 retained reservation and fee/slippage buffer until original Jan5 CLOSE expiration/cancel-ACK.
+2. Original Jan5 CLOSE quote/clock created a clearly labelled technical exit obligation over the200 shares. The original Jan6 sell window with matching capacity100 produced an actual100-share native sell at9.69515, fee6.0555109805. One100-share layer closed and its observer basis became0; the other100-share layer retained basis1123.66115990505 and entry11.235615. The exit obligation remained pending for the residual. This covers a position-level partial exit; the sold layer itself was fully sold, so a nonzero residual within the same batch is not claimed here.
+3. Two independent copies of the actual post-exit native account invoked the real split callback. Ratio2 moved the surviving batch100→200, preserved its monetary basis1123.66115990505, and divided entry11.235615→5.6178075. Ratio.001 under the original floor_position_fraction_writeoff policy moved100→0 with an explicit.1-share fraction writeoff, and the zero-quantity batch cost hook set its observer basis to0. Original native checks passed.
+
+Independent arithmetic inside the fixture
+For every buy part and the partial exit, current native balance was rebuilt from cash/reserved/locked/payable/receivables plus original mark×actual quantity; original initial cash plus actual buy/sell gross and actual fees plus inventory equalled native NAV exactly. Basis was independently compared with actual fill gross+fee and with original sell.parts. Pending and actual filled portions were not double-counted. Original source files were hashed before and after.
+
+Limits
+Only the matching capacity and distinct technical event IDs differ from the original windows. The forced exit is labelled technical, not an observed strategy signal. The splits are native callback/unit tests only: no raw prices, factors or historical inputs were overwritten, and post-split economic NAV continuity is deliberately NOT tested against an unadjusted original market. The fixture does not certify external exchange fillability or the economics of synthetic CA. Original guard financial-small/prefix/restart evidence remains separate.
+
+Provenance
+The producer had earlier attempted run_partial_fixture.py but omitted physical kwargs and failed before any account events; that source/failed STARTED remain unchanged. This independent script uses the already documented physical kwargs and does not silently rerun a completed account fixture. Total runtime43.975seconds.
+
+Files
+ACTUAL_NATIVE_EDGE_PROOF.json: actual receipts, per-part snapshots, partial-exit bridge and both native split callbacks.
+NATIVE_ACCOUNT_AFTER_EDGE.json: original trades/audit/journal/layers/metadata and cost-observer state.
+STARTED.json / DONE.json: source hashes and explicit technical scope.
+checkpoint files/pair/: original two-CLOSE technical-run outputs, not strategy results.
+Independent ledger review is requested separately; this readout is producer evidence, not the independent audit.

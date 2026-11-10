@@ -1,0 +1,20 @@
+{
+  "result": "PASS",
+  "days": 14,
+  "orders": 781,
+  "adds": 9,
+  "last": {
+    "day": "2024-09-23",
+    "cash": "774537.0774953863000",
+    "receivable": "0.000",
+    "market_value": "435215.00",
+    "NAV": "1209752.0774953863000",
+    "net_liquidation_NAV": "1208774.2154087770500",
+    "stocks": 102,
+    "shares": 29900,
+    "weight_pct": "35.97555301587484185076701532",
+    "fees_paid": "4419.3685046137000"
+  },
+  "source_hashes_identical_between_arms": true,
+  "only_one_uncapped_execution": true
+}

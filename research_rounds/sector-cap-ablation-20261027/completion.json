@@ -1,0 +1,21 @@
+{
+  "status": "complete_not_adopted",
+  "new_economic_paths": 6,
+  "control_paths": 6,
+  "economic_reruns": 0,
+  "parameter_revisions": 0,
+  "application_changes": false,
+  "files": {
+    "CONCLUSION.txt": "49cb5ae9a924ee880a4a7702302098ea9bef02705ae0c2a002c2e980a4ea337f",
+    "verification.json": "9e96a1462cf04a4a6576499d01dcbd6696914bf2412297ec46806c07871af2e7",
+    "summary.csv": "3698c7ec1e2db3322921f0e8b9fab17614dc6db38e0ed34e9b509af2c60ad050",
+    "annual.csv": "f23bd99df16c028e90f9ab5bbb6e5f9d1e97cf846655e3c3a2f70279619c2fe1",
+    "concentration.csv": "5b81923025162d1cd68ebe054e6daf389731c4f7cad33c26fd04f4c96da9e529",
+    "winner-participation.csv": "7ac87bce12cbc0d940a716867ee0f771b0d9720b4d5442a35e16833498fde713",
+    "opportunity-traces.csv": "0944a921eb4a8106c4245e107ba7519de7a13520fdc2692757ad43441be724e2",
+    "first-divergence.csv": "061d2f81044a2b842e64b43206a3396237bb1aa7a121445efd48dc81c1cc6a05",
+    "stock-attribution.csv": "02d10019e8b2feebf78decf706071d5c14f0125450ec5cf63bb7ac7b612a7a88",
+    "comparison.png": "43332164b60a71334ccb77ec32316cd9e804b30493d1b6e216f8ba27b5a0c054",
+    "postmortem.json": "8d30d264b95b700558afdfa0e296986c9ba71fcc503bbc53c99a93da0846e5fa"
+  }
+}

@@ -1,0 +1,42 @@
+Resource-only completion of native first-reject labels
+
+The first label pass stopped at its deadline: 3,879 complete original first
+reject rows, 3,880 attempts, 3,879 isolated ledger initializations. The interrupted
+3,880th key reached raw/provider preparation only. No partial financial row was
+emitted. Its 120.100 seconds, input preparation 1.128 seconds and source artifacts
+remain unchanged. This chronological long-only subset is not a full-window result.
+
+Root now authorizes one finite continuation of the remaining 4,456 identities.
+No previously completed key is recomputed. The original 8,335-event mother,
+q_min, native LR.Account/market/fees/CA/T+1/daylease/exit/terminal rules and all
+native economic sources remain frozen. The four partitions have 1,114 events
+each and disjoint complete SID sets (380/380/380/381), fixed using only identity
+and input event count. No profit, return, holding outcome or period performance
+is used in partitioning. Source/I epoch and all multi-failure classifications remain.
+
+Four independent processes, each at most 90 seconds of label computation, total
+new computation cap 360 seconds. A 0.5-second deadline/persistence reserve makes
+the shared per-path absolute deadline 89.5 seconds after that worker's loop start.
+Preparation and merge times are recorded separately; parallel elapsed wall time
+is never called total computation. Every 100 complete rows persist progress and
+partial gzip output. A deadline-interrupted ledger is counted but no incomplete
+profit label is emitted. Any partial/failure stops that worker without replay.
+Native RuleUnavailable is an unknown observation; programming errors are failures.
+No extra budget or second continuation is automatic.
+
+Each process is only an isolated single-asset conditional label producer. Count
+every initialized LR.Account, including failed/interrupted paths, and distinguish
+label attempts. New portfolio-policy accounts, new RiskBooks, real orders and
+rotation-policy economic runs remain zero. Old account cash/industry resources
+do not become available merely because this independent unit-cost path exists.
+
+Before execution, independent review binds the new worker/orchestration code,
+this resource card, the shard plan and four inputs, the unchanged native helper
+and direct dependencies, original partial and timing, and original full mother.
+
+Final merge is read-only. It must contain exactly the original 8,335 unique mother
+keys with long5,264/strong3,071. The first 3,879 decompressed original lines are
+copied byte-for-byte, with per-line hashes and their full prefix hash retained.
+Remaining worker lines are copied as recorded and ordered by the original mother
+identity order. All nonfills, unknowns and censored observations remain. If a
+worker is incomplete, do not publish a completed aggregate or retry silently.

@@ -1,0 +1,49 @@
+Fixed own-state2024 benchmark continuation | independent PASS_WITH_SCOPE
+Audit: ../../independent_review/BENCHMARK_2024_CONTINUATION_INDEPENDENT_AUDIT.json
+Audit SHA30f4a0dc3881390e3ca6c53851ec315cf6ce2fc4eb294b60638b03cf10acbb25.
+
+Root corrected BH90 label before execution: original BUY_HOLD is maximum
+affordable whole lot investment. Continue its200500shares; no90%BH invented.
+MA63 remains old crossing-entry90% then natural holding. Old484days not rerun,
+old daily bytes/fill/order/signal prefixes exact, original sources untouched.
+New loop only242days2024Jan2-Dec31, carried cash/NAV/lots/pending/previous-on/
+orderid/cumulativefee/globalpeak explicitly restored. Full account726days.
+
+                           2024return  year-periodDD  2022-24return globalDD
+BUY_HOLD                    +16.2679%    11.8804%       -15.1672%    31.8889%
+MA63_90                     +16.4139%    11.4348%       +11.1602%    11.4348%
+Old1m cumulative NAV:848328.06575 and1111601.641 respectively.2024 starts at
+actual729632.06575/954870.366, not new1m. No annual peak/reset or changed MA.
+HS300 price reference arithmetic2024+14.6833%, aligned2022Jan5OPEN cumulative
+-19.8255%/DD35.6297%; index units/reference only, no extra trading simulation.
+
+Costs/cash: BH2024no new fills/fees, actualJan18ex/Jan23payment dividend13834.5
+cash, shares unchanged, no DRIP. MA2024five fills/fee6628.125, no2024dividend.
+Three-year cumulative friction BH1497.43425/MA36024.759; same-actual-quantity
+cost-before final NAV849825.5/1147626.4 (no hypothetical fee reinvestment).
+These are original modeled15bp/min5 ETF friction, not broker quotes or No60
+stock native fee components. NAV cross-universe is opportunity reference,
+not attribution of all difference to a timing gate or fee efficiency.
+
+924 chronology, labels used only AFTER original simulation:
+Sep20/Sep23 MA OFF. Sep24CLOSE causalTR3.784469228 > MA63 3.770411191 turnsON;
+Sep25OPEN raw3.489 buys252000shares, gross879228+fee1318.842. No Sep24sameclose
+fill or future event label in policy. Shares stay throughDec31, cash98057.641,
+inventory mark1013544; open-layer cost880546.842, unrealised132997.158. Most
+2024gain is still marked open winner; not all profit realised or guaranteed.
+MA closed2024net bridge23734.117. No forced terminal sale/lock-in.
+Fixed pre924 Jan2-Sep23 MA+2.4856%/BH-4.0395%; wholeSep24-Dec31 MA+13.5905%/
+BH+21.1623%. Do not optimize profitable2024 ranking gap or map ETF gate to PVR
+ACT recovery. Full9/2-Oct15 rows/close signals/orders available for diagnosis.
+
+All12quarters/36months/3years per ETF saved, no good-phase selection. New2024
+raw/rights complete locally, no downloads; actual F10 unit.69per10=.069/share
+(original float parser precision retained). Original historical halt/limit/
+auction dated-state gap remains execution_verified=false; indicative10%band,
+rawOPEN and strict prior20volume1% cap are daily proxies, not actual fill proof.
+
+Independent audit:36source/input SHA, own parent state/old484byte overlap,
+1569sequential TR/MA/ADV history,726daily money/share/AR/fees/NAV/DD,28cumulative
+fills (newMA5/BH0),102annual/quarter/month rows and fixed924 phases all passed.
+No new PVR economics, no parameter/filter scan, no change to original inputs,
+no strategy promotion. Supports absolute-performance and counterexample review.

@@ -1,0 +1,29 @@
+C20 exact technical-budget recovery + original remaining July account. No C10 replay.
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/budget250.py SHA256 4c50b9c0ae667ab573c913895c9f30363d83af5e665a951c797b1a10b0e49081
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/recover_c20.py SHA256 d06264249a8e8b8b649251865bfda1f3c3c4186100086086bda5b86b0eef979c
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/SOURCE_TRANSITION_AUTHORIZATION.json SHA256 de7900dbad9158de360e17742b807a7c923af8385949ffa485bdb136f6d7d5b2
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/IMPORT_MANIFEST.json SHA256 178d3d7383e77c4b5fd1cf388f1a4d426d6d291d5119f8d1c6d4edf2f40dde1a
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/PURE_GATE.json SHA256 4dc639d97c48adb4dda53be76a869411c0c2b4ca7b28d931b0cc932be0083231
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/OPTIONAL_RECOVERY_GATE.json SHA256 68e7eb4f604787e1b86ae0fc0f5cbe31ad1a98d860d9f955574b6e41c125c144
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/RESTORE_GATE.json SHA256 439d75c20aee43ff6e75a8adf89a9170d0259d0c7bb7a716d1a901512c16ca0c
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/SOURCE_GUARD_TESTS.json SHA256 9222509766c4602effc3da3602015348f617ed06f097fc0241c66b9efc38969c
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/ENCODING_REGRESSION.json SHA256 63bd6787afa71874bb420eb17b5eedfd1261fa6a6f2e8f4a3de237c4dfa5fa1d
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/SOURCE_DIFF_AND_RECOVERY.txt SHA256 afa7f2b929ca9f780d0e413c05942cd8c41459dd7044ff58f4e8db6fbbfbc71f
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/complete_restore_gate.py SHA256 04c38db9f070972749086eecf654ebe1571b3807e3eda1f493ecb601563fb228
+Financial current pointer: runs/C_BATCH20/PROGRESS.json
+Old immutable financial prefix: ../g-s-C-R0-continuous-july-v1-20261102/runs/C_BATCH20 (Jul1 throughJul22 OPEN)
+The old100k failure, v1 comparison failure and v2 memo-counter outlet failure remain preserved.
+
+Completed July economic/audit outputs:
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/REPORT.txt SHA256 7521f1bc2cfbdad9acdb02e1538e361106e8846b4001ef6611422592109b393b
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/COMBINED_RESULTS.json SHA256 f94dd05004b4425f66a8d27fb8cf95864b5e355383264de9a784189f9db4832e
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/analysis/VERIFICATION.json SHA256 8a4e333791384e537fdc7a673c9d63c3712417289f95a1cca0dc9888a5ed9016
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/analysis/ARCHIVE_AND_FINAL_RESTORE.json SHA256 ceba3b67537241aa1c65d51175fddd5bdc8142a5da10d526f526a3b0fb85f534
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/analysis/AUTHORIZATION_RISK_BRIDGES.json SHA256 a7fee3ea914a4027b0153482d00030b08c1d82b62cab6056284172c460bec544
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/analysis/FUNDED_LAYER_CHANGES.json SHA256 964d2e9b3066591af73da77257cfb2a04a7628127101fc824c8f6d6d0e56c4a2
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/RECOVERY_FINANCIAL_GATE.json SHA256 5e40647ab6d394086b274ffe05ad8ff4f905c5dfe09ecbe948b1c84c596409f7
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/analysis/RESULTS.json SHA256 fd7ab3b285a16b67c0b5ecca44122a82aa1519f0ca61494cf2f57d5958c201d1
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-continuous-july-v1-20261102/analysis/VERIFICATION.json SHA256 4d27dbadbb5be4e353adff008bd7500f92edabbe862a9ea1b4f33268272578c4
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/COMPLETION_STATUS.json SHA256 639d3bfc8df886ff1b1f99882d8a201e4b0c5b8318010a7c45b0561efe35de5c
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/runs/C_BATCH20/COMPLETED.json SHA256 021d005333d34e809c471c39782307ade9941690e47940f1def8baab09f7d92e
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-R0-C20-budget250-v2-20261102/runs/C_BATCH20/PROGRESS.json SHA256 8d5be36a6c5c101fa48729857b08fe2fe5283222fbd9b280894a2b8168150690

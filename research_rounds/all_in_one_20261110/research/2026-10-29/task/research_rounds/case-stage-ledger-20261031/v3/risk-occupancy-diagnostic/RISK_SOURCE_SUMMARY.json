@@ -1,0 +1,308 @@
+{
+  "whole_182_closes": {
+    "observations": 182,
+    "risk_yuan_observation_sums": {
+      "total_risk_yuan_observations": 6823574.829894602,
+      "principal_downside": 2268868.684784892,
+      "profit_giveback": 4554706.14510971,
+      "pending_buy_risk": 0
+    },
+    "risk_share": {
+      "principal_downside": 0.33250440441347623,
+      "profit_giveback": 0.6674955955865238,
+      "pending_buy_risk": 0.0
+    },
+    "mean_equal_observation_giveback_fraction": 0.6528741049288943,
+    "stock_status_risk_share": {
+      "I_valid_losing_layer": 0.15852160155234887,
+      "I_valid_profitable_layer": 0.8414783984476528,
+      "exit_requested_not_filled": 0.0
+    },
+    "role_risk_share": {
+      "core": 0.5682367548544315,
+      "mobile": 0.4317632451455694
+    },
+    "stock_status_lot_observations": {
+      "I_valid_losing_layer": 1730,
+      "I_valid_profitable_layer": 3318,
+      "exit_requested_not_filled": 238
+    },
+    "stock_status_inventory_value_share": {
+      "I_valid_losing_layer": 0.25510893966131126,
+      "I_valid_profitable_layer": 0.7037814820671066,
+      "exit_requested_not_filled": 0.04110957827158219
+    },
+    "gross_remaining_mark_profit_risk_share": {
+      "gross_remaining_mark_nonpositive": 0.1583532989313,
+      "gross_remaining_mark_profitable": 0.8416467010687013
+    },
+    "industry_attempt_risk_share": {
+      "industry_active": 0.8257987969629172,
+      "industry_attempt_inactive": 0.1742012030370849
+    },
+    "old_attempt_probe_risk_share": 0.008003017206724106,
+    "old_attempt_probe_inventory_value_share": 0.010427046915230522,
+    "unit": "risk yuan times observation; repeated snapshots are not independent market samples; status partitions concern stock I/exit, not just industry permission"
+  },
+  "energy_Q3_account_closes": {
+    "observations": 66,
+    "risk_yuan_observation_sums": {
+      "total_risk_yuan_observations": 2325647.281543357,
+      "principal_downside": 858832.610628703,
+      "profit_giveback": 1466814.6709146528,
+      "pending_buy_risk": 0
+    },
+    "risk_share": {
+      "principal_downside": 0.3692875602609698,
+      "profit_giveback": 0.6307124397390297,
+      "pending_buy_risk": 0.0
+    },
+    "mean_equal_observation_giveback_fraction": 0.6110642001855036,
+    "stock_status_risk_share": {
+      "I_valid_losing_layer": 0.18200047786360748,
+      "I_valid_profitable_layer": 0.8179995221363915,
+      "exit_requested_not_filled": 0.0
+    },
+    "role_risk_share": {
+      "core": 0.3111365191328603,
+      "mobile": 0.6888634808671396
+    },
+    "stock_status_lot_observations": {
+      "I_valid_losing_layer": 636,
+      "I_valid_profitable_layer": 1180,
+      "exit_requested_not_filled": 75
+    },
+    "stock_status_inventory_value_share": {
+      "I_valid_losing_layer": 0.2720547098750915,
+      "I_valid_profitable_layer": 0.689374715344143,
+      "exit_requested_not_filled": 0.038570574780765615
+    },
+    "gross_remaining_mark_profit_risk_share": {
+      "gross_remaining_mark_nonpositive": 0.18441123724235858,
+      "gross_remaining_mark_profitable": 0.8155887627576401
+    },
+    "industry_attempt_risk_share": {
+      "industry_active": 0.9356914725659577,
+      "industry_attempt_inactive": 0.06430852743404306
+    },
+    "old_attempt_probe_risk_share": 0.0,
+    "old_attempt_probe_inventory_value_share": 0.0,
+    "unit": "risk yuan times observation; repeated snapshots are not independent market samples; status partitions concern stock I/exit, not just industry permission"
+  },
+  "energy_Q3_account_risk_refusals": {
+    "observations": 71,
+    "risk_yuan_observation_sums": {
+      "total_risk_yuan_observations": 2628321.092999802,
+      "principal_downside": 978871.8835465369,
+      "profit_giveback": 1561755.6471337704,
+      "pending_buy_risk": 87693.56231949484
+    },
+    "risk_share": {
+      "principal_downside": 0.3724323813226768,
+      "profit_giveback": 0.594202759812455,
+      "pending_buy_risk": 0.03336485886486832
+    },
+    "mean_equal_observation_giveback_fraction": 0.5763785112961968,
+    "stock_status_risk_share": {
+      "I_valid_losing_layer": 0.1755206638575694,
+      "I_valid_profitable_layer": 0.7911144772775616
+    },
+    "role_risk_share": {
+      "core": 0.288157697352536,
+      "mobile": 0.6784774437825958
+    },
+    "stock_status_lot_observations": {
+      "I_valid_losing_layer": 735,
+      "I_valid_profitable_layer": 1286
+    },
+    "stock_status_inventory_value_share": {
+      "I_valid_losing_layer": 0.278287100889518,
+      "I_valid_profitable_layer": 0.7217128991104816
+    },
+    "gross_remaining_mark_profit_risk_share": {
+      "gross_remaining_mark_nonpositive": 0.1807674405857507,
+      "gross_remaining_mark_profitable": 0.7858677005493802
+    },
+    "industry_attempt_risk_share": {
+      "industry_active": 0.9136250203253107,
+      "industry_attempt_inactive": 0.05301012080982282
+    },
+    "old_attempt_probe_risk_share": 0.0,
+    "old_attempt_probe_inventory_value_share": 0.0,
+    "unit": "risk yuan times observation; repeated snapshots are not independent market samples; status partitions concern stock I/exit, not just industry permission"
+  },
+  "military_Q4_account_closes": {
+    "observations": 60,
+    "risk_yuan_observation_sums": {
+      "total_risk_yuan_observations": 2176927.363897288,
+      "principal_downside": 838225.5604535313,
+      "profit_giveback": 1338701.8034437567,
+      "pending_buy_risk": 0
+    },
+    "risk_share": {
+      "principal_downside": 0.38504985253751467,
+      "profit_giveback": 0.6149501474624852,
+      "pending_buy_risk": 0.0
+    },
+    "mean_equal_observation_giveback_fraction": 0.6061895189295057,
+    "stock_status_risk_share": {
+      "I_valid_profitable_layer": 0.8197696899094559,
+      "I_valid_losing_layer": 0.1802303100905454,
+      "exit_requested_not_filled": 0.0
+    },
+    "role_risk_share": {
+      "core": 0.5547312753701106,
+      "mobile": 0.44526872462988837
+    },
+    "stock_status_lot_observations": {
+      "I_valid_profitable_layer": 1221,
+      "I_valid_losing_layer": 697,
+      "exit_requested_not_filled": 96
+    },
+    "stock_status_inventory_value_share": {
+      "I_valid_profitable_layer": 0.7125048561080102,
+      "I_valid_losing_layer": 0.24208824190771405,
+      "exit_requested_not_filled": 0.0454069019842759
+    },
+    "gross_remaining_mark_profit_risk_share": {
+      "gross_remaining_mark_profitable": 0.8224866225764788,
+      "gross_remaining_mark_nonpositive": 0.17751337742352252
+    },
+    "industry_attempt_risk_share": {
+      "industry_attempt_inactive": 0.2204500969461677,
+      "industry_active": 0.7795499030538334
+    },
+    "old_attempt_probe_risk_share": 0.009205635581760057,
+    "old_attempt_probe_inventory_value_share": 0.00804318048763059,
+    "unit": "risk yuan times observation; repeated snapshots are not independent market samples; status partitions concern stock I/exit, not just industry permission"
+  },
+  "military_Q4_account_risk_refusals": {
+    "observations": 74,
+    "risk_yuan_observation_sums": {
+      "total_risk_yuan_observations": 2906940.935474864,
+      "principal_downside": 1091534.646763169,
+      "profit_giveback": 1770467.530542846,
+      "pending_buy_risk": 44938.75816884951
+    },
+    "risk_share": {
+      "principal_downside": 0.375492543877525,
+      "profit_giveback": 0.6090483328838708,
+      "pending_buy_risk": 0.015459123238604272
+    },
+    "mean_equal_observation_giveback_fraction": 0.5976930765584725,
+    "stock_status_risk_share": {
+      "I_valid_profitable_layer": 0.7992962602907616,
+      "I_valid_losing_layer": 0.1852446164706345
+    },
+    "role_risk_share": {
+      "core": 0.5425418650387548,
+      "mobile": 0.4419990117226402
+    },
+    "stock_status_lot_observations": {
+      "I_valid_profitable_layer": 1504,
+      "I_valid_losing_layer": 929
+    },
+    "stock_status_inventory_value_share": {
+      "I_valid_profitable_layer": 0.7413371537437653,
+      "I_valid_losing_layer": 0.25866284625623515
+    },
+    "gross_remaining_mark_profit_risk_share": {
+      "gross_remaining_mark_profitable": 0.8001540041707687,
+      "gross_remaining_mark_nonpositive": 0.1843868725906275
+    },
+    "industry_attempt_risk_share": {
+      "industry_attempt_inactive": 0.2428049230927357,
+      "industry_active": 0.7417359536686612
+    },
+    "old_attempt_probe_risk_share": 0.02041493147514044,
+    "old_attempt_probe_inventory_value_share": 0.018701236998467152,
+    "unit": "risk yuan times observation; repeated snapshots are not independent market samples; status partitions concern stock I/exit, not just industry permission"
+  },
+  "oil_Q1_account_closes": {
+    "observations": 56,
+    "risk_yuan_observation_sums": {
+      "total_risk_yuan_observations": 2321000.1844539605,
+      "principal_downside": 571810.5137026571,
+      "profit_giveback": 1749189.6707513025,
+      "pending_buy_risk": 0
+    },
+    "risk_share": {
+      "principal_downside": 0.24636383811282697,
+      "profit_giveback": 0.7536361618871726,
+      "pending_buy_risk": 0.0
+    },
+    "mean_equal_observation_giveback_fraction": 0.7514226579339606,
+    "stock_status_risk_share": {
+      "I_valid_profitable_layer": 0.8853654550713035,
+      "I_valid_losing_layer": 0.11463454492869467,
+      "exit_requested_not_filled": 0.0
+    },
+    "role_risk_share": {
+      "core": 0.8385189014668346,
+      "mobile": 0.16148109853316406
+    },
+    "stock_status_lot_observations": {
+      "I_valid_profitable_layer": 917,
+      "I_valid_losing_layer": 397,
+      "exit_requested_not_filled": 67
+    },
+    "stock_status_inventory_value_share": {
+      "I_valid_profitable_layer": 0.7169151244878559,
+      "I_valid_losing_layer": 0.24347056716113857,
+      "exit_requested_not_filled": 0.039614308351005545
+    },
+    "gross_remaining_mark_profit_risk_share": {
+      "gross_remaining_mark_profitable": 0.8857275560574914,
+      "gross_remaining_mark_nonpositive": 0.11427244394250692
+    },
+    "industry_attempt_risk_share": {
+      "industry_active": 0.759064153590399,
+      "industry_attempt_inactive": 0.24093584640959997
+    },
+    "old_attempt_probe_risk_share": 0.014894090490194753,
+    "old_attempt_probe_inventory_value_share": 0.031938923494557944,
+    "unit": "risk yuan times observation; repeated snapshots are not independent market samples; status partitions concern stock I/exit, not just industry permission"
+  },
+  "oil_Q1_account_risk_refusals": {
+    "observations": 68,
+    "risk_yuan_observation_sums": {
+      "total_risk_yuan_observations": 3009005.8065862413,
+      "principal_downside": 643509.2232899249,
+      "profit_giveback": 2323886.8751648013,
+      "pending_buy_risk": 41609.708131515945
+    },
+    "risk_share": {
+      "principal_downside": 0.21386107726392029,
+      "profit_giveback": 0.7723105319631414,
+      "pending_buy_risk": 0.013828390772938631
+    },
+    "mean_equal_observation_giveback_fraction": 0.7713988987359193,
+    "stock_status_risk_share": {
+      "I_valid_profitable_layer": 0.8946740349993704,
+      "I_valid_losing_layer": 0.0914975742276922
+    },
+    "role_risk_share": {
+      "core": 0.8321275624234943,
+      "mobile": 0.15404404680356637
+    },
+    "stock_status_lot_observations": {
+      "I_valid_profitable_layer": 1227,
+      "I_valid_losing_layer": 362
+    },
+    "stock_status_inventory_value_share": {
+      "I_valid_profitable_layer": 0.7739329860348853,
+      "I_valid_losing_layer": 0.22606701396511544
+    },
+    "gross_remaining_mark_profit_risk_share": {
+      "gross_remaining_mark_profitable": 0.8946827253457681,
+      "gross_remaining_mark_nonpositive": 0.09148888388129457
+    },
+    "industry_attempt_risk_share": {
+      "industry_active": 0.8807182699849602,
+      "industry_attempt_inactive": 0.10545333924210235
+    },
+    "old_attempt_probe_risk_share": 0.011300742566056397,
+    "old_attempt_probe_inventory_value_share": 0.02982884181251492,
+    "unit": "risk yuan times observation; repeated snapshots are not independent market samples; status partitions concern stock I/exit, not just industry permission"
+  }
+}

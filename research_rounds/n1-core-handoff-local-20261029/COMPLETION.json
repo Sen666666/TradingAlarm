@@ -1,0 +1,13 @@
+{
+  "status": "completed_with_tradeoff_not_promoted",
+  "mother": 1084,
+  "paired_layers": 1084,
+  "unknown": 0,
+  "changed_exit_times": 470,
+  "new_portfolio_paths": 0,
+  "rule_changes_after_economics": 0,
+  "product_changes": 0,
+  "known_economic_runtime_seconds": 9.048995374701917,
+  "total_wall_seconds": 745.237834,
+  "next_experiment_started": false
+}

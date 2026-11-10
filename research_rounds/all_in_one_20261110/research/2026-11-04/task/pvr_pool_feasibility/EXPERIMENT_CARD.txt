@@ -1,0 +1,60 @@
+Frozen 2026-11-04: PVR_NO_CONFIRMED60 local feasibility diagnostic
+
+Hypothesis: original PVR_SLOT1 can reject fresh confirmed-sector mobile orders
+while cash is idle because appreciated confirmed holdings exceed 60% NAV.
+This is independent of C10 account-risk6; old PVR has neither account3 nor6.
+
+Intervention ONLY: remove confirmed60 capital test in (1) actual inherited
+Contract.migrate (2) NoAccountBudget.request (3) original route maximum-fit.
+Keep migration success dependency (including current-attempt probe pending),
+probe10 capital/.5 risk, stage sector2/10/20 capital, sector1 risk, stock10,
+fresh mobile2 target, native frozen quantities/roles/protection/exits/ACT,
+all fees, 10% native cash reserve, actual spendable cash, legal lot rules,
+same-stock core first, two-route max quantity and probe tie preference.
+No SD decoupling, new capital90 parameter, account6 change, or sizing change.
+
+Frozen dates WITHOUT future returns:
+D1 signal2026-01-16 -> OPEN2026-01-19. Full342 intents/250stocks:
+122mobile+220core. Semiconductor rejects30, largest H1 count, earliest tie.
+Own baseline checkpoint2025-12-31 (same original2025_26 path), no reset.
+D2 signal2022-12-05 -> OPEN2022-12-06. Full672 intents/480stocks:
+249mobile+423core. 2022 full-market pool_capital tag count152, largest.
+Own baseline checkpoint2022-09-30, no reset.
+D3 signal2026-05-11 -> OPEN2026-05-12. Full614 intents/463stocks:
+192mobile+422core. Same30 semiconductor rejects as D1; no pool_capital
+in original entire OPEN funding domain. Potential null/negative control.
+Own baseline checkpoint2026-03-31, no reset.
+Scope entire original1709 A-share universe,90industries, all eligible roles
+on each frozen day, not semiconductor-only and not successful orders only.
+Universe/current snapshot and reused development periods are not PIT/OOS.
+
+S0 is after original opening protection sells and settle_due+sync, before
+first fresh admission. Overnight actions/payments/old orders remain native.
+Restore uses all frozen original indicators/receipts/PVR score/ACT data and
+nearest own checkpoint. It runs ORIGINAL policy only through selected OPEN.
+Report actual replay events/OPENs/trades; do not call this0financial events.
+Capture original full allocation read-set including core_epoch/pending exits,
+all held/pending lots and fees, actual price/floor, consumed tokens/attempts.
+
+OFF gate before ON: checkpoint source/provenance hashes; full replay prefix
+funding exact, trade/journal prefix exact, daily NAV logs exact; original
+selected OPEN funding sequence/result/quantity/pool exact; pure OFF same
+reservation amount/fees, post-admission cash, resources, orders and pools.
+If input/identity cannot be proved, fail closed and report concrete mismatch.
+
+ON is a PURE PRIVATE route/maxfit/reserve diagnostic: no actual Account,
+fill, execution window, next close, sale, follow-up path, or PnL. Each accepted
+order updates the private pending order/fee/cash view before the next; no
+independent minimum-order summation. Original target/order/sort is frozen.
+Validate each chosen legal quantity under all retained constraints at that
+time; old passive breaches do not require forced liquidation. Preserve old
+pending, receipts, role and protection; mark incremental capital/risk/fees.
+
+Failure/negative cases: pending probe still prevents confirmed route;
+sector risk/stage/stock/cash/lot constraints can prevent any gain; early new
+false starts can increase losses; early admissions can displace later ones
+via shared resources. More local admissions are not a strategy improvement.
+Proceed to continuous economic comparison only on a separately reviewed card.
+
+Authorization: root approved D1/D2/D3 and necessary bounded original-policy
+restore on2026-11-04. All writes here; original project/results read-only.

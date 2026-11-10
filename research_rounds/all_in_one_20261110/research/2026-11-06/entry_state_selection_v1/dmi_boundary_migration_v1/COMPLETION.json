@@ -1,0 +1,12 @@
+{
+  "status": "one_frozen_same_date_sector_K_comparison_complete",
+  "accounts": 0,
+  "parameter_searches": 0,
+  "original_models_rerun": 0,
+  "source_hashes_unchanged": true,
+  "rank_seal_unchanged": true,
+  "label_sha": "0afce7b7e5f17091b6fc1ff19ca254fc0f5b0d35466e70d90b769be373a24fa8",
+  "net_round_target_verified": false,
+  "not_PIT": true,
+  "not_untouched_OOS": true
+}

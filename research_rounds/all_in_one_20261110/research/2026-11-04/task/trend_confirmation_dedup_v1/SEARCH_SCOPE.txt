@@ -1,0 +1,12 @@
+有限排重范围与操作
+主要根：
+/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research
+/Users/bytedance/Documents/ChatGPT/money/research_rounds
+/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds
+/Users/bytedance/Documents/Codex/2026-11-04/task 的既有No60/MA/突破直接lineage
+
+先读money/AGENTS.md及docs/RESEARCH_CONSENSUS.md与当前checkpoint/No60裁决；按MA60/MA63/EMA10/Bollinger/布林/BB upper/rolling60/half/减半检索py、txt、md及直接protocol/规则/报告，逐个读取直接近邻源码和真实结果是否存在。排除大批inputs/items/pvr-cache及重复delivery副本，不能因此称全工程彻底排完。
+关键原文：sector_experiment fast_gate、sector-v1 protocol+results；pv-structure-context BB源码+README账户0；gold conditionalEMA解释脚本；当前inclusiveMA63/before63meanB与宏观A设计/负诊断；旧55high量确认协议与存在性报告；SEC-1规则、staged-risk结论、half-slow源码；没有重跑其中任何默认脚本。
+
+结果判断按三个维度：公式是否相同、作用对象/时钟是否相同、资金动作是否为原计划量条件减半。只具同一MA/EMA/BB名称不算exact；旧基准/独立策略或描述性图不冒充当前原生组合已验证。
+本轮没有调用网络、没有读取用户通信、没有下载、没有历史指标计算/参数扫描/账户运行，只读原资料并在独立目录写说明及SHA。

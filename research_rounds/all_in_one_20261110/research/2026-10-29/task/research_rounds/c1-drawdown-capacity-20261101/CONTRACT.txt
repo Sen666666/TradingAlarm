@@ -1,0 +1,13 @@
+C1单因素研究合同（相对原B_diag；不含R1、新stage、cost或D1）
+目标是亏损积累后减少新增confirmed承诺，不声称识别无主线或提高预测。
+原信号/Q/H1/行业stage/core/probe/个股保护退出/ACT20及所有stock/sector/risk/cash限制不改；账户总3%检查仍按Bdiag取消。
+独立全程收盘H初始为原1m。同一原决策收盘先读原账真实NAV，再H=max(H,NAV)、D=max(0,1-NAV/H)，冻结c=.10+.50*max(0,1-D/.20)至下一决策。不读本次开盘NAV求D、不随逐笔费用重算c、不随ACT phase恢复重置H。H为全程决策收盘最高真实NAV，不是未知盘中峰值。
+confirmed新资本许可=c×原budget当前真实NAV基数。原预算对pending费用及本次预估费用的扣减保持；只冻结比例，真实cash/fees/equity/risk/stock10%等基数沿原时钟，不伪造旧NAV填入镜像。
+原60%在三个地方同义使用：route合法数量裁剪、request最终准入、probe→confirmed迁池。三个统一读取同c；迁池不先释放probe、不伪造confirmed空位，先总占用检查通过才原子转池。cap不足时保持原probe占用，因此试探池仍可能被旧仓阻塞；10%公式底座不是资金空闲保证。
+旧confirmed持仓被动超新cap不强卖，不调近floor、不迁回probe、不豁免损耗；新确认资本及迁池不得借旧超额扩大。probe原10%/.5%风险、行业全部承诺2%及行业1%风险均保留。
+普通normal新买先按原开盘价/冻结意图量做原合法单位缩量、原子预留，再真实fill。c每决策固定，但同一开盘实时资源随卖款/费用/预留自然变；core成功预留先于同股mobile的旧规则不变。
+normal买单原为一个执行session有效；新收盘planning先调用原expire_day_buys，再冻结下一c。余单/零成均沿原取消，不延寿。cancel_pending在ack之前仍占用，未成交卖单不释放资本/风险。C1未扩展到D1等跨决策延迟订单；不能将本轮normal验收套给其他执行合同。
+H/D/c/决策NAV/冻结时刻/mode/version保存在budget.c1及原完整checkpoint；身份、源hash及恢复守卫不删除。旧checkpoint缺C1历史不能静默补H；本轮两窗都1m新账户、原市场暖机，正窗2025-07至2026-06连续不在3/31重置。
+单因素实现：只替换三个confirmed池比例和新增收盘控制状态/审计；固定c60模式须与原Bdiag真实经济对象恒等。c变化导致迁池/资源竞争/ACT后续路径变化是政策反馈，不称单笔直接避损。
+冻结参数20%沿原ACT研究尺度，10%沿单行业confirmed既有资本档位，60%沿原池上限；均研究政策，不是用户风险承诺、最优系数或硬DD保证。存量损失可继续扩大，旧confirmed可能占满全部10%底座。
+授权范围：工程闸门后仅2022与2025-07-01至2026-06-30各一条C1normal；Bdiag原账复用。报告新资本/闭合损耗/旧仓损失、恢复时延、原强行情和肥尾代价、全程与ACT phaseDD、cap低于存量天数。取舍保留菜单，不调函数救结果，不实盘。

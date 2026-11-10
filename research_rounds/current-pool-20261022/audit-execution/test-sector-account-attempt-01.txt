@@ -1,0 +1,23 @@
+test_bad_ah_quote_key_is_not_acknowledged_as_another_line (test_sector_account.LedgerTests.test_bad_ah_quote_key_is_not_acknowledged_as_another_line) ... ok
+test_bonus_does_not_lock_preexisting_sellable_shares (test_sector_account.LedgerTests.test_bonus_does_not_lock_preexisting_sellable_shares) ... ok
+test_cancel_partial_releases_only_unused_cash_and_keeps_shares (test_sector_account.LedgerTests.test_cancel_partial_releases_only_unused_cash_and_keeps_shares) ... ok
+test_cny_mark_cannot_accidentally_use_hkd_rate (test_sector_account.LedgerTests.test_cny_mark_cannot_accidentally_use_hkd_rate) ... ok
+test_cost2_multiplies_only_named_variable_fields (test_sector_account.LedgerTests.test_cost2_multiplies_only_named_variable_fields) ... ok
+test_dated_fee_change_does_not_reprice_previous_notional (test_sector_account.LedgerTests.test_dated_fee_change_does_not_reprice_previous_notional) ... ok
+test_delay_counts_only_eligible_execution_events (test_sector_account.LedgerTests.test_delay_counts_only_eligible_execution_events) ... ok
+test_dividend_no_pay_date_never_becomes_reinvestable_by_waiting (test_sector_account.LedgerTests.test_dividend_no_pay_date_never_becomes_reinvestable_by_waiting) ... ok
+test_fx_proxy_is_explicit_and_future_fx_rejected (test_sector_account.LedgerTests.test_fx_proxy_is_explicit_and_future_fx_rejected) ... ok
+test_high_gap_cannot_exceed_order_gross_budget (test_sector_account.LedgerTests.test_high_gap_cannot_exceed_order_gross_budget) ... ok
+test_initial_allocation_and_real_occupancy_ack (test_sector_account.LedgerTests.test_initial_allocation_and_real_occupancy_ack) ... ok
+test_partial_fees_minimum_once_per_order (test_sector_account.LedgerTests.test_partial_fees_minimum_once_per_order) ... ok
+test_partial_fill_remainder_below_order_minimum_can_complete (test_sector_account.LedgerTests.test_partial_fill_remainder_below_order_minimum_can_complete) ... ok
+test_reservation_budget_and_share_cap_are_both_fixed (test_sector_account.LedgerTests.test_reservation_budget_and_share_cap_are_both_fixed) ... ok
+test_sale_is_receivable_and_tplus1_is_enforced (test_sector_account.LedgerTests.test_sale_is_receivable_and_tplus1_is_enforced) ... ok
+test_same_event_id_never_fills_or_delays_twice (test_sector_account.LedgerTests.test_same_event_id_never_fills_or_delays_twice) ... ok
+test_unknown_pause_then_continue_does_not_reset_budget (test_sector_account.LedgerTests.test_unknown_pause_then_continue_does_not_reset_budget) ... ok
+test_zero_quantity_has_no_reservation_or_slot (test_sector_account.LedgerTests.test_zero_quantity_has_no_reservation_or_slot) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.002s
+
+OK

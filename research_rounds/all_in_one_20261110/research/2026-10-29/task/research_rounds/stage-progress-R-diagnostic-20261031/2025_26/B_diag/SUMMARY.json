@@ -1,0 +1,254 @@
+{
+  "window": "2025_26",
+  "reference": "B_diag",
+  "new_confirmed_mobile_layers": 602,
+  "unknown_mappings": 0,
+  "entry_below_probe_open_count": 40,
+  "entry_below_probe_decision_close_count": 35,
+  "selected_layer_net": "460202.5429600073797629968696",
+  "excluded_other_roles_or_probe_net": "55147.6613682369822370031303",
+  "whole_NAV_net": "515350.2043282443619999999999",
+  "fill_open_bins": [
+    {
+      "bin": "<0R",
+      "layers": 40,
+      "unique_receipts": 40,
+      "buy_cash": "566187.0574978131825",
+      "closed_positive": "66852.2750273038910",
+      "closed_negative": "-28347.92288521098467460317460",
+      "open_net": "4153.5903208049500",
+      "actions": {
+        "add": 9,
+        "first": 23,
+        "reentry": 8
+      },
+      "elapsed": {
+        "n": 40,
+        "0": 4.0,
+        "0.25": 13.0,
+        "0.5": 26.0,
+        "0.75": 29.25,
+        "0.9": 38.1,
+        "1": 52.0
+      }
+    },
+    {
+      "bin": "0_to_1R",
+      "layers": 154,
+      "unique_receipts": 154,
+      "buy_cash": "2048819.0588802913670",
+      "closed_positive": "179062.6358967170901666666667",
+      "closed_negative": "-116405.7046930150557872959748",
+      "open_net": "153078.5592536629500",
+      "actions": {
+        "first": 89,
+        "add": 31,
+        "reentry": 34
+      },
+      "elapsed": {
+        "n": 154,
+        "0": 1.0,
+        "0.25": 5.0,
+        "0.5": 13.0,
+        "0.75": 22.0,
+        "0.9": 34.400000000000034,
+        "1": 93.0
+      }
+    },
+    {
+      "bin": "1_to_2R",
+      "layers": 133,
+      "unique_receipts": 133,
+      "buy_cash": "1664644.8464675338075",
+      "closed_positive": "144882.6704626835284607843137",
+      "closed_negative": "-113074.2064534580907914438503",
+      "open_net": "52780.9897745458000",
+      "actions": {
+        "first": 61,
+        "add": 38,
+        "reentry": 34
+      },
+      "elapsed": {
+        "n": 133,
+        "0": 1.0,
+        "0.25": 12.0,
+        "0.5": 24.0,
+        "0.75": 37.0,
+        "0.9": 47.39999999999999,
+        "1": 87.0
+      }
+    },
+    {
+      "bin": ">=2R",
+      "layers": 275,
+      "unique_receipts": 275,
+      "buy_cash": "3851886.1762006872735",
+      "closed_positive": "286336.2604183216381438399000",
+      "closed_negative": "-254290.4614918399117549510110",
+      "open_net": "85173.8573294915750",
+      "actions": {
+        "first": 128,
+        "add": 100,
+        "reentry": 47
+      },
+      "elapsed": {
+        "n": 275,
+        "0": 2.0,
+        "0.25": 39.0,
+        "0.5": 51.0,
+        "0.75": 88.0,
+        "0.9": 103.6,
+        "1": 154.0
+      }
+    },
+    {
+      "bin": "N/A",
+      "layers": 0,
+      "unique_receipts": 0,
+      "buy_cash": "0",
+      "closed_positive": "0",
+      "closed_negative": "0",
+      "open_net": "0",
+      "actions": {},
+      "elapsed": {
+        "n": 0
+      }
+    },
+    {
+      "bin": "unknown_mapping",
+      "layers": 0,
+      "unique_receipts": 0,
+      "buy_cash": "0",
+      "closed_positive": "0",
+      "closed_negative": "0",
+      "open_net": "0",
+      "actions": {},
+      "elapsed": {
+        "n": 0
+      }
+    }
+  ],
+  "authorization_close_bins": [
+    {
+      "bin": "<0R",
+      "layers": 35,
+      "unique_receipts": 35,
+      "buy_cash": "523676.8076400381325",
+      "closed_positive": "64385.7181129788910",
+      "closed_negative": "-22144.64820892268467460317460",
+      "open_net": "4153.5903208049500",
+      "actions": {
+        "add": 8,
+        "first": 19,
+        "reentry": 8
+      },
+      "elapsed": {
+        "n": 35,
+        "0": 5.0,
+        "0.25": 16.5,
+        "0.5": 27.0,
+        "0.75": 29.5,
+        "0.9": 36.800000000000004,
+        "1": 52.0
+      }
+    },
+    {
+      "bin": "0_to_1R",
+      "layers": 148,
+      "unique_receipts": 148,
+      "buy_cash": "1963649.0921159617160",
+      "closed_positive": "182317.4310905128254607843137",
+      "closed_negative": "-123955.9888446731107659932660",
+      "open_net": "153078.5592536629500",
+      "actions": {
+        "first": 83,
+        "add": 31,
+        "reentry": 34
+      },
+      "elapsed": {
+        "n": 148,
+        "0": 1.0,
+        "0.25": 5.0,
+        "0.5": 13.0,
+        "0.75": 24.0,
+        "0.9": 35.30000000000001,
+        "1": 93.0
+      }
+    },
+    {
+      "bin": "1_to_2R",
+      "layers": 143,
+      "unique_receipts": 143,
+      "buy_cash": "1775872.3153499525335",
+      "closed_positive": "147118.1995992858431666666667",
+      "closed_negative": "-115664.1328907814858127465591",
+      "open_net": "47575.1690817866250",
+      "actions": {
+        "first": 73,
+        "add": 37,
+        "reentry": 33
+      },
+      "elapsed": {
+        "n": 143,
+        "0": 2.0,
+        "0.25": 11.0,
+        "0.5": 22.0,
+        "0.75": 36.0,
+        "0.9": 45.0,
+        "1": 87.0
+      }
+    },
+    {
+      "bin": ">=2R",
+      "layers": 276,
+      "unique_receipts": 276,
+      "buy_cash": "3868338.9239403732485",
+      "closed_positive": "283312.4930022485881438399000",
+      "closed_negative": "-250353.5255791467617549510110",
+      "open_net": "90379.6780222507500",
+      "actions": {
+        "first": 126,
+        "add": 102,
+        "reentry": 48
+      },
+      "elapsed": {
+        "n": 276,
+        "0": 7.0,
+        "0.25": 38.75,
+        "0.5": 51.0,
+        "0.75": 88.0,
+        "0.9": 103.5,
+        "1": 154.0
+      }
+    },
+    {
+      "bin": "N/A",
+      "layers": 0,
+      "unique_receipts": 0,
+      "buy_cash": "0",
+      "closed_positive": "0",
+      "closed_negative": "0",
+      "open_net": "0",
+      "actions": {},
+      "elapsed": {
+        "n": 0
+      }
+    },
+    {
+      "bin": "unknown_mapping",
+      "layers": 0,
+      "unique_receipts": 0,
+      "buy_cash": "0",
+      "closed_positive": "0",
+      "closed_negative": "0",
+      "open_net": "0",
+      "actions": {},
+      "elapsed": {
+        "n": 0
+      }
+    }
+  ],
+  "entry_open_below_probe_with_nonnegative_latest_upgrade": 23,
+  "entry_open_nonnegative_with_below_probe_latest_upgrade": 6,
+  "layer_and_receipt_units_not_independent_trials": true
+}

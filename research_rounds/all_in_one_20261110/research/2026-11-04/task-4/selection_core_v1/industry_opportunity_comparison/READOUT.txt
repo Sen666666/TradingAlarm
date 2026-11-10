@@ -1,0 +1,30 @@
+本轮把根事前冻结的CONT/START静态行业机会标签连接到旧No60原记录；只读，0账户/0新订单/0评分/0CP计算/0未来标签。
+新标签来自独立exante表SNAPSHOTS_3D，按date+sector_id_static与旧270行业行精确1:1连接。所有新字段加new_，旧字段保old_，不修改源与旧账。
+CONT原规则：R20行业对CSI300>0且静态B>=.60；START：原R5横截midp>=.8且同一T U_t配对的B_now−B_lag5>0；union并集，无hardTopK。这里只消费其已冻结标签，没有重新计算或选阈。
+旧H1没有行业TopK许可门：原industry H1数值rank仅展示，不能把它叫“旧选中行业”。旧joint依股票H1排序，随后资格/角色/尺寸后才在pending里替换PVR顺序。
+
+三日并集与旧链：
+2022-01-24：CONT11、START14、UNION17；这17行业旧E0真12、旧市场CP授权usable11；source-Q22股、原pending17股、次OPEN原reserved4股。并集外73行业仍有13个原source-Q、10个pending，次OPENreserved0；不将这些旧记录改写为新策略结果。
+2024-09-24：CONT68、START18、UNION70；这70全部旧E0真，其中原市场授权usable40；source-Q799股、pending784股、次OPEN原reserved9股。并集外20行业有source-Q211/pending204、次OPENreserved0。
+2026-01-15：CONT63、START6、UNION63；这63全部旧E0真，旧市场授权usable60；source-Q268/pending241/次OPEN原reserved20。并集外27有source-Q16/pending16、次OPENreserved0。
+仅此三日原reserved恰全在并集内，只说明原样本关联；没有重排账户或资源，也不能推出应用新集合后不改变交易/不损收益。reserved不是成交保证。
+
+focal状态：
+9/24通信设备CONT=True、START=False，R20vsCSI=.03676226、B=.875、配对dB=.575；旧H1行业序27/90，旧E0有效但CP市场stage observe、无可用授权；19 source-Q、17 pending，次OPEN20条原funding全部industry_invalidated。
+9/24软件CONT+START，B=.96875、dB=.5625；旧H1序55，旧市场probe且原金融grant事件为probe；22 source-Q、20 pending，但次OPEN原cash/probe拒且0reserved。银之杰原pending已序0，不能说旧H1没发现它。
+2026-1/15半导体CONT=True、START=False，R20vsCSI=.106935、B=.945455、dB=−.009091；旧H1序19，旧市场expanded，原金融当前episode最后grant为level2；35 source-Q、21 pending、3reserved，其余为现金/probe/行业资本或风险联合原拒因。
+2022-1/24房地产CONT+START，R20vsCSI=.065393、B=.714286、dB=.095238；旧H1序50、旧市场confirmed，原金融grant level1；3 source-Q、2 pending、1reserved，其中包含盈新已知失败链。新机会标签不是假突破识别或成功交易标签。
+
+许可分层与来源边界：
+old_market_E0_valid是原E0域；old_market_stage/authorization_usable是原行业市场CP状态，financial_state_owned=False。
+真实No60原金融owner事件另按完整industry.jsonl取截至当日最后一次已保存记录，保day/result/episode/attempt/financial_level。0/1/2分别是probe/confirmed/expanded level；invalidated可以仍保存旧level，所以不能单拿level称当前active或可用现金。
+当前episode匹配且最后原事件为probe/confirmed/expanded的真实grant证据另在old_actual_positive_financial_grant_event_bucket分报；其余叫NO_CURRENT_POSITIVE_SAVED_EVENT，既不造完整每日budget snapshot，也不一律填成金融状态inactive。
+实际股票source-Q、planning roles/barriers、size拒绝与次OPEN funding各自分列，金融额度/资源结果按原funding字符串保存；联合拒因串不是经证明的首因排序。任何新标签都不自动覆盖这些许可、风险和资源约束。
+范围仍2026静态1709股票/90真实行业与当前归属，非历史PIT/全市场；新FORMAL PIT机会也未知，保new_formal_PIT_opportunity。未调用新规则交易或账户收益。
+
+H1亲自代入核验另附：
+10个父预指定行业/股票案例，仅取同一实际H1 npz的5个共同会话端点，按原4段simple return×(.4,.2,.2,.2)代入。sum的np.round12与原cache.raw十例全精确相同，保每个端点日期/close/segment、每段和Nref/原score。
+所有这10例h252。score参考没有重算，尤其没有把每个股票自h的cached raw混起来排分位；正确参考若要重算须用该case同h、同stock/industry group。
+H1_TEN_FOCAL_ENDPOINT_ARITHMETIC_READABLE.txt可直接读；JSON/CSV及FOUR_TERMS.csv可复核。没有用另源价格拼接，未重造全H1。
+
+主要文件：THREE_DATES_NEW_CHANNELS_VS_ORIGINAL.parquet/csv（270行全量）；THREE_DATES_CHANNEL_PERMISSION_FUNNEL.csv（分CONT/START/并集及许可/候选/funding）；FOCAL_INDUSTRIES_NEW_CHANNELS_VS_OLD.csv；JOIN_AUDIT.json；原底表；H1端点核算；SOURCE_SHA256及OUTPUT_SHA256。

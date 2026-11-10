@@ -1,0 +1,24 @@
+{
+  "version": "G-BROAD-S-CONCENTRATED-V2-CLAUSE-ADMISSION",
+  "document_frozen": true,
+  "clause_independent_review": "pending",
+  "implementation_authorized": false,
+  "economic_runs_authorized": false,
+  "base_path": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/capital-capability-design-only-20261101/G_BROAD_S_CONCENTRATED_CONTRACT_PROPOSAL.txt",
+  "base_sha256": "8f3233c5d8f37d076bfc0a775659b7fbb8c0b39e04c8bbce8ce1153bcb94a95c",
+  "amendment_path": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/capital-capability-design-only-20261101/G_BROAD_S_CONCENTRATED_CONTRACT_V2.txt",
+  "amendment_sha256": "98f4c302ba9ea6878c500db65d0248f1b10d60f282628f1d22b08d42a5184de5",
+  "precedence": "five V2 clauses override covered matters; all other immutable base terms retained",
+  "only_changes": [
+    "S1/ACT evidence clocks",
+    "single-pass K activation and final witness sizing",
+    "frozen original backup-support quantity and S1-positive priority",
+    "one phase initialization per ACT incident",
+    "one execution-lock replacement formula/share-domain lifecycle"
+  ],
+  "new_indicators": 0,
+  "account_events": 0,
+  "tests_executed": 0,
+  "tests_note": "text-admission only; no synthetic implementation or historical calculation",
+  "composite_contract_sha256": "a26b1959379ed6c7e8d82e35f9d3fca9dd050caa5e824850a0d75543005bcc50"
+}

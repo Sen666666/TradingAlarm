@@ -1,0 +1,65 @@
+{
+  "selection_frozen_before_reading_sample_prices": true,
+  "selection": "highest original PVR via original saved rank (joint_v3.py ordered=sorted(...,-rank.read(clock),sid)); tie sid; no later returns or fundability used",
+  "source": "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/full-long-v1/pair/opportunities.jsonl.gz",
+  "source_sha256": "3a916f670e3c03bf67635ec5ba0137922352690a32b8cfacb10677ccdd438276",
+  "samples": [
+    {
+      "account": "D_GROSS10",
+      "day": "2024-09-24",
+      "sid": "300085.SZ",
+      "sector": "URFI881272",
+      "rank": 4,
+      "core_Q": true,
+      "mobile_Q": true,
+      "CP1_id": "b66b1c49cc00b453b818479e5e287232948aa4b851ebb8ae4b1ace3ea92c4f8a",
+      "roles": [
+        "core",
+        "mobile"
+      ],
+      "held": false,
+      "barriers": [
+        "ACT_paused"
+      ],
+      "next_OPEN": "2024-09-25"
+    },
+    {
+      "account": "D_GROSS10",
+      "day": "2024-09-25",
+      "sid": "300085.SZ",
+      "sector": "URFI881272",
+      "rank": 2,
+      "core_Q": true,
+      "mobile_Q": true,
+      "CP1_id": "8e5bad0d0d6b6fe5c123b5316328f3ed00c283db699981ce3716fe787e3c0bda",
+      "roles": [
+        "core",
+        "mobile"
+      ],
+      "held": false,
+      "barriers": [
+        "ACT_paused"
+      ],
+      "next_OPEN": "2024-09-26"
+    },
+    {
+      "account": "D_GROSS10",
+      "day": "2024-09-26",
+      "sid": "300085.SZ",
+      "sector": "URFI881272",
+      "rank": 1,
+      "core_Q": true,
+      "mobile_Q": true,
+      "CP1_id": "f02605d753ce56a32a92d1792ac246c2aead6ad4027d882070409aa9ffbe181c",
+      "roles": [
+        "core",
+        "mobile"
+      ],
+      "held": false,
+      "barriers": [
+        "ACT_paused"
+      ],
+      "next_OPEN": "2024-09-27"
+    }
+  ]
+}

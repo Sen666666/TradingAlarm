@@ -1,0 +1,42 @@
+{
+  "six_dates": [
+    "2022-01-04",
+    "2022-05-10",
+    "2024-09-12",
+    "2024-09-25",
+    "2024-10-15",
+    "2026-01-15"
+  ],
+  "baseline_exact_opens": 6,
+  "baseline_routes": 1629,
+  "baseline_buys": 77,
+  "old_order_and_fee_sequence_exact": true,
+  "old_ending_available_exact": true,
+  "old_CLOSE_NAV_and_pool_capital_risk_exact": true,
+  "baseline_reconstruction_initial_failed_assertion": "Stopped 2026 close price missing; corrected to original previous valid marked close for 601615.SH; baseline then exact without changing strategy or sample",
+  "candidate_stockdays": 1237,
+  "mutable_stockdays": 914,
+  "moved_stockdays": 474,
+  "allocation_changed_stockdays": 44,
+  "physical_DMI_prefixes": {
+    "physical_signal_prefix": 1237
+  },
+  "unknown_candidates": 4,
+  "unknown_eligible": 3,
+  "next_open_missing": [
+    "002948.SZ@2022-01-05",
+    "002131.SZ@2026-01-16"
+  ],
+  "preexisting_mark_missing": "601615.SH close2026-01-15/open2026-01-16, previous known close used only for valuation; no new buy fabricated",
+  "all_new_order_proxy_capacity_pass": true,
+  "all_historical_tradability_UNKNOWN": true,
+  "fixed_future_1709_current_industry_NONPIT": true,
+  "native_account_initializations": 0,
+  "new_continuous_accounts": 0,
+  "new_economic_fills": 0,
+  "pure_resource_branches": 12,
+  "repeated_identical_persistence_projection": 6,
+  "no_outcome_return_labels_used": true,
+  "original_sources_unchanged": true,
+  "not_new_winner_or_winrate_evidence": true
+}

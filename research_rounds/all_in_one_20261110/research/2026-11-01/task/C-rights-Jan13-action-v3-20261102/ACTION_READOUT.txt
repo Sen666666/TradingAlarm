@@ -1,0 +1,9 @@
+两2022账户Jan13 ACTION已各执行一次、持久注册，并跨进程恢复通过；停待输出独审。
+28检查通过；恢复后重复ACTION均already_applied且完整字段不变；重复原Jan12输入在账户循环前拒绝，额外事件0。
+两账户均206→207字段，仅11项声明差异：account.as_of, account.audit_log, account.last_cursor, account.native_callbacks, market.factors, market.known, market.prices, runner.action_log, runner.events, runner.last_completed_event, runner.no_subscription_actions。其余完整字段与资金/数量/成本/预算/旧责任均相同。
+C10：现金272859.6912329377500，New472281.00，Carry0，pending142，buys0，exits9，27活层保护坐标全部相同。
+C_BATCH20：现金274206.1809882621000，New187368.00，Carry0，pending142，buys0，exits4，27活层保护坐标全部相同。
+每账户7个旧证书继续真实旧源重算；共14个不同证书，恢复后再次验证。两账户002948持股均0，不声称覆盖历史有持仓配股。原生缓存mark 4.7→理论除权参考4.353846...，known_at仍2022-01-04，不称Jan13可成交报价。
+无OPEN/CLOSE、无2025事件、无认购扣款/增股；原75来源和旧失败稿25文件hash保持。
+可信注册SHA256：8bed1bd324fcee86ac989aa7287c741e63fd15a0bb61ee0adaeb42e878b090f6
+精确checkpoint/provenance/evidence/字段文件SHA与完整差异见ACTION_RESULT.json、OUTPUT_REGISTRY.json及各arm/ACTION_EVIDENCE.json。

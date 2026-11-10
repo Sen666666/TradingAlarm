@@ -1,0 +1,306 @@
+[
+  {
+    "period": "ALL",
+    "sector_attempt_active": true,
+    "permits": 3255,
+    "execution_UNKNOWN": 357,
+    "initial_positive_fills": 3237,
+    "sources": {
+      "FAST_CORE": 2205,
+      "FAST_CORE|FRESH_CP": 483,
+      "AB|FAST_CORE": 198,
+      "AB": 183,
+      "FRESH_CP": 141,
+      "AB|FAST_CORE|FRESH_CP": 34,
+      "AB|FRESH_CP": 11
+    },
+    "stage": {
+      "probe": 1388,
+      "expanded": 1137,
+      "confirmed": 730
+    },
+    "gate_reasons": {
+      "ACTIVE_MARKET_ATTEMPT": 3255
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "ALL",
+    "sector_attempt_active": false,
+    "permits": 1776,
+    "execution_UNKNOWN": 202,
+    "initial_positive_fills": 1765,
+    "sources": {
+      "FAST_CORE": 1119,
+      "FAST_CORE|FRESH_CP": 227,
+      "AB": 212,
+      "AB|FAST_CORE": 101,
+      "FRESH_CP": 82,
+      "AB|FAST_CORE|FRESH_CP": 23,
+      "AB|FRESH_CP": 12
+    },
+    "stage": {
+      "observe": 1776
+    },
+    "gate_reasons": {
+      "CURRENT_EPISODE_BEFORE_FIRST_CP": 1558,
+      "AWAITING_FRESH_CP_AFTER_FAILURE_CURRENT_EPISODE": 147,
+      "E0_OFF": 71
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "ALL",
+    "sector_attempt_active": null,
+    "permits": 0,
+    "execution_UNKNOWN": 0,
+    "initial_positive_fills": 0,
+    "sources": {},
+    "stage": {},
+    "gate_reasons": {},
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q1",
+    "sector_attempt_active": true,
+    "permits": 1147,
+    "execution_UNKNOWN": 13,
+    "initial_positive_fills": 1147,
+    "sources": {
+      "FAST_CORE": 674,
+      "FAST_CORE|FRESH_CP": 247,
+      "AB": 74,
+      "FRESH_CP": 69,
+      "AB|FAST_CORE": 65,
+      "AB|FAST_CORE|FRESH_CP": 14,
+      "AB|FRESH_CP": 4
+    },
+    "stage": {
+      "expanded": 530,
+      "probe": 455,
+      "confirmed": 162
+    },
+    "gate_reasons": {
+      "ACTIVE_MARKET_ATTEMPT": 1147
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q1",
+    "sector_attempt_active": false,
+    "permits": 728,
+    "execution_UNKNOWN": 16,
+    "initial_positive_fills": 724,
+    "sources": {
+      "FAST_CORE": 471,
+      "FAST_CORE|FRESH_CP": 111,
+      "AB": 64,
+      "FRESH_CP": 34,
+      "AB|FAST_CORE": 34,
+      "AB|FAST_CORE|FRESH_CP": 9,
+      "AB|FRESH_CP": 5
+    },
+    "stage": {
+      "observe": 728
+    },
+    "gate_reasons": {
+      "CURRENT_EPISODE_BEFORE_FIRST_CP": 657,
+      "AWAITING_FRESH_CP_AFTER_FAILURE_CURRENT_EPISODE": 53,
+      "E0_OFF": 18
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q1",
+    "sector_attempt_active": null,
+    "permits": 0,
+    "execution_UNKNOWN": 0,
+    "initial_positive_fills": 0,
+    "sources": {},
+    "stage": {},
+    "gate_reasons": {},
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q2",
+    "sector_attempt_active": true,
+    "permits": 1043,
+    "execution_UNKNOWN": 309,
+    "initial_positive_fills": 1031,
+    "sources": {
+      "FAST_CORE": 705,
+      "FAST_CORE|FRESH_CP": 146,
+      "AB|FAST_CORE": 68,
+      "AB": 57,
+      "FRESH_CP": 47,
+      "AB|FAST_CORE|FRESH_CP": 14,
+      "AB|FRESH_CP": 6
+    },
+    "stage": {
+      "probe": 514,
+      "confirmed": 334,
+      "expanded": 195
+    },
+    "gate_reasons": {
+      "ACTIVE_MARKET_ATTEMPT": 1043
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q2",
+    "sector_attempt_active": false,
+    "permits": 464,
+    "execution_UNKNOWN": 165,
+    "initial_positive_fills": 461,
+    "sources": {
+      "FAST_CORE": 286,
+      "FAST_CORE|FRESH_CP": 66,
+      "AB": 52,
+      "FRESH_CP": 28,
+      "AB|FAST_CORE": 24,
+      "AB|FAST_CORE|FRESH_CP": 5,
+      "AB|FRESH_CP": 3
+    },
+    "stage": {
+      "observe": 464
+    },
+    "gate_reasons": {
+      "CURRENT_EPISODE_BEFORE_FIRST_CP": 430,
+      "E0_OFF": 17,
+      "AWAITING_FRESH_CP_AFTER_FAILURE_CURRENT_EPISODE": 17
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q2",
+    "sector_attempt_active": null,
+    "permits": 0,
+    "execution_UNKNOWN": 0,
+    "initial_positive_fills": 0,
+    "sources": {},
+    "stage": {},
+    "gate_reasons": {},
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q3",
+    "sector_attempt_active": true,
+    "permits": 407,
+    "execution_UNKNOWN": 17,
+    "initial_positive_fills": 401,
+    "sources": {
+      "FAST_CORE": 344,
+      "AB|FAST_CORE": 21,
+      "FAST_CORE|FRESH_CP": 16,
+      "AB": 12,
+      "FRESH_CP": 11,
+      "AB|FAST_CORE|FRESH_CP": 3
+    },
+    "stage": {
+      "expanded": 265,
+      "probe": 88,
+      "confirmed": 54
+    },
+    "gate_reasons": {
+      "ACTIVE_MARKET_ATTEMPT": 407
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q3",
+    "sector_attempt_active": false,
+    "permits": 178,
+    "execution_UNKNOWN": 8,
+    "initial_positive_fills": 178,
+    "sources": {
+      "FAST_CORE": 112,
+      "AB": 30,
+      "FAST_CORE|FRESH_CP": 15,
+      "AB|FAST_CORE": 13,
+      "FRESH_CP": 6,
+      "AB|FAST_CORE|FRESH_CP": 1,
+      "AB|FRESH_CP": 1
+    },
+    "stage": {
+      "observe": 178
+    },
+    "gate_reasons": {
+      "CURRENT_EPISODE_BEFORE_FIRST_CP": 113,
+      "AWAITING_FRESH_CP_AFTER_FAILURE_CURRENT_EPISODE": 51,
+      "E0_OFF": 14
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q3",
+    "sector_attempt_active": null,
+    "permits": 0,
+    "execution_UNKNOWN": 0,
+    "initial_positive_fills": 0,
+    "sources": {},
+    "stage": {},
+    "gate_reasons": {},
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q4",
+    "sector_attempt_active": true,
+    "permits": 658,
+    "execution_UNKNOWN": 18,
+    "initial_positive_fills": 658,
+    "sources": {
+      "FAST_CORE": 482,
+      "FAST_CORE|FRESH_CP": 74,
+      "AB|FAST_CORE": 44,
+      "AB": 40,
+      "FRESH_CP": 14,
+      "AB|FAST_CORE|FRESH_CP": 3,
+      "AB|FRESH_CP": 1
+    },
+    "stage": {
+      "probe": 331,
+      "confirmed": 180,
+      "expanded": 147
+    },
+    "gate_reasons": {
+      "ACTIVE_MARKET_ATTEMPT": 658
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q4",
+    "sector_attempt_active": false,
+    "permits": 406,
+    "execution_UNKNOWN": 13,
+    "initial_positive_fills": 402,
+    "sources": {
+      "FAST_CORE": 250,
+      "AB": 66,
+      "FAST_CORE|FRESH_CP": 35,
+      "AB|FAST_CORE": 30,
+      "FRESH_CP": 14,
+      "AB|FAST_CORE|FRESH_CP": 8,
+      "AB|FRESH_CP": 3
+    },
+    "stage": {
+      "observe": 406
+    },
+    "gate_reasons": {
+      "CURRENT_EPISODE_BEFORE_FIRST_CP": 358,
+      "AWAITING_FRESH_CP_AFTER_FAILURE_CURRENT_EPISODE": 26,
+      "E0_OFF": 22
+    },
+    "economic_effect_not_estimated": true
+  },
+  {
+    "period": "2022Q4",
+    "sector_attempt_active": null,
+    "permits": 0,
+    "execution_UNKNOWN": 0,
+    "initial_positive_fills": 0,
+    "sources": {},
+    "stage": {},
+    "gate_reasons": {},
+    "economic_effect_not_estimated": true
+  }
+]

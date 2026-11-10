@@ -1,0 +1,105 @@
+"""Summarize completed local projections, without reading future returns."""
+from pathlib import Path
+from decimal import Decimal as D
+from collections import Counter,defaultdict
+import json,hashlib
+O=Path(__file__).resolve().parent
+def read(p):return json.loads(Path(p).read_text())
+def save(p,x):Path(p).write_text(json.dumps(x,ensure_ascii=False,indent=2,default=str)+'\n')
+def main():
+ rows=[]
+ for name in ['D1','D2','D3']:
+  p=O/name;assert read(p/'COMPLETION.json')['passed'];assert read(p/'RESTORE_IDENTITY.json')['passed']and read(p/'OFF_IDENTITY.json')['passed']
+  s=read(p/'INPUT_VIEW.json')['state'];off=read(p/'OFF.json');on=read(p/'ON.json');summary=read(p/'SUMMARY.json')
+  old={x['key']:x for x in off['orders']};new={x['key']:x for x in on['orders']};held={l['stock']for l in s['lots']if l['qty']>0}
+  gains=[new[k]for k in new.keys()-old.keys()];lost=[old[k]for k in old.keys()-new.keys()]
+  changed=[dict(before=old[k],after=new[k])for k in old.keys()&new.keys()if old[k]!=new[k]]
+  by=defaultdict(lambda:dict(orders=0,gross=D(0),risk=0,fees=D(0),held_add=0,flat_foothold=0))
+  for x in gains:
+   b=by[s['sector_by_sid'][x['sid']]];b['orders']+=1;b['gross']+=D(x['gross']);b['risk']+=next(v['risk']for v in on['validations']if v['key']==x['key']);b['fees']+=D(x['fee']);b['held_add']+=x['sid']in held;b['flat_foothold']+=x['sid']not in held
+  mechanism=dict(gained_orders=len(gains),lost_orders=lost,changed_existing_orders=changed,
+   gained_held_adds=sum(x['sid']in held for x in gains),gained_flat_footholds=sum(x['sid']not in held for x in gains),by_sector=dict(by),
+   S0=dict(cash=s['cash'],available=s['available_exact'],budget_NAV=s['nav'],native_current_nav=s['decision_nav'],
+    native_cash_reserve_basis='a.current_nav is native most recent decision NAV sampled at OPEN; budget.nav is current mirror marked NAV'),
+   nominal_risk_pct_budget_NAV=dict(OFF=off['nominal_risk']/s['nav']*100,ON=on['nominal_risk']/s['nav']*100),
+   cash_above_native_reserve_ON=D(on['available'])-D(s['decision_nav'])*D('.1'),
+   final_state_available_exact='S0 input anchor; projected ending cash is TOP LEVEL available. Do not continue a plan from final_state without updating this input anchor.',not_PnL=True)
+  save(p/'MECHANISM_READOUT.json',mechanism)
+  rows.append(dict(case=name,**summary['case'],OFF_orders=len(old),ON_orders=len(new),
+   gained_orders=len(gains),lost_orders=len(lost),changed_existing_orders=len(changed),
+   OFF_semiconductor_orders=summary['OFF_sector_orders'].get('URFI881121',0),ON_semiconductor_orders=summary['ON_sector_orders'].get('URFI881121',0),
+   capital_delta=summary['capital_delta'],nominal_risk_delta=summary['nominal_risk_delta'],fee_delta=summary['fee_delta'],
+   OFF_available=off['available'],ON_available=on['available'],ON_cash_above_native_reserve=mechanism['cash_above_native_reserve_ON'],
+   OFF_nominal_risk_pct_budget_NAV=mechanism['nominal_risk_pct_budget_NAV']['OFF'],ON_nominal_risk_pct_budget_NAV=mechanism['nominal_risk_pct_budget_NAV']['ON'],
+   baseline_replay=read(p/'RESTORE_IDENTITY.json'),component_seconds=summary['seconds']))
+ result=dict(passed=True,candidate='PVR_NO_CONFIRMED60_only',cases=rows,
+  verified=['only three related confirmed60 capital predicates removed','coupled migration pending-probe dependency retained','full old baseline prefix/OFF funding identity','all retained numerical admission constraints and real fees/lots','complete original candidate universe and sequential resource feedback','8 synthetic mechanism boundary counterexamples'],
+  not_verified=['new-policy fills or execution affordability after actual fill callbacks','continuous new-policy returns/drawdown/trial losses/capital/reentry paths','cross-cycle robust improvement','historical PIT/OOS or H-share applicability'],
+  limits=['three independent original-book snapshots, not a cumulative alternative account','more admissions and nominal risk are not profit or drawdown','no future price-return labels used to select dates or build policy','baseline ORIGINAL policy replay has nonzero native OPEN/fill events; ON has zero fills'],
+  next_test='review native one-mechanism adapter with OFF exact/prefix/restart, then separately frozen complete2022 and2025-07..2026-06 economic comparison vs original PVR; analyze major trend participation and false starts/exit/reentry/cash/risk jointly, no new factor tuning',
+  source_project_readonly=True,new_policy_economic_paths=0,pure_ON_fills=0)
+ save(O/'RESULTS.json',result)
+ text='''旧 PVR 只去成熟池60%：三个精确原账快照结果（2026-11-04）
+
+结论：已证明旧60门在真实完整候选和资金顺序中压制合法参与；
+未证明去门能改善收益/回撤。它同时释放大量新增风险，并能挤掉旧获资。
+这和新C10去账户6门是不同政策/不同因果，不能合并解释。
+
+日期                完整角色候选/股   原预留→新预留  半导体原→新   新资本/新增名义风险
+2026-01-19          342/250          2→19          1→5           309052.69 /29057.96
+2022-12-06          672/480           5→17          0→0           186726.32 /14468.51
+2026-05-12          614/463           0→13          0→4           376692.17 /48900.40
+
+每一点都是在自己原PVR精确S0上的局部数量反事实，不能累计为跨日新增资金。
+日期由原拒绝规模选，未读取未来收益；D1为H1半导体最多拒绝日最早并列，
+D3为后期并列；D2为2022原pool_capital标签最多日。全部原1709股/90行业域。
+
+D1新增17笔中16个旧S0空仓立足点、1个持有股加层；半导体新增4笔含3空仓、
+1加层，gross45976.977，risk4839.0557。ON预留末现金126237.765，较原10%
+现金保留线仅高187.296；账面名义风险从5.5416%增至7.8715%当前budgetNAV。
+名义风险不是最大回撤，不能把它直接和用户35%回撤边界比较。
+
+D3原全日没有pool_capital标签，仍有13笔变化。源码原因是迁池若因60门失败，
+confirmed根本不加入候选路线，最终拒绝只出现probe风险等标签。因此重叠标签
+不能做排他原因计数，也不能按‘277有pool标签’声称只会修277条或省下亏损。
+
+D2真实资源反馈反例：旧600871.SH的mobile probe100股在ON丢单；13个新键、
+1个丢键，4个既有键改量/池，净订单数+12。移旧probe释放probe空间也会让新
+core获资；因此此机制并非仅给确认mobile加钱，必须研究完整资金/风险路径。
+
+三处60谓词去除在同一合同内：实际继承Contract.migrate、NoAccountBudget.request、
+原route最大合法量。保留同attempt probe pending迁池阻断、两路max/平手probe、
+角色、行业阶段2/10/20与1风险、probe10/.5、股10、每fresh2目标、core原风险、
+原保护/ACT/费用/现金/证券单位。没有加SD、cap90、账户6或新排序。
+
+原策略有界重放不是零金融事件。它从最近自身季度检查点继承，不重置：
+全funding/trade/journal/daily NAV与资源/balance前缀exact后，纯OFF完整逐条
+开盘funding、数量/池/费用及全部post预算字段exact。ON仅私有route/maxfit/
+reserve，0真实fill/0新政策连续金融路径。每笔预留立即占用共享资源和费用。
+独立agent的审计文件由root的independent_review目录提供，范围以该文件为准。
+
+输入命名口径：decision_nav是OPEN采样的native a.current_nav（原最近决策NAV），
+不等于当前marked budget.nav；保留原route使用规则。final_state.available_exact
+保留S0输入锚，投影期末真实可用现金在顶层available。不能直接把该final_state
+当下一天输入或取锚值作期末资金。
+
+8个纯合成边界已过：同attempt open/cancel_pending probe仍禁止迁池；去60不能
+越行业1、股10、实际现金、core锁；原角色先后保留；两个独立快照各1900股
+不能相加3800，串行共享行业风险只容1900。反例不产生金融路径或收益数字。
+
+下一步：独审后冻结仅此因子的原生adapter与前缀/重启校验，再用原2022和
+2025-07..2026-06完整连续窗口比较原PVR。审重大趋势实际发现/试探/加层/持有/
+退出/再入、假启动和大亏，资金与风险路径/费用/NAV-DD并看，不按订单数晋升。
+本地没有执行新政策账户。当前资料当前快照且同开发周期，非PIT/OOS；范围A股，
+尚未验港股，不把1m研究账户等同用户1.2m本金或杠杆账户。
+
+本地两个工程失败均已归档D1/failure-*: preview局部cost闭包不可pickle，改为
+只保存完整可审JSON；set审计编码无序造成伪差异，统一集合规范编码后exact。
+原策略/候选参数不变，旧工程和结果未写入。完整证据见RESULTS.json、每点
+RESTORE_FREEZE/RESTORE_IDENTITY/OFF_IDENTITY/INPUT_VIEW/OFF/ON/SUMMARY。
+'''
+ (O/'READOUT.txt').write_text(text)
+ paths=[p for p in O.rglob('*')if p.is_file()and'failure-'not in str(p)and p.name!='ARTIFACT_SHA256.json']
+ save(O/'ARTIFACT_SHA256.json',{str(p.relative_to(O)):hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(paths)})
+ print(json.dumps(rows,ensure_ascii=False,default=str))
+if __name__=='__main__':main()

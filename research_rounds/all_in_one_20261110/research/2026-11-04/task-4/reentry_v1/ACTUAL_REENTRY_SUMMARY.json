@@ -1,0 +1,200 @@
+[
+  {
+    "window": "long",
+    "role": "core",
+    "status": "PASS",
+    "layers": 94,
+    "stocks": 89,
+    "original_buycash": "367726.2610620098300",
+    "original_lifecycle_net": "1229.855989899724907711608401",
+    "original_negative_net": "-27916.48481501216603243616286",
+    "original_positive_net": "29146.34080491189094014777126"
+  },
+  {
+    "window": "long",
+    "role": "mobile",
+    "status": "FAIL",
+    "layers": 261,
+    "stocks": 224,
+    "original_buycash": "2939522.5740978790650",
+    "original_lifecycle_net": "-15674.02838789895270067174267",
+    "original_negative_net": "-141278.6931460086646075777023",
+    "original_positive_net": "125604.6647581097119069059595"
+  },
+  {
+    "window": "long",
+    "role": "mobile",
+    "status": "PASS",
+    "layers": 177,
+    "stocks": 156,
+    "original_buycash": "1929077.2804684016670",
+    "original_lifecycle_net": "-64951.89676392436412850666331",
+    "original_negative_net": "-137920.2527278964545655432761",
+    "original_positive_net": "72968.35596397209043703661276"
+  },
+  {
+    "window": "long",
+    "role": "mobile",
+    "status": "OUTSIDE_MOTHER_or_same_OPEN_reentry",
+    "layers": 33,
+    "stocks": 33,
+    "original_buycash": "54955.4530742692500",
+    "original_lifecycle_net": "251.159349407115264020348767",
+    "original_negative_net": "-2839.7824670874000",
+    "original_positive_net": "3090.941816494515264020348767"
+  },
+  {
+    "window": "long",
+    "role": "core",
+    "status": "FAIL",
+    "layers": 108,
+    "stocks": 101,
+    "original_buycash": "252883.9491292845900",
+    "original_lifecycle_net": "-3522.244002701667461675579322",
+    "original_negative_net": "-15241.31253846557655258467023",
+    "original_positive_net": "11719.06853576390909090909091"
+  },
+  {
+    "window": "long",
+    "role": "core",
+    "status": "UNFORMED_FIRST_CLOSE",
+    "layers": 4,
+    "stocks": 4,
+    "original_buycash": "25867.7597000394500",
+    "original_lifecycle_net": "-2858.3683009669500",
+    "original_negative_net": "-2896.5015456951000",
+    "original_positive_net": "38.1332447281500"
+  },
+  {
+    "window": "long",
+    "role": "core",
+    "status": "UNKNOWN_PRICE_OR_SOURCE",
+    "layers": 13,
+    "stocks": 12,
+    "original_buycash": "38698.0624110666500",
+    "original_lifecycle_net": "-2770.4146464110000",
+    "original_negative_net": "-3681.8358020368000",
+    "original_positive_net": "911.4211556258000"
+  },
+  {
+    "window": "long",
+    "role": "mobile",
+    "status": "UNKNOWN_PRICE_OR_SOURCE",
+    "layers": 18,
+    "stocks": 18,
+    "original_buycash": "196979.9461415832000",
+    "original_lifecycle_net": "-3503.494133599227520906766186",
+    "original_negative_net": "-10505.24856601516336996336996",
+    "original_positive_net": "7001.754432415935849056603774"
+  },
+  {
+    "window": "long",
+    "role": "mobile",
+    "status": "UNFORMED_FIRST_CLOSE",
+    "layers": 1,
+    "stocks": 1,
+    "original_buycash": "16793.7106675536500",
+    "original_lifecycle_net": "820.9136742164500",
+    "original_negative_net": "0",
+    "original_positive_net": "820.9136742164500"
+  },
+  {
+    "window": "strong",
+    "role": "core",
+    "status": "PASS",
+    "layers": 57,
+    "stocks": 55,
+    "original_buycash": "276677.0537050728510",
+    "original_lifecycle_net": "21822.93128168570766666666667",
+    "original_negative_net": "-18500.98776419819233333333333",
+    "original_positive_net": "40323.9190458839000"
+  },
+  {
+    "window": "strong",
+    "role": "mobile",
+    "status": "PASS",
+    "layers": 57,
+    "stocks": 55,
+    "original_buycash": "1134932.8021599551500",
+    "original_lifecycle_net": "274233.5277238074500",
+    "original_negative_net": "-52931.5865331080500",
+    "original_positive_net": "327165.1142569155000"
+  },
+  {
+    "window": "strong",
+    "role": "mobile",
+    "status": "UNFORMED_FIRST_CLOSE",
+    "layers": 6,
+    "stocks": 6,
+    "original_buycash": "136535.4216761892000",
+    "original_lifecycle_net": "-5166.1900607860500",
+    "original_negative_net": "-8039.1621310130500",
+    "original_positive_net": "2872.9720702270000"
+  },
+  {
+    "window": "strong",
+    "role": "mobile",
+    "status": "FAIL",
+    "layers": 30,
+    "stocks": 30,
+    "original_buycash": "618822.9840238714000",
+    "original_lifecycle_net": "70997.7624351781500",
+    "original_negative_net": "-31684.9917429655000",
+    "original_positive_net": "102682.7541781436500"
+  },
+  {
+    "window": "strong",
+    "role": "core",
+    "status": "FAIL",
+    "layers": 23,
+    "stocks": 23,
+    "original_buycash": "94273.4179822011500",
+    "original_lifecycle_net": "5882.3718046707500",
+    "original_negative_net": "-6778.8159080032000",
+    "original_positive_net": "12661.1877126739500"
+  },
+  {
+    "window": "strong",
+    "role": "core",
+    "status": "UNFORMED_FIRST_CLOSE",
+    "layers": 1,
+    "stocks": 1,
+    "original_buycash": "23904.4748581463000",
+    "original_lifecycle_net": "-2332.4533258663000",
+    "original_negative_net": "-2332.4533258663000",
+    "original_positive_net": "0"
+  },
+  {
+    "window": "strong",
+    "role": "core",
+    "status": "UNKNOWN_PRICE_OR_SOURCE",
+    "layers": 6,
+    "stocks": 5,
+    "original_buycash": "63699.8979788697000",
+    "original_lifecycle_net": "10601.7799936220500",
+    "original_negative_net": "-6409.6018652021500",
+    "original_positive_net": "17011.3818588242000"
+  },
+  {
+    "window": "strong",
+    "role": "mobile",
+    "status": "OUTSIDE_MOTHER_or_same_OPEN_reentry",
+    "layers": 9,
+    "stocks": 9,
+    "original_buycash": "46400.2597968356050",
+    "original_lifecycle_net": "-731.2104124891120",
+    "original_negative_net": "-1720.6661795480620",
+    "original_positive_net": "989.4557670589500"
+  },
+  {
+    "window": "strong",
+    "role": "mobile",
+    "status": "UNKNOWN_PRICE_OR_SOURCE",
+    "layers": 3,
+    "stocks": 3,
+    "original_buycash": "79986.3681253233050",
+    "original_lifecycle_net": "-2021.4593625386300",
+    "original_negative_net": "-4755.5380626286000",
+    "original_positive_net": "2734.078700089970"
+  }
+]

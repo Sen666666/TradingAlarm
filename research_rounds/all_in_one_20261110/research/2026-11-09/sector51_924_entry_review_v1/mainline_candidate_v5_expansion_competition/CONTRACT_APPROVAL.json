@@ -1,0 +1,14 @@
+{
+  "approved": true,
+  "engine_sha256": "54f3d42846c97e63bf79b886564e186df182c5b9a1d0b69c1a8797dec7de9fa9",
+  "contract_sha256": "4405906ad553a0a159bc0b240cd6827c9435a8f528d60fd22bd5ed0d13c7c650",
+  "scope": "One frozen M5 research-only historical run 2024-09-02 through 2024-10-08. No live trades, no parameter search or historical-outcome tuning.",
+  "independent_actual_method_assertions": 234,
+  "base_m4_sha256": "41ca15962d5ee207a194df0664e1e6cf87807aa6b43008a563a45b57e5bf40c7",
+  "audit_files": {
+    "synthetic_m5.py": "65d37bf0b41ca510e0f9aa6bbf2ab27dbc99bb3a7057662a535ce46eece88e6f",
+    "SYNTHETIC_QA.json": "9625988116ead8297b1e3ae0dda1b43a55c76681f4e1d6392c8b46bd935b1d01"
+  },
+  "time_utc": "2026-11-09T20:28:01.982495+00:00",
+  "execution_caveat": "OPEN +/-5bp remains a conditional cost proxy, not certified matching; mapping is non-PIT."
+}

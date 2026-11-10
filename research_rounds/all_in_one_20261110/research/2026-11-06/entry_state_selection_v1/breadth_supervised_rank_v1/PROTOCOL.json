@@ -1,0 +1,31 @@
+{
+  "name": "breadth_supervised_rank_v1",
+  "time": "2026-11-07 01:47:49.060869+00:00",
+  "domain": "All22196 inherited t-close-feasible event-stock conditional shadows. No original funding filter. Source inputs and labels previously seen. No account or live order.",
+  "target": "W fee-net complete0to0 cashflow>0 by inclusive entry+119 common sessions; L complete<=0; U alive at120 with no prior path unknown. Late ultimate closure remains U. Unknown-before-horizon and no-entry separate, never U/L imputation.",
+  "train": "2022 births only; fixed fit cutoff2023-07-05, all rows must have entire120 potential follow-up strictly before cutoff even if exit earlier. One fit, no parameter selection. Same all-feasible candidates, not just chosen/actually funded.",
+  "features": {
+    "pvr": "(current original PVR-50)/50",
+    "persistence": "log1p(consecutive positive native canonical mu5 signs through t on common market sessions). Valid strength observation, observed positive price/volume, same source_kind/source_path/segment. Unknown/gap/source transition resets counter; first valid positive after unknown starts1, meaning observed continuous streak only. Native mu sign is original G z5 sign, prevalidated by canonical study; native mu itself inherits old smoother history.",
+    "diffusion": "original arm same-member delta3, with common3_K>0; exact frozen COMMON_K_COMPARISON, no numerator from different membership",
+    "risk_distance": "log(t raw close / t I_floor raw). Both positive and close>floor required. No sigma or CE denominator.",
+    "fresh_CP": "original CP1_today boolean; absent receipt is actual0 not missing imputation",
+    "relative_volume": "log(t raw_volume / mean raw_volume of preceding20 common sessions), all21 valid positive and same source/segment required. No skipping missing days.",
+    "strength_diffusion": "pvr * diffusion, only one interaction: current strength matters differently when same-industry participation expands"
+  },
+  "scaling": "2022 eligible training weighted mean/std for each7 features, applied unchanged to every cohort, final z clipped[-5,5]. No test quantile fit, no selected-score optimization.",
+  "weights": "Each training signal date total1; equal sectors within day, equal arm/event within sector-day, equal known-label feature-known candidates within event. Sum weights equals number of dates, NOT row count: shrinkage treats clustered dates conservatively, not iid22196.",
+  "model": "W/L/U softmax with L reference, two intercepts +14 slopes. Minimize sum w*NLL +2*sum(slopes^2). Fixed scipy L-BFGS-B maxiter1000 ftol1e-12 gtol1e-8, convergence gradient<=1e-5; no tuning/calibration. Class minimum W50 L50 U50; minimum300rows60dates, >=20U dates.",
+  "payoff": "Separate W gain and L loss positive magnitudes in CNY. Gamma log-link mean exp(alpha+beta*z_risk), same training risk standardization, one slope each. Minimize sum original joint softmax training weights restricted to class, no renormalization, times (y/exp(eta)+eta)+2*beta^2; no winsorization of raw gains/losses; exp is numerical clipped[-30,30]. No U payoff estimated.",
+  "score": "Q=(pW*predicted_mean_W_CNY - pL*predicted_mean_loss_CNY)/(pW+pL). Q is expected net CNY CONDITIONAL on closure within120 and known contract paths. Not unconditional/ultimate expectation. pW,pL,pU and pW*gain, pL*loss exposed separately; U never0-return or loss. Denominator may favor early-closing paths or destabilize small closure mass; report range, dependence, selectedU and tail.",
+  "rank": "Three predeclared arms PVR_DESC, PWIN, CONDITIONAL_NET. Same event t-close feasible candidates, exact original K, same industry/date/event. Sort baseline PVR descending then sid; model-unknown baseline positions fixed, reorder known positions by score descending then PVR descending then sid. No probability gate and no next-open backfill.",
+  "minimum": "300 feature-known mature W/L/U rows,60dates,W50,L50,U50 and U20dates. Stop if insufficient or rank deficient or numerical failure. Do not retune.",
+  "scope": "Report all event types separately; M3 FALSE_TO_TRUE is main.2022 in-sample fit;2024Sep-Dec time-forward on previously examined history, NOT untouched OOS.2026H1 coverage only; no120mature cohort.",
+  "economics": "Exact prior2% initial/.25% reference plan risk/one profitable freshCP2% add/originalI/fees/T+1/floor contract unchanged. Independent overlapping opportunities, not simultaneous account. No new simulation needed; reuse entire shadows and truncate only labels.",
+  "unknown": "No feature or outcome imputation. Future source breaks/factor changes or missing observations before H remain UNKNOWN. Corporate actions/dividends not independently reconstructed; original simulator stops at factor changes and omits unexplained dividend cashflows, so labels conditional on its unchanged cashflow contract, not certified total return.",
+  "no_accounts": true,
+  "no_parameter_search": true,
+  "history_consumed": true,
+  "weight_correction": "Before reading any new comparison result, independent audit identified branch reweighting incoherence. Original outputs preserved. Branches now inherit same joint weights. Features, classification, ridge, domains, clocks unchanged; not a results-based specification search.",
+  "inherited_universe": "Fixed future1709 stocks and90 sectors NON-PIT; point-in-time feature math does not certify historical availability, industry membership, tradability, dividends or total return."
+}

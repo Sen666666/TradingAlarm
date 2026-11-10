@@ -1,0 +1,22 @@
+{
+  "status": "SAVED_THREE_CLOSE_CP_ARITHMETIC_AND_DEPENDENCY_REVIEW_COMPLETE",
+  "cases": 3,
+  "arithmetic_crosscheck": "PASS",
+  "root_readout": "READ_FIRST.txt",
+  "walkthrough": "ARITHMETIC_WALKTHROUGH.txt",
+  "raw_saved_fields": "READONLY_INPUTS.json",
+  "original_formula": "CP_ORIGINAL_FORMULA_WITH_LINES.txt",
+  "review": "dependency_review/ROOT_TEXT_REVIEW.json",
+  "accepted_text_corrections": {
+    "original_log1p_spelling": true,
+    "mobile_signal_not_complete_authorization": true,
+    "failed_confirmation_not_fill": true
+  },
+  "new_models": 0,
+  "new_rolling_feature_rebuilds": 0,
+  "new_accounts": 0,
+  "new_strategy_or_parameter_tests": 0,
+  "new_market_data": 0,
+  "inferences_limited_to": "Three saved CLOSE cases and effective original source; no broad economic efficacy or parameter claim; no execution certification.",
+  "at_utc": "2026-11-05T04:51:13.211874+00:00"
+}

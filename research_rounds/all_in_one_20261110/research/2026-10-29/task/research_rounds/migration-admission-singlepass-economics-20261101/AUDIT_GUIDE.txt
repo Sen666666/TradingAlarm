@@ -1,0 +1,10 @@
+Independent review: run native/test_logging tests via unittest imports without __main__, directing output to /tmp.
+Do not overwrite LOGGING_GATE.json: its exact generation-time bytes (including runtime) are in both run source freezes.
+No economic replay is needed for financial review. Read the saved SC/SD books, 5 native flows, SD route/wait logs,
+quarter checkpoints/provenance and analysis bridges. Native adapter SHA must remain 879579695da6b8b28fb9d411400836eea6f375dc1698b51b0502621ffd714b30.
+Snapshot physical-prefix comparison excludes only immutable future input lookups, retains every native account field.
+Attempt-wait statuses were clarified during saved-book analysis: ended attempts are competing endpoints, not right-censored active attempts.
+Independent audit found the old classification prioritized future attempt-end over an earlier actual exit. It is now temporal-first,
+with same-day opening exit before 15:10 attempt invalidation and explicit exact-timestamp exit-first convention. Seven regression cases pass.
+No account/source/decision changes or account reruns were made for that correction. Old source/reports preserved under analysis-errata-20261101.
+All final results use the corrected final analysis source; independent financial checks passed, correction re-audit pending.

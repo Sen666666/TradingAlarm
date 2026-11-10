@@ -1,0 +1,51 @@
+    def _last(self, series_id, clock):
+        item = self.series.get(series_id)
+        if item is None or item.blocked_reason or item.states is None:
+            return None, None, None
+        close_time = time.fromisoformat(item.record['close_available_time'])
+        dates = item.states.index
+        cutoff = pd.Timestamp(clock.decision_at.astimezone(TZ).date())
+        pos = dates.searchsorted(cutoff, side='right') - 1
+        if pos < 0:
+            return None, None, None
+        at = datetime.combine(dates[pos].date(), close_time, TZ)
+        if at > clock.decision_at:
+            pos -= 1
+            if pos < 0:
+                return None, None, None
+            at = datetime.combine(dates[pos].date(), close_time, TZ)
+        segments = item.record.get('segments')
+        if segments and 'segment_id' in item.states:
+            number = int(item.states.iloc[pos].segment_id)
+            if number < len(segments) - 1 and cutoff > pd.Timestamp(segments[number]['end']):
+                return None, None, None  # Explicit missing-source interval.
+        if item.record.get('unavailable_from') and cutoff >= pd.Timestamp(item.record['unavailable_from']):
+            return None, None, None
+        return item.states.iloc[pos], at, item.record['raw']['sha256']
+
+    def at_decision(self, clock, *, market_buyable):
+        """No implicit trade calendars: caller supplies causal availability Facts.
+
+        State persists across non-observation dates; RS keeps its actual old date
+        so admission's same-session freshness check still rejects stale ranks.
+        """
+        if set(market_buyable) != {x.security_id for x in self.lines}:
+            raise ValueError('Explicit historical market availability required for every fixed line')
+        if not hasattr(self, '_h1_cache'):
+            z=np.load(Path(__file__).resolve().parents[1]/'h1/matrix.npz')
+            self._h1_cache=(pd.DatetimeIndex(z['dates']),{sid:j for j,sid in enumerate(z['symbols'])},z['score'])
+        dates,columns,scores=self._h1_cache
+        d=pd.Timestamp(clock.session_date); ti=dates.get_indexer([d])[0]
+        def facts(series_id):
+            row, at, source = self._last(series_id, clock)
+            if at is None:
+                unknown = admission.Fact(None, clock.decision_at, clock.decision_at,
+                                          source_id='unavailable:' + str(series_id))
+                return unknown, unknown, None
+            ready = bool(row.ready)
+            kwargs = dict(known_at=at, valid_from=at, observed_at=at, source_id=source)
+            trend = admission.Fact(bool(row.target) if ready else None, **kwargs)
+            j=columns.get(series_id)
+            score=scores[ti,j] if ti>=0 and j is not None else np.nan
+            rank = admission.Rank(None if pd.isna(score) else float(score), clock.decision_at, clock.decision_at)
+            return admission.Fact(ready, **kwargs), trend, rank

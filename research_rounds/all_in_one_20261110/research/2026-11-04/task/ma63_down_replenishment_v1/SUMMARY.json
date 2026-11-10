@@ -1,0 +1,34 @@
+{
+  "status": "PRODUCER_COMPLETE_INDEPENDENT_REVIEW_PENDING",
+  "days": 298,
+  "spells": 9,
+  "exact_source_wealth": "-257408.380355661077000000000001",
+  "rounding_residual": "-2.72E-23",
+  "max_abs_spell_rounding": "1.90E-23",
+  "existing_reader_EPS": "0.000001",
+  "old": {
+    "layers": 463,
+    "positive_layers": 141,
+    "negative_layers": 320,
+    "zero_layers": 2,
+    "wealth": "-80876.2063832918257973692973552",
+    "positive_wealth": "109278.9288836847877142857142896",
+    "negative_wealth": "-190155.1352669766135116550116448"
+  },
+  "new": {
+    "layers": 866,
+    "positive_layers": 269,
+    "negative_layers": 597,
+    "zero_layers": 0,
+    "wealth": "-176532.1739723692512026307026186",
+    "positive_wealth": "272738.7003564847263490757608509",
+    "negative_wealth": "-449270.8743288539775517064634695"
+  },
+  "positive_spells": 2,
+  "negative_spells": 4,
+  "zero_wealth_spells": 3,
+  "zero_inventory_entire_spell": 3,
+  "source_post_exact": true,
+  "new_accounts": 0,
+  "not_avoidable_loss_or_sale_financing": true
+}

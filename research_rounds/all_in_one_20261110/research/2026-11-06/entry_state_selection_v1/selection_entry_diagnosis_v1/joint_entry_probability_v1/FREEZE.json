@@ -1,0 +1,95 @@
+{
+  "name": "three_endpoint_trend_conditioned_certificate_probability_v1",
+  "status": "FROZEN_BEFORE_NEW_OUTCOME_DIAGNOSTICS",
+  "domain": "Original PVR actually filled first MOBILE entries only; 1814 expected. No CORE, E31, unfilled-candidate extrapolation or new policy.",
+  "feature_formula": {
+    "T": "OLS slope of native log close at original anchor a-21..a inclusive; sign >=0 is plus. Same source segment required.",
+    "E": "min(original CP displacement, original CP credit)",
+    "V": "Existing audited CE variance budget: sum prior21 same-segment squared-return means over original formation observations, floored at log(1.001)^2; anchor excluded; exact original reset/consumption lineage.",
+    "R": "log(original signal native close / original first_role_floor), positive required; verify candidate-time floor identity.",
+    "q": "E*R/V",
+    "w": "q/(1+q)",
+    "joint": "p_i=(1-w_i)*pi0 + w_i*pi_plus_or_minus",
+    "speed": "p_i=(1-w_i)*pi0+w_i*pi_speed",
+    "constant": "p_i=pi0"
+  },
+  "priors": {
+    "pi0": "Dirichlet(0.5,0.5,0.5)",
+    "children": "Independently conditional on pi0, Dirichlet(20*pi0). Same prior rule for joint and speed comparator.",
+    "tuning": "None. Full posterior prediction, not probability-space MAP."
+  },
+  "clock": {
+    "H": 120,
+    "window": 504,
+    "prediction_start": "2023-01-01 signal date",
+    "source_end": "2026-05-15",
+    "fit": "First common trading session monthly, information through preceding close. Original signal in prior504 sessions and actual entry index <=cut-120. Uniform potential follow-up required even for early exits.",
+    "labels": "W positive actual complete net round exit within120 inclusive sessions from actual entry; L nonpositive complete exit within120; U still open at120. All late exits remain U at H even if later known.",
+    "target": "Final actual0-to-0 positive-exit probability is partially identified by [pW,pW+pU]; do not report midpoint or pW as ultimate win probability.",
+    "minimum": {
+      "births": 300,
+      "W": 50,
+      "L": 50,
+      "signal_dates": 60
+    },
+    "first_year": "2022 always UNKNOWN; no backfill"
+  },
+  "identification": {
+    "check": "No outcome labels read for first-stage feature/matrix audit. Require X full column rank for eligible candidate months; condition numbers reported.",
+    "numeric_stop": "Rank deficiency or condition number above1e8 for an otherwise eligible month -> joint output UNKNOWN for that month; no new branch or threshold."
+  },
+  "numerics": {
+    "posterior": "Logit-coordinate posterior with exact Jacobian; numerical optimizer only finds proposal center. Four seeded adaptive-warmup random-walk Metropolis chains. Randomness is posterior integration, never security selection.",
+    "warmup": 2000,
+    "draws_per_chain": 4000,
+    "max_fixed_extension": 4000,
+    "diagnostics": "Split rank-normalized Rhat<=1.01 and bulk ESS>=400 on all endpoint probabilities and logits. One fixed extension permitted only for numerical convergence; otherwise model-month UNKNOWN. No results-based retry.",
+    "bounds": "Optimizer logits[-25,25] only for numerical starting mode; MCMC unbounded.",
+    "seed": 20261106
+  },
+  "comparisons": "Same eligible data, same mature-H test cohorts and same minimum criteria for constant/speed/joint. Paired three-state Brier and logloss; rank and calibration are separate.",
+  "evaluation": {
+    "primary": "2023-2025 signal cohorts with120 sessions of potential follow-up by source end, irrespective of early closure.2026 partial coverage and observed complete-round diagnostics separately, not full-year/H-mature evaluation.",
+    "secondary": "Observed actual final0-to-0 net results by source end, keeping opens unknown and listing all-birth win bounds. No recomputed account results.",
+    "uncertainty": "20-common-session entry-date blocks, stock clusters and conservative max of one-way/two-way cluster variances; paired AUC influence estimates. Descriptive, conditional on fitted models; omits refitting uncertainty.",
+    "calibration_bins": [
+      0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      1
+    ],
+    "score_groups": "Training-score20/40/60/80percentiles frozen monthly; all groups reported. No selection threshold derived from outcomes.",
+    "metrics": [
+      "threeclass Brier",
+      "threeclass logloss",
+      "W AUC and same-date AUC",
+      "paired joint-speed AUC",
+      "class calibration",
+      "remaining U probability",
+      "known final win AUC as descriptive only",
+      "original net amount and payoff",
+      "5percent return tail and tail mean"
+    ],
+    "history": "All history previously reviewed.2024/2025 repeatedly consumed; not genuine untouched OOS."
+  },
+  "audits": [
+    "source hashes and native coordinates",
+    "CP anchor/E/V/floor identities",
+    "full-vs-prefix input equality",
+    "future/unavailable-label poison checks",
+    "analytic gradient finite differences",
+    "posterior convergence",
+    "no label-dependent feature boundaries"
+  ],
+  "restrictions": [
+    "account_runs=0",
+    "parameter_searches=0",
+    "new_candidate_ranking=0",
+    "no unfilled labels",
+    "no30percent claim from a selected historical bin",
+    "stop if no discrimination; do not retune"
+  ]
+}

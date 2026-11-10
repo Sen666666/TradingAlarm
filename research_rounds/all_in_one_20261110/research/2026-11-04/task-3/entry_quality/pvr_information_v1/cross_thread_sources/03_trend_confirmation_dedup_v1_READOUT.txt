@@ -1,0 +1,34 @@
+现有 E0/I/PVR 入场的 MA/BB/EMA 仓位插件：有限排重结果
+2026-11-04。0新指标导出、0信号重算、0账户、0参数扫描。当前成本额度 native 优先；本支只给后续可复用设计。
+
+结论
+在本次检查的当前工程、2026-10-20以后直接相关研究及当前No60诊断中，未定位到完全等价的经济试验：
+A=个股C>=inclusiveMA60且MA60高于5观察前；B=个股当日上穿BB20,2上轨且EMA10高于3观察前；仅原策略已许可新买单，A或B真保原计划，否则计划量50%。
+这是有限来源排重，不是全文件/全历史绝无重复的证明，也不是效果有效的证据。
+
+确实存在的近邻（不能冒充本方案已跑过）
+1. TradingAlarm/research/sector_experiment.py::fast_gate 是C>SMA60 AND return21>0，作用于11 ETF sector-v1组合资格，与MA60五观察斜率不等价，也不是保留原E0计划量/减半。该旧组合有fast_gate_only等经济路径，但范围、分配器、信号职责不同。
+2. pv-structure-context-20261020/code/context_model.py 的BB采用inclusive20均值+2*std(ddof=0)，只输出%b/bandwidth及图检描述。该轮README明示账户调用0/标签不直接交易，不是BB+EMA10确认插件。当前可复用其ddof=0约定，但不能借图检通过称账户验证。
+3. gold-temperature-inference-20261024/calibrate.py 有(EMA10-EMA40)/ATR的解释特征；该脚本明确是由给定截图起点的条件解释、不是自治策略。不是EMA10相对3观察前的趋势证书，不是减半入场。
+4. 当前inclusiveMA63诊断：risk_constraints/ma63_information_diagnostic_v1/READOUT.md，三年84.17%实际买款股/行业均在MA上仍净亏281466.86；strict303中301双上净−113650.06。它是原层标签/期间财富诊断，非新资金规则，更未测MA60斜率+减半。这个反例必须保留，不能预设稍换MA窗口就解决主要亏损。
+5. current_evidence_design/B_EXACT_READOUT.txt：行业C>此前63均值只影响confirmed request/route/migrate的草案，主要损耗仍PASS；不含股票MA斜率，失败时仍可probe，不等价于每张原计划量减半。
+6. current_evidence_design/DESIGN_CARD.txt/A与a_recovery_full_diagnostic：宏观synthetic M此前63MAX→MEAN的ACT暂停后恢复；REC21/EMA旧假恢复/成本反例亦只属近邻。它们不作用单股原计划量，不能以旧恢复失败直接否定或赞成本插件。
+7. independent_algorithm_existence/READOUT.txt及旧a-stock-volume-confirm：此前55 HIGH突破+股数量确认、4ATR/MA200退出、独立campaign/合成影子账。不是E0/I已有许可上的尺寸修饰。当前原生同池同账户的本插件尚未被这些研究覆盖。
+8. 旧strict-entry-capacity把初始仓15%→7.5%并改变槽位/容量，确有减半，但不是本价格条件触发的单项尺寸插件；不能借其结果归因本规则。当前成本guard亦是组合成本约束，非本个股确认。
+9. half-slow名称中的half是quiet opener的recency half-life=4，不是原计划仓位50%；staged-risk的固定HALF/STEP是全户初始减半或既有持仓半卖、市场暂停/恢复，portfolio_engine的half是账户drawdown模式。三者都不是本A/B按原许可单修饰量。
+
+建议的有限消融
+NONE原No60；UNIFORM50全部原新买计划减半（分离一般少投钱效果）；MA_ONLY仅A保原量否则减半；MA_OR_BB仅A或B保原量否则减半。所有均保原E0/I/PVR、排序、数量/现金/池/费用/退出/ACT恢复；不与本轮成本额度guard同时叠加解释。
+BB快速通道只通过MA_OR_BB−MA_ONLY识别；B-only单另列后续快速回带/原退出轨迹，不把未来回带标签输入信号。新的BB反转退出尚无精确公式，本支不擅自添加。
+
+关键实施前边界
+公式/语义见FORMULA_AND_ABLATION_CARD.txt：fresh上穿事件与持续在上轨外不是同一规则；若要持续状态必须另预先冻结，不能见924信号少后改定义。BB ddof、EMA种子/adjust/预热、source与unknown必须固定。
+原计划量是决策CLOSE的原intent cap，不是后来实际fill。50%在整张订单上只做一次，向下投影原合法最小单位，不足minimum则0，绝不向上补一手。预算和cap同时按倍数收缩，不因低开/partial/retry恢复原量；不能给当前原本未许可标的创造订单。
+仅同源完整日线，CLOSE得知、次合法OPEN；不能用OPEN当日收盘重新决定确认。未知新指标不可伪PASS/伪弱势，若仍原许可可按保守0.5并明确UNKNOWN理由；原硬输入未知照旧阻止。
+
+验证优先级
+先以真实原计划单/全部原fresh机会作0账户覆盖：A true/B-only/false/unknown的count、计划成本/风险、最小单位消失；保2022—24与强窗全域、924前后、2026半导体及固定83/94尾部身份。原层到截止net只能作后视关联，不能乘0.5称新收益。
+若覆盖主失败且保留可解释早期趋势，再有限native验证；成本额度首轮未完时不竞争driver/IO。收益/回撤、均值暴露、初始风险/lag名义风险/费用/新龙头与旧赢家均报，UNIFORM50不是精确等实现风险，不能把降仓低DD叫信号质量改善；不线性放大收益凑同风险。
+明确否证：A/B基本全PASS而主损耗仍在PASS，或B-only主要增加普通试错却无重大趋势参与增量，或收益变化仅为均匀缩仓且被UNIFORM50覆盖，即停止本设定，不继续调60/5/20/2/10/3/0.5。
+
+出处及SHA在EVIDENCE_BINDING.json。原说明包含旧研究阶段‘不得自动续’；本轮用户已明确授权继续研究，因此不因这些旧阶段约束暂停当前授权工作。此分支未自行准入native。

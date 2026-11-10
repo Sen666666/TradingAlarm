@@ -1,0 +1,41 @@
+{
+  "title": "首次行业 CP 之前的右侧微试仓：原账户逐日冻结机会边界",
+  "status": "PREDECLARED BEFORE NEW SELECTION AND FORWARD LABELS; NOT OUT OF SAMPLE",
+  "hypothesis": "行业E0已有效、个股原CORE已经具备右侧资格，但行业首CP未出现，导致授权延迟；只研究微量probe在原订单以外的边界，不再加技术指标硬门。",
+  "scope": "PVR原连续120万元账户，2022-01-04至2026-05-15的原CORE pending。原固定未来1709股票池、静态90行业、已消费开发样本，均非PIT。仅写本目录，不运行新账户或修改原策略。",
+  "eligibility": [
+    "原CORE pending真实存在且原opportunity满足empty、core_Q、无barriers、cap>0、size_reject为空；不以事后大牛股或未来标签建立名册。",
+    "行业当日E0_valid；从该E0_episode历史起点至当前日均未发生首行业CP。实现必须核对receipt及action=probe，凡曾有首CP、end_attempt或unknown均不得绕过复活。当前首CP当日排除。",
+    "前一决策收盘资格与原CORE frozen cap/budget/risk_budget/floor全部保留；次开op>floor，原最小手量不超过cap/budget及原0.25% CORE protection-risk限额。日期化最小手不是统一100股。",
+    "当日原PVR unique-stock priority_rank原样排序，未知PVR保留原槽。不设TopK，不调阈值。每个行业E0_episode只取第一笔全约束合规的最小手；较早日期不合规可继续等，已获边界名额episode永久不再挑股。"
+  ],
+  "clock": "t收盘冻结资格，t+1开盘只使用当时OPEN/原因果复权factor/原dated规则。先完整保留原账户获资订单及其全部原reserve，新增候选放在原全reserve结束、实际fills开始之前；不能利用原失败成交或未来退回的资金。",
+  "formulas": {
+    "p": "raw_open*(1+0.0005)",
+    "f": "original intent adjusted floor / causal open factor",
+    "q": "dated original QuantityRule.buy_minimum",
+    "C": "q*p",
+    "R": "q*max(0,p-f)",
+    "F": "original dated buy fee(q,p), exact Decimal",
+    "protect": "q*(p-f*(1-0.0005))+buy_fee(q,p)+sell_fee(q,f*(1-0.0005)) <= original frozen risk_budget; op>f and q<=cap and C<=budget",
+    "cash": "C+F <= min(original_available_after_all_original_reserves - earlier_micro_C_and_F - 0.10*original_decision_NAV, original_budget_cash - original_reserve - earlier_micro_C_and_F)",
+    "N": "original_open_budget_NAV - all_original_pending_fees - earlier_micro_fees - F",
+    "probe_capital": "original_probe_capital + earlier_micro_capital + C <= 0.10*N",
+    "probe_risk": "original_probe_marked_risk + earlier_micro_risk + R <= 0.005*N",
+    "sector_capital": "all_original_sector_exposure_including_old_episodes + same_day_micro_sector_capital + C <= 0.02*N",
+    "sector_risk": "all_original_sector_marked_risk + same_day_micro_sector_risk + R <= 0.01*N",
+    "stock_capital": "original_held_at_OPEN + same_day_micro_stock_capital + C <= 0.10*original_decision_NAV",
+    "risk_note": "原当前版本已取消confirmed60%及account3%限制，不重新发明。shared_loss为record_only，不作为额外门。现存风险使用OPEN mark减当时原保护线，不按买入成本；CORE的I线是授权风险参考，不是成交损失上限。"
+  },
+  "frozen_boundary": "每个开盘独立重置到原账快照；仅同日微试仓互相占用现金、资本、风险。跨日已选episode记忆只用于避免事后重复挑股，不把新持仓写入原账。故跨日现金及风险不传播，结果是条件机会可达边界，不是共同可执行投资组合、不是新账户、并不能保证未来原订单不被挤占。",
+  "unknown": "现金、开盘因果factor、日期规则、原lot/订单风险或快照若无法可靠复原则该日或候选UNKNOWN，停止其可达判定；不得将UNKNOWN当0、当无限预算或当可成交。先报告精确缺口。资金风险重建必须对原日志桥接核验。",
+  "selection_seal": "机会、全部拒绝原因、首笔及每日预算在计算前向标签前封存SHA256。只做这一个预注册方案，不扫描阈值或换排序。",
+  "evaluation": [
+    "首笔按行业E0_episode一笔；左截断episode单列。逐年2022/2023/2024/2025/2026，预指定2024-09-24至10-31及2026-01-15至01-30；2024-09-23另作启动前事件链。",
+    "固定5/20/60公共交易日：t+1 raw OPEN*原因果factor 到 t+h 同坐标close；完整路径才给ret/MFE/MAE，缺数与右截断分别报告。gross价格正比例和固定40bp价格敏感性均不是费后完整回合净胜率。",
+    "60日大行情沿已用定义MFE>=30%且终点>=20%，仅结果标签。逐episode首笔正例、同年/同预定窗口失败例全部保留。实例先后事件必须含E0开始、CORE信号、候选排名、行业首CP/end/E0结束及原资金风险占用。",
+    "海能达及2026半导体为预指名审查而非挑选对象；不能据其后涨倒推能买。对失败例按预指定窗口的首笔60日最低终点机械展示，并明确为事后说明性病例；不反馈选择。",
+    "日线raw OPEN只是价格诊断，真实涨跌停/停牌/流动性及次开成交未知。不称真实可成交，不声称提升完整净回合35%目标。"
+  ],
+  "created_utc": "2026-11-06T21:37:43.715585+00:00"
+}

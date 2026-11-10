@@ -1,0 +1,41 @@
+{
+  "eligible_tickers": 1692,
+  "unadmitted_ordinary_cash_events": 60,
+  "state_counts": {
+    "none": 32,
+    "retained": 27,
+    "held": 1
+  },
+  "evidence_counts": {
+    "official_raw_only_needs_review": 13,
+    "reviewed_named_adapter_found": 2,
+    "missing_official_fact": 45
+  },
+  "daily_counts": {
+    "2024-10-10": 3,
+    "2024-10-11": 7,
+    "2024-10-14": 4,
+    "2024-10-15": 5,
+    "2024-10-16": 8,
+    "2024-10-17": 4,
+    "2024-10-18": 4,
+    "2024-10-21": 4,
+    "2024-10-22": 5,
+    "2024-10-23": 3,
+    "2024-10-24": 2,
+    "2024-10-25": 2,
+    "2024-10-28": 1,
+    "2024-10-29": 2,
+    "2024-10-30": 2,
+    "2024-10-31": 4
+  },
+  "files_scanned": 3364,
+  "scan_roots": [
+    "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1"
+  ],
+  "frozen_asof": "2024-10-09",
+  "run": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_m7_downturn_q0_split_v3/once_20241031",
+  "not_engine_admission": true,
+  "limitations": "Raw CNINFO facts and candidate adapters are not reviewed event admission. Filename-only notices require exact-date verification. None state does not remove a future event requirement. No pay dates inferred."
+}

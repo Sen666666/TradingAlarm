@@ -1,0 +1,79 @@
+原probe零量后的同日I+CP共证CORE confirmed许可：冻结单机制检验
+
+授权与阶段
+父任务明确要求继续全母体必要覆盖；覆盖实质且可执行后，运行固定资金旧基线的完整
+双窗口与独审。此前industry_capital_v1纸面卡的“不启动长账户”仅属上一阶段，不是本次
+用户授权限制。先必要覆盖/源码与技术审查，再自动按证据推进；不要求用户重复确认。
+仅本地研究，无实盘、对外分享或修改其它任务的活跃文件。旧已完成industry目录不改。
+
+固定策略臂
+OFF原No60：原PVR_SLOT1排序/全部E0-I-G1资格、I尺寸和持有、Mobile CP层、ACT与原
+执行均不变。ON只有一个新权限：原完整CORE intent按原位置优先尝试probe，probe已
+能合法预留任何量即沿原路，绝不扩大成功probe、双池取max或拆单。只有原probe零量，
+最小手拒因非空且完全属于{probe_risk,sector_capital}，才考虑typed CORE confirmed。
+原CLOSE flat/完整I事件、原风险尺寸、epoch未用、无原硬退出或待单冲突都保留。
+同signal CLOSE只为原已存在CORE intent冻结当日同sid canonical fresh CP1证明，不
+增删/重排原intent或更改floor/cap/budget；OPEN只能用该已冻结凭据。
+行业须独立active、financial_level>=1、expand及原同attempt迁池允许；stock CP不新授
+行业level/grant。无同attempt live/cancel_pending probe单方可迁池，不假撤原订单。
+typed CORE仍kind=core/role=core、原I floor及原LR.preview，不伪装Mobile，不转换旧层。
+CP source21、canonical ID/stock/sector/day/episode/attempt/end与confirmed时钟、未消费
+全部核验；新CORE成功合法预算预留才消费CP。失败不消费；两CORE路均失败原Mobile
+fallback仍可用，任一路成功预算预留同sid done，之后部分/未成交不当OPEN重用token。
+CORE epoch跨pool都检查，只在原真实CORE fill回调消费，不能与预算CP消费时钟合并。
+
+风险合同的实质变化（不能称风险中性）
+原probe池资本<=10%NAV、名义风险<=0.5%NAV、同业总资本<=2%NAV；新confirmedCORE
+不计probe资本/风险，行业资本改原成熟level1/2对应10%/20%NAV。当前No60的confirmed
+60%总资本与account3%总风险本已移除，本臂不复活也不另设新总风险参数。
+尽管入口不救原pool_capital拒，confirmed合法量仍可能超过原probe资源能承接量，这是
+被测试的资金/风险授权变化，不把扩大风险带来的收益包装成纯信号改善。
+保留原I含费0.25%signal NAV风险预算、10%名义上限与冻结cap；实际OPEN重验fee/floor/
+factor/datedunits，合法量不超过原frozen preview max。保留同行所有pool总1%名义风险、
+同股总资本10%、真实可用现金及原额外10%reserve和原费用对NAV的反馈，不能透支。
+上述行业风险/资本比例沿原新预留时检验；持仓市值波动可能使既有占用超门，此时不能
+借新权限继续加风险，不额外强卖旧仓把每日风险曲线伪装为固定上限。
+CORE新单沿I/ACT，原Mobile沿CP；身份改变会改变持有/退出、ACT、现金、风险和后续
+竞争，不声称退出函数源未改就无经济变化。原A股T+1/FIFO/停牌/限价/部分成交/日单/CA
+均原native，未额外卖健康旧仓，不释放现金预留、不换排序，不新增MA/EMA等待确认。
+
+必要母体与作用量
+原1709股/90行业全母体，原两窗所有CORE OPEN尝试，含仅probe_risk，不能只用行业
+33569拒子集、8335首拒或25已买层。raw与source/I首事件分别报告，原CORE成功保持，
+其它cash/poolcap/sectorrisk/stockcap/preview/CP/行业未成熟阻挡完整保留，未知不作false。
+2026H1半导体9必要候选与2行业风险拒逐条核原min/frozen cap/I与CP风险、来源资金/
+前排订单。相邻同prefix原Mobile合法预留且q>=COREmin，可作min存在性证据，需证明
+迁池只改pool和sc/sr/NAV/cash不变、fee单调及原CORE sectorrisk最小量已通过；不推max。
+该见证是事后资源审计注释，不作为策略筛选。原新规则须仅当时信息，未来PnL仅评价。
+先复用保存账、原事实/receipt和必要价格，不新建数据平台，不按后验收益换参数。
+
+技术与账户安排（必要覆盖通过且独审后执行）
+1 源码/有效派生request/route与依赖冻结，OFF真正委托原No60；pure typed fixtures覆盖
+  费用现金、行业风险、epoch/过期跨attempttoken、失败不消费/成功排他、probe小量保留、
+  迁池锁和不同dated min/step，原actualfill epoch/T+1留原引擎。
+2 必要时复用少量已存exact OPEN批次做OFF/ON静态路由与完整前排预留反馈，只作技术
+  准确性，不新增收益。不得把S0乐观界称精确候选状态。
+3 fresh原100万技术前缀：long到2022-01-14，strong到2025-07-15；各窗OFF、ON全只读
+  lookup及物理截断三条前缀，6prefix合计180秒native run预算。准备输入计时另记。
+  OFF必须book+daily/opportunity/funding/industry/balances/rank与旧基线同prefix exact，
+  ON全lookup/物理截断连新增proof/fallback audit也须exact。若前缀未触发新分支明报，
+  不冒称已覆盖新语义；真实原prefix min见证和pure route fixtures补其边界。
+4 两个新完整ON账户各fresh100万：long 2022–2024连续726CLOSE，strong2025Jul–
+  2026Jun连续242CLOSE；同原1709/90、日历/源/费用/排序/执行。OFF复用已全账exact
+  复现的new_price_trend_v1/funding/runs/{long_OFF,strong_OFF}，不得重置年份资金。
+  不为重复OFF再跑完整账户；原有效源码/输入SHA和OFF技术prefix必须绑定旧证明。
+  完整ON预算long1600秒、strong800秒，aggregate2400秒，按独立进程并行，准备输入
+  与纯跑、账户数量分开记。有partial/timeout即保存并停该路径，不默增预算或缩窗口。
+5 两窗完整完成后纯保存账分析+独审：收益/期内DD/仓位与费用/周转/现金/风险、2022与
+  2023熊市、2024及924、2025H2与2026H1、90行业及半导体、原赢家保持、新CORE与
+  被替代Mobile、后续候选挤占。股票和行业净贡献精确桥接总NAV差，不将未买股票涨幅
+  称账户利润。所有新typed预留逐条核风险/资金来源、跨pool epoch/token和原约束；
+  未成交/部分/退出/CA也保留。只有整账户差额才可称政策经济结果，标签不相加。
+
+独审与停止
+覆盖实质与可执行按全母体作用量和真实min/技术证据，不靠9条件样本单独下结论；若
+大多仍硬门阻挡/原资格不足或无实质机会即停止，不搜索阈值。源码或身份/风险错误先停
+修复可证明的实现bug，记录所有失败与重跑代价；不能用收益选择实现。
+若完整结果无法稳定提升重大趋势参与或伤熊市/整体/旧赢家，诚实淘汰此臂，基于证据
+报告其它高影响约束；不加参数硬救。执行与审阅是研究内证据门，不是额外用户审批流程。
+当前幸存者/当前行业回溯与日线执行代理局限保留，本轮不是PIT/OOS/实盘验证。

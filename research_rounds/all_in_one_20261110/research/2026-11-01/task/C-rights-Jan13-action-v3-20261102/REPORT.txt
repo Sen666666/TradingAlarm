@@ -1,0 +1,7 @@
+V3准备完成，停待独审；未执行ACTION或创建新授权。
+统一编码memo持有真实对象强引用；同时编码真实__dict__和未覆盖声明字段。字段与允许差异清单未删改，配股守恒与逐字段指纹使用同一norm。
+原8+独审2+别名/slot遮蔽等4项，共14合成通过。两Jan12各205字段在pickle恢复及真实旧源7证书重算后完全一致，共14证书；金融prefix不变。
+原75来源/checkpoint哈希不变。旧诊断版、V2与正式失败稿保留；V2预检因独审新反例被中断，未执行金融事件。没有证据两新增反例已影响真实账户，不追认旧失败。
+唯一当前候选为本V3的ActionRunner，沿用现有注册/可信SHA恢复机制。旧Jan12注册仍唯一可信态；无ACTION_IDENTITY、SOURCE_FREEZE、EXECUTION_AUTHORITY、grant、输出注册或Jan13checkpoint。
+下一步只能在独审PASS后，以可信auditSHA和CODE_FREEZE SHA显式运行prepare_authority.py，生成绑定两Jan12的新身份/grants；之后再按授权执行两ACTION和注册恢复。OPEN/CLOSE仍拒绝。
+审计入口：CODE_FREEZE.json、MINIMAL.patch、fingerprint.py、rights_wiring_v3.py、VERIFICATION_PREPARED.json、NO_EVENT_PREFLIGHT.json。

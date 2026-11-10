@@ -1,0 +1,265 @@
+
+POLICY PROBE_ONLY_FIXED_2PCT
+[
+  {
+    "day": "2026-06-12",
+    "sid": "688126.SH",
+    "action": "entry_conditional",
+    "qcap": 381,
+    "q": 302,
+    "price": 34.567275,
+    "buyfee": 5.669160222905,
+    "planrisk": 2995.504866569342,
+    "cash_after": 1189555.0137897772,
+    "nav": 1199994.3308397771,
+    "cash_required": 10444.986210222905,
+    "cash_before": 1200000.0,
+    "capital_before": 0.0,
+    "risk_before": 0.0,
+    "risk_after": 2976.897049999998,
+    "sector_cap": 23999.886616795542,
+    "pool": "probe"
+  },
+  {
+    "day": "2026-06-12",
+    "sid": "605358.SH",
+    "action": "entry_conditional",
+    "qcap": 100,
+    "q": 100,
+    "price": 73.946955,
+    "buyfee": 5.47399998155,
+    "planrisk": 2026.8970958243501,
+    "cash_after": 1182154.8442897955,
+    "nav": 1199983.6397897955,
+    "cash_required": 7400.16949998155,
+    "cash_before": 1189555.0137897772,
+    "capital_before": 10434.1,
+    "risk_before": 2971.6799999999985,
+    "risk_after": 4982.375499999998,
+    "sector_cap": 23999.672795795912,
+    "pool": "probe"
+  },
+  {
+    "day": "2026-06-26",
+    "sid": "688126.SH",
+    "action": "close_signal",
+    "risk_only_qcap": 283,
+    "capital_approved_qcap": 0,
+    "close_minimum_failures": [
+      "sector_capital"
+    ],
+    "old_free": 1383.020511088665,
+    "native_stage": "confirmed",
+    "newfloor": 30.065028768320968,
+    "corefloor": 29.590000000000003
+  },
+  {
+    "day": "2026-06-26",
+    "sid": "605358.SH",
+    "action": "close_signal",
+    "risk_only_qcap": 200,
+    "capital_approved_qcap": 0,
+    "close_minimum_failures": [
+      "sector_capital"
+    ],
+    "old_free": 2051.7256633689503,
+    "native_stage": "confirmed",
+    "newfloor": 66.10000000000001,
+    "corefloor": 66.10000000000001
+  },
+  {
+    "day": "2026-06-29",
+    "sid": "688126.SH",
+    "action": "open_diagnostic_only_no_close_order",
+    "q": 0,
+    "q_if_risk_only": 0,
+    "qcap": 283,
+    "old_free": 984.181191088665,
+    "fails": [
+      "minimum_exceeds_unchanged_slot_mark_risk",
+      "sector_capital"
+    ],
+    "cash_after": 1182154.8442897955,
+    "nav": 1200775.7402302818,
+    "cash_required": 7245.0820595138,
+    "cash_before": 1182154.8442897955,
+    "capital_before": 18626.36,
+    "risk_before": 3080.179999999999,
+    "risk_after": 4306.792246335805,
+    "sector_cap": 24015.514804605635,
+    "pool": "probe"
+  },
+  {
+    "day": "2026-06-29",
+    "sid": "605358.SH",
+    "action": "open_diagnostic_only_no_close_order",
+    "q": 0,
+    "q_if_risk_only": 100,
+    "qcap": 200,
+    "old_free": 1888.64416336895,
+    "fails": [
+      "sector_capital"
+    ],
+    "cash_after": 1182154.8442897955,
+    "nav": 1200775.7104730105,
+    "cash_required": 7709.343816785,
+    "cash_before": 1182154.8442897955,
+    "capital_before": 18626.36,
+    "risk_before": 3080.179999999999,
+    "risk_after": 4174.029999999999,
+    "sector_cap": 24015.514209460212,
+    "pool": "probe"
+  },
+  {
+    "day": "2026-06-29",
+    "action": "mark",
+    "cash": 1182154.8442897955,
+    "nav": 1201821.8442897955,
+    "capital": 19667.0,
+    "nominal_risk": 4120.819999999999,
+    "fee_net_liquidation_pnl": 1790.922182172895,
+    "probe_capital": 19667.0,
+    "confirmed_capital": 0.0
+  },
+  {
+    "day": "2026-06-30",
+    "action": "mark",
+    "cash": 1182154.8442897955,
+    "nav": 1201961.6242897955,
+    "capital": 19806.78,
+    "nominal_risk": 4260.5999999999985,
+    "fee_net_liquidation_pnl": 1930.553481699844,
+    "probe_capital": 19806.78,
+    "confirmed_capital": 0.0
+  }
+]
+FINAL_LOTS [{"sid": "688126.SH", "q": 302, "floor": "29.59000000000000319155115512", "cost": "10444.9862102229050", "pool": "probe", "role": "core", "attempt": "BREADTH_2026_06_11_NO_NATIVE_ATTEMPT"}, {"sid": "605358.SH", "q": 100, "floor": "66.10000000000000178341446163", "cost": "7400.1694999815500", "pool": "probe", "role": "core", "attempt": "BREADTH_2026_06_11_NO_NATIVE_ATTEMPT"}]
+
+POLICY NATIVE_NEW_MOBILE_CONFIRMED_OLD_BREADTH_LAYERS_STAY_PROBE
+[
+  {
+    "day": "2026-06-12",
+    "sid": "688126.SH",
+    "action": "entry_conditional",
+    "qcap": 381,
+    "q": 302,
+    "price": 34.567275,
+    "buyfee": 5.669160222905,
+    "planrisk": 2995.504866569342,
+    "cash_after": 1189555.0137897772,
+    "nav": 1199994.3308397771,
+    "cash_required": 10444.986210222905,
+    "cash_before": 1200000.0,
+    "capital_before": 0.0,
+    "risk_before": 0.0,
+    "risk_after": 2976.897049999998,
+    "sector_cap": 23999.886616795542,
+    "pool": "probe"
+  },
+  {
+    "day": "2026-06-12",
+    "sid": "605358.SH",
+    "action": "entry_conditional",
+    "qcap": 100,
+    "q": 100,
+    "price": 73.946955,
+    "buyfee": 5.47399998155,
+    "planrisk": 2026.8970958243501,
+    "cash_after": 1182154.8442897955,
+    "nav": 1199983.6397897955,
+    "cash_required": 7400.16949998155,
+    "cash_before": 1189555.0137897772,
+    "capital_before": 10434.1,
+    "risk_before": 2971.6799999999985,
+    "risk_after": 4982.375499999998,
+    "sector_cap": 23999.672795795912,
+    "pool": "probe"
+  },
+  {
+    "day": "2026-06-26",
+    "sid": "688126.SH",
+    "action": "close_signal",
+    "risk_only_qcap": 283,
+    "capital_approved_qcap": 283,
+    "close_minimum_failures": [],
+    "old_free": 1383.020511088665,
+    "native_stage": "confirmed",
+    "newfloor": 30.065028768320968,
+    "corefloor": 29.590000000000003
+  },
+  {
+    "day": "2026-06-26",
+    "sid": "605358.SH",
+    "action": "close_signal",
+    "risk_only_qcap": 200,
+    "capital_approved_qcap": 200,
+    "close_minimum_failures": [],
+    "old_free": 2051.7256633689503,
+    "native_stage": "confirmed",
+    "newfloor": 66.10000000000001,
+    "corefloor": 66.10000000000001
+  },
+  {
+    "day": "2026-06-29",
+    "sid": "688126.SH",
+    "action": "reject",
+    "q": 0,
+    "q_if_risk_only": 0,
+    "qcap": 283,
+    "old_free": 984.181191088665,
+    "fails": [
+      "minimum_exceeds_unchanged_slot_mark_risk"
+    ],
+    "cash_after": 1182154.8442897955,
+    "nav": 1200775.7402302818,
+    "cash_required": 7245.0820595138,
+    "cash_before": 1182154.8442897955,
+    "capital_before": 18626.36,
+    "risk_before": 3080.179999999999,
+    "risk_after": 4306.792246335805,
+    "sector_cap": 120077.57402302818,
+    "pool": "confirmed"
+  },
+  {
+    "day": "2026-06-29",
+    "sid": "605358.SH",
+    "action": "buy_add_conditional",
+    "q": 100,
+    "q_if_risk_only": 100,
+    "qcap": 200,
+    "old_free": 1888.64416336895,
+    "fails": [],
+    "cash_after": 1174445.5004730106,
+    "nav": 1200775.7104730105,
+    "cash_required": 7709.343816785,
+    "cash_before": 1182154.8442897955,
+    "capital_before": 18626.36,
+    "risk_before": 3080.179999999999,
+    "risk_after": 4174.029999999999,
+    "sector_cap": 120077.57104730105,
+    "pool": "confirmed"
+  },
+  {
+    "day": "2026-06-29",
+    "action": "mark",
+    "cash": 1174445.5004730106,
+    "nav": 1202001.5004730106,
+    "capital": 27556.0,
+    "nominal_risk": 5399.819999999999,
+    "fee_net_liquidation_pnl": 1962.185905580345,
+    "probe_capital": 19667.0,
+    "confirmed_capital": 7889.0
+  },
+  {
+    "day": "2026-06-30",
+    "action": "mark",
+    "cash": 1174445.5004730106,
+    "nav": 1202012.2804730106,
+    "capital": 27566.78,
+    "nominal_risk": 5410.5999999999985,
+    "fee_net_liquidation_pnl": 1972.954437622844,
+    "probe_capital": 19806.78,
+    "confirmed_capital": 7760.0
+  }
+]
+FINAL_LOTS [{"sid": "688126.SH", "q": 302, "floor": "29.59000000000000319155115512", "cost": "10444.9862102229050", "pool": "probe", "role": "core", "attempt": "BREADTH_2026_06_11_NO_NATIVE_ATTEMPT"}, {"sid": "605358.SH", "q": 100, "floor": "66.10000000000000178341446163", "cost": "7400.1694999815500", "pool": "probe", "role": "core", "attempt": "BREADTH_2026_06_11_NO_NATIVE_ATTEMPT"}, {"sid": "605358.SH", "q": 100, "floor": "66.10000000000000178341446163", "cost": "7709.343816785000", "pool": "confirmed", "role": "add", "attempt": "native87"}]

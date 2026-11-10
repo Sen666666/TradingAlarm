@@ -1,0 +1,170 @@
+{
+  "created_at": "2026-10-22T22:34:02.355953+08:00",
+  "purpose": "Offline validate saved SSE page coverage and conditional code-list event-chain reversibility, independent of economic admission.",
+  "source_manifest": [
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/pilot-batch-02.json",
+      "sha256": "cd784d0bc86fc1cd78de59ad9a668e491acf161010e8d59c452ff0dd0de735ec",
+      "bytes": 1447
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/pilot-batch-02-sse-chain-01.json",
+      "sha256": "b40b8bf5b240bbdd6e06026bee4192fcd2127448a96642c2cf90d6e43ff8a210",
+      "bytes": 6738
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-01-sse-pagination07/results.json",
+      "sha256": "f26b01a20790d0554b1a88b2d466ec044b6d89428761d02c9a136da348e8f455",
+      "bytes": 1323
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/results.json",
+      "sha256": "475298b142e54f65a1cccd8c2c12cb5f7a9204de62409ef7c0377209411dd696",
+      "bytes": 10309
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-01-fields03/01.body",
+      "sha256": "eed1410daa884591a9a54d0e4a84c5595c11cccfc1cee4b84ffd27d70e7c59c5",
+      "bytes": 158872
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-01-sse-pagination07/01.body",
+      "sha256": "5ed44c1348e14f4f0533d48918ab3b2120919cfac5ed413b54feac8304aa4c36",
+      "bytes": 38685
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-01-sse-pagination07/02.body",
+      "sha256": "e04ebb6f7cadcae7aefb0829b1e9115f7a9bcd02e82d5ae11a49daf472e7b8c6",
+      "bytes": 34085
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/01.body",
+      "sha256": "bcb3271caa8b84eda21063bc34f8740990a9e4d24336d887bec896b278995330",
+      "bytes": 39191
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/02.body",
+      "sha256": "9f3773e3d6a509ded647edf8dec1e193132b12960ea3f45af5b2eeb4b42d3726",
+      "bytes": 38991
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/03.body",
+      "sha256": "c5b609e9229ab7e9e0157318e8321724f2b7aac09f5afd52058a606e7b48cdea",
+      "bytes": 40669
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/04.body",
+      "sha256": "40d0bf87c1138c86c09b79ec7b3b48b98c12eca701c2dbfd8dae4e3e3dd882bb",
+      "bytes": 41299
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/05.body",
+      "sha256": "67ef235496514efc913fbbbcf1014aefbba3292a3e43c47deb2bd12ac48ae481",
+      "bytes": 41185
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/06.body",
+      "sha256": "cc5266d6deab900a3c6b41606e62104495b487b56b4581d44de09399446cfaf1",
+      "bytes": 41421
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/07.body",
+      "sha256": "b99c7c741652b699265a05448cc191a2af26d67f6a0ebca9ff5335c2ec0ec41a",
+      "bytes": 40751
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/08.body",
+      "sha256": "408dbc134b0c4c1888adddc3528dd4532d8a053960fb513e1545a078c9153da9",
+      "bytes": 39259
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/09.body",
+      "sha256": "976be37559e7ba0a72436d39043dbd5b3a4fa6323322c6c45b3a60e16b5c3aed",
+      "bytes": 38914
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/10.body",
+      "sha256": "ff87a460ce10017ca4f8478d3c8a7c2df9f9b0e56ab438da657ab413eb94843c",
+      "bytes": 39220
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/11.body",
+      "sha256": "b52924b9acb0c642a23e526d6ca3a00ffec78ab9ad8e31e08f984df216bf44a2",
+      "bytes": 39620
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/12.body",
+      "sha256": "627c5c2a36830f8be8bac2eef6e186fbcb41b441f36bed1629465b878fef8061",
+      "bytes": 39696
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/13.body",
+      "sha256": "f3cca94f69e9aa639d56d8530c7d77daf4ea61caeadb63d688191cdb497c13cc",
+      "bytes": 3222
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/14.body",
+      "sha256": "3250aa804ed546c91293e6cdf204ee4dc91619ee2a2d28cb166e8bb2f6378a17",
+      "bytes": 34195
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/15.body",
+      "sha256": "a8fa336dd5259b4369233ead171b269ef0400f0000de4f942916dcbd0d17e44f",
+      "bytes": 33961
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/16.body",
+      "sha256": "5ccc4fd576daf5ecd24a3b6c9913e1654bc09f1af9dd06f88a1c643042272c8d",
+      "bytes": 33953
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/17.body",
+      "sha256": "c39e94de15db94ecb3a93bb483cf73549aca85d8d0aa0ace6c182172e194779d",
+      "bytes": 33889
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/18.body",
+      "sha256": "8174e9443225733e5994f3a0e54dec163048e177737d66caf7ee44dcb5429b91",
+      "bytes": 33809
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/public-02-sse-chain01/19.body",
+      "sha256": "134f66fca6396511b79b4abf55a3706144a9b754f43f529786b2b21bef8707e2",
+      "bytes": 33179
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/revalidation-20261022/southbound/summary.json",
+      "sha256": "5741f2e238b95de1767d7a64d8abd94144e2ad66d4c6c63a94b1e639af4593bc",
+      "bytes": 1180
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/revalidation-20261022/southbound/conditional-list-state-intervals.csv",
+      "sha256": "36130c9088102d32749c4543d5eb4f9c77cb4bc8a817befa3b1350214aeb9cfc",
+      "bytes": 412549
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/sector-stock-20261021/coverage/revalidation-20261022/southbound/adjustments.csv",
+      "sha256": "d45c595a4229ac0ab4017c997b4e9943658b0c7862fab339c23c013a7d8afdc6",
+      "bytes": 294776
+    }
+  ],
+  "expected": {
+    "adjustment_pages": 14,
+    "adjustments": 1307,
+    "current_pages": 7,
+    "current_members": 698
+  },
+  "anchor_date": "2026-10-22",
+  "history_start_boundary": "before earliest saved effective event; not official launch initial list unless separately proved",
+  "rules": [
+    "Parse JSONP using exact callback wrapper and json.loads; never execute source",
+    "Check fetched hashes, page metadata, NUM sequence, unique codes/events, snapshot dates, valid actions; retain unknowns and future-effective rows",
+    "Reverse all happened events from current code set; report missing removals/duplicate adds both directions; do not repair conflicts or guess membership",
+    "Only write inferred baseline and conditional intervals when all chain checks pass; passing arithmetic is not completeness/known_at proof",
+    "No publication timestamp fabricated; economic admission false",
+    "Compare SZ conditional state code sets at fixed 2016-12-05,2020-01-02,2026-10-20,2026-10-21; no union account assertion",
+    "Preserve raw data, no network, no algorithm/account changes"
+  ],
+  "account_runs": 0,
+  "algorithm_changes": 0
+}

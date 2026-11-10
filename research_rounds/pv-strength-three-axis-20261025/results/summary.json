@@ -1,0 +1,92 @@
+{
+  "recorded_at": "2026-10-25T03:54:39.140639+00:00",
+  "assets": [
+    {
+      "asset": "AU0",
+      "name": "沪金主连",
+      "rows": 4575,
+      "first": "2008-01-09",
+      "last": "2026-10-23",
+      "scored": 4508,
+      "structure_broken": 30,
+      "structures_created": 31,
+      "impulses": 165,
+      "sha256": "c44913006a891b5abfca4a66d520ef57cdf0ea33c11939cad162570ddb06ae6d"
+    },
+    {
+      "asset": "518880",
+      "name": "黄金ETF",
+      "rows": 2000,
+      "first": "2018-07-17",
+      "last": "2026-10-16",
+      "scored": 1936,
+      "structure_broken": 11,
+      "structures_created": 12,
+      "impulses": 49,
+      "sha256": "7dc084209be511941e3552f31a17e730bb02d47a69592b9d0ea74ff74f925eeb"
+    },
+    {
+      "asset": "512480",
+      "name": "半导体ETF",
+      "rows": 1786,
+      "first": "2019-06-12",
+      "last": "2026-10-23",
+      "scored": 1722,
+      "structure_broken": 21,
+      "structures_created": 22,
+      "impulses": 51,
+      "sha256": "5338e9113b9d0a431a9a29cd389f755e6dc74d29686dbf43ea45d8d91645998f"
+    },
+    {
+      "asset": "001309.SZ",
+      "name": "德明利",
+      "rows": 1044,
+      "first": "2022-07-01",
+      "last": "2026-10-22",
+      "scored": 980,
+      "structure_broken": 5,
+      "structures_created": 6,
+      "impulses": 57,
+      "sha256": "fb4e186f1e5d78c6cc83136cdf54d65df77c252c92306957786b7fc8740c54d1"
+    },
+    {
+      "asset": "688981.SH",
+      "name": "中芯国际",
+      "rows": 1513,
+      "first": "2020-07-16",
+      "last": "2026-10-22",
+      "scored": 1449,
+      "structure_broken": 17,
+      "structures_created": 18,
+      "impulses": 99,
+      "sha256": "816546064f871c94e4265ad116e32636918ec1a2857694731d89120c869d348c"
+    },
+    {
+      "asset": "600036.SH",
+      "name": "招商银行",
+      "rows": 3338,
+      "first": "2013-01-04",
+      "last": "2026-10-22",
+      "scored": 3274,
+      "structure_broken": 36,
+      "structures_created": 37,
+      "impulses": 167,
+      "sha256": "bf767454962f65824ce551b806bb848cf44df8975d31af85d9a62a87e0057dd8"
+    },
+    {
+      "asset": "600519.SH",
+      "name": "贵州茅台",
+      "rows": 3349,
+      "first": "2013-01-04",
+      "last": "2026-10-22",
+      "scored": 3285,
+      "structure_broken": 32,
+      "structures_created": 33,
+      "impulses": 144,
+      "sha256": "b9444554fcef2b36c3218738be1d9d6916ab37ff3a06d89d203b50cf6a282fe4"
+    }
+  ],
+  "account_runs": 0,
+  "composite_score": false,
+  "synthetic_check_sha256": "44d3376889c35f6a69cda42ef816a21139a55c17e1449660fd8b5f426f926212"
+}

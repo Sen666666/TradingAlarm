@@ -1,0 +1,29 @@
+2026-11-04 继续研究：真实平仓后局部高点重入，事件层短验证。
+源No60连续2022-2024及独立2025Jul-2026Jun全1709股/90行业，自己的真实账；不拼接财富。
+三指定股只是解释例，所有同类候选、多行业、失败重入及已有赢家保留。
+
+真实stock-flat区间由已核actual entry action分组的真实持仓campaign确定：从该campaign
+全部层实际已平的最晚OPEN，到该股票下次真实首次买入OPEN/原账终点。已知closed/qty
+与entry action只作原状态标签，不改变原账。当天收盘op.held必须False。
+主母体：区间内原canonical fresh CP1+mobile_Q、行业confirmed/expanded；原ACT/未决单/
+资金障碍单列，不把close通过等同下一OPEN可执行。原core角色另作对照，不能重新授权
+已消费core_epoch，也不重播旧receipt。
+
+唯一局部高定义：从真实全清OPEN当天起，到本信号日之前的共同市场CLOSE最大值。
+本信号收盘严格高于该高点才PASS。只读同源经济可比close；共同市场观察缺价/跨源为
+UNKNOWN，不跳过缺行。卖出当天第一CLOSE的此前区间为空，记UNFORMED_FIRST_CLOSE，
+不借未来形成锚点。既不换OHLC wick高，也不选20/55/63窗，不调整规则救结果。
+同时记录区间内CP1 reset_reason与frontier清空/降低，仅解释非冗余来源，不新增过滤。
+
+原成本/保护/角色/排序/行业/现金/风险门均不变。0.25%决策NAV只作为已有core尺度的
+预先单一试探风险能力样例，原2%名义金额cap保留；先计算合法最小手gross及名义风险
+必要下界和feeless数量上界，非含费可执行量。精确OPEN15事件由funding_agent恢复原
+策略自己的checkpoint，给每路并列失败集合、竞争预留与完整cash/风险。
+若原route两路合法min均失败，缩maxq/新增risk cap不可能在同状态解锁。不得将未来
+改前排数量或卖健康持仓的另一资金路径冒充本事件已可买。
+
+先存全部当时特征/原母体，再接原actualfill净额（long到2024末，strong到Jun30）；
+原层分组不是删除/重配节省反事实。否证：新门大多重复、未覆盖三股/主要失败，或
+真正新增部分伤已有赢家时停止此hyp，不改high或risk参数硬救，不跑新连续账户。
+必要替代应针对已证的资源责任，先提出明确单一可检验资金政策再审查，不加信号补丁。
+只写reentry_v1及其review/funding_agent；原任务文件只读，不下载、不发布、不实盘。

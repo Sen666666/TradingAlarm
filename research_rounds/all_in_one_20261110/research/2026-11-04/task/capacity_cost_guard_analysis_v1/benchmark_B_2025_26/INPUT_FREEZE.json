@@ -1,0 +1,83 @@
+{
+  "at_UTC": "2026-11-04T15:49:10.512085+00:00",
+  "before_any_benchmark_simulation": true,
+  "scope": [
+    "2025-07-01",
+    "2026-06-30"
+  ],
+  "days": 242,
+  "first_possible_fill": "2025-07-02 OPEN",
+  "initial_cash": "1000000",
+  "no_annual_reset": true,
+  "old2024_serialized_prefix_bytes_exact": true,
+  "overlap": [
+    {
+      "source": "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/inputs/510300_history.csv",
+      "rows": 1327,
+      "raw_price_volume_exact": true,
+      "on_exact": true,
+      "numeric_CSV_roundtrip_errors": {
+        "open": 0.0,
+        "close": 0.0,
+        "high": 0.0,
+        "low": 0.0,
+        "volume": 0.0,
+        "volume_shares": 0.0,
+        "signal_close": 5.329070518200751e-15,
+        "ma63": 5.329070518200751e-15,
+        "adv20_prior_shares": 0.0
+      }
+    },
+    {
+      "source": "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/continuation2024/inputs/510300_history.csv",
+      "rows": 1569,
+      "raw_price_volume_exact": true,
+      "on_exact": true,
+      "numeric_CSV_roundtrip_errors": {
+        "open": 0.0,
+        "close": 0.0,
+        "high": 0.0,
+        "low": 0.0,
+        "volume": 0.0,
+        "volume_shares": 0.0,
+        "signal_close": 5.329070518200751e-15,
+        "ma63": 5.329070518200751e-15,
+        "adv20_prior_shares": 0.0
+      }
+    }
+  ],
+  "simulate_body_SHA256": "801b8f16531388768ecff27058b726662dc03f8c8ce2da329fafc55f3c6edabe",
+  "dividends_in_window": [
+    {
+      "ex_date": "2026-01-19",
+      "pay_date": "2026-01-27",
+      "amount": 0.123,
+      "source": "local EastmoneyF10",
+      "entitlement": "previous-close inventory",
+      "known_for_signal": "ex-date close only"
+    }
+  ],
+  "splits": [],
+  "execution_verified": false,
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_analysis_v1/run_benchmark_B_once.py": "450066860a1b4d87bb067c129e00bbf6556c5627574579ce955e31eb54b954bc",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_analysis_v1/BENCHMARK_B_READINESS_AND_CARD.txt": "176e04ab912fafdb24b606e28d3927415a9b8fb6ddd471d2eeeab97fc6ce3c2b",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_analysis_v1/BENCHMARK_B_READINESS.json": "c05884690d5ef6425bf72626d87de9b8a32bc77e0f19e6ca8a9fe17b12a1574f",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_analysis_v1/benchmark_B_2025_26/GRANT_BINDING.json": "b45abfe65c4aea9532af967531d9dab72a0f97cfb3210f25be7bae65ccad9f28",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/run_benchmarks.py": "fd0eaaff22336d8d6b0408c89c4862cc187dad99c69960fa8ce024d9c22e0e64",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/RUN_FREEZE.json": "b1246b16dba693beb92d8d57011f0f2d0e4ee95cc7f51079b993da6edd377ada",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/continuation2024/inputs/510300_history.csv": "e7efde38b82a77f488ccbfd4436d602021e9d66ac02d2d5b7b4b568c4b111785",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/benchmark_2022_2023/continuation2024/inputs/510300_actions.json": "51a28facf4236215e797424c607dca348fd21163b1199576d3b6cdc2ca9903c7",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/portfolio_data.py": "42a4a04901143eba47c61d1dd9ea9e8d701a027fc4bd191216ac4c9c1f1828a8",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/portfolio-protocol.json": "be2782f45674eb4ad830dc4ac4421a805780b9ce5724c0852e7c4a6b643014e3",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/data/tencent-sh510300-raw.json": "bf621228282fef12198c88ab98554e2864c83a4f0ed293160f918a345c6a7e66",
+    "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/data/eastmoney-fhsp-510300.html": "29f971e7f30f35767e510fe93a44528cacbeabb0b7c20be3fc6ceb9c396ef788",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/runs/2025_26/pair/daily.jsonl.gz": "31d1ec94e4d4f1e249d24441794611886f56f6add844f1b2e70b15ae42fed197"
+  },
+  "inputs": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_analysis_v1/benchmark_B_2025_26/inputs/510300_actions.json": "d9154f11722cea7acd0524aa6ba072fbc852cdbede907c3387d4283953f8b9d0",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_analysis_v1/benchmark_B_2025_26/inputs/calendar.csv": "def360f1ddb8648100da443e972ba631a493c543ba3e5722a6ef2d123c920b54",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_analysis_v1/benchmark_B_2025_26/inputs/510300_history.csv": "7870713bedb3f3f243b451c1c8de8ae27eddf4791b3fc6be91a2e91ea0a39959",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/capacity_cost_guard_analysis_v1/benchmark_B_2025_26/inputs/510300_B_daily.csv": "9f8b02655429ff12da4c68ef2ab8b15bd0b3764c6c73f7c63747e5ed5f4ff746"
+  }
+}

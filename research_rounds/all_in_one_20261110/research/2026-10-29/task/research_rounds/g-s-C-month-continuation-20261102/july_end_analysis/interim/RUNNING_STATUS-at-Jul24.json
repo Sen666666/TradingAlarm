@@ -1,0 +1,38 @@
+{
+  "checked_at": "2026-11-02T11:04:10.178981+00:00",
+  "financial_scope": "2025 two original accounts only through Jul31; 2022 remains Jan12",
+  "running_rows": [
+    {
+      "arm": "2025_26-C10",
+      "known_own_exec_session": 68541,
+      "last_complete_checkpoint": {
+        "checkpoint": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-month-continuation-20261102/runs/2025_26-C10/2025-07-24-ACTION.pkl",
+        "sha256": "d58ff66a8688f5a283bfee53cd704c51dfa9836fe9a797e6fac52d2dac4a81d6",
+        "cursor": "2025-07-24 00:00:00+08:00",
+        "phase": "ACTION"
+      },
+      "actual_run_start": "2026-11-02T10:50:50.995275+00:00",
+      "elapsed_seconds": 799.181933,
+      "stdout": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-month-continuation-20261102/2025_26-C10-JULY-END.out",
+      "stderr": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-month-continuation-20261102/2025_26-C10-JULY-END.err"
+    },
+    {
+      "arm": "2025_26-C_BATCH20",
+      "known_own_exec_session": 15469,
+      "last_complete_checkpoint": {
+        "checkpoint": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-month-continuation-20261102/runs/2025_26-C_BATCH20/2025-07-24-ACTION.pkl",
+        "sha256": "5e022e06f7fc248e452cf929eab13111db3f54526f63e7ed48417efb18601d8f",
+        "cursor": "2025-07-24 00:00:00+08:00",
+        "phase": "ACTION"
+      },
+      "actual_run_start": "2026-11-02T10:55:17.141535+00:00",
+      "elapsed_seconds": 533.037436,
+      "stdout": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-month-continuation-20261102/2025_26-C_BATCH20-JULY-END.out",
+      "stderr": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-month-continuation-20261102/2025_26-C_BATCH20-JULY-END.err"
+    }
+  ],
+  "do_not_restart_while_running": true,
+  "immutable_diagnostic_package": "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/g-s-C-short-difference-readonly-20261102",
+  "diagnostic_artifact_sha256": "6dafebcbb30f70f0ba1f9c05c74c336c4403134ddc8d8190f0981250549fab54",
+  "source_unchanged": true
+}

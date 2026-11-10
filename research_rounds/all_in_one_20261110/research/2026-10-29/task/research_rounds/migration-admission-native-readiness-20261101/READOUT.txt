@@ -1,0 +1,23 @@
+原单遍Bdiag＋迁池/新准入解耦：native readiness
+
+工程门通过，待独立审查；未运行解耦历史账户或完整收益路径。
+真实原生账本16项测试通过（0.066s）：reserve/fill/partial、单订单最低佣金、T+1、
+cancel请求/ack占用、晚到fill、持仓+余单split同域、receipt去重、结算、后续合法迁池、硬容量及损坏镜像拒绝。
+预算模型fill/sell未用于真实成交。撤单在原历史引擎同步完成；测试显式保留请求至native ack之间的占用，
+不声称模拟了真实券商异步系统。
+
+原政策身份段仅2025/7/1–7/2（2收盘+首次开盘）：38笔真实成交、78条journal、198条audit、2条decision，
+五类流水与旧保存账逐项一致。物理截断侧全部原生账户字段/集合成员相同；两侧已落盘。
+完整状态恢复相同；错误policy/route恢复拒绝。新解耦partial-pending原生fixture亦通过带身份checkpoint恢复。
+原政策完整输入侧只跑一次，物理截断侧只跑一次；后续比较器修订均从原检查点恢复。
+实际短段运行秒数：{"prefix-full-source": 1.4101750417612493, "prefix-physical-source": 1.3938507079146802}。输入读取未重算指标；检查器修订造成缓存重复读取已记。
+
+唯一新经济政策仍是route/request不再要求旧probe整迁成功；原best-effort调用/副作用保留。
+Native Account、planning、opening、所有成交/撤单/split/镜像回调原文不改；原core-first预留即抑制同股mobile。
+新订单并不使旧probe迁走或免占额。真实小新单可进一步挤占整迁所需余量，后来迁池重新检查。
+
+已预注册下一两窗比较指标见CONTRACT.txt，含新增/失去真实获资股与attempt、旧probe等待及右删失、
+新试错阻挡、无未来筛选的机会覆盖、两pool曝险/损耗、closed/open肥尾、NAV/DD/费用，
+以及弱市新增损失和原赢家被挤出。该文件不是启动两窗授权。
+
+当前无未解释接口阻塞；等待独立审查。原数据/日线成交代理/非PIT/未见样本限制不变，未获实盘认证。

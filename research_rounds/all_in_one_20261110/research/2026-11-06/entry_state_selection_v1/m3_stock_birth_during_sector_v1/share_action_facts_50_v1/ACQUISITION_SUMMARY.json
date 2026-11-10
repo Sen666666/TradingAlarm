@@ -1,0 +1,266 @@
+{
+  "finished": "2026-11-08T01:23:10.116251+00:00",
+  "elapsed_s": 133.26811116700992,
+  "new_requests": {
+    "api_new": 44,
+    "notice_query_new": 46,
+    "pdf_new": 46
+  },
+  "raw_files": 50,
+  "notice_queries": 50,
+  "pdf_files": 50,
+  "target_exact_hits": [
+    {
+      "sid": "603938.SH",
+      "target_ex_date": "2022-05-12",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "300827.SZ",
+      "target_ex_date": "2022-05-16",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "002913.SZ",
+      "target_ex_date": "2022-05-20",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "603005.SH",
+      "target_ex_date": "2022-05-20",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "300975.SZ",
+      "target_ex_date": "2022-05-27",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "000567.SZ",
+      "target_ex_date": "2022-05-30",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "000672.SZ",
+      "target_ex_date": "2022-05-30",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "603605.SH",
+      "target_ex_date": "2022-05-30",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "002738.SZ",
+      "target_ex_date": "2022-06-01",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "601568.SH",
+      "target_ex_date": "2022-06-01",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "300738.SZ",
+      "target_ex_date": "2022-06-02",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "300806.SZ",
+      "target_ex_date": "2022-06-02",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "601012.SH",
+      "target_ex_date": "2022-06-06",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "300474.SZ",
+      "target_ex_date": "2022-06-08",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "603738.SH",
+      "target_ex_date": "2022-06-08",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "605488.SH",
+      "target_ex_date": "2022-06-08",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "301061.SZ",
+      "target_ex_date": "2022-06-09",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "603871.SH",
+      "target_ex_date": "2022-06-09",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "605389.SH",
+      "target_ex_date": "2022-06-09",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "002881.SZ",
+      "target_ex_date": "2022-06-10",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "003031.SZ",
+      "target_ex_date": "2022-06-10",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "300655.SZ",
+      "target_ex_date": "2022-06-10",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "600295.SH",
+      "target_ex_date": "2022-06-13",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "603233.SH",
+      "target_ex_date": "2022-06-13",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "605289.SH",
+      "target_ex_date": "2022-06-13",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "300759.SZ",
+      "target_ex_date": "2022-06-14",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "002568.SZ",
+      "target_ex_date": "2022-06-16",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "300913.SZ",
+      "target_ex_date": "2022-06-16",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "688378.SH",
+      "target_ex_date": "2022-06-22",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "000987.SZ",
+      "target_ex_date": "2022-06-23",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "300762.SZ",
+      "target_ex_date": "2022-06-24",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "000625.SZ",
+      "target_ex_date": "2022-06-27",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "603529.SH",
+      "target_ex_date": "2022-06-28",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "603816.SH",
+      "target_ex_date": "2022-06-29",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "603236.SH",
+      "target_ex_date": "2022-06-30",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "603883.SH",
+      "target_ex_date": "2022-06-30",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "688017.SH",
+      "target_ex_date": "2022-06-30",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "601101.SH",
+      "target_ex_date": "2022-07-01",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "002460.SZ",
+      "target_ex_date": "2022-07-04",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "301029.SZ",
+      "target_ex_date": "2022-07-05",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "603505.SH",
+      "target_ex_date": "2022-07-07",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "603663.SH",
+      "target_ex_date": "2022-07-12",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "603662.SH",
+      "target_ex_date": "2022-07-13",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "600064.SH",
+      "target_ex_date": "2022-07-15",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "600845.SH",
+      "target_ex_date": "2022-07-15",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "603693.SH",
+      "target_ex_date": "2022-07-28",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "603127.SH",
+      "target_ex_date": "2022-08-08",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "000039.SZ",
+      "target_ex_date": "2022-08-18",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "600570.SH",
+      "target_ex_date": "2022-08-18",
+      "exact_api_hits": 1
+    },
+    {
+      "sid": "688300.SH",
+      "target_ex_date": "2022-11-08",
+      "exact_api_hits": 1
+    }
+  ],
+  "source_inputs_unchanged": true,
+  "strategy_runs": 0
+}

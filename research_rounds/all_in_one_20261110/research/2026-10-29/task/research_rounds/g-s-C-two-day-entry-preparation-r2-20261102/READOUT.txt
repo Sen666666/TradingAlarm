@@ -1,0 +1,11 @@
+两日入口R2：只读准备，无账户事件
+
+独立绑定g-s-C-native-mixed-order-v1-20261102；原R1入口/V3均保留。新增字段仅原生冻结dispatch sequence；core/T完整股票优先键保存不变，C provider用副本计算真实H∪E扩张键，避免反写core-only/回退排序；订单原priority/role/receipt不重排。
+
+真实输入仍原R2 causal loader与原起点F1 bootstrap：2022Jan4–5、2025Jul1–2，各1709身份/90行业/91种子；源候选300/136、319/245，canonical167/62、145/117，四个收盘行业H1未知均0。源候选不是成交/策略获资数。688608原Jul2 1.40送转和现金1.20事件保留，到账日未知不假定可再投。
+读取数据/原manifest、纯键检查及无授权前置门通过；没有调用历史Account工厂、创建意图或推进金融事件。原1m新账户起点不借A/SC/PVR状态；运行后各OPEN/CLOSE保存完整账、budget/goal、cursor和source/input binding的代码入口已备，但历史金融接线/物理前缀仍未验证。
+
+当前ENGINE_BINDING仍PENDING_INDEPENDENT_REVIEW，无approved授权文件。四条准确命令见readiness/RUN_COMMANDS.txt，模板批准字段均false；不准现在执行。若独审修订，哈希守卫先拒旧绑定，不能静默换版本。
+一般零股、尚未提交C授权遇送转等未支持事件仍在变更前拒绝，不删除股票或数据；两日688608原Jul1无core/fresh CP1，没有预起点意图，故源资格不触发该live-Q转换缺口。
+
+验收只保留C10/C20：短促大涨能抓更好，但对照新增骗线损失与持续趋势参与代价，不先偏好慢或判C20胜；固定全母体和事前持续时间分组，尾端未知单列，不把漏抓事后改名短行情。不得按行情重置账户，不增指标/参数/网格，不跑首月。

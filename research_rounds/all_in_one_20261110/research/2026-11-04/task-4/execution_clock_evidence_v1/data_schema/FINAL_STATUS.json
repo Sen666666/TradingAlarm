@@ -1,0 +1,20 @@
+{
+  "status": "ACTUAL_DAILY_INPUT_SCHEMA_AND_CLOCK_SOURCE_COMPLETE",
+  "main_readout": "READOUT.txt",
+  "actual_input_binding": "ACTUAL_MANIFEST_BINDINGS.json",
+  "schemas_and_original_samples": "ACTUAL_INPUT_SCHEMA_AND_SAMPLES.json",
+  "source_index": "SOURCE_SNIPPET_INDEX.json",
+  "sample_parquet_files": 6,
+  "sample_stocks": 2,
+  "new_Market_or_Account_instances": 0,
+  "new_models_indicators_or_backtests": 0,
+  "new_quotes_fetched": 0,
+  "conclusion": "Actual effective input reader and execution path consumes daily OHLCV, composing quote/mark times from daily dates and declared clocks. No post-open bid/ask/trade-minute data are consumed by this path.",
+  "scope_limits": [
+    "Not an exhaustive search of the repository or a claim no minute data exist elsewhere",
+    "Observed_at strings do exist for some rows; the selected historical trade rows are empty and the effective reader does not use the field to establish quote known_at",
+    "Meaning/publication certification of each nonempty observed_at string was not independently audited",
+    "No live queue, bid-ask spread, post-open redecision execution or supplier publication time verified"
+  ],
+  "blockers_for_this_schema_read": []
+}

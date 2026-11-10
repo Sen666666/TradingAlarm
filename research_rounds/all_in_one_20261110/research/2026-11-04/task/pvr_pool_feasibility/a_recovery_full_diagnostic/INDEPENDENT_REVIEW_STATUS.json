@@ -1,0 +1,12 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "receipt": "/Users/bytedance/Documents/Codex/2026-11-04/task/independent_review/A_RECOVERY_FULL_DOMAIN_AUDIT.json",
+  "sha256": "d90bbf798a55545109a62ef2288ad7823d0e522f0e66784956d71870f00b41b0",
+  "scope": "all968ACT clocks,3+0pause episodes,31incremental days and original stockday/role mothers,three key fixed forward market horizons",
+  "minimum_unit_scope": "additional three-day single-probe necessary conditions only; independent supplement pending; no full routing/fill claim",
+  "minimum_unit_supplement": {
+    "receipt": "/Users/bytedance/Documents/Codex/2026-11-04/task/independent_review/A_MINIMUM_UNIT_SUPPLEMENT_AUDIT.json",
+    "sha256": "7806fe4b2f98de8b52463fb1a6a7597cce2cd61af54128c1ad43a78a688a68cd",
+    "scope": "622row counts,9fixed passing examples source/fee/unit checks; necessary conditions only, not executable lower bound; active stage naming clarification separate"
+  }
+}

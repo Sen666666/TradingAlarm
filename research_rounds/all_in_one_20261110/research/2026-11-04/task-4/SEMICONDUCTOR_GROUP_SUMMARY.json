@@ -1,0 +1,74 @@
+[
+  {
+    "policy": "PVR_BASELINE",
+    "group": "funded",
+    "stocks": 11,
+    "known_H1_price_labels": 11,
+    "H1_price_return_median_pct": 181.84748322380665,
+    "H1_price_return_mean_pct": 165.53857356077214,
+    "H1_price_ge100_stocks": 7,
+    "H1_price_negative_stocks": 1,
+    "actual_net": 9191.958794931506,
+    "actual_buy_cost": 257366.54604696008
+  },
+  {
+    "policy": "PVR_BASELINE",
+    "group": "market_receipt_unfunded",
+    "stocks": 105,
+    "known_H1_price_labels": 103,
+    "H1_price_return_median_pct": 92.19830623013989,
+    "H1_price_return_mean_pct": 107.26985147053331,
+    "H1_price_ge100_stocks": 45,
+    "H1_price_negative_stocks": 12,
+    "actual_net": 0.0,
+    "actual_buy_cost": 0.0
+  },
+  {
+    "policy": "PVR_BASELINE",
+    "group": "no_833_market_receipt",
+    "stocks": 10,
+    "known_H1_price_labels": 0,
+    "H1_price_return_median_pct": null,
+    "H1_price_return_mean_pct": null,
+    "H1_price_ge100_stocks": 0,
+    "H1_price_negative_stocks": 0,
+    "actual_net": 0.0,
+    "actual_buy_cost": 0.0
+  },
+  {
+    "policy": "PVR_NO60",
+    "group": "funded",
+    "stocks": 18,
+    "known_H1_price_labels": 18,
+    "H1_price_return_median_pct": 116.56943677305381,
+    "H1_price_return_mean_pct": 145.59487517611723,
+    "H1_price_ge100_stocks": 11,
+    "H1_price_negative_stocks": 1,
+    "actual_net": -16783.580462493144,
+    "actual_buy_cost": 638473.47575175
+  },
+  {
+    "policy": "PVR_NO60",
+    "group": "market_receipt_unfunded",
+    "stocks": 98,
+    "known_H1_price_labels": 96,
+    "H1_price_return_median_pct": 87.91631977042327,
+    "H1_price_return_mean_pct": 106.7605339319095,
+    "H1_price_ge100_stocks": 41,
+    "H1_price_negative_stocks": 12,
+    "actual_net": 0.0,
+    "actual_buy_cost": 0.0
+  },
+  {
+    "policy": "PVR_NO60",
+    "group": "no_833_market_receipt",
+    "stocks": 10,
+    "known_H1_price_labels": 0,
+    "H1_price_return_median_pct": null,
+    "H1_price_return_mean_pct": null,
+    "H1_price_ge100_stocks": 0,
+    "H1_price_negative_stocks": 0,
+    "actual_net": 0.0,
+    "actual_buy_cost": 0.0
+  }
+]

@@ -1,0 +1,322 @@
+[
+  {
+    "sid": "000620.SZ",
+    "anchor": "2022-01-07",
+    "status": "PAIRED_SHADOWS",
+    "entry_ref": {
+      "next_observation_day": "2022-01-10",
+      "OPEN": 2.9270158968348863,
+      "raw_OPEN": 2.57,
+      "OPEN_minus_line": 0.3732618691773544,
+      "quote_status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_exit": "2022-01-19",
+    "KC_exit": "2022-02-07",
+    "CP_next_OPEN": {
+      "day": "2022-01-20",
+      "raw_OPEN": 2.95,
+      "OPEN": 3.3598042395575543,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "KC_next_OPEN": {
+      "day": "2022-02-08",
+      "raw_OPEN": 2.77,
+      "OPEN": 3.1547992351099743,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_observations": 8,
+    "KC_observations": 16,
+    "cap_days": 8,
+    "first_cap_day": "2022-01-10",
+    "first_different_oldP": "2022-01-11",
+    "KC_reason": "ORIGINAL_I_INVALID"
+  },
+  {
+    "sid": "002583.SZ",
+    "anchor": "2024-09-20",
+    "status": "PAIRED_SHADOWS",
+    "entry_ref": {
+      "next_observation_day": "2024-09-23",
+      "OPEN": 26.750872675740194,
+      "raw_OPEN": 4.76,
+      "OPEN_minus_line": 4.84354756422286,
+      "quote_status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_exit": "2024-11-04",
+    "KC_exit": "2024-11-26",
+    "CP_next_OPEN": {
+      "day": "2024-11-05",
+      "raw_OPEN": 23.0,
+      "OPEN": 129.2584183911816,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "KC_next_OPEN": {
+      "day": "2024-11-27",
+      "raw_OPEN": 18.38,
+      "OPEN": 103.29433608825731,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_observations": 26,
+    "KC_observations": 42,
+    "cap_days": 18,
+    "first_cap_day": "2024-09-24",
+    "first_different_oldP": "2024-09-25",
+    "KC_reason": "ORIGINAL_I_INVALID"
+  },
+  {
+    "sid": "300085.SZ",
+    "anchor": "2024-09-12",
+    "status": "PAIRED_SHADOWS",
+    "entry_ref": {
+      "next_observation_day": "2024-09-13",
+      "OPEN": 45.917541373839995,
+      "raw_OPEN": 8.7,
+      "OPEN_minus_line": 4.327860221442386,
+      "quote_status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_exit": "2024-10-10",
+    "KC_exit": "2024-12-23",
+    "CP_next_OPEN": {
+      "day": "2024-10-11",
+      "raw_OPEN": 30.21,
+      "OPEN": 159.44470401192027,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "KC_next_OPEN": {
+      "day": "2024-12-24",
+      "raw_OPEN": 43.59,
+      "OPEN": 230.06271591789488,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_observations": 13,
+    "KC_observations": 65,
+    "cap_days": 15,
+    "first_cap_day": "2024-09-19",
+    "first_different_oldP": "2024-09-20",
+    "KC_reason": "ORIGINAL_I_INVALID"
+  },
+  {
+    "sid": "300085.SZ",
+    "anchor": "2024-10-09",
+    "status": "PAIRED_SHADOWS",
+    "entry_ref": {
+      "next_observation_day": "2024-10-10",
+      "OPEN": 263.10223419378434,
+      "raw_OPEN": 49.85,
+      "OPEN_minus_line": 46.58560350087424,
+      "quote_status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_exit": "2024-10-10",
+    "KC_exit": "2024-10-10",
+    "CP_next_OPEN": {
+      "day": "2024-10-11",
+      "raw_OPEN": 30.21,
+      "OPEN": 159.44470401192027,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "KC_next_OPEN": {
+      "day": "2024-10-11",
+      "raw_OPEN": 30.21,
+      "OPEN": 159.44470401192027,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_observations": 1,
+    "KC_observations": 1,
+    "cap_days": 0,
+    "first_cap_day": null,
+    "first_different_oldP": null,
+    "KC_reason": "EXIT_STORED_LINE"
+  },
+  {
+    "sid": "603061.SH",
+    "anchor": "2025-12-04",
+    "status": "PAIRED_SHADOWS",
+    "entry_ref": {
+      "next_observation_day": "2025-12-05",
+      "OPEN": 135.01404007597256,
+      "raw_OPEN": 134.0,
+      "OPEN_minus_line": 11.38551233476484,
+      "quote_status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_exit": "2026-02-11",
+    "KC_exit": "2026-03-11",
+    "CP_next_OPEN": {
+      "day": "2026-02-12",
+      "raw_OPEN": 270.24,
+      "OPEN": 272.28503126963307,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "KC_next_OPEN": {
+      "day": "2026-03-12",
+      "raw_OPEN": 240.22,
+      "OPEN": 242.03785602276216,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_observations": 47,
+    "KC_observations": 61,
+    "cap_days": 11,
+    "first_cap_day": "2025-12-25",
+    "first_different_oldP": "2025-12-26",
+    "KC_reason": "ORIGINAL_I_INVALID"
+  },
+  {
+    "sid": "300623.SZ",
+    "anchor": "2026-01-09",
+    "status": "PAIRED_SHADOWS",
+    "entry_ref": {
+      "next_observation_day": "2026-01-12",
+      "OPEN": 208.89182379672874,
+      "raw_OPEN": 29.08,
+      "OPEN_minus_line": 14.415526123695656,
+      "quote_status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_exit": "2026-02-02",
+    "KC_exit": "2026-03-03",
+    "CP_next_OPEN": {
+      "day": "2026-02-03",
+      "raw_OPEN": 32.99,
+      "OPEN": 236.97872307613758,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "KC_next_OPEN": {
+      "day": "2026-03-04",
+      "raw_OPEN": 29.85,
+      "OPEN": 214.42300345021846,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_observations": 16,
+    "KC_observations": 31,
+    "cap_days": 7,
+    "first_cap_day": "2026-01-16",
+    "first_different_oldP": "2026-01-23",
+    "KC_reason": "ORIGINAL_I_INVALID"
+  },
+  {
+    "sid": "000029.SZ",
+    "anchor": "2022-12-01",
+    "status": "PAIRED_SHADOWS",
+    "entry_ref": {
+      "next_observation_day": "2022-12-02",
+      "OPEN": 14.136259865420337,
+      "raw_OPEN": 13.29,
+      "OPEN_minus_line": 1.9298276333798192,
+      "quote_status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_exit": "2022-12-07",
+    "KC_exit": "2023-04-04",
+    "CP_next_OPEN": {
+      "day": "2022-12-08",
+      "raw_OPEN": 11.6,
+      "OPEN": 12.338646684640777,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "KC_next_OPEN": {
+      "day": "2023-04-06",
+      "raw_OPEN": 11.5,
+      "OPEN": 12.232279040807667,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_observations": 4,
+    "KC_observations": 82,
+    "cap_days": 3,
+    "first_cap_day": "2022-12-02",
+    "first_different_oldP": "2022-12-05",
+    "KC_reason": "ORIGINAL_I_INVALID"
+  },
+  {
+    "sid": "002385.SZ",
+    "anchor": "2022-03-04",
+    "status": "PAIRED_SHADOWS",
+    "entry_ref": {
+      "next_observation_day": "2022-03-07",
+      "OPEN": 45.621220631973856,
+      "raw_OPEN": 8.98,
+      "OPEN_minus_line": 4.521479550384932,
+      "quote_status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_exit": "2022-03-08",
+    "KC_exit": "2022-03-08",
+    "CP_next_OPEN": {
+      "day": "2022-03-09",
+      "raw_OPEN": 8.02,
+      "OPEN": 40.74411909447999,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "KC_next_OPEN": {
+      "day": "2022-03-09",
+      "raw_OPEN": 8.02,
+      "OPEN": 40.74411909447999,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_observations": 2,
+    "KC_observations": 2,
+    "cap_days": 0,
+    "first_cap_day": null,
+    "first_different_oldP": null,
+    "KC_reason": "ORIGINAL_I_INVALID"
+  },
+  {
+    "sid": "300182.SZ",
+    "anchor": "2022-01-04",
+    "status": "PAIRED_SHADOWS",
+    "entry_ref": {
+      "next_observation_day": "2022-01-05",
+      "OPEN": 65.08560800160124,
+      "raw_OPEN": 6.45,
+      "OPEN_minus_line": 5.1463038884987,
+      "quote_status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_exit": "2022-01-11",
+    "KC_exit": "2022-01-11",
+    "CP_next_OPEN": {
+      "day": "2022-01-12",
+      "raw_OPEN": 5.8,
+      "OPEN": 58.52659324174996,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "KC_next_OPEN": {
+      "day": "2022-01-12",
+      "raw_OPEN": 5.8,
+      "OPEN": 58.52659324174996,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_observations": 5,
+    "KC_observations": 5,
+    "cap_days": 0,
+    "first_cap_day": null,
+    "first_different_oldP": null,
+    "KC_reason": "ORIGINAL_I_INVALID"
+  },
+  {
+    "sid": "601607.SH",
+    "anchor": "2022-03-24",
+    "status": "PAIRED_SHADOWS",
+    "entry_ref": {
+      "next_observation_day": "2022-03-25",
+      "OPEN": 33.93103044236196,
+      "raw_OPEN": 28.64,
+      "OPEN_minus_line": 4.485951716924216,
+      "quote_status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_exit": "2022-03-28",
+    "KC_exit": "2022-03-28",
+    "CP_next_OPEN": {
+      "day": "2022-03-29",
+      "raw_OPEN": 24.19,
+      "OPEN": 28.658925502818985,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "KC_next_OPEN": {
+      "day": "2022-03-29",
+      "raw_OPEN": 24.19,
+      "OPEN": 28.658925502818985,
+      "status": "REFERENCE_ONLY_NOT_EXECUTABLE_FILL"
+    },
+    "CP_observations": 2,
+    "KC_observations": 2,
+    "cap_days": 0,
+    "first_cap_day": null,
+    "first_different_oldP": null,
+    "KC_reason": "EXIT_STORED_LINE"
+  }
+]

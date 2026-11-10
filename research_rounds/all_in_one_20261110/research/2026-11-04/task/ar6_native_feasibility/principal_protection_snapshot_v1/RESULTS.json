@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "seconds": 4.607654499821365,
+  "layers": 1557,
+  "snapshot_dates": 484,
+  "witnesses": 25469,
+  "cutoff": "2023-12-29",
+  "new_accounts": 0,
+  "new_price_models": 0,
+  "new_CA_conversion": false,
+  "entryprice_nominal_excludes_fees": true,
+  "no_grant_or_credit": true,
+  "not_permanent_graduation": true,
+  "no_automatic_followup": true
+}

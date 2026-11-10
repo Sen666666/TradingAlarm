@@ -1,0 +1,835 @@
+CP
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py
+SHA256 85f21ad1622863645618f570b5f2e832558ebaca218ff2c71d0b4a0b545dd0bf
+    1  """CP1 market-only receipt calculation. No account/trade engine imports."""
+    2  import math
+    3  import numpy as np
+    4  import pandas as pd
+    5  A=math.sqrt(5);K=math.sqrt(21);S_MIN=math.log1p(.001)
+    6  EPS=4*2**-53/(1-4*2**-53)
+    7  def ge(a,b):return a>=b or abs(a-b)<=EPS*max(abs(a),abs(b),1e-300)
+    8  def gt(a,b):return a>b and not abs(a-b)<=EPS*max(abs(a),abs(b),1e-300)
+    9  def features(f):
+   10   if not isinstance(f.index,pd.DatetimeIndex) or f.index.hasnans or not f.index.is_unique or not f.index.is_monotonic_increasing:raise ValueError('ordered unique daily index required')
+   11   if not f.index.normalize().is_unique:raise ValueError('daily only')
+   12   if not {'close','amount','segment_id','e0_valid','e0_down'}<=set(f):raise ValueError('required facts absent')
+   13   for k in ['close','amount']:
+   14    if not (np.isfinite(f[k]).all() and f[k].gt(0).all()):raise ValueError('no missing/nonpositive price or amount')
+   15   for k in ['e0_valid','e0_down']:
+   16    if not pd.api.types.is_bool_dtype(f[k]) or f[k].isna().any():raise ValueError('explicit Boolean facts required')
+   17   if f.segment_id.isna().any():raise ValueError('source identity required')
+   18   blocks=f.segment_id[f.segment_id.ne(f.segment_id.shift())]
+   19   if blocks.duplicated().any():raise ValueError('noncontiguous source')
+   20   out=pd.DataFrame(index=f.index,columns=['r','s','z','B','u','v','m'],dtype=float)
+   21   for _,g in f.groupby('segment_id',sort=False):
+   22    r=np.log(g.close).diff();s=r.abs().shift().rolling(63,min_periods=63).median().mul(1.4826).clip(lower=1e-8)
+   23    B=g.amount.shift().rolling(21,min_periods=21).median();u=np.tanh(r/s);v=np.tanh(np.log(g.amount/B))
+   24    out.loc[g.index]=pd.DataFrame(dict(r=r,s=s,z=s.clip(lower=S_MIN),B=B,u=u,v=v,m=1+.5*u.abs()*v),index=g.index)
+   25   return out
+   26  def calculate(f,price_only=False):
+   27   z=features(f);out=[];phase=None;anchor=frontier=scale=None;credit=0.;segment=None
+   28   for day,row in f.iterrows():
+   29    q=z.loc[day];p=math.log(row.close);fresh=0.;receipt=False;candidate=math.nan;reason=None;disp=math.nan
+   30    if row.segment_id!=segment:
+   31     phase=None;segment=row.segment_id;reason='source_reset'
+   32    ready=math.isfinite(q.z)
+   33    if not ready or not row.e0_valid:
+   34     phase=None;anchor=frontier=scale=None;credit=0.;reason='unprepared' if not ready else 'E0_invalid'
+   35    elif phase is None or row.e0_down:
+   36     phase='SEEK';anchor=frontier=p;credit=0.;scale=float(q.z);reason='E0_down_reset' if row.e0_down else 'start'
+   37    elif phase=='SEEK' and gt(anchor,p):
+   38     anchor=frontier=p;credit=0.;scale=float(q.z);reason='lower_anchor'
+   39    else:
+   40     fresh=p-frontier if gt(p,frontier) else 0.
+   41     if fresh:
+   42      frontier=p;credit=math.fsum((credit,fresh*(1. if price_only else float(q.m))))
+   43     disp=frontier-anchor
+   44     receipt=bool(fresh and ge(disp,A*scale) and ge(credit,A*scale))
+   45     if receipt:candidate=float(row.close)*math.exp(-K*scale)
+   46    used_anchor,used_scale,used_credit=anchor,scale,credit
+   47    used_phase=phase
+   48    if receipt:
+   49     phase='UP';anchor=frontier=p;credit=0.;scale=float(q.z);reason='receipt_consumed'
+   50    out.append(dict(ready=ready,phase=used_phase,reset_reason=reason,anchor=used_anchor,frontier=frontier,scale=used_scale,credit=used_credit,delta_frontier=fresh,displacement=disp,receipt=receipt,candidate=candidate,next_anchor=anchor,next_scale=scale,next_credit=credit,next_phase=phase))
+   51   cols=['ready','phase','reset_reason','anchor','frontier','scale','credit','delta_frontier','displacement','receipt','candidate','next_anchor','next_scale','next_credit','next_phase']
+   52   result=pd.DataFrame(out,index=f.index,columns=cols)
+   53   for k in ['phase','reset_reason','next_phase']:result[k]=result[k].astype('string')
+   54   for k in ['ready','receipt']:result[k]=result[k].astype(bool)
+   55   for k in set(cols)-{'ready','receipt','phase','reset_reason','next_phase'}:result[k]=result[k].astype(float)
+   56   result=result.join(z)
+   57   result['e0_valid']=f.e0_valid;result['e0_floor']=f.i_floor if 'i_floor' in f else np.nan
+   58   return result
+
+native_stock_input
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stock-cp1-warmup-20261031/generate.py
+SHA256 ddd2999adc15bb6f8b2bad9d46bd89ed4199ba6a2d68eaf4c674aebf4e2bf2f9
+   23  def frame(sid,f,cut):
+   24   if f.empty:
+   25    return pd.DataFrame({'close':pd.Series(dtype=float),'segment_id':pd.Series(dtype=int),'i_target':pd.Series(dtype=bool),'i_floor':pd.Series(dtype=float),'amount':pd.Series(dtype=float),'e0_down':pd.Series(dtype=bool),'e0_valid':pd.Series(dtype=bool)},index=f.index)
+   26   rec=N.RECORDS[sid];sig=pd.read_parquet(N.OLD/rec['files']['signal']['path']).loc[:cut];ev=pd.read_parquet(N.OLD/rec['files']['events']['path']).reindex(f.index);out=f[['close','segment_id','i_target','i_floor']].copy();out['amount']=sig.amount.reindex(f.index);out['e0_down']=ev.event.eq(-1);out['e0_valid']=f.i_target.astype(bool)
+   27   if not np.isfinite(out[['close','amount']]).all().all() or not out[['close','amount']].gt(0).all().all():raise ValueError('missing/nonpositive same-source CP1 price or amount; no row removal allowed')
+   28   return out
+
+universe_prepare
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/prepare.py
+SHA256 f2c2e80103f75f5575bf8d45c7a20e6005eccf5daaea54b58f9cc2c1e433cf59
+    8  G=load('universe_existing_case_generator',W/'case-stock-cp1-warmup-20261031/generate.py');N,M,C=G.N,G.M,G.C;T=load('universe_original_CP1_trace',W/'cp1-evidence-trace-20261031/trace.py');S=load('universe_frozen_industry_stage',W/'industry-mobile-stage-20261031/stage.py');T.BEGIN=BEGIN;T.END=END
+   20  def emit_stock(sid,case,prefix_sample):
+   21   start=time.monotonic();refs={};checks={};old_source_status=None;CP_reuse=False;facts_reuse=False
+   22   if case is not None:
+   23    assert all(sha(p)==h for p,h in case['source_sha256'].items())
+   24    assert all(sha(W/'case-stock-cp1-warmup-20261031'/p)==h for p,h in case['output_sha256'].items())
+   25    root=W/'case-stock-cp1-warmup-20261031';refs=dict(facts=str(root/'full-facts'/f'{sid}.parquet'),CP1_input=str(root/'CP1-input'/f'{sid}.parquet'),CP1=str(root/'CP1'/f'{sid}.parquet'));f=pd.read_parquet(refs['facts']).loc[:END];q=pd.read_parquet(refs['CP1_input']).loc[:END];z=pd.read_parquet(refs['CP1']).loc[:END];source_hash=case['source_sha256'];CP_reuse=facts_reuse=True;checks['previous_case_full_chain_verified']=True;mode='verified_case_reuse'
+   26   else:
+   27    f,receipt=N.derive(sid,END);paths=source_paths(sid);source_hash={str(p):sha(p) for p in paths.values()};native=pd.read_parquet(W/'native-I-cache-interface-20261031/facts'/f'{sid}.parquet').loc[BEGIN:END];G.exact(f.loc[BEGIN:END],native);checks['native_I_export_all_fields_exact']=True;q=G.frame(sid,f,END);z=M.calculate(q);old=C.O/'signals'/f'{sid}.parquet';mode='new_fixed_chain'
+   28    if old.exists():
+   29     try:
+   30      G.exact(q,C.frame(sid,END));G.exact(z,pd.read_parquet(old).loc[:END]);refs['CP1']=str(old);CP_reuse=True;old_source_status='full_input_and_CP1_exact';checks['old_CP1_current_source_exact']=True
+   31      oldfacts=C.PREP/'facts'/f'{sid}.parquet';ff=pd.read_parquet(oldfacts)
+   32      if set(N.COLS)<=set(ff):G.exact(f,ff.loc[:END,N.COLS]);refs['facts']=str(oldfacts);facts_reuse=True
+   33     except (AssertionError,ValueError,FileNotFoundError) as e:old_source_status='incompatible_or_unavailable:'+str(e)[:350]
+   34    if 'facts' not in refs:
+   35     path=O/'facts'/f'{sid}.parquet';f.to_parquet(path);refs['facts']=str(path)
+   36    path=O/'CP1-input'/f'{sid}.parquet';q.to_parquet(path);refs['CP1_input']=str(path)
+   37    if 'CP1' not in refs:
+   38     path=O/'CP1'/f'{sid}.parquet';z.to_parquet(path);refs['CP1']=str(path)
+   39    if sid in prefix_sample and not f.empty:
+   40     short,_=N.derive(sid,CUT);G.exact(short,f.loc[:CUT]);G.exact(M.calculate(G.frame(sid,short,CUT)),z.loc[:CUT]);checks['physical_I_CP1_prefix_exact']=True
+   41   if f.empty:rs=[];status='not_applicable_no_local_observation_by_end'
+   42   else:
+   43    events_path=next(p for p in source_hash if p.endswith('/events.parquet'));ev=pd.read_parquet(events_path).reindex(q.index);rs,_,_=T.trace(sid,q,z,ev,f.e0_target.reindex(q.index).astype(bool));status='complete';checks['trace_unknown_receipts']=sum(bool(r['trace_unknown']) for r in rs)
+   44   rpath=O/'receipts'/f'{sid}.json';save(rpath,compact(rs));refs['receipts']=str(rpath);checks['old_cache_source_compatibility']=old_source_status
+
+actual2024_CP_reuse
+PATH /Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/NEW_CYCLE_READINESS/2024_full/prepare_data.py
+SHA256 9f40b79e70f44b56c771cc1b31245613c7fed2fb6e536842c66875279d46b638
+   70     for path,expected in {**r['source_sha256'],**r['output_sha256']}.items():assert sha(path)==expected,(sid,path)
+   71     q=pd.read_parquet(r['refs']['CP1_input']).loc[:END];z=pd.read_parquet(r['refs']['CP1']).loc[:END]
+   72     assert q.index.equals(z.index)
+   73     episode=q.e0_valid if industry else pd.read_parquet(r['refs']['facts'],columns=['e0_target']).e0_target.reindex(q.index).astype(bool)
+   74     eventpath=next(p for p in r['source_sha256'] if p.endswith('/events.parquet'))
+   75     events=pd.read_parquet(eventpath).reindex(q.index)
+   76     rr,_,_=tenv['trace'](sid,q,z,events,episode)
+   77     assert not any(x['trace_unknown'] for x in rr),(sid,'unknown canonical origin')
+   78     new=[x for x in rr if BEGIN<=x['confirmed_day']<=END]
+   79     assert [x['confirmed_day']for x in new]==[str(d.date())for d in z.loc[BEGIN:END].index[z.loc[BEGIN:END].receipt.eq(True)]]
+
+canonical_trace
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/cp1-evidence-trace-20261031/trace.py
+SHA256 bac0d77f7cc6aac767c24e70147d6d711e493ede57a30a8130eeeb0a122d00fe
+   30  def trace(canonical,f,z,events,episode,alias=None):
+   31   assert f.index.equals(z.index);out=[];points=[];anchor_at=anchor_obs=frontier_obs=scale_at=None;anchor_idx=None;last_receipt=None;global_last=None;consumed=set();ep=None;prevtarget=None;seg=None;epknown=True;checks=collections.Counter();allinc=[]
+   32   dates=list(f.index);fr=f.to_dict('records');zr=z.to_dict('records');ev=events.reindex(f.index);epvals=episode.reindex(f.index)
+   33   for i,(day,r,q) in enumerate(zip(dates,fr,zr)):
+   34    d=str(day.date());segment=str(int(r['segment_id']));obs=ident('price-observation',canonical,segment,d);target=bool(epvals.iloc[i]) if pd.notna(epvals.iloc[i]) else None
+   35    if segment!=seg:seg=segment;prevtarget=None;ep=None;last_receipt=None
+   36    if target is None:epknown=False;ep=None
+   37    elif not target:ep=None;epknown=True
+   38    elif prevtarget is False:ep=ident('original-E0-episode',canonical,segment,obs);epknown=True;last_receipt=None
+   39    elif prevtarget is None:epknown=False;ep=None
+   40    prevtarget=target;reason=q['reset_reason'] if pd.notna(q['reset_reason']) else None
+   41    if reason in ['unprepared','E0_invalid']:
+   42     points=[];anchor_at=anchor_obs=frontier_obs=scale_at=None;anchor_idx=None
+   43    elif reason in ['start','E0_down_reset','lower_anchor']:
+   44     points=[];anchor_at=d;anchor_obs=frontier_obs=obs;scale_at=d;anchor_idx=i
+   45    fresh=float(q['delta_frontier']) if pd.notna(q['delta_frontier']) else 0.
+   46    if fresh>0:
+   47     event=ev.iloc[i];native_sign=int(event.event) if pd.notna(event.get('event')) else None;point=dict(price_event_id=obs,day=d,from_observation_id=frontier_obs,to_observation_id=obs,log_displacement=fresh,log_frontier_to=math.log(r['close']),volume_multiplier=float(q['m']),native_event_known=native_sign is not None,native_event_sign=native_sign,derived_native_event_id=ident('cached-native-event-derived',canonical,segment,d,native_sign) if native_sign in [-1,1] else None,amount_background_start=str(dates[max(0,i-21)].date()),amount_background_end=str(dates[i-1].date()) if i else None);points.append(point);frontier_obs=obs
+   48    if bool(q['receipt']):
+   49     rid=ident('market-CP1-receipt',canonical,SCALE,segment,ep,anchor_obs,obs);unknown=[]
+   50     if not epknown:unknown.append('original_E0_episode_start_unknown')
+   51     if anchor_at is None or anchor_idx is None:unknown.append('CP1_anchor_origin_unknown')
+   52     if any(not p['native_event_known'] for p in points):unknown.append('native_event_row_missing_in_advances')
+   53     assert points and points[-1]['day']==d and fresh>0;assert all(p['price_event_id'] not in consumed for p in points),(canonical,d,'old impulse reused');assert all(p['day']>anchor_at for p in points)
+   54     if last_receipt:assert all(p['day']>last_receipt['confirmed_day'] for p in points)
+   55     checks['new_unconsumed_advance_receipts']+=1;used_ids=[p['price_event_id'] for p in points];signature=ident(canonical,segment,anchor_obs,obs,[(p['price_event_id'],p['log_displacement'],p['volume_multiplier']) for p in points]);row=dict(canonical_series=canonical,source_alias=alias or canonical,scale_id=SCALE,source_segment=segment,original_E0_episode_id=ep,confirmed_day=d,receipt_id=rid,decision_evidence_key=ident('one-series-scale-observation',canonical,SCALE,obs),formation_start_exclusive=anchor_at,formation_end_inclusive=d,anchor_observation_id=anchor_obs,confirmation_observation_id=obs,previous_market_receipt_id=last_receipt['receipt_id'] if last_receipt else None,previous_market_confirmed_day=last_receipt['confirmed_day'] if last_receipt else None,previous_global_market_receipt_id=global_last['receipt_id'] if global_last else None,previous_consumed_frontier_log=last_receipt['frontier_log'] if last_receipt else None,original_candidate=float(q['candidate']),original_scale=float(q['scale']),scale_frozen_at=scale_at,scale_old_return_end_observations=[ident('price-observation',canonical,segment,str(t.date())) for t in dates[max(1,anchor_idx-63):anchor_idx]] if anchor_idx is not None else [],new_advance_price_event_ids=used_ids,new_advance_observations=len(points),new_log_price_displacement=float(q['displacement']),original_credit=float(q['credit']),evidence_signature=signature,trace_unknown=unknown,native_event_id_note='derived from cached event observation; provider supplies no original eventID',live_publication_time='unknown; confirmation day only',stage_controller_consumed=False)
+   56     if BEGIN<=d<=END:out.append(row);allinc.extend(dict(receipt_id=rid,canonical_series=canonical,**p) for p in points)
+   57     consumed.update(used_ids);last_receipt=global_last=dict(receipt_id=rid,confirmed_day=d,frontier_log=math.log(r['close']));points=[];anchor_at=d;anchor_obs=frontier_obs=obs;scale_at=d;anchor_idx=i
+   58   return out,allinc,dict(checks)
+   59  def dedup(rows):
+   60   used={};decisions={}
+   61   for r in rows:
+   62    k=r['receipt_id'];dk=r['decision_evidence_key']
+   63    if k in used:assert used[k]['evidence_signature']==r['evidence_signature'];continue
+   64    assert dk not in decisions or decisions[dk]==k,'same underlying decision evidence has conflicting source receipts';decisions[dk]=k;used[k]=r
+   65   return list(used.values())
+
+G1
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/grade.py
+SHA256 faadd14be9ffbe79b5f92fceb92e480b9bf5eb4cce283b354e4dda7e0775b5c9
+    9  def classify(e):
+   10      required=['segment_id','valid_strength_observation','close','event','strength_mu5','strength_mu21','strength_s','strength_S21','strength_S63','strength_r','strength_qeff','strength_acute_down','strength_acute_up','strength_confirmed_direction_21','strength_confirmed_direction_63','strength_running_extreme_price_21']
+   11      if any(c not in e for c in required):raise ValueError('Missing G1 evidence')
+   12      if not e.index.is_unique or not e.index.is_monotonic_increasing:raise ValueError('Ordered unique observations required')
+   13      rows=[];events=[];previous_segment=None;previous_grade=None;prior_extreme=math.nan;prior_s21=0
+   14      for dt,r in e.iterrows():
+   15          segment=str(r.segment_id)
+   16          if segment!=previous_segment:
+   17              previous_grade=None;prior_extreme=math.nan;prior_s21=0;previous_segment=segment
+   18          out=dict(date=dt,segment_id=segment,ready=False,proposal=np.nan,grade=np.nan,score=np.nan,label='未知',phase='unknown',z5=np.nan,z21=np.nan,fresh_up=False,up_reasons='',transition='unknown',promotion_blocked=False,acute_down=False,acute_up=False,display='未知')
+   19          if not bool(r.valid_strength_observation) or not np.isfinite(r.strength_mu21):rows.append(out);continue
+   20          a,b=int(r.strength_S21),int(r.strength_S63);m5=float(r.strength_mu5);m21=float(r.strength_mu21);scale=float(r.strength_s)
+   21          z5=math.sqrt(5)*m5/scale;z21=math.sqrt(21)*m21/scale
+   22          down=bool(r.strength_acute_down);up=bool(r.strength_acute_up)
+   23          reasons=[]
+   24          if int(r.event)==1:reasons.append('new_E0_price_volume_up_event')
+   25          for h in [21,63]:
+   26              if float(r[f'strength_confirmed_direction_{h}'])==1:reasons.append(f'new_S{h}_up_confirmation')
+   27          ext=float(r.strength_running_extreme_price_21)
+   28          if a==1 and prior_s21==1 and np.isfinite(prior_extreme) and ext>prior_extreme+32*np.finfo(float).eps*max(abs(ext),abs(prior_extreme),1):reasons.append('new_price_frontier_in_confirmed_up_structure')
+   29          fresh=bool(reasons)
+   30          if a==0 and b==0:g=0;why='structure_unconfirmed'
+   31          elif m21<0 and m5<=0:g=-3 if a==b==-1 else -2;why='both_paces_negative'
+   32          elif m21<0 and m5>0:g=1 if a==1 else -1;why='local_repair' if a==1 else 'countertrend_rebound'
+   33          elif m21>0:
+   34              if a==b==1:g=3;why='up_structure_and_positive_medium_pace'
+   35              elif a==1:g=2;why='local_up_with_positive_medium_pace'
+   36              elif m5>0:g=1;why='pace_recovery_not_locally_confirmed'
+   37              else:g=-1;why='local_support_missing'
+   38          else:g=1 if m5>0 else -1 if m5<0 else 0;why='medium_pace_zero'
+   39          if a==b==1 and z5>=1 and z21>=1:g=4;why='two_scale_pace_expansion'
+   40          launch=up and int(r.event)==1 and m5>0
+   41          if launch and g<2:g=2;why='acute_up_and_new_volume_price_up_event'
+   42          if z5<=-1 and g>-2:g=-2;why='fast_adverse_displacement'
+   43          if down:g=min(g,-3);why='acute_down_overrides_old_structure'
+   44          proposal=g;old=previous_grade
+   45          blocked=old is not None and proposal>old and not fresh
+   46          if blocked:g=old
+   47          transition='initialize' if old is None else 'upgrade' if g>old else 'downgrade' if g<old else 'blocked_upgrade' if blocked else 'unchanged'
+   48          if down:phase='acute_down'
+   49          elif launch:phase='fast_launch'
+   50          elif up:phase='acute_up'
+   51          elif a==b==1 and z5>=1 and z21>=1:phase='expansion'
+   52          elif m21<0 and m5>0:phase='local_repair' if a==1 else 'downtrend_rebound'
+   53          elif m21<0 and m5<=0:phase='decline'
+   54          elif a==b==1 and (m5<0 or abs(z21)<1):phase='up_structure_consolidation'
+   55          elif a==b==1:phase='up_continuation'
+   56          elif a==1:phase='up_structure_building'
+   57          elif a==b==0:phase='unconfirmed'
+   58          else:phase='mixed_evidence'
+   59          out.update(ready=True,proposal=proposal,grade=g,score=25*g,label=LABELS[g],phase=phase,z5=z5,z21=z21,fresh_up=fresh,up_reasons='|'.join(reasons),transition=transition,promotion_blocked=blocked,acute_down=down,acute_up=up,display=('freeze·' if down else '')+LABELS[g],reason=why)
+   60          if transition!='unchanged':events.append(dict(date=str(dt.date()),segment=segment,previous=old,proposal=proposal,grade=g,score=25*g,kind=transition,basis=why,new_up_evidence=reasons))
+   61          rows.append(out);previous_grade=g;prior_extreme=ext;prior_s21=a
+   62      f=pd.DataFrame(rows).set_index('date')
+   63      return f,events
+
+native_I
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/policies_g1.py
+SHA256 079a70ac83aa98a3824aeaecc46186081d83f5148e9630a3ad0435cb01b05af1
+    6  def project(e,base,g,kind):
+    7      if kind not in ['G1_I','G1_X','G1_IX']:raise ValueError(kind)
+    8      use_i=kind in ['G1_I','G1_IX'];use_x=kind in ['G1_X','G1_IX']
+    9      active=False;floor=math.nan;segment=None;rows=[]
+   10      for dt,r in e.iterrows():
+   11          b=base.loc[dt];a=g.loc[dt]
+   12          if r.segment_id!=segment:active=False;floor=math.nan;segment=r.segment_id
+   13          valid=bool(r.valid_price_observation)
+   14          if not valid:
+   15              rows.append(dict(date=dt,target=np.nan,entered=0,exited=0,floor=np.nan,exit_line=np.nan,buy_event=False,entry_kind='',exit_reason='',grade=a.grade));continue
+   16          shadow=bool(b.target);ready=bool(a.ready);entered=exited=0;reason='';entry_kind=''
+   17          fresh=bool(a.fresh_up) if ready else False
+   18          warm=ready and a.grade>=2
+   19          cold=ready and (a.grade<=-2 or bool(a.acute_down))
+   20          if active:
+   21              if not shadow or float(r.close)<=floor:reason='E0_structure_boundary'
+   22              elif use_x and cold:reason='G1_cold_or_acute'
+   23              if reason:active=False;exited=1
+   24              elif np.isfinite(b.floor):floor=max(floor,float(b.floor))
+   25          # Entry-only is a new-evidence gate and restoration channel, while
+   26          # exit-only preserves E0's new-cycle entry stream. An exit-only entry
+   27          # is first checked by the extra exit rule on the next observation,
+   28          # matching the original sensitive-policy ordering.
+   29          opportunity=shadow and warm and (bool(b.entered) or fresh) if use_i else bool(b.entered)
+   30          if not active and not exited and opportunity:
+   31              active=True;entered=1;floor=float(b.floor)
+   32              entry_kind='G1_fresh_warm_evidence' if use_i else str(b.entry_kind)
+   33          buy=bool(active and opportunity) if use_i else bool(active)
+   34          rows.append(dict(date=dt,target=int(active),entered=entered,exited=exited,floor=floor if active or exited else np.nan,exit_line=floor if active or exited else np.nan,buy_event=buy,entry_kind=entry_kind,exit_reason=reason,grade=a.grade))
+   35      return pd.DataFrame(rows).set_index('date')
+
+runtime_facts
+PATH /Users/bytedance/Documents/ChatGPT/money/TradingAlarm/desk/refresh.py
+SHA256 6a144503d62891ae8856fe35b0475797226d2370b44ceb328d420dcc7084cdfc
+   47  def prepare_facts(signal):
+   48      paths=[ROOT/'research_rounds/b5-g1-20261025/code',ROOT/'research_rounds/pv-strength-b5-20261025/code',ROOT/'research_rounds/pv-participation-response-20261020/code']
+   49      for p in reversed(paths):sys.path.insert(0,str(p))
+   50      from data_utils import eligible_prices
+   51      from api import run_b5
+   52      from grade import classify
+   53      from policy import e0_policy
+   54      from policies_g1 import project
+   55      f=eligible_prices(signal)[['open','high','low','close','volume','segment_id']].copy();f['valid_price_observation']=True;f['valid_strength_observation']=np.isfinite(f.volume)&f.volume.gt(0)
+   56      z=run_b5(f,enhancements=False);e=z['evidence'].copy();g,_=classify(e)
+   57      e['decline_candidate']=False;b,_=e0_policy(e);ip=project(e,b,g,'G1_I')
+   58      keep=f[['close','segment_id']].copy()
+   59      for prefix,frame in [('e0',b),('i',ip)]:
+   60          for c in ['target','floor']:keep[prefix+'_'+c]=frame[c]
+   61      keep['i_buy']=ip.buy_event
+   62      for c in ['grade','fresh_up','acute_down','ready']:keep['g_'+c]=g[c]
+   63      # B5 base readiness is unchanged by disabling decline recovery.
+   64      keep['e0_ready']=z['state']['ready']
+   65      keep['factor']=signal.adjustment_factor.reindex(keep.index);keep['raw_close']=signal.raw_close.reindex(keep.index)
+   66      return keep
+
+I_packet
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/actual-risk-recovery-20261027/code/engine.py
+SHA256 781589c0a80a6713bf03ee4abb0bb3ab6ba649f7482f13179ab458809dc2e374
+   31   def packet(self,at,mode):
+   32    p=policy(mode)
+   33    if self.day!=at:self.day=at;self.cache={}
+   34    if p in self.cache:return self.cache[p]
+   35    clock=admission.Clock(at,self.market.sessions['A'][bisect_right(self.market.sessions['A'],at)],at.date())
+   36    inputs=self.b.at_decision(clock,market_buyable=self.market.market_buyable(at));stocks=[]
+   37    for l,h in zip(inputs.lines,inputs.historical):
+   38     assert l.security_id==h.security_id;sid=l.security_id;r=self.row(sid,at)
+   39     if p!='E0':
+   40      up=h.trend_up.read(clock)
+   41      if up is not None:h=replace(h,trend_up=replace(h.trend_up,value=bool(r[p.lower()+'_target'])))
+   42     s=pool.build_security(l,h,inputs.evidence)
+   43     if p!='E0':
+   44      allowed=s.buy_allowed.read(clock,for_execution=True);f=self.f[sid];today=pd.Timestamp(at.date());event=today in f.index and bool(f.loc[today,p.lower()+'_buy'])
+   45      s=replace(s,buy_allowed=admission.Fact(None if allowed is None else bool(allowed and event),at,at,source_id='original_'+p+'_daily_event'))
+   46     stocks.append(s)
+   47    result=(clock,tuple(stocks),inputs.sectors);self.cache[p]=result;return result
+
+Q
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024/code/sector_stock_admission.py
+SHA256 dbaee805c3e355a1801ff819e52f6996f98c02f76bf50f8b98ef68c40f2f2ada
+  185  def eligibility(s: Security, sectors: Mapping[str, Sector], clock: Clock,
+  186                  variant: Variant) -> Eligibility:
+  187      if variant not in ('T0', 'T1', 'S0', 'S1'):
+  188          raise ValueError('Unknown strategy variant')
+  189      issuer = s.issuer_id.read(clock, for_execution=True)
+  190      sector = s.sector_id.read(clock, for_execution=True)
+  191      if issuer is not None and (not isinstance(issuer, str) or not issuer):
+  192          raise ValueError('Invalid issuer ID')
+  193      if sector is not None and (not isinstance(sector, str) or not sector):
+  194          raise ValueError('Invalid sector ID')
+  195      common = _bool_fact(s.common_ready, clock)
+  196      buy = _bool_fact(s.buy_allowed, clock, for_execution=True)
+  197      cap = s.company_cap_cny.read(clock)
+  198      if cap is not None and (isinstance(cap, bool) or not isinstance(cap, (int, float))
+  199                              or not math.isfinite(cap) or cap < 0):
+  200          raise ValueError('Invalid company market cap')
+  201      stock_up = _bool_fact(s.trend_up, clock)
+  202      checks = {'common_ready': common, 'buy_allowed': buy,
+  203                'cap_above_10bn': None if cap is None else cap > 10_000_000_000,
+  204                'stock_up': stock_up,
+  205                'issuer_known': True if issuer is not None else None,
+  206                'sector_known': True if sector is not None and sector in sectors else None}
+  207      if variant != 'T0':
+  208          checks['sector_up'] = (None if sector not in sectors
+  209                                 else _bool_fact(sectors[sector].trend_up, clock))
+  210      unknown = tuple(k + ':unknown' for k, v in checks.items() if v is None)
+  211      failed = tuple(k + ':false' for k, v in checks.items() if v is False)
+  212      # Unknown is retained even if a separate known component is false.
+  213      q = None if unknown else not failed
+  214      return Eligibility(s.security_id, issuer, sector, q, unknown + failed)
+
+joint
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py
+SHA256 fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425
+   15  class Budget(V.Contract):
+   16   def __init__(self,expand):self.expand=expand;self.receivable_equity=0.;super().__init__(nav=1e6,cash=1e6,shared_loss_budget=20000,exhausted_policy='record_only')
+   17   @property
+   18   def nav(self):return super().nav+self.receivable_equity
+   19   def migrate(self,sector):return super().migrate(sector) if self.expand else False
+   20   def industry(self,token,bar):
+   21    if self.expand or not self.sectors[token.sector].active:return super().industry(token,bar)
+   22    # Probe-only control inherits the same market attempt, but never raises its
+   23    # financial level, migrates a pool, or cancels for promotion.
+   24    s=self.sectors[token.sector]
+   25    if not self.valid(token,'industry_cp1',bar) or token.event_id in self.consumed:return 'rejected'
+   26    if token.confirmed_time<=s.failed_bar or token.end<=s.failed_bar or bar<=s.last_bar or token.end<=s.last_end or token.confirmed_time<=s.last_evidence_time:return 'not_new_progress'
+   27    if token.confirmed_time!=bar:return 'late_evidence_audit_only'
+   28    self.consumed.add(token.event_id);s.last_bar=bar;s.last_end=token.end;s.last_evidence_time=token.confirmed_time;self.audit.append(('probe_only_new_industry_evidence',token.event_id));return 'probe'
+  130   def fill_exit(self,sid,w):
+  131    before={x['id']:dict(x) for x in self.live(sid)};r=super().fill_exit(sid,w)
+  132    if r:
+  133     for part in self.trades[-1]['parts']:
+  134      meta=self.jmeta[part['layer']];fee=float(r.fees_cny)*part['shares']/r.shares;loss=max(0.,meta['unit_cost']-float(r.gross_cny/D(r.shares)))*part['shares']+fee;self.budget.loss(meta['sector'],meta['episode'],loss)
+  135     self.journal.append(dict(kind='real_sell_fill',at=w.at,sid=sid,shares=r.shares,price=r.gross_cny/D(r.shares),fees=r.fees_cny,parts=self.trades[-1]['parts']));self.sync(w.at)
+  195   def industry(self,a,at):
+  196    day=gidday(at);bar=ordinal(day);b=a.budget
+  197    for sector,rows in self.industry_rows.items():
+  198     r=rows[day];ep=r['E0_episode'];current=b.sectors.get(sector)
+  199     if r['E0_valid'] and (not current or current.episode!=ep):b.start(sector,ep,self.episode_starts[ep])
+  200     if sector not in b.sectors:continue
+  201     if not r['E0_valid'] or r['action']=='end_attempt':
+  202      b.observe(sector,bar,failure=True);result='invalidated'
+  203     elif r['receipt']:
+  204      cp=self.industry_cp[sector+'|'+day];tok=V.Evidence(cp['receipt_id'],sector,'industry_cp1','21',ordinal(cp['formation_start_exclusive']),bar,bar,b.sectors[sector].episode)
+  205      result=b.observe(sector,bar,token=tok)
+  213   def planning(self,at):
+  214    clock,stocks,sectors=self.facts.packet(at,'I');sd={s.security_id:s for s in stocks};ss={s.sector_id:s for s in sectors};buyable=self.market.market_buyable(at);day=pd.Timestamp(at.date());event={};continuing={}
+  215    for sid,s in sd.items():
+  216     row=self.facts.row(sid,at);key=(bool(row.i_target),int(row.segment_id)) if row is not None else (False,-1)
+  217     if self.last_epoch.get(sid)!=key:self.epoch[sid]+=1;self.global_watch.pop(sid,None);self.last_epoch[sid]=key
+  218     ep=(key[1],self.epoch[sid]);event[sid]=BP.A.eligibility(s,ss,clock,'S0');continuing[sid]=BP.A.eligibility(replace(s,buy_allowed=buyable[sid]),ss,clock,'S0')
+  219     if event[sid].q is True:self.global_watch[sid]=ep
+  220    ordered=sorted(sd,key=lambda sid:(-(sd[sid].rank.read(clock) if sd[sid].rank and sd[sid].rank.read(clock) is not None else -1),sid))
+  221    for a in self.accounts.values():
+  222     C.activate(a);a.expire_day_buys(at);a.current_nav=a.balance(at,self.market.marks(at,a.positions))['nav'];M.E.risk_policy.step(a,at,'ACT20_BREAK');a.pending=[]
+  223     for sid in tuple(a.positions):
+  224      row=self.facts.row(sid,at);cp=self.cp[sid].loc[day] if day in self.cp[sid].index else None;quote=self.market.quote(sid,at);assert quote
+  225      if not a.risk_state['on'] or not bool(row.i_target):
+  226       if not bool(row.i_target):
+  227        for x in a.live(sid):
+  228         if x['kind']=='core':a.jmeta[x['id']]['pending_I_exit_reference']=True
+  229       a.sell(sid,clock,quote,[x['id'] for x in a.live(sid)],'ACT_pause' if not a.risk_state['on'] else 'I_structure_exit');continue
+  230      for x in a.live(sid):
+  231       if x['kind']=='core':
+  232        known_floor=self.facts.floor(sid,at,'I')
+  233        if known_floor is not None:a.jmeta[x['id']]['last_core_line']=str(known_floor)
+  234        continue
+  235       if x['kind']!='add' or x['id'] in a.sell_layers.get(sid,set()):continue
+  236       if D(str(row.close))<=x['floor']:a.sell(sid,clock,quote,[x['id']],'CP1_add_protection')
+  237       else:
+  238        floor=self.facts.floor(sid,at,'I')
+  239        if floor is not None:x['floor']=max(x['floor'],floor)
+  240        if cp is not None and bool(cp.receipt):x['floor']=max(x['floor'],D(str(cp.candidate)))
+  241     a.sync(at);self.industry(a,at)
+  242     for rank,sid in enumerate(ordered):
+  243      cpr=self.receipts[sid].get(gidday(at));roles=[];why=[];held=bool(a.quantity(sid));epoch=self.global_watch.get(sid);sector=self.sector_by_sid[sid]
+  244      if event[sid].q is True and not held and a.core_epoch.get(sid)!=epoch:roles.append('core')
+  245      if cpr and continuing[sid].q is True:roles.append('mobile')
+  246      if not a.risk_state['on']:why.append('ACT_paused')
+  247      if sid in a.exits:why.append('exit_pending')
+  248      if sid in a.buys:why.append('buy_pending')
+  249      if event[sid].q is not True and not (cpr and continuing[sid].q is True):why.extend(event[sid].reasons or ['no_fresh_signal_or_Q'])
+  250      self.opportunities.append(dict(account=a.label,day=gidday(at),sid=sid,sector=sector,rank=rank,core_Q=event[sid].q,mobile_Q=continuing[sid].q,CP1_id=cpr['receipt_id'] if cpr else None,roles=roles,held=held,barriers=why))
+  251      if why or not roles:continue
+  252      q=self.market.quote(sid,at);floor=self.facts.floor(sid,at,'I')
+  253      if q is None or floor is None:continue
+  254      for role in roles:
+  255       fline=max(floor,D(str(self.cp[sid].loc[day,'candidate']))) if role=='mobile' else floor;budget=min(a.current_nav*D('.02'),max(Z,a.current_nav*D('.1')-a.quantity(sid)*q.raw_price));i=dict(sid=sid,clock=clock,quote=q,budget=budget,cap=q.quantity.buy_floor(int(budget/q.raw_price)),weight=1.,group=0,score=sd[sid].rank.read(clock),kind='add' if role=='mobile' else 'core',role=role,floor=fline,epoch=epoch,reason='fresh_CP1_mobile' if role=='mobile' else 'I_early_core',rank=rank,CP1_id=cpr['receipt_id'] if role=='mobile' else None,CP1_trace=cpr if role=='mobile' else None)
+  256       if role=='core':LR.resize_core(i,a.current_nav,self.facts.factor(sid,at))
+  257       if not i.get('size_reject') and i['cap']>0:a.pending.append(i)
+
+industry_market_stage
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/industry-mobile-stage-20261031/stage.py
+SHA256 91b21d664eadb5864a7ff97bc288392325c0101d164b3c873d9fa7d492d7268d
+   10  class Stage:
+   11   def __init__(self,sid):self.sid=sid;self.attempt=None;self.stage=0;self.line=None;self.auth=None;self.seen=set();self.last=None;self.fingerprint=None;self.cached=None;self.segment=None;self.ep=None;self.attempt_count=0
+   12   def step(self,day,close,valid,floor,receipt,candidate,rid,episode,segment):
+   13    data=(str(day),close,valid,floor,receipt,candidate,rid,episode,str(segment));fp=T.ident(T.norm(data))
+   14    if self.last==str(day):
+   15     if fp!=self.fingerprint:raise ValueError('conflicting same-observation input')
+   16     return self.cached.copy()
+   17    if self.last is not None and str(day)<self.last:raise ValueError('noncausal clock')
+   18    old_stage=self.stage;old_attempt=self.attempt;old_line=self.line;old_auth=self.auth;action='hold';reason=None;usable=False;new=False
+   19    if receipt:
+   20     if not rid:raise ValueError('receipt identity missing')
+   21     new=rid not in self.seen;self.seen.add(rid)
+   22    source_change=self.segment is not None and str(segment)!=self.segment
+   23    ep_change=self.attempt is not None and episode!=self.ep
+   24    known=valid is not None and close is not None and math.isfinite(close) and close>0 and (not valid or floor is not None and math.isfinite(floor))
+   25    invalid=valid is False or source_change or ep_change
+   26    line_hit=bool(known and valid and self.attempt is not None and T.M.ge(self.line,close))
+   27    if invalid or line_hit:
+   28     reason='E0_invalid' if valid is False else 'source_change' if source_change else 'episode_change' if ep_change else 'mobile_line'
+   29     action='end_attempt' if self.attempt else 'observe';self.attempt=None;self.stage=0;self.line=None;self.auth=None
+   30    elif not known or receipt and (candidate is None or not math.isfinite(candidate)):
+   31     action='unknown';reason='market_input_unknown';self.auth=None
+   32    elif self.attempt is None:
+   33     if receipt and new:
+   34      self.attempt=T.ident('industry-attempt',self.sid,episode,rid);self.attempt_count+=1;self.stage=1;self.line=max(candidate,floor);self.auth=rid;action='probe';usable=True
+   35    else:
+   36     self.line=max(self.line,floor)
+   37     if receipt and new:
+   38      self.line=max(self.line,candidate);self.stage=min(3,self.stage+1);self.auth=rid;action='confirmed' if self.stage==2 else 'expanded' if old_stage<3 else 'replace_at_expanded'
+   39     usable=self.auth is not None
+   40    self.segment=str(segment);self.ep=episode
+   41    row=dict(day=str(day),close=close,E0_valid=valid,E0_episode=episode,E0_floor=floor,receipt=receipt,receipt_id=rid,new_receipt=new,candidate_floor=candidate,attempt_before=old_attempt,attempt_id=self.attempt,attempt_number=self.attempt_count,stage_before=old_stage,stage=self.stage,stage_name=['observe','probe','confirmed','expanded'][self.stage],mobile_before=old_line,mobile_after=self.line,action=action,reason=reason,authorization_before=old_auth,authorization_id=self.auth,authorization_usable=usable,unused_old_authorization_revoked=old_auth is not None and old_auth!=self.auth,receipt_ignored_same_observation=bool(receipt and new and (invalid or line_hit)),financial_state_owned=False,existing_exposure_or_loss_reset=False)
+   42    self.last=str(day);self.fingerprint=fp;self.cached=row.copy();return row
+
+base_budget
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/budget_v3/model.py
+SHA256 c4e61fc6f12eb47aeaa9bfb7faea82f29467a2fb2627875c39308ef9f642af26
+   62  class Contract:
+   63      def __init__(self, nav=1000., cash=1000., prices=None, lots=None,
+   64                   shared_loss_budget=20., exhausted_policy='record_only'):
+   65          assert exhausted_policy in ('record_only', 'probe_only', 'all_new_risk')
+   66          self.cash = cash
+   67          self.prices = dict(prices or {})
+   68          self.lots = list(lots or [])
+   69          self.orders = {}
+   70          self.sectors = {}
+   71          self.consumed = set()
+   72          self.stock_requests = set()
+   73          self.losses = {}  # (sector, original episode) -> gross negative realized PnL + fees
+   74          self.loss_budget = shared_loss_budget
+   75          self.exhausted_policy = exhausted_policy
+   76          self.audit = []
+   77          assert isclose(nav, self.nav), 'NAV must reconcile to supplied cash + marked lots'
+   78  
+   79      @property
+   80      def nav(self):
+   81          return self.cash + sum(x.qty*self.prices[x.stock] for x in self.lots)
+   82  
+   83      @property
+   84      def shared_loss(self):
+   85          return sum(self.losses.values())
+   86  
+   87      def loss(self, sector, episode, amount):
+   88          key = (sector, episode)
+   89          self.losses[key] = self.losses.get(key, 0.) + amount
+   90          if self.exhausted_policy != 'record_only' and self.shared_loss >= self.loss_budget:
+   91              for order in self.orders.values():
+   92                  if order.pool == 'probe' or self.exhausted_policy == 'all_new_risk':
+   93                      self.cancel(order.oid)  # Never release reservation without ack.
+   94  
+   95      def start(self, sector, episode, bar):
+   96          old = self.sectors.get(sector)
+   97          if old and old.episode == episode:
+   98              return
+   99          if old:
+  100              self.invalidate(sector, old.episode, bar=bar)
+  101          # Old positions/orders continue to consume resources and preserve original episode.
+  102          self.sectors[sector] = Sector(episode, bar, status='awaiting_first_cp1',
+  103                                        failed_bar=old.failed_bar if old else -1, episode_started=bar)
+  104          self.audit.append(('episode', sector, episode))
+  119      def valid(self, token, source, bar):
+  120          s = self.sectors.get(token.sector)
+  121          return bool(s and (source == 'industry_cp1' or s.active) and token.source == source and token.scale == '21' and
+  122                      token.epoch == s.episode and
+  123                      token.end >= s.episode_started and token.confirmed_time >= s.episode_started and
+  124                      (source == 'industry_cp1' or (token.attempt == s.attempt and token.end >= s.started)) and
+  125                      token.start <= token.end <= token.confirmed_time <= bar)
+  126  
+  127      def industry(self, token, bar):
+  128          if not self.valid(token, 'industry_cp1', bar) or token.event_id in self.consumed:
+  129              return 'rejected'
+  130          s = self.sectors[token.sector]
+  131          if token.confirmed_time <= s.failed_bar or token.end <= s.failed_bar:
+  132              return 'not_new_progress'
+  133          if bar <= s.last_bar or token.end <= s.last_end or token.confirmed_time <= s.last_evidence_time:
+  134              return 'not_new_progress'
+  135          if token.confirmed_time != bar:
+  136              self.audit.append(('late_industry_evidence_audit_only', token.event_id, bar))
+  137              return 'late_evidence_audit_only'
+  138          self.consumed.add(token.event_id)
+  139          s.last_bar, s.last_end = bar, token.end
+  140          s.last_evidence_time = token.confirmed_time
+  141          if not s.active:
+  142              s.active, s.level, s.started = True, 0, token.confirmed_time
+  143              s.attempt = f'{s.episode}:{token.event_id}'
+  144              s.status = 'probe'
+  145          else:
+  146              s.level = min(2, s.level + 1)
+  147          for order in self.orders.values():
+  148              if s.level > 0 and order.sector == token.sector and order.attempt == s.attempt and order.pool == 'probe' and order.qty > 0:
+  149                  self.cancel(order.oid)
+  150          self.migrate(token.sector)
+  151          self.audit.append(('industry_confirmation', token.event_id, s.level))
+  152          return s.status
+  153  
+  154      def observe(self, sector, bar, *, failure=False, token=None):
+  155          if failure:
+  156              self.invalidate(sector, self.sectors[sector].episode, bar=bar)
+  157              return 'invalidated'  # Same-observation CP1 never restarts.
+  158          if token is None: return self.sectors[sector].status
+  159          assert token.sector == sector
+  160          return self.industry(token, bar)
+  161  
+  162      def expire_orders(self, bar):
+  163          for o in self.orders.values():
+  164              if bar > o.expiry_bar: self.cancel(o.oid)
+  165  
+  166      def invalidate(self, sector, episode, *, bar):
+  167          s = self.sectors[sector]
+  168          assert s.episode == episode
+  169          s.active, s.status = False, 'invalidated'
+  170          s.failed_bar = max(s.failed_bar, bar)
+  171          for o in self.orders.values():
+  172              if o.sector == sector and o.episode == episode: self.cancel(o.oid)
+  210      def request(self, oid, stock, sector, qty, limit, floor, stock_token=None,
+  211                  bar=0, fee_per_share=0., *, probe_request=False, role='core',
+  212                  order_expiry_bar=None,
+  213                  core_epoch_locked=False):
+  214          assert qty > 0 and limit > 0 and 0 <= floor <= limit and fee_per_share >= 0
+  215          assert role in ('core', 'mobile')
+  216          if order_expiry_bar is None: order_expiry_bar = bar
+  217          assert order_expiry_bar >= bar
+  218          if oid in self.orders or oid in self.stock_requests:
+  219              return 'duplicate_request'
+  220          self.stock_requests.add(oid)  # Failed request is not silently replayed every day.
+  221          s = self.sectors[sector]
+  222          if not s.active: return 'industry_invalidated'
+  223          if probe_request and role == 'core' and core_epoch_locked: return 'core_epoch_locked'
+  224          pool = 'probe' if probe_request else 'confirmed'
+  225          if not probe_request and s.level == 0: return 'explicit_probe_request_required'
+  226          if not probe_request and role != 'mobile': return 'mobile_role_required'
+  227          if role == 'mobile':
+  228              if stock_token is None:
+  229                  return 'no_fresh_stock_signal'
+  230              if not self.valid(stock_token, 'stock_cp1', bar) or stock_token.confirmed_time != bar or stock_token.sector != sector or stock_token.stock != stock or stock_token.event_id in self.consumed:
+  231                  return 'no_fresh_stock_signal'
+  232              self.consumed.add(stock_token.event_id)
+  233          if pool == 'confirmed':
+  234              if not self.migrate(sector):
+  235                  return 'confirmed_unfunded'
+  236          if self.exhausted_policy != 'record_only' and self.shared_loss >= self.loss_budget and (pool == 'probe' or self.exhausted_policy == 'all_new_risk'):
+  237              if pool == 'confirmed': s.status = 'confirmed_unfunded'
+  238              return 'shared_loss_exhausted'
+
+actual_budget_request_source
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/model_without_account_check.py
+SHA256 2fb801bcadfe3aa0fe0ecac97a9730861079bc16d908a3674a404b255729c2c3
+   62  class Contract:
+   63      def __init__(self, nav=1000., cash=1000., prices=None, lots=None,
+   64                   shared_loss_budget=20., exhausted_policy='record_only'):
+   65          assert exhausted_policy in ('record_only', 'probe_only', 'all_new_risk')
+   66          self.cash = cash
+   67          self.prices = dict(prices or {})
+   68          self.lots = list(lots or [])
+   69          self.orders = {}
+   70          self.sectors = {}
+   71          self.consumed = set()
+   72          self.stock_requests = set()
+   73          self.losses = {}  # (sector, original episode) -> gross negative realized PnL + fees
+   74          self.loss_budget = shared_loss_budget
+   75          self.exhausted_policy = exhausted_policy
+   76          self.audit = []
+   77          assert isclose(nav, self.nav), 'NAV must reconcile to supplied cash + marked lots'
+   78  
+   79      @property
+   80      def nav(self):
+   81          return self.cash + sum(x.qty*self.prices[x.stock] for x in self.lots)
+   82  
+   83      @property
+   84      def shared_loss(self):
+   85          return sum(self.losses.values())
+   86  
+   87      def loss(self, sector, episode, amount):
+   88          key = (sector, episode)
+   89          self.losses[key] = self.losses.get(key, 0.) + amount
+   90          if self.exhausted_policy != 'record_only' and self.shared_loss >= self.loss_budget:
+   91              for order in self.orders.values():
+   92                  if order.pool == 'probe' or self.exhausted_policy == 'all_new_risk':
+   93                      self.cancel(order.oid)  # Never release reservation without ack.
+   94  
+   95      def start(self, sector, episode, bar):
+   96          old = self.sectors.get(sector)
+   97          if old and old.episode == episode:
+   98              return
+   99          if old:
+  100              self.invalidate(sector, old.episode, bar=bar)
+  101          # Old positions/orders continue to consume resources and preserve original episode.
+  102          self.sectors[sector] = Sector(episode, bar, status='awaiting_first_cp1',
+  103                                        failed_bar=old.failed_bar if old else -1, episode_started=bar)
+  104          self.audit.append(('episode', sector, episode))
+  119      def valid(self, token, source, bar):
+  120          s = self.sectors.get(token.sector)
+  121          return bool(s and (source == 'industry_cp1' or s.active) and token.source == source and token.scale == '21' and
+  122                      token.epoch == s.episode and
+  123                      token.end >= s.episode_started and token.confirmed_time >= s.episode_started and
+  124                      (source == 'industry_cp1' or (token.attempt == s.attempt and token.end >= s.started)) and
+  125                      token.start <= token.end <= token.confirmed_time <= bar)
+  126  
+  127      def industry(self, token, bar):
+  128          if not self.valid(token, 'industry_cp1', bar) or token.event_id in self.consumed:
+  129              return 'rejected'
+  130          s = self.sectors[token.sector]
+  131          if token.confirmed_time <= s.failed_bar or token.end <= s.failed_bar:
+  132              return 'not_new_progress'
+  133          if bar <= s.last_bar or token.end <= s.last_end or token.confirmed_time <= s.last_evidence_time:
+  134              return 'not_new_progress'
+  135          if token.confirmed_time != bar:
+  136              self.audit.append(('late_industry_evidence_audit_only', token.event_id, bar))
+  137              return 'late_evidence_audit_only'
+  138          self.consumed.add(token.event_id)
+  139          s.last_bar, s.last_end = bar, token.end
+  140          s.last_evidence_time = token.confirmed_time
+  141          if not s.active:
+  142              s.active, s.level, s.started = True, 0, token.confirmed_time
+  143              s.attempt = f'{s.episode}:{token.event_id}'
+  144              s.status = 'probe'
+  145          else:
+  146              s.level = min(2, s.level + 1)
+  147          for order in self.orders.values():
+  148              if s.level > 0 and order.sector == token.sector and order.attempt == s.attempt and order.pool == 'probe' and order.qty > 0:
+  149                  self.cancel(order.oid)
+  150          self.migrate(token.sector)
+  151          self.audit.append(('industry_confirmation', token.event_id, s.level))
+  152          return s.status
+  153  
+  154      def observe(self, sector, bar, *, failure=False, token=None):
+  155          if failure:
+  156              self.invalidate(sector, self.sectors[sector].episode, bar=bar)
+  157              return 'invalidated'  # Same-observation CP1 never restarts.
+  158          if token is None: return self.sectors[sector].status
+  159          assert token.sector == sector
+  160          return self.industry(token, bar)
+  161  
+  162      def expire_orders(self, bar):
+  163          for o in self.orders.values():
+  164              if bar > o.expiry_bar: self.cancel(o.oid)
+  165  
+  166      def invalidate(self, sector, episode, *, bar):
+  167          s = self.sectors[sector]
+  168          assert s.episode == episode
+  169          s.active, s.status = False, 'invalidated'
+  170          s.failed_bar = max(s.failed_bar, bar)
+  171          for o in self.orders.values():
+  172              if o.sector == sector and o.episode == episode: self.cancel(o.oid)
+  210      def request(self, oid, stock, sector, qty, limit, floor, stock_token=None,
+  211                  bar=0, fee_per_share=0., *, probe_request=False, role='core',
+  212                  order_expiry_bar=None,
+  213                  core_epoch_locked=False):
+  214          assert qty > 0 and limit > 0 and 0 <= floor <= limit and fee_per_share >= 0
+  215          assert role in ('core', 'mobile')
+  216          if order_expiry_bar is None: order_expiry_bar = bar
+  217          assert order_expiry_bar >= bar
+  218          if oid in self.orders or oid in self.stock_requests:
+  219              return 'duplicate_request'
+  220          self.stock_requests.add(oid)  # Failed request is not silently replayed every day.
+  221          s = self.sectors[sector]
+  222          if not s.active: return 'industry_invalidated'
+  223          if probe_request and role == 'core' and core_epoch_locked: return 'core_epoch_locked'
+  224          pool = 'probe' if probe_request else 'confirmed'
+  225          if not probe_request and s.level == 0: return 'explicit_probe_request_required'
+  226          if not probe_request and role != 'mobile': return 'mobile_role_required'
+  227          if role == 'mobile':
+  228              if stock_token is None:
+  229                  return 'no_fresh_stock_signal'
+  230              if not self.valid(stock_token, 'stock_cp1', bar) or stock_token.confirmed_time != bar or stock_token.sector != sector or stock_token.stock != stock or stock_token.event_id in self.consumed:
+  231                  return 'no_fresh_stock_signal'
+  232              self.consumed.add(stock_token.event_id)
+  233          if pool == 'confirmed':
+  234              if not self.migrate(sector):
+  235                  return 'confirmed_unfunded'
+  236          if self.exhausted_policy != 'record_only' and self.shared_loss >= self.loss_budget and (pool == 'probe' or self.exhausted_policy == 'all_new_risk'):
+  237              if pool == 'confirmed': s.status = 'confirmed_unfunded'
+  238              return 'shared_loss_exhausted'
+
+actual_route_source
+PATH /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/route_without_account_check.py
+SHA256 7bc31864d1d3944e800bb3f51297f01c417ecf8ac8487b857aa897bde22d66a1
+    1  def route(self,a,i,x,at):
+    2    b=a.budget;sid=i['sid'];sector=self.sector_by_sid[sid];s=b.sectors.get(sector);bar=ordinal(i['clock'].decision_at.date());role=i['role'];p=float(x['price']);floor=float(x['floor']);rule=x['rule'];maxq=x['maxq'];rid=i.get('CP1_id');token=None
+    3    if not s or not s.active:return None,'industry_invalidated'
+    4    if role=='mobile':
+    5     cp=i['CP1_trace'];token=V.Evidence(rid,sector,'stock_cp1','21',ordinal(cp['formation_start_exclusive']),bar,bar,s.episode,sid,s.attempt)
+    6     if not b.valid(token,'stock_cp1',bar) or rid in b.consumed:return None,'no_fresh_stock_CP1'
+    7    assert not getattr(a,'_budget_sync_pending',False),'cannot admit during unacknowledged ledger callback'
+    8    routes=['probe']
+    9    if role=='mobile' and b.expand and s.level>0:
+   10     if b.migrate(sector):a.pools_from_model();routes.append('confirmed')
+   11    results=[];reasons={}
+   12    for pool in routes:
+   13     pc,pr,_=b.resources(pool);sc,sr,_=b.resources(sector=sector);_,ar,reserve=b.resources();pending_fees=sum(o.qty*o.fee_per_share for o in b.orders.values() if o.status in ['open','cancel_pending']);frac=.02 if pool=='probe' else (.02,.1,.2)[s.level]
+   14     def allowed(q,detail=False):
+   15      fee=float(LR.fees(q,x['price'],x['schedule'],'buy',i['quote'].par_value));nav=b.nav-pending_fees-fee;cap=q*p;risk=q*max(0.,p-floor);fails=[]
+   16      if cap+fee>min(float(a.available-a.current_nav*D('.1')),b.cash-reserve)+1e-9:fails.append('cash_or_original_reserve')
+   17      if pc+cap>(.10 if pool=='probe' else .60)*nav+1e-9:fails.append('pool_capital')
+   18      if pool=='probe' and pr+risk>.005*nav+1e-9:fails.append('probe_risk')
+   19      if sc+cap>frac*nav+1e-9:fails.append('sector_capital')
+   20      if sr+risk>.01*nav+1e-9:fails.append('sector_risk')
+   21      known_open=x.get('known_open',x['price']/(D(1)+LR.SLIP));held_at_open=float(a.quantity(sid))*float(known_open)
+   22      if held_at_open+cap>.10*float(a.current_nav)+1e-9:fails.append('stock_capital')
+   23      return fails if detail else not fails
+   24     q=LR.maximum_quantity(rule,maxq,allowed);results.append((q,pool));reasons[pool]=allowed(rule.buy_minimum,True)
+   25    # Maximum legal quantity, probe wins a tie. No split order or speculative consume.
+   26    q,pool=max(results,key=lambda z:(z[0],z[1]=='probe'))
+   27    if not q:return None,','.join(sorted(set(sum(reasons.values(),[])))) or 'minimum_unit_not_funded'
+   28    bid=f"{a.label}|{i['clock'].decision_at.isoformat()}|{sid}|{role}";fee=LR.fees(q,x['price'],x['schedule'],'buy',i['quote'].par_value);result=b.request(bid,sid,sector,q,p,floor,token,bar,float(fee/D(q)),probe_request=pool=='probe',role=role,order_expiry_bar=ordinal(at.date()),core_epoch_locked=role=='core' and a.core_epoch.get(sid)==i['epoch']);assert result=='reserved',(bid,result,reasons)
+   29    i.update(budget_order=bid,pool=pool);return(q,pool),None
+
+No60_source_patching
+PATH /Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/component.py
+SHA256 604a89c2d4205d20c2799d6408b47b19a64b1f3beb6396da8807cd023e105361
+   17  MODEL=(W/'account-risk-ablation-20261031/model_without_account_check.py').read_text()
+   18  ROUTE=(W/'account-risk-ablation-20261031/route_without_account_check.py').read_text()
+   19  assert inspect.getsource(N.Contract.migrate)==inspect.getsource(J.V.Contract.migrate)
+   20  MG="        if self.resources('confirmed')[0] + moved > .60*(self.nav-pending_fees) + 1e-9:\n            s.status = 'confirmed_unfunded'\n            return False\n"
+   21  PG="        if pc+cap > (0.10 if pool == 'probe' else 0.60)*budget_nav + 1e-9: failures.append('pool_capital')"
+   22  PN="        if pool == 'probe' and pc+cap > 0.10*budget_nav + 1e-9: failures.append('pool_capital')"
+   23  RG="    if pc+cap>(.10 if pool=='probe' else .60)*nav+1e-9:fails.append('pool_capital')"
+   24  RN="    if pool=='probe' and pc+cap>.10*nav+1e-9:fails.append('pool_capital')"
+   25  assert MODEL.count(MG)==MODEL.count(PG)==ROUTE.count(RG)==1
+   26  NEW_MODEL=MODEL.replace(MG,'').replace(PG,PN)
+   27  NEW_ROUTE=ROUTE.replace(RG,RN)
+   28  assert NEW_MODEL.replace(PN,PG).replace('        before = (self.cash, self.nav, self.resources(), self.shared_loss)',MG+'        before = (self.cash, self.nav, self.resources(), self.shared_loss)')==MODEL
+   29  assert NEW_ROUTE.replace(RN,RG)==ROUTE
+   30  MOD=ModuleType('pvr_private_no_confirmed60_model');sys.modules[MOD.__name__]=MOD
+   31  exec(compile(NEW_MODEL,str(O/'derived_model_no_confirmed60.py'),'exec'),MOD.__dict__)
+   32  ROUTES={}
+   33  for flag,source in [(False,ROUTE),(True,NEW_ROUTE)]:
+   34      env=dict(J.__dict__);exec(compile(source,str(O/('derived_route_on.py' if flag else 'derived_route_off.py')),'exec'),env);ROUTES[flag]=env['route']
+
+No60_wiring
+PATH /Users/bytedance/Documents/Codex/2026-11-04/task/pvr_pool_feasibility/native_adapter.py
+SHA256 7f451011b97bccbae863fa098e5520e7af4b6107fb9ed96b4d105eaa84d8a208
+   11  class NoConfirmed60Budget(N.BASE.NoAccountBudget):
+   12      request=P.MOD.Contract.request
+   13      def migrate(self,sector):
+   14          return P.MOD.Contract.migrate(self,sector) if self.expand else False
+   15  
+   16  class Runner(N.Runner):
+   17      route=P.ROUTES[True]
+   18      def __init__(self,*args,**kwargs):
+   19          self._cap_bootstrap=True
+   20          super().__init__(*args,**kwargs)
+   21          self.remove_confirmed60=True
+   22          for a in self.accounts.values():a.budget.__class__=NoConfirmed60Budget
+   23          self.integration_policy=POLICY+':'+self.rank_mode
+   24          self._cap_bootstrap=False
+   25          self.assert_native_wiring()
+   26  
+   27      def assert_native_wiring(self):
+   28          bootstrap=getattr(self,'_cap_bootstrap',False)
+   29          assert self.integration_policy==(N.POLICY if bootstrap else POLICY)+':'+self.rank_mode
+   30          assert self.rank_scores_manifest_sha256==N.SCORES.manifest_sha256
+   31          assert self.opening.__func__ is J.Runner.opening
+   32          assert self.planning.__func__ is N.Runner.planning
+   33          assert self.route.__func__ is P.ROUTES[True]
+   34          for a in self.accounts.values():
+   35              assert type(a)is J.Account and type(a.budget)is (N.BASE.NoAccountBudget if bootstrap else NoConfirmed60Budget)
+   36              if not bootstrap:
+   37                  assert a.budget.request.__func__ is P.MOD.Contract.request
+   38                  assert a.budget.migrate.__func__ is NoConfirmed60Budget.migrate
+   39              for name in ('reserve_quantity','fill_buy','fill_exit','cancel_buy','split','sync','assert_budget_view','expire_day_buys'):
+
+logical_trade_record
+PATH /Users/bytedance/Documents/ChatGPT/money/research_rounds/probe-pyramid-pilot-20261029/code/pilot.py
+SHA256 38ac36ba3b9da599c66307451f4173249efc229f54dfb6a0d8469517431f94b4
+   52    self.name=name;self.market=market;self.facts=facts;self.current_nav=INITIAL;self.layers=[];self.layer_seq=0;self.sell_layers={};self.order_meta={};self.watch={};self.core_epoch={};self.last_buy={};self.pending=[];self.decisions=[];self.trades=[];self.counts=collections.Counter();self.minimum_available=INITIAL
+   53   def log(self,kind,at,**kw):self.audit_log.append(dict(kind=kind,at=at,**kw))
+   54   def live(self,sid):return [x for x in self.layers if x['sid']==sid and x['qty']]
+   55   def check(self):
+   56    assert self.available>=0
+   57    for sid in set(self.positions)|{x['sid'] for x in self.layers}:
+   58     assert sum(x['qty'] for x in self.live(sid))==self.quantity(sid),(self.name,sid,'virtual/physical inventory')
+   59   def fill_buy(self,sid,w):
+   60    order=self.buys.get(sid)
+   61    if order is None:return
+   62    meta=self.order_meta[order.order_id];f=self.facts.factor(sid,w.at)
+   63    if w.raw_open*f<=meta['floor']:
+   64     self.counts['open_at_or_below_protection']+=1;self.log('pilot_buy_rejected',w.at,sid=sid,reason='open_at_or_below_protection',intent=meta);self.cancel_buy(sid);return
+   65    receipt=super().fill_buy(sid,w)
+   66    if receipt:
+   67     self.layer_seq+=1
+   68     z=dict(id=self.layer_seq,sid=sid,kind=meta['kind'],qty=receipt.shares,initial_qty=receipt.shares,opened=w.at,signal_at=meta['clock'].decision_at,epoch=meta['epoch'],floor=meta['floor'],cash=-receipt.gross_cny-receipt.fees_cny,dividend=ZERO,closed=None,reason=None)
+   69     self.layers.append(z);self.last_buy[sid]=w.execution_price*f
+   70     if z['kind']=='core':self.core_epoch[sid]=meta['epoch']
+   71     self.trades.append(dict(**asdict(receipt),layer=z['id'],kind=z['kind'],signal_at=z['signal_at'],raw_open=w.raw_open,price=w.execution_price,floor=meta['floor'],pvr=meta['score'],reason=meta['reason'],epoch=meta['epoch']))
+   72     self.counts['buy_fills']+=1
+   73    self.check();return receipt
+   74   def fill_exit(self,sid,w):
+   75    receipt=super().fill_exit(sid,w)
+   76    if receipt:
+   77     left=receipt.shares;targets=self.sell_layers[sid];parts=[]
+   78     for z in self.live(sid):
+   79      if z['id'] not in targets:continue
+   80      take=min(left,z['qty']);z['qty']-=take;left-=take;cash=(receipt.gross_cny-receipt.fees_cny)*D(take)/receipt.shares;z['cash']+=cash
+   81      if not z['qty']:z['closed']=w.at
+   82      parts.append(dict(layer=z['id'],kind=z['kind'],shares=take,net_cash=cash,reason=z['reason']))
+   83      if not left:break
+   84     assert not left,(sid,receipt,'sale allocation')
+   85     self.trades.append(dict(**asdict(receipt),parts=parts,raw_open=w.raw_open,price=w.execution_price,reason=','.join(sorted({p['reason'] for p in parts}))))
+   86     if sid not in self.exits:self.sell_layers.pop(sid,None)
+   87     if not self.quantity(sid):self.last_buy.pop(sid,None)
+   88     self.counts['sell_fills']+=1
+   89    self.check();return receipt
+

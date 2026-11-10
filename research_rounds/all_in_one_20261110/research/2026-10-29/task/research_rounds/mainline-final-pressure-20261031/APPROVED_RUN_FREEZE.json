@@ -1,0 +1,17 @@
+{
+  "passed_Gate_reused": true,
+  "no_preflight_repeated": true,
+  "pure_run_budget_seconds": 300,
+  "output_audit_budget_seconds": 60,
+  "same_four_paths": [
+    "RAW_cost2",
+    "ATT_cost2",
+    "RAW_delay1",
+    "ATT_delay1"
+  ],
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-final-pressure-20261031/run_approved.py": "5936d1e349a32f872df370e446d0a6fb69181156a56d4be0a01594e2e2a37716",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-final-pressure-20261031/FREEZE.json": "72d7f8e0545dd3e0803836f215461ea49f19496e8e89e96e0440cd11e12b6d63"
+  },
+  "cache_load_seconds": 29.310943541117013
+}

@@ -1,0 +1,109 @@
+{
+  "scope": "Pre-freeze implementation probes only; not official semantic results; no real B2 outputs viewed.",
+  "model_sha256": "c77cd2064bbfb4ebbfe1ab8d492a02a61308483940f794195f8054c654439c93",
+  "protocol_sha256": "9d8e3987582ba54101f60882e5fb7c69bd2385e0b6f74ba599099da4b8a95939",
+  "passed": 18,
+  "total": 18,
+  "checks": [
+    {
+      "name": "independent_700_observation_all_fields",
+      "passed": true,
+      "evidence": {
+        "rows": 700,
+        "columns": 49,
+        "max_abs_error": 9.547918011776346e-15
+      }
+    },
+    {
+      "name": "first_64_unknown_first_computable_t64",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "volume_ablation_P_R_and_shock_exact",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "checkpoint_confirm_before_new_E_origin_fixed",
+      "passed": true,
+      "evidence": {
+        "episode": 1.0,
+        "origin": 0.0,
+        "support": 0.25,
+        "extreme": 0.625,
+        "pivot_confirmed": 1.0
+      }
+    },
+    {
+      "name": "support_equality_break_old_today_R_and_new_identity",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "broken_without_reverse_unknown_candidates_frozen",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "same_direction_restart_after_unknown_uses_new_ID",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "no_sigma_only_checkpoint_or_reanchor",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "partial_recovery_monotone_no_resurrection_cross_episode",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "fully_recovered_old_ID_never_revives",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "new_qualified_fall_creates_new_identity",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "remote_small_bounce_does_not_clear_old_region",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "defensive_union_overlap_and_touch",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "up_down_regions_coexist_without_netting",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "invalid_and_segment_independent_recalculation",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "segment_rewarms_64_unknown_observations",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "source_discontinuity_archives_not_price_heal",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "physical_prefix_rows_and_journal_exact",
+      "passed": true,
+      "evidence": null
+    }
+  ]
+}

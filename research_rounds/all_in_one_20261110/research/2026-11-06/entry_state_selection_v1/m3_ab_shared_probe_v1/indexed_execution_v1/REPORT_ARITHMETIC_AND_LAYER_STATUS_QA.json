@@ -1,0 +1,53 @@
+{
+  "domain": "SYNTHETIC_REPORT_ONLY_STUB_FEE",
+  "closed": [
+    {
+      "settled": false,
+      "status": "PASS",
+      "allocations": {
+        "core": {
+          "q": 200,
+          "fee": "3.333333333333333333333333333",
+          "cash_delta": "19986.66666666666666666666667"
+        },
+        "add": {
+          "q": 100,
+          "fee": "1.666666666666666666666666667",
+          "cash_delta": "9993.333333333333333333333333"
+        }
+      },
+      "net": "-42"
+    },
+    {
+      "settled": true,
+      "status": "PASS",
+      "allocations": {
+        "core": {
+          "q": 200,
+          "fee": "3.333333333333333333333333333",
+          "cash_delta": "19986.66666666666666666666667"
+        },
+        "add": {
+          "q": 100,
+          "fee": "1.666666666666666666666666667",
+          "cash_delta": "9993.333333333333333333333333"
+        }
+      },
+      "net": "-42"
+    }
+  ],
+  "mixed": [
+    {
+      "settled": false,
+      "status": "PASS",
+      "core": "OPEN_CENSORED",
+      "ADD": "EXECUTION_CLOSED_SETTLEMENT_OPEN"
+    },
+    {
+      "settled": true,
+      "status": "PASS",
+      "core": "OPEN_CENSORED",
+      "ADD": "EXECUTION_AND_SETTLEMENT_CLOSED"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "network_requests": 0,
+  "new_backtests": 0,
+  "series": 1799,
+  "facts": 418,
+  "h1_full_rank_matrix_exact": true,
+  "publication_loaded": true,
+  "temporary_directory": "/var/folders/sj/6vknnkzj0_q6yp4myjk4mtt00000gn/T/tradingalarm-update-replay-h3h76po2"
+}

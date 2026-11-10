@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-30T14:44:28.721778+00:00",
+  "before_implementation_tests": true,
+  "source_sha256": "48d0b6a7eda1a06eb9c20d2975834f679fbb9b2638796b37a4d47596092d6bfb",
+  "protocol_sha256": "b6f3632721b4f12f0cfa0924cc3eed4ed913fc08b6efaba09717e2711b18097b",
+  "kernel_change": "only purpose whitelist includes risk_restore; no existing holding hidden or annual order spoofed",
+  "kernel_sha256": "19344ec7e1aaaab8ecba1dec8ac48dab2cb69cf668a8e65d4445c50be71f4543"
+}

@@ -1,0 +1,32 @@
+I/O-only identity correction, 2026-10-31.
+
+Previous shared output module SHA256:
+e803758e7ed01172dfbb0f0dfa652acd90c9b80b0c1e6ea468fa67ea571a34f2
+New shared output module SHA256:
+3d7cae91648150fa09d17f048156c2ea7f9bc4ebeed96c87a9397942d431c2fa
+
+The first real cost2 prefix passed full-source/physical-prefix equality, then
+restore rejected a changed planning code_sha256. Module/class/path/source SHA
+and bound method identity were unchanged. marshal serialization includes live
+object-reference details; retaining code tuples/bytes alone reproduces a hash
+change for the same unchanged code object (MARSHAL_REFERENCE_REPRO.json).
+
+Only the code digest representation changed: typed canonical serialization of
+all executable code fields and recursively typed constants. Module/source SHA,
+actual class, actual bound method, function origin, Python version, checkpoint
+raw SHA and before/after restore equality assertions remain. Wrong source,
+reference class, bound method or code constant still fails. No trading method,
+order rule, pressure policy or account state was changed.
+
+3 targeted identity tests and 4 native cost-adapter tests passed. The existing
+8 actual-empty-R1-Pair I/O regressions and 10 generic export tests were rerun
+successfully with this new module; no historical R1 account was run.
+
+Old failure and prefix artifacts remain under cost2-runs-old-marshal-identity.
+Their generation-time provenance has not been edited/backfilled. New short
+prefixes were generated under the stable format; both full/physical sources
+and actual same-class checkpoint restores passed before full continuation.
+
+The outer initialization failure guard and injected-constructor smoke remain
+in initialization_guard.py and INITIALIZATION_GUARD_SMOKE.json. No new generic
+execution framework or service was introduced.

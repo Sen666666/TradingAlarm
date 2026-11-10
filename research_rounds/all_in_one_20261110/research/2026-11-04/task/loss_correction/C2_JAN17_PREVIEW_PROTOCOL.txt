@@ -1,0 +1,22 @@
+2026-11-04, root-authorized finite static follow-up only. No account event.
+
+Root selected original C10 2022-01-17 CLOSE after observing Jan NO_AR6 losses.
+Selection is exploratory, not unseen validation. Preserve the complete original
+snapshot/candidate/donor domain; no future label may enter any transform or solve.
+New NO_AR6 state is not a substitute for original C10.
+
+Read original immutable C-rights-month-resume-v2-20261102/runs/2022-C10/full/
+2022-01-17-CLOSE.pkl and provenance. Unpickle read-only using original classes,
+with no restore/event/controller API. Check SHA, class/window/cursor, certificate
+and trusted input digest. Export only the one complete original s/ds/e/budget.
+
+Reuse frozen g-s-C2-step-cap-projection-v1-20261102/step_cap.py exactly: one
+stored-original-vs-fresh-C10 static identity and one C2 static solve. Original
+resource checks/order remain. Technical max_native_checks=250000, no increase
+on failure. Reuse existing 12 synthesis and Jan6/Jul3 results, don't recreate.
+This is not C_BATCH20, R0, NO_AR6, or a new 2% formula.
+
+Report whole Q/D/resources and positive/zero changes. Root fixed Ningbo Huaxiang,
+Trongson, Keboda loss diagnostics and Hanyu winner/control; report if Hanyu is
+not a fresh request rather than inventing one. No hypothetical PnL, new future
+price labels or economic event. Continuous economic trial remains unapproved.

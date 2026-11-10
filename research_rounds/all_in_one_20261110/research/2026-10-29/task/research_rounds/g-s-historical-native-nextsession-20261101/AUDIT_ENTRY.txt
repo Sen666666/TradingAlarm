@@ -1,0 +1,19 @@
+独立审计入口（仅两个新增会话，无扩大日期）
+
+1. run/packet/READOUT.txt：精简行为结果与尚未覆盖的策略能力。
+2. run/packet/BEHAVIOR.json：逐新增会话、旧保护退出指定层、风险锁释放、支持用途、主动/价格变动拆分。
+3. run/packet/*-intent-outcomes.json：每个承接意图一个单位，全部路由拒因/原优先键/预留与实际fill。718/402只是重复路由记录，不是机会分母。
+4. run/packet/*-future-intents-unexecuted.json：新增243/155下一日意图，均未执行。
+5. run/report-v2/*.json：原生明细、三笔卖款settle对象、现金恒等、每层原用途与当前A支持、未结退出。
+6. coverage-003/GATE.json：只读覆盖修正；F1/canonical/结构未来派生重建/行动/支付加上facts/CP/PVR/raw/H1均核原两日输入和纯候选/优先包不变。无历史账户重放。
+7. run/saved-state-audit/VERIFICATION.json：显式输入期限导入白名单；7个checkpoint全mutable状态跨进程恢复、历史10类流前缀、12055原source重核、旧input文件逐字节不变。
+8. NEXT_SESSION_AUTHORIZATION.json、run/STARTED.json、run/DONE.json：实际开始/结束、冻结来源与授权范围。
+9. inputs/PREPARATION.json、inputs/<window>/MANIFEST.json：原来源单日导出，旧文件SHA保留，额外支付为独立通道，不把fixture日历扩大当来源。
+10. ANALYSIS_ERRATA.json：只读报告重复eid错误及旧稿；coverage/、coverage-002/保留先前只读fixture失败；run/STARTUP_SYNTAX_ERROR.json保留金融driver执行前语法失败。未因此重跑任何已完成金融事件。
+
+新金融运行顺序：2025Jul3 ACTION/OPEN；跨进程恢复后CLOSE。随后2022Jan6 OPEN；跨进程恢复后CLOSE。未进入Jul4或Jan7以后。
+新增canonical共有94/71张，收盘生成的下一日意图未执行。实际新消耗的是承接前一已知收盘的6/2张mobile凭据，分别逐次验证、不复活、不延寿；另有Jul3一笔core不消耗mobile CP1。
+旧三项义务都是CP1_old_line_exit，不是配置减仓。新增16/9项才是actionable_S_funding；7月3日其中四只当日新买股票被请求部分/全部配置退出，是需保留的实际换手代价，尚无次日卖出。
+市场预热成熟S支持了分散高仓位；不能表述成账户试错后成熟，更不能把多行业合计称单主题80%。未新增正持仓权息/支付案例，未新增ACT事故与恢复、真实追加/全清再入案例。
+
+已完成后停在审计；本包不授权进一步账户事件。

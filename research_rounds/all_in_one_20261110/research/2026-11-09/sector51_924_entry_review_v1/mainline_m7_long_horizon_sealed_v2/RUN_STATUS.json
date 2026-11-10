@@ -1,0 +1,22 @@
+{
+  "days": 41,
+  "orders": 1594,
+  "blockers": [
+    "2024-11-07 002602.SZ OPEN_MISSING"
+  ],
+  "last": {
+    "day": "2024-11-06",
+    "cash": "148198.1264850922275",
+    "receivable": "0.00000",
+    "market_value": "1331357.18",
+    "NAV": "1479555.3064850922275",
+    "net_liquidation_NAV": "1477728.8150143648465",
+    "stocks": 70,
+    "shares": 183021,
+    "weight_pct": "89.98360346277562763697422573",
+    "fees_paid": "12704.3389249077725"
+  },
+  "prefix_1031_pass": true,
+  "planned_end": "2026-06-30",
+  "completed_horizon": false
+}

@@ -1,0 +1,11 @@
+{
+  "status": "COMPLETED_DIAGNOSTIC_NOT_STRATEGY",
+  "stocks": 1631,
+  "score_rows": 53507,
+  "source_queue_rows": 53121,
+  "selected_rows": 42555,
+  "accounts": 0,
+  "parameters_scanned": 0,
+  "all_sources_unchanged": true,
+  "seconds": 292.26907450007275
+}

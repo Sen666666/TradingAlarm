@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "dates": [
+    "2026-02-11",
+    "2026-06-30"
+  ],
+  "intents": 496,
+  "compute_seconds": 11.506407209206372,
+  "compute_limit_seconds": 60,
+  "adapter_sha256": "66ac96d10722ae49c0910c08a11e22cdd567159cf1e2b63c6b6142fbf5f025bd",
+  "source_freeze_sha256": "9dc83b4288cdd2f1968fba79be547765c67d2a9f8cd0946b7fa25df87ef8fa55",
+  "OFF_exact_all_fields": true,
+  "inputs_unchanged": true,
+  "all_original_numeric_reserve_guards_rechecked": true,
+  "all_new_CORE_fee_risk_token_epoch_checks_passed": true,
+  "source_unchanged": true,
+  "completed": [
+    {
+      "day": "2026-02-11",
+      "phase": "OFF",
+      "passed": true,
+      "intents": 278,
+      "orders": 4,
+      "all_expected_fields_exact": true,
+      "seconds": 2.596273624803871,
+      "cumulative_compute_seconds": 2.5962763749994338
+    },
+    {
+      "day": "2026-06-30",
+      "phase": "OFF",
+      "passed": true,
+      "intents": 218,
+      "orders": 4,
+      "all_expected_fields_exact": true,
+      "seconds": 2.6152207907289267,
+      "cumulative_compute_seconds": 5.211881584022194
+    },
+    {
+      "day": "2026-02-11",
+      "phase": "ON",
+      "passed": true,
+      "intents": 278,
+      "orders": 4,
+      "all_reserves_validated": true,
+      "fallback_events": 3,
+      "new_CORE_confirmed": 1,
+      "seconds": 3.185101832728833,
+      "cumulative_compute_seconds": 8.397488250397146
+    },
+    {
+      "day": "2026-06-30",
+      "phase": "ON",
+      "passed": true,
+      "intents": 218,
+      "orders": 7,
+      "all_reserves_validated": true,
+      "fallback_events": 24,
+      "new_CORE_confirmed": 5,
+      "seconds": 3.0038652080111206,
+      "cumulative_compute_seconds": 11.402105084154755
+    }
+  ],
+  "native_Account_initializations": 0,
+  "native_Runner_initializations": 0,
+  "new_market_reads": 0,
+  "new_fills": 0,
+  "new_financial_paths": 0,
+  "private_allocation_projections_only": true,
+  "not_PnL": true
+}

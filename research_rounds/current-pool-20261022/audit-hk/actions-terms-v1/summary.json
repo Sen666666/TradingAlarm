@@ -1,0 +1,187 @@
+{
+  "created_at": "2026-10-23T00:16:24+08:00",
+  "mode": "raw_terms_inventory_2013_20261022_not_history_or_signal_admission",
+  "reports": [
+    {
+      "symbol": "UHKGHK8003",
+      "raw_records": 3,
+      "requested_window_records": 2,
+      "requested_window_candidate_terms": 2,
+      "requested_window_unresolved": {},
+      "unknowns": []
+    },
+    {
+      "symbol": "UHKMHK0001",
+      "raw_records": 82,
+      "requested_window_records": 30,
+      "requested_window_candidate_terms": 28,
+      "requested_window_unresolved": {
+        "in_kind_or_election_unmodeled": 1,
+        "unsupported_cash_or_other_terms": 1
+      },
+      "unknowns": [
+        {
+          "date": "2015-05-27",
+          "raw": {
+            "1": 20150527,
+            "471": "2015-05-27$每持有1股长和股份获发1股长地股份"
+          },
+          "reasons": [
+            "in_kind_or_election_unmodeled"
+          ]
+        },
+        {
+          "date": "2020-09-07",
+          "raw": {
+            "1": 20200907,
+            "471": "2020-09-07$每股港币6角1仙4,"
+          },
+          "reasons": [
+            "unsupported_cash_or_other_terms"
+          ]
+        }
+      ]
+    },
+    {
+      "symbol": "UHKMHK0700",
+      "raw_records": 27,
+      "requested_window_records": 19,
+      "requested_window_candidate_terms": 14,
+      "requested_window_unresolved": {
+        "cash_share_basis_after_split_unverified": 1,
+        "subscription_terms_unmodeled": 1,
+        "in_kind_or_election_unmodeled": 3
+      },
+      "unknowns": [
+        {
+          "date": "2014-05-16",
+          "raw": {
+            "1": 20140516,
+            "471": "2014-05-16$每股拆细股份0.24港元,"
+          },
+          "reasons": [
+            "cash_share_basis_after_split_unverified"
+          ]
+        },
+        {
+          "date": "2017-10-18",
+          "raw": {
+            "1": 20171018,
+            "471": "2017-10-18$每持有1,256股可认购1股China Literature Ltd.预留股份"
+          },
+          "reasons": [
+            "subscription_terms_unmodeled"
+          ]
+        },
+        {
+          "date": "2018-12-28",
+          "raw": {
+            "1": 20181228,
+            "471": "2018-12-28$每3900股分派1股腾讯音乐美国预托股份,可选择收取现金"
+          },
+          "reasons": [
+            "in_kind_or_election_unmodeled"
+          ]
+        },
+        {
+          "date": "2022-01-20",
+          "raw": {
+            "1": 20220120,
+            "471": "2022-01-20$每21股股份获发1股京东集团A类普通股,"
+          },
+          "reasons": [
+            "in_kind_or_election_unmodeled"
+          ]
+        },
+        {
+          "date": "2023-01-05",
+          "raw": {
+            "1": 20230105,
+            "471": "2023-01-05$每10股股份获发1股美团B类普通股"
+          },
+          "reasons": [
+            "in_kind_or_election_unmodeled"
+          ]
+        }
+      ]
+    },
+    {
+      "symbol": "UHKMHK0770",
+      "raw_records": 18,
+      "requested_window_records": 4,
+      "requested_window_candidate_terms": 0,
+      "requested_window_unresolved": {
+        "cash_currency_requires_explicit_fx_or_matching_quote_currency": 3,
+        "subscription_terms_unmodeled": 1
+      },
+      "unknowns": [
+        {
+          "date": "2013-05-02",
+          "raw": {
+            "1": 20130502,
+            "471": "2013-05-02$每股0.10美元"
+          },
+          "reasons": [
+            "cash_currency_requires_explicit_fx_or_matching_quote_currency"
+          ]
+        },
+        {
+          "date": "2014-05-16",
+          "raw": {
+            "1": 20140516,
+            "471": "2014-05-16$每股普通股0.10美元"
+          },
+          "reasons": [
+            "cash_currency_requires_explicit_fx_or_matching_quote_currency"
+          ]
+        },
+        {
+          "date": "2015-05-15",
+          "raw": {
+            "1": 20150515,
+            "471": "2015-05-15$每股普通股0.10美元"
+          },
+          "reasons": [
+            "cash_currency_requires_explicit_fx_or_matching_quote_currency"
+          ]
+        },
+        {
+          "date": "2026-02-04",
+          "raw": {
+            "1": 20260204,
+            "471": "2026-02-04(每持有8股股份获发3股供股股份)"
+          },
+          "reasons": [
+            "subscription_terms_unmodeled"
+          ]
+        }
+      ]
+    }
+  ],
+  "code_manifest": [
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/code/action_normalize.py",
+      "sha256": "05c2bf3d949a65966d808833d3be29fc1efdceb06fd16d992530fb9b5eb949bd",
+      "bytes": 13633
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/code/test_action_normalize.py",
+      "sha256": "5aa554fcb72ec9ade8404db0dcfec5c5567d089bc0bfeaa6d6029cf1dd19144c",
+      "bytes": 3328
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-retained-impact-20261020/results/code/hk_cash_annotations.py",
+      "sha256": "56479cfc7be8bc7ef0da977b78e6ee1eac627d12e7f60cdfc042e5749d0f3e7a",
+      "bytes": 1369
+    },
+    {
+      "path": "/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/stock_actions.py",
+      "sha256": "30ea20d17264dd6fc8283e953ea25f5221b9ca68d8612fb0d0d956da6a80a9f1",
+      "bytes": 3098
+    }
+  ],
+  "tests_passed": 8,
+  "network_requests": 0,
+  "account_runs": 0,
+  "payment_or_delivery_proxy_decisions": 0
+}

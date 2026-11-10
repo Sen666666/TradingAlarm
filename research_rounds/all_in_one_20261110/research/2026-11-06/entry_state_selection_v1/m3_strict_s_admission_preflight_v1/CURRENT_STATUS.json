@@ -1,0 +1,27 @@
+{
+  "stage": "SMALL_COMPLETE_AWAITING_LIMITED_FULL_FEATURE_REVIEW",
+  "first_small_completed": false,
+  "first_small_validated_stocks": 1,
+  "failure": "Second stock prefix i_target dtype int64 vs full float64 caused by later missing row. Exact values not yet certified for that stock.",
+  "repair": "Only explicit output schema; exact dtype/value prefix assertions retained.",
+  "small_retry_started": true,
+  "features_started": false,
+  "aggregate_started": false,
+  "economic_runs": 0,
+  "validation_labels_read": false,
+  "current_script_sha256": "f502c4b3b80ae04400adc2692aa04962386424bd7deada99f847a9143689aa2c",
+  "current_freeze_sha256": "7079581ef443ec8ce34edde3dac05b6b9e3254e62cbb61d20e1320e43508060e",
+  "small_retry_completed": true,
+  "small_validated_stocks": 10,
+  "small_resources": {
+    "completed": true,
+    "elapsed_seconds": 14.481663291342556,
+    "peak_rss_bytes": 260866048,
+    "limits": {
+      "max_seconds_main": 1800,
+      "max_rss_bytes": 6000000000
+    },
+    "peak_checked_at_boundaries": true,
+    "wall_alarm": true
+  }
+}

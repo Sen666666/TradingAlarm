@@ -1,0 +1,51 @@
+{
+  "status": "READ_ONLY_EVIDENCE_READY_FOR_ROOT_REVIEW",
+  "scope": "Saved No60 2026 semiconductor role and holding chains, bounded key-date causal price inputs, saved funding competition; no new policy execution",
+  "new_accounts": 0,
+  "new_market_or_riskbook_instances": 0,
+  "new_backtests": 0,
+  "new_parameter_tests": 0,
+  "new_trade_paths_or_routes": 0,
+  "strategy_implementation": "NONE",
+  "saved_layer_scope": {
+    "all_H1_industry_evaluation_stocks": 126,
+    "actual_bought_stocks": 18,
+    "actual_bought_layers": 25,
+    "CORE_layers": 1,
+    "MOBILE_layers": 24,
+    "actual_H1_wealth_change": "-16783.5804624931475",
+    "actual_H1_average_NAV_weight_pct": "3.222438426968096094970286613"
+  },
+  "bounded_inputs": {
+    "original_KEY_DATE_rows": 44,
+    "original_KEY_DATE_price_stocks": 6,
+    "Gold_past_context_rows": 18,
+    "Winner_past_context_rows": 9,
+    "requested_T5_L10_rows": 4,
+    "all_other_dates_T5_state": "UNKNOWN_NOT_COMPUTED",
+    "new_hypothetical_filled_quantities_or_profit": "NOT_COMPUTED"
+  },
+  "findings": [
+    "Winner605358 May20 has original core_Q=true, i_buy/target/E0 valid, strict prior20-close breakout and trend evidence, but held plus no fresh CP leaves original roles empty",
+    "Winner original May19 CP already attempted add May20 OPEN and was rejected by cash/reserve plus sector capital; lack of an intent on May20 is not proof that a new order would fill",
+    "No original May20 PVR slot or new-role funding snapshot exists for this winner; source opportunity rank351 is original H1, not PVR priority",
+    "Gold late add shares same breakout/EMA pattern as early winners; shared wider I/seed floor makes original min100 risk4604.987 exceed .25%3844.772",
+    "Gold and Changdian have mixed old-paper initial-hardline responsibility among original CP exits; physical FIFO must not be conflated with logical sell_layers attribution",
+    "Preserving frozen initial hardlines prevents EMA-only rescue of original Jiangfeng and Kema CP exits"
+  ],
+  "corrections_preserved": [
+    "Pandas.NA serialization fixed to null, no unknown converted to permission or price",
+    "Initial physical-FIFO-implies-forced-all-logical-exits inference withdrawn before final deliverable; pilot fill_exit distributes only within sell_layers target ids",
+    "Root paper uses T5, while older cached EMA license uses C>EMA20>EMA60. Only four requested T5/L10 snapshots computed; no substitution of older label for full new state"
+  ],
+  "remaining_unknowns": [
+    "Full-mother and across-year coverage of the new typed trend state and grants",
+    "New role native typed token, PVR sorting, order-lifecycle and partial-fill implementation",
+    "Separate risk allocator grant, pending-exit responsibility and stress definitions",
+    "Dynamic cash/industry/stock/pool opportunity cost and realized payoff",
+    "Logical hard/soft target merge and physical sellability under a new selective policy",
+    "Actual exchange queues and point-in-time universe/industry membership"
+  ],
+  "blockers_for_saved_evidence": [],
+  "main_readout": "READOUT.txt"
+}

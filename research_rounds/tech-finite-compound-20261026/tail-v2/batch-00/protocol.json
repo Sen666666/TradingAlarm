@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "symbol": "USZA001309",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA002049",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA002151",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA002156",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA002185",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA002371",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA002409",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300077",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300223",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300373",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300456",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300458",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300604",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300613",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300623",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300661",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300666",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300672",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA300782",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA301297",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA301308",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA301536",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA301583",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    },
+    {
+      "symbol": "USZA301611",
+      "node": "9602",
+      "end": "2026-10-26",
+      "earliest": "2026-10-15",
+      "mode": "tail",
+      "rights": true,
+      "max_pages": 1
+    }
+  ],
+  "max_requests": 50,
+  "request_interval_seconds": 0.3,
+  "read_timeout_seconds": 15,
+  "session_preference": "snapshot"
+}

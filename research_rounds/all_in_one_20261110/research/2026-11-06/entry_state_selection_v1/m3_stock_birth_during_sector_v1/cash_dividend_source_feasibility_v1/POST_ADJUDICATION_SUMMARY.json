@@ -1,0 +1,22 @@
+{
+  "retrieved_events": 426,
+  "unique_date_source_rows": 424,
+  "documented_composite_events": 2,
+  "company_register_ex_pay_dates_available": 426,
+  "strict_amount_and_date_matches_plus_documented_composites": 402,
+  "unresolved_amount_differences": 24,
+  "max_absolute_per_share_difference": 5.11e-05,
+  "max_gross_snapshot_difference": 0.24633000000000002,
+  "sum_absolute_gross_snapshot_differences": 0.9085000000000001,
+  "snapshot_warning": "Only event-date gross-equity amount arithmetic at old simulated inventory, not PnL or a bound on subsequent state-dependent path effects.",
+  "positive_register_qty": 426,
+  "register_equals_previous_observation": 426,
+  "register_qty_equals_original_interruption_qty": 426,
+  "pay_date_equals_ex_date": 426,
+  "old_formal_UNKNOWN_count_remains": 508,
+  "strategy_replays": 0,
+  "actual_tax_estimates": 0,
+  "source_dated_notices_sampled_not_universal": true,
+  "source_returns_code_name": false,
+  "historical_API_is_archived_PIT": false
+}

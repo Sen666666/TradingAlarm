@@ -1,0 +1,16 @@
+def checkpoint(self,out,last_event):
+ out=Path(out);out.mkdir(parents=True,exist_ok=True)
+ immutable={'bundle','market','facts','accounts','cp','pv','matrix','matrix_days','industry_rows','industry_cp','receipts','actions_by_date','episode_starts'}
+ runner={k:v for k,v in self.__dict__.items() if k not in immutable}
+ accounts={k:{f:v for f,v in a.__dict__.items() if f not in ('market','facts')} for k,a in self.accounts.items()}
+ payload=dict(last_completed_event=last_event,runner=runner,accounts=accounts,
+  source_freeze=self.source_freeze,quarter_or_budget_reset=False)
+ raw=pickle.dumps(payload,protocol=5);r=pickle.loads(raw)
+ assert r['last_completed_event']==last_event
+ for k,a in self.accounts.items():
+  assert r['accounts'][k]['available']==a.available
+  assert r['accounts'][k]['budget'].consumed==a.budget.consumed
+  assert r['accounts'][k]['positions']==a.positions
+ target=out/'checkpoint.pkl';temp=out/'checkpoint.tmp';temp.write_bytes(raw);temp.replace(target)
+ save(out/'checkpoint.json',dict(at=last_event,sha256=sha(target),source_freeze=self.source_freeze,
+  account_initialization_not_repeated=True,roundtrip_only_not_historical_restart_proof=True))

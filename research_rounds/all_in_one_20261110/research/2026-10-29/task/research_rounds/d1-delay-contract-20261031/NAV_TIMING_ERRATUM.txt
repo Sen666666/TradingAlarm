@@ -1,0 +1,12 @@
+V1 D1 ledger results remain reproducible and arithmetically reconciled, but are
+not a clean single-factor execution-pressure comparison. Independent review
+found amend_d1 assigned actual opening NAV to account.current_nav. Original
+new-order cash-reserve/stock-cap checks normally use the preceding decision NAV;
+they unintentionally inherited the new base after any retained-order amendment.
+This is not evidence of false actual equity or an accounting imbalance.
+
+V1 source/results/provenance remain unchanged here. Corrected V2 is isolated in
+../d1-delay-contract-v2-20261031. It keeps actual opening NAV for old-order/live
+budget checks, keeps original decision NAV for fresh-intent original checks,
+and reruns only the two D1 paths after new gap/D0/prefix/restore gates. No risk,
+signal, priority, price, quantity or trading-policy optimization is introduced.

@@ -1,0 +1,14 @@
+{
+  "completed_utc": "2026-11-07T18:36:45.856326+00:00",
+  "one_fixed_run": true,
+  "no_parameter_search": true,
+  "arms": [
+    "A_UNION_B",
+    "RAW_MOM11",
+    "CH3_RM"
+  ],
+  "windows": [
+    "2022",
+    "2024_924"
+  ]
+}

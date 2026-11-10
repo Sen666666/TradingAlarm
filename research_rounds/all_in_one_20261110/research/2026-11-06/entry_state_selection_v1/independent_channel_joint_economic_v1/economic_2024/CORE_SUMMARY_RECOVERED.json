@@ -1,0 +1,312 @@
+{
+  "fixed_stocks": 1709,
+  "common_comparable_stocks": 1577,
+  "common_at_least_one_entered": 1389,
+  "common_both_never_entered": 188,
+  "noncomparable_stocks": 132,
+  "common_baseline_net": 1437756.7426108695,
+  "common_joint_net": 2835492.359924024,
+  "common_joint_minus_baseline": 1397735.6173131545,
+  "common_price_contribution": 1616562.735700038,
+  "common_ab_path_delta": -218827.11838688358,
+  "arm_unknown_stocks": {
+    "baseline": 27,
+    "joint": 113
+  },
+  "arm_financial_uncovered_stocks": {
+    "baseline": 7,
+    "joint": 24
+  },
+  "arm_never_entered_stocks": {
+    "baseline": 560,
+    "joint": 201
+  },
+  "actual_entered_stocks": {
+    "baseline": 1149,
+    "joint": 1504
+  },
+  "joint_newly_entered_stocks": 370,
+  "joint_no_longer_entered_stocks": 15,
+  "repeated_participation_stocks": {
+    "baseline": 188,
+    "joint": 395
+  },
+  "actual_entered_rounds": {
+    "baseline": 1347,
+    "joint": 1934
+  },
+  "original_ab_permits_exact": true,
+  "pvr_funnel": [
+    {
+      "lane": "AB",
+      "pvr_group": "KNOWN",
+      "stage": "AB_ORIGINAL_CLOSE_INELIGIBLE",
+      "count": 1268
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "KNOWN",
+      "stage": "APPLICATION",
+      "count": 6868
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "KNOWN",
+      "stage": "BLOCKED_BUY_PENDING",
+      "count": 0
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "KNOWN",
+      "stage": "BLOCKED_HELD",
+      "count": 3431
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "KNOWN",
+      "stage": "BLOCKED_UNKNOWN",
+      "count": 156
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "KNOWN",
+      "stage": "INDUSTRY_FALSE",
+      "count": 0
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "KNOWN",
+      "stage": "INDUSTRY_UNKNOWN",
+      "count": 0
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "KNOWN",
+      "stage": "MINIMUM_LOT_OR_RISK_REJECT_AT_CLOSE",
+      "count": 0
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "KNOWN",
+      "stage": "PASS_NOT_TOP2",
+      "count": 1273
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "KNOWN",
+      "stage": "SELECTED_PENDING",
+      "count": 740
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "KNOWN",
+      "stage": "SUPPRESSED_BY_AB_VALID_CLOSE",
+      "count": 0
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "UNKNOWN",
+      "stage": "AB_ORIGINAL_CLOSE_INELIGIBLE",
+      "count": 10
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "UNKNOWN",
+      "stage": "APPLICATION",
+      "count": 10
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "UNKNOWN",
+      "stage": "BLOCKED_BUY_PENDING",
+      "count": 0
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "UNKNOWN",
+      "stage": "BLOCKED_HELD",
+      "count": 0
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "UNKNOWN",
+      "stage": "BLOCKED_UNKNOWN",
+      "count": 0
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "UNKNOWN",
+      "stage": "INDUSTRY_FALSE",
+      "count": 0
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "UNKNOWN",
+      "stage": "INDUSTRY_UNKNOWN",
+      "count": 0
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "UNKNOWN",
+      "stage": "MINIMUM_LOT_OR_RISK_REJECT_AT_CLOSE",
+      "count": 0
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "UNKNOWN",
+      "stage": "PASS_NOT_TOP2",
+      "count": 0
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "UNKNOWN",
+      "stage": "SELECTED_PENDING",
+      "count": 0
+    },
+    {
+      "lane": "AB",
+      "pvr_group": "UNKNOWN",
+      "stage": "SUPPRESSED_BY_AB_VALID_CLOSE",
+      "count": 0
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "KNOWN",
+      "stage": "AB_ORIGINAL_CLOSE_INELIGIBLE",
+      "count": 0
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "KNOWN",
+      "stage": "APPLICATION",
+      "count": 12690
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "KNOWN",
+      "stage": "BLOCKED_BUY_PENDING",
+      "count": 0
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "KNOWN",
+      "stage": "BLOCKED_HELD",
+      "count": 8352
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "KNOWN",
+      "stage": "BLOCKED_UNKNOWN",
+      "count": 181
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "KNOWN",
+      "stage": "INDUSTRY_FALSE",
+      "count": 84
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "KNOWN",
+      "stage": "INDUSTRY_UNKNOWN",
+      "count": 0
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "KNOWN",
+      "stage": "MINIMUM_LOT_OR_RISK_REJECT_AT_CLOSE",
+      "count": 433
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "KNOWN",
+      "stage": "PASS_NOT_TOP2",
+      "count": 2024
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "KNOWN",
+      "stage": "SELECTED_PENDING",
+      "count": 1208
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "KNOWN",
+      "stage": "SUPPRESSED_BY_AB_VALID_CLOSE",
+      "count": 408
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "UNKNOWN",
+      "stage": "AB_ORIGINAL_CLOSE_INELIGIBLE",
+      "count": 0
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "UNKNOWN",
+      "stage": "APPLICATION",
+      "count": 33
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "UNKNOWN",
+      "stage": "BLOCKED_BUY_PENDING",
+      "count": 0
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "UNKNOWN",
+      "stage": "BLOCKED_HELD",
+      "count": 4
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "UNKNOWN",
+      "stage": "BLOCKED_UNKNOWN",
+      "count": 0
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "UNKNOWN",
+      "stage": "INDUSTRY_FALSE",
+      "count": 0
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "UNKNOWN",
+      "stage": "INDUSTRY_UNKNOWN",
+      "count": 0
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "UNKNOWN",
+      "stage": "MINIMUM_LOT_OR_RISK_REJECT_AT_CLOSE",
+      "count": 15
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "UNKNOWN",
+      "stage": "PASS_NOT_TOP2",
+      "count": 12
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "UNKNOWN",
+      "stage": "SELECTED_PENDING",
+      "count": 2
+    },
+    {
+      "lane": "PRICE",
+      "pvr_group": "UNKNOWN",
+      "stage": "SUPPRESSED_BY_AB_VALID_CLOSE",
+      "count": 0
+    }
+  ],
+  "report_blockers": [],
+  "economic_model": "CONDITIONAL_NEXT_COMMON_OPEN_FULL_FILL_PROXY_NOT_ACCOUNT_RETURN",
+  "real_orders": "NOT_PROVIDED",
+  "real_ACK": "NOT_PROVIDED",
+  "real_fill": "NOT_PROVIDED",
+  "historical_tradability": "UNKNOWN",
+  "zero_partial_scope": "SYNTHETIC_RESPONSIBILITY_TESTS_ONLY"
+}

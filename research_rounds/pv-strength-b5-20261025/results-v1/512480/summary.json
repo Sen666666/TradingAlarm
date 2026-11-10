@@ -1,0 +1,43 @@
+{
+  "id": "512480",
+  "group": "same_seven_original_adapter",
+  "rows": 1786,
+  "price_observations": 1786,
+  "strength_observations": 1786,
+  "events": 138,
+  "entries": 34,
+  "exits": 34,
+  "floor_updates": 35,
+  "memories": 3,
+  "ledger_records": 3,
+  "first": "2019-06-12",
+  "last": "2026-10-23",
+  "historical_b4_compared": true,
+  "historical_e0_compared": true,
+  "prefixes": [
+    {
+      "rows": 65,
+      "completed": false
+    },
+    {
+      "rows": 595,
+      "completed": false
+    },
+    {
+      "rows": 1190,
+      "completed": false
+    },
+    {
+      "rows": 1785,
+      "completed": false
+    }
+  ],
+  "differences": 6,
+  "passed": false,
+  "sha256": {
+    "evidence.parquet": "e89dce8c0d56d7f0479f446f8b5eda11ecd3bc81aba7dbee48848bcfe5d10b02",
+    "journal.json": "3388448ab90449cc810303841ea98d651298e5d004c71d8e40be76d9984532f7",
+    "ledger.parquet": "4f3ef237eeab02c45b2ee1bbc2f92ff5f9266f5e760d726a053411c94bbea3fc",
+    "state.parquet": "4afa8818a41d0c2102b12777c6cd4c92d847178b1b759e1c8e40399ace727a85"
+  }
+}

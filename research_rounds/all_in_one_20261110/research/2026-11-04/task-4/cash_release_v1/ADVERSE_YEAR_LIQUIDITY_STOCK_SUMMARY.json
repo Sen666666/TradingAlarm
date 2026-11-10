@@ -1,0 +1,142 @@
+[
+  {
+    "window": "long",
+    "year": "2022",
+    "OPEN_days": 203,
+    "S0_cash_pct": {
+      "count": 203,
+      "minimum": 9.587728865088057,
+      "median": 15.345900746578089,
+      "mean": 22.630117154414595,
+      "maximum": 100.0
+    },
+    "potential_extra_release_pct": {
+      "count": 203,
+      "minimum": 9.587728865088057,
+      "median": 10.0,
+      "mean": 9.980788817425823,
+      "maximum": 10.0
+    },
+    "original_cash_below_extra10_days": 25,
+    "original_day_buy_fees": {
+      "count": 203,
+      "minimum": 0.0,
+      "median": 22.08758489081,
+      "mean": 28.245916298738337,
+      "maximum": 344.7978483756955
+    },
+    "interpretation": "Independent original daily liquidity stocks; no summation as new capital, no released-policy losses/returns"
+  },
+  {
+    "window": "long",
+    "year": "2023",
+    "OPEN_days": 132,
+    "S0_cash_pct": {
+      "count": 132,
+      "minimum": 9.748102114951617,
+      "median": 13.59813011581034,
+      "mean": 15.977029415435272,
+      "maximum": 45.66584309092334
+    },
+    "potential_extra_release_pct": {
+      "count": 132,
+      "minimum": 9.748102114951617,
+      "median": 10.0,
+      "mean": 9.98654921771323,
+      "maximum": 10.0
+    },
+    "original_cash_below_extra10_days": 19,
+    "original_day_buy_fees": {
+      "count": 132,
+      "minimum": 0.0,
+      "median": 19.8144644539,
+      "mean": 25.35371821139628,
+      "maximum": 93.0254844381
+    },
+    "interpretation": "Independent original daily liquidity stocks; no summation as new capital, no released-policy losses/returns"
+  },
+  {
+    "window": "long",
+    "year": "2024",
+    "OPEN_days": 157,
+    "S0_cash_pct": {
+      "count": 157,
+      "minimum": 7.988694480620606,
+      "median": 20.392512489765917,
+      "mean": 23.968995420234176,
+      "maximum": 99.09275618167678
+    },
+    "potential_extra_release_pct": {
+      "count": 157,
+      "minimum": 7.988694480620606,
+      "median": 10.0,
+      "mean": 9.955418334478745,
+      "maximum": 10.0
+    },
+    "original_cash_below_extra10_days": 19,
+    "original_day_buy_fees": {
+      "count": 157,
+      "minimum": 0.0,
+      "median": 21.2105565758,
+      "mean": 25.034513965652284,
+      "maximum": 249.2586997895
+    },
+    "interpretation": "Independent original daily liquidity stocks; no summation as new capital, no released-policy losses/returns"
+  },
+  {
+    "window": "strong",
+    "year": "2025",
+    "OPEN_days": 125,
+    "S0_cash_pct": {
+      "count": 125,
+      "minimum": 9.446241173948863,
+      "median": 14.023006408813204,
+      "mean": 16.42540868410379,
+      "maximum": 100.0
+    },
+    "potential_extra_release_pct": {
+      "count": 125,
+      "minimum": 9.446241173948863,
+      "median": 10.0,
+      "mean": 9.972322375116054,
+      "maximum": 10.0
+    },
+    "original_cash_below_extra10_days": 17,
+    "original_day_buy_fees": {
+      "count": 125,
+      "minimum": 0.0,
+      "median": 23.3639380791,
+      "mean": 29.8835343925826,
+      "maximum": 332.3919184073945
+    },
+    "interpretation": "Independent original daily liquidity stocks; no summation as new capital, no released-policy losses/returns"
+  },
+  {
+    "window": "strong",
+    "year": "2026",
+    "OPEN_days": 116,
+    "S0_cash_pct": {
+      "count": 116,
+      "minimum": 9.455769785270004,
+      "median": 13.767213218689855,
+      "mean": 16.35095785606623,
+      "maximum": 56.14490523718592
+    },
+    "potential_extra_release_pct": {
+      "count": 116,
+      "minimum": 9.455769785270004,
+      "median": 10.0,
+      "mean": 9.972458154005398,
+      "maximum": 10.0
+    },
+    "original_cash_below_extra10_days": 17,
+    "original_day_buy_fees": {
+      "count": 116,
+      "minimum": 0.0,
+      "median": 25.768751584325003,
+      "mean": 30.95385228415387,
+      "maximum": 136.101853965526
+    },
+    "interpretation": "Independent original daily liquidity stocks; no summation as new capital, no released-policy losses/returns"
+  }
+]

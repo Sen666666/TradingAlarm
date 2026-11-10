@@ -1,0 +1,46 @@
+成本额度守卫：独立逻辑与时钟审查 v1
+2026-11-04；结论 CONDITIONAL_GO_SMALL_SAMPLE，尚未审新实现/账户结果。
+
+现行授权与单因素
+在现有PVR_NO_CONFIRMED60上叠加未获有效入场价保护仓位的剩余买入成本额度。预先固定alpha=0.10/0.20/0.40，并保留无guard的No60对照。不是旧G(mark)上限，也不是0.005 NAV名义风险门。
+保持原E0/I/CP1/PVR排序、industry/stock/core/mobile授权、probe/confirmed迁池、旧资金和风险约束、费用与执行、原ACT20/BREAK63恢复和退出。MA+20恢复是前轮另一个候选，不得本轮混入。
+这是一项组合新增资金准入消融，不宣称修复入场确认、I_target延续或退出全部问题。今后若改这些工具/规则，应分别消融。
+
+当前状态与成本
+对仍持有批次i，q_i是真实剩余qty，E_i是实际成交执行单位价（包含原成交滑点，不含买费），F_i是当前原生生效保护线，p_i是同一时钟原生已知mark。E/F/p须处于相同公司行动/货币单位。
+PROTECTED_i := known_units_and_prices AND F_i>=E_i AND p_i>F_i AND 无待执行退出/原退出责任 AND 原保护仍有效。
+不能用浮盈>0、everhit、未来最终盈亏、行业新高或旧持仓盈利标签代替该谓词。firsthit不是永久毕业；F回退、mark跌破、挂退出或未知后，当前余量重新占用。只禁止新增，不由本guard强卖或改变原保护。
+任何同股后续加仓均为新的批次和执行价，不继承旧winner保护。core用最后decision-known last_core_line；mobile用实际当前floor；OPEN只可使用当时已知线，不能读当日未来CLOSE。
+
+成本口径必须由账本审查锁定
+建议且待ledger reviewer/producer共同冻结的经济成本是该仍持余量的实际买入gross加实际买费、依原账partial/split/现金零碎权益规则分配后的remaining basis。保护门的E与此含费成本不同。
+不得使用q*mark（那是市值），不得把layer.cash累计买卖现金或最终净亏当remaining cost，也不得用原gross-only jmeta.unit_cost悄悄冒充含费成本。不得另造估价/财务engine或用残差修正账本。
+若选择其它明确成本口径，须在新路径运行前由root与独立ledger reviewer冻结并记差异，不能看收益后切换。
+
+准入原子式
+令U为本候选所有新买入且当前非PROTECTED的真实余仓；所有真实open/cancel_pending未成买单为O，pending一律占用，不能预先毕业。
+C_U(t)=sum_{i in U}remaining_actual_buy_basis_i + sum_{o in O}(真实余量买入成本预留_o+未付费用预留_o)。
+只有原所有条件均满足、数量合法，且新单投影后的C_U(t,q)<=alpha*NAV_after(t,q)，才可预留或成交。
+NAV_after必须按同一原生会计时钟投影本次费用、执行价与当前mark价差（买入滑点）等实际变化，不能只用当前NAV，也不能把现金预留误减成费用。实际成交时必须重核当时价格/费用/NAV/余量并原子记账；最后实际状态独立核对。
+未知必要成本/单位/mark/line/权益不得填零释放额度；保守占用或阻止新增，记录具体unknown。
+
+不可省略的边界
+1. 撤单只是请求。原ACK前pending本金和费用仍占用；ACK仅释放真实未成部分，不能造新的独立grant。
+2. partialfill只将实际已成部分变为真实批次，未成部分保原余单；成本不得两边重复，累计最低佣金与增量收费沿原native合同，不作线性手续费假设。
+3. 价格/保护回退、权益下降或公司行动造成占用超过cap，不为了重回cap强卖原仓；阻止新增，保留原退出。普通老仓/候选启用前真实仓位如grandfathered，须事前列清身份，不得按收益决定豁免。fresh-flat两个窗口所有新层同规则。
+4. 原probe池/sectorStage仍有效。离开这个额外成本占用集合，不等于迁入confirmed、不等于有可用现金，也不保证旧pool有容量；不能为使候选有效而撤掉原守卫。
+5. 跨年接续候选自身真实账户和元数据，不能重置成本或保护资格。prefix/restart须保真实batch IDs、余量basis、未成预留、退出责任、alpha与原权息/fee状态。
+6. 新准入被拒/缩量时，不清原stock_requests/consumed/epoch、不过期旧CP1，不擅自回退排序或生成重试证据。使用原最大合法qty机制；数值guard必须纯预览，不能预览时消费权限。
+
+独立算术反例（只是公式说明，非回测/成交证明）
+NAV_before=1000000，alpha=.10，现U成本90000。欲买100股，执行单价100、当时mark99.9、费用5。新成本10005，NAV_after=1000000-100*(100-99.9)-5=999985；alpha*NAV_after=99998.5，合成本100005超6.5。只看gross/旧NAV会误准入；原最小单位若100股，不能擅缩成99股。
+另有1000股E=10、买费5、余成本10005，mark=20、F=9时仍占10005而非市值20000。若F=11、mark=20可离开额外占用，但原真实市值20000及mark-floor风险9000仍在原风险账里。若mark<=F，不能因clipped mark-floor=0便免费授权。
+
+何时可准入小样本
+逻辑没有阻断一次薄实现/小样本。必须先有：冻结成本口径、source/数据/参数、原No60控制身份、可审纯准入和实际fill原子hook；独立核q/cost/fees/NAV/pending/split/exit边界；no-op identity与实际prefix/restart。原113和19个同日命中亏损案例的mark>F/exit核查由独立boundary owner完成，原纯F/E审计不冒充本资格通过。
+本文件不要求额外用户确认；上述是已授权研究内部验收。小样本过后是否全运行由root依据真实检查裁决，不能把源审冒充经济授权。
+
+已知反例与评价
+原1557层398/454正层和109/1103负层曾F>=E，负109仍亏约36875.67。长期持有更易得到升线随访，everhit分组有随访偏差；当前资格和实际账户检验才能评价。亏损退出会腾出当前额度，可反复试错；本机制没有累计试错成本预算，不因cap低于35%就称账户回撤安全。
+旧C10限制全户mark-floor风险/6%门，旧R0冻结原计划批准风险不可逆消费，行业grade是资格过滤，均不同于本次current remaining cost占权益的存量准入。差异不证明新机制优越。
+应报告全部alpha与No60在2022—2024自身连续账户及2025Jul—2026Jun同强窗的真实收益、全局DD、费用、被阻/缩量机会、赢家旧仓持有/加仓与新龙头影响；不选最优alpha冒充稳健性，不将原静态删单组净额叫新收益。简单ETF/MA基准保不同资产/费用和执行proxy边界。

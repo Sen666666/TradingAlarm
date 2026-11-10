@@ -1,0 +1,28 @@
+{
+  "status": "ACTUAL_PVR_FILLED_ROUND_FORWARD_PROBABILITY_DIAGNOSTIC_NOT_NEW_POLICY",
+  "account_runs": 0,
+  "model_specifications": 1,
+  "parameter_searches": 0,
+  "first_year_predictions": 0,
+  "earliest_prediction": "2023-01-03",
+  "latest_prediction": "2026-05-14",
+  "monthly_fits": 41,
+  "fit_months_known": 41,
+  "original_rounds": 2693,
+  "eligible_2023_onward": 1931,
+  "known_predictions": 1903,
+  "known_closed_labels": 1836,
+  "still_open_predicted": 67,
+  "ACT_context_signal_dates": [
+    "2022-01-04",
+    "2022-06-17",
+    "2024-05-06",
+    "2025-03-14"
+  ],
+  "poison_checks": 4,
+  "frozen_source_sha256": "93c41796cca62a2022348ca2e84473efd0d3b4395fc1030b9e62863819b9cf63",
+  "freeze_sha256": "70ff2166e42d348d8c0beb12dcb32ce512bf36422bd3b6daeae9b9e8e5279b6f",
+  "seconds": 4.930061750113964,
+  "limitations": "Already consumed history, fixed future pool and non-PIT industry/availability/adjustment provenance; temporal forward predictions are reproducible as-of-model outputs, not genuinely untouched out of sample.",
+  "label_delay_limitation": "Closed-only training estimates a completion-conditioned history distribution. Winners/losers may close at different speeds; open labels remain unavailable, no imputation or false independence. This diagnostic cannot identify counterfactual new selections."
+}

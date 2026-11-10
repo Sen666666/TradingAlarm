@@ -1,0 +1,17 @@
+"""Date-presence audit only. Missing rows are not classified as suspensions or filled."""
+from pathlib import Path
+import pandas as pd,numpy as np,json,hashlib,time
+O=Path(__file__).resolve().parent
+P=Path('/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/data/ths-index-history-20261018/canonical/USHI1B0300.csv')
+cal=pd.DatetimeIndex(pd.read_csv(P,usecols=['date'],parse_dates=['date'])['date']);E=pd.read_csv(O/'CP_EVENT_INDEX_2022_2026H1.csv',usecols=['sid','date']);R=pd.read_csv(O/'SOURCE_REFS.csv');rows=[];eventrows=[];beg=time.monotonic()
+for r in R.itertuples(index=False):
+ d=pd.read_parquet(r.raw_ref,columns=['trade_date','close','price_eligible','observed_bar','source_invalid','synthetic_event_bar','volume']);dt=pd.DatetimeIndex(pd.to_datetime(d.trade_date));v=pd.to_numeric(d.close,errors='coerce');valid=np.isfinite(v)&(v>0)&d.price_eligible.eq(True)&d.observed_bar.eq(True)&d.source_invalid.eq(False)&d.synthetic_event_bar.eq(False);good=dt[np.asarray(valid)]
+ if len(dt)==0:continue
+ first=max(pd.Timestamp('2022-01-01'),dt.min());last=min(pd.Timestamp('2026-06-30'),dt.max());expected=cal[(cal>=first)&(cal<=last)];absent=expected.difference(good)
+ rows.append({'sid':r.sid,'reference':'saved_HS300_date_calendar_not_certified_exchange_schedule','first_raw_source_date':str(dt.min().date()),'scope_reference_dates_after_raw_start':len(expected),'eligible_raw_observations_on_reference_dates':len(expected.intersection(good)),'reference_dates_without_eligible_raw':len(absent),'missing_reason':'not_classified_saved_price_rows_do_not_distinguish_suspension_vs_source_gap'})
+ for x in E[E.sid.eq(r.sid)].itertuples(index=False):
+  t=pd.Timestamp(x.date);n=cal.searchsorted(t,side='right');future=cal[n:n+20];missing=future.difference(good);eventrows.append({'sid':r.sid,'date':x.date,'next20_reference_dates_available':len(future),'next20_reference_dates_without_eligible_raw':len(missing),'first_absent_reference_day':None if not len(missing) else str(missing.min().date()),'absence_does_not_prove_suspension_or_execution':True})
+C=pd.DataFrame(rows);F=pd.DataFrame(eventrows);C.to_csv(O/'REFERENCE_CALENDAR_DATE_COVERAGE.csv',index=False);F.to_csv(O/'CP_FUTURE_RAW_CALENDAR_AVAILABILITY.csv',index=False)
+s=json.loads((O/'SUMMARY.json').read_text());s.update(reference_calendar_source=str(P),reference_calendar_not_exchange_certified=True,stock_reference_dates_missing_eligible_raw_total=int(C.reference_dates_without_eligible_raw.sum()),stocks_with_some_missing_reference_dates=int((C.reference_dates_without_eligible_raw>0).sum()),CP_events_with_missing_eligible_raw_among_next20_reference_dates=int((F.next20_reference_dates_without_eligible_raw>0).sum()),CP_events_without20_future_reference_dates=int((F.next20_reference_dates_available<20).sum()));(O/'SUMMARY.json').write_text(json.dumps(s,ensure_ascii=False,indent=2)+'\n')
+sha=json.loads((O/'READ_SOURCE_SHA256.json').read_text());sha[str(P)]=hashlib.sha256(P.read_bytes()).hexdigest();sha[str(Path(__file__).resolve())]=hashlib.sha256(Path(__file__).read_bytes()).hexdigest();(O/'READ_SOURCE_SHA256.json').write_text(json.dumps(sha,ensure_ascii=False,indent=2)+'\n')
+print('date-only audit',int(C.reference_dates_without_eligible_raw.sum()),'missing reference stock-days',int((C.reference_dates_without_eligible_raw>0).sum()),'stocks;',int((F.next20_reference_dates_without_eligible_raw>0).sum()),'CP events some next20 reference missing; seconds',time.monotonic()-beg)

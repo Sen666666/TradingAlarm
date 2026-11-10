@@ -1,0 +1,24 @@
+{
+  "before_first_quantity_calculation": true,
+  "at_UTC": "2026-11-04T10:36:18.889010+00:00",
+  "root_authorization": "one pure quantity screen over2265+1171 actualfilled orders; no account, full, fee/PnL/NAV or freed-cash reuse",
+  "definition": "R from original CLOSE full-plan cap; search cap original actually filled q; exact LR.maximum_quantity; core bypass; nominal only",
+  "sources": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/MOBILE_OPEN_RISK_QUANTITY_V1/CANDIDATE_CARD_FROZEN.txt": "1afe373e51cdc043f9157422e0657392fe99ba470812d3985cc43fe266d65774",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/MOBILE_OPEN_RISK_QUANTITY_V1/PROTOCOL.txt": "ff7269760ba83f8c7c3acff160c3c340be716d8aabd49d838d3fd946d1e9ab48",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/MOBILE_OPEN_RISK_QUANTITY_V1/quantity_core.py": "59816ae9251f9207192db0b40ae485eded5daf28acdb13cba25e82cdd823cd94",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/ar6_native_feasibility/MOBILE_OPEN_RISK_QUANTITY_V1/screen.py": "78943e1a300c4c17dae2528ec67459c0a21212e0f51e743f59d28ecf1f15a34a",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/lot-risk-allocation-20261029/code/study.py": "2e7cfbdded269ae5430c9146d0b1f5c2b2281e5a5c774fdffb088b620d72bff4",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/code/market_rules.py": "2fe02c28d30b9202a627acb5541c8ef917a6fb92953494a467148ed5f83f5cdb",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pvr-act-comparison-20261027/execution-rules-v2.json": "e54d23fb4be1740415364e757d300231c3871a99de43a328773cbe391eadb614",
+    "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/inputs-v2/economic-protocol.json": "fc0d87436cae4c18019da7049979057903419682916afd287e9757dd46d8d339",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/independent_review/ENTRY_RISK_COMMITMENT_AUDIT.json": "efaf736e9a7bb8b2d4c0cff7f5b246b23fa7691db12339b6870b69dea28d4021",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/independent_review/ENTRY_RISK_ACTION_INTERVAL_AUDIT.json": "4151b91681866e6e4d68955b85837d93d2569daef9c6f987dcc863bb2a2ede4b",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/entry_risk_commitment_review/2022_2024_ENTRIES.json": "08bc29ba8aa5cceee274918ceda7a549eb048ddfbf50542931ab5161b3ca620d",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/entry_risk_commitment_review/2022_2024_ORDERS.json": "7d2b9568b3f756acee2119f72bc9aa45c0ee6cab1daba3fada54ebef9a86cb18",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/entry_risk_commitment_review/2022_2024_ORIGINAL_FIXED_TAIL_CONTROLS.json": "09877c555e6694a12b0bfbc1c1362bec4e79cdc2fa1b807c5058fd43523af5a7",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/entry_risk_commitment_review/strong_ENTRIES.json": "753bc29398e1c10ab58891cf8829e5802a8d4a3de97a606ebc34e6da9bf355db",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/entry_risk_commitment_review/strong_ORDERS.json": "c580c1dfe1d1b26ba164ff093290218c5bca76b79ee4ce6daa8ae78b4c6da560",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/loss_correction/entry_risk_commitment_review/strong_ORIGINAL_FIXED_TAIL_CONTROLS.json": "bf1fe67ac2e138718617a3e60073958d37e961ff97c5313941d5b8b7c8c5bfc7"
+  }
+}

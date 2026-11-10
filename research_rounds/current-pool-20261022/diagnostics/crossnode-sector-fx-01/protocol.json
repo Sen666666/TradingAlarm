@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "symbol": "UFIH871116",
+      "node": "9602",
+      "end": "20261022",
+      "earliest": "2013-01-01",
+      "mode": "full",
+      "rights": false,
+      "max_pages": 6
+    },
+    {
+      "symbol": "UFIH871117",
+      "node": "9602",
+      "end": "20261022",
+      "earliest": "2013-01-01",
+      "mode": "full",
+      "rights": false,
+      "max_pages": 6
+    },
+    {
+      "symbol": "UFXBHKDCNY",
+      "node": "9602",
+      "end": "20261022",
+      "earliest": "2013-01-01",
+      "mode": "full",
+      "rights": false,
+      "max_pages": 6
+    }
+  ],
+  "max_requests": 18,
+  "request_interval_seconds": 0.3,
+  "session_preference": "auto",
+  "read_timeout_seconds": 20,
+  "purpose": "one cross-node diagnostic for observed sector source gaps and directly observed HKD/CNY history identifier; no model change"
+}

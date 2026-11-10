@@ -1,0 +1,31 @@
+"""Full-universe paired descriptions; no optimization or rerun."""
+from study import *
+from bisect import bisect_left
+def load(p):return json.loads(Path(p).read_text())
+def main():
+ meta=pd.read_csv(ROOT/'research_rounds/tech-compound-design-20261026/proposed-pool.csv').set_index('symbol').to_dict('index');events=[];risks=[];summary=[]
+ for name in ['L0','L1']:
+  obj=load(O/f'results/{name}.json');dates=sorted(r['at'] for r in obj['decisions']);lookup={r['at']:r for r in obj['decisions']};fund={(r['sid'],r['signal_at']):r for r in obj['audit'] if r['kind']=='lot_risk_funded'};filled={(r['security_id'],r['signal_at']):r for r in obj['trades'] if r['side']=='buy'};rejected={};allocated={}
+  for r in obj['audit']:
+   if r['kind'] not in ('lot_risk_open_reject','lot_allocation'):continue
+   at=dates[bisect_left(dates,r['at'])-1];key=(r['sid'],at)
+   if r['kind']=='lot_risk_open_reject':rejected[key]=r['reason']
+   else:allocated[key]=r
+  for r in obj['decisions']:
+   for i in r['intents']:
+    sid=i['sid'];key=(sid,r['at']);f=fund.get(key);t=filled.get(key);al=allocated.get(key);reason='filled' if t else 'size_'+i['size_reject'] if i.get('size_reject') else rejected[key] if key in rejected else 'reserved_but_no_fill' if f else 'whole_order_cash_unfunded' if al else 'no_open_observation_or_end'
+    events.append(dict(account=name,symbol=sid,name=meta[sid]['name'],signal_at=r['at'],kind=i['kind'],reason=reason,desired_gross=float(i['budget']),risk_budget=float(i.get('risk_budget',0)),frozen_cap=i['cap'],allocated_shares=f['shares'] if f else 0,actual_shares=t['shares'] if t else 0,minimum_cash=float(al['minimum_cash']) if al else None,ideal_cash=float(al['ideal_cash']) if al else None,protection=float(i['floor'])))
+  summary.append(dict(account=name,reasons=dict(collections.Counter(e['reason'] for e in events if e['account']==name)),core_reasons=dict(collections.Counter(e['reason'] for e in events if e['account']==name and e['kind']=='core')),add_reasons=dict(collections.Counter(e['reason'] for e in events if e['account']==name and e['kind']=='add'))))
+ w=pd.read_csv(O/'analysis/winner-windows.csv');s=pd.read_csv(O/'analysis/stocks.csv');paired=[]
+ for old,new in [('P0','L0'),('P1','L1')]:
+  a=w[w.account.eq(old)].set_index('symbol');b=w[w.account.eq(new)].set_index('symbol');aa=s[s.account.eq(old)].set_index('symbol');bb=s[s.account.eq(new)].set_index('symbol')
+  assert set(a.index)==set(b.index) and a.trough.equals(b.trough) and a.peak.equals(b.peak)
+  for sid in a.index:paired.append(dict(control=old,new=new,symbol=sid,name=meta[sid]['name'],is_price_3x=bool(a.loc[sid,'is_price_3x']),old_coverage=a.loc[sid,'holding_coverage'],new_coverage=b.loc[sid,'holding_coverage'],coverage_change=b.loc[sid,'holding_coverage']-a.loc[sid,'holding_coverage'],old_max_gap=a.loc[sid,'max_absent_days'],new_max_gap=b.loc[sid,'max_absent_days'],old_first_buy=a.loc[sid,'first_window_buy'],new_first_buy=b.loc[sid,'first_window_buy'],old_profit=aa.loc[sid,'net_profit'],new_profit=bb.loc[sid,'net_profit'],profit_change=bb.loc[sid,'net_profit']-aa.loc[sid,'net_profit']))
+ pd.DataFrame(events).to_csv(O/'analysis/allocation-events.csv',index=False);pd.DataFrame(paired).to_csv(O/'analysis/winner-paired.csv',index=False);save(O/'analysis/allocation-funnel.json',summary)
+ stockpairs=[]
+ for old,new in [('P0','L0'),('P1','L1')]:
+  a=s[s.account.eq(old)].set_index('symbol');b=s[s.account.eq(new)].set_index('symbol')
+  for sid in a.index:stockpairs.append(dict(control=old,new=new,symbol=sid,name=meta[sid]['name'],is_price_3x=bool(a.loc[sid,'is_price_3x']),old_profit=a.loc[sid,'net_profit'],new_profit=b.loc[sid,'net_profit'],difference=b.loc[sid,'net_profit']-a.loc[sid,'net_profit']))
+ pd.DataFrame(stockpairs).to_csv(O/'analysis/all-stock-paired.csv',index=False)
+ print(json.dumps(summary,ensure_ascii=False))
+if __name__=='__main__':main()

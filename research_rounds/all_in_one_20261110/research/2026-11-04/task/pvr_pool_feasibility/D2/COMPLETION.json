@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "case": "D2",
+  "seconds": 153.74773720791563,
+  "baseline_restore_identity": true,
+  "pure_OFF_identity": true,
+  "ON_retained_guards_passed": true,
+  "original_files_unchanged": true
+}

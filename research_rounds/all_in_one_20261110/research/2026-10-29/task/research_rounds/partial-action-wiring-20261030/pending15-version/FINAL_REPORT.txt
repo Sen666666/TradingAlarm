@@ -1,0 +1,50 @@
+部分行动真实接线验收：12/12通过；预算设计仍待决
+2026-10-30。仅独立研究目录；没有历史收益/账户经济路径、指标重算、交易或产品修改。
+
+恢复事实
+连接正常；四文件存在，上轮失败补丁未应用，无旧测试输出。修正合同后才开始测试；旧PROTOCOL-before-reconnect与初始冻结保留。
+
+最低否证对照的修正
+对照名称为ACT+固定现金保留额：总初始100万元，名义50万元现金永久不交易/不承担交易费，可交易现金=max(0,available−50万)，活动权益=max(0,NAV−50万)。不维持50%动态仓位，不是独立50万ACT+现金，不设第二ACT；暂停仍按同一总NAV/20%阶段峰值定义。无利息，费用只由活动部分承担。资产低于保留额不虚补，停止新增并保留真实负债；若既有费用义务与不可动用保留额冲突，基准停止计价报告冲突，不能偷用现金。保留额、活动预算会改变暂停/资金竞争，不能单独归因预测力。此L只完成设计，未实现/运行。
+
+通过的12项（都是原真实控制器/Decimal ledger/admission调用；人工价格为合成输入）
+1. only_risk_200_sold_core_200_kept：PASS；{'K': 200, 'R': 0, 'available': '37890.0', 'completion': 0, 'missing_scale_preserved_unknown': True, 'account_reconciles': '-210.0'}
+2. partial_reduction_retains_occupancy：PASS；{'physical': 300, 'pending_target': 100, 'restore_accepted': []}
+3. ACT_or_structure_upgrades_pending_trim_to_full：PASS；{'real_completion': 1, 'ACT_alone_upgrades': True, 'structure_alone_upgrades': True, 'account_reconciles': '-210.0'}
+4. restore_and_new_stock_share_original_ranked_cash：PASS；{'order_follows_original_H1': [['A', 'C'], ['C', 'A']]}
+5. insufficient_committed_cash_and_unsplittable_lot：PASS；{'committed_cash_fixture_remaining': '0.00786', 'refused': [['A', 'insufficient_budget_or_quantity']], 'one_lot_core': 100}
+6. same_day_fresh_receipt_consumed_once：PASS；{'stale_not_used': True, 'market_Q_false_not_restored': True, 'same_receipt_once': True, 'next_execution': '2020-01-07 13:00:00+00:00', 'order_purpose': 'risk_restore'}
+7. rising_price_only_affordable_reference_gap_restored：PASS；{'actual_restored': 100, 'reference_cap': 200, 'budget_after_existing_stock_cap': '2000'}
+8. dividend_split_and_odd_share_role_conservation：PASS；{'dividend_core': 20, 'dividend_risk': 20, 'split_actual': 800, 'fractional_actual': 401, 'no_fractional_cash': True}
+9. repeated_risk_rounds_keep_all_structure_costs：PASS；{'real_fills': 6, 'fees': '30', 'structure_total': '-430.0', 'real_completion': 0}
+10. role_disabled_exact_original_behavior：PASS；{'full_synthetic_ledger_audit_exact': True, 'fills': 2, 'audit_rows': 10}
+11. partial_restore_then_risk_cancels_unfilled_remainder：PASS；{'cancelled_restore_remainder': True, 'sold_actual_risk': 100, 'core_kept': 200, 'actual_locked_batch_no_early_fill': True, 'real_mature_window_fill': True}
+12. natural_concentration_blocks_new_risk_not_core：PASS；{'natural_core_not_forced_out': True, 'restore_rejected': [['A', 'insufficient_budget_or_quantity']], 'full_six_slots_restore_only': ['A'], 'new_rejected': [['C', 'total_slots_full']]}
+
+核验意义与接口
+400股风险200真实卖完后核心200仍在、无整股ExitCompletion；原卖单部分100后，原结构/ACT分别可升级清300真实余仓，整单最低佣金累计不重复扣。风险角色0不是股票清仓。
+同日开盘减完、收盘新I可排下一合法执行；卖前/过期收据、QFalse、同收据重用不补。反向风险信号在未完补单时撤残，真正可卖批次不足时原fill_exit返回None并保持责任，成熟窗口才成交。
+公平队列实际调用原_priority和decide/apply_decision；H1互换使接纳先后A/C→C/A，满六席原股恢复仍一席，新C由原admission以total_slots_full拒绝。没有恢复优先，也没有把annual_rebalance伪装成restore。
+角色K+R逐事件=原账本实股；分红40记K/R各20应收而不加现金；送转2:1后800实股对应K400/R400；400股×1.003的原零股写销后实股401、K201/R200，无合成现金。两次恢复循环六次真实成交累计佣金30，结构现金+权益与NAV严格相抵（合成损耗不是策略结果）。
+关闭角色功能的相同合成序列：全audit/fills/待单/序号/现金/完成回执精确等于原父类，强制调用关闭的风险入口也无动作。这不是本轮新做的六历史账户off恒等或券商验收。
+恢复预留kernel逐字比对：只扩展purpose白名单为risk_restore，预留/手续费/整股/现金求解算术不变；原ledger/admission/执行器文件和冻结RB2 SHA不变。
+
+仍待决：15%单股恢复集中度线
+原target_shares_cap+冻结风险股数上限已经防止无限增股；原15%新单预算、90%总投入、真实现金也可限制金额。减现仓后仅补到15%NAV是额外集中度约束，并非原ACT必需语义。当前代码明确标UNDECIDED_PROTOTYPE_ONLY_15PCT_HOLDING_CEILING，机械测试沿此首版口径，未运行去掉它的第二政策。建议主审决定，不把接口测试通过当批准。
+直接例：价格20，NAV41890、核心200股市值4000、冻结风险缺口200；额外15%余量2283.50，首版只提交100、截断100。价格40时自然核心8000，15%余量0，原核心不被卖但恢复目标全部截断。它确实改变参与，不能说无害地继承原规则，也不能为已知赢家豁免。
+RESTORE_BUDGET_CHECKS.json保留10次申请的决策时间、mark_known_at、现仓/挂单预留、NAV/现金、冻结目标/缺口、预算余量、提交/截断股数与原拒因。拒因通用时应结合记录的多约束数值，不宣称独占资金原因。
+紧现金夹具用原ledger直接预留另单建立极端承诺状态，并非admission生成的完整ACT历史可达路径；只证明不双花/不越预算，不当作策略容量证据。
+
+失败与修复（不改已冻交易条件）
+第一轮11/12通过：联合队列新票直接走到ledger通用capacity_already_committed，而非原admission的total_slots_full。修为每次新票使用真实占位重新原decide，再执行原apply_decision，并保留已拒绝候选的临时等待屏蔽。没有放松席位或更换排序。
+第二轮12项均通过，末尾结果序列化缺Path导入；补导入后通过。其后仅补齐预期中独立ACT/结构、同日卖前/QFalse、真实可卖批次、预算审计输出，最终12项通过。test-01..05及TEST_RESULTS-failed-1保留；首轮经济路径0。
+恢复时点按实际风险减仓完成时间验证，不只比日期；锁定风险零股仍未退出时不允许逆向加风险；ACT_on=False要求调用者已应用原ACT override，防仅传布尔而绕开全退。
+
+未知及下一最小历史行为验收（未自动执行）
+未解决选择是restore新增集中度约束是否保留；不据这12项给出经济优劣。原ACT仍可清核心，不称快层独立账户或永久趋势参与。
+先主审冻结一种预算合同；然后只用此前固定13周期原输入验证角色动作时序：实际成交/日单关闭冻结分配、真实E0结构ID、新i_buy收据与完整Q来源、因果sigma/factor、部分单升级、送转/应收和未知。关闭角色先逐事件对原前缀。观察真实新鲜I/Q能否接持仓中restore，不能用人工收据替代缓存；固定13身份不得按结果挑。
+只做历史行为、不算新策略收益或完整账户；没有出现的恢复/零股/ACT场景标未暴露，不能拿合成通过代替真实覆盖。出现单位/订单/角色库存矛盾就停受影响项，不调比例或阈值。L固定现金基准另需在未来经济合同中实现可用现金隔离和费用边界，本轮未验证。
+原日线/公司行动研究代理、券商异步撤单、真实盘口和实盘可成交仍不在本轮通过范围。
+
+本次最终12项执行断言区间0.006446秒（不含解释器/模块导入）；五次启动约数秒，全部为合成/输出核验，非收益重跑。恢复后首检查为14:58:31 UTC，当前2026-10-30T15:11:11.007878+00:00，准备/修实现/补证与整理交错，未伪造纯开发CPU分项。
+产物：PROTOCOL.txt、TEST_RESULTS.json、ACCOUNT_TRACES.json（19个夹具账户原账及角色事件）、RESTORE_BUDGET_CHECKS.json、FINAL_TEST_FREEZE.json。完成后停止，未开始13周期或经济回测。

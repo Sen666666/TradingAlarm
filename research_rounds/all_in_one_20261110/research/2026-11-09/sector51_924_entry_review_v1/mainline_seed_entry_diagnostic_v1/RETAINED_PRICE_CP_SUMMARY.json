@@ -1,0 +1,60 @@
+{
+  "n": 412,
+  "signal_to_entry_hist": {
+    "2": 302,
+    "4": 20,
+    "3": 72,
+    "5": 10,
+    "6": 8
+  },
+  "signal_to_entry": {
+    "min": 2.0,
+    "median": 2.0,
+    "p90": 3.0,
+    "max": 6.0
+  },
+  "first_reject_to_fill": {
+    "min": 1.0,
+    "median": 1.0,
+    "p90": 2.0,
+    "max": 5.0
+  },
+  "first_reject_at_original_next_open": 412,
+  "first_reject_phases": {
+    "RESIDUAL": 68,
+    "EVENT": 318,
+    "MATURE": 23,
+    "PAUSED": 3
+  },
+  "price_close_change_pct": {
+    "min": -6.812652068126535,
+    "median": 1.9321289382790874,
+    "p90": 9.962552379761084,
+    "max": 27.353094123764944
+  },
+  "price_close_higher": 308,
+  "I_floor_raised": 47,
+  "I_gap_change_pp": {
+    "min": -20.321076400700466,
+    "median": 1.1290709519972943,
+    "p90": 6.971679987340228,
+    "max": 15.309220612499733
+  },
+  "I_gap_narrowed": 128,
+  "new_CP_receipt_count": 134,
+  "last_CP_survived_count": 134,
+  "CP_unknown_count": 0,
+  "no_I_raise_and_no_new_CP": 261,
+  "actual_open_vs_original_next_open_pct": {
+    "min": -8.25158684362377,
+    "median": 2.0524242952682847,
+    "p90": 11.686188237914505,
+    "max": 35.84070796460177
+  },
+  "notes": [
+    "412 baseline retained MATURE fills after 2024-11-06 only. Current frozen signal and original identity are preserved. No observed price or CP change is a new admission rule.",
+    "A new CP receipt before first SEED is market evidence, not information_confirmed. Baseline requires a new CP dated on/after actual seed to validate ADD.",
+    "All timing is exchange-session index; observed price deltas are not opportunity cost or executable savings.",
+    "No threshold optimization, no filtered portfolio or strategy replay."
+  ]
+}

@@ -1,0 +1,73 @@
+Entry risk commitment diagnostic v1 | root authorized 2026-11-04
+Freeze before this diagnostic's new financial feature labels/results.
+Zero new account objects/events, numeric I/CP1/MA recomputations or policy.
+
+Full actual-funded mothers: No60 own2022→24 complete2265 layers/726CLOSE;
+No60 normal Jul2025→Jun2026 complete1171 layers/242CLOSE. Use risk's saved
+ENTRIES for actual budget_order decision timestamp/first-add-reentry, strict
+real/open/AR/fees, and already-frozen original PVR tail cohort. Do not choose
+large gap losers as a mother. Fixed years/quarters, all frozen HS300 legs,
+2024pre924/sixclose/postOct8; no future peak search. Entry lifetime contribution
+and actual phase wealth separately reported. Classes never enter a signal.
+
+Legacy dedup before calculation
+LR-1 RULES and study.preview have actual-open all-in risk<=.0025NAV only for
+core, with frozen shares/gross and original fees. They explicitly preserve
+ADD2% nominal-only and do not add that core limit to mobile. L0/L1 normal
+positive tradeoffs and later LR1 CP1-ADD twelve-cell failure are retained;
+neither tests the exact new mobile reference-risk invariant. I-RB1 is fixed1%
+initial sizing and actual-open protection check, not a signal-plan-derived
+mobile budget. No claim risk sizing is a new idea. R1 increases minimum gross
+up to4%; C2 caps nominal fresh step2% (PVR already2%); C10 changes account
+risk/initial full size; none is this diagnostic. Existing native cash, stock,
+sector, probe risk/capital, fees, pending and preview guards remain; mobile
+is NOT described as unregulated. No new threshold/grid, 0.25% transfer or
+new sizing formula is implemented. If equivalent legacy failure is found or
+the material increment is small/mostly true tails, close without rescue.
+
+Units and clocks
+Decision uses parsed real_buy_fill.budget_order, checked original decision
+record before actual fill. Preserve original signal_at mismatch separately.
+Frozen initial F_adj comes from actual buy trade.floor, never final raised
+layer floor. f_dec/f_fill are original exact stock known action factors.
+F_raw_fill=F_adj/f_fill. Actual p_fill is stored execution price including
+original5bps; stored raw_open must reproduce it. Reference p_ref=
+raw_close_dec*(f_dec/f_fill)*1.0005, in the same raw unit as F_raw_fill.
+No fill-day closing signal is used. Missing exact quotes, nonpositive values,
+source segment changes, invalid/unknown or nonpositive reference risk are
+separate unknown categories. Any factor difference/company-action interval
+is exported separately and NOT called primary comparable commitment breach;
+no unknown share-cap transformation is invented.
+
+Two deliberately different measurements
+For actual filled q, A=q*max(0,p_fill-F_raw_fill), Q=q*max(0,p_ref-F_raw_fill).
+A-Q is fixed-actual-quantity nominal risk change attributable to entry price
+difference, excluding buy/sell fees, gap-through-stop/T+1 and liquidity risk.
+It is not an existing contract violation, realized loss or avoidable loss.
+
+Primary mobile reference R_plan=original frozen decision intent.cap *
+max(0,p_ref-F_raw_fill). Use ORIGINAL max planned shares, not actual funded q:
+otherwise an underfunded small fill would manufacture a breach. Partial fills
+of one budget_order aggregate their original q and A, compare to R_plan once.
+Compute actual A−R_plan and positive part, plus actual/ref ratios when valid.
+This is a possible extra risk commitment, not an existing native mobile
+promise. The source currently promises frozen nominal budget/shares, not
+this R_plan. Fees stay in money once; these risk quantities are explicitly
+nominal and do not pretend to duplicate LR1 all-in protection_risk.
+
+Core is a separate control: original intent.risk_budget is an existing all-in
+.0025NAV contract; its p_fill nominal risk can rise relative to a signal-q
+reference while still respecting that original contract. Never call such a
+change a core violation. Display original risk_budget, not a mobile0.25% gate.
+
+Outputs
+All rows/order groups and continuous distributions; only inherent signs
+(risk above frozen reference, price gap positive/nonpositive/unknown), no
+optimized cutoff. Counts, original planned/funded capital, actual initial
+risk, risk increment and source financial loss/positive/open/AR/fees for each
+first/add/reentry, role/pool, full stage and old fixed tail membership. Full
+NAV and phase wealth bridges reuse risk's already-audited pure ledger with
+only group label substitution; not independent basis double computation.
+Preserve unmatched original tails, same-stock-other-fill, action intervals,
+unknowns, and winners with gaps. Do not scale deleted amounts into new NAV.
+No economic candidate grant follows this diagnostic automatically.

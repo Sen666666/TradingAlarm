@@ -1,0 +1,12 @@
+{
+  "name": "SUPPORTED_TRAJECTORY_RISK_STR_v1",
+  "status": "ONE_FORMULA_FROZEN_BEFORE_NEW_FEATURE_AND_LABEL_RESULTS_NOT_OOS",
+  "clock": "At signal close t. 21 prior COMMON trading days t-21..t-1, excluding current close from regression, same source segment through t; earliest price anchor next common market open. No future inputs.",
+  "formula": "p_j=log(native C_j); regress p[t-21:t-1] on x=0..20. beta=sum((x-10)*p)/770; pred_t=mean(p)+11*beta; e=log(C_t)-pred_t; U20=20*beta-e; risk=log(C_t/original pending floor); Q=U20/risk. Require complete same-source 22 closes and 0<floor<C. No truncation, epsilon, gate, sign flip or fit to future labels. U20 is a trajectory extrapolation hypothesis, not expected return or probability.",
+  "policy": "Original legal empty MOBILE candidate domain; original same-day K=min(20,N). Reorder only known Q and PVR slots WITHIN ORIGINAL SECTOR by Q round12 desc, PVR round12 desc, original priority and sid. Unknown retains exact slot. Preserves baseline daily sector quotas and K. Not actual budgets, eligibility or account replay.",
+  "comparison": "PVR is primary, E31 separate sensitivity. 2022,2023,2024,2025 and partial2026 separate; all quarters; common complete dates. 20-day date-block uncertainty without random stock selection. Primary horizon20, horizon5/60 secondary. Fixed 30bp cost proxy separate from gross.",
+  "right_tail": "Reuse original roots account/sid/epoch; earliest legal candidate birth; full60 max close up>=30% and terminal>=20% posthoc only. Capture in first6 common days. Report losses and additions independently, fixed 924 and semiconductor windows, original complete round winners separately diagnostic only.",
+  "training": "No fitted cross-stock parameters, no training labels, no tuning grid. Windows21 and20 fixed before calculation; seen history remains development, cannot call OOS.",
+  "stop": "No promotion if 2022-2025 primary common-date difference nonpositive or block95 lower<=0, any complete year primary mean difference<0, or baseline big-root retention<95%. Any failure stops candidate; do not change formula after results.",
+  "accounts": 0
+}

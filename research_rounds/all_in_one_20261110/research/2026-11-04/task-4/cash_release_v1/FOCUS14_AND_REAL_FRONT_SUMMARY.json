@@ -1,0 +1,100 @@
+{
+  "blocked_targets": 14,
+  "original_front_unique_orders": 38,
+  "original_front_actual_filled": 38,
+  "original_front_fully_closed_orders": 30,
+  "original_front_closed_positive": 8,
+  "original_front_closed_negative": 22,
+  "original_closed_path_net_reference": 14896.075966369193,
+  "original_closed_path_net_scope": "Original whole order paths, each unique key once; NOT released-policy PnL or opportunity cost",
+  "target_original_rank": {
+    "n": 14,
+    "minimum": 79,
+    "median": 305.0,
+    "maximum": 1083
+  },
+  "front_original_rank": {
+    "n": 38,
+    "minimum": 0,
+    "median": 33.0,
+    "maximum": 350
+  },
+  "target_existing_price_labels": {
+    "21": {
+      "events": 14,
+      "known": 14,
+      "unknown_or_original_invalid": 0,
+      "endpoint_pct": {
+        "n": 14,
+        "minimum": -47.45197740112995,
+        "median": -14.507982558830019,
+        "maximum": 46.1801048127314
+      },
+      "negative_endpoints": 9,
+      "MFE30": 2
+    },
+    "63": {
+      "events": 14,
+      "known": 14,
+      "unknown_or_original_invalid": 0,
+      "endpoint_pct": {
+        "n": 14,
+        "minimum": -46.59322033898305,
+        "median": -2.811226654280102,
+        "maximum": 47.64260318441798
+      },
+      "negative_endpoints": 7,
+      "MFE30": 9
+    }
+  },
+  "front_existing_price_labels": {
+    "21": {
+      "events": 38,
+      "known": 26,
+      "unknown_or_original_invalid": 12,
+      "endpoint_pct": {
+        "n": 26,
+        "minimum": -50.979974435449506,
+        "median": 2.0709528116245712,
+        "maximum": 54.53149001536097
+      },
+      "negative_endpoints": 12,
+      "MFE30": 7
+    },
+    "63": {
+      "events": 38,
+      "known": 26,
+      "unknown_or_original_invalid": 12,
+      "endpoint_pct": {
+        "n": 26,
+        "minimum": -48.66960790405766,
+        "median": -0.7156187656863378,
+        "maximum": 167.04244031830234
+      },
+      "negative_endpoints": 14,
+      "MFE30": 14
+    }
+  },
+  "cash10_shortfall": {
+    "n": 14,
+    "minimum": 11647.083211571851,
+    "median": 17889.00550991964,
+    "maximum": 39696.05996062001
+  },
+  "stock_inventory": {
+    "n": 14,
+    "minimum": 1274775.4,
+    "median": 1622208.2,
+    "maximum": 2105405.19
+  },
+  "real_available_net_of_submitted_orders": {
+    "n": 14,
+    "minimum": 150988.61645379715,
+    "median": 181859.86511407336,
+    "maximum": 235819.52411341912
+  },
+  "labels_scope": "Original pre-existing fixed 21/63 stock-valid-price observations from signal CLOSE, not actual buy/fill clock or trading returns; preserved unknowns; no sizing or policy chosen from labels",
+  "no_new_pricing_labels": true,
+  "no_new_accounts": true,
+  "no_proportional_PnL": true
+}

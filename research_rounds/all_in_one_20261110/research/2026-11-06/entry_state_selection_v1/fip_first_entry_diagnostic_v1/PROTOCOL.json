@@ -1,0 +1,38 @@
+{
+  "status": "SPECIFICATION_FIXED_BEFORE_NEW_COMPUTATION_NOT_UNTOUCHED_PREREGISTRATION",
+  "formula": "r_j=log(C_j/C_j-1); PRET_n=exp(sum r)-1; F_n=sgn(PRET_n)*(Npos-Nneg)/n = -ID_n. n=20 primary,60 sensitivity. Zeros count in n. Require all n returns finite in same native segment.",
+  "long_interpretation": "Compare only positive PRET_n for long-side FIP interpretation. Negative PRET left unchanged by any prospective consumer, not treated as desirable smooth downtrends.",
+  "concentration": "J_n=max(max(r,0))/sum(max(r,0)); effective_positive_days=(sum r+)^2/sum(r+^2). Diagnostic only, no new combo fitting.",
+  "matching": "Same exact signal date and fixed native sector, both PRET_n>0, abs(log1p(PRET_a)-log1p(PRET_b))<=0.02. Greedy ascending absolute gap then lexicographic IDs, no reuse within n/mode. Feature pair selection ignores outcomes; orient higher F vs lower F, drop equal F after matching with no replacement. Winner/loser pair mode is separately outcome-stratified description, not predictive validation.",
+  "outcomes": "Native same-source adjusted close / (actual original first raw OPEN * native entry factor)-1 at fixed 20/60 common observations including entry close. Entire horizon finite and same segment; cutoff2026-05-15. Common dates from existing H1. No assumed fee for these price paths. Closed 0-to-0 original round_pnl includes actual original costs but remains original-path association.",
+  "scope": "Only original PVR actual first entries, one per flat-to-flat campaign. Does not represent all legal buy pool or a new strategy, no accounts/orders/indicator reruns. Exact same-date pairs may be sparse; no widening after result.",
+  "frozen_windows": [
+    20,
+    60
+  ],
+  "log_return_caliper": 0.02,
+  "forward_horizons": [
+    20,
+    60
+  ],
+  "endpoint": "2026-05-15",
+  "big60": "fixed forward60 maximum close>=30% and terminal>=20%; diagnostic only.",
+  "major_periods": {
+    "2024_924_to_Oct31": [
+      "2024-09-24",
+      "2024-10-31"
+    ],
+    "2025H2": [
+      "2025-07-01",
+      "2025-12-31"
+    ],
+    "2026Q1": [
+      "2026-01-01",
+      "2026-03-31"
+    ]
+  },
+  "no_grid": true,
+  "no_account": true,
+  "no_new_gate": true,
+  "not_PIT": true
+}

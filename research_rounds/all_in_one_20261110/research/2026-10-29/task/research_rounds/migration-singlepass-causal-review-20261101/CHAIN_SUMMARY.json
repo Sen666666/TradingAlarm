@@ -1,0 +1,47 @@
+{
+  "301489.SZ": {
+    "name": "思泉新材",
+    "SC_receipts": 21,
+    "SD_receipts": 21,
+    "SC_filled_layers": 1,
+    "SD_filled_layers": 2,
+    "SC_episodes": 39,
+    "SD_episodes": 38
+  },
+  "301511.SZ": {
+    "name": "德福科技",
+    "SC_receipts": 26,
+    "SD_receipts": 26,
+    "SC_filled_layers": 2,
+    "SD_filled_layers": 1,
+    "SC_episodes": 36,
+    "SD_episodes": 43
+  },
+  "601869.SH": {
+    "name": "长飞光纤",
+    "SC_receipts": 32,
+    "SD_receipts": 32,
+    "SC_filled_layers": 3,
+    "SD_filled_layers": 2,
+    "SC_episodes": 35,
+    "SD_episodes": 54
+  },
+  "603268.SH": {
+    "name": "松发股份",
+    "SC_receipts": 17,
+    "SD_receipts": 17,
+    "SC_filled_layers": 2,
+    "SD_filled_layers": 3,
+    "SC_episodes": 44,
+    "SD_episodes": 40
+  },
+  "688585.SH": {
+    "name": "上纬新材",
+    "SC_receipts": 26,
+    "SD_receipts": 26,
+    "SC_filled_layers": 4,
+    "SD_filled_layers": 3,
+    "SC_episodes": 34,
+    "SD_episodes": 35
+  }
+}

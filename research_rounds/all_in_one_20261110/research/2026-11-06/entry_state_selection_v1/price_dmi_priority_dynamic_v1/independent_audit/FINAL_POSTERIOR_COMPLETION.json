@@ -1,0 +1,71 @@
+{
+  "status": "PASS_BOTH_WINDOWS_FINAL_POSTERIOR",
+  "frozen_code_count": 8,
+  "frozen_input_count": 24192,
+  "original_frozen_code_inputs_outputs_verified_in_source_bindings": true,
+  "both_new_snapshots_unchanged": true,
+  "root_authorization_sha256": "73fdb4955bd5da760e98bc74b51b3f7e872326248c9d505e73cad4e14de61536",
+  "audits": {
+    "2022": {
+      "POSTERIOR": "c008a11d016b656c186a270dfafe70ab537e9b3e3677e97c986b10af014271fe",
+      "SOURCE_BINDINGS": "c27fe3deb20d44ad04fcd87dcfcab5dbeba6591766bbb26da80dcab1a703b662",
+      "CASE_AUDIT": "e8d1882800726b8abc581c0bb9e9dd87166c3e51ac3d115b9609f1ebc262f3f9"
+    },
+    "2024": {
+      "POSTERIOR": "1540253458e21f37b5b5b11a493d6b91a7b8e24e30c035ceb69023c1c388e60c",
+      "SOURCE_BINDINGS": "77fdd9ca51c64f22074279776195f76082f8ce297eb0ab05a89bf56ec8cf1a12",
+      "CASE_AUDIT": "a0ef82b864f816f66240d5e41fd7eab01ea1420a1dec24236221bc5161659b58"
+    }
+  },
+  "snapshots": {
+    "2022": {
+      "complete_sha256": "8dafa3672f87c0b641fdcdc9be49c136d26f28694bf58ec9cab518cd727e559c",
+      "output_seal_sha256": "330f0e5a98e674b4ded9ac9843b84326184acd4922ad796e0477c4fcfd8ffc29",
+      "once_lock_sha256": "a700dee53f27e1ce30ad2462520510ea3c6293b1e33a20344a66db32347cbe69"
+    },
+    "2024": {
+      "complete_sha256": "4820cf4de9152d6ea620a6f454bee746dbdaeaf816b6ac1ea34840dbc459545c",
+      "output_seal_sha256": "3717f25034e1aa4e10dd15f53c0f80cbd1dd6ea8301113179dda5860396da248",
+      "once_lock_sha256": "e9fa8bdb4a256033f12f88290e92ff7acbd33dfd9cdffaf2c135a9ae32ededb5"
+    }
+  },
+  "cases": {
+    "2022": {
+      "status": "PASS_CASE_EXPORT_EXACT_TO_SAVED_LEDGER",
+      "window": "2022",
+      "cases_checked": 14,
+      "entered_paths_checked": 90,
+      "lost_event_later_entry_links_checked": 15,
+      "common_top5_exact": true,
+      "named_unknown_not_zero": true,
+      "case_output_seal_sha256": "60d47918c714c295bef9a2c2fb3a79f989f821fe78a082c93f416465671ba6d9",
+      "named_case_deltas": {
+        "300229.SZ": -130.07523611549186,
+        "300607.SZ": 0.0,
+        "300024.SZ": 0.0,
+        "002241.SZ": null
+      },
+      "economic_runs": 0
+    },
+    "2024": {
+      "status": "PASS_CASE_EXPORT_EXACT_TO_SAVED_LEDGER",
+      "window": "2024",
+      "cases_checked": 14,
+      "entered_paths_checked": 29,
+      "lost_event_later_entry_links_checked": 14,
+      "common_top5_exact": true,
+      "named_unknown_not_zero": true,
+      "case_output_seal_sha256": "062f1274fd34ff59d03de00f6153aab64700155e8abe85182adaa7247565239e",
+      "named_case_deltas": {
+        "300229.SZ": -3178.838192031799,
+        "300607.SZ": -10002.790699960251,
+        "300024.SZ": -7294.462737959846,
+        "002241.SZ": 630.280466886351
+      },
+      "economic_runs": 0
+    }
+  },
+  "new_dmi_economic_runs_per_window": 1,
+  "historical_economic_runs_by_auditor": 0,
+  "source_assertion_scope": "Recorded run locks and exactly two completed snapshot directories; no retries or new economic work by this auditor."
+}

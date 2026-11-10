@@ -1,0 +1,26 @@
+{
+  "120": {
+    "support_months": 41,
+    "binary_eligible_months": 11,
+    "first_support_month": "2023-01",
+    "first_binary_month": "2023-01",
+    "U_range": [
+      0,
+      10
+    ],
+    "threeclass_supported_months": 0,
+    "max_condition": 6.998022138212953
+  },
+  "240": {
+    "support_months": 30,
+    "binary_eligible_months": 30,
+    "first_support_month": "2023-07",
+    "first_binary_month": "2023-07",
+    "U_range": [
+      0,
+      0
+    ],
+    "threeclass_supported_months": 0,
+    "max_condition": 15.561062158338192
+  }
+}

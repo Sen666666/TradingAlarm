@@ -1,0 +1,52 @@
+"""Independent row-contract and fixed-shadow audit; never runs account engine."""
+from common import *
+def main():
+ checked=receipts=0
+ for sid in pd.read_csv(POOL).symbol:
+  f=frame(sid)
+  for label in ['signals','price-control']:
+   z=pd.read_parquet(O/label/f'{sid}.parquet');assert z.index.equals(f.index)
+   prev=None
+   for day,r in z.iterrows():
+    if r.receipt:
+     assert r.ready and r.e0_valid and r.delta_frontier>0
+     assert r.displacement+1e-14>=math.sqrt(5)*r.scale and r.credit+1e-14>=math.sqrt(5)*r.scale
+     assert abs(r.candidate-f.loc[day,'close']*math.exp(-math.sqrt(21)*r.scale))<1e-10
+     assert r.next_credit==0 and r.next_phase=='UP';receipts+=1
+    if prev is not None and pd.isna(r.reset_reason):
+     assert r.scale==prev.next_scale
+     delta=max(0,math.log(float(f.loc[day,'close']))-prev.frontier)
+     assert abs(delta-r.delta_frontier)<1e-13
+     weight=1. if label=='price-control' else r.m
+     assert abs(r.credit-(prev.next_credit+delta*weight))<1e-12
+    if r.receipt and prev is not None:
+     delta=max(0,math.log(float(f.loc[day,'close']))-prev.frontier)
+     assert abs(delta-r.delta_frontier)<1e-13
+     assert r.scale==prev.next_scale
+     assert abs(r.credit-(prev.next_credit+delta*(1. if label=='price-control' else r.m)))<1e-12
+    prev=r;checked+=1
+ paths=read(O/'fixed-window-paths.json');shadow_rows=0
+ for item in paths:
+  sid=item['case']['symbol'];f=frame(sid);start=item['anchor']['entry_at'][:10]
+  for policy in ['CP1','PRICE']:
+   z=pd.read_parquet(O/('signals' if policy=='CP1' else 'price-control')/f'{sid}.parquet');P=float(item['anchor']['E_entry'])
+   for rr in item['paths'][policy]:
+    day=rr['date'];r=f.loc[day];q=z.loc[day]
+    stop=not bool(r.e0_valid) or float(r.close)<=P+1e-13
+    assert rr['P_before']==P and rr['exit']==stop
+    if not stop:
+     P=max(P,float(r.i_floor))
+     if bool(q.receipt):P=max(P,float(q.candidate))
+    assert rr['P_after']==P;shadow_rows+=1
+ for p,h in read(O/'freeze.json')['sha256'].items():assert sha(p)==h,p
+ e=pd.read_csv(O/'episodes.csv');m=pd.read_csv(O/'market-summary.csv');stats={}
+ for policy,g in e.groupby('policy'):
+  early=g[g.early_touch];known=early[early.future_observations.eq(21)]
+  # Nullable Boolean labels remain missing on censored tails.
+  high=known.new_high_21.eq(True);low=known.break_original_floor_21.eq(True)
+  stats[policy]=dict(structures=len(g),early_touch=len(early),early_fraction=len(early)/len(g),median_lead_observations=float(early.lead_observations.median()),lead_known=int(early.lead_observations.notna().sum()),future21_known=len(known),future21_unknown=len(early)-len(known),new_high21=int(high.sum()),break_original_floor21=int(low.sum()),both21=int((high&low).sum()),neither21=int((~high&~low).sum()),source_censored=int(g.source_censored.sum()))
+ totals={k:int(v) for k,v in m.sum(numeric_only=True).items()}
+ save(O/'evaluation.json',dict(market_totals=totals,episodes=stats,financial_returns_calculated=False,stale_window_raises_allowed=False))
+ save(O/'verification.json',dict(passed=True,row_contract_checks=checked,receipt_contract_checks=receipts,independent_shadow_rows=shadow_rows,frozen_source_hashes_unchanged=True,synthetic_tests=19,history=read(O/'history-verification.json'),account_backtests=0))
+ print('audited',checked,receipts,shadow_rows,flush=True)
+if __name__=='__main__':main()

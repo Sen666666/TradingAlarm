@@ -1,0 +1,27 @@
+from pathlib import Path
+import json,hashlib
+from collections import Counter
+from decimal import Decimal as D
+import pandas as pd
+P=Path(__file__).resolve().parent.parent;O=Path(__file__).resolve().parent;V1=P/'mainline_candidate_v1/checkpoint_20240927';V2=P/'mainline_candidate_v2_pending_quote_pause';C=V2/'checkpoint_20240930';F=V2/'full_20241031_once';read=lambda p:json.loads(Path(p).read_text());sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest();checks=Counter();errors=[]
+def check(k,v,c=None):
+ checks[k]+=1
+ if not v:errors.append(dict(check=k,context=c))
+fam=['ORDERS','CANDIDATES','CP_EVENTS','DAY_LEDGER','HOLDINGS','EQUITY_EVENTS','SECTOR_DAILY','ATTEMPTS','PENDING_AT_END','RETRY_TICKETS','INFORMATION_CONFIRMATIONS','TRANSFERS','FUNDING_REQUESTS','ADD_FLOOR_RISK','OPEN_SECTOR_EXPOSURE','TICKET_STATE','TRANSFER_PLAN_AT_END']
+for n in fam:check('original18day17family_exact',read(V1/(n+'.json'))==read(V2/'replay_20240927'/(n+'.json')),n)
+check('new_pause_history_empty_through9_27',not read(V2/'replay_20240927/AVAILABILITY_EVENTS.json') and not read(V2/'replay_20240927/QUOTE_GAPS.json'))
+for n in fam+['AVAILABILITY_EVENTS','QUOTE_GAPS']:check('10_08_full_atomic_rollback',read(C/(n+'.json'))==read(F/(n+'.json')),n)
+old=read(V1/'TICKET_STATE.json');new=read(C/'TICKET_STATE.json');sid='603268.SH';a=old[sid];b=new[sid];immutable=['ticket_id','sid','birth_type','signal_day','nav0','budget','origin','original_factor','current_factor','original_ifloor','ifloor','ever_seeded','last_verified_day']
+for k in immutable:check('paused_identity_or_verified_state_unchanged',a[k]==b[k],k)
+check('paused_no_plan',b['status']=='PAUSED_NO_QUOTE' and b['plan'] is None and not b['ever_seeded']);av=read(C/'AVAILABILITY_EVENTS.json');check('only_two_actual_pause_events',[(x['sid'],x['day'],x['event']) for x in av]==[(sid,'2024-09-30','PAUSED_NO_QUOTE'),(sid,'2024-09-30','PAUSED_CLOSE_NO_PRICE_SIGNAL')]);check('all_pause_records_Q0',all(x['actual_quantity']==0 for x in av));check('no_paused_stock_orders',not any(x['sid']==sid and x['day']>='2024-09-30' for x in read(C/'ORDERS.json')));check('no_paused_OPEN_request',not any(x['sid']==sid and x['day']=='2024-09-30' and x['phase']=='OPEN' for x in read(C/'CANDIDATES.json')));check('no_paused_CP_or_equity',not any(x['sid']==sid and x['day']>='2024-09-30' for n in ['CP_EVENTS','EQUITY_EVENTS'] for x in read(C/(n+'.json'))));check('no_paused_held_lot',not any(x['sid']==sid and x['day']>='2024-09-27' for x in read(C/'HOLDINGS.json')))
+U=Path('/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031');manifest={x['symbol']:x for x in read(U/'STOCK_MANIFEST.json')};z=pd.read_parquet(next(p for p in manifest[sid]['source_sha256'] if p.endswith('/signal.parquet')));check('raw_current_observation_actually_absent',pd.Timestamp('2024-09-30') not in z.index);check('last_verified_factor_actual_prior_raw',D(b['current_factor'])==D(str(z.at[pd.Timestamp('2024-09-27'),'adjustment_factor'])));g=read(C/'QUOTE_GAPS.json')[sid];check('gap_records_one_actual_missing_day',g['days']==['2024-09-30'] and not g['action_inventory'])
+# All actual action effective dates in this bounded frozen window are common dates.
+AS=Path('/Users/bytedance/Documents/ChatGPT/money/research_rounds/a-share-selection-e0-20261024');K=pd.read_parquet('/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/momentum_persistence_breadth_v1/canonical_mu3_comparison_v2/KNOWN3.parquet');cal=set(str(x.date()) for x in K.index);ro=pd.read_csv(P/'joint51_candidate_v1/CLASSIFICATION_ALL1709.csv');count=0;noncal=[]
+for s in ro[ro.eligible].symbol:
+ for e in read(AS/'inputs-v1/actions'/(s+'.json'))['events']:
+  t=e['effective_date']
+  if '2024-09-02'<=t<='2024-10-31':count+=1;noncal.extend([dict(sid=s,date=t)] if t not in cal else [])
+check('no_effective_action_lost_between_common_days_in_bounded_window',not noncal,noncal)
+scan=read(F/'ALL_TARGETS_BLOCKER_SCAN.json');hold={x['sid'] for x in read(C/'HOLDINGS.json') if x['day']=='2024-09-30'};pending={x['sid'] for x in read(C/'PENDING_AT_END.json')};live={s for s,t in new.items() if t['status'] not in ['CANCELLED','CONSUMED']};check('restored_all_targets_exact_union',set(x['sid'] for x in scan)==hold|pending|live);bad=[x for x in scan if x['issues']];check('only_actual_10_08_missing_event_sid',[x['sid'] for x in bad]==['300870.SZ']);check('blocker_Q0_not_real_holding',bad[0]['held_qty']==0 and bad[0]['pending']);check('blocked_day_has_no_certified_new_rows',all(x['day']<'2024-10-08' for n in ['ORDERS','DAY_LEDGER','HOLDINGS','CP_EVENTS','EQUITY_EVENTS','AVAILABILITY_EVENTS'] for x in read(F/(n+'.json'))))
+report=dict(status='PASS' if not errors else 'FAIL',checks=dict(checks),check_count=sum(checks.values()),errors=errors,action_dates_in_bounded_window=count,noncalendar_action_dates=noncal,restored_target_count=len(scan),actual_blocker=bad,scope='Exact prefix, actual Q0 missing-quote pause and full atomic rollback. No continuation, quote fill or formal suspension inference.',limitations=['Current implementation walks common dates; 226 effective action dates in this frozen window independently verified on-calendar. Future widened data requires interval union rather than assuming this invariant.'])
+(O/'Q0_PAUSE_PREFIX_AND_ROLLBACK_AUDIT.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');print(json.dumps({k:v for k,v in report.items() if k!='checks'},ensure_ascii=False,indent=2))

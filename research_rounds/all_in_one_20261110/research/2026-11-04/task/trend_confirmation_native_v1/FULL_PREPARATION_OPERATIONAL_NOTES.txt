@@ -1,0 +1,15 @@
+完整窗口入口与状态（0个新完整经济运行）
+
+固定范围：long 2022-01-04→2024-12-31，726个CLOSE；strong 2025-07-01→2026-06-30，242个CLOSE。各窗fresh 1,000,000 CNY，同既有No60/开发快照池，以long自身状态跨年，不做年度reset；这不是120万元实盘资金计划。
+四臂：B/NONE、UNIFORM50（原许可意图的原cap+budget半量）、A_ONLY、A_OR_B。不叠成本额度，不改E0/I/PVR排序、退出、ACT20 BREAK63、费用或成交限制。半量意图可让资金买更多低排名股票，不能称为50%账户仓位或同风险对照。
+
+run_trend_window.py --prepare 不加载账户，只固定私有年度分数分派和源清单。--technical只允许9个CLOSE以内的实际物理输入。--execute必须另有root的approved=True授权、准确manifestSHA及独审技术gateSHA。
+完整入口示例（ROOT_AUTH_LONG/STRONG由root填写，不可直接用approved=False提案）：
+PYTHONDONTWRITEBYTECODE=1 /Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/.venv/bin/python -B trend_confirmation_native_v1/run_trend_window.py --execute --window long --out trend_confirmation_native_v1/full-long-v1 --authorization ROOT_AUTH_LONG --seconds 3600
+PYTHONDONTWRITEBYTECODE=1 /Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/.venv/bin/python -B trend_confirmation_native_v1/run_trend_window.py --execute --window strong --out trend_confirmation_native_v1/full-strong-v1 --authorization ROOT_AUTH_STRONG --seconds 3600
+如达运行时限，原run_prepared按完整原事件保存checkpoint，明确另目录--resume且同full manifest；无自动重跑或年度重置。
+
+FeatureCache.end固定为完整窗口末日；input_limit是本次实际物理输入可用末日。查询越过任一边界直接报协议错误，不静默UNKNOWN。checkpoint省略派生feature arrays，保留真实账户、订单、frozen plans/m、CP1消费和状态。restart按同一原始全warm source重建EMA/rolling，不能从重启日重新seed。
+
+原full-schema-resume9-v1失败保留：PID25048，原head PID22724。原PreparedRunner把输入派生episode_starts从短prefix checkpoint覆盖到扩张后构造器，行业新周期KeyError。不是策略经济结论。仅Runner.restore新增保存constructor map、原restore后逐项校验旧key/value为exact子集、恢复该同源输入索引；其他AST exact。已完成direct9无resume金融证据按此限定复用，不重复回放。
+新源下新head4-v2与独立resume9-v2使用新checkpoint，不静默跨源迁移；最终gate以实际收据为准。旧weak-small严格sourcepost FAILED和原full-schema失败均不改为PASS。

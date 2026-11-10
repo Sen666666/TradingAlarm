@@ -1,0 +1,1 @@
+Analysis-only correction before final release: first OPEN route context must use previous decision CLOSE, not buy-day CLOSE. Financial objects not changed; saved derived output v0 preserved. Re-run readonly arithmetic only.

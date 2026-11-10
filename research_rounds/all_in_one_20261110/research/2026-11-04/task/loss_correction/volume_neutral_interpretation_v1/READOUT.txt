@@ -1,0 +1,18 @@
+已完成解释协议/reader字段/原母体冻结；独审收据另绑定。0新模型、0新neutral feature、0新订单或账户，不新增生成管线。
+
+关键入口纠正已源审并读原账同clock核实：
+- core并非仅I_target+epoch。Facts.packet('I')把buy_allowed绑定共同market_buyable AND 当日i_buy；S0 eligibility检查此门；J.planning还要求event.Q、未持有、epoch未消费。三年498个core和strong304个core均当日I_target+i_buy=True，0反例。
+- mobile freshCP1使用continuing.Q，后者替换掉i_buy门，仍保I/Q；三年140/1767、strong38/867个mobile在当日i_buy=False实际成交，不能拿core条件认定mobile无机会。
+- 1205份原facts逐SHA核旧manifest，只读已有值；没有调用新算法或Runner。
+
+母体分母：
+- No60自身2022—24：2265实际层；core498/mobile1767；first968/add588/reentry709；probe650/confirmed1615；原含费买款21522397.31、原net−362010.39。
+- No60 strong：1171实际层；core304/mobile867；first671/add308/reentry192；probe395/confirmed776；原含费买款18410977.60、原net+1263281.23。
+- 本母体实际budget_order去重也为2265/1171；统计独立性不由不同订单ID保证，不能称3436独立失败/独立机会。
+- 原PVR已冻tail83/94全名单原样绑定，含mark/div的原层>=30%定义；不是现金闭合campaign或样本外，也不缩成No60已匹配45/67。
+
+冻结解释：即时I有效/失效与当天fresh-I、freshCP1分开；完整前移/延后/新增/撤回日期流保留，不能从原买入日的False推断整个窗口没有机会。不用未来收益强配信号，不用最近邻强配新旧episode。原价、RS时钟、共同真实执行mask及unknown分母保留。
+旧ACT_on、金融stage/资金/持仓/pending/消耗凭据不能冻成neutral资格。全域neutral ACT未ready时明确条件diagnostic；即便ACT输入齐，也未有账户反馈状态。raw I_floor与CP1 candidate变化分列，不生成订单/units。原净贡献关联不等候选收益、可避损或NAV。
+
+交付：PROTOCOL.txt；READER_FIELDS.json；MOTHER_AND_SOURCE_FREEZE.json；NATIVE_ENTRY_SEMANTICS_AUDIT.json。
+待独审：以上协议边界/源SHA/母体身份。待生产者另授权完成：全1799中性feature、完整ACT输入、90行业纯market状态及三张reader表。当前没有证据判断去量能否改善主要绝对损耗；若全母体区别很小则停在feature诊断，不开账户补洞。

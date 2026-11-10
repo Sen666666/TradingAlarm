@@ -1,0 +1,17 @@
+{
+  "events": 30,
+  "failures": [
+    [
+      "688507.SH",
+      [
+        "unique_publication_record"
+      ]
+    ]
+  ],
+  "max_abs_source_residual": "2.684658451115E-16",
+  "original_evidence_unchanged": true,
+  "actual_admission_performed": false,
+  "history_run": false,
+  "real_Data_constructed": false,
+  "source_directory_hashes_path": "/Users/bytedance/Documents/Codex/2026-11-09/sector51_924_entry_review_v1/mainline_future_cash_fact_review_v1/SOURCE_DIRECTORY_HASHES.json"
+}

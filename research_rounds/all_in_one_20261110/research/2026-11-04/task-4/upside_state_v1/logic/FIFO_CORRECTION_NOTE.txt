@@ -1,0 +1,24 @@
+2026-11-05 独立源代码纠正
+
+我在PRE_REVIEW最早稿H将物理FIFO与策略逻辑层混淆，曾推导‘晚加hard层无法优先
+经济退出、因此可能必须全退’。parent直接读pilot.py提出质疑后，我逐行独立复核：
+此推导不成立，已撤回并修正本目录PRE_REVIEW H，不改原策略或旧封存证据。
+
+有效链：native_adapter要求J.Account.fill_exit；J.Account继承的pilot.Account.fill_exit
+先调父SectorAccount真实执行。SectorAccount按全股可卖物理lot FIFO扣股，实际T+1/
+SELL格点/容量/现金费用仍在。回到pilot后只在sell_layers[sid]目标逻辑层分摊receipt，
+未选择的早期逻辑层不会仅因物理FIFO而减qty。J.Account最后按receipt.parts更新
+shared_loss并sync，预算风险lot来自这些剩余逻辑层，不另按物理age FIFO分配保护。
+
+逻辑示例，不是新交易重演：早3层各100尚满足各自硬保护，晚1层100硬失效；在锁卖
+前只把晚层id送原sell(ids)，数量100可过当日SELL100且聚合至少100真实可卖时，
+原执行层允许卖出物理旧100、将净现金/减qty归晚目标层，早3逻辑层仍可存续。
+是否允许改变早3层已上抬的CP保护、是否有新风险额度，依然必须独立批准。
+
+仍未解决的事项：既有sell_layers锁单只能并集，不能用EMA撤掉已锁层；任意半层
+减量原sell(ids)无qty接口；同个target集合内partial fill仍按原live先后分摊而不按
+hard优先，若把早soft与晚hard一同target可能先减soft。稳妥纸面动作是hard ids优先，
+实际成交/取消确认后才发soft减量。原存在任何unknown不能推成实盘可成交。
+
+所以旧‘逐层最多留半’仅4事件不是所有聚合/整层趋势持有的上界。必须重新明确
+新合同后才能谈覆盖；本轮不做新策略账户，不给可挽回利润数。

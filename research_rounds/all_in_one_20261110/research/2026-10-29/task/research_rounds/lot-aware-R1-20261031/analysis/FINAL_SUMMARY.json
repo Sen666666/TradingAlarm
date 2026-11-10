@@ -1,0 +1,243 @@
+{
+  "valid": true,
+  "net_policy_difference": "-21386.1353283437475",
+  "R1_tagged_contribution": "-2070.2148343515500",
+  "other_layer_contribution_difference": "-19315.9204939921975",
+  "interpretation": "descriptive, mutually exclusive journal bridge; other-layer difference includes endogenous cash/NAV/resource/position feedback, not uniquely causal crowd-out",
+  "whole_account_signed_partitions": {
+    "B_diag": {
+      "closed_tail_profit": "432608.8691552702848333333333",
+      "closed_ordinary_profit": "228152.0143972960098470484561",
+      "closed_loss": "-469428.0490891289731803817895",
+      "open_loss": "-25192.9212317841620",
+      "open_tail_profit": "82323.1040172919500",
+      "open_ordinary_profit": "13005.9277625936735"
+    },
+    "R1_diag": {
+      "closed_tail_profit": "424242.2506399553274230769231",
+      "closed_ordinary_profit": "216666.1375662291637428682430",
+      "closed_loss": "-461967.8421126266821659451660",
+      "open_ordinary_profit": "15876.3308916960570",
+      "open_tail_profit": "69396.2336157807000",
+      "open_loss": "-24130.3009178395305"
+    }
+  },
+  "top5_negative_stock_contribution_differences": [
+    {
+      "sid": "601869.SH",
+      "name": "长飞光纤",
+      "industry": "通信设备",
+      "difference": "-20388.0484068725000"
+    },
+    {
+      "sid": "600629.SH",
+      "name": "华建集团",
+      "industry": "建筑装饰",
+      "difference": "-13137.40214647425000000000000"
+    },
+    {
+      "sid": "688028.SH",
+      "name": "沃尔德",
+      "industry": "通用设备",
+      "difference": "-12325.8000695095710"
+    },
+    {
+      "sid": "000547.SZ",
+      "name": "航天发展",
+      "industry": "军工电子",
+      "difference": "-10138.81782746130000000000000"
+    },
+    {
+      "sid": "603026.SH",
+      "name": "石大胜华",
+      "industry": "电池",
+      "difference": "-9197.1272253343000"
+    }
+  ],
+  "top5_positive_stock_contribution_differences": [
+    {
+      "sid": "603929.SH",
+      "name": "亚翔集成",
+      "industry": "建筑装饰",
+      "difference": "19248.0877143189000"
+    },
+    {
+      "sid": "688411.SH",
+      "name": "海博思创",
+      "industry": "其他电源设备",
+      "difference": "11937.3317528256000"
+    },
+    {
+      "sid": "600118.SH",
+      "name": "中国卫星",
+      "industry": "军工装备",
+      "difference": "10371.398434961000"
+    },
+    {
+      "sid": "603618.SH",
+      "name": "杭电股份",
+      "industry": "电网设备",
+      "difference": "7049.47691977460000000000000"
+    },
+    {
+      "sid": "603256.SH",
+      "name": "宏和科技",
+      "industry": "电子化学品",
+      "difference": "6563.9477467261500"
+    }
+  ],
+  "R1_preview_results": {
+    "R1_confirmed_unfunded": 250,
+    "reserved": 9,
+    "pool_capital": 136,
+    "pool_capital,sector_risk": 20
+  },
+  "named_R1_previews": {
+    "300308.SZ": [
+      {
+        "at": "2025-08-14 09:30:00+08:00",
+        "result": "R1_confirmed_unfunded",
+        "gross": "24652.32000",
+        "target": "23704.361947849616410",
+        "ceiling": "47408.723895699232820"
+      },
+      {
+        "at": "2025-08-20 09:30:00+08:00",
+        "result": "pool_capital",
+        "gross": "26212.099500",
+        "target": "24422.397001128476310",
+        "ceiling": "48844.794002256952620"
+      },
+      {
+        "at": "2025-08-26 09:30:00+08:00",
+        "result": "R1_confirmed_unfunded",
+        "gross": "31375.68000",
+        "target": "24682.143695632717470",
+        "ceiling": "49364.287391265434940"
+      },
+      {
+        "at": "2025-08-29 09:30:00+08:00",
+        "result": "R1_confirmed_unfunded",
+        "gross": "35217.60000",
+        "target": "24921.409730417342870",
+        "ceiling": "49842.819460834685740"
+      },
+      {
+        "at": "2025-09-02 09:30:00+08:00",
+        "result": "R1_confirmed_unfunded",
+        "gross": "40222.101000",
+        "target": "25046.555879279588870",
+        "ceiling": "50093.111758559177740"
+      }
+    ],
+    "300502.SZ": [
+      {
+        "at": "2025-08-20 09:30:00+08:00",
+        "result": "pool_capital",
+        "gross": "24712.35000",
+        "target": "24422.397001128476310",
+        "ceiling": "48844.794002256952620"
+      },
+      {
+        "at": "2025-08-25 09:30:00+08:00",
+        "result": "R1_confirmed_unfunded",
+        "gross": "28346.166000",
+        "target": "24303.174495632717470",
+        "ceiling": "48606.348991265434940"
+      },
+      {
+        "at": "2025-08-26 09:30:00+08:00",
+        "result": "R1_confirmed_unfunded",
+        "gross": "29814.90000",
+        "target": "24682.143695632717470",
+        "ceiling": "49364.287391265434940"
+      },
+      {
+        "at": "2025-08-29 09:30:00+08:00",
+        "result": "R1_confirmed_unfunded",
+        "gross": "35017.50000",
+        "target": "24921.409730417342870",
+        "ceiling": "49842.819460834685740"
+      },
+      {
+        "at": "2025-09-02 09:30:00+08:00",
+        "result": "R1_confirmed_unfunded",
+        "gross": "38819.40000",
+        "target": "25046.555879279588870",
+        "ceiling": "50093.111758559177740"
+      },
+      {
+        "at": "2025-12-10 09:30:00+08:00",
+        "result": "pool_capital",
+        "gross": "41820.90000",
+        "target": "22408.384455376457550",
+        "ceiling": "44816.768910752915100"
+      },
+      {
+        "at": "2026-03-17 09:30:00+08:00",
+        "result": "reserved",
+        "gross": "42222.100500",
+        "target": "25605.468166018941180",
+        "ceiling": "51210.936332037882360"
+      }
+    ]
+  },
+  "ordinary_exact_matched_buy_records": 240,
+  "ordinary_exact_matched_examples": [
+    {
+      "sid": "601606.SH",
+      "name": "长城军工",
+      "at": "2025-07-02 09:30:00+08:00",
+      "shares": 100,
+      "gross": "3101.55000"
+    },
+    {
+      "sid": "300723.SZ",
+      "name": "一品红",
+      "at": "2025-07-02 09:30:00+08:00",
+      "shares": 200,
+      "gross": "11505.75000"
+    },
+    {
+      "sid": "603268.SH",
+      "name": "松发股份",
+      "at": "2025-07-02 09:30:00+08:00",
+      "shares": 200,
+      "gross": "8008.002000"
+    },
+    {
+      "sid": "002602.SZ",
+      "name": "世纪华通",
+      "at": "2025-07-02 09:30:00+08:00",
+      "shares": 200,
+      "gross": "2243.121000"
+    },
+    {
+      "sid": "603256.SH",
+      "name": "宏和科技",
+      "at": "2025-07-02 09:30:00+08:00",
+      "shares": 1100,
+      "gross": "18709.35000"
+    }
+  ],
+  "all_frozen_sources_unchanged": true,
+  "scope": "one valid R1 policy path; invalid mixed continuation archived and excluded",
+  "source_hashes": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lot-aware-R1-20261031/run_one.py": "b1e538e9d8ebee47f1b5d7982c0dfc979c274fb26c5f408a8e005c7ffc5a1392",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lot-aware-R1-20261031/adapter_r1.py": "9bc19e0b1f81ad6511589d996533ca786c2b9f0d050709c803acf9490a60b32a",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lot-aware-R1-20261031/test_adapter_r1.py": "6b0587ce32850de52f045b5e8e2e169ecf3eb249db9c01b9aa493ebdb17ef8dd",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lot-aware-R1-20261031/CONTRACT.txt": "1aa0b01d396aeaf88d8d88412c343409f8f2ba2af20d03556cc80f638d8a6b3c",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lot-aware-R1-20261031/planning_r1.py": "30fb88f14642d0665d02d46b81f57c87139375d02a594031df430f8a0625fac6",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lot-aware-R1-20261031/opening_r1.py": "efa35aedb7fdb7fa812ecb96d483fd0713a2266b41c4c31016e0a1023dbe766e",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/lot-aware-R1-20261031/route_r1_diag.py": "a8f46d829ba608f74c0c3dadab6f41c108d7077bf406beb64d6ac18ebac52395",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/adapter.py": "a998b45d6ab7c243f6161ddfe53721203f0f746e58edbee0d56138737d5d427f",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/model_without_account_check.py": "2fb801bcadfe3aa0fe0ecac97a9730861079bc16d908a3674a404b255729c2c3",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/route_without_account_check.py": "7bc31864d1d3944e800bb3f51297f01c417ecf8ac8487b857aa897bde22d66a1",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/account-risk-ablation-20261031/run/pair/B.json.gz": "39601ce5b3cabdcb7b72ac5a3584c87110e3436dcf69fe9695a83e2ad60a2f60",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py": "fea8cf36f5d4195cf2e55a634052aa2692589fa29a241ae6482b873d631b2425",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/budget_v3/model.py": "c4e61fc6f12eb47aeaa9bfb7faea82f29467a2fb2627875c39308ef9f642af26",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json": "59d12b9c9ed287101e12b8be6c19ebc1d52b6f257525a70e1e342a879ad674f0",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/INDUSTRY_MANIFEST.json": "339c89777f488b3bbd5685cd93e38ad47748585b783808e7da35c685ad0775cd",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/mainline-absolute-Q4-20261031/recovery.csv": "76599d9013946bc5fc501a57b046f36a2868ad61f147ef1a6c73c9575b35906a"
+  }
+}

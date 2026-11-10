@@ -1,0 +1,11 @@
+{
+  "status": "post-result sensitivity, base results already seen",
+  "stock_cost_bps": [
+    25,
+    28
+  ],
+  "base_cost_bps": 15,
+  "fx_bps": 10,
+  "changed": "stock execution cost only; gate, picks and engine unchanged",
+  "interpretation": "Additional 10/13 bps per side; not exact historical stamp duty, rounding or actual brokerage. Generic base fee may already overlap tax."
+}

@@ -1,0 +1,43 @@
+{
+  "rows": 25,
+  "stocks": 18,
+  "original_planning_branches": {
+    "original_CORE_actual_fill": 1,
+    "original_held_prevents_new_CORE": 6,
+    "original_CORE_qualified_but_CLOSE_size_rejected": 7,
+    "original_CORE_intent_but_OPEN_rejected_before_MOBILE_fill": 11
+  },
+  "MOBILE_planning_branches": {
+    "original_held_prevents_new_CORE": 6,
+    "original_CORE_qualified_but_CLOSE_size_rejected": 7,
+    "original_CORE_intent_but_OPEN_rejected_before_MOBILE_fill": 11
+  },
+  "MOBILE_i_buy": {
+    "True": 24
+  },
+  "MOBILE_G1": {
+    "warm_fresh": 24
+  },
+  "MOBILE_minimum_risk_fail": 10,
+  "MOBILE_minimum_nominal_fail": 0,
+  "MOBILE_original_CORE_OPEN_failure_sets": {
+    "probe_risk,sector_capital": 5,
+    "probe_risk,sector_capital,sector_risk": 1,
+    "sector_capital": 2,
+    "probe_risk": 2,
+    "sector_capital,sector_risk": 1
+  },
+  "MOBILE_held_only_mobile_layers": 5,
+  "MOBILE_held_has_core": 1,
+  "eleven_CORE_OPEN_reject_industry_levels": {
+    "2": 9,
+    "1": 2
+  },
+  "eleven_actual_MOBILE_pools": {
+    "confirmed": 11
+  },
+  "no_new_Account": true,
+  "no_new_marks": true,
+  "no_route_projection": true,
+  "seconds": 1.286567125003785
+}

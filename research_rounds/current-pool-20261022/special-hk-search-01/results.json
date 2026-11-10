@@ -1,0 +1,122 @@
+[
+  {
+    "query": "4332",
+    "rows": 21,
+    "exact_code_matches": [
+      {
+        "symbol": "UHKMHK4332",
+        "code": "HK4332",
+        "name": "AMGEN-T",
+        "market": "UHKM",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:05:57.417882+08:00",
+    "response_sha256": "87d805bc22fb088a624d99ede9a85243170914fc470c43213d0171bfeb98ecf8"
+  },
+  {
+    "query": "4333",
+    "rows": 17,
+    "exact_code_matches": [
+      {
+        "symbol": "UHKMHK4333",
+        "code": "HK4333",
+        "name": "思科-T",
+        "market": "UHKM",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:05:57.804406+08:00",
+    "response_sha256": "3fe2f9a5369b5edefbf89207b1fa5306ac48f02c507fab70092e03b1b42f9e99"
+  },
+  {
+    "query": "4335",
+    "rows": 17,
+    "exact_code_matches": [
+      {
+        "symbol": "UHKMHK4335",
+        "code": "HK4335",
+        "name": "英特尔-T",
+        "market": "UHKM",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:05:58.229122+08:00",
+    "response_sha256": "01719b594e244c1d2e6bfe299042c24c149a1d2c8b8b432cb52dbe3126e8e182"
+  },
+  {
+    "query": "4336",
+    "rows": 19,
+    "exact_code_matches": [
+      {
+        "symbol": "UHKMHK4336",
+        "code": "HK4336",
+        "name": "应用材料-T",
+        "market": "UHKM",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:05:58.627747+08:00",
+    "response_sha256": "f4c8849c03f8d1dc63e7a78889fb5b1bb12668b733ae906e2bce9f2789059a14"
+  },
+  {
+    "query": "4337",
+    "rows": 18,
+    "exact_code_matches": [
+      {
+        "symbol": "UHKMHK4337",
+        "code": "HK4337",
+        "name": "星巴克-T",
+        "market": "UHKM",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:05:59.062698+08:00",
+    "response_sha256": "f8fc5729df3e74a54f619a429390c7d8877ef5e8cfdca86efd2ae5c97bb270ba"
+  },
+  {
+    "query": "4338",
+    "rows": 18,
+    "exact_code_matches": [
+      {
+        "symbol": "UHKMHK4338",
+        "code": "HK4338",
+        "name": "微软-T",
+        "market": "UHKM",
+        "aliases": "",
+        "price": null,
+        "previousClose": null,
+        "hasBars": false,
+        "hasIntraday": false,
+        "discoveredOnline": true
+      }
+    ],
+    "observed_at": "2026-10-23T00:05:59.707147+08:00",
+    "response_sha256": "44a42602748b318743c30901176d88e5d24a5b082aa074456cb87cdc8a059590"
+  }
+]

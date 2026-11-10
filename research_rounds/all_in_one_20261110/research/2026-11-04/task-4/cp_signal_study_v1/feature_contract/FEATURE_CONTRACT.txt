@@ -1,0 +1,47 @@
+草稿，待根一次冻结；本目录不生产全量特征、不读/计算标签、不训练、不挑阈值、不开账户。
+
+研究单元与时间边界
+单元为原canonical CP实际确认日t的stock-CLOSE；所有原CP都进入候选母体，不能先保留后来赢家或正特征者。
+本草稿仅定义t及此前的数据。后20日延续/反转标签由根另冻；标签、成熟许可、买量和执行不在本函数。
+开发2022—2023、时间验证2024/2025/2026H1沿父指令；不得因验证结果改窗/特征/缺失规则。跨开发/验证边界前的历史可作纯预热，不能把未来观察带回特征。
+
+公共时钟、数据与缺失
+共用真实沪深300USHI1B0300交易日网格，所有腿显式reindex；函数要求index完全相同且为规范本地日期，不隐式inner join/dropna/ffill。
+t-h指这个固定网格的第h个此前交易日，不是各股票各自第h个非空价格。缺停牌、合成/非observed、无效价格、source segment切换或指数identity切换都断开连续计算。
+股票C/H/L必须是同一原theoretical_ex_price连续坐标；原facts只有C/factor，H/L由原source signal.parquet直接取，或仅经源验证后用raw H/L×同日factor薄投影，不能拿raw H/L直接配adjusted C。
+市场/行业是真实原raw价格指数，不宣称total return。股票连续坐标亦不是股东total return，复权坐标及源身份作为元信息固定，不能按结果换用另一套价格。
+stock.identity和industry.identity标识所用系列；segment是原source segment。历史行业切换若有PIT证据，identity必须随当时指定指数变化，不能跨行业拼接同一个segment0。
+PIT历史归属目前未证：当前metadata/bridge只是2026-10-22静态映射，不能倒写为2022—2026H1当时已知。numeric IM可描述所指定真实行业指数，但必须和membership_known分开；根需决定仅作静态偏差诊断，还是待PIT证明后准入正式时序研究。不能把未知membership填True。
+industry_membership_known是强制独立输入，nullable bool；函数不因已知指数价格而推断股票当时属于该行业。正式可用状态除numeric_known外必须查该字段。
+输入observed/synthetic/price_eligible/amount_eligible/segment/identity均为显式列。缺字段直接报错；未知质量不默认为True。指标未知输出NaN及numeric_known=False，不伪装成已知0或False。
+股票close有效仅依赖价格/observed/合成/来源，成交额缺失不能抹掉价格特征。H/L另检正数、L<=C<=H及H>=L，H/L缺失只阻断channel所需历史。成交额有效性独立，限原raw CNY amount、observed/非合成、有限正数和明确amount_eligible。
+amount_eligible不得随意等同volume_eligible：缺股数量不必然使已知成交额失效；需要父输入层按原成交额质量证据给出，未知就unknown。
+
+第一组：相对强度，8个连续标量
+对h∈{5,20}：
+RS_SM,h(t)=100[ln(C_t/C_t-h)-ln(M_t/M_t-h)]。
+RS_IM,h(t)=100[ln(I_t/I_t-h)-ln(M_t/M_t-h)]。
+delta5_RS,h(t)=RS_h(t)-RS_h(t-5)，不是除5、不是RSh与RS5之差。
+每个基础RS至少h+1个完整有效共网格价格；delta5至少h+6点（5日窗11点、20日窗26点），双腿均不能跨缺失/segment/identity边界。
+单位为100×对数相对收益；不附加RS>0门、分位数、排名、RS60、beta、指数市值权重或后验行业选择。
+
+第二组：价格结构，4个连续标量
+prior20_high(t)=max(H_t-20,…,H_t-1)，prior20_low同理。
+channel20_position=(C_t-prior20_low)/(prior20_high-prior20_low)，分母>0，否则unknown；不截断到[0,1]，保留突破>1和跌破<0。
+EMA_n以原连续有效source-run起点为种子，alpha=2/(n+1)，adjust=False，min_periods=n；n∈{20,60}，缺失或跨segment后重新预热，不压缩停牌。
+EMA_n_slope5=100×ln(EMA_n,t/EMA_n,t-5)/5。使用5观察步是待根统一冻结的定义，不按回测选择；20坡至少25个有效点，60坡至少65点。
+drawdown20=100×ln(max(C_t-19,…,C_t)/C_t)，峰包含t，固定20点，非负。不是从未来最高价、未来确认pivot或事后趋势峰计算。
+channel与DD同为20窗但不相同：前者用此前H/L且排除t，后者用含t的收盘峰。不另添EMA偏离度/均线交叉/EMA价格条件/确认pivot等特征。
+
+第三组：成交额与最近5日上/下分布，5个标量草案
+amount_prior21median_ratio=A_t/median(A_t-21,…,A_t-1)，排除当前成交额，至少22个有效同来源成交额点。
+up_i=1(C_i>C_i-1)，down_i=1(C_i<C_i-1)，相等为flat；无额外可调epsilon。5日方向分布需要C_t-5,…,C_t六个完整有效收盘。
+up_day_fraction5=sum_i=t-4..t(up_i)/5；down_day_fraction5=sum(down_i)/5；flat比例为1-两者之和，不另存一项特征。
+up_amount_fraction5=sum(A_i×up_i)/sum(A_i)；down_amount_fraction5同理。5个当日成交额作共同分母，flat日成交额留在分母；不只在上涨/下跌日内各自归一化。
+缺某日方向或amount时amount分布unknown；缺量不影响仅需close的上/下日比例。amount中位数比与amount分布各按自己的完整窗独立判未知。
+这5项只是同一固定第三组的最小显式分布草案；若根要进一步删冗余，应在任何标签/验证前统一一次删，不能运行后挑留下哪项。
+
+接口与范围
+features_draft.compute_features(stock,industry,market,industry_membership_known=series)返回features(17列)与quality，只有pandas/numpy纯算，0文件IO、0账户/模型导入、0标签和拟合。
+quality不作为新预测特征，保存每项numeric_known及独立来源/归属有效性。stock/industry/market必须按上面的同网格输入契约显式提供。
+本函数草稿未被准入全量；本次仅语法核查、原数据字段/源口径有限预审。没有全1709生产，也没有为两只示例生成带标签特征表。

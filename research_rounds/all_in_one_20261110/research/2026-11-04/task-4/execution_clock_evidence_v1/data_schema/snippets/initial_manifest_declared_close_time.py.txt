@@ -1,0 +1,8 @@
+  action=dict(series_id=sid,currency='CNY',status='declared_research_proxy',coverage_evidence=[ref(c['rights_path'])],events=events,
+    ignored_before_origin_or_after_scope=ignored,unresolved=unresolved,raw_response_empty=not rights['records'],
+    exact_pay_dates_certified=False,policy='PROTOCOL.md: no subscription; net80% dividends receivable; bonus next session; fraction floor; empty source no-supported-events proxy')
+  ap=out/'actions'/(sid+'.json');write(ap,action)
+  series.append(dict(series_id=sid,kind='stock',status='ready',currency='CNY',source_start=origin,
+    volume_unit='shares',price_adjustment='raw',close_available_time='15:05:00',raw=ref(path),original_full_raw=original,
+    source_filter='BSE-only official listing onward; pre-BSE preserved in original_full_raw, not used as signal warmup' if r['code'] in bse else 'all source observations retained',
+    adjustment=dict(method='theoretical_ex_price',actions=ref(ap))))

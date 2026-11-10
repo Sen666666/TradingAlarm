@@ -1,0 +1,17 @@
+{
+  "version": "v3",
+  "semantics": "revolving live capacity; no cumulative turnover grant",
+  "scope": "synthetic contract only, not historical returns or real engine admission",
+  "tests": 13,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "v2_15_results_are_not_v3_evidence": true,
+  "external": [
+    "I eligibility",
+    "single-stock 10% and mobile-order 2% sizing",
+    "market protection and exit decisions",
+    "legal execution/clock",
+    "canonical receipts"
+  ]
+}

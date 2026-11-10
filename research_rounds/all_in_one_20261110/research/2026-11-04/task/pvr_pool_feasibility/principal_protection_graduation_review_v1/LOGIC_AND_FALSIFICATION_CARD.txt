@@ -1,0 +1,33 @@
+名义entry本金保护状态：<=8分钟纸审
+
+单一裁决：值得一次原全部1557层的只读当前状态/首次命中及正反例诊断；不值得现在实现试探预算或新账户。原对象足以提供基本字段，比逐receipt credit消费账更薄，但没有自动解决重复试错成本或恢复授权。
+
+唯一状态对象
+对原真实已fill且当前仍持有的每个layer，不按整只股票、不按最终赢家身份，取实际当前qty q、当前原有效保护floor F，以及同单位实际执行entry价 E。F>=E只称“名义entry价格已保护”；F<E为未达到。未知line/entry/source/factor/CA/单位保持UNKNOWN，不填0。判定不使用当前浮盈、终态净利润或未来抬线。
+current谓词必须每次重新派生。first_hit只是历史首次观察到，绝不永久毕业；若保护失效、core线/单位/退出状态变化，必须重新分类。同股新的加仓是新layer/新entry，旧赢家不能替它毕业。旧层池/角色不改，所有mark-floor、cash、stock、sector、pending/ExitLock资源继续按原合同计算。
+
+源可得性已核
+原case-stage-ledger-20261031/v3/joint_v3.py::fill_buy记录unit_cost=actual gross_cny/fill shares，含实际成交滑点、不含买卖费；实际partialfill生成真实layer与其cost。split对每个live层unit_cost除actual ratio，不能用最初未调整raw成交价比较拆股后的floor。
+sync用core的最后decision-known last_core_line或mobile实际floor，再除当时facts.factor转到raw，与当前unit_cost在同一经济单位。OPEN不读取当天未来CLOSE给core换线。mobile原保护按原I/CP1更新，core按原I；本案不更改保护。
+因此已有snapshot/currentcost/floor及原split回调可作只读来源。现金股息不偷偷减entry门槛；若要改为含费/含股息经济本金，是另一个假设，当前不做。无法证明同单位的CA/source样本保未知，不新建调整模型。
+
+不能混淆的权限
+1. F>=E不是无风险、现金、可确保按floor卖出或含费保本；费用、滑点、跳空、T+1、停牌和真实执行锁仍在。
+2. pending_exit层即使描述谓词F>=E为真，也须单列LOCKED；未实际卖出不能宣布可回收容量，原ExitLock与未ACK责任不删除。floor已穿但尚未执行尤其不能用clipped mark-floor=0当免费授权。
+3. 初始floor即>=实际fill、首日首次命中、CA日首次命中、退出锁内首次命中分别保留。它们不等同于入场后真实保护推进，也不能单独让一个winner或一次MA好转恢复满risk。
+4. 父草案借用原10%gross/.5%NAV规格限制“未达到保护的新增trial存量”，不是给每股票/每天一份，不是新0.5%*n，不把旧仓全塞probe。达到保护的层仍占原全部经济风险/资金；只可能离开这个新增trial描述分组，不能从原risk表消失。
+5. 价格新证据仍须独立成立；本纸卡不定义新窗口/阈值，也不把上轮MA非DOWN或旧LOCAL_ON当成熟/恢复证书。原H_trip最高、真实退出完成后等待新恢复证书；不能保旧BREAK63恢复又宣称提早P。
+
+仍未解决、禁止临时修补的成本问题
+未保护trial亏损退出后不在当前库存，描述分组自然腾空；若再次试错，可不断产生真实损失和费用。这个当前存量机制没有累计成本预算，不能声称本金回撤已控制；不私加新loss cap、清旧losses或给新epoch免债。原shared_loss/exhausted_policy原样，不冒称它已替本案解决问题。
+若毕业层的当前状态后来重新未保护，会增加该分组占用；只可阻止更多新增申请，不据此强卖旧仓。何时允许使用腾出容量、如何归属post-P/H trial、初始额度/补充gross与价格证据如何结合仍未冻结，金融实现BLOCKED。
+
+旧相似研究排重（有限源查证，非全工程不存在证明）
+universe-risk-inventory-20261031及case-stage-ledger-20261031/v3/risk-occupancy-diagnostic已分本金下行/利润回吐，保pending exits，属于原账风险诊断，不是本次未保护trial存量毕业准入。g-s-C-UP-loss-capital-design-readonly-20261102是行业每份price proof共享新增风险的设计，非floor>=entry毕业。entry-loss-budget-local153的含费经济本金止损是另一退出机制，不等价、不复活。所查lineage尚未定位本单差分完整金融试验，不能据近邻结果宣称有效。
+
+唯一便宜诊断及停止条件
+保全原1557层、全部已知/未知/未命中/current状态，以及actualfill/CA/pendingExit边界；先freeze原盈利/失败/固定tail分母，不按毕业后收益挑例。首次命中同时报告当日尚持qty和原保护证据，并保之后失去保护、真实退出及当前重新占用；不拼成新账户。
+观察：普通失败是否也很快达到该门、真赢家是否来不及达到、初始/锁内/CA命中是否占主要规模、真实能够从未保护分组移出的原gross/nominal量是否足以区别两类。原net只作后视正反标签，绝不回填毕业条件或把原利润当可用预算。
+若主要失败同样毕业、赢家普遍迟到/未知、或pending/单位无法核清，就停止或报告具体阻碍；不为之加第三个阈值或新风险账。即使只读证据有区分，也只支持下一步有限逻辑卡，不自动授予经济运行。
+
+0新信号程序、0预算实现、0风险账、0账户/金融事件。当前只给“可得、值得一次全母体只读否证”的结论，恢复证书与成本预算问题明确未解。

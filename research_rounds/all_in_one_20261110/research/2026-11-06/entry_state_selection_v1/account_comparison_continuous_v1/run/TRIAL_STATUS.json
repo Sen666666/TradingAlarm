@@ -1,0 +1,10 @@
+{
+  "final_result": false,
+  "initial_cash": 1000000,
+  "status": "ENDED_AT_ENGINEERING_GATE_SERIALIZATION_ERROR",
+  "final_capital_required": 1200000,
+  "scale_results": false,
+  "last_complete": "2022-01-28",
+  "no_annual_result": true,
+  "old_driver_sha256": "3c9cf0f10a1b7ed50557d5775cd737049771907317aa5fa2376cbbf27eb17a0e"
+}

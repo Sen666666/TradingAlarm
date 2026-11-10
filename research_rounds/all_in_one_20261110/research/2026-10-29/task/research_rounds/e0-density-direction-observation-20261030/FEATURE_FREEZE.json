@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-30T09:12:04.277244+00:00",
+  "before_future_labels": true,
+  "sha256": {
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-density-direction-observation-20261030/full/features-before-labels.csv": "368ce2dbde84d39c0e821951d0bc57e97b2a38fdcd937ccf5f4c72d3d0e0733b",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-density-direction-observation-20261030/full/source-coverage.csv": "18b7ca1aee657522088071b8e4dc97716b7edf43f6624045e08f3b9991196436",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-density-direction-observation-20261030/full/INPUT_IDENTITY.json": "2ad43f0e7b6c636dee586a8109c2b324d839ed632b9f55388c00ec8ebde310b5",
+    "/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/e0-density-direction-observation-20261030/PROTOCOL.txt": "96e62413cb13ab77c9fe56e87e0ff40ad09ff546e0cb924cb2f219fbb956d6f3"
+  }
+}

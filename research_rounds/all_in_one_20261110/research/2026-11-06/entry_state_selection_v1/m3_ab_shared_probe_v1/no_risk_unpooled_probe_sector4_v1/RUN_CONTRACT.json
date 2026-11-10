@@ -1,0 +1,54 @@
+{
+  "experiment": "NO_RISK_UNPOOLED_PROBE_SECTOR4_COMBINED_POLICY",
+  "arms": [
+    "unpooled_probe_sector4"
+  ],
+  "seed": "1200000",
+  "start": "2024-09-01",
+  "first_common_day": "2024-09-02",
+  "birth_end": "2024-12-31",
+  "end": "2026-06-30",
+  "common_sessions": 439,
+  "wall_seconds": 900,
+  "peak_rss_bytes": 6442450944,
+  "baseline": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/no_risk_ceilings_python_retry_v1/run_no_risk_ceilings_once",
+  "independent_execution": "One fresh process/account, permanent exclusive ONCE lock, no economic prefix before independent hash-bound release. Correct absolute interpreter enforced. Old no-risk account remains sealed baseline. No automatic retry, parameter scan or repair.",
+  "sole_factor": "One authorized combined capital policy: remove probe pool total10% capital ceiling and raise new-probe industry capital2% to4%. Industry numerator still all pools. Do not attribute separate causal effects to these two simultaneous changes.",
+  "immutable_signal_mother": "Original STOCK_MANIFEST 1709, common-known daily M3 denominator, stock M3, industry M3/state, SEALED_ALL_BIRTH_EVENTS, source groups, I/PVR and current industry mappings unchanged. 6878/1319 are raw A/B birth events before I/PVR/minimum-unit/top2/shared-budget filters.",
+  "financial": "No monetary risk ceilings. INIT2% fee-inclusive buy budget; ADD min(2%, remaining round4% slot); no probe-pool total cap; industry new probe4%/confirmed10% using both pools in sector numerator; cash reserve10% daily planning NAV; stock10%. Original capacity/quantity/fees/T+1/conditional proxy unchanged.",
+  "unknown": "Exactly original 2024 contract: retain all assets, live intentions, receivables and claims; initial zero-liability UNKNOWN exemption unchanged. If owned-liability UNKNOWN occurs, uncertified NAV blocks new risk/promotions while known exits/rights continue through same cutoff. Do not stop at first UNKNOWN, liquidate, invent mark, erase liability, use new halt/union evidence or claim full NAV across gaps.",
+  "resource": "Darwin ru_maxrss process peak bytes and monotonic wall from source load through reports, exports, seal creation and verification. Day-boundary checks plus 900s hard alarm. FINAL_RESOURCE_QA after seal and RUN_STATUS authoritative; FAILURE or POST_STATUS_FAILURE makes run failed regardless exit or provisional result.",
+  "report": "Initial CORE layers, unique ADD layers, and whole rounds use original report_layers_v2 exact fee/NET80 allocations. Closed denominator requires execution AND settlement closed. List open/unknown separately; no terminal force-close. CORE accounting attribution is not a no-ADD account.",
+  "tail": "Frozen from existing comparison: complete fee-net return >=30%. Whole-round return denominator actual total buy cash across INIT+ADD. Also report initial/ADD own buy-cash layer tails separately. No post-outcome threshold choice. Amount means, amount payoff, tails and quantity/risk are separate.",
+  "nav": "Give portfolio return only if every recorded phase NAV certified; CLOSE-to-CLOSE drawdown uses seed plus 439 CLOSE observations, requires whole path certification. No gap interpolation or intraday drawdown claim.",
+  "comparison": "Compare new combined capital-policy account to sealed no_risk_ceilings_python_retry_v1, same 1709 universe/6878 births/window/input/monetary risk removal. Report combined effect only, never separate attribution. Rebuild selections from original birth events, not prior filled outcomes.",
+  "boundaries": [
+    "2024 autumn Sep-Dec birth cohort, not 2024 full-year or continuous 2025/26 admission. Start left truncation fixed and equal.",
+    "Fixed future membership and classifications NON-PIT, sources reused development data.",
+    "Current M3 engine uses conditional observed OPEN +/-5bp; real limit/queue/executability not certified. No new same-day HLCV use. Do not import the different old ACT/S same-day HLV limitations without current-source evidence.",
+    "Does not explain all old S 48.44% vs current system differences; old S different window, budgets, rules and execution."
+  ],
+  "pre_run_QA": "Pure synthetic only before independent release; no economic prefix or full replay before release.",
+  "priority_checkpoints": [
+    "2024-09-19",
+    "2024-09-23",
+    "2024-09-24",
+    "2024-09-30",
+    "2024-10-08",
+    "2024-10-31"
+  ],
+  "excluded_changes": [
+    "No R1/CP survival repair",
+    "No old output changes",
+    "No new evidence or signal changes"
+  ],
+  "reservation_semantics": "No monetary risk reservation is computed by the new ReserveBook. Cash/capital orders retained. Per-order fee-risk diagnostics and line floors retained, never compared to risk budget. ADD remaining_risk=None, all size riskmax arguments None. No giant-number caps.",
+  "removed_conditions": [
+    "size(): risk<=riskmax at CLOSE/OPEN/ADD and reentry",
+    "ReserveBook.reasons(): probe_risk and sector_risk",
+    "reserve_proposal(): round_fee_inclusive_risk",
+    "source_prepare_add(): RISK-exist / remaining-risk allocation"
+  ],
+  "capital_warning": "Industry4%, round sizing2%/4%, stock10% and cash reserve10% retained. No guarantee all signals fill; pre924 losses and drawdown reported.",
+  "interpreter": "/Users/bytedance/Documents/ChatGPT/money/TradingAlarm/research/.venv/bin/python"
+}

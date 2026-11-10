@@ -1,0 +1,18 @@
+{
+  "recorded_at": "2026-10-29T16:03:29.453859+08:00",
+  "status": "read_only_diagnosis_complete",
+  "new_backtests": 0,
+  "new_account_paths": 0,
+  "new_indicator_formula_computations": 0,
+  "strategy_code_or_parameter_changes": 0,
+  "platform_or_account_changes": 0,
+  "original_BSR_files_unchanged": 93,
+  "cash_bridge_exact_rows": 680,
+  "old_intents_reconciled": 22871,
+  "pre_intent_cap_rejections_reconciled": 143,
+  "minimum_cost_log_checks": 8230,
+  "named_full_pipeline_date_sets_match": true,
+  "parameters_g_and_H_adopted": false,
+  "next_queue_started": false,
+  "entry": "REPORT.txt"
+}

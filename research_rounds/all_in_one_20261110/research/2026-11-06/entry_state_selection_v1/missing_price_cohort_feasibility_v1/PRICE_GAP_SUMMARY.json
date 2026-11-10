@@ -1,0 +1,33 @@
+{
+  "summary": {
+    "2023": {
+      "missing_rows": 30219,
+      "before_local_first": 29980,
+      "after_local_last": 0,
+      "within_local_observed_span": 239,
+      "no_local_history": 0,
+      "missing_before_dated_identity_start": 29980,
+      "nonpositive_open_or_close": 0,
+      "bad_present_flag_rows": 0,
+      "rule_unavailable_with_present_raw": 0,
+      "suspension_reason_verified": 0
+    },
+    "2024JanAug": {
+      "missing_rows": 14659,
+      "before_local_first": 14515,
+      "after_local_last": 0,
+      "within_local_observed_span": 144,
+      "no_local_history": 0,
+      "missing_before_dated_identity_start": 14515,
+      "nonpositive_open_or_close": 0,
+      "bad_present_flag_rows": 0,
+      "rule_unavailable_with_present_raw": 0,
+      "suspension_reason_verified": 0
+    }
+  },
+  "limitations": [
+    "Before first local observation and before dated identity starts are proxies for pre-listing, not official IPO proof.",
+    "Absent rows inside observed span cannot distinguish suspension vs upstream missing source without dated official suspension records; no fabricated suspension label.",
+    "Source schema supplies no independent historical suspension flag."
+  ]
+}

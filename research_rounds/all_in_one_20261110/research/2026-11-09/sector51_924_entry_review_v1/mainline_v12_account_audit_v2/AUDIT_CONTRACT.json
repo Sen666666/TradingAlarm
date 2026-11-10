@@ -1,0 +1,46 @@
+{
+  "result": "PREPARED_SYNTHETIC_ONLY",
+  "candidate": "mainline_candidate_v12_winner_funding_cash_688200_v2",
+  "required_outputs": [
+    "FUNDING_BRANCH_BOOKS.json.gz",
+    "COMPRESSED_OUTPUTS.json",
+    "OUTPUT_HASHES.json",
+    "SOURCE_HASHES.json",
+    "FUNDING_OPEN_DECISIONS.json",
+    "FUNDING_ACTUAL_DIAGNOSTICS.json",
+    "FUNDING_WAIT_LOG.json",
+    "FUNDING_WAIT_STATE.json",
+    "FUNDING_PREFLIGHT.json",
+    "DAY_LEDGER.json",
+    "ORDERS.json",
+    "HOLDINGS.json",
+    "CAPITAL_LOTS.json",
+    "EQUITY_EVENTS.json"
+  ],
+  "required_run_files": [
+    "RUN_STATUS.json",
+    "EXPERIMENT_APPROVAL.json",
+    "FROZEN_INPUTS.json",
+    "CHECKPOINT_RECEIPTS.jsonl"
+  ],
+  "checkpoint_policy": "Receipt+binding+opaque byte integrity only; never unpickle. Restoration semantics rely on separately reviewed source-bound synthetic evidence.",
+  "source_freeze_certified": false,
+  "real_run_audited": false,
+  "history_executed": false,
+  "prefix_allowance": {
+    "days": "Original certified Sep2-Oct10 22-day prefix, clipped if v2 ends earlier",
+    "daily_families": 25,
+    "book_excluded_fields_only_on_20241010": [
+      "book_id",
+      "scratch_integrity.before",
+      "scratch_integrity.after"
+    ],
+    "new_event": "688200.SH|2024-10-11|LOCAL_DISTRIBUTION_007",
+    "zero_record_entitlement_required": true
+  },
+  "limitations": [
+    "Static/PIT source provenance separate from saved-output arithmetic",
+    "No independent historical in-memory reconstruction or alias proof without loading state, deliberately out of scope",
+    "Fixed 19 group labels retrospective, not selection information"
+  ]
+}

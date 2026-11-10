@@ -1,0 +1,48 @@
+Read-only July 2025 CP1 evidence -> new capital diagnosis, fixed before cohort outcomes.
+No account events, new indicator, ranking/quantity/permission change, or financial replay.
+
+Mother: ALL canonical fresh CP1 receipts confirmed Jul1--31 in original saved inputs,
+including Q unknown/unfunded, same sid+date+canonical identity in both saved C accounts.
+Native CP1 phase and reset_reason classify evidence BEFORE inspecting layer outcomes.
+SEEK receipt with an observed E0_down_reset or lower_anchor since prior market receipt:
+  RESET_SEEK_REPAIR (retain negative-reset vs low-anchor-only subtypes).
+UP receipt: UP_CONTINUATION. receipt_consumed is NOT a market reset.
+SEEK receipt after known start without either reset: START_SEEK_FIRST.
+SEEK with inherited/unknown root and no observed reset: SEEK_ORIGIN_UNKNOWN.
+Unexpected/missing/ambiguous schema: UNKNOWN, never false or convenient continuation.
+Read all already-saved CP rows through each date, without recomputing formulas/history.
+Record original I target continuously; CP1.e0_valid is i_target, not a new E0 exit.
+
+Native canonical receipt_id, previous_market_receipt_id, original_E0_episode_id,
+I structure key, segment_id and F1 industry context are retained separately. None
+alone claims to be CP1 reset context. A diagnostic lineage ID may be assembled only
+from sid/source segment + actually observed past reset date/reason; unknown inherited
+origin stays unknown. lower_anchor changes local anchor identity, not I validity.
+
+Per receipt/mode retain original Q, permissions, demand/max/plan, actual orders/fills,
+core/mobile and pool/purpose separately, actual first/add/reentry classification,
+all associated actual layer cash/closed +/-/remaining contribution through Jul31.
+Q=unknown stays unknown. Core coincident with fresh CP1 is not proof CP1 was consumed.
+Price path uses original same-source adjusted close after signal through Jul31 only;
+variable follow-up/censoring explicit, no cross-cohort equal-horizon performance claim.
+An open-layer total contribution is NOT unrealized PnL; actual realized/unrealized and
+booked unpaid dividends are reported separately. Receipt events are not independent.
+
+Counterexample selection: iron Jul29 is parent-fixed failure. Winner normal-pullback
+controls chosen deterministically from positive actual July stock contributions among
+stocks that have RESET_SEEK_REPAIR evidence, with all candidates/counts retained. This
+is posthoc logic testing only, never an admission rule or estimated strategy PnL.
+
+Additional cheap necessity test: unchanged original B/J validate fixed saved C plan
+quantity with no opportunity-sale D. For original fixed prefix, retain all earlier Q;
+also retain standalone-request preview separately. No capacity sums or achievable PnL.
+Report historical cash/source/goal ownership limitations; current D={} is not a claim
+that all past cash was exogenous. Do not turn prior healthy sales into fresh independent
+exit assets by relabeling. In particular iron Jul29 is first in original C sequence,
+so full original quantity with D={} is an unconfounded current-batch necessity check.
+
+Only one minimal design hypothesis, no frozen size (including no automatic 2%), no
+old-high recovery requirement, no reentry ban. A market-local repair need not correspond
+to an actual prior position/failed trade. Repeated UP receipts alone are not probability
+or durable-trend proof. If no healthy-sale gate changes the iron case, reject that gate
+as a solution to that case rather than adding rescue conditions.

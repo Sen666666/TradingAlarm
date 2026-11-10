@@ -1,0 +1,304 @@
+{
+  "quarter": [
+    {
+      "quarter": "2025Q3",
+      "days": 66,
+      "zero_confirmed_only_days": 1,
+      "zero_confirmed_or_expanded_days": 0,
+      "zero_expanded_days": 0,
+      "missing_price_sector_days": 0,
+      "unknown_state_sector_days": 0,
+      "new_attempts": 59,
+      "mobile_resets": 48,
+      "counts": {
+        "observation": {
+          "n": 66,
+          "min": 3.0,
+          "p25": 6.0,
+          "median": 9.0,
+          "p75": 20.0,
+          "p90": 41.5,
+          "max": 48.0,
+          "mean": 14.727272727272727
+        },
+        "probe": {
+          "n": 66,
+          "min": 1.0,
+          "p25": 5.0,
+          "median": 6.0,
+          "p75": 13.5,
+          "p90": 21.0,
+          "max": 25.0,
+          "mean": 9.590909090909092
+        },
+        "confirmed": {
+          "n": 66,
+          "min": 0.0,
+          "p25": 5.0,
+          "median": 6.0,
+          "p75": 7.75,
+          "p90": 8.0,
+          "max": 10.0,
+          "mean": 5.818181818181818
+        },
+        "expanded": {
+          "n": 66,
+          "min": 23.0,
+          "p25": 40.25,
+          "median": 68.0,
+          "p75": 72.0,
+          "p90": 76.5,
+          "max": 79.0,
+          "mean": 59.86363636363637
+        },
+        "confirmed_or_expanded": {
+          "n": 66,
+          "min": 29.0,
+          "p25": 47.0,
+          "median": 74.5,
+          "p75": 78.75,
+          "p90": 81.0,
+          "max": 83.0,
+          "mean": 65.68181818181819
+        },
+        "E0_active": {
+          "n": 66,
+          "min": 59.0,
+          "p25": 79.0,
+          "median": 87.0,
+          "p75": 87.0,
+          "p90": 88.0,
+          "max": 89.0,
+          "mean": 82.10606060606061
+        }
+      }
+    },
+    {
+      "quarter": "2025Q4",
+      "days": 60,
+      "zero_confirmed_only_days": 0,
+      "zero_confirmed_or_expanded_days": 0,
+      "zero_expanded_days": 0,
+      "missing_price_sector_days": 0,
+      "unknown_state_sector_days": 0,
+      "new_attempts": 131,
+      "mobile_resets": 57,
+      "counts": {
+        "observation": {
+          "n": 60,
+          "min": 7.0,
+          "p25": 31.5,
+          "median": 41.0,
+          "p75": 47.0,
+          "p90": 57.2,
+          "max": 73.0,
+          "mean": 38.06666666666667
+        },
+        "probe": {
+          "n": 60,
+          "min": 4.0,
+          "p25": 15.0,
+          "median": 20.5,
+          "p75": 28.0,
+          "p90": 31.200000000000003,
+          "max": 35.0,
+          "mean": 20.916666666666668
+        },
+        "confirmed": {
+          "n": 60,
+          "min": 5.0,
+          "p25": 7.0,
+          "median": 10.5,
+          "p75": 20.0,
+          "p90": 25.1,
+          "max": 28.0,
+          "mean": 13.516666666666667
+        },
+        "expanded": {
+          "n": 60,
+          "min": 5.0,
+          "p25": 9.0,
+          "median": 15.5,
+          "p75": 25.0,
+          "p90": 29.200000000000003,
+          "max": 36.0,
+          "mean": 17.5
+        },
+        "confirmed_or_expanded": {
+          "n": 60,
+          "min": 13.0,
+          "p25": 17.0,
+          "median": 30.5,
+          "p75": 40.0,
+          "p90": 54.400000000000006,
+          "max": 63.0,
+          "mean": 31.016666666666666
+        },
+        "E0_active": {
+          "n": 60,
+          "min": 46.0,
+          "p25": 68.75,
+          "median": 78.5,
+          "p75": 87.0,
+          "p90": 89.1,
+          "max": 90.0,
+          "mean": 75.85
+        }
+      }
+    },
+    {
+      "quarter": "2026Q1",
+      "days": 56,
+      "zero_confirmed_only_days": 5,
+      "zero_confirmed_or_expanded_days": 0,
+      "zero_expanded_days": 1,
+      "missing_price_sector_days": 0,
+      "unknown_state_sector_days": 0,
+      "new_attempts": 104,
+      "mobile_resets": 60,
+      "counts": {
+        "observation": {
+          "n": 56,
+          "min": 5.0,
+          "p25": 12.75,
+          "median": 33.5,
+          "p75": 54.0,
+          "p90": 72.5,
+          "max": 88.0,
+          "mean": 37.5
+        },
+        "probe": {
+          "n": 56,
+          "min": 0.0,
+          "p25": 7.0,
+          "median": 10.0,
+          "p75": 20.0,
+          "p90": 22.5,
+          "max": 28.0,
+          "mean": 12.5
+        },
+        "confirmed": {
+          "n": 56,
+          "min": 0.0,
+          "p25": 3.0,
+          "median": 7.0,
+          "p75": 11.25,
+          "p90": 20.0,
+          "max": 24.0,
+          "mean": 8.446428571428571
+        },
+        "expanded": {
+          "n": 56,
+          "min": 0.0,
+          "p25": 20.0,
+          "median": 32.0,
+          "p75": 48.5,
+          "p90": 58.5,
+          "max": 64.0,
+          "mean": 31.553571428571427
+        },
+        "confirmed_or_expanded": {
+          "n": 56,
+          "min": 2.0,
+          "p25": 27.75,
+          "median": 36.0,
+          "p75": 64.75,
+          "p90": 73.0,
+          "max": 74.0,
+          "mean": 40.0
+        },
+        "E0_active": {
+          "n": 56,
+          "min": 4.0,
+          "p25": 70.0,
+          "median": 78.0,
+          "p75": 84.0,
+          "p90": 88.0,
+          "max": 89.0,
+          "mean": 73.10714285714286
+        }
+      }
+    },
+    {
+      "quarter": "2026Q2",
+      "days": 60,
+      "zero_confirmed_only_days": 0,
+      "zero_confirmed_or_expanded_days": 0,
+      "zero_expanded_days": 9,
+      "missing_price_sector_days": 0,
+      "unknown_state_sector_days": 0,
+      "new_attempts": 94,
+      "mobile_resets": 49,
+      "counts": {
+        "observation": {
+          "n": 60,
+          "min": 7.0,
+          "p25": 15.5,
+          "median": 36.0,
+          "p75": 69.5,
+          "p90": 75.1,
+          "max": 81.0,
+          "mean": 42.766666666666666
+        },
+        "probe": {
+          "n": 60,
+          "min": 0.0,
+          "p25": 6.75,
+          "median": 14.0,
+          "p75": 35.25,
+          "p90": 43.1,
+          "max": 46.0,
+          "mean": 19.0
+        },
+        "confirmed": {
+          "n": 60,
+          "min": 1.0,
+          "p25": 3.75,
+          "median": 17.0,
+          "p75": 25.25,
+          "p90": 31.0,
+          "max": 34.0,
+          "mean": 15.1
+        },
+        "expanded": {
+          "n": 60,
+          "min": 0.0,
+          "p25": 5.75,
+          "median": 9.5,
+          "p75": 21.0,
+          "p90": 32.0,
+          "max": 37.0,
+          "mean": 13.133333333333333
+        },
+        "confirmed_or_expanded": {
+          "n": 60,
+          "min": 5.0,
+          "p25": 11.75,
+          "median": 22.5,
+          "p75": 42.0,
+          "p90": 55.2,
+          "max": 64.0,
+          "mean": 28.233333333333334
+        },
+        "E0_active": {
+          "n": 60,
+          "min": 24.0,
+          "p25": 41.75,
+          "median": 70.5,
+          "p75": 86.0,
+          "p90": 87.0,
+          "max": 87.0,
+          "mean": 63.166666666666664
+        }
+      }
+    }
+  ],
+  "zero_confirmed_or_expanded_all_days": 0,
+  "zero_expanded_all_days": 10,
+  "calendar_days": 242,
+  "expected_sector_days": 21780,
+  "observed_sector_days": 21780,
+  "missing_sector_days": 0,
+  "unknown_state_rows": 0,
+  "separate_full_Q_unknown": true
+}

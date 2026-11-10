@@ -1,0 +1,57 @@
+{
+  "seed": "1200000",
+  "end": "2026-06-30",
+  "wall_seconds": 900,
+  "peak_rss_bytes": 6442450944,
+  "financial_contract": "All already frozen parameters, original daily M3 denominator/AB permits/NET80 equity clock unchanged",
+  "execution": "Historical observed OPEN +/- 5bp conditional proxy only",
+  "report_fee_allocation": "Whole actual fee once. core=fee*core_q/total_q without cents rounding; ADD=fee-core. Report attribution only.",
+  "resource_units": "Darwin RUSAGE_SELF ru_maxrss process peak high-water bytes; monotonic wall seconds",
+  "report_rounding": "Actual whole-round cash and NET80 always use source ledger; finite-Decimal attribution arithmetic residual explicitly assigned to ADD when present, otherwise CORE. Does not alter fees or trading.",
+  "scope": "ONE_NEW_2022_BIRTH_COHORT_AFTER_INDEPENDENT_RECOVERY_REVIEW",
+  "cohorts": {
+    "2022": {
+      "start": "2022-01-01",
+      "first_common_day": "2022-01-04",
+      "birth_end": "2022-12-31"
+    }
+  },
+  "contract_version": "KNOWN_HALT_RECOVERY_V2_REPORT_AND_GATE_ONLY",
+  "baseline_equivalence": false,
+  "evidence_registry": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/HALT_EVIDENCE_V1.json",
+  "evidence_asof": "CURRENT_RECONSTRUCTION_OF_HISTORICAL_PUBLIC_DISCLOSURE_NOT_OLD_RUNTIME_CONSUMPTION",
+  "unknown": "Genuine asset UNKNOWN remains absorbing; known halt has separate temporary NAV/new-risk lock through valid resumption CLOSE.",
+  "policy_document": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/RECOVERY_CONTRACT_V2.md",
+  "code_hashes": {
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/cohort_runner_known_halt_v1.py": "286fb22cd3b364f1e2065313742dc2b675eabcc5670a18f9a807ab79bdd04d66",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/engine_known_halt_v1.py": "8f7199291e381234dbe3fca5127bfe3213898d065a2ecd4b2434230d214beecc",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/report_known_halt_v1.py": "c52e670fefa118227c4d7e4353b46fb5cf36db53e022b6bd1913da56a6cc36e3",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/halt_evidence_v1.py": "54885b774d3dc724b3c3c13147f975fda16d1150678c8c3f5899da2e7bb79139",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/test_known_halt_v1.py": "04780f52871ea41f84cc10704c069fed81f16bc599f9cf6159941c4b3eb64eec",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/run_qa_v1.py": "ecb61bf0c1819a4d5b8e8b044a89a80dcb7a3204e6c5f06fc7fc1783fbf48062",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/HALT_EVIDENCE_V1.json": "0dcc233e62f44143604f9ed531fc95a4da5b4de4604a6a0dd48393aa2eaf40c1",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/official_notice.html": "c4db8153b6ecfb2125cc58b82cabbba9beca6aa5fcc60c780b6471a6ddc433c6",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/publication_clock.html": "a3bc8c154100196711238f6cc880e5f556ea938fc9ece85fb2f181e3d7465c1e",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/RECOVERY_CONTRACT.md": "a393a465bb956702b3794e0302a1db5e57b275076eb0dacf3e698c456b26cc77",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/engine_indexed_v1.py": "2a9a85117f7a7359513893448421b32a9b2beab7656d9fd4f7120229d197ae2d",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/source_split_v2.py": "39c9ab2d4cc438db6dcfe9a7fef8cb9e8ed6cce47dd1c0e0461e2af5af51c5ce",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/shared_feasibility_v1/limits_v3.py": "98373cc56e31a57719398faf22c76043d8f3a5405cf6be11b0fadee16fb71e35",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/source_bridge_v1/bridge.py": "21e654a3e686e85866afe8b574912ece978959aa780733d5a7412acf711808f7",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/cohort_runner_v3.py": "3965b0d249b3930de077e2237d3a52584008fae38fd6d6a1f5dc4ca8fceac73f",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/report_layers_v2.py": "fd0a56a84a225ffe97d44b48295578b07cc0d2c009d2d2858d83d7e40dd4f9ca",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/release_gate_v2.py": "59b360cf03cc9b4228e4da05c735bab902aff3493d9d8d29618ea777c8d3c50d",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/test_terminal_layer_report_v2.py": "a383276f974d71be233f60f142e6edaed516ee81fe0258a5a2ef60b31093e69f",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/report_known_halt_v2.py": "69c7fac1756e13cb86293ef6eb3c1021fbd973ecc67014b5a6b04ad77d9a34da",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/test_release_gate_v2.py": "a994baaf096eb6f276cafe04200dd357f8b630e52b2a6b066cc9690206801497",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/cohort_runner_known_halt_v2.py": "e16aab35b7a3cb489f5ad4d489fa3256836b9e7516ee7ca5434ba14cce9d0fde",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/RECOVERY_CONTRACT_V2.md": "cdfd84a3765c9199c883108b783375d6f03a9552f0b49a5bc277fc94a8fbb3b7"
+  },
+  "old_output_seals": {
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/cohort_2022/OUTPUT_SEAL.json": "1611f15919bc2743f10db16b7b7bc78d7ba6af4831ce15e2bea69134ae6204d4",
+    "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/indexed_execution_v1/cohort_2024_924/OUTPUT_SEAL.json": "d9a793413536f425ed98db64f2926b26104a0a35635f3a82a4213068f8d77df0"
+  },
+  "runner": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/cohort_runner_known_halt_v2.py",
+  "reporter": "/Users/bytedance/Documents/Codex/2026-11-06/entry_state_selection_v1/m3_ab_shared_probe_v1/known_halt_contract_v1/report_known_halt_v2.py",
+  "reviewed_stage_filename": "PRE_RUN_STAGE_SEAL_V2.json",
+  "economic_engine_unchanged_sha256": "8f7199291e381234dbe3fca5127bfe3213898d065a2ecd4b2434230d214beecc"
+}

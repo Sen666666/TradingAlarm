@@ -1,0 +1,9 @@
+PASS: all six frozen candidate books and eight total comparison paths audited; no unresolved execution/accounting/comparison block.
+
+All six complete paths: immutable source identity, fresh same-source initial1000000, full daily cold-original mark/cash/recognized dividend bridges, fill fees/gross/parts, integer lots/T+1/corporate actions, actual order-created clocks, live mobile-only overlay and original pending priority, fresh same-day canonical CP admission/recovery. All three year paths726days and strong242days. Native CORE body unchanged; endogenous cash/ACT allocation can change actual CORE quantities and entries.
+
+Comparison: all32 fixed period rows, all15431 layer cost/net and actualexit clocks/parts, all3872 daily financial component bridges, all841 December own-cohort rows and28 groups incl22 native prior/current CLOSE capital sums, all708 fixed83/94 tail rows (baseline45/67), all836 original87/122 cross-book correspondence rows and8 summaries checked.
+
+Three-year NAV: baseline637989.6123510238600; R617577.8935942850065; P606963.6285402662365; J643739.6799308466550. Strong NAV: baseline2263281.2309753297565; R2733545.3085957196470; P2607488.6000622926495; J2365414.0340069308885.
+
+Accounting PASS does not validate an upgrade. JOINT three-year benefit only5750.07yuan; December own old-inventory benefit is partly offset by new-layer losses and higher new buycash. Matched entry contributions and cash-flow chains are endogenous full-path descriptions, not isolated exit effects.

@@ -1,0 +1,62 @@
+--- existing_hytera_diagnostic_reader
++++ financial_original_anchor_reader
+@@ -1,6 +1,6 @@
+ """Mathematical path descriptors under old CP anchors; no new G/receipt/account."""
+ from pathlib import Path
+-import csv,hashlib,json,math
++import csv,hashlib,json,math,gzip
+ import pandas as pd
+ OUT=Path(__file__).resolve().parent;ROOT=OUT.parents[1];H={}
+ def bind(p):
+@@ -21,8 +21,24 @@
+ def main():
+  bind(__file__)
+  sm={r['symbol']:r for r in read('/Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/universe-cp1-inputs-20261031/STOCK_MANIFEST.json')}
++ base=ROOT/'new_price_trend_v1/funding/runs/long_OFF/pair'
++ with gzip.open(bind(base/'B.json.gz'),'rt')as stream:book=json.load(stream)
++ with gzip.open(bind(base/'daily.jsonl.gz'),'rt')as stream:daily=[json.loads(x)for x in stream]
++ byday={r['at'][:10]:r for r in daily};meta={r['sid']:r for r in read(ROOT/'core_confirmed_v1/analysis/long_OFF_STOCKS.json')}
++ pool={s:meta[s]for s in byday['2024-10-08']['positions']if any(w in meta[s]['industry']for w in ['证券','保险','多元金融','银行'])}
++ assert len(pool)==19
++ save('FROZEN_EVALUATION_POOL.json',{'selection':'All financial holdings of original No60 at 2024-10-08 CLOSE, frozen before ER calculation. Post-hoc evaluation set, not a real-time selected universe or winner filter.','members':pool,'counts':len(pool),'window':['2024-09-23','2024-11-27']})
++ buy_by_signal={};sell_by_day={};exit_by_day={}
++ for trade in book['trades']:
++  if trade['side']=='buy':buy_by_signal.setdefault((trade['security_id'],trade['signal_at'][:10]),[]).append(trade)
++  else:sell_by_day.setdefault((trade['security_id'],trade['at'][:10]),[]).append(trade)
++ for event in book['audit']:
++  if event['kind']=='pilot_layer_exit':exit_by_day.setdefault((event['sid'],event['at'][:10]),[]).append(event)
++ def annotate(rr,cp):
++  sid=rr['sid'];d=rr['date'];c=cp.loc[d];A=rr['A_net_log_progress'];ER=rr['ER']
++  rr.update(name=pool[sid]['name'],industry_frozen_evaluation_label=pool[sid]['industry'],original_CP_credit=float(c.credit),original_CP_frozen_scale=float(c.scale),original_CP_displacement=float(c.displacement),G_arithmetic_diagnostic_not_new_signal=A*abs(ER)if A is not None and ER is not None else None,original_held_qty_at_CLOSE=byday[d]['positions'].get(sid,0),original_exit_proposals_at_CLOSE=exit_by_day.get((sid,d),[]),original_buys_next_OPEN_from_this_signal=buy_by_signal.get((sid,d),[]),original_sell_fills_on_this_OPEN=sell_by_day.get((sid,d),[]))
+  summary={}
+- for sid in ['002583.SZ','300085.SZ']:
++ for sid in pool:
+   rec=sm[sid];frames={}
+   for key in ['facts','CP1','CP1_input']:
+    path=bind(rec['refs'][key]);assert H[str(path)]==rec['output_sha256'][str(path)];frames[key]=pd.read_parquet(path)
+@@ -75,7 +91,8 @@
+      after_this_row_anchor_day=anchor_day,after_this_row_L=path,
+      no_new_G_or_trading_state=True))
+    prev=p;prevseg=seg
+-  assert len(rows)==43
++  assert len(rows)==len(f.loc['2024-09-23':'2024-11-27'])
++  for rr in rows:annotate(rr,cp)
+   save(sid+'_ORIGINAL_ANCHOR_ER_DAILY.json',rows);csvsave(sid+'_ORIGINAL_ANCHOR_ER_DAILY.csv',rows)
+   # Show all non-new-high observations, not only favorable or failed examples.
+   nonhigh=[r for r in rows if not r['is_new_frontier_original']]
+@@ -121,10 +138,13 @@
+      not_a_new_G_or_trading_state=True,
+      original_receipt_reset_is_for_description_only=True))
+    pp=p;ps=seg
+-  assert len(confirmed_rows)==43
++  assert len(confirmed_rows)==len(rows)
++  for rr in confirmed_rows:
++   annotate(rr,cp)
++   ad=rr['last_original_receipt_anchor_day'];rr['last_original_receipt_next_frozen_scale']=float(cp.loc[ad,'next_scale'])if ad is not None else None
+   save(sid+'_LAST_ORIGINAL_RECEIPT_ANCHOR_ER_DAILY.json',confirmed_rows)
+   csvsave(sid+'_LAST_ORIGINAL_RECEIPT_ANCHOR_ER_DAILY.csv',confirmed_rows)
+-  summary[sid]=dict(observations=43,non_new_high_rows=len(nonhigh),defined_ER=sum(r['ER']is not None for r in rows),
++  summary[sid]=dict(observations=len(rows),non_new_high_rows=len(nonhigh),defined_ER=sum(r['ER']is not None for r in rows),
+    receipts=sum(r['old_CP_receipt']for r in rows),
+    defined_non_new_high_ER_rows=[{k:r[k]for k in ['date','raw_close','original_anchor_day','observations_since_anchor','A_net_log_progress','L_all_abs_log_returns','ER','DD_log_known_high_to_current','original_I_target']}for r in nonhigh if r['ER']is not None],
+    computed_history_start=str(f.index.min()),price_input=str(rec['refs']['CP1_input']),old_CP_anchor_source=str(rec['refs']['CP1']),

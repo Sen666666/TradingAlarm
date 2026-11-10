@@ -1,0 +1,74 @@
+{
+  "version": "0.1",
+  "status": "preliminary_research",
+  "created": "2026-10-17",
+  "primary": [
+    "URFI881121",
+    "UZZIH30184",
+    "USHJ512480"
+  ],
+  "transfer_tests": [
+    "USHJ510300",
+    "USHJ512800",
+    "USHJ512010",
+    "USHJ512660",
+    "USHJ515030",
+    "USHJ518880",
+    "USHJ511010",
+    "USHJ513100",
+    "USHJ513050"
+  ],
+  "split": {
+    "development_end": "2021-12-31",
+    "validation_end": "2023-12-31",
+    "evaluation_start": "2024-01-01",
+    "caveat": "Historical holdout, not prospective performance. Revisions after viewing contaminate this holdout."
+  },
+  "candidate": {
+    "name": "trend_change_v1",
+    "windows": [
+      20,
+      60
+    ],
+    "score": "0.5*(EMA(logclose,20)-EMA(logclose,60))/(std(logreturn,60)*sqrt(20)) + 0.5*log(close/close_lag60)/(std(logreturn,60)*sqrt(60))",
+    "temperature_thresholds": [
+      0.25,
+      0.75,
+      1.75
+    ],
+    "extreme_requires_vol20_over_vol60": 1.25,
+    "entry": ">=0.75 for 2 closes",
+    "exit": "<=0 for 2 closes or close below highest close since entry minus 3*ATR20",
+    "execution": "next session open; long/cash; no signal-day fill"
+  },
+  "baselines": [
+    "buy_hold",
+    "sma200",
+    "donchian55_20",
+    "momentum252"
+  ],
+  "costs_bps_per_side": [
+    5,
+    15,
+    30
+  ],
+  "comparison_rules": [
+    "same symbol/pricing/date for agreement",
+    "unknown labels remain unknown",
+    "retrospective labels may repaint",
+    "index simulation is not directly executable ETF performance"
+  ],
+  "sources": [
+    "https://www.tradingblox.com/originalturtles/originalturtlerules.pdf",
+    "https://www.seykota.com/tt/Aggregation/Seykota_FAQ-1.html",
+    "https://w4.stern.nyu.edu/facdir/lpederse/papers/TimeSeriesMomentum.pdf"
+  ],
+  "open_requirements": [
+    "long history and adjustment verification",
+    "trend animal historical labels",
+    "cross-sector validation",
+    "direct Hong Kong data and execution rules",
+    "documented out-of-sample iteration",
+    "final reproducible report"
+  ]
+}

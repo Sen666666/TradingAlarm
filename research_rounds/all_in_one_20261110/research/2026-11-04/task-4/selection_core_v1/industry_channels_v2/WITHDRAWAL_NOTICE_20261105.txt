@@ -1,0 +1,4 @@
+状态更正：本目录EXPLORATORY_ALLOCATION_AND_HOLDOUT.txt中的70/30现金配额候选已被用户明确拒绝并撤回。
+旧文本及限定纸面审查保留作历史证据；不再实现、测试或采纳，不代表经济效果通过。
+当前工作转为selection_core_v1/continuous_rank_v3/FROZEN_DESIGN.txt的固定行业连续排序研究。
+仍不运行账户或交易。

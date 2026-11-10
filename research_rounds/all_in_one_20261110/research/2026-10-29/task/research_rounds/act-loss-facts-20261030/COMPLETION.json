@@ -1,0 +1,31 @@
+{
+  "status": "completed",
+  "start_utc": "2026-10-30T02:01:26+00:00",
+  "end_utc": "2026-10-30T02:25:19.367110+00:00",
+  "wall_seconds": 1433.36711,
+  "wall_includes": "source inspection, protocol, implementation, sample/full aggregation, fee/inventory verification and short report",
+  "aggregation_success_seconds": 4.420679416973144,
+  "failed_aggregation_seconds": 6.522100042086095,
+  "independent_fee_inventory_verification_seconds": 0.739117041695863,
+  "new_strategy_paths": 0,
+  "indicator_recomputations": 0,
+  "product_changes": 0,
+  "original_input_hashes_unchanged": true,
+  "blockers": [],
+  "unknowns": [
+    "original unique rejection reason for synchronous stronger unheld candidates",
+    "actual source and replacement use of funds not simulated"
+  ],
+  "deliverables": [
+    "FINAL_REPORT.txt",
+    "actual-cycles.csv",
+    "severe-final-losses.csv",
+    "severe-close-losses.csv",
+    "trajectory-groups.csv",
+    "synchronous-candidate-observations.csv",
+    "same-start-unordered-candidates.csv",
+    "synchronous-stronger-candidates.csv",
+    "INDEPENDENT_I_BACKGROUND.json",
+    "VERIFICATION.json"
+  ]
+}

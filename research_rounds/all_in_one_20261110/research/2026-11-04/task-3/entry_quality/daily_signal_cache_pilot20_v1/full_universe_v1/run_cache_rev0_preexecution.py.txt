@@ -1,0 +1,307 @@
+"""Fixed local5517 daily signal cache, per-stock atomic commits. No accounts.
+
+The unchanged20-stock kernel owns numerical operations. This driver only reads,
+validates, serializes and schedules. Unknown attempts are never recomputed.
+"""
+from pathlib import Path
+from concurrent.futures import ProcessPoolExecutor, wait, FIRST_COMPLETED
+import argparse, datetime, hashlib, json, math, multiprocessing as mp, os, shutil
+import signal, sys, time, traceback, uuid
+import numpy as np
+import pandas as pd
+import pyarrow as pa
+import pyarrow.parquet as pq
+import pyarrow.dataset as ds
+
+HERE=Path(__file__).resolve().parent;PILOT=HERE.parent
+sys.path.insert(0,str(PILOT));import pilot as p
+WORKERS=12;MIN_FREE=10*1024**3
+STOP=None;F=None;GRID=None;SCHEMA=None;OLD=None;OLDFEATURE=None;RUNID=None
+
+def read(path):return json.loads(Path(path).read_text())
+def sha(path):return p.sha(path)
+def now():return datetime.datetime.now(datetime.timezone.utc).isoformat()
+def sync_dir(folder):
+    fd=os.open(folder,os.O_RDONLY)
+    try:os.fsync(fd)
+    finally:os.close(fd)
+def atomic_json(path,value):
+    path=Path(path);tmp=path.with_name(path.name+'.tmp.'+uuid.uuid4().hex)
+    with tmp.open('x')as out:
+        json.dump(p.clean(value),out,ensure_ascii=False,indent=2,allow_nan=False);out.write('\n');out.flush();os.fsync(out.fileno())
+    os.replace(tmp,path);sync_dir(path.parent)
+def marker(path,value):
+    with Path(path).open('x')as out:
+        json.dump(p.clean(value),out,ensure_ascii=False,allow_nan=False);out.write('\n');out.flush();os.fsync(out.fileno())
+    sync_dir(Path(path).parent)
+def oldpath(day):
+    return p.ENTRY/'full_local_signal_20240924_v1/signals/ALL_SIGNALS.parquet'if day=='2024-09-24'else p.ENTRY/'full_local_signal_two_dates_v1'/day/'signals/ALL_SIGNALS.parquet'
+
+def identity_payload(f):return {k:v for k,v in f.items()if k not in ['cache_identity','prepared_at_UTC']}
+
+def prepare():
+    assert not(HERE/'FREEZE.json').exists()
+    old=p.validate();assert sha(p.SOURCE)==old['source_sha256']
+    files=read(PILOT/'FINAL_OUTPUT_SHA256.json')['files']
+    for name,h in files.items():assert sha(PILOT/name)==h,('pilot sealed file changed',name)
+    feature=pd.read_parquet(p.FEATURES,columns=['sid','day','source_observation_count_through_t'])
+    roster=feature.loc[feature.day.eq(p.END),['sid','source_observation_count_through_t']].sort_values('sid').rename(columns={'source_observation_count_through_t':'input_rows'})
+    assert len(roster)==roster.sid.nunique()==5517 and int(roster.input_rows.sum())==15739264
+    roster.to_csv(HERE/'UNIVERSE5517.csv',index=False)
+    for name in ['artifacts','receipts','running','errors','pending','runs']:(HERE/name).mkdir(exist_ok=True)
+    sample=PILOT/'full'/old['stocks'][0]/'DAILY2022_20260515.parquet'
+    schema=pq.read_schema(sample).remove_metadata()
+    grid=pd.DatetimeIndex(pd.read_parquet(PILOT/'SOURCE_DATE_UNION.parquet').day)
+    assert len(grid)==1054
+    (HERE/'DAILY_SCHEMA.arrow').write_bytes(schema.serialize().to_pybytes())
+    # Balanced stable blocks; partially complete blocks retain the same identities.
+    blocks=[[]for _ in range(math.ceil(len(roster)/24))];loads=[0]*len(blocks)
+    lengths=dict(zip(roster.sid,roster.input_rows))
+    for sid in sorted(lengths,key=lambda s:(-lengths[s],s)):
+        j=min(range(len(blocks)),key=lambda j:(loads[j],len(blocks[j]),j));blocks[j].append(sid);loads[j]+=int(lengths[sid])
+    atomic_json(HERE/'BLOCK_PLAN.json',dict(blocks=blocks,input_rows_per_block=loads))
+    code=old['original_code_sha256'].copy();code[str(Path(__file__).resolve())]=sha(__file__)
+    references={str(oldpath(day)):sha(oldpath(day))for day in ['2022-01-24','2024-09-24','2026-01-15']}
+    references[str(p.FEATURES)]=sha(p.FEATURES)
+    reuse={}
+    for sid in old['stocks']:
+        rec=read(PILOT/'full'/sid/'RECEIPT.json');file=PILOT/'full'/sid/'DAILY2022_20260515.parquet'
+        assert sha(file)==rec['file_sha256'][file.name]
+        reuse[sid]=dict(path=str(file),sha256=sha(file),pilot_receipt_sha256=sha(PILOT/'full'/sid/'RECEIPT.json'),profile=rec['profile'],source_first=rec['source_first'],source_last=rec['source_last'])
+    f=dict(version=1,status='FIXED_LOCAL5517_DAILY_SIGNAL_CACHE_NO_ACCOUNT',prepared_at_UTC=now(),
+        source=str(p.SOURCE),source_sha256=old['source_sha256'],source_size=p.SOURCE.stat().st_size,source_mtime_ns=p.SOURCE.stat().st_mtime_ns,
+        start=p.START,actual_end=p.END,requested_H1_end='2026-06-30',H1_complete=False,stocks=5517,source_full_rows=15739264,grid_rows_per_stock=1054,total_grid_rows=5814918,
+        workers=WORKERS,min_free_bytes=MIN_FREE,forecast_pause_threshold_seconds=75*60,forecast_min_new_input_rows=400000,forecast_min_elapsed_seconds=300,
+        code_sha256=code,references_sha256=references,roster_sha256=sha(HERE/'UNIVERSE5517.csv'),block_plan_sha256=sha(HERE/'BLOCK_PLAN.json'),
+        schema_sha256=sha(HERE/'DAILY_SCHEMA.arrow'),schema_columns=schema.names,core_columns=pd.read_parquet(PILOT/'full'/old['stocks'][0]/'BASELINE_FULL_HISTORY.parquet').columns.tolist(),
+        grid_path=str(PILOT/'SOURCE_DATE_UNION.parquet'),grid_sha256=sha(PILOT/'SOURCE_DATE_UNION.parquet'),pilot_root_seal_sha256=sha(PILOT/'ROOT_SEAL.json'),reuse20=reuse,
+        complete_commit='validated full parquet, fsync, atomic rename; SHA-bearing receipt fsync+atomic rename LAST; only validated receipt means DONE',
+        orphan_rule='Never automatically rerun RUNNING/error/orphan. Valid complete footer+identity+oldchecks may be recovered without model; otherwise quarantine unknown.',
+        CP_rule='Original market-only CP, I target valid/numeric-down/I floor; firstbad retains earlier causal history, then all CP unknown;missing schema columns typed null,neverFalse.',
+        no_accounts=True,no_orders=True,no_network=True,no_score_parameters_changed=True)
+    f['cache_identity']=hashlib.sha256(json.dumps(p.clean(identity_payload(f)),sort_keys=True,separators=(',',':')).encode()).hexdigest()
+    atomic_json(HERE/'FREEZE.json',f)
+    print(json.dumps(dict(status='PREPARED',cache_identity=f['cache_identity'],reuse=20,new=5497,columns=len(schema.names),grid=5814918),ensure_ascii=False),flush=True)
+
+def validate():
+    f=read(HERE/'FREEZE.json');s=p.SOURCE.stat()
+    assert s.st_size==f['source_size']and s.st_mtime_ns==f['source_mtime_ns']
+    assert f['cache_identity']==hashlib.sha256(json.dumps(p.clean(identity_payload(f)),sort_keys=True,separators=(',',':')).encode()).hexdigest()
+    for path,h in f['code_sha256'].items():assert sha(path)==h,path
+    for path,h in f['references_sha256'].items():assert sha(path)==h,path
+    for name,key in [('UNIVERSE5517.csv','roster_sha256'),('BLOCK_PLAN.json','block_plan_sha256'),('DAILY_SCHEMA.arrow','schema_sha256')]:assert sha(HERE/name)==f[key]
+    assert sha(f['grid_path'])==f['grid_sha256']
+    return f
+
+def init_worker(stop,runid):
+    global STOP,F,GRID,SCHEMA,OLD,OLDFEATURE,RUNID
+    STOP=stop;F=read(HERE/'FREEZE.json');RUNID=runid
+    GRID=pd.DatetimeIndex(pd.read_parquet(F['grid_path']).day)
+    SCHEMA=pa.ipc.read_schema(pa.BufferReader((HERE/'DAILY_SCHEMA.arrow').read_bytes()))
+    OLD={day:pd.read_parquet(oldpath(day)).set_index('sid')for day in ['2022-01-24','2024-09-24','2026-01-15']}
+    OLDFEATURE=pd.read_parquet(p.FEATURES,columns=['sid','day','target_row_present','r','scale','amount_ref','u','b','e','E','score']).set_index('sid')
+
+def verify_values(sid,x):
+    assert len(x)==1054 and x.sid.eq(sid).all()and pd.DatetimeIndex(x.day).equals(GRID)
+    assert list(x.columns)==F['schema_columns']
+    idx=x.set_index('day');oldchecks=[];pc=[]
+    for day,table in OLD.items():
+        row=table.loc[sid];stamp=pd.Timestamp(day);r=idx.loc[stamp]
+        if pd.isna(r.native__close):
+            expected='MISSING_TARGET_BAR'if not r.source_row_present else'TARGET_REJECTED_BY_ORIGINAL_ELIGIBLE_PRICE_MASK'
+            assert row.signal_status==expected,(sid,day,row.signal_status,expected)
+            oldchecks.append(dict(day=day,status=expected,exact_fields=0))
+        else:
+            a=pd.DataFrame([{c:r['native__'+c]for c in p.FIELDS}],index=[stamp]);b=pd.DataFrame([{c:row[c]for c in p.FIELDS}],index=a.index)
+            p.compare_frames(a,b,f'old19 {sid} {day}');oldchecks.append(dict(day=day,status='EXACT19',exact_fields=19))
+    oldp=OLDFEATURE.loc[[sid]]
+    for _,r in oldp.iterrows():
+        stamp=pd.Timestamp(r.day);q=idx.loc[stamp]
+        assert bool(q.source_row_present)==bool(r.target_row_present),(sid,r.day,'source presence')
+        if not r.target_row_present:pc.append(dict(day=r.day,status='MISSING_TARGET_BAR'));continue
+        cols=['r','scale','amount_ref','u','b','e','E','score']
+        a=pd.DataFrame([{c:q['pvr__'+c]for c in cols}],index=[stamp]);b=pd.DataFrame([{c:r[c]for c in cols}],index=a.index)
+        p.compare_frames(a,b,f'oldPVR {sid} {r.day}');pc.append(dict(day=r.day,status='EXACT8'))
+    # Missing source never receives inherited state or a new permission.
+    missing=~x.source_row_present
+    assert x.loc[missing,['native__i_buy','native__i_target','pvr__score','cp__receipt']].isna().all().all()
+    return dict(old19=oldchecks,oldPVR=pc,source_rows=int(x.source_row_present.sum()),eligible_price_rows=int(x.stock_eligible_price_observation.sum()),
+        missing_source_rows=int(missing.sum()),unknown_fresh_rows=int(x.stock_signal_knowledge.ne('READY').sum()),
+        cp_blocked_rows=int(x.cp__input_status.eq('BLOCKED_BY_PRIOR_INVALID_INPUT').sum()),cp_receipts=int(x.cp__receipt.eq(True).sum()),
+        I_hold_known_rows=int(x.native__e0_ready.eq(1).sum()),fresh_known_rows=int((x.native__e0_ready.eq(1)&x.native__g_ready.eq(True)).sum()))
+
+def make_daily(sid,g,bundle):
+    # CP stop=0 has no numeric output schema; explicit typed-null alignment.
+    bundle=bundle.reindex(columns=F['core_columns'])
+    x=bundle.reindex(GRID).copy();x.insert(0,'day',GRID);x.insert(0,'sid',sid)
+    x['source_row_present']=GRID.isin(g.trade_date);x['stock_eligible_price_observation']=x.native__close.notna()
+    known=(x.native__e0_ready.eq(1)&x.native__g_ready.eq(True)).fillna(False)
+    x['stock_signal_knowledge']=np.where(~x.source_row_present,'MISSING_SOURCE_ROW',np.where(~x.stock_eligible_price_observation,'INVALID_ORIGINAL_PRICE_MASK',np.where(known,'READY','WARMUP_OR_STRENGTH_UNKNOWN')))
+    raw=g.set_index('trade_date')[['open','high','low','close','volume','amount']].add_prefix('price__')
+    x=x.join(raw.reindex(GRID));x['historical_trading_eligibility']='UNKNOWN_NONPIT'
+    assert list(x.columns)==F['schema_columns']
+    return x.reset_index(drop=True)
+
+def commit_receipt(sid,path,details,origin):
+    receipt=dict(status='DONE_VALIDATED',sid=sid,cache_identity=F['cache_identity'],file=str(path.relative_to(HERE)),file_sha256=sha(path),file_bytes=path.stat().st_size,
+        rows=1054,columns=len(F['schema_columns']),details=details,origin=origin,committed_at_UTC=now(),run_id=RUNID)
+    atomic_json(HERE/'receipts'/f'{sid}.json',receipt)
+    running=HERE/'running'/f'{sid}.json'
+    if running.exists():running.unlink();sync_dir(running.parent)
+    return receipt
+
+def one(sid,g):
+    if STOP.is_set():return None
+    if shutil.disk_usage(HERE).free<F['min_free_bytes']:STOP.set();return dict(status='RESOURCE_STOP',sid=sid,reason='disk below frozen10GiB floor')
+    running=HERE/'running'/f'{sid}.json';final=HERE/'artifacts'/f'{sid}.parquet';pending=HERE/'pending'/f'{sid}.parquet.tmp'
+    assert not running.exists()and not final.exists()and not pending.exists()and not(HERE/'errors'/f'{sid}.json').exists()
+    marker(running,dict(sid=sid,cache_identity=F['cache_identity'],pid=os.getpid(),run_id=RUNID,started_at_UTC=now()))
+    start=time.monotonic()
+    try:
+        assert g is not None and not g.empty
+        bundle,profile=p.kernel(g);x=make_daily(sid,g,bundle);checks=verify_values(sid,x)
+        details=dict(profile=profile,checks=checks,source_first=str(g.trade_date.min().date()),source_last=str(g.trade_date.max().date()),compute_and_validation_wall_seconds=time.monotonic()-start)
+        table=pa.Table.from_pandas(x,schema=SCHEMA,preserve_index=False,safe=True)
+        meta=table.schema.metadata or {};meta.update({b'local_cache_identity':F['cache_identity'].encode(),b'local_cache_sid':sid.encode(),b'local_cache_complete':b'true',b'local_cache_details':json.dumps(p.clean(details),ensure_ascii=False,allow_nan=False).encode()})
+        table=table.replace_schema_metadata(meta)
+        with pending.open('xb')as stream:
+            pq.write_table(table,stream,compression='zstd');stream.flush();os.fsync(stream.fileno())
+        check=pq.read_table(pending);assert check.num_rows==1054 and check.schema.remove_metadata().equals(SCHEMA)
+        verify_values(sid,check.to_pandas())
+        os.replace(pending,final);sync_dir(final.parent)
+        return commit_receipt(sid,final,details,'NEW_SINGLE_PREFIX_KERNEL')
+    except BaseException as exc:
+        error=dict(status='ERROR_NO_AUTORETRY',sid=sid,cache_identity=F['cache_identity'],at_UTC=now(),run_id=RUNID,error=repr(exc),traceback=traceback.format_exc())
+        atomic_json(HERE/'errors'/f'{sid}.json',error);STOP.set();return error
+
+def block_worker(blockid,sids):
+    if STOP.is_set():return dict(block=blockid,results=[])
+    source_stat=p.SOURCE.stat();assert source_stat.st_size==F['source_size']and source_stat.st_mtime_ns==F['source_mtime_ns']
+    data=ds.dataset(p.SOURCE).to_table(columns=p.COLS,filter=ds.field('symbol').isin(sids)&(ds.field('trade_date')<=pd.Timestamp(F['actual_end']))).to_pandas()
+    source_stat=p.SOURCE.stat();assert source_stat.st_size==F['source_size']and source_stat.st_mtime_ns==F['source_mtime_ns']
+    groups={sid:g.sort_values('trade_date')for sid,g in data.groupby('symbol',sort=False)}
+    results=[]
+    for sid in sids:
+        if STOP.is_set():break
+        r=one(sid,groups.get(sid))
+        if r:results.append(r)
+    return dict(block=blockid,results=results)
+
+def verified_done(sid,receipt):
+    assert receipt['status']=='DONE_VALIDATED'and receipt['cache_identity']==F['cache_identity']and receipt['sid']==sid
+    path=HERE/receipt['file'];assert path.name==f'{sid}.parquet'and sha(path)==receipt['file_sha256']
+    table=pq.read_table(path);assert table.num_rows==1054 and table.schema.remove_metadata().equals(SCHEMA)
+    checks=verify_values(sid,table.to_pandas());assert checks==receipt['details']['checks']
+    return receipt
+
+def reconcile(roster):
+    done={};unknown=[]
+    for sid in roster:
+        receipt=HERE/'receipts'/f'{sid}.json';running=HERE/'running'/f'{sid}.json';final=HERE/'artifacts'/f'{sid}.parquet';pending=HERE/'pending'/f'{sid}.parquet.tmp';error=HERE/'errors'/f'{sid}.json'
+        try:
+            if receipt.exists():
+                done[sid]=verified_done(sid,read(receipt))
+                if running.exists():running.unlink();sync_dir(running.parent)
+                continue
+            if error.exists():unknown.append(dict(sid=sid,reason='ERROR_NO_AUTORETRY'));continue
+            if not any(q.exists()for q in [running,final,pending]):continue
+            if running.exists():
+                mark=read(running);pid=mark['pid']
+                try:os.kill(pid,0)
+                except ProcessLookupError:pass
+                except PermissionError:raise RuntimeError('Cannot prove prior worker stopped')
+                else:raise RuntimeError('Prior worker PID still exists')
+            candidate=final if final.exists()else pending if pending.exists()else None
+            if candidate is None:raise RuntimeError('Unknown attempt has no complete durable result; do not rerun')
+            table=pq.read_table(candidate);meta=table.schema.metadata or {}
+            if sid in F['reuse20']and sha(candidate)==F['reuse20'][sid]['sha256']:
+                profile=F['reuse20'][sid]['profile'];details=dict(profile=profile,checks=verify_values(sid,table.to_pandas()),source_first=F['reuse20'][sid]['source_first'],source_last=F['reuse20'][sid]['source_last'])
+            else:
+                assert meta.get(b'local_cache_identity')==F['cache_identity'].encode()and meta.get(b'local_cache_sid')==sid.encode()and meta.get(b'local_cache_complete')==b'true'
+                details=json.loads(meta[b'local_cache_details']);assert verify_values(sid,table.to_pandas())==details['checks']
+            assert table.num_rows==1054 and table.schema.remove_metadata().equals(SCHEMA)
+            if candidate!=final:os.replace(candidate,final);sync_dir(final.parent)
+            done[sid]=commit_receipt(sid,final,details,'ORPHAN_RECOVERED_BY_VALUES_NO_MODEL')
+        except BaseException as exc:unknown.append(dict(sid=sid,reason=repr(exc),status='UNKNOWN_NO_AUTORETRY'))
+    atomic_json(HERE/'RECONCILIATION.json',dict(at_UTC=now(),done=len(done),unknown=unknown,unknown_not_recomputed=True))
+    return done,unknown
+
+def import20(done):
+    for sid,ref in F['reuse20'].items():
+        if sid in done:continue
+        assert sha(ref['path'])==ref['sha256']
+        marker(HERE/'running'/f'{sid}.json',dict(sid=sid,cache_identity=F['cache_identity'],pid=os.getpid(),run_id=RUNID,started_at_UTC=now(),kind='REUSE_COPY_NO_MODEL'))
+        table=pq.read_table(ref['path']);checks=verify_values(sid,table.to_pandas())
+        pending=HERE/'pending'/f'{sid}.parquet.tmp';final=HERE/'artifacts'/f'{sid}.parquet'
+        with open(ref['path'],'rb')as src,pending.open('xb')as dst:shutil.copyfileobj(src,dst);dst.flush();os.fsync(dst.fileno())
+        assert sha(pending)==ref['sha256'];os.replace(pending,final);sync_dir(final.parent)
+        details=dict(profile=ref['profile'],checks=checks,source_first=ref['source_first'],source_last=ref['source_last'])
+        done[sid]=commit_receipt(sid,final,details,'REUSED_SEALED_PILOT20_NO_MODEL')
+    atomic_json(HERE/'REUSE20_RECEIPT.json',dict(reused=len(F['reuse20']),no_new_model=True,files={sid:done[sid]['file_sha256']for sid in F['reuse20']}))
+
+def run(resume):
+    global F,RUNID
+    F=validate();assert sha(p.SOURCE)==F['source_sha256']
+    if shutil.disk_usage(HERE).free<F['min_free_bytes']:raise RuntimeError('Insufficient disk below frozen10GiB floor')
+    lock=HERE/'LOCK.json'
+    if lock.exists():
+        assert resume,'Existing run lock; do not duplicate invocation'
+        old=read(lock)
+        try:os.kill(old['pid'],0)
+        except ProcessLookupError:
+            atomic_json(HERE/'runs'/f'recovered_lock_{uuid.uuid4().hex}.json',old);lock.unlink();sync_dir(lock.parent)
+        else:raise RuntimeError('Prior process exists or cannot be excluded; inspect before resume')
+    RUNID=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')+'_'+uuid.uuid4().hex[:8]
+    marker(lock,dict(pid=os.getpid(),run_id=RUNID,cache_identity=F['cache_identity'],started_at_UTC=now()))
+    ctx=mp.get_context('spawn');stop=ctx.Event();init_worker(stop,RUNID)
+    def handler(sig,frame):stop.set();atomic_json(HERE/'runs'/f'{RUNID}_INTERRUPT.json',dict(signal=sig,at_UTC=now(),active_stocks_allowed_to_commit=True))
+    signal.signal(signal.SIGTERM,handler);signal.signal(signal.SIGINT,handler)
+    started=time.monotonic();roster_frame=pd.read_csv(HERE/'UNIVERSE5517.csv');roster=roster_frame.sid.tolist();lengths=dict(zip(roster_frame.sid,roster_frame.input_rows))
+    try:
+        done,unknown=reconcile(roster)
+        if unknown:raise RuntimeError(f'{len(unknown)} uncertain/error stocks isolated; no automatic recomputation')
+        if not resume:assert not done,'Existing completed records require explicit --resume'
+        import20(done);prior_done=set(done)
+        blocks=read(HERE/'BLOCK_PLAN.json')['blocks'];jobs=[(i,[s for s in block if s not in done])for i,block in enumerate(blocks)];jobs=[j for j in jobs if j[1]]
+        initial_rows=sum(int(lengths[s])for s in roster if s not in done)
+        new_rows=0;new_done=0;forecast=None;errors=[]
+        iterator=iter(jobs)
+        with ProcessPoolExecutor(max_workers=F['workers'],mp_context=ctx,initializer=init_worker,initargs=(stop,RUNID))as pool:
+            active={}
+            for _ in range(min(F['workers'],len(jobs))):
+                i,sids=next(iterator);active[pool.submit(block_worker,i,sids)]=i
+            while active:
+                completed,_=wait(active,timeout=10,return_when=FIRST_COMPLETED)
+                for future in completed:
+                    i=active.pop(future)
+                    try:result=future.result()
+                    except BaseException as exc:stop.set();errors.append(dict(block=i,error=repr(exc)));continue
+                    for r in result['results']:
+                        if r['status']=='DONE_VALIDATED':done[r['sid']]=r;new_done+=1;new_rows+=r['details']['profile']['input_rows']
+                        else:errors.append(r);stop.set()
+                    elapsed=time.monotonic()-started
+                    if new_rows>=F['forecast_min_new_input_rows']and elapsed>=F['forecast_min_elapsed_seconds']:
+                        forecast=elapsed*initial_rows/new_rows
+                        if forecast>F['forecast_pause_threshold_seconds']:
+                            stop.set();errors.append(dict(status='FORECAST_RESOURCE_PAUSE',forecast_seconds=forecast,threshold_seconds=F['forecast_pause_threshold_seconds']))
+                    if not stop.is_set():
+                        try:j,sids=next(iterator);active[pool.submit(block_worker,j,sids)]=j
+                        except StopIteration:pass
+                status=dict(status='RUNNING'if not stop.is_set()else'STOP_REQUESTED_COMMITTING_ACTIVE_STOCKS',run_id=RUNID,done=len(done),new_done=new_done,reused_or_prior=len(prior_done),total=5517,new_input_rows=new_rows,elapsed_seconds=time.monotonic()-started,forecast_invocation_total_seconds=forecast,errors=errors,free_bytes=shutil.disk_usage(HERE).free)
+                atomic_json(HERE/'LIVE_PROGRESS.json',status)
+                if completed:print(json.dumps(p.clean(status),ensure_ascii=False),flush=True)
+        # Reconcile from durable commits, including workers completed after stop.
+        done,unknown=reconcile(roster)
+        validate();assert sha(p.SOURCE)==F['source_sha256'],'Source changed during run; do not certify mixed output'
+        summary=dict(status='COMPLETE_GENERATION_PENDING_INDEPENDENT_AUDIT'if len(done)==5517 and not unknown else'PARTIAL_STOPPED_NO_UNKNOWN_RECOMPUTE',run_id=RUNID,at_UTC=now(),elapsed_seconds=time.monotonic()-started,done=len(done),total=5517,unknown=unknown,errors=errors,
+            artifact_bytes=sum(r['file_bytes']for r in done.values()),new_models=len(set(done)-prior_done),reused_or_prior=len(prior_done),no_accounts=True)
+        atomic_json(HERE/'runs'/f'{RUNID}_COMPLETION.json',summary);atomic_json(HERE/'GENERATION_COMPLETION.json',summary)
+        print(json.dumps(summary,ensure_ascii=False),flush=True)
+        if len(done)!=5517 or unknown or errors:raise RuntimeError('Generation stopped; inspect preserved evidence before any continuation')
+    finally:
+        if lock.exists()and read(lock).get('run_id')==RUNID:lock.unlink();sync_dir(lock.parent)
+
+if __name__=='__main__':
+    a=argparse.ArgumentParser();a.add_argument('mode',choices=['prepare','run']);a.add_argument('--resume',action='store_true');args=a.parse_args()
+    if args.mode=='prepare':prepare()
+    else:run(args.resume)

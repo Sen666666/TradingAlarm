@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "tests": 17,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 5.101710499729961,
+  "started_at": "2026-11-02T06:14:57.413984+00:00",
+  "completed_at": "2026-11-02T06:15:02.529589+00:00",
+  "scope": "native generated-price synthetic only",
+  "historical_account_events": 0,
+  "cases": [
+    "01_empty_C10",
+    "01_empty_C_BATCH20",
+    "02_full_C10",
+    "02_full_C_BATCH20",
+    "03_partial_carry",
+    "04_partial_STAR_cancel",
+    "05_stop_exempt",
+    "06_cancel_funding",
+    "07_native_split_atomic",
+    "08_tamper",
+    "09_restart",
+    "10_core_T1",
+    "11_real_sell_settle_fresh",
+    "12_no_refresh",
+    "13_S80_unbought",
+    "14_actual_C_order",
+    "16_partial_split",
+    "17_observer_tamper"
+  ]
+}

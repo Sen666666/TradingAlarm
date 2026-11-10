@@ -1,0 +1,12 @@
+{
+  "recorded_at": "2026-10-25T02:33:13.716861+08:00",
+  "source": {
+    "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/rs-h1-execution-20261025/accounts-v2/groups/G0/decisions.jsonl.gz",
+    "sha256": "821f542c32342860d2a550f8699ebfae0470765ff21f5fa8b4ed65a4f43b57b9"
+  },
+  "decision_rows": 17196,
+  "diagnostic_groups": 38352,
+  "counting_unit": "candidate-day; not trades or unique stocks; one eligibility evaluation per account/day, executor rejection separate",
+  "source_retained_full": true,
+  "unverified_nonqualified_BSE_annual_outcomes_excluded_from_A_opportunity_labels": true
+}

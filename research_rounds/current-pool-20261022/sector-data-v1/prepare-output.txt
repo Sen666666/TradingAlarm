@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/code/prepare_sector_store.py", line 152, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/code/prepare_sector_store.py", line 80, in main
+    new,src,check=checked_new(symbol,paths[0]);sources+=src;checks['new_history']=check
+                  ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/code/prepare_sector_store.py", line 29, in checked_new
+    raise ValueError('history identity/raw marker mismatch '+symbol)
+ValueError: history identity/raw marker mismatch URFI881144

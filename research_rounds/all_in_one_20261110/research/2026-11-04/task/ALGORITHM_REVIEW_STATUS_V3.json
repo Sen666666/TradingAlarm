@@ -1,0 +1,23 @@
+{
+  "updated_UTC": "2026-11-05T01:26:57.305836+00:00",
+  "status": "ALGORITHM_REVIEW_COMPLETE_NEW_BACKTESTS_PAUSED_BY_USER",
+  "primary_ACT_report": "ACT_FREEZE_CODE_REVIEW_V3.md",
+  "full_risk_report": "ALGORITHM_RISK_REVIEW_V3.md",
+  "new_account_initializations": 0,
+  "new_backtests": 0,
+  "new_parameter_tests": 0,
+  "observed_facts": [
+    "ACT20_BREAK phase peak drawdown>=20% at CLOSE then request full exits, flat and original market BREAK63 restore full original permissions at next executable OPEN, no built-in account ramp",
+    "Original same1709 PVR already removed account3%; No60 additionally removes confirmed60%; D10 conditional gross gate does not cover NOT_DOWN",
+    "First-day warmstart and persistent post303 confirmed permission separately verified",
+    "No60 post303:237 confirmed mobile,13 probe mobile,53 probe core; post60 CLOSE nominal mean6.1171/max9.6911%",
+    "301/303 first request->nextOPEN complete exit; initial-risk budget is not achieved-loss guarantee"
+  ],
+  "scope_limits": [
+    "No intraday/exchange execution or correlation-matrix proof",
+    "Core I invalidation vs floor crossing incremental equivalence UNKNOWN; only~9.93% of post303 net loss is core, not promoted to main driver",
+    "Two one-OPEN delayed exits blocking cause UNKNOWN",
+    "Proposed rights/loss-budget contracts not implemented or shown to improve returns"
+  ],
+  "next": "Continue code/contract review only under user pause. No restore implementation, full robustness, or parameter tests. Coordinate NOT_DOWN buy-quality line rather than duplicate."
+}

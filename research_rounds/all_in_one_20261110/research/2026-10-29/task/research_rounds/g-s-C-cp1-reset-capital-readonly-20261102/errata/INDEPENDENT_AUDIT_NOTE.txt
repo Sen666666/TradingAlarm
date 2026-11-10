@@ -1,0 +1,6 @@
+独审 /tmp/cp1-reset-independent-801h33gb/FINAL_AUDIT.json 核心PASS；原29文件及金融账不变。
+1. 18关联层包含2个独立core层，仅与fresh同日，不能全称repair驱动；confirmed mobile为16层。
+2. 平安Jul4是receipt/授权收盘，实际买为Jul7；+4302.11仅C10，C20对应+3376.29。
+3. 德福+3928.80来自早先小core/probe及mobile层，later未获资repair不能认领旧仓利润。
+4. C10 repair未平层总贡献−5592.02包含部分实卖，剩余真正未实现+4.79，不能称全为浮亏。
+以上仅措辞/归属澄清，无信号、分类或金融重跑。后续UP控制按真实对应层/凭据。

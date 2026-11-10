@@ -1,0 +1,36 @@
+原CP receipt重置、实际失败记忆与G1/I依赖：独立只读审查
+
+结论
+CP不是独立于G1/I的第二套外生信息。它使用同一收盘价格及同源成交金额，且股票CP的有效域直接是原native I_target。它另有冻结尺度、前沿位移和金额加权credit，规则不等同于G1，也不能因同日共振就认定错误；但不能将G1、I、CP的同时成立解释为三份统计独立证据。静态源码不量化其相关程度或经济损失。
+CP记住已消费的市场推进，不记住账户上次买入是否亏损。系统其他层确有行业失败时点、账户累计损失、同日退出阻挡及CORE epoch锁；不能概括为“全系统毫无失败记忆”。
+
+1. receipt前后精确状态
+continuous-protection-lines-20261028/code/model.py:22–24用此前63个收益绝对值中位数形成s，此前21个金额中位数形成B；m=1+.5*abs(tanh(r/s))*tanh(log(amount/B))。当日金额低于B仅降低推进credit，非一律禁止receipt。
+26–38：状态只有phase/anchor/frontier/scale/credit/source segment。未ready或i_target无效清空；新source令phase重启；有效域内首次或原down事件锚到当日logC、credit=0、scale=当日z；SEEK创新低同样重锚。分支按源码顺序，i_target无效优先于down重锚。
+40–45：只有logC严格超过当前frontier才增加fresh；credit+=fresh*m；receipt要求当日fresh>0、frontier-anchor>=sqrt(5)*旧冻结scale且credit>=同阈值；candidate=C*exp(-sqrt(21)*旧冻结scale)。无最少三个收盘、最少持有天数或先前交易盈利要求。
+46–50：先保存used_anchor/used_scale/used_credit，receipt后无条件phase=UP、anchor=frontier=当前logC、credit=0、scale=当日z。candidate与当次阈值用旧scale，下一轮才用新scale。是否获资助、实际成交或随后止损不参与该重置。
+普通UP回撤既不降低锚也不扣credit；未越旧frontier不会新增credit。故没有外部reset时，新的receipt仍须有上一receipt之后的新高推进，不是每天在原价重复发证；但I失效/down/source reset能使锚下降，随后新日期可以重新走过曾经覆盖的价格区间。
+
+2. 哪些“失败”会保存，哪些不会
+cp1-evidence-trace-20261031/trace.py:53–57防同price_event_id重复，要求推进观察晚于anchor/前receipt；previous_market_receipt、previous_global_market_receipt是市场证明，不是账户止损结果。新观察ID不重复，不等于绝对价格区间永不重复，更不等于一次有条件独立试验。
+实际joint_v3.py:130–135把卖出的负价差和费用累加到budget.loss；没有把股票失败价、失败次数、失效receipt回写CP数值机或提高下一CP门槛。继承的pilot.py:68–87保留逐层现金/closed/reason及trade parts；卖空后last_buy还会删除。保存交易事实不等于新receipt消费这些事实。
+行业另有失败记忆：industry-mobile-stage/stage.py:25–41先旧线失败/end_attempt，同观察新receipt不能重启；joint_v3.py:201–205把行业E0失效/end_attempt传给budget.observe(failure=True)。预算model.py:131–157、166–172记录failed_bar，后行业receipt的end/confirmation必须晚于它；该失败是行业市场结构失效，不是某只股票真实亏损成交。条件不要求新receipt formation_start晚于failed_bar，也不要求收复上次失败价格，不能说成“失败后整段全新证据”。
+budget.loss按行业/原episode累计且新attempt不抹除；但joint_v3.py:16将exhausted_policy设record_only，达到金额并不在该损失合同下自动拒绝新单。ACT、现金、资源上限等仍可独立阻挡，不能由此宣称新单必能买到。
+实际No60 request由native_adapter.py:11–14、37绑定component.py:17–34的model_without_account_check文本衍生，修改仅移除其confirmed60谓词；上述来源/消费/失败记忆相关逻辑保留。不是把原joint route的account_risk或confirmed60限制误称当前No60限制。
+
+3. G1 -> native I -> 股票CP的真实依赖
+实际股票输入链：universe-cp1-inputs-20261031/prepare.py:8导入case-stock-cp1-warmup-20261031/generate.py；25–30要么复用已核同q/z，要么G.frame再用原M.calculate。generate.py:23–28中26行明确e0_valid=f.i_target，并用同源signal.amount及原events.event==-1形成e0_down。完整路径见SOURCE_INDEX；不存在continuous-protection-lines/code/generate.py。
+2024_full/prepare_data.py:70–79直接读取这些refs.CP1_input/CP1、依facts.e0_target给trace标episode，没有用旧IX_target替代native I；本轮未重算任何一个值。
+运行时prepare_facts在TradingAlarm/desk/refresh.py:55–62使用run_b5 -> classify -> project(...,'G1_I')，decline_candidate=False。
+G1 grade.py:24–29将原E0上涨事件、S21/S63新确认、已确认UP内新frontier任一作为fresh；30–43决定当前grade，45–46升级仍需fresh。native I policies_g1.py:17–33用E0_target、G1 ready/warm和E0新entered或G1 fresh形成opportunity/i_buy；I_target一旦active可持续，当前G1冷却本身不会退出，因为G1_I的use_x=False（7–8、20–24）。这不是旧G1_IX。
+所以CP域继承了G1/I的历史许可，但CP receipt本身不额外要求当日G1fresh或i_buy。实际joint_v3.py:218为continuing用原market_buyable替换packet里包含i_buy的buy_allowed；245只以当日cpr+continuing_Q申请MOBILE。packet engine.py:44–45及admission eligibility185–214给出被替换的原i_buy入口与保留的S0条件。可以同一收盘的价格冲击同时令G1fresh、i_buy、CP receipt，也可以I仍有效而当日没有i_buy却有CP receipt。
+这三种字段是相关且有方向依赖的不同转换，不是完全同义，也不是三份独立证明。trace对CP内部推进去重，不对G1/I/CP之间的同日原始价格证据做跨机制去重。是否三个具体日期重复、重复多少，由父任务的原保存标量逐项算式决定，本审查不重算/不抢该数值结论。
+
+4. 申请和账户门槛仍在
+joint_v3.py:244同CORE epoch只在未持且core_epoch不同才新开CORE；245的MOBILE可用于已有或已空股票，未读取core_epoch锁。247的exit_pending防同日退出又买，248拦待买单；ACT与I退出优先于旧CP线退出，旧CP线先检查再更新（225–240）。这不是由新CP自动覆盖旧保护线。
+实际route_without_account_check.py:4–6及model_without_account_check.py:218–232保存单次申请/receipt消费、当前行业attempt/episode及时钟校验。route先找正的合法数量再request，所以没有获route资助的市场receipt仍在CP机中重置，但不宜混称预算receipt已消费；request成功reserve后才在真实买窗检查成交，故预算消费也不等于已经成交。新receipt仍可提出新申请，未设“上次该股实际亏损后加倍证据”的适应规则。
+
+事实、推论与边界
+事实：以上为当前有效输入构造、原数值机和No60接线原文。逻辑推论：不同机制可复用同一价格冲击，重复波动可能形成多次不同ID的许可；代码未提供由实际个股失败改善下一CP质量的反馈。
+未核实：三个目标日的逐步数值（由父任务负责）、全母体跨机制重叠频率、这些依赖的经济利弊、增加失败条件会否误伤V反转。不得把本审查转成新策略建议或回测结论。
+本轮只读源码、已有绑定说明、保存摘录与哈希；0模型/Market/Account/指标/回测运行，未读取新行情，未改原项目或既有封存。

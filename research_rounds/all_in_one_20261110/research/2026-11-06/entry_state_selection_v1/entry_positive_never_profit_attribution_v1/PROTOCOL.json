@@ -1,0 +1,8 @@
+{
+  "task": "Attribute strictly positive-signal-day original PVR initial losses that never had fee-inclusive positive liquidation mark; no adds in targets. Compare actual same-event candidate winners.",
+  "target": "M3 FALSE_TO_TRUE original PVR-selected complete rounds, never_profitable true and original r_t>0; flat signal days separately excluded.",
+  "matching": "Retrospective outcome-conditioned diagnosis, not strategy: same event winner with whole round net>0 and core allocation>0; nearest PVR absolute difference then sid, with same I_buy_today/CP1_today strict subset. No caliper optimization. Report unmatched target coverage. Winners may repeat.",
+  "features": "t-day return/body/open gap/closing position/amount and share RVOL/prior20 high and close frontier/current-vs-history E; source/factor comparability explicit.",
+  "future": "Actual entry next-open gap is diagnostic only and cannot inform t-day ranking. No new formula or rank in this attribution.",
+  "prior_history": "All outcomes used for case selection already seen. Not OOS; all descriptive."
+}

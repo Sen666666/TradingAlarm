@@ -1,0 +1,15 @@
+{
+  "recorded_at": "2026-10-25T15:21:33.365425+00:00",
+  "seeds": 20,
+  "positive": 17,
+  "mean_return": 0.3448156036407469,
+  "median_return": 0.31686396980781073,
+  "median_drawdown": 0.16466212329243396,
+  "mean_initial_sleeve_participation": 0.3582214285714286,
+  "initial_sleeves": 3,
+  "initial_fraction_each": 0.3,
+  "initial_cash": 0.1,
+  "cash_not_reassigned_to_other_sectors": true,
+  "no_best_seed_selected": true,
+  "proxy_only": true
+}

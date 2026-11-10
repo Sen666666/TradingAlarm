@@ -1,0 +1,19 @@
+{
+  "frozen_at": "2026-11-04T12:01:47.031520+00:00",
+  "problem": "Daily raw return versus original signed amount transforms and original smoothing; all old funded layers and all fixed old tails, not policy returns",
+  "pvr": "r=logC diff; s=1.4826 median previous63 abs r; u=tanh(r/s); b=tanh(log(amount/prior21median)); e=u*(1+.5*abs(u)*b); E=normalized .9**[20..0] weighted previous/current21 e; unweighted-price comparison uses identical weighted u",
+  "act": "original eligible observed nonsynthetic source by segment; x=r*min(1,sqrt(amount/prior21median)); mom=EW span21 adjustFalse; first64 observations unknown; price comparison EW same r, identical mask",
+  "same_day_sign_invariant": "sign(e)=sign(r), sign(x)=sign(r), positive finite multipliers; any direction difference is smoothing or different underlying directional summary",
+  "flags": [
+    "pvr_daily_down_smooth_positive",
+    "act_daily_down_smooth_positive",
+    "pvr_amount_smooth_positive_price_smooth_nonpositive",
+    "act_amount_smooth_positive_price_smooth_nonpositive"
+  ],
+  "historical_scope": "latest and all occurrences only within the currently active original stock I-target episode up through decision CLOSE; no arbitrary lookback window; original I episode may be long, so any-past flags are descriptive",
+  "mothers": "2265 2022-24/1557 2022-23/303 actual postOct8 fills; 1171 strong; full original tails83/94 including unmatched",
+  "account_events": 0,
+  "new_signals": 0,
+  "threshold_search": 0,
+  "external_actions": 0
+}

@@ -1,0 +1,10 @@
+2024两政策自身状态连续技术合同｜仅Dec29零事件导入与Jan2前缀/独立恢复
+
+parent本轮明确授权：Original自身2023末和No60自身2023末分别交接2024，做零事件完整状态导入、Jan2 full/physical技术前缀、独立进程恢复。全年经济另root grant，当前不得执行Jan3或以后。原2022/2023/full源码及父账户保持只读。
+Original父：旧pvr-slot1-native-readiness-20261101/continuation-2023-readiness/run-2023/checkpoint.pkl；生成类horizon_import.Continuation。No60父：pvr_pool_feasibility/continuation2023/run-2023/checkpoint.pkl；生成类horizon_adapter.Continuation。两者都须DONE、真实CP/meta/provenance/source/完整账和六条旧事件流核同，NAV从各自DONE/原账读取，不硬编码也不重置。No60末状态owner已提供，金融独审归其owner/root，不以技术导入替代其金融结论。
+新cycle2024_adapter只在明确source/score/horizon身份上扩展，Original继承原N.Runner，No60继承原A.Runner，保持原Account、opening、planning、route、Budget类型/三处No60差分。旧2023专用硬编码importer和run guard不执行；旧生成类只用于原identity guard。动态复制全部账户和策略字段，仅source_freeze/run_seconds/episode_starts/rank_scores_manifest明确扩展；旧horizon元数据完整保留为旧代历史，新cycle_*是本代唯一cursor/import锁。
+2024数据沿已独审DATA/LOADER gate和三年分数，旧2022/23共827156格exact。完整父状态复制后核独立balance与budget镜像、所有旧字段及pending；保留现金、损耗、ACT、层/持仓/费用/分红应收、消费receipt、挂单及跨界原排序，不fresh1m、不120万缩放、不407。初始化空壳仅供完整验证复制，任何事件前已替换为各自真实父账户。
+完整、physical两支均从同一自身Dec29父状态接Jan2，physical移除所有Jan2以后的数据和PVR值并限制读者日期；比较完整账户/策略/历史流，只有纯future lookup及其transition统计排除比较，lookup旧前缀另核。新进程从本代零事件CP恢复再只执行Jan2，与已保存Jan2 complete state/lookup核同；真实OPEN/CLOSE调用数单列，不把三支当三个经济路径。Jan2 complete checkpoint可未来直接resume，禁止重新执行已提交Jan2。
+会计沿原完整native balance/pool/cash/share/fee检查，另由已审原accounting helper重建父股数+实际成交/送转、费用、显式权益、库存/预算镜像，保留真实分红/行动审计。append-only逐旧六流和账户原历史核同。
+本代source/card/controller/cross/binding和输入/父CP/旧来源单独冻结。重复import、重复/错误cursor、无全年授权、错误政策生成类必须拒绝。source错、财务实质差或任何异常立即保留FAILURE，不能自动重试经济事件。现授权只技术1日，完整2024两路径仍需root具体grant。
+两2023父CP按原serializer排除了episode_starts输入查表。本代明确从已冻结90行业state的父日以前行、按原J.Runner.__init__的E0_valid/setdefault算法重建该纯lookup，并核父horizon_transition登记的完整键数；再核新lookup旧键值全同、新增仅父日以后。没有补改父CP，没有将重建查表冒称账户状态恢复。仅日志增加2024四季CP副本，未更改原事件循环。

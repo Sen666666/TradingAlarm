@@ -1,0 +1,26 @@
+全原CORE OPEN窄臂必要覆盖（只读）
+
+完整运行17.704秒；saved完整性/去重汇总3.414秒；合计21.118秒<100。无新账户/marks/路由。
+117121全部CORE OPEN：829原probe预留保持不变，622 OPEN quote/preview失败，115670原route拒绝。
+允许拒集8868→同日CP/行业成熟及其它原门筛选→1693→157同attempt前排probe阻迁池→1536必要候选。
+1536 raw涉及1459个window/sid/source-I段；只有183同时是各段原首次CORE OPEN结果，不能混淆。
+原source-I首次母体21085，已把原reserved/preview/其它拒绝全部保留。
+
+时期 | 必要raw | 有机会source-I数 | 原各段首OPEN即候选 | 半导体raw
+2022 | 456 | 440 | 99 | 3
+2023 | 242 | 233 | 1 | 9
+2024_924_after | 144 | 133 | 0 | 6
+2024_pre924 | 220 | 200 | 36 | 25
+2025H2 | 265 | 256 | 47 | 4
+2026H1 | 209 | 201 | 0 | 9
+
+全部原同日CP+成熟numeric母体30742：28624同时现金门、2379同时行业风险门，子集重叠不可相加。
+1536拒集：probe_risk474、probe_risk+sector_capital724、sector_capital338。
+1374/1536有原相邻confirmed Mobile reserved的最小手存在性见证；162无此见证并非不可行判定。
+H1半导体9候选、9 source-I，9/9见证成立；见ALL11_TARGET_CROSSCHECK。另2行业风险不纳入。
+9的core min/原Mobile reserved为200/650、100/300、100/400、200/757、100/500、200/1578、100/1700、100/400、200/627。
+这些只在原前缀证明最低量必要存在，不推最大量、 altered full path、经济结果。
+
+op有CP却缺canonical trace=0；canonical trace_unknown非空=0；原CORE epoch由真实CORE买入逐项核验，未用Mobile充当消费。
+完整原订单/每候选stream index可查原前排预留，全部预留先于买入fill，T+1新股不可当旧可卖库存。
+源接口/合同缺口与未知SC/SR/NAV见SOURCE_AND_REUSE.txt；没有实现typed CORE confirmed。

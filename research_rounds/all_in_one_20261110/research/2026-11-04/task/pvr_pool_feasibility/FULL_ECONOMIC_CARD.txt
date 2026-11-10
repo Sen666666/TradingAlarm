@@ -1,0 +1,58 @@
+Proposed2026-11-04; execution needs root's separate explicit grant.
+Policy=PVR_SLOT1_NO_CONFIRMED60_ONLY. Exactly two first economic paths:
+  2022: original START2022-01-01, first decision2022-01-04,
+        finish2022-12-30 CLOSE. Fresh CNY1,000,000.
+  2025_26: first decision2025-07-01, finish2026-06-30 CLOSE.
+           Fresh CNY1,000,000. No artificial quarter reset.
+Baseline old audited PVR_SLOT1 at pvr-slot1-native-readiness-20261101/runs/
+{2022,2025_26}/pair is READ ONLY, not re-run and not imported as ON initial book.
+Warm market industry attempts/confirmed proofs and full indicator history use
+the same original loader. Empty financial positions/orders/stock requests/
+losses/ACT account state. Warm industry's consumed receipts are legitimate
+market initialization, not a hidden prior financial account or stock replay.
+
+Only intervention is consistent removal of original confirmed-pool60 capital
+gates in native budget.migrate, budget.request and route maxfit. Keep actual
+sameattempt pending migration coupling, original PVR unique-stock priority,
+all native eligibility/roles/fresh CP1/per-fresh2 target/core sizing/sector
+stage2/10/20 capital and1 risk/probe10 capital/.5 risk/stock10/cash+fees/lots,
+native sell/protect/ACT/settlement/corporate actions and receipt consumption.
+No SD, C10/account6/cap90/resizing/reallocation/new floor or delay factor.
+No capital parameter scan or source changes after freeze.
+
+Gates before execution: native-readiness/GATE.json passed; separate process
+CROSS_PROCESS_RESTART passed; source+engine+input hashes exact; root approval
+file matches proposed source-manifest and these gate hashes. Wrapper directly
+reuses PreparedRunner.run_prepared/daily_bridge/checkpoint/export; new source
+identity for policy, no disabled source/provenance restore guards.
+
+Full observers are original daily NAV/cashflow/stock/pool bridge and complete
+native daily/opportunity/funding/stage/balance/trade/layer/journal/audit/decision/
+PVR priority logs. Each real fee, reserve, receivable, dividend, split, quantity,
+protection floor, pending/cancel ACK and layer responsibility remains auditable.
+Quarter checkpoints inherit own running account. Failure/partial artifacts are
+preserved. No automatic restart/replay. Resume is explicit from own checkpoint,
+same source and engine, after exactly last completed event; no quarter reset.
+
+Output: this directory/runs/2022 and runs/2025_26 with original pair shape.
+Independent agents audit finance/NAV-DD/cash-risk/fees and stock campaigns/
+tail losses separately. Do not depend on a new dashboard/framework.
+
+Report full-window and adverse path, not only ending profit. Compare account
+return/DD/drawdown recovery and actual costs, capital deployed and idle cash,
+nominal-risk occupancy, gross/net layer and stock-campaign contributions,
+trial costs/large losses, entry-first/add/hold/exit/reentry, and semiconductor
+2026H1 actual participation. Other industries and2022 negative environment
+must remain in the evidence. Future event labels only score ex post, never
+enter signal, rank, target or gate. Distinguish account return from local
+counterfactual and market event rise. Do not sum the three independent snapshot
+capital gains into this continuous policy's investment amount.
+
+Decision: counts/capital increase alone cannot promote. New risk can make
+false starts, concentration and ordinary tail worse; assess reward with risk.
+35% user DD is a boundary, not a success metric;1m research book is not1.2m
+user account. No financing/leverage/real trade/H-share claim. Current native
+data1709 A shares/90 industries/current snapshot and reused development
+periods are not PIT/OOS. First two windows do not complete all-cycle validation.
+Only if results justify: continue own2023,2024includingSeptember, then original
+cost/delay stresses under separately frozen scope; do not sweep to rescue it.

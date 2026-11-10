@@ -1,0 +1,13 @@
+{
+  "recorded_at": "2026-10-25T14:56:02.488631+00:00",
+  "mechanism": "first full original S0 eligibility in each IX active episode; resets only on next IX episode; no grade crossing threshold",
+  "first_events": 84700,
+  "mean_first_return": 0.005955936333458521,
+  "median_first_return": -0.0184988922781395,
+  "positive_first_fraction": 0.33642266824085004,
+  "all_daily_eligible_events": 256321,
+  "mean_daily_event_return": 0.003520557122224385,
+  "terminal_first": 142,
+  "source_new_daily_checks_preserved": true,
+  "forward_statistics_are_overlapping_unit_diagnostics": true
+}

@@ -1,0 +1,42 @@
+Carry退出责任：原请求、实际成交及赢家回吐｜2026-11-04
+
+已核结论
+2023Jun21–Jul13与Jul18–Jul25两段carry合−63596.48元，并未发现“请求已发出却多日不能完成卖出”主因。两负段共121个在期初/期内已发逐层退出请求的carry观察，其全部剩余批次均在原请求的下一市场OPEN完全关闭；Apr24–Jun16正参考的79个已请求观察亦全部如此。合计200/200，非仅首笔partial成交。
+这仅核原日线代理的执行时钟，不等实际交易所成交认证。原trace没有独立broker ACK时间戳，ACK仍UNKNOWN。不能把无多日等待说成没有隔夜跳空或止损保证。
+
+全carry母体及时间分类（元）
+区间                 carry行/stock    carry净贡献      原正额       原负额
+Apr24–Jun16           90/72           +48332.32        +75842.92    −27510.60
+Jun21–Jul13           72/60           −41376.03         +7493.40    −48869.43
+Jul18–Jul25           79/68           −22220.45         +3831.00    −26051.45
+
+两负段的151个carry-spell观察：
+1. 期初已发逐层退出请求5行，整段原净−252.79；这是可归为请求后观察窗口的金额。
+2. Jun21–Jul13截至期末仍未发逐层退出请求30行，原净−7532.44（正6339.76/负−13872.20）。它们是该段明确仍处原结构授权持有的例子，不能解释为已排队未成交。
+3. 其余116行在段内首次发请求，整段净−55811.25。这个数混合请求前与后变化，本轮没有重新计算request时点财富边界，前/后各自金额明确UNKNOWN，不把它全归为决策迟或执行损耗。
+正参考Apr24–Jun16还保留11个截至期末未发请求的carry观察，净+14617.86；说明“不退出”也有盈利的持有事实，不能一律评价为迟退。
+分类以真实逐层pilot_layer_exit为准；原daily stockpending为保守股票级责任旗，逐成员保留，不把其它层的退出锁当成本层一定已收到同一请求。
+
+最多3个主要亏损stock的真实先后与2023完整贡献
+例子按已存两负段carry期间合计亏损stock排序，是事后解释，不形成实时卖出门。2023cutoff源只用已审loss_correction/ma63_buy_chain_v1/ALL_1557_ROWS.json，真实layerID/sid逐项连接，跨spell重复ID去重，不混2024终值。
+
+603083.SH 剑桥科技：两段carry合−12130.40；两层1073(core)/1096(mobile)在Jun21–Jul13均未发退出，Jul20才ACT_pause，Jul21 OPEN全部卖出。原请求CLOSE至实际rawOPEN价格差约−0.473%，非多日执行延迟。重要边界：两层原2023cutoff净分别+11380.90/+9576.86，stock全部层合+20957.77。因此这里确有仍盈利winner的阶段回吐，不能因carry期内负就叫买错或宣称应提前卖。
+301128.SZ 强瑞技术：三carry层1447/1449/1466本段合−5369.79；Jun26 I_structure_exit，Jun27 OPEN全卖，rawOPEN等于原请求CLOSE原标价。选中三层完整2023净−3547.85，stock全部层−4713.20。与剑桥的完整盈利身份不同，不能把两者一概归为正常赢家回吐。
+688003.SH 天准科技：两段carry合−4907.06；Jun段无逐层请求，Jul20 ACT_pause→Jul21全卖，raw gap约−0.049%。选中两carry层完整2023合+412.38，stock全部层+1496.10，同样不能把期间回吐直接说成完整交易失败。
+上述raw gap只描述原request CLOSE与实际first fill rawOPEN；不是连续止损价或隔离损益，本轮未重建金额来源、不扩执行管线。
+
+盈利参考（同字段，最多2个stock）
+920808.BJ 曙光数创：Apr24–Jun16 carry合+40803.85；四层May5 CP1_add_protection请求→May8 OPEN全卖，raw gap约−1.345%。该四carry层完整2023合+75440.87，stock全部层+70815.27。
+002315.SZ 焦点科技：参考carry合+11403.14；两层May15 CP1_add_protection请求→May16全卖，raw gap约−0.529%。选中carry层完整2023合+13263.91，stock全部层+11683.48。
+它们与负例一样均按原结构发请求、次OPEN退出；有负隔夜gap仍可获得显著正贡献。未以未来盈利豁免退出，也未提出新stop/EMA或提前卖规则。
+
+范围与限制
+只复用已审三个spell的241条carry期间财富行、原726日daily层/pendingsells、原audit逐层退出请求与真实sell.parts reason/timestamp，以及最多5个例子的现成facts.raw_close。原层期间净额逐段精确接回已审+48332.32100379/−41376.03309881/−22220.44663921。没有新账户、信号、指标、行情下载/全池导出、新价格loader或request前后财务引擎。
+carry-spell观察可跨段重复，stock完整2023贡献与期间carry贡献分母不同；原逐层净贡献不是新candidate必然保留的结果。原carry为负既可能包含赢家正常回吐，也可能是真失败，不凭结果定义实时门。
+
+复核文件
+ALL_THREE_SPELL_SUMMARIES.json / ALL_CARRY_TRACE_ROWS.json：全母体正负、请求类别、pending及实际sell parts。
+FULL_EXIT_COMPLETION_SUPPLEMENT.json：全部200个已请求观察的剩余batch关闭时钟，不仅首笔成交；ACK未知。
+MAX_THREE_LOSS_AND_TWO_PROFIT_STOCK_EXAMPLES.json：最多5例源时钟与原mark。
+CUTOFF2023_WINNER_CONTEXT_SUPPLEMENT.json：已审2023净额及真实ID连接、去重和不同分母。
+INPUT_FREEZE.json / EXAMPLE_FACTS_FREEZE.json / RESULTS.json：源绑定及只读范围。

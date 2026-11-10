@@ -1,0 +1,57 @@
+{
+  "task": "Current No60 raw source, dependency and time alignment extraction with original2024 Hytera daily output",
+  "status": "RAW_SOURCES_AND_SAVED_DAILY_OUTPUTS_INDEPENDENTLY_REVIEWED_PASS",
+  "risk_design": "PAUSED",
+  "strategy_implemented_or_modified": false,
+  "new_models_executed": 0,
+  "new_accounts": 0,
+  "new_backtests": 0,
+  "new_indicators_computed": 0,
+  "new_market_data_fetched": 0,
+  "raw_source_delivery": {
+    "first_read": "READ_FIRST.txt",
+    "E0_G1_I_original_source": "e0_i/SOURCE_EXCERPTS.txt",
+    "E0_G1_I_formula_clock_guide": "e0_i/GUIDE.txt",
+    "CP_PVR_original_source_index": "cp_pvr/SNIPPET_INDEX.json",
+    "CP_PVR_variable_clock_table": "cp_pvr/FORMULA_VARIABLE_TABLE.json",
+    "effective_No60_wiring": "NATIVE_WIRING_EXCERPTS.txt"
+  },
+  "original_output_delivery": {
+    "stock": "002583.SZ Hytera",
+    "window": [
+      "2024-09-23",
+      "2024-11-27"
+    ],
+    "actual_observations": 43,
+    "daily_csv_columns": 74,
+    "actual_buy_fills": 3,
+    "actual_sell_fills": 2,
+    "daily_csv": "daily_hytera/HYTERA_DAILY_NATIVE.csv",
+    "dictionary": "daily_hytera/DATA_DICTIONARY.json",
+    "all_original_stock_rows": "daily_hytera/ALL_DAYS_ORIGINAL_STOCK_OUTPUTS.json",
+    "key_original_rows": "daily_hytera/KEY_DAYS_ORIGINAL_OUTPUTS.json"
+  },
+  "verified_source_distinctions": [
+    "Actual2024 runtime full facts read via long input loader and bound manifest, not truncated2025 strong facts output",
+    "Actual long2024 PVR manifest differs from strong/default; same frozen formula but correct per-window source retained",
+    "CP stock input e0_valid is assigned I_target",
+    "Trade field pvr stores original meta.score/H1 compatibility value, true PVR is intent.PVR_score/rank-policy.PVR/source cache.score",
+    "Actual I_target differs from legacy IX on19 of43 days; actual I uses use_x=False",
+    "CORE stored entry floor is not its current last_core_line risk reference",
+    "E0 target/floor agree with companion E0 states, but companion entered/event columns are not actual facts exported fields"
+  ],
+  "missing_or_limited_evidence": [
+    "Actual consumed facts do not save I_entered/I_exited/I_exit_reason; marked NOT_SAVED, no IX substitution",
+    "Intra-CLOSE instruction-by-instruction floor-update audit not saved; real before/after snapshots and exit proposals used",
+    "No source publication timestamp proof from the historical vendor;15:10 is original simulation decision convention",
+    "No intent means no original PVR slot; source score still separately available,23 days lack rank-policy row",
+    "Current roster/industry snapshots and original daily execution proxy remain; no PIT or economic qualification claimed"
+  ],
+  "independent_reviews": {
+    "source_text": "review/SOURCE_TEXT_REVIEW.json",
+    "data_source_binding": "review/DATA_SOURCE_BINDING_REVIEW.json",
+    "E0_I_source_scope": "review/FULLFACTS_E0_I_SOURCE_SCOPE.json",
+    "final_daily_readout": "review/FINAL_READOUT_REVIEW.json"
+  },
+  "environment_or_permission_blockers": []
+}

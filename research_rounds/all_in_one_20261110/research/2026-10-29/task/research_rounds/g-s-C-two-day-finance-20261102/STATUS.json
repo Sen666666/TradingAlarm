@@ -1,0 +1,20 @@
+{
+  "status": "COMPLETED_STOPPED_AWAITING_INDEPENDENT_AUDIT",
+  "arms": 4,
+  "allowed_financial_sessions_per_arm": 2,
+  "further_financial_events_authorized": false,
+  "provider_tests": 4,
+  "saved_states": 20,
+  "independent_financial_checks_per_state": 7,
+  "all_differences_zero": true,
+  "full_observable_restore_equal": true,
+  "required_original_failure_preserved": true,
+  "original_frozen_sources_unchanged": true,
+  "two_modes_economy_equal": true,
+  "known_unsupported": [
+    "general fractional selected-layer attribution",
+    "multi-order S to G fallback subset",
+    "partial mandatory upgrade of larger funding union",
+    "unsubmitted C authorization split quantity conversion; guarded before action; exact Jul1 688608 has no core or canonical receipt"
+  ]
+}

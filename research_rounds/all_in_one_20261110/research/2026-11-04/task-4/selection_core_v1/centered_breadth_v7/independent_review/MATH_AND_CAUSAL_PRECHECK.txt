@@ -1,0 +1,149 @@
+v7 centered breadth: independent mathematical and data-interface precheck
+
+Scope: proofs and read-only source/interface review only. No new stock data,
+feature/rank/label calculation, model, account, parameter test, or new tail
+aggregation. Kappa=10 is supplied by the user, not estimated here.
+
+1. Definitions and the decisive queue-equivalence result
+
+At signal CLOSE T, let n be the size of the same current-T industry cohort
+used at both endpoints T and T-5; u1/u0 count its members above their own
+causally known SMA20 at the corresponding endpoint. Let du=u1-u0, and
+dm=m1-m0, where m1 and m0 use the market's own observable pool on each date.
+
+B1prime=(u1+kappa*m1)/(n+kappa)
+B0prime_paired_at_T=(u0+kappa*m0)/(n+kappa)
+Dshrink=B1prime-B0prime_paired_at_T=(du+kappa*dm)/(n+kappa)
+Dcenter=Dshrink-dm=(du-n*dm)/(n+kappa)
+       =n/(n+kappa)*((u1/n-u0/n)-dm), for n>0.
+
+The identity requires the SAME n in the two shrinkage endpoints. It does
+not require equal n across industries. If endpoint cohorts/denominators
+differ, this paired-cohort simplification must not be applied to their
+separately computed observed breadth values.
+
+Most importantly, full-market dm is the SAME scalar for all industries on
+a date. Hence for every industry pair i,j,
+  Dcenter_i-Dcenter_j = Dshrink_i-Dshrink_j.
+All pairwise orderings and exact ties, known-set membership and exact
+midpercentiles are identical to v6. With unchanged known population,
+pR5, fixed weights, tie-breaking and quota, the fixed Tcenter queue is
+EXACTLY the v6 T10 queue. This remains true with different industry n.
+There is no marginal cross-sectional ranking improvement to test here.
+The full-market main-queue results should inherit the already-saved v6
+statistics; a fresh tail aggregation cannot establish an incremental effect.
+Exact/rational comparison avoids artificial floating-point tie changes.
+
+Centering changes the absolute level and its interpretation. It does not
+add independent evidence. Within equal-n groups it also preserves raw
+paired-breadth-change order, but that narrower observation is not the
+reason the whole v6 queue is unchanged: common-scalar subtraction is.
+
+2. Interpretation and causal clock
+
+Dcenter is a FIVE-SESSION RELATIVE BREADTH CHANGE. It is not a second time
+difference or acceleration. A subsequent difference of Dcenter would be a
+different descriptor and, with moving cohorts, would not isolate pure
+within-industry acceleration either.
+
+du=0 and dm>0 imply Dcenter<0 for n>0. This says that the industry's net
+above-MA20 count did not match an improving market baseline. It does not
+say that prices did not rise, that no individual member crossed, that
+there is no tradable opportunity, or that an entry should be forbidden.
+Even positive du can yield negative Dcenter when it lags n*dm.
+
+Both endpoints for the industry use U_T: their historical u0 and paired
+B0prime are a T-known retrospective descriptor, not the actual membership
+or value published on T-5. The market endpoints deliberately use own-U
+on each date. This mismatch is explicit; it must not be silently described
+as a fully fixed-cohort market return/diffusion comparison.
+
+All close/amount/liquidity inputs defining U_T and above-MA20 are only
+available at their original complete signal-CLOSE clock. No future pivot,
+later member list, later effective action, next-day high/low/volume, or
+future label can select or repair this row. T evidence cannot authorize
+an earlier T OPEN. Existing static1709/current-industry-bridge and
+supplier-vintage limitations remain; algebraic causality is not formal PIT
+or executable next-OPEN tradeability certification.
+
+3. Correct leave-industry-out (LOO) interface
+
+Full-market current totals are market_up1 / market_n1.
+Full-market old totals are market_up0_ownU / market_n0_ownU.
+For the target industry let
+  n_old=N_U_previous5,
+  u_old=old_ownU_up_lag5_recovered.
+Then
+  m1minus=(market_up1-u1)/(market_n1-n),
+  m0minus=(market_up0_ownU-u_old)/(market_n0_ownU-n_old).
+
+The old market total was constructed from historical own-U counts. It
+must subtract u_old and n_old. Subtracting the current-cohort paired u0/n
+would mix two different historical populations and can produce a wrong
+denominator, negative numerator, or an apparently plausible but incorrect
+baseline. U-intersection SIZE is not its above-MA20 numerator.
+
+For n>0 the optional LOO sensitivity has
+  Dcenter_minus=(du-n*(m1minus-m0minus))/(n+kappa).
+The LOO baseline varies by industry, so its queue may differ from v6;
+the common-subtraction ranking proof must NOT be extended to LOO.
+LOO removes the target industry's direct additive contribution to the
+baseline only. It does not make industry and market independent, remove
+shared shocks, or fix static selection/classification limitations.
+
+4. Why LOO is not generally a constant rescaling
+
+Write b1=u1/n, b0p=u0/n, b0o=u_old/n_old when n_old>0,
+alpha1=n/market_n1, alpha0=n_old/market_n0_ownU, and
+r1=m1minus, r0=m0minus. The exact market decomposition is
+  m1=alpha1*b1+(1-alpha1)*r1,
+  m0=alpha0*b0o+(1-alpha0)*r0.
+With w=n/(n+kappa), the general relationship is
+  Dcenter_all = (1-alpha1)*Dcenter_minus
+      + w*[alpha1*(b0o-b0p)+(alpha0-alpha1)*(b0o-r0)].
+This expression uses n_old>0; the direct count formulas remain the proper
+interface when an old industry pool is genuinely empty.
+Only under the additional conditions alpha0=alpha1=alpha and b0o=b0p
+does Dcenter_all=(1-alpha)*Dcenter_minus follow. Moving own-U membership
+can break b0o=b0p, and changing market/industry sizes can break equal
+alpha. Neither condition should be presumed from a common current n.
+
+5. Required known/empty/invalid statuses
+
+Required exact inputs: date/same T-5 CSI observation, sector ID, n,u1,u0,
+market_up1,market_n1,market_up0_ownU,market_n0_ownU, and for LOO
+u_old,n_old plus their recovery/source status. Check integer/count bounds,
+same-date market totals, disjoint-source population accounting and
+one-to-one date/sector keys. Preserve original count provenance.
+
+Missing counts or missing historical price/MA windows remain UNKNOWN,
+not zero. For n=0, the industry breadth has no observations: mark it
+NO_INDUSTRY_COHORT rather than treating the algebraic zero as evidence.
+Market or LOO denominator<=0 is EMPTY_REFERENCE/UNKNOWN, not zero
+market movement. Invalid negative remaining counts are INPUT_MISMATCH,
+not clipped into range. An actually known empty old industry pool can
+contribute known zero counts to a still-nonempty LOO market; absence of
+the old source row is not the same case. Unknown required endpoints do
+not get an as-of-fill or a changing partial reference without disclosure.
+
+The actual v6 input batch was positive-n and complete90; this is not proof
+that general missing/empty branches have been exercised. Any comparison
+must preserve known-set semantics; do not fill missing scores with0 or
+quietly change the rank-reference population.
+
+6. Effective saved-source anchors
+
+v6 features/compute_shrinkage.py lines35-57: original paired/own-U fields,
+integer recovery of old own-U numerator, own-market summation, and actual
+T-5 count check on later1080 dates; no new2021 warm input.
+Lines62-75: m1/m0, same-n endpoint shrinkage and exact Self/Market identity.
+Lines76-84: frozen pR5, exact midpoint ranks, T0/T10 fixed queues and
+cached-T0 identity; P not recomputed.
+Lines91-95: final chronological lag arithmetic, not case-order state.
+
+Precheck conclusion: PASS mathematical/causal-interface contract with the
+explicit equivalence above. Full-market v7 is an absolute-level semantic
+re-expression of v6 for this percentile queue, not a new selection model.
+LOO is separately labelled sensitivity, not a demonstrated improvement.
+No new buy gate, permissions, weights, financial allocation, or account
+performance conclusion is authorized or inferred by this review.

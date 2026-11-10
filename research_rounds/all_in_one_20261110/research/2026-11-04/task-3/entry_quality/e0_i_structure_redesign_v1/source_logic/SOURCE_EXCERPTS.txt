@@ -1,0 +1,459 @@
+
+SOURCE /Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-participation-response-20261020/code/numeric.py:15-55
+15: UNIT_ROUNDOFF = np.finfo(np.float64).eps / 2
+16: # Two input encodings plus one unit multiplication on each side of a comparison.
+17: # A machine-precision comparison policy motivated by that four-rounding model.
+18: # The prior adjustment/serialization pipelines are not certified to obey it.
+19: ROUNDING_STEPS = 4
+20: GAMMA4 = ROUNDING_STEPS * UNIT_ROUNDOFF / (1 - ROUNDING_STEPS * UNIT_ROUNDOFF)
+21: 
+22: 
+23: def compare(a: float, b: float) -> int:
+24:     """Order finite nonnegative magnitudes, treating the gamma4 band as a tie.
+25: 
+26:     Homogeneous in exact arithmetic. Independent rounded rescaling can move an
+27:     input on the band's boundary across it; universal scale invariance is NOT
+28:     promised. Comparisons outside this band remain strict.
+29:     """
+30:     a, b = float(a), float(b)
+31:     if not (math.isfinite(a) and math.isfinite(b) and a >= 0 and b >= 0):
+32:         raise ValueError("finite nonnegative magnitudes required")
+33:     if abs(a - b) <= GAMMA4 * max(a, b):
+34:         return 0
+35:     return 1 if a > b else -1
+36: 
+37: 
+38: def log_ratio(a: float, b: float) -> float:
+39:     """Local log change without subtracting two origin-normalized logarithms."""
+40:     a, b = float(a), float(b)
+41:     if not (math.isfinite(a) and math.isfinite(b) and a > 0 and b > 0):
+42:         raise ValueError("finite positive prices required")
+43:     if compare(a, b) == 0:
+44:         return 0.0
+45:     # log1p preserves a small displacement. The far-down case avoids rounding
+46:     # (a-b)/b to -1. At the branch boundary, rounded rescaling can select the
+47:     # other algebraically equivalent expression; universal bit equality is not promised.
+48:     if 0.5 <= a / b <= 2:
+49:         return math.log1p((a - b) / b)
+50:     return math.log(a) - math.log(b)
+51: 
+52: 
+53: def higher(old: float, new: float) -> float:
+54:     """The existing ratchet retains its actual old point on a numerical tie."""
+55:     return float(new) if compare(new, old) > 0 else float(old)
+
+SOURCE /Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-participation-response-20261020/code/numeric.py:58-136
+58: def event_frame_numeric(close, volume, joint=True, event_exit=False):
+59:     """Numerical repair of frozen event+structure equations, separately named.
+60: 
+61:     Same observation clock, warmup, 21/63/5 constants, activity clipping,
+62:     confirmation >=1, floor <=, and same-day exit priority. Numerical changes:
+63:     raw-price extrema/floors with an explicit tie policy; local log returns;
+64:     local fsum instead of long cumulative-volume subtraction.
+65:     Original output log fields are display only; raw pivot fields are canonical.
+66:     """
+67:     if not close.index.is_unique or not close.index.is_monotonic_increasing:
+68:         raise ValueError("ordered unique index required")
+69:     raw = pd.concat([close.rename("close"), volume.rename("volume")], axis=1)
+70:     d = raw.loc[raw.gt(0).all(axis=1) & np.isfinite(raw).all(axis=1)]
+71:     if d.empty:
+72:         raise ValueError("no valid observations")
+73:     prices, volumes = d.close.to_numpy(), d.volume.to_numpy()
+74:     returns = [math.nan] + [log_ratio(prices[t], prices[t - 1])
+75:                               for t in range(1, len(d))]
+76:     sigma = np.full(len(d), np.nan)
+77:     baseline = d.volume.shift().rolling(21).median().to_numpy()
+78:     for t in range(64, len(d)):
+79:         sigma[t] = max(math.sqrt(math.fsum(x * x for x in returns[t - 63:t]) / 63), 1e-8)
+80:     direction, ext, active, floor = -1, None, False, math.nan
+81:     rows = []
+82:     for t, date in enumerate(d.index):
+83:         row = dict(confirmation=math.nan, leg_direction=math.nan,
+84:                    developing_extreme=math.nan, confirmed_pivot=math.nan,
+85:                    structure_floor=math.nan, event=0.0, target=0.0,
+86:                    entered=0.0, exited=0.0, pivot_age=math.nan,
+87:                    developing_extreme_price=math.nan, confirmed_pivot_price=math.nan,
+88:                    structure_floor_price=math.nan, confirmed_pivot_date=None,
+89:                    developing_extreme_date=None)
+90:         if not math.isfinite(sigma[t] + baseline[t]):
+91:             rows.append(row)
+92:             continue
+93:         if ext is None:
+94:             ext = t
+95:         if active and not event_exit and compare(prices[t], floor) <= 0:
+96:             active, row["exited"] = False, 1.0
+97:         extreme_order = compare(prices[t], prices[ext])
+98:         if (direction == -1 and extreme_order < 0) or (direction == 1 and extreme_order > 0):
+99:             ext = t
+100:         if t > ext:
+101:             activity = math.sqrt(
+102:                 (math.fsum(float(x) for x in volumes[ext + 1:t + 1]) / (t - ext))
+103:                 / baseline[ext]
+104:             ) if joint else 1.0
+105:             activity = min(max(activity, 0.5), 2.0)
+106:             confirmation = (-direction) * log_ratio(prices[t], prices[ext]) * activity / (math.sqrt(5) * sigma[ext])
+107:             row["confirmation"] = confirmation
+108:             # A numerically indistinguishable exact threshold is inclusive.
+109:             if compare(max(confirmation, 0.0), 1.0) >= 0:
+110:                 event = -direction
+111:                 pivot = float(prices[ext])
+112:                 row.update(event=float(event), confirmed_pivot=math.log(pivot),
+113:                            confirmed_pivot_price=pivot, pivot_age=float(t - ext),
+114:                            confirmed_pivot_date=str(d.index[ext].date()))
+115:                 if event == 1:
+116:                     if active:
+117:                         floor = higher(floor, pivot)
+118:                     elif not row["exited"]:
+119:                         active, floor, row["entered"] = True, pivot, 1.0
+120:                 elif event_exit and active:
+121:                     active, row["exited"] = False, 1.0
+122:                 direction, ext = event, t
+123:         row.update(leg_direction=float(direction),
+124:                    developing_extreme=math.log(float(prices[ext])),
+125:                    developing_extreme_price=float(prices[ext]),
+126:                    developing_extreme_date=str(d.index[ext].date()), target=float(active))
+127:         if active or row["exited"]:
+128:             row.update(structure_floor=math.log(floor), structure_floor_price=floor)
+129:         rows.append(row)
+130:     result = pd.DataFrame(rows, index=d.index).reindex(close.index)
+131:     for col in ("event", "entered", "exited"):
+132:         result[col] = result[col].fillna(0.0)
+133:     result["target"] = result.target.ffill().fillna(0.0)
+134:     for col in ("confirmed_pivot_date", "developing_extreme_date"):
+135:         result[col] = result[col].astype("string")
+136:     return result
+
+SOURCE /Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-b5-20261025/code/evidence.py:92-157
+92: def _event_facts(bars):
+93:     """Pure event portion extracted from numeric.event_frame_numeric.
+94: 
+95:     Every retained scalar operation, local fsum, median window, branch and
+96:     extreme update matches the source.  The source's active/floor/target and
+97:     entered/exited calculations have never been executed in this function.
+98:     An empty C/V-valid segment is a B5 extension: events remain unprepared.
+99:     """
+100:     raw = bars[["close", "volume"]]
+101:     d = raw.loc[raw.gt(0).all(axis=1) & np.isfinite(raw).all(axis=1)]
+102:     numeric_columns = [column for column in EVENT_COLUMNS if column not in EVENT_DATE_COLUMNS]
+103:     blank = pd.DataFrame(np.nan, index=bars.index, columns=numeric_columns)
+104:     blank["event"] = 0.0
+105:     for column in EVENT_DATE_COLUMNS:
+106:         blank[column] = pd.Series(pd.NA, index=bars.index, dtype="string")
+107:     if d.empty:
+108:         return blank[EVENT_COLUMNS], pd.Series(np.nan, index=bars.index)
+109:     prices, volumes = d.close.to_numpy(), d.volume.to_numpy()
+110:     returns = [math.nan] + [log_ratio(prices[t], prices[t - 1])
+111:                            for t in range(1, len(d))]
+112:     sigma = np.full(len(d), np.nan)
+113:     baseline = d.volume.shift().rolling(21).median().to_numpy()
+114:     for t in range(64, len(d)):
+115:         sigma[t] = max(math.sqrt(math.fsum(x * x for x in returns[t - 63:t]) / 63), 1e-8)
+116:     direction, ext = -1, None
+117:     rows = []
+118:     for t, date in enumerate(d.index):
+119:         row = dict(confirmation=math.nan, leg_direction=math.nan,
+120:                    developing_extreme=math.nan, confirmed_pivot=math.nan,
+121:                    event=0.0, pivot_age=math.nan,
+122:                    developing_extreme_price=math.nan, confirmed_pivot_price=math.nan,
+123:                    confirmed_pivot_date=None, developing_extreme_date=None)
+124:         if not math.isfinite(sigma[t] + baseline[t]):
+125:             rows.append(row)
+126:             continue
+127:         if ext is None:
+128:             ext = t
+129:         extreme_order = compare(prices[t], prices[ext])
+130:         if (direction == -1 and extreme_order < 0) or (direction == 1 and extreme_order > 0):
+131:             ext = t
+132:         if t > ext:
+133:             activity = math.sqrt(
+134:                 (math.fsum(float(x) for x in volumes[ext + 1:t + 1]) / (t - ext))
+135:                 / baseline[ext]
+136:             )
+137:             activity = min(max(activity, 0.5), 2.0)
+138:             confirmation = (-direction) * log_ratio(prices[t], prices[ext]) * activity / (math.sqrt(5) * sigma[ext])
+139:             row["confirmation"] = confirmation
+140:             if compare(max(confirmation, 0.0), 1.0) >= 0:
+141:                 event = -direction
+142:                 pivot = float(prices[ext])
+143:                 row.update(event=float(event), confirmed_pivot=math.log(pivot),
+144:                            confirmed_pivot_price=pivot, pivot_age=float(t - ext),
+145:                            confirmed_pivot_date=str(d.index[ext].date()))
+146:                 direction, ext = event, t
+147:         row.update(leg_direction=float(direction),
+148:                    developing_extreme=math.log(float(prices[ext])),
+149:                    developing_extreme_price=float(prices[ext]),
+150:                    developing_extreme_date=str(d.index[ext].date()))
+151:         rows.append(row)
+152:     result = pd.DataFrame(rows, index=d.index).reindex(bars.index)
+153:     result["event"] = result.event.fillna(0.0)
+154:     for column in EVENT_DATE_COLUMNS:
+155:         result[column] = result[column].astype("string")
+156:     observations = pd.Series(np.arange(len(d), dtype=float), index=d.index).reindex(bars.index)
+157:     return result[EVENT_COLUMNS], observations
+
+SOURCE /Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-strength-b5-20261025/code/policy.py:86-147
+86:         active, floor, pending = False, math.nan, None
+87:         next_id = 0
+88:         for n, (date, fact) in enumerate(bars.iterrows()):
+89:             if fact.price_observation != n:
+90:                 raise ValueError("Price observation clock must restart at zero and advance on valid rows")
+91:             price_event = int(fact.event) if pd.notna(fact.event) else 0
+92:             ready = bool(fact.ready)
+93:             c = float(fact.close)
+94:             q = float(fact.volume_ratio)
+95:             declined, high_effort = bool(fact.declined), bool(fact.high_effort)
+96:             entered = exited = created = response = consumed = independent = 0
+97:             ended_id = None
+98:             entry_kind = ""
+99:             if active and compare(c, floor) <= 0:
+100:                 active, exited = False, 1
+101:             if pending:
+102:                 if compare(c, pending["lower"]) < 0:
+103:                     response = -1
+104:                 elif compare(c, pending["reclaim"]) > 0:
+105:                     response = 1
+106:             if price_event == 1:
+107:                 pivot = float(fact.confirmed_pivot_price)
+108:                 if not math.isfinite(pivot):
+109:                     raise ValueError("up event lacks canonical pivot")
+110:                 if active:
+111:                     floor = higher(floor, pivot)
+112:                 elif not exited:
+113:                     active, entered, floor = True, 1, pivot
+114:                     entry_kind = "original_event"
+115:             if pending:
+116:                 outcome = None
+117:                 if response == -1:
+118:                     outcome = "rejected"
+119:                 elif active:
+120:                     outcome, consumed = "base_confirmed", 1
+121:                 elif response == 1:
+122:                     if exited:
+123:                         raise AssertionError("existing memory cannot coexist with active structure")
+124:                     active, entered, independent, floor = True, 1, 1, pending["lower"]
+125:                     entry_kind, outcome = "participation_reclaim", "reclaimed"
+126:                 if outcome:
+127:                     record = dict(pending)
+128:                     record.update(resolved_date=str(date.date()), outcome=outcome,
+129:                                   response=response, independent_entry=independent,
+130:                                   original_entry_same_day=int(entry_kind == "original_event"),
+131:                                   resolution_volume_ratio=q if math.isfinite(q) else None,
+132:                                   waiting_observations=n-pending["created_observation"],
+133:                                   segment_id=str(segment))
+134:                     ledger.append(record)
+135:                     ended_id, pending = pending["id"], None
+136:             if not active and pending is None and bool(fact.decline_candidate):
+137:                 next_id += 1
+138:                 pending = {
+139:                     "id": next_id, "created_date": str(date.date()),
+140:                     "created_observation": n, "reclaim": float(fact.candidate_reclaim),
+141:                     "lower": float(fact.candidate_lower),
+142:                     "event_open": float(fact.open), "event_high": float(fact.high),
+143:                     "event_close": c, "event_volume": float(fact.volume),
+144:                     "volume_ratio": q if math.isfinite(q) else None,
+145:                     "volume_baseline": float(fact.volume_baseline) if pd.notna(fact.volume_baseline) else None,
+146:                     "created_on_exit": exited,
+147:                 }
+
+SOURCE /Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/policies_g1.py:6-34
+6: def project(e,base,g,kind):
+7:     if kind not in ['G1_I','G1_X','G1_IX']:raise ValueError(kind)
+8:     use_i=kind in ['G1_I','G1_IX'];use_x=kind in ['G1_X','G1_IX']
+9:     active=False;floor=math.nan;segment=None;rows=[]
+10:     for dt,r in e.iterrows():
+11:         b=base.loc[dt];a=g.loc[dt]
+12:         if r.segment_id!=segment:active=False;floor=math.nan;segment=r.segment_id
+13:         valid=bool(r.valid_price_observation)
+14:         if not valid:
+15:             rows.append(dict(date=dt,target=np.nan,entered=0,exited=0,floor=np.nan,exit_line=np.nan,buy_event=False,entry_kind='',exit_reason='',grade=a.grade));continue
+16:         shadow=bool(b.target);ready=bool(a.ready);entered=exited=0;reason='';entry_kind=''
+17:         fresh=bool(a.fresh_up) if ready else False
+18:         warm=ready and a.grade>=2
+19:         cold=ready and (a.grade<=-2 or bool(a.acute_down))
+20:         if active:
+21:             if not shadow or float(r.close)<=floor:reason='E0_structure_boundary'
+22:             elif use_x and cold:reason='G1_cold_or_acute'
+23:             if reason:active=False;exited=1
+24:             elif np.isfinite(b.floor):floor=max(floor,float(b.floor))
+25:         # Entry-only is a new-evidence gate and restoration channel, while
+26:         # exit-only preserves E0's new-cycle entry stream. An exit-only entry
+27:         # is first checked by the extra exit rule on the next observation,
+28:         # matching the original sensitive-policy ordering.
+29:         opportunity=shadow and warm and (bool(b.entered) or fresh) if use_i else bool(b.entered)
+30:         if not active and not exited and opportunity:
+31:             active=True;entered=1;floor=float(b.floor)
+32:             entry_kind='G1_fresh_warm_evidence' if use_i else str(b.entry_kind)
+33:         buy=bool(active and opportunity) if use_i else bool(active)
+34:         rows.append(dict(date=dt,target=int(active),entered=entered,exited=exited,floor=floor if active or exited else np.nan,exit_line=floor if active or exited else np.nan,buy_event=buy,entry_kind=entry_kind,exit_reason=reason,grade=a.grade))
+
+SOURCE /Users/bytedance/Documents/ChatGPT/money/research_rounds/b5-g1-20261025/code/grade.py:18-59
+18:         out=dict(date=dt,segment_id=segment,ready=False,proposal=np.nan,grade=np.nan,score=np.nan,label='未知',phase='unknown',z5=np.nan,z21=np.nan,fresh_up=False,up_reasons='',transition='unknown',promotion_blocked=False,acute_down=False,acute_up=False,display='未知')
+19:         if not bool(r.valid_strength_observation) or not np.isfinite(r.strength_mu21):rows.append(out);continue
+20:         a,b=int(r.strength_S21),int(r.strength_S63);m5=float(r.strength_mu5);m21=float(r.strength_mu21);scale=float(r.strength_s)
+21:         z5=math.sqrt(5)*m5/scale;z21=math.sqrt(21)*m21/scale
+22:         down=bool(r.strength_acute_down);up=bool(r.strength_acute_up)
+23:         reasons=[]
+24:         if int(r.event)==1:reasons.append('new_E0_price_volume_up_event')
+25:         for h in [21,63]:
+26:             if float(r[f'strength_confirmed_direction_{h}'])==1:reasons.append(f'new_S{h}_up_confirmation')
+27:         ext=float(r.strength_running_extreme_price_21)
+28:         if a==1 and prior_s21==1 and np.isfinite(prior_extreme) and ext>prior_extreme+32*np.finfo(float).eps*max(abs(ext),abs(prior_extreme),1):reasons.append('new_price_frontier_in_confirmed_up_structure')
+29:         fresh=bool(reasons)
+30:         if a==0 and b==0:g=0;why='structure_unconfirmed'
+31:         elif m21<0 and m5<=0:g=-3 if a==b==-1 else -2;why='both_paces_negative'
+32:         elif m21<0 and m5>0:g=1 if a==1 else -1;why='local_repair' if a==1 else 'countertrend_rebound'
+33:         elif m21>0:
+34:             if a==b==1:g=3;why='up_structure_and_positive_medium_pace'
+35:             elif a==1:g=2;why='local_up_with_positive_medium_pace'
+36:             elif m5>0:g=1;why='pace_recovery_not_locally_confirmed'
+37:             else:g=-1;why='local_support_missing'
+38:         else:g=1 if m5>0 else -1 if m5<0 else 0;why='medium_pace_zero'
+39:         if a==b==1 and z5>=1 and z21>=1:g=4;why='two_scale_pace_expansion'
+40:         launch=up and int(r.event)==1 and m5>0
+41:         if launch and g<2:g=2;why='acute_up_and_new_volume_price_up_event'
+42:         if z5<=-1 and g>-2:g=-2;why='fast_adverse_displacement'
+43:         if down:g=min(g,-3);why='acute_down_overrides_old_structure'
+44:         proposal=g;old=previous_grade
+45:         blocked=old is not None and proposal>old and not fresh
+46:         if blocked:g=old
+47:         transition='initialize' if old is None else 'upgrade' if g>old else 'downgrade' if g<old else 'blocked_upgrade' if blocked else 'unchanged'
+48:         if down:phase='acute_down'
+49:         elif launch:phase='fast_launch'
+50:         elif up:phase='acute_up'
+51:         elif a==b==1 and z5>=1 and z21>=1:phase='expansion'
+52:         elif m21<0 and m5>0:phase='local_repair' if a==1 else 'downtrend_rebound'
+53:         elif m21<0 and m5<=0:phase='decline'
+54:         elif a==b==1 and (m5<0 or abs(z21)<1):phase='up_structure_consolidation'
+55:         elif a==b==1:phase='up_continuation'
+56:         elif a==1:phase='up_structure_building'
+57:         elif a==b==0:phase='unconfirmed'
+58:         else:phase='mixed_evidence'
+59:         out.update(ready=True,proposal=proposal,grade=g,score=25*g,label=LABELS[g],phase=phase,z5=z5,z21=z21,fresh_up=fresh,up_reasons='|'.join(reasons),transition=transition,promotion_blocked=blocked,acute_down=down,acute_up=up,display=('freeze·' if down else '')+LABELS[g],reason=why)
+
+SOURCE /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/native-I-cache-interface-20261031/cache.py:16-35
+16: def derive(sid,cut=END):
+17:  start=time.monotonic();rec=RECORDS[sid];paths={k:OLD/rec['files'][k]['path'] for k in ['signal','events','states']}
+18:  for k,p in paths.items():assert sha(p)==rec['files'][k]['sha256'],(sid,k)
+19:  ip=IX/'signals'/f'{sid}.parquet';assert sha(ip)==IXRECORDS[sid]['output_sha256']
+20:  signal=pd.read_parquet(paths['signal']).loc[:cut];x=pd.read_parquet(ip).loc[:cut];event=pd.read_parquet(paths['events']).reindex(x.index);state=pd.read_parquet(paths['states']).reindex(x.index);valid=eligible_prices(signal);assert valid.index.equals(x.index),(sid,'same price-observation clock')
+21:  if x.empty:return pd.DataFrame(columns=COLS,index=pd.DatetimeIndex([],name=signal.index.name)),dict(sid=sid,status='no_observation_before_cut',rows=0,seconds=time.monotonic()-start)
+22:  for c in ['open','high','low','close','volume','segment_id']:np.testing.assert_equal(x[c].to_numpy(),valid[c].to_numpy(),err_msg=sid+'/'+c)
+23:  e=x[['segment_id','open','high','low','close','volume']].copy();e['valid_price_observation']=True;e['price_observation']=e.groupby('segment_id',sort=False).cumcount();e['event']=event.event;e['confirmed_pivot_price']=event.confirmed_pivot_price;e['ready']=state.ready;e['previous_close']=e.groupby('segment_id',sort=False).close.shift()
+24:  v=e.volume.where(np.isfinite(e.volume)&e.volume.gt(0));e['volume_baseline']=v.groupby(e.segment_id,sort=False).transform(lambda q:q.shift().rolling(21,min_periods=21).median())
+25:  for c in ['volume_ratio','high_effort','declined']:e[c]=state[c]
+26:  e['decline_candidate']=False;e['candidate_lower']=np.nan;e['candidate_reclaim']=np.nan
+27:  base,_=e0_policy(e);assert not base.pending.fillna(0).any()
+28:  g=x[['grade','strength_ready','fresh_up','acute_down']].rename(columns={'strength_ready':'ready'});out=project(e,base,g,'G1_I')
+29:  keep=x[['close','segment_id']].copy()
+30:  for mode,frame in [('e0',base),('i',out)]:
+31:   for c in ['target','floor']:keep[mode+'_'+c]=frame[c]
+32:  keep['i_buy']=out.buy_event
+33:  for c in ['grade','fresh_up','acute_down','ready']:keep['g_'+c]=g[c]
+34:  keep['e0_ready']=base.ready;keep['factor']=signal.adjustment_factor.reindex(keep.index);keep['raw_close']=signal.raw_close.reindex(keep.index);keep=keep[COLS]
+35:  return keep,dict(sid=sid,status='derived',warm_from=str(keep.index.min().date()),warm_rows=len(keep),rows=len(keep.loc[BEGIN:]),i_events=int(keep.loc[BEGIN:,'i_buy'].sum()),unknown_grade=int(keep.loc[BEGIN:,'g_grade'].isna().sum()),IX_target_difference=int((out.target.astype(float)!=x.ix_target.astype(float)).sum()),seconds=time.monotonic()-start,input_sha={str(p):sha(p) for p in list(paths.values())+[ip]})
+
+SOURCE /Users/bytedance/Documents/ChatGPT/money/TradingAlarm/desk/refresh.py:47-66
+47: def prepare_facts(signal):
+48:     paths=[ROOT/'research_rounds/b5-g1-20261025/code',ROOT/'research_rounds/pv-strength-b5-20261025/code',ROOT/'research_rounds/pv-participation-response-20261020/code']
+49:     for p in reversed(paths):sys.path.insert(0,str(p))
+50:     from data_utils import eligible_prices
+51:     from api import run_b5
+52:     from grade import classify
+53:     from policy import e0_policy
+54:     from policies_g1 import project
+55:     f=eligible_prices(signal)[['open','high','low','close','volume','segment_id']].copy();f['valid_price_observation']=True;f['valid_strength_observation']=np.isfinite(f.volume)&f.volume.gt(0)
+56:     z=run_b5(f,enhancements=False);e=z['evidence'].copy();g,_=classify(e)
+57:     e['decline_candidate']=False;b,_=e0_policy(e);ip=project(e,b,g,'G1_I')
+58:     keep=f[['close','segment_id']].copy()
+59:     for prefix,frame in [('e0',b),('i',ip)]:
+60:         for c in ['target','floor']:keep[prefix+'_'+c]=frame[c]
+61:     keep['i_buy']=ip.buy_event
+62:     for c in ['grade','fresh_up','acute_down','ready']:keep['g_'+c]=g[c]
+63:     # B5 base readiness is unchanged by disabling decline recovery.
+64:     keep['e0_ready']=z['state']['ready']
+65:     keep['factor']=signal.adjustment_factor.reindex(keep.index);keep['raw_close']=signal.raw_close.reindex(keep.index)
+66:     return keep
+
+SOURCE /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stock-cp1-warmup-20261031/generate.py:23-28
+23: def frame(sid,f,cut):
+24:  if f.empty:
+25:   return pd.DataFrame({'close':pd.Series(dtype=float),'segment_id':pd.Series(dtype=int),'i_target':pd.Series(dtype=bool),'i_floor':pd.Series(dtype=float),'amount':pd.Series(dtype=float),'e0_down':pd.Series(dtype=bool),'e0_valid':pd.Series(dtype=bool)},index=f.index)
+26:  rec=N.RECORDS[sid];sig=pd.read_parquet(N.OLD/rec['files']['signal']['path']).loc[:cut];ev=pd.read_parquet(N.OLD/rec['files']['events']['path']).reindex(f.index);out=f[['close','segment_id','i_target','i_floor']].copy();out['amount']=sig.amount.reindex(f.index);out['e0_down']=ev.event.eq(-1);out['e0_valid']=f.i_target.astype(bool)
+27:  if not np.isfinite(out[['close','amount']]).all().all() or not out[['close','amount']].gt(0).all().all():raise ValueError('missing/nonpositive same-source CP1 price or amount; no row removal allowed')
+28:  return out
+
+SOURCE /Users/bytedance/Documents/ChatGPT/money/research_rounds/continuous-protection-lines-20261028/code/model.py:20-58
+20:  out=pd.DataFrame(index=f.index,columns=['r','s','z','B','u','v','m'],dtype=float)
+21:  for _,g in f.groupby('segment_id',sort=False):
+22:   r=np.log(g.close).diff();s=r.abs().shift().rolling(63,min_periods=63).median().mul(1.4826).clip(lower=1e-8)
+23:   B=g.amount.shift().rolling(21,min_periods=21).median();u=np.tanh(r/s);v=np.tanh(np.log(g.amount/B))
+24:   out.loc[g.index]=pd.DataFrame(dict(r=r,s=s,z=s.clip(lower=S_MIN),B=B,u=u,v=v,m=1+.5*u.abs()*v),index=g.index)
+25:  return out
+26: def calculate(f,price_only=False):
+27:  z=features(f);out=[];phase=None;anchor=frontier=scale=None;credit=0.;segment=None
+28:  for day,row in f.iterrows():
+29:   q=z.loc[day];p=math.log(row.close);fresh=0.;receipt=False;candidate=math.nan;reason=None;disp=math.nan
+30:   if row.segment_id!=segment:
+31:    phase=None;segment=row.segment_id;reason='source_reset'
+32:   ready=math.isfinite(q.z)
+33:   if not ready or not row.e0_valid:
+34:    phase=None;anchor=frontier=scale=None;credit=0.;reason='unprepared' if not ready else 'E0_invalid'
+35:   elif phase is None or row.e0_down:
+36:    phase='SEEK';anchor=frontier=p;credit=0.;scale=float(q.z);reason='E0_down_reset' if row.e0_down else 'start'
+37:   elif phase=='SEEK' and gt(anchor,p):
+38:    anchor=frontier=p;credit=0.;scale=float(q.z);reason='lower_anchor'
+39:   else:
+40:    fresh=p-frontier if gt(p,frontier) else 0.
+41:    if fresh:
+42:     frontier=p;credit=math.fsum((credit,fresh*(1. if price_only else float(q.m))))
+43:    disp=frontier-anchor
+44:    receipt=bool(fresh and ge(disp,A*scale) and ge(credit,A*scale))
+45:    if receipt:candidate=float(row.close)*math.exp(-K*scale)
+46:   used_anchor,used_scale,used_credit=anchor,scale,credit
+47:   used_phase=phase
+48:   if receipt:
+49:    phase='UP';anchor=frontier=p;credit=0.;scale=float(q.z);reason='receipt_consumed'
+50:   out.append(dict(ready=ready,phase=used_phase,reset_reason=reason,anchor=used_anchor,frontier=frontier,scale=used_scale,credit=used_credit,delta_frontier=fresh,displacement=disp,receipt=receipt,candidate=candidate,next_anchor=anchor,next_scale=scale,next_credit=credit,next_phase=phase))
+51:  cols=['ready','phase','reset_reason','anchor','frontier','scale','credit','delta_frontier','displacement','receipt','candidate','next_anchor','next_scale','next_credit','next_phase']
+52:  result=pd.DataFrame(out,index=f.index,columns=cols)
+53:  for k in ['phase','reset_reason','next_phase']:result[k]=result[k].astype('string')
+54:  for k in ['ready','receipt']:result[k]=result[k].astype(bool)
+55:  for k in set(cols)-{'ready','receipt','phase','reset_reason','next_phase'}:result[k]=result[k].astype(float)
+56:  result=result.join(z)
+57:  result['e0_valid']=f.e0_valid;result['e0_floor']=f.i_floor if 'i_floor' in f else np.nan
+58:  return result
+
+SOURCE /Users/bytedance/Documents/Codex/2026-10-29/task/research_rounds/case-stage-ledger-20261031/v3/joint_v3.py:213-245
+213:  def planning(self,at):
+214:   clock,stocks,sectors=self.facts.packet(at,'I');sd={s.security_id:s for s in stocks};ss={s.sector_id:s for s in sectors};buyable=self.market.market_buyable(at);day=pd.Timestamp(at.date());event={};continuing={}
+215:   for sid,s in sd.items():
+216:    row=self.facts.row(sid,at);key=(bool(row.i_target),int(row.segment_id)) if row is not None else (False,-1)
+217:    if self.last_epoch.get(sid)!=key:self.epoch[sid]+=1;self.global_watch.pop(sid,None);self.last_epoch[sid]=key
+218:    ep=(key[1],self.epoch[sid]);event[sid]=BP.A.eligibility(s,ss,clock,'S0');continuing[sid]=BP.A.eligibility(replace(s,buy_allowed=buyable[sid]),ss,clock,'S0')
+219:    if event[sid].q is True:self.global_watch[sid]=ep
+220:   ordered=sorted(sd,key=lambda sid:(-(sd[sid].rank.read(clock) if sd[sid].rank and sd[sid].rank.read(clock) is not None else -1),sid))
+221:   for a in self.accounts.values():
+222:    C.activate(a);a.expire_day_buys(at);a.current_nav=a.balance(at,self.market.marks(at,a.positions))['nav'];M.E.risk_policy.step(a,at,'ACT20_BREAK');a.pending=[]
+223:    for sid in tuple(a.positions):
+224:     row=self.facts.row(sid,at);cp=self.cp[sid].loc[day] if day in self.cp[sid].index else None;quote=self.market.quote(sid,at);assert quote
+225:     if not a.risk_state['on'] or not bool(row.i_target):
+226:      if not bool(row.i_target):
+227:       for x in a.live(sid):
+228:        if x['kind']=='core':a.jmeta[x['id']]['pending_I_exit_reference']=True
+229:      a.sell(sid,clock,quote,[x['id'] for x in a.live(sid)],'ACT_pause' if not a.risk_state['on'] else 'I_structure_exit');continue
+230:     for x in a.live(sid):
+231:      if x['kind']=='core':
+232:       known_floor=self.facts.floor(sid,at,'I')
+233:       if known_floor is not None:a.jmeta[x['id']]['last_core_line']=str(known_floor)
+234:       continue
+235:      if x['kind']!='add' or x['id'] in a.sell_layers.get(sid,set()):continue
+236:      if D(str(row.close))<=x['floor']:a.sell(sid,clock,quote,[x['id']],'CP1_add_protection')
+237:      else:
+238:       floor=self.facts.floor(sid,at,'I')
+239:       if floor is not None:x['floor']=max(x['floor'],floor)
+240:       if cp is not None and bool(cp.receipt):x['floor']=max(x['floor'],D(str(cp.candidate)))
+241:    a.sync(at);self.industry(a,at)
+242:    for rank,sid in enumerate(ordered):
+243:     cpr=self.receipts[sid].get(gidday(at));roles=[];why=[];held=bool(a.quantity(sid));epoch=self.global_watch.get(sid);sector=self.sector_by_sid[sid]
+244:     if event[sid].q is True and not held and a.core_epoch.get(sid)!=epoch:roles.append('core')
+245:     if cpr and continuing[sid].q is True:roles.append('mobile')

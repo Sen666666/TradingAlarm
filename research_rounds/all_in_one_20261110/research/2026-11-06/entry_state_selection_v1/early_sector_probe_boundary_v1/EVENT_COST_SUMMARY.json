@@ -1,0 +1,33 @@
+{
+  "added_after_price_results_for_reporting_only": true,
+  "selection_unchanged": true,
+  "entry_fee_fraction": {
+    "count": 45.0,
+    "mean": 0.01225756675576212,
+    "std": 0.009501977860057667,
+    "min": 0.00048770209575850796,
+    "25%": 0.004762393766987172,
+    "50%": 0.010975674780295442,
+    "75%": 0.015929183331350197,
+    "max": 0.03941450353838829
+  },
+  "flat_quote_cost_fraction": {
+    "count": 45.0,
+    "mean": 0.02626028594272444,
+    "std": 0.01894526090795274,
+    "min": 0.0029753031936127746,
+    "25%": 0.01152897122774133,
+    "50%": 0.023462011135371177,
+    "75%": 0.03337398174603175,
+    "max": 0.08036810748031496
+  },
+  "gross_min": 127.0635,
+  "gross_median": 458.229,
+  "gross_max": 12531.2625,
+  "complete60": 43,
+  "complete60_with_prior_stock_I_off": 32,
+  "complete60_with_prior_industry_E0_end": 33,
+  "big60_count": 10,
+  "big60_with_prior_stock_I_off": 7,
+  "big60_with_prior_industry_E0_end": 8
+}

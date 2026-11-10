@@ -1,0 +1,20 @@
+{
+  "status": "COMPLETE_CANDIDATE_AND_DATA_COVERAGE_ONLY",
+  "AB_events": 27331,
+  "feasible_candidates": 19848,
+  "potential_flat_selected": 9349,
+  "other_unknown_or_left": 21206,
+  "signal_days": 617,
+  "sectors": 83,
+  "stocks": 1347,
+  "competition_groups": 2596,
+  "source_files": 8290,
+  "source_hashes_unchanged": true,
+  "seconds": 102.0896099996753,
+  "model_fits": 0,
+  "outcome_or_return_computations": 0,
+  "account_runs": 0,
+  "actual_lifecycle_labels_computed": 0,
+  "PIT": false,
+  "meaning": "New historical selection/data census, not strategy improvement or a completed training set"
+}

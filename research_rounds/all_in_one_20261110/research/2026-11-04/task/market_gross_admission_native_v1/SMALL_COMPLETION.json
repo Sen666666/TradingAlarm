@@ -1,0 +1,138 @@
+{
+  "status": "THREE_SMALL_PRODUCER_COMPLETE_INDEPENDENT_REVIEW_PENDING",
+  "at_UTC": "2026-11-04T18:37:12.609978+00:00",
+  "case_results": {
+    "legacy9": {
+      "result": {
+        "passed": true,
+        "scope": "TECHNICAL_SMALL_NOT_ECONOMIC_PROMOTION",
+        "closes_each": 9,
+        "seconds": 36.319701875094324,
+        "baseline_small_book_and_daily_exact": true,
+        "arms": {
+          "B": {
+            "NAV": "975294.7505446507045",
+            "trades": 106,
+            "buyfills": 87,
+            "sellfills": 19
+          },
+          "D_GROSS10": {
+            "NAV": "969643.4222644471545",
+            "trades": 75,
+            "buyfills": 57,
+            "sellfills": 18
+          }
+        },
+        "gross_event_kinds": {
+          "fill_post": 57,
+          "fill_pre": 57,
+          "reserve_post": 57,
+          "reserve_pre": 57,
+          "route": 1483
+        },
+        "positive_DOWN_reserves": 0,
+        "source_post_exact": true,
+        "independent_ledger_and_logic_review": "PENDING"
+      },
+      "DOWN_positive_reserve_and_fill_post_snapshots": 0,
+      "max_DOWN_post_gross_to_projected_NAV": null,
+      "legacy_example_passive_overcap": {
+        "day": "2022-01-14 15:10:00+08:00",
+        "inventory": "590110.14",
+        "NAV": "969643.4222644471545"
+      },
+      "source_post_rechecked_exact": true
+    },
+    "fresh_DOWN_technical6": {
+      "result": {
+        "passed": true,
+        "scope": "TECHNICAL_SMALL_NOT_ECONOMIC_PROMOTION",
+        "closes_each": 6,
+        "seconds": 20.93948316667229,
+        "baseline_small_book_and_daily_exact": "NOT_APPLICABLE_FRESH_START",
+        "arms": {
+          "B": {
+            "NAV": "990241.4683090609935",
+            "trades": 76,
+            "buyfills": 68,
+            "sellfills": 8
+          },
+          "D_GROSS10": {
+            "NAV": "997671.0988422706500",
+            "trades": 14,
+            "buyfills": 13,
+            "sellfills": 1
+          }
+        },
+        "gross_event_kinds": {
+          "fill_post": 13,
+          "fill_pre": 13,
+          "reserve_post": 13,
+          "reserve_pre": 13,
+          "route": 744
+        },
+        "positive_DOWN_reserves": 13,
+        "source_post_exact": true,
+        "independent_ledger_and_logic_review": "PENDING"
+      },
+      "DOWN_positive_reserve_and_fill_post_snapshots": 26,
+      "max_DOWN_post_gross_to_projected_NAV": "0.0999983520468119808649684065554188244704598659820546382744848",
+      "legacy_example_passive_overcap": null,
+      "source_post_rechecked_exact": true
+    },
+    "strong9": {
+      "result": {
+        "passed": true,
+        "scope": "TECHNICAL_SMALL_NOT_ECONOMIC_PROMOTION",
+        "closes_each": 9,
+        "seconds": 42.059110042173415,
+        "baseline_small_book_and_daily_exact": true,
+        "arms": {
+          "B": {
+            "NAV": "1030124.5896390851040",
+            "trades": 76,
+            "buyfills": 69,
+            "sellfills": 7
+          },
+          "D_GROSS10": {
+            "NAV": "1030124.5896390851040",
+            "trades": 76,
+            "buyfills": 69,
+            "sellfills": 7
+          }
+        },
+        "gross_event_kinds": {
+          "fill_post": 69,
+          "fill_pre": 70,
+          "reserve_post": 70,
+          "reserve_pre": 70,
+          "route": 2687
+        },
+        "positive_DOWN_reserves": 0,
+        "source_post_exact": true,
+        "independent_ledger_and_logic_review": "PENDING"
+      },
+      "DOWN_positive_reserve_and_fill_post_snapshots": 0,
+      "max_DOWN_post_gross_to_projected_NAV": null,
+      "legacy_example_passive_overcap": null,
+      "source_post_rechecked_exact": true
+    }
+  },
+  "account_close_rows": 48,
+  "new_financial_full_runs": 0,
+  "cost_guard_imported": false,
+  "v2_is_zero_account_domain_repair_only": true,
+  "actual_v2_financial_replay": false,
+  "scope_limits": [
+    "Normal two B full small books/daily exact; fresh6 no historical gold comparison.",
+    "Three cases do not establish economic benefit or solve recovery/large loss.",
+    "No new gross-hook actual partial integration; only existing audited native partial/ACK read-only evidence.",
+    "Full grant is absent; future full must freeze provider v2, expected calendar, actual combined score binding and any existing logging-only compact wrapper."
+  ],
+  "supplement_sha256": {
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/market_info_v2.py": "74ea6f9524e9f75739de9d23a66251ee2d12f0bdaa9ee0d5012174759197ea93",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/check_provider_v2.py": "799cca73a5540024ca8b5a3da21a14cff40314cf32857f48b804841d2d0c4c32",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/PROVIDER_V2_CHECKS.json": "27eabbbabaea39bf646378b895ee2ec1ef7823444596bc5a410fa0c23ea76b54",
+    "/Users/bytedance/Documents/Codex/2026-11-04/task/market_gross_admission_native_v1/REUSED_NATIVE_PARTIAL_PENDING_EVIDENCE.json": "dd73578c71cf6b0b982e444c766e8905ed109f91866516a04721b44db8a92437"
+  }
+}

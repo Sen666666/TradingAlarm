@@ -1,0 +1,192 @@
+{
+  "scope": "Pure read of four completed native account outputs; no new account/projection or inferred replacement PnL",
+  "source_freeze_sha256": "ce05de6d19b626920d26f583b44f10fb46aef0daa0cf0e5db5899bc6103be394",
+  "complete": {
+    "passed": true,
+    "compute_seconds": 1881.2724700011313,
+    "paths": 4,
+    "source_freeze_sha256": "ce05de6d19b626920d26f583b44f10fb46aef0daa0cf0e5db5899bc6103be394"
+  },
+  "compute": {
+    "limit_seconds": 2400,
+    "used_seconds": 1881.2724700011313,
+    "remaining_seconds": 518.7275299988687
+  },
+  "paths": {
+    "long_OFF": {
+      "native_done": {
+        "completed": true,
+        "run_seconds": 689.2029197090305,
+        "ending_NAV": {
+          "B": "637989.6123510238600"
+        }
+      },
+      "initial_NAV": "1000000",
+      "ending_cash": "619584.6471510238600",
+      "net_NAV_change": "-362010.3876489761400",
+      "trade_fills_by_side": {
+        "buy": 2265,
+        "sell": 1803
+      },
+      "layers": 2265,
+      "live_layers": 0,
+      "entry_gate": {
+        "rows": 0,
+        "reasons": {},
+        "unknown_rows": 0
+      },
+      "stream_rows": {
+        "industry.jsonl.gz": 18962,
+        "daily.jsonl.gz": 726,
+        "funding.jsonl.gz": 114813,
+        "opportunities.jsonl.gz": 1240734,
+        "entry-gate.jsonl.gz": 0,
+        "rank-policy.jsonl.gz": 79892,
+        "balances.jsonl.gz": 726
+      },
+      "original_identity": {
+        "passed": true,
+        "checks": {
+          "B": true,
+          "daily": true,
+          "opportunities": true,
+          "funding": true,
+          "industry": true,
+          "balances": true,
+          "rank-policy": true
+        },
+        "first_differences": {}
+      }
+    },
+    "long_BB20": {
+      "native_done": {
+        "completed": true,
+        "run_seconds": 645.1203458332457,
+        "ending_NAV": {
+          "B": "622535.1426098948235"
+        }
+      },
+      "initial_NAV": "1000000",
+      "ending_cash": "63712.5106098948235",
+      "net_NAV_change": "-377464.8573901051765",
+      "trade_fills_by_side": {
+        "buy": 1849,
+        "sell": 1365
+      },
+      "layers": 1849,
+      "live_layers": 77,
+      "entry_gate": {
+        "rows": 86378,
+        "reasons": {
+          "BB20_no_cross": 63255,
+          "BB20_cross": 20734,
+          "held_ADD_unchanged": 2389
+        },
+        "unknown_rows": 0
+      },
+      "stream_rows": {
+        "industry.jsonl.gz": 18962,
+        "daily.jsonl.gz": 726,
+        "funding.jsonl.gz": 33331,
+        "opportunities.jsonl.gz": 1240734,
+        "entry-gate.jsonl.gz": 86378,
+        "rank-policy.jsonl.gz": 21700,
+        "balances.jsonl.gz": 726
+      }
+    },
+    "strong_OFF": {
+      "native_done": {
+        "completed": true,
+        "run_seconds": 238.2170904171653,
+        "ending_NAV": {
+          "B": "2263281.2309753297565"
+        }
+      },
+      "initial_NAV": "1000000",
+      "ending_cash": "225242.4541753297565",
+      "net_NAV_change": "1263281.2309753297565",
+      "trade_fills_by_side": {
+        "buy": 1171,
+        "sell": 887
+      },
+      "layers": 1171,
+      "live_layers": 74,
+      "entry_gate": {
+        "rows": 0,
+        "reasons": {},
+        "unknown_rows": 0
+      },
+      "stream_rows": {
+        "industry.jsonl.gz": 5753,
+        "daily.jsonl.gz": 242,
+        "funding.jsonl.gz": 78259,
+        "opportunities.jsonl.gz": 413578,
+        "entry-gate.jsonl.gz": 0,
+        "rank-policy.jsonl.gz": 53821,
+        "balances.jsonl.gz": 242
+      },
+      "original_identity": {
+        "passed": true,
+        "checks": {
+          "B": true,
+          "daily": true,
+          "opportunities": true,
+          "funding": true,
+          "industry": true,
+          "balances": true,
+          "rank-policy": true
+        },
+        "first_differences": {}
+      }
+    },
+    "strong_BB20": {
+      "native_done": {
+        "completed": true,
+        "run_seconds": 255.94202120881528,
+        "ending_NAV": {
+          "B": "1805505.6800091532470"
+        }
+      },
+      "initial_NAV": "1000000",
+      "ending_cash": "330290.9080091532470",
+      "net_NAV_change": "805505.6800091532470",
+      "trade_fills_by_side": {
+        "buy": 916,
+        "sell": 649
+      },
+      "layers": 916,
+      "live_layers": 70,
+      "entry_gate": {
+        "rows": 57836,
+        "reasons": {
+          "BB20_no_cross": 40850,
+          "BB20_cross": 15250,
+          "held_ADD_unchanged": 1736
+        },
+        "unknown_rows": 0
+      },
+      "stream_rows": {
+        "industry.jsonl.gz": 5753,
+        "daily.jsonl.gz": 242,
+        "funding.jsonl.gz": 25046,
+        "opportunities.jsonl.gz": 413578,
+        "entry-gate.jsonl.gz": 57836,
+        "rank-policy.jsonl.gz": 16021,
+        "balances.jsonl.gz": 242
+      }
+    }
+  },
+  "differences": {
+    "long": {
+      "BB20_minus_OFF_ending_NAV": "-15454.4697411290365",
+      "BB20_minus_OFF_return_percentage_points": "-1.54544697411290365",
+      "interpretation": "Native new-path endpoint only; drawdown/fees/wealth attribution independently reviewed by parent"
+    },
+    "strong": {
+      "BB20_minus_OFF_ending_NAV": "-457775.5509661765095",
+      "BB20_minus_OFF_return_percentage_points": "-45.77755509661765095",
+      "interpretation": "Native new-path endpoint only; drawdown/fees/wealth attribution independently reviewed by parent"
+    }
+  },
+  "postread_seconds": 2.515978875104338
+}

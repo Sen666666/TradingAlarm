@@ -1,0 +1,117 @@
+{
+  "frozen_at": "2026-10-23T00:19:03+08:00",
+  "mode": "saved_raw_terms_inventory",
+  "review_window": [
+    "2013-01-01",
+    "2026-10-22"
+  ],
+  "input_files": 4,
+  "currency_flagging_assumption": "HKD; original currencies retained without FX conversion; not a verified quote-currency conclusion",
+  "statuses": "needs_review",
+  "source_completeness_certified": false,
+  "account_runs": 0,
+  "network_requests": 0,
+  "payment_or_delivery_proxy_decisions": 0,
+  "manifest": [
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/hk-pilot-01/rights/UHKGHK8003/attempt-001/decoded.json",
+      "sha256": "e2a9825629cb377f19b4f000967c39233bd393a244b46260b68962e2f0fbfc01",
+      "bytes": 352
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/hk-pilot-01/rights/UHKGHK8003/attempt-001/response.bin",
+      "sha256": "3de080b34408de507a2556fa673d45adc9294e2513a90d5f0f82638d5e83e8a1",
+      "bytes": 311
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/hk-pilot-01/rights/UHKGHK8003/attempt-001/request.json",
+      "sha256": "c102cc6d07e46a9ab26f4645800f9f7d385303b12a6b0a1074f9c1eca09ceaa4",
+      "bytes": 298
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/hk-pilot-01/rights/UHKGHK8003/attempt-001/receipt.json",
+      "sha256": "f49fba334d8988144148d94d4da16a35cf6c8ff246f9024f1ac3b2bad197d43f",
+      "bytes": 145
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/hk-pilot-01/rights/UHKMHK0001/attempt-001/decoded.json",
+      "sha256": "943a83a25d9b61eea93860ee305eed0d332bd8cebcf8ad0a32b3ba2b4391e5c6",
+      "bytes": 5813
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/hk-pilot-01/rights/UHKMHK0001/attempt-001/response.bin",
+      "sha256": "196f5d61475b52fb7f9f6229e25034a379500515d8cc4c32df44e8db31ffc0b6",
+      "bytes": 1283
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/hk-pilot-01/rights/UHKMHK0001/attempt-001/request.json",
+      "sha256": "2f4aeb547cf2754420ff6a4d9e275999a00d3078a612bea1bfc7ad5c73e25e6e",
+      "bytes": 298
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/hk-pilot-01/rights/UHKMHK0001/attempt-001/receipt.json",
+      "sha256": "b4c6f31cf38949b60a282e8a5ef077cc3e5344309cb6bd5183c014fc3f7a7928",
+      "bytes": 146
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/hk-pilot-01/rights/UHKMHK0700/attempt-001/decoded.json",
+      "sha256": "dbe5b7be1f9dc51e67efa210e2cc39f5454c9b69b2cbca0d3c8a9cf003d62d63",
+      "bytes": 2083
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/hk-pilot-01/rights/UHKMHK0700/attempt-001/response.bin",
+      "sha256": "71f493c4f5a5dd6187d5505744111c14bf50ce8ba8a3713855d26764a4e6a76b",
+      "bytes": 869
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/hk-pilot-01/rights/UHKMHK0700/attempt-001/request.json",
+      "sha256": "9720a95110b991b6818b9e7ea8e8be555e205943985066a9d88be2373d34c21e",
+      "bytes": 298
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/hk-pilot-01/rights/UHKMHK0700/attempt-001/receipt.json",
+      "sha256": "c358675ec9deaa26538ce5fced747329e11d620b88b15a72ff58fcf6f1e4a0b6",
+      "bytes": 145
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/hk-pilot-01/rights/UHKMHK0770/attempt-001/decoded.json",
+      "sha256": "bc0e7c5fd75822eef7e7e2adf81f9789fdc1472fccd096caf2221926aa3d01d1",
+      "bytes": 1339
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/hk-pilot-01/rights/UHKMHK0770/attempt-001/response.bin",
+      "sha256": "93864ca8ca0eabc6f60d9db720ed9272a549be099f48e4db8bc45b99274dbd08",
+      "bytes": 443
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/hk-pilot-01/rights/UHKMHK0770/attempt-001/request.json",
+      "sha256": "3ed159b7c9e02de8ae44f5282c7bb14503567894eb2a4b4bc4e0a3e50b09884c",
+      "bytes": 298
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/downloads/hk-pilot-01/rights/UHKMHK0770/attempt-001/receipt.json",
+      "sha256": "27b847f0dbcd73e7513792ab1f3ddc2719b6e3efcdc15554cf227b214ec57929",
+      "bytes": 145
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/code/action_normalize.py",
+      "sha256": "d8e6085722b315caa07d66b36df7783bb2a31db95b1e95c9ada8b231f39b5dbf",
+      "bytes": 14827
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/current-pool-20261022/code/test_action_normalize.py",
+      "sha256": "cdbcecb227d98abc3e445e256088576cb3080cac4dd232c5a935d5bc85e5cc76",
+      "bytes": 4740
+    },
+    {
+      "path": "/Users/bytedance/Documents/ChatGPT/money/research_rounds/pv-retained-impact-20261020/results/code/hk_cash_annotations.py",
+      "sha256": "56479cfc7be8bc7ef0da977b78e6ee1eac627d12e7f60cdfc042e5749d0f3e7a",
+      "bytes": 1369
+    },
+    {
+      "path": "/Users/bytedance/repos/TradingAlarm/TradingAlarm/TradingAlarm/research/stock_actions.py",
+      "sha256": "30ea20d17264dd6fc8283e953ea25f5221b9ca68d8612fb0d0d956da6a80a9f1",
+      "bytes": 3098
+    }
+  ]
+}
